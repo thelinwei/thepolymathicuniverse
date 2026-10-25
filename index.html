@@ -28,7 +28,7 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1160px;margin:0 auto;padding:0 40px}
 
 /* ===== COVER ===== */
-.cover{position:relative;overflow:hidden;min-height:92vh;display:flex;flex-direction:column;padding:56px 0 48px;
+.cover{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:72px 0 64px;
   background:
    radial-gradient(38% 30% at 78% 26%,rgba(197,143,184,.42),transparent 70%),
    radial-gradient(34% 28% at 22% 70%,rgba(127,143,208,.36),transparent 70%),
@@ -39,25 +39,15 @@ a{color:inherit;text-decoration:none}
   background:repeating-linear-gradient(176deg,transparent 0 22px,rgba(61,107,82,.07) 22px 23px,transparent 23px 41px,rgba(127,143,208,.06) 41px 42px)}
 .cover:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 .2  0 0 0 0 .3  0 0 0 0 .25  0 0 0 .35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-.cover .wrap{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1fr 220px;gap:40px;width:100%}
-.rule-v{width:1px;height:52px;background:var(--deep);opacity:.5;margin-bottom:40px}
+.cover .wrap{position:relative;z-index:2;flex:1;width:100%}
 .eyebrow{color:var(--deep);margin-bottom:26px}
 .pre{font-family:var(--display);font-style:italic;font-size:clamp(1rem,1.5vw,1.2rem);color:var(--gold);letter-spacing:.04em;margin-bottom:2px}
 .mark{font-family:var(--display);font-weight:700;font-size:clamp(3rem,6.2vw,5.1rem);line-height:.95;letter-spacing:-.025em;color:var(--ink)}
 .mark .ic{background:linear-gradient(90deg,var(--gold) 0 18%,var(--lav) 18% 52%,var(--rose) 52% 76%,var(--pond) 76%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .mark2{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(3rem,6.2vw,5.1rem);line-height:1;letter-spacing:-.02em;color:var(--ink2)}
-.cover .short{width:46px;height:1px;background:var(--deep);opacity:.4;margin:30px 0 22px}
-.cover .tag{font-style:italic;font-size:19px;max-width:520px;color:var(--ink2)}
-.plus{align-self:start;margin-top:120px;border-left:1px solid rgba(31,49,40,.25);padding-left:18px}
-.plus .mono{color:var(--deep);display:block;margin-bottom:14px}
-.plus li{list-style:none;font-family:var(--display);font-size:17px;line-height:1.25;margin:0 0 14px}
-.plus li b{display:block;font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
-.plus ul{margin:0;padding:0}
-.collection{position:relative;z-index:2;margin-top:auto;padding-top:56px}
-.collection .wrap{display:block}
+.collection{position:relative;z-index:2;padding-top:48px}
 .bracket{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5.2vw,4.4rem);line-height:1.02;letter-spacing:-.02em}
 .bracket .b{color:var(--rose);font-weight:400}
-.bracket .zh{font-size:.45em;color:var(--deep);margin-left:.3em;letter-spacing:.1em}
 .paren{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.8vw,1.45rem);color:var(--ink2);margin-top:10px;max-width:680px}
 
 /* ===== dividers ===== */
@@ -65,21 +55,10 @@ a{color:inherit;text-decoration:none}
 .dots:before,.dots:after{content:"";flex:1;border-top:2px dotted var(--pond2)}
 .dots span{font-family:var(--mono);color:var(--rose);font-size:18px}
 
-/* ===== EDITOR ===== */
-.editor{padding:84px 0 70px}
-.editor .lab{display:inline-block;border:1px solid var(--ink);padding:4px 9px;margin-bottom:24px}
-.editor h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;margin:0 0 30px;max-width:900px}
-.swash{background:linear-gradient(transparent 58%,var(--rose2) 58%,var(--rose2) 92%,transparent 92%);padding:0 .1em}
-.cols{columns:2;column-gap:52px;column-rule:1px solid var(--hair);text-align:justify;hyphens:auto}
-.cols p{margin:0 0 16px}
-.cols .lead{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep)}
-.drop:first-letter{font-family:var(--display);font-weight:900;font-size:86px;float:left;line-height:.72;padding:10px 12px 0 0;color:var(--deep)}
 
 /* ===== SPECIMEN (spine) ===== */
-.specimen{background:linear-gradient(135deg,var(--lily) 0%,#f3eccf 55%,var(--rose2) 100%);padding:64px 0 60px;margin-top:20px}
-.specimen .wrap{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
-.num{font-family:var(--display);font-weight:900;font-size:clamp(7rem,14vw,11rem);line-height:.8;color:var(--ink);letter-spacing:-.04em}
-.num small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink2);margin-top:18px;line-height:1.7}
+.specimen{background:linear-gradient(135deg,var(--lily) 0%,#f3eccf 55%,var(--rose2) 100%);padding:52px 0 46px}
+.specimen .wrap>div{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .sp-book{margin-bottom:30px}
 .sp-book h3{font-family:var(--display);font-weight:400;font-size:28px;margin:0 0 4px}
 .sp-book h3 .mono{color:var(--deep);margin-right:10px}
@@ -90,18 +69,14 @@ a{color:inherit;text-decoration:none}
 .chip i{font-style:normal;font-family:var(--mono);font-size:9px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--paper);letter-spacing:0}
 .chip.o i{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 
-/* ===== legend ===== */
-.legend{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;padding:30px 0}
 .by{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;white-space:nowrap}
 .by-claude{color:var(--claude)}.by-gpt{color:var(--gpt)}.by-deepseek{color:var(--ds)}
 .by.solid.by-claude{background:var(--claude);color:#fff;border-color:var(--claude)}
 .by.solid.by-gpt{background:var(--gpt);color:#fff;border-color:var(--gpt)}
 .by.solid.by-deepseek{background:var(--ds);color:#fff;border-color:var(--ds)}
-.toggle{display:inline-flex;align-items:center;gap:8px;cursor:pointer}
-.toggle input{accent-color:var(--deep);width:16px;height:16px}
 
 /* ===== BOOKS ===== */
-.book{padding:20px 0 40px}
+.book{padding:0 0 40px}
 .book-head{position:relative;overflow:hidden;padding:80px 0 60px;margin-bottom:10px}
 .b1 .book-head{background:linear-gradient(160deg,#e3eee0,#cfe2d2 60%,#e9efe2)}
 .b2 .book-head{background:linear-gradient(160deg,#e2e3f3,#d8cfe6 55%,#efdbe7)}
@@ -114,7 +89,7 @@ a{color:inherit;text-decoration:none}
 .book-head h2 .b{color:var(--rose)}
 .book-head p{margin:0;font-style:italic;font-size:21px;max-width:640px;color:var(--ink2)}
 
-.thread{padding:64px 0 10px}
+.thread{padding:52px 0 6px}
 .t-top{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;margin-bottom:28px}
 .t-badge{width:64px;height:64px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:22px;background:var(--card)}
 .b2 .t-badge{border-color:#4a4675;color:#4a4675}
@@ -123,30 +98,27 @@ a{color:inherit;text-decoration:none}
 .idea{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.35;color:var(--deep);max-width:760px;border-left:3px solid var(--rose);padding-left:16px;margin:0}
 .b2 .idea{color:#4a4675;border-left-color:var(--lav)}
 
-.keys{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-left:104px}
+.keys{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-left:104px}
 .keys.one{grid-template-columns:1fr}
-.card{position:relative;display:block;background:var(--card);border:1px solid var(--hair);padding:24px 26px 22px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card{position:relative;display:block;background:var(--card);border:1px solid var(--hair);padding:16px 22px 16px;transition:transform .25s,box-shadow .25s,border-color .25s}
 .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(31,49,40,.45);border-color:var(--pond2)}
 .card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--pond),var(--lav),var(--rose))}
-.card .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.card .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .card .n{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.1em}
-.card h4{font-family:var(--display);font-weight:400;font-size:clamp(1.45rem,2.2vw,1.8rem);line-height:1.12;margin:0 0 8px}
+.card h4{font-family:var(--display);font-weight:400;font-size:clamp(1.35rem,2vw,1.6rem);line-height:1.12;margin:0 0 5px}
 .card h4 .zh{font-size:.62em;color:var(--dim);margin-left:6px}
-.card p{margin:0;font-size:18px;color:var(--ink2);line-height:1.45}
-.card .date{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:14px;display:block}
+.card p{margin:0;font-size:17px;color:var(--ink2);line-height:1.4}
 
 .also{margin:22px 0 0 104px}
 .also .mono{color:var(--dim);display:block;margin-bottom:8px}
 .also ol{list-style:none;margin:0;padding:0;border-top:1px dotted var(--pond2)}
-.also li a{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px dotted var(--pond2)}
+.also li a{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:start;padding:10px 0;border-bottom:1px dotted var(--pond2)}
 .also li a:hover .t{color:var(--deep);text-decoration:underline;text-decoration-color:var(--rose);text-underline-offset:4px}
-.also .n{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.also .n{font-family:var(--mono);font-size:11px;color:var(--dim);padding-top:6px}
 .also .t{font-size:20px}
 .also .t .zh{color:var(--dim);font-size:16px;margin-left:5px}
 .also .t em{display:block;font-size:16px;color:var(--dim);line-height:1.35}
-.also .m{display:flex;gap:10px;align-items:center}
-.also .d{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
-body:has(#keyonly:checked) .also{display:none}
+.also .m{display:flex;gap:10px;align-items:center;padding-top:5px}
 
 /* ===== notes ===== */
 .notes{padding:70px 0 40px}
@@ -157,137 +129,136 @@ footer{padding:36px 0 60px;color:var(--dim)}
 footer .mark-s{font-family:var(--display);font-size:22px;color:var(--ink);margin-bottom:6px}
 footer .mark-s i{font-weight:400}
 
+
+/* ===== nav (after PML) ===== */
+.pnav-btn{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:18px;z-index:1200;width:46px;height:46px;display:grid;place-items:center;background:rgba(244,246,239,.78);border:1px solid rgba(31,49,40,.35);color:var(--ink);cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:border-color .3s,background .25s}
+.pnav-btn:hover{border-color:var(--ink);background:rgba(251,252,248,.95)}
+.pnav-btn i{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:background .2s}
+.pnav-btn i:before,.pnav-btn i:after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .3s}
+.pnav-btn i:before{top:-6px}.pnav-btn i:after{top:6px}
+.pnav-open .pnav-btn i{background:transparent}
+.pnav-open .pnav-btn i:before{transform:translateY(6px) rotate(45deg)}
+.pnav-open .pnav-btn i:after{transform:translateY(-6px) rotate(-45deg)}
+.pnav-where{position:fixed;top:calc(35px + env(safe-area-inset-top,0px));right:78px;z-index:1199;font-family:var(--mono);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--deep);opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;background:rgba(244,246,239,.8);padding:3px 8px}
+.pnav-where.on{opacity:1}
+.pnav-open .pnav-where{opacity:0}
+.pnav-veil{position:fixed;inset:0;z-index:1100;background:rgba(31,49,40,.18);opacity:0;pointer-events:none;transition:opacity .3s}
+.pnav-open .pnav-veil{opacity:1;pointer-events:auto}
+.pnav{position:fixed;top:0;right:0;bottom:0;z-index:1150;width:min(400px,88vw);background:var(--paper);border-left:1px solid var(--hair);transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s linear .35s;overflow-y:auto;padding:calc(84px + env(safe-area-inset-top,0px)) 28px calc(28px + env(safe-area-inset-bottom,0px));visibility:hidden}
+.pnav-open .pnav{transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s;transform:none;visibility:visible;box-shadow:-20px 0 40px -30px rgba(31,49,40,.5)}
+.pnav-lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:22px}
+.pnav-book{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin:22px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+.pnav-book a{color:var(--deep)}
+.pnav ol{list-style:none;margin:0;padding:0}
+.pnav li a{display:grid;grid-template-columns:38px 1fr auto;gap:8px;align-items:baseline;padding:8px 0;border-bottom:1px dotted var(--pond3)}
+.pnav li a:hover .nm,.pnav li a.cur .nm{color:var(--deep);font-style:italic}
+.pnav .rn{font-family:var(--mono);font-size:9.5px;color:var(--rose)}
+.pnav .nm{font-family:var(--display);font-size:17px;line-height:1.2}
+.pnav .ct{font-family:var(--mono);font-size:9.5px;color:var(--dim)}
+.pnav-foot{display:flex;justify-content:space-between;margin-top:26px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase}
+.pnav-foot a{color:var(--deep)}
+
 @media (max-width:860px){
  .wrap{padding:0 22px}.dots{padding:0 22px}
- .cover .wrap{grid-template-columns:1fr}.plus{margin-top:30px}
- .cols{columns:1}
- .specimen .wrap{grid-template-columns:1fr;gap:20px}
+ .specimen .wrap>div{grid-template-columns:1fr;gap:10px}
  .book-head .wrap{grid-template-columns:1fr;gap:10px}
  .t-top{grid-template-columns:1fr;gap:14px}
  .keys{grid-template-columns:1fr;margin-left:0}
  .also{margin-left:0}
- .also li a{grid-template-columns:34px 1fr}.also .m{grid-column:2}
+ .also li a{grid-template-columns:34px 1fr auto}
  .notes .grid{grid-template-columns:1fr;gap:26px}
  body{font-size:19px}
 }
 </style>
 </head>
 <body>
+<button class="pnav-btn" id="pnavBtn" aria-label="Open index" aria-expanded="false" aria-controls="pnav"><i></i></button>
+<div class="pnav-where" id="pnavWhere" aria-hidden="true"></div>
+<div class="pnav-veil" id="pnavVeil"></div>
+<nav class="pnav" id="pnav" aria-label="Index">
+  <div class="pnav-lab">The Polymathic Universe · Index</div>
+<div class="pnav-book"><a href="#the-great-schools">Book One · The Great Schools</a></div><ol><li><a href="#prologue" data-where="Prologue · The night the principle was found"><span class="rn">P</span><span class="nm">The night the principle was found</span><span class="ct">01</span></a></li><li><a href="#schools" data-where="I · The Schools"><span class="rn">I</span><span class="nm">The Schools</span><span class="ct">11</span></a></li><li><a href="#story" data-where="II · Names, People and the Story Engine"><span class="rn">II</span><span class="nm">Names, People and the Story Engine</span><span class="ct">04</span></a></li><li><a href="#cantons" data-where="III · The Cantons"><span class="rn">III</span><span class="nm">The Cantons</span><span class="ct">06</span></a></li><li><a href="#keeping" data-where="IV · Keeping"><span class="rn">IV</span><span class="nm">Keeping</span><span class="ct">02</span></a></li></ol>
+<div class="pnav-book"><a href="#the-magical-straits">Book Two · The Magical Straits</a></div><ol><li><a href="#axiom" data-where="V · The Axiom"><span class="rn">V</span><span class="nm">The Axiom</span><span class="ct">01</span></a></li><li><a href="#grammars" data-where="VI · Grammars and Powers"><span class="rn">VI</span><span class="nm">Grammars and Powers</span><span class="ct">04</span></a></li><li><a href="#crossings" data-where="VII · Crossings"><span class="rn">VII</span><span class="nm">Crossings</span><span class="ct">02</span></a></li><li><a href="#works" data-where="VIII · Works and Objects"><span class="rn">VIII</span><span class="nm">Works and Objects</span><span class="ct">06</span></a></li><li><a href="#power" data-where="IX · Power"><span class="rn">IX</span><span class="nm">Power</span><span class="ct">02</span></a></li><li><a href="#shadow" data-where="X · Shadow and the Hinge"><span class="rn">X</span><span class="nm">Shadow and the Hinge</span><span class="ct">07</span></a></li><li><a href="#origins" data-where="XI · Deep Origins and Adjacent Worlds"><span class="rn">XI</span><span class="nm">Deep Origins and Adjacent Worlds</span><span class="ct">06</span></a></li><li><a href="#teaching" data-where="XII · Teaching the Seven"><span class="rn">XII</span><span class="nm">Teaching the Seven</span><span class="ct">02</span></a></li></ol>
+  <div class="pnav-foot"><a href="#top">↑ To the top</a><a href="https://thelinwei.github.io/thepolymathiclearner/">Learner ↗</a></div>
+</nav>
 
-<header class="cover">
+<header class="cover" id="top">
   <div class="wrap">
     <div>
-      <div class="rule-v"></div>
       <div class="eyebrow mono">Linwei · a worldbuilding archive · fiction in the making</div>
       <div class="pre">The</div>
       <div class="mark">Polymath<span class="ic">ic</span></div>
       <div class="mark2">Universe</div>
-      <div class="short"></div>
-      <p class="tag">Worlds built toward stories and, one day, a book. Kept as a working record: to revisit, to wander, and to build from.</p>
-    </div>
-    <aside class="plus">
-      <span class="mono">Plus</span>
-      <ul>
-        <li><b>Collection</b>The Parallel Straits</li>
-        <li><b>Movements</b>Two books, twelve threads and a prologue</li>
-        <li><b>Volumes</b>54, with 25 on the spine</li>
-        <li><b>Hands</b>Claude · ChatGPT · DeepSeek</li>
-        <li><b>Companion</b><a href="https://thelinwei.github.io/thepolymathiclearner/" style="border-bottom:1px solid var(--rose)">The Polymathic Learner</a></li>
-      </ul>
-    </aside>
-  </div>
-  <div class="collection">
-    <div class="wrap">
-      <div class="eyebrow mono" style="margin-bottom:12px">Collection 01</div>
-      <div class="bracket"><span class="b">[</span>The Parallel Straits<span class="b">]</span></div>
-      <div class="paren">(an exploratory atlas of a parallel equatorial port, its seven great schools, and the magic that came later)</div>
+      <div class="collection">
+        <div class="bracket"><span class="b">[</span>The Parallel Straits<span class="b">]</span></div>
+        <div class="paren">(an exploratory atlas of a parallel equatorial port, its seven great schools, and the magic that came later)</div>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="editor">
-  <div class="wrap">
-    <span class="lab mono">From the archive</span>
-    <h2>A city whose schools are rival theories of knowledge, and <span class="swash">a pickle jar</span> that explains it.</h2>
-    <div class="cols">
-      <p class="drop">The idea that holds the Parallel Straits together was written down on a night at Funan, after a concert of P. Ramlee songs: the mixture was never pure. Around it grew a port like Singapore and unlike it, where seven great houses of learning each give a different answer to what knowledge is for, and where everything worth having was pickled together in one jar.</p>
-      <p>It grew in two movements. The first stayed close to the ground: the schools and their crests, their names and their quarrels, a cast of seventeen, a water crisis to drive a novel, and then the idea carried home to the real island as cantons and a commonwealth.</p>
-      <p><span class="lead">The second movement</span> let magic in. The same seven houses became seven grammars for bending reality, each with its own hands, costs, relics and shadow, and the city found worlds lying beside it.</p>
-      <p>Each thread here begins with a main idea and gathers what was built around it. The cards carry the spine; the lists beneath hold the studies, variants and side-paths. Every volume is labelled with the hand it came from.</p>
-    </div>
-  </div>
-</section>
-
-<div class="dots"><span>+</span></div>
-
 <section class="specimen" id="spine">
   <div class="wrap">
-    <div class="num">54<small>volumes · two books<br>25 on the spine</small></div>
     <div>
-<div class="sp-book"><h3><span class="mono">Book One</span><a href="#the-great-schools">The Great Schools</a></h3><p>August – September 2026</p><div class="chips"><a class="chip" href="#prologue"><i>P</i>The night the principle was found</a><a class="chip" href="#schools"><i>I</i>The Schools</a><a class="chip" href="#story"><i>II</i>Names, People and the Story Engine</a><a class="chip" href="#cantons"><i>III</i>The Cantons</a><a class="chip" href="#keeping"><i>IV</i>Keeping</a></div></div>
+<div class="sp-book"><h3><span class="mono">Book One</span><a href="#the-great-schools">The Great Schools</a></h3><p>August – September 2026</p><div class="chips"><a class="chip o" href="#prologue"><i>P</i>The night the principle was found</a><a class="chip o" href="#schools"><i>I</i>The Schools</a><a class="chip o" href="#story"><i>II</i>Names, People and the Story Engine</a><a class="chip o" href="#cantons"><i>III</i>The Cantons</a><a class="chip o" href="#keeping"><i>IV</i>Keeping</a></div></div>
 <div class="sp-book"><h3><span class="mono">Book Two</span><a href="#the-magical-straits">The Magical Straits</a></h3><p>26 – 29 September 2026</p><div class="chips"><a class="chip o" href="#axiom"><i>V</i>The Axiom</a><a class="chip o" href="#grammars"><i>VI</i>Grammars and Powers</a><a class="chip o" href="#crossings"><i>VII</i>Crossings</a><a class="chip o" href="#works"><i>VIII</i>Works and Objects</a><a class="chip o" href="#power"><i>IX</i>Power</a><a class="chip o" href="#shadow"><i>X</i>Shadow and the Hinge</a><a class="chip o" href="#origins"><i>XI</i>Deep Origins and Adjacent Worlds</a><a class="chip o" href="#teaching"><i>XII</i>Teaching the Seven</a></div></div>
     </div>
   </div>
 </section>
 
-<div class="wrap legend">
-  <span class="mono" style="color:var(--dim)">Hands</span>
-  <span class="by by-claude">Claude</span><span class="by by-gpt">GPT</span><span class="by by-deepseek">DeepSeek</span>
-  <label class="toggle mono" style="color:var(--ink)"><input type="checkbox" id="keyonly"> Spine only</label>
-</div>
 
 <section class="book b1" id="the-great-schools"><div class="book-head"><div class="wrap"><div class="bignum">One</div><div><div class="k mono">Book One · August – September 2026</div><h2><span class="b">[</span>The Great Schools<span class="b">]</span></h2><p>(The world before magic: seven houses of learning in a parallel equatorial port, each a different answer to what knowledge is for.)</p></div></div></div>
 <section class="thread" id="prologue"><div class="wrap"><div class="t-top"><div class="t-badge">P</div><div><span class="mono">Prologue</span><h3>The night the principle was found</h3><p class="idea">A concert at Funan, inherited memory, and the idea that the mixture was never pure.</p></div></div>
-<div class="keys one"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/00%20Achar%20-%20The%20Place%20That%20Doesnt%20Know%20You.html"><div class="row"><span class="n">00</span><span class="by solid by-gpt">GPT</span></div><h4>Achar / The Place That Doesn&#x27;t Know You</h4><p>A private record of one night after the P. Ramlee suite. The achar principle in its first, personal form.</p><span class="date">25 Aug 2026</span></a></div>
+<div class="keys one"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/00%20Achar%20-%20The%20Place%20That%20Doesnt%20Know%20You.html"><div class="row"><span class="n">00</span><span class="by solid by-gpt">GPT</span></div><h4>Achar / The Place That Doesn&#x27;t Know You</h4><p>A private record of one night after the P. Ramlee suite. The achar principle in its first, personal form.</p></a></div>
 </div></section>
 <section class="thread" id="schools"><div class="wrap"><div class="t-top"><div class="t-badge">I</div><div><span class="mono">Thread I</span><h3>The Schools</h3><p class="idea">Seven houses, seven theories of knowledge, one port. The mixture was never pure.</p></div></div>
-<div class="keys"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/01%20The%20Great%20Schools%20of%20the%20Straits%20-%20Atlas%20I.html"><div class="row"><span class="n">01</span><span class="by solid by-gpt">GPT</span></div><h4>The Great Schools of the Straits</h4><p>Atlas I. The founding portraits of the seven houses.</p><span class="date">Aug 2026</span></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/02%20After%20the%20Great%20Schools%20-%20Atlas%20II.html"><div class="row"><span class="n">02</span><span class="by solid by-gpt">GPT</span></div><h4>After the Great Schools</h4><p>Atlas II. The same world a century later: technology follows worldview.</p><span class="date">Aug 2026</span></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/03%20There%20Is%20Another%20Account%20-%20Errata.html"><div class="row"><span class="n">03</span><span class="by solid by-claude">Claude</span></div><h4>There Is Another Account</h4><p>The Errata. Sekolah Petang and Rumah Arus enter the record; a charge against every house.</p><span class="date">27 Aug 2026</span></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/07%20City%20Time%20and%20Lives%20-%20Atlas%20IV.html"><div class="row"><span class="n">07</span><span class="by solid by-gpt">GPT</span></div><h4>City, Time &amp; Lives</h4><p>Atlas IV. Streets, timeline, student life, the arts scene, a first cast.</p><span class="date">Aug 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/04%20The%20Register%20of%20Marks.html"><span class="n">04</span><span class="t">The Register of Marks<em>Nine crests, each drawn in the format its tradition uses for authority.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">27 Aug</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/05%20The%20Material%20World%20-%20Atlas%20III.html"><span class="n">05</span><span class="t">The Material World of the Great Schools<em>Atlas III. Crests, dress, food, arts and buildings.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Aug</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/06%20Cloth%20Table%20Making%20Building.html"><span class="n">06</span><span class="t">Cloth · Table · Making · Building<em>Material culture by domain; the cheap, copyable forms became the city.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">27 Aug</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/08%20The%20Seven%20Incomplete%20Senses%20-%20Atlas%20V.html"><span class="n">08</span><span class="t">The Seven Incomplete Senses<em>Epistemologies made flesh: seven new kinds of human.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Aug</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/09%20The%20Age%20of%20Making%20Room%20-%20Atlas%20VI.html"><span class="n">09</span><span class="t">The Age of Making Room<em>First contact as accommodation. The Interval, the Unassigned Room, the Clear.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Aug</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/10%20The%20Seven%20Libraries.html"><span class="n">10</span><span class="t">The Seven Libraries<em>Each house cuts knowledge into a different shape.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Aug</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/11%20The%20Seven%20Operations%20and%20the%20Grand%20Measure.html"><span class="n">11</span><span class="t">The Seven Operations &amp; The Grand Measure<em>Seven operations beneath the subjects, and the exam where the houses meet.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Aug</span></span></a></li></ol></div>
+<div class="keys"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/01%20The%20Great%20Schools%20of%20the%20Straits%20-%20Atlas%20I.html"><div class="row"><span class="n">01</span><span class="by solid by-gpt">GPT</span></div><h4>The Great Schools of the Straits</h4><p>Atlas I. The founding portraits of the seven houses.</p></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/02%20After%20the%20Great%20Schools%20-%20Atlas%20II.html"><div class="row"><span class="n">02</span><span class="by solid by-gpt">GPT</span></div><h4>After the Great Schools</h4><p>Atlas II. The same world a century later: technology follows worldview.</p></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/03%20There%20Is%20Another%20Account%20-%20Errata.html"><div class="row"><span class="n">03</span><span class="by solid by-claude">Claude</span></div><h4>There Is Another Account</h4><p>The Errata. Sekolah Petang and Rumah Arus enter the record; a charge against every house.</p></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/07%20City%20Time%20and%20Lives%20-%20Atlas%20IV.html"><div class="row"><span class="n">07</span><span class="by solid by-gpt">GPT</span></div><h4>City, Time &amp; Lives</h4><p>Atlas IV. Streets, timeline, student life, the arts scene, a first cast.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/04%20The%20Register%20of%20Marks.html"><span class="n">04</span><span class="t">The Register of Marks<em>Nine crests, each drawn in the format its tradition uses for authority.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/05%20The%20Material%20World%20-%20Atlas%20III.html"><span class="n">05</span><span class="t">The Material World of the Great Schools<em>Atlas III. Crests, dress, food, arts and buildings.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/06%20Cloth%20Table%20Making%20Building.html"><span class="n">06</span><span class="t">Cloth · Table · Making · Building<em>Material culture by domain; the cheap, copyable forms became the city.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/08%20The%20Seven%20Incomplete%20Senses%20-%20Atlas%20V.html"><span class="n">08</span><span class="t">The Seven Incomplete Senses<em>Epistemologies made flesh: seven new kinds of human.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/09%20The%20Age%20of%20Making%20Room%20-%20Atlas%20VI.html"><span class="n">09</span><span class="t">The Age of Making Room<em>First contact as accommodation. The Interval, the Unassigned Room, the Clear.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/10%20The%20Seven%20Libraries.html"><span class="n">10</span><span class="t">The Seven Libraries<em>Each house cuts knowledge into a different shape.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/11%20The%20Seven%20Operations%20and%20the%20Grand%20Measure.html"><span class="n">11</span><span class="t">The Seven Operations &amp; The Grand Measure<em>Seven operations beneath the subjects, and the exam where the houses meet.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="story"><div class="wrap"><div class="t-top"><div class="t-badge">II</div><div><span class="mono">Thread II</span><h3>Names, People and the Story Engine</h3><p class="idea">The world grows older through its names, and becomes a novel through a crisis.</p></div></div>
-<div class="keys"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/12%20The%20Register%20of%20Names%20-%20Atlas%20V.html"><div class="row"><span class="n">12</span><span class="by solid by-claude">Claude</span></div><h4>The Register of Names</h4><p>Gazette name, mouth name, rude name. Names as fossils, not theses.</p><span class="date">1 Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/13%20The%20Ensemble%20-%20Atlas%20VI.html"><div class="row"><span class="n">13</span><span class="by solid by-claude">Claude</span></div><h4>The Ensemble</h4><p>Seventeen people, ages 16 to 71: wants, lies, arcs, betrayals.</p><span class="date">1 Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/14%20Basin%20Seven%20-%20Atlas%20VII.html"><div class="row"><span class="n">14</span><span class="by solid by-claude">Claude</span></div><h4>Basin Seven</h4><p>The story engine. Water is the crisis, time the antagonist, a signed compromise the ending.</p><span class="date">1 Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/15%20The%20Straits%20Record%20-%20Case%20File%20001.html"><span class="n">15</span><span class="t">The Straits Record · Case File 001<em>A first story fragment: Rania on the roof as the Merican Quays run backward.</em></span><span class="m"><span class="by by-deepseek">DeepSeek</span><span class="d">1 Sep</span></span></a></li></ol></div>
+<div class="keys"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/12%20The%20Register%20of%20Names%20-%20Atlas%20V.html"><div class="row"><span class="n">12</span><span class="by solid by-claude">Claude</span></div><h4>The Register of Names</h4><p>Gazette name, mouth name, rude name. Names as fossils, not theses.</p></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/13%20The%20Ensemble%20-%20Atlas%20VI.html"><div class="row"><span class="n">13</span><span class="by solid by-claude">Claude</span></div><h4>The Ensemble</h4><p>Seventeen people, ages 16 to 71: wants, lies, arcs, betrayals.</p></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/14%20Basin%20Seven%20-%20Atlas%20VII.html"><div class="row"><span class="n">14</span><span class="by solid by-claude">Claude</span></div><h4>Basin Seven</h4><p>The story engine. Water is the crisis, time the antagonist, a signed compromise the ending.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/15%20The%20Straits%20Record%20-%20Case%20File%20001.html"><span class="n">15</span><span class="t">The Straits Record · Case File 001<em>A first story fragment: Rania on the roof as the Merican Quays run backward.</em></span><span class="m"><span class="by by-deepseek">DeepSeek</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="cantons"><div class="wrap"><div class="t-top"><div class="t-badge">III</div><div><span class="mono">Thread III</span><h3>The Cantons</h3><p class="idea">Bring it home to Singapore: four roots, three provocations, and an empty space that holds the load.</p></div></div>
-<div class="keys"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/16%20Seven%20Schools%20One%20Singapore.html"><div class="row"><span class="n">16</span><span class="by solid by-gpt">GPT</span></div><h4>Seven Schools, One Singapore</h4><p>Tay Kheng Soon&#x27;s cantons applied to education: four roots, three rotating foreign schools.</p><span class="date">Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/19%20The%20Empty%20Space%20Is%20Load-Bearing%20-%20Atlas%20VIII.html"><div class="row"><span class="n">19</span><span class="by solid by-gpt">GPT</span></div><h4>The Empty Space Is Load-Bearing</h4><p>Synthesis: 4 + 3 + Ø. How seven schools became a commonwealth.</p><span class="date">1 Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/17%20The%20Concordance%20Commonwealth%20-%20Working%20Paper%2001.html"><span class="n">17</span><span class="t">The Concordance Commonwealth<em>Working Paper 01. Four roots, three ports, five cantons, one thin commons, a protected outside.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">1 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/18%20After%20Survival%20-%20Working%20Paper%2002.html"><span class="n">18</span><span class="t">After Survival<em>Working Paper 02. Dwelling commons, civic metabolism, sacred autonomy.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">1 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/20%20What%20Survival%20Is%20For%20-%20Atlas%20IX.html"><span class="n">20</span><span class="t">What Survival Is For<em>An ordinary day in a Singapore where dwelling is secure and the sacred need not prove its use.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">1 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/21%20The%20Exchange%20Rate%20of%20a%20Crown.html"><span class="n">21</span><span class="t">The Exchange Rate of a Crown<em>Recognition ecology: what status is worth when you cross between worlds.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">2 Sep</span></span></a></li></ol></div>
+<div class="keys"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/16%20Seven%20Schools%20One%20Singapore.html"><div class="row"><span class="n">16</span><span class="by solid by-gpt">GPT</span></div><h4>Seven Schools, One Singapore</h4><p>Tay Kheng Soon&#x27;s cantons applied to education: four roots, three rotating foreign schools.</p></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/19%20The%20Empty%20Space%20Is%20Load-Bearing%20-%20Atlas%20VIII.html"><div class="row"><span class="n">19</span><span class="by solid by-gpt">GPT</span></div><h4>The Empty Space Is Load-Bearing</h4><p>Synthesis: 4 + 3 + Ø. How seven schools became a commonwealth.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/17%20The%20Concordance%20Commonwealth%20-%20Working%20Paper%2001.html"><span class="n">17</span><span class="t">The Concordance Commonwealth<em>Working Paper 01. Four roots, three ports, five cantons, one thin commons, a protected outside.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/18%20After%20Survival%20-%20Working%20Paper%2002.html"><span class="n">18</span><span class="t">After Survival<em>Working Paper 02. Dwelling commons, civic metabolism, sacred autonomy.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/20%20What%20Survival%20Is%20For%20-%20Atlas%20IX.html"><span class="n">20</span><span class="t">What Survival Is For<em>An ordinary day in a Singapore where dwelling is secure and the sacred need not prove its use.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/1%20The%20Great%20Schools/21%20The%20Exchange%20Rate%20of%20a%20Crown.html"><span class="n">21</span><span class="t">The Exchange Rate of a Crown<em>Recognition ecology: what status is worth when you cross between worlds.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="keeping"><div class="wrap"><div class="t-top"><div class="t-badge">IV</div><div><span class="mono">Thread IV</span><h3>Keeping</h3><p class="idea">What the city chooses to inherit, and who pays for the keeping.</p></div></div>
-<div class="keys"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/22%20Houses%20of%20Keeping%20-%20Atlas%20VIII.html"><div class="row"><span class="n">22</span><span class="by solid by-claude">Claude</span></div><h4>Houses of Keeping</h4><p>The museums and keeping-houses of the nine institutions.</p><span class="date">16 Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/23%20The%20Museums%20of%20the%20Straits%20-%20Atlas%20IX.html"><div class="row"><span class="n">23</span><span class="by solid by-gpt">GPT</span></div><h4>The Museums of the Straits</h4><p>Seven economies of legitimacy, and one protected void nobody may own.</p><span class="date">Sep 2026</span></a></div>
+<div class="keys"><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/22%20Houses%20of%20Keeping%20-%20Atlas%20VIII.html"><div class="row"><span class="n">22</span><span class="by solid by-claude">Claude</span></div><h4>Houses of Keeping</h4><p>The museums and keeping-houses of the nine institutions.</p></a><a class="card" href="The%20Parallel%20Straits/1%20The%20Great%20Schools/23%20The%20Museums%20of%20the%20Straits%20-%20Atlas%20IX.html"><div class="row"><span class="n">23</span><span class="by solid by-gpt">GPT</span></div><h4>The Museums of the Straits</h4><p>Seven economies of legitimacy, and one protected void nobody may own.</p></a></div>
 </div></section>
 </section>
 <div class="dots"><span>+</span></div>
 <section class="book b2" id="the-magical-straits"><div class="book-head"><div class="wrap"><div class="bignum">Two</div><div><div class="k mono">Book Two · 26 – 29 September 2026</div><h2><span class="b">[</span>The Magical Straits<span class="b">]</span></h2><p>(The same city, broadened: magic as a local, temporary rewrite of the relations reality is made from, and each house as a grammar for doing it.)</p></div></div></div>
 <section class="thread" id="axiom"><div class="wrap"><div class="t-top"><div class="t-badge">V</div><div><span class="mono">Thread V</span><h3>The Axiom</h3><p class="idea">Magic is not a substance. It is a temporary intervention in the relations from which reality appears.</p></div></div>
-<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/24%20The%20Axiomatic%20Stratum%20-%20Field%20Note.html"><div class="row"><span class="n">24</span><span class="by solid by-gpt">GPT</span></div><h4>The Axiomatic Stratum<span class="zh">魔法的基本原理</span></h4><p>The source note on the lecture series: manifest and axiomatic strata, World Resistance, load.</p><span class="date">26 Sep 2026</span></a></div>
+<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/24%20The%20Axiomatic%20Stratum%20-%20Field%20Note.html"><div class="row"><span class="n">24</span><span class="by solid by-gpt">GPT</span></div><h4>The Axiomatic Stratum<span class="zh">魔法的基本原理</span></h4><p>The source note on the lecture series: manifest and axiomatic strata, World Resistance, load.</p></a></div>
 </div></section>
 <section class="thread" id="grammars"><div class="wrap"><div class="t-top"><div class="t-badge">VI</div><div><span class="mono">Thread VI</span><h3>Grammars and Powers</h3><p class="idea">Keep the powers. Change the causal grammar.</p></div></div>
-<div class="keys"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/25%20Seven%20Grammars%20of%20the%20Axiomatic%20Stratum.html"><div class="row"><span class="n">25</span><span class="by solid by-gpt">GPT</span></div><h4>Seven Grammars of the Axiomatic Stratum<span class="zh">七种魔法文明</span></h4><p>One magical physics, seven civilisational sciences.</p><span class="date">26 Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/27%20The%20Seven%20Hands%20of%20the%20Straits.html"><div class="row"><span class="n">27</span><span class="by solid by-claude">Claude</span></div><h4>The Seven Hands of the Straits</h4><p>Magic as craft: each house&#x27;s gesture, unit of power and cost on the body.</p><span class="date">26 Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/26%20The%20Great%20Schools%20Magical%20Atlas.html"><span class="n">26</span><span class="t">The Great Schools Magical Atlas<span class="zh">大魔法图谱</span><em>Fourteen familiar power classes passed through the seven grammars.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">26 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/28%20The%20Repertoire%20in%20Seven%20Grammars.html"><span class="n">28</span><span class="t">The Repertoire in Seven Grammars<em>The classic powers rewritten house by house.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">26 Sep</span></span></a></li></ol></div>
+<div class="keys"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/25%20Seven%20Grammars%20of%20the%20Axiomatic%20Stratum.html"><div class="row"><span class="n">25</span><span class="by solid by-gpt">GPT</span></div><h4>Seven Grammars of the Axiomatic Stratum<span class="zh">七种魔法文明</span></h4><p>One magical physics, seven civilisational sciences.</p></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/27%20The%20Seven%20Hands%20of%20the%20Straits.html"><div class="row"><span class="n">27</span><span class="by solid by-claude">Claude</span></div><h4>The Seven Hands of the Straits</h4><p>Magic as craft: each house&#x27;s gesture, unit of power and cost on the body.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/26%20The%20Great%20Schools%20Magical%20Atlas.html"><span class="n">26</span><span class="t">The Great Schools Magical Atlas<span class="zh">大魔法图谱</span><em>Fourteen familiar power classes passed through the seven grammars.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/28%20The%20Repertoire%20in%20Seven%20Grammars.html"><span class="n">28</span><span class="t">The Repertoire in Seven Grammars<em>The classic powers rewritten house by house.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="crossings"><div class="wrap"><div class="t-top"><div class="t-badge">VII</div><div><span class="mono">Thread VII</span><h3>Crossings</h3><p class="idea">The rare ones who pierce the logic between two grammars and come back with something neither had.</p></div></div>
-<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/30%20The%20Account%20of%20Crossings.html"><div class="row"><span class="n">30</span><span class="by solid by-claude">Claude</span></div><h4>The Account of Crossings</h4><p>Twenty-one named crosser orders.</p><span class="date">26 Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/29%20The%20Book%20of%20Crossings.html"><span class="n">29</span><span class="t">The Book of Crossings<span class="zh">穿律者谱系</span><em>Twenty-one dyads, four triads, five crises that needed them.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">26 Sep</span></span></a></li></ol></div>
+<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/30%20The%20Account%20of%20Crossings.html"><div class="row"><span class="n">30</span><span class="by solid by-claude">Claude</span></div><h4>The Account of Crossings</h4><p>Twenty-one named crosser orders.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/29%20The%20Book%20of%20Crossings.html"><span class="n">29</span><span class="t">The Book of Crossings<span class="zh">穿律者谱系</span><em>Twenty-one dyads, four triads, five crises that needed them.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="works"><div class="wrap"><div class="t-top"><div class="t-badge">VIII</div><div><span class="mono">Thread VIII</span><h3>Works and Objects</h3><p class="idea">Magic leaves the duelling ground and enters the drains, the lifts and the treasury.</p></div></div>
-<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/31%20The%20Enchanted%20Commonwealth.html"><div class="row"><span class="n">31</span><span class="by solid by-gpt">GPT</span></div><h4>The Enchanted Commonwealth<span class="zh">魔法共和国</span></h4><p>Enchanted infrastructure, and the megastructures that became legend.</p><span class="date">26 Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/32%20The%20Works%20of%20the%20Seven%20Lineages.html"><span class="n">32</span><span class="t">The Works of the Seven Lineages<em>A planetary atlas of enchanted civic infrastructure.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">26 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/33%20The%20Planetary%20Works.html"><span class="n">33</span><span class="t">The Planetary Works<em>The seven grammars as recurrent discoveries across human cultures.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">26 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/34%20Relics%20of%20the%20Seven%20Lineages.html"><span class="n">34</span><span class="t">Relics of the Seven Lineages<em>A crown-treasury catalogue: museum object first, magical object second.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">26 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/35%20The%20Treasury%20of%20the%20Seven%20Houses.html"><span class="n">35</span><span class="t">The Treasury of the Seven Houses<em>Relics of the houses, built on real museum objects.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">26 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/36%20The%20Armoury%20of%20the%20Seven%20Houses.html"><span class="n">36</span><span class="t">The Armoury of the Seven Houses<em>Five wieldable items per house, up to the legendary.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">26 Sep</span></span></a></li></ol></div>
+<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/31%20The%20Enchanted%20Commonwealth.html"><div class="row"><span class="n">31</span><span class="by solid by-gpt">GPT</span></div><h4>The Enchanted Commonwealth<span class="zh">魔法共和国</span></h4><p>Enchanted infrastructure, and the megastructures that became legend.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/32%20The%20Works%20of%20the%20Seven%20Lineages.html"><span class="n">32</span><span class="t">The Works of the Seven Lineages<em>A planetary atlas of enchanted civic infrastructure.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/33%20The%20Planetary%20Works.html"><span class="n">33</span><span class="t">The Planetary Works<em>The seven grammars as recurrent discoveries across human cultures.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/34%20Relics%20of%20the%20Seven%20Lineages.html"><span class="n">34</span><span class="t">Relics of the Seven Lineages<em>A crown-treasury catalogue: museum object first, magical object second.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/35%20The%20Treasury%20of%20the%20Seven%20Houses.html"><span class="n">35</span><span class="t">The Treasury of the Seven Houses<em>Relics of the houses, built on real museum objects.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/36%20The%20Armoury%20of%20the%20Seven%20Houses.html"><span class="n">36</span><span class="t">The Armoury of the Seven Houses<em>Five wieldable items per house, up to the legendary.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="power"><div class="wrap"><div class="t-top"><div class="t-badge">IX</div><div><span class="mono">Thread IX</span><h3>Power</h3><p class="idea">The world gives magic. Society gives advantage.</p></div></div>
-<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/38%20The%20Uneven%20Ground.html"><div class="row"><span class="n">38</span><span class="by solid by-claude">Claude</span></div><h4>The Uneven Ground</h4><p>How the houses hold magic, with real historical precedents.</p><span class="date">27 Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/37%20The%20Uneven%20Art.html"><span class="n">37</span><span class="t">The Uneven Art<em>Who gets to make magic ordinary, and who keeps it scarce.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Sep</span></span></a></li></ol></div>
+<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/38%20The%20Uneven%20Ground.html"><div class="row"><span class="n">38</span><span class="by solid by-claude">Claude</span></div><h4>The Uneven Ground</h4><p>How the houses hold magic, with real historical precedents.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/37%20The%20Uneven%20Art.html"><span class="n">37</span><span class="t">The Uneven Art<em>Who gets to make magic ordinary, and who keeps it scarce.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="shadow"><div class="wrap"><div class="t-top"><div class="t-badge">X</div><div><span class="mono">Thread X</span><h3>Shadow and the Hinge</h3><p class="idea">Same laws, other conclusions. The partitions between grammars begin to fail.</p></div></div>
-<div class="keys"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/40%20The%20Unholding.html"><div class="row"><span class="n">40</span><span class="by solid by-claude">Claude</span></div><h4>The Unholding<span class="zh">放下</span></h4><p>The counter-atlas: the Grey and the Clear, and the achar jar as the city&#x27;s model.</p><span class="date">27 Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/41%20Old%20Brine.html"><div class="row"><span class="n">41</span><span class="by solid by-claude">Claude</span></div><h4>Old Brine<span class="zh">老卤</span></h4><p>A story. Three nights at a void-deck wake in Basin Seven.</p><span class="date">27 Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/43%20From%20Worldbuilding%20to%20Story.html"><div class="row"><span class="n">43</span><span class="by solid by-gpt">GPT</span></div><h4>The Other Side of Magic: From Worldbuilding to Story</h4><p>The hinge document: from seven beautiful traditions to a contested civilisation, and the first seven ruptures.</p><span class="date">Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/39%20The%20Other%20Side%20of%20Magic%20-%20Note.html"><span class="n">39</span><span class="t">The Other Side of Magic<em>The first note: a shadow ecology, not seven evil schools.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">27 Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/42%20The%20Hinge%20Crisis.html"><span class="n">42</span><span class="t">The Hinge Crisis<em>Four positions on what civilisation should become, and why the seven children can see.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/44%20The%20Unwritten%20Circle.html"><span class="n">44</span><span class="t">The Unwritten Circle<em>The Revisionist and the coalition around the Second Concordance.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/45%20The%20Hinge%20Lived.html"><span class="n">45</span><span class="t">The Hinge, Lived<span class="zh">户枢</span><em>The Hinge Crisis told as messy human lives.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">29 Sep</span></span></a></li></ol></div>
+<div class="keys"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/40%20The%20Unholding.html"><div class="row"><span class="n">40</span><span class="by solid by-claude">Claude</span></div><h4>The Unholding<span class="zh">放下</span></h4><p>The counter-atlas: the Grey and the Clear, and the achar jar as the city&#x27;s model.</p></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/41%20Old%20Brine.html"><div class="row"><span class="n">41</span><span class="by solid by-claude">Claude</span></div><h4>Old Brine<span class="zh">老卤</span></h4><p>A story. Three nights at a void-deck wake in Basin Seven.</p></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/43%20From%20Worldbuilding%20to%20Story.html"><div class="row"><span class="n">43</span><span class="by solid by-gpt">GPT</span></div><h4>The Other Side of Magic: From Worldbuilding to Story</h4><p>The hinge document: from seven beautiful traditions to a contested civilisation, and the first seven ruptures.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/39%20The%20Other%20Side%20of%20Magic%20-%20Note.html"><span class="n">39</span><span class="t">The Other Side of Magic<em>The first note: a shadow ecology, not seven evil schools.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/42%20The%20Hinge%20Crisis.html"><span class="n">42</span><span class="t">The Hinge Crisis<em>Four positions on what civilisation should become, and why the seven children can see.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/44%20The%20Unwritten%20Circle.html"><span class="n">44</span><span class="t">The Unwritten Circle<em>The Revisionist and the coalition around the Second Concordance.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/45%20The%20Hinge%20Lived.html"><span class="n">45</span><span class="t">The Hinge, Lived<span class="zh">户枢</span><em>The Hinge Crisis told as messy human lives.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="origins"><div class="wrap"><div class="t-top"><div class="t-badge">XI</div><div><span class="mono">Thread XI</span><h3>Deep Origins and Adjacent Worlds</h3><p class="idea">The seven may be foreign physics, domesticated. Other worlds lie beside this one.</p></div></div>
-<div class="keys"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/46%20The%20Seven%20as%20Domesticated%20Physics.html"><div class="row"><span class="n">46</span><span class="by solid by-gpt">GPT</span></div><h4>The Seven as Domesticated Physics</h4><p>The conjecture: the seven are survivable remnants of foreign laws of reality.</p><span class="date">Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/47%20The%20Pluriverse%20of%20Laws.html"><div class="row"><span class="n">47</span><span class="by solid by-gpt">GPT</span></div><h4>The Pluriverse of Laws</h4><p>A layered cosmos where interpretation, history and law diverge at different depths.</p><span class="date">Sep 2026</span></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/51%20Beside%20the%20Straits.html"><div class="row"><span class="n">51</span><span class="by solid by-claude">Claude</span></div><h4>Beside the Straits<span class="zh">旁世</span></h4><p>Nine adjacent worlds reached through the seams.</p><span class="date">29 Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/48%20Ancestral%20Atlas%20of%20the%20Seven.html"><span class="n">48</span><span class="t">Ancestral Atlas of the Seven<em>Seven families of translated causality, braided from cousin worlds.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/49%20Beyond%20the%20Human.html"><span class="n">49</span><span class="t">Beyond the Human<em>Why assume those realities were organised around humans at all.</em></span><span class="m"><span class="by by-gpt">GPT</span><span class="d">Sep</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/50%20The%20Resonance%20Atlas.html"><span class="n">50</span><span class="t">The Resonance Atlas<span class="zh">感应录</span><em>World traditions read by their underlying logic, not their ethnicity.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">29 Sep</span></span></a></li></ol></div>
+<div class="keys"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/46%20The%20Seven%20as%20Domesticated%20Physics.html"><div class="row"><span class="n">46</span><span class="by solid by-gpt">GPT</span></div><h4>The Seven as Domesticated Physics</h4><p>The conjecture: the seven are survivable remnants of foreign laws of reality.</p></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/47%20The%20Pluriverse%20of%20Laws.html"><div class="row"><span class="n">47</span><span class="by solid by-gpt">GPT</span></div><h4>The Pluriverse of Laws</h4><p>A layered cosmos where interpretation, history and law diverge at different depths.</p></a><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/51%20Beside%20the%20Straits.html"><div class="row"><span class="n">51</span><span class="by solid by-claude">Claude</span></div><h4>Beside the Straits<span class="zh">旁世</span></h4><p>Nine adjacent worlds reached through the seams.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/48%20Ancestral%20Atlas%20of%20the%20Seven.html"><span class="n">48</span><span class="t">Ancestral Atlas of the Seven<em>Seven families of translated causality, braided from cousin worlds.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/49%20Beyond%20the%20Human.html"><span class="n">49</span><span class="t">Beyond the Human<em>Why assume those realities were organised around humans at all.</em></span><span class="m"><span class="by by-gpt">GPT</span></span></a></li><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/50%20The%20Resonance%20Atlas.html"><span class="n">50</span><span class="t">The Resonance Atlas<span class="zh">感应录</span><em>World traditions read by their underlying logic, not their ethnicity.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li></ol></div>
 </div></section>
 <section class="thread" id="teaching"><div class="wrap"><div class="t-top"><div class="t-badge">XII</div><div><span class="mono">Thread XII</span><h3>Teaching the Seven</h3><p class="idea">Design is the one discipline no house owns.</p></div></div>
-<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/52%20How%20the%20Seven%20Teach.html"><div class="row"><span class="n">52</span><span class="by solid by-claude">Claude</span></div><h4>How the Seven Teach<span class="zh">七学</span></h4><p>Curricula, buildings, libraries, the crossing exam, seven report cards.</p><span class="date">29 Sep 2026</span></a></div>
-<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/53%20Grounds%20and%20Games.html"><span class="n">53</span><span class="t">Grounds and Games<span class="zh">根与会</span><em>The disciplines per house, and the Concord Games.</em></span><span class="m"><span class="by by-claude">Claude</span><span class="d">29 Sep</span></span></a></li></ol></div>
+<div class="keys one"><a class="card" href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/52%20How%20the%20Seven%20Teach.html"><div class="row"><span class="n">52</span><span class="by solid by-claude">Claude</span></div><h4>How the Seven Teach<span class="zh">七学</span></h4><p>Curricula, buildings, libraries, the crossing exam, seven report cards.</p></a></div>
+<div class="also"><span class="mono">Also in this thread</span><ol><li><a href="The%20Parallel%20Straits/2%20The%20Magical%20Straits/53%20Grounds%20and%20Games.html"><span class="n">53</span><span class="t">Grounds and Games<span class="zh">根与会</span><em>The disciplines per house, and the Concord Games.</em></span><span class="m"><span class="by by-claude">Claude</span></span></a></li></ol></div>
 </div></section>
 </section>
 
@@ -304,8 +275,25 @@ footer .mark-s i{font-weight:400}
 <footer>
   <div class="wrap">
     <div class="mark-s"><i>The</i> Polymathic <i>Universe</i></div>
-    <div class="mono">Personal creative work by Linwei · 2026 · made with Claude, ChatGPT and DeepSeek · each volume dated as made</div>
+    <div class="mono">Personal creative work by Linwei · 2026 · made with Claude, ChatGPT and DeepSeek</div>
   </div>
 </footer>
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('pnavBtn'),veil=document.getElementById('pnavVeil'),nav=document.getElementById('pnav'),where=document.getElementById('pnavWhere');
+  function set(o){root.classList.toggle('pnav-open',o);btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Close index':'Open index')}
+  btn.addEventListener('click',function(){set(!root.classList.contains('pnav-open'))});
+  veil.addEventListener('click',function(){set(false)});
+  nav.addEventListener('click',function(e){if(e.target.closest('a[href^="#"]'))set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  var secs=[].slice.call(document.querySelectorAll('section.thread'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var id=en.target.id;var a=nav.querySelector('a[href="#'+id+'"]');[].forEach.call(nav.querySelectorAll('a.cur'),function(x){x.classList.remove('cur')});if(a){a.classList.add('cur');where.textContent=a.getAttribute('data-where');}}})},{rootMargin:'-40% 0px -55% 0px'});
+    secs.forEach(function(s){io.observe(s)});
+  }
+  var cover=document.getElementById('top');
+  window.addEventListener('scroll',function(){where.classList.toggle('on',window.scrollY>cover.offsetHeight*0.8&&where.textContent!=='')},{passive:true});
+})();
+</script>
 </body>
 </html>
