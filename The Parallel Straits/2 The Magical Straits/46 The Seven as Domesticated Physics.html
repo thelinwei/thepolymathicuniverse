@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Seven as Domesticated Physics — Parallel Straits</title>
+<meta name="description" content="A conjectural cosmology of the Seven Schools as domesticated remnants of foreign physics in the Parallel Straits.">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+<style>
+:root{
+  --bg:#0d0f12;
+  --paper:#15191e;
+  --paper2:#101419;
+  --ink:#eee9df;
+  --muted:#aaa69e;
+  --line:#2b3138;
+  --gold:#ccb67b;
+  --teal:#79a8a1;
+  --violet:#9a8dbc;
+  --rose:#b77d77;
+  --blue:#7b99c9;
+  --max:1160px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink)}
+body{
+  font-family:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  line-height:1.72;
+}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+
+header{
+  padding:92px 0 62px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 12% 12%,rgba(204,182,123,.12),transparent 30%),
+    radial-gradient(circle at 86% 18%,rgba(121,168,161,.10),transparent 30%),
+    radial-gradient(circle at 52% 72%,rgba(154,141,188,.07),transparent 34%);
+}
+.eyebrow{
+  font-family:ui-sans-serif,system-ui,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  font-size:.74rem;
+  color:var(--gold);
+  margin-bottom:18px;
+}
+h1,h2,h3,h4{font-weight:500;line-height:1.12;margin:0}
+h1{
+  font-size:clamp(2.9rem,7vw,6.5rem);
+  letter-spacing:-.045em;
+  max-width:1040px;
+}
+.dek{
+  max-width:920px;
+  color:var(--muted);
+  font-size:clamp(1.08rem,2vw,1.34rem);
+  margin:26px 0 0;
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#101318;
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{
+  display:flex;
+  gap:18px;
+  overflow:auto;
+  padding:12px 0;
+  font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:.77rem;
+}
+nav a{color:var(--muted);text-decoration:none;white-space:nowrap}
+
+main{padding:56px 0 120px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+
+.part{
+  font-family:ui-sans-serif,system-ui,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:.74rem;
+  color:var(--teal);
+  margin-bottom:10px;
+}
+h2{
+  font-size:clamp(2rem,4vw,3.4rem);
+  letter-spacing:-.03em;
+  margin-bottom:18px;
+}
+h3{font-size:1.4rem;color:var(--gold);margin:30px 0 10px}
+h4{font-size:1.08rem;color:var(--teal);margin:18px 0 8px}
+p{max-width:920px;margin:0 0 18px}
+.lead{font-size:1.22rem;color:#f7f2e8}
+
+.quote{
+  margin:28px 0;
+  padding:24px 26px;
+  border-left:3px solid var(--gold);
+  background:rgba(255,255,255,.025);
+  font-size:1.18rem;
+  max-width:970px;
+}
+.math{
+  margin:26px 0;
+  padding:18px 20px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow-x:auto;
+}
+.math .katex-display{margin:.2em 0}
+.callout{
+  margin:28px 0;
+  padding:24px 26px;
+  background:var(--paper2);
+  border:1px solid #303640;
+  border-radius:16px;
+  max-width:980px;
+}
+.callout strong{color:var(--teal)}
+
+.grid2,.grid3{display:grid;gap:16px;margin:24px 0}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+  min-width:0;
+}
+.card h3{margin-top:0}
+.card p:last-child{margin-bottom:0}
+
+.chain{
+  display:grid;
+  gap:10px;
+  margin:24px 0;
+}
+.step{
+  padding:16px 18px;
+  border:1px solid var(--line);
+  border-left:4px solid var(--c,var(--gold));
+  border-radius:12px;
+  background:var(--paper);
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:24px 0;
+  background:var(--paper);
+  border:1px solid var(--line);
+}
+th,td{
+  padding:13px 15px;
+  text-align:left;
+  vertical-align:top;
+  border-bottom:1px solid var(--line);
+}
+th{
+  font-family:ui-sans-serif,system-ui,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.74rem;
+  color:var(--gold);
+}
+tr:last-child td{border-bottom:0}
+.footer-note{
+  font-size:.9rem;
+  color:var(--muted);
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  margin-top:30px;
+}
+
+@media(max-width:780px){
+  .grid2,.grid3{grid-template-columns:1fr}
+  .wrap{width:min(var(--max),calc(100% - 24px))}
+  table{display:block;overflow-x:auto}
+}
+@media print{
+  :root{
+    --bg:#fff;--paper:#f7f5f0;--paper2:#faf8f4;
+    --ink:#111;--muted:#555;--line:#ccc
+  }
+  nav{display:none}
+  body{background:#fff}
+  .card,.math,.callout,.step{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">The Parallel Straits · Deep-Origin Conjecture</div>
+    <h1>The Seven as Domesticated Physics</h1>
+    <p class="dek">What if the Seven Schools are not seven magical traditions invented in one world, but the survivable, translated remnants of foreign laws of reality—different physics taught to inhabit one city?</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#premise">Premise</a>
+    <a href="#magic">Magic as Imported Physics</a>
+    <a href="#straits">Why the Straits</a>
+    <a href="#culture">Physics Becomes Culture</a>
+    <a href="#architecture">Architecture & Relics</a>
+    <a href="#seven">Why Seven</a>
+    <a href="#greyclear">Grey & Clear</a>
+    <a href="#harbour">Sevenfold Harbour</a>
+    <a href="#concordat">The Concordat</a>
+    <a href="#protagonists">The Seven Protagonists</a>
+    <a href="#exitH">Exit H</a>
+    <a href="#ultimate">Ultimate Conjecture</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="premise">
+  <div class="part">I · The Conjecture</div>
+  <h2>1. The Seven May Not Be Native</h2>
+  <p class="lead">The neat version would be seven Schools descending from seven lost home worlds. The richer version is messier: the Seven are domesticated remnants of foreign physics, accumulated, translated, mixed and made mutually survivable by the Straits over centuries.</p>
+
+  <p>The Seven therefore need not correspond one-to-one with seven primordial worlds. Many worlds, lineages and causal systems may have crossed into the Straits. Most vanished. Some merged. Some became outlaw traditions. Some became ordinary culture. Seven large compatibility families eventually stabilised.</p>
+
+  <div class="math">$$
+  A_1,A_2,A_3,\ldots,A_n
+  \xrightarrow{\text{translation in the Straits}}
+  G_1,G_2,\ldots,G_7
+  $$</div>
+
+  <p>Seven may therefore be real and constructed at the same time.</p>
+</section>
+
+<section id="magic">
+  <div class="part">II · A New Definition of Magic</div>
+  <h2>2. Magic May Be Foreign Physics Under Local Conditions</h2>
+
+  <p>In its native world, a law is not magic. It is simply reality.</p>
+
+  <p>In a world where names animate matter, naming is not spellcasting. In a world where perspective alters embodiment, perspectival transformation is not supernatural. In a world where time can be faced as direction, temporal turning is mechanics.</p>
+
+  <p>But bring that causal grammar into the Straits and it no longer happens automatically. It must be actively sustained.</p>
+
+  <div class="math">$$
+  \boxed{
+  \text{magic}
+  =
+  \text{non-default law locally emulated}
+  }
+  $$</div>
+
+  <p>World Resistance can then be understood as the Straits asserting its own default law:</p>
+
+  <div class="quote">“That is not how things work here.”</div>
+
+  <p>The caster replies:</p>
+
+  <div class="quote">“For the next seven seconds, it is.”</div>
+
+  <p>The cost of magic becomes the cost of causal mismatch.</p>
+
+  <div class="math">$$
+  L
+  \propto
+  d\!\left(A_{\text{local}},A_{\text{invoked}}\right)
+  $$</div>
+
+  <p>Where \(L\) is load and \(d\) is the mismatch between the local Axiomatic Stratum and the law being held in place.</p>
+
+  <div class="callout"><strong>Spellcasting becomes temporary ontological jurisdiction.</strong> A caster creates a bounded region in which another causal order is permitted to operate.</div>
+</section>
+
+<section id="straits">
+  <div class="part">III · The Host World</div>
+  <h2>3. Why Can the Straits Host Foreign Law?</h2>
+
+  <p>Most adjacent worlds seem heavily specified. Their Axiomatic Strata decide which kinds of relation are physically real.</p>
+
+  <p>The Straits appears different.</p>
+
+  <p>Its native law may not prescribe a single relationship. It may instead permit relationships to be stabilised.</p>
+
+  <div class="math">$$
+  A_{\text{Straits}}:
+  \qquad
+  R(x,y)\ \text{may be locally held}
+  $$</div>
+
+  <p>This makes the Straits less a world of one strong axiom than a world with unusually low axiomatic closure.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Other worlds</h3>
+      <p>Reality says what a relation is allowed to be.</p>
+    </div>
+    <div class="card">
+      <h3>The Straits</h3>
+      <p>Reality permits a relation to be held, translated and negotiated—at a price.</p>
+    </div>
+  </div>
+
+  <p>This could explain why so many Seams accumulate there, why foreign grammars survive there, why load exists, and why Concordance could emerge there.</p>
+
+  <div class="quote">The Straits is not special because it contains diversity.<br><br>It contains diversity because its physics is capable of hosting foreign law.</div>
+</section>
+
+<section id="culture">
+  <div class="part">IV · Migration</div>
+  <h2>4. Physics Becomes Culture</h2>
+
+  <p>Imagine the earliest arrivals.</p>
+
+  <p>A population crosses from another world. Their bodies and habits were adapted to laws that no longer operate automatically. Their ordinary practices fail. Their children fall sick. Tools behave incorrectly. Social relations stop carrying the force they once had.</p>
+
+  <p>They discover that certain combinations of material, speech, geometry, memory, sequence, architecture and social conduct can partially recreate the conditions of home.</p>
+
+  <p>Those procedures become ritual.</p>
+
+  <p>Later generations forget the reason.</p>
+
+  <div class="chain">
+    <div class="step" style="--c:var(--violet)"><strong>Foreign physics</strong> · an ordinary law in another world</div>
+    <div class="step" style="--c:var(--blue)"><strong>Survival practice</strong> · deliberate recreation of that law in the Straits</div>
+    <div class="step" style="--c:var(--teal)"><strong>Ritual</strong> · repeated procedure whose original technical logic is forgotten</div>
+    <div class="step" style="--c:var(--gold)"><strong>Culture</strong> · identity forms around the practice</div>
+    <div class="step" style="--c:var(--rose)"><strong>School</strong> · the practice becomes institutionalised, taught and mythologised</div>
+  </div>
+
+  <div class="math">$$
+  \boxed{
+  \text{foreign physics}
+  \rightarrow
+  \text{survival practice}
+  \rightarrow
+  \text{ritual}
+  \rightarrow
+  \text{culture}
+  \rightarrow
+  \text{School}
+  }
+  $$</div>
+
+  <p>The Seven may therefore be memory systems for causal orders that no longer operate naturally in the Straits.</p>
+</section>
+
+<section id="architecture">
+  <div class="part">V · Built Causality</div>
+  <h2>5. Architecture May Be an Axiomatic Prosthesis</h2>
+
+  <p>The schools' buildings no longer need to be interpreted as stylistic expressions of doctrine. They may be enormous causal instruments.</p>
+
+  <p>Geometry, acoustics, planting, materiality, circulation, inscriptions and ceremonial sequence could all reduce the mismatch between the Straits and a School's ancestral law.</p>
+
+  <div class="math">$$
+  L_{\text{inside School}}
+  <
+  L_{\text{outside School}}
+  $$</div>
+
+  <p>Inside the campus, the foreign grammar becomes easier to maintain.</p>
+
+  <table>
+    <thead><tr><th>Present reading</th><th>Earlier function</th><th>Deep origin</th></tr></thead>
+    <tbody>
+      <tr><td>Heritage architecture</td><td>Casting aid</td><td>Partial recreation of foreign physical conditions</td></tr>
+      <tr><td>School ritual</td><td>Procedural discipline</td><td>Causal calibration sequence</td></tr>
+      <tr><td>Traditional terminology</td><td>Specialist language</td><td>Residual vocabulary from another law-system</td></tr>
+      <tr><td>Taboo</td><td>Moral prohibition</td><td>Memory of an actual physical hazard</td></tr>
+      <tr><td>School song</td><td>Identity</td><td>Possible mnemonic or calibration protocol</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Axiomatic Anchors</h3>
+  <p>Some relics may be objects that crossed while still retaining a residual attachment to their home law.</p>
+
+  <div class="math">$$
+  A_{\text{Straits}}
+  \rightarrow
+  A_{\text{Straits}}
+  +
+  \varepsilon A_{\text{foreign}}
+  $$</div>
+
+  <p>Near such an object, the local world bends slightly toward the foreign Axiomatic Stratum.</p>
+
+  <div class="callout"><strong>The relic may not be sacred because the founder touched it.</strong> The founder may have become important because the relic made their reality survivable here.</div>
+</section>
+
+<section>
+  <div class="part">VI · Folklore as Technical Ruin</div>
+  <h2>6. Myth May Be Degraded Documentation</h2>
+
+  <p>Founding stories can now be read as broken technical records.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>“The founder crossed the sea carrying fire in a bowl.”</h3>
+      <p>Later interpretation: sacred flame.</p>
+      <p>Possible original meaning: a portable pocket of foreign thermodynamics carried through a Seam.</p>
+    </div>
+    <div class="card">
+      <h3>“Our ancestors followed a star that did not move.”</h3>
+      <p>Later interpretation: celestial omen.</p>
+      <p>Possible original meaning: a foreign astronomical body visible through a persistent Seam.</p>
+    </div>
+    <div class="card">
+      <h3>“The first keeper asked the land for permission.”</h3>
+      <p>Later interpretation: humility before place.</p>
+      <p>Possible original meaning: migrants required a stable host relation before their bodies could adapt.</p>
+    </div>
+    <div class="card">
+      <h3>Nonsense syllables in a school song</h3>
+      <p>Later interpretation: archaic liturgy.</p>
+      <p>Possible original meaning: phonetic calibration sequence in a lost language.</p>
+    </div>
+  </div>
+
+  <div class="quote">Folklore becomes the archaeology of physics.</div>
+</section>
+
+<section id="seven">
+  <div class="part">VII · Why Seven?</div>
+  <h2>7. There Were Probably More Than Seven</h2>
+
+  <p>If the Straits has accumulated foreign laws for centuries, the official number seven becomes suspicious.</p>
+
+  <p>Many causal grammars may have crossed.</p>
+
+  <p>Some failed to reproduce. Some generated intolerable load. Some became household practices. Some merged. Some were erased. Some survive as outlaw or shadow traditions.</p>
+
+  <p>The Seven may therefore represent stable compatibility classes rather than seven primordial sources.</p>
+
+  <div class="math">$$
+  n\text{ imported axioms}
+  \rightarrow
+  7\text{ stable translation families}
+  $$</div>
+
+  <p>This allows several apparently contradictory historical theories to be simultaneously valid:</p>
+
+  <div class="grid2">
+    <div class="card"><h3>Historical theory</h3><p>Many migrations occurred; institutions later consolidated them.</p></div>
+    <div class="card"><h3>Mystical theory</h3><p>Seven genuine modes recur beneath the historical variation.</p></div>
+    <div class="card"><h3>Political theory</h3><p>Seven is an administrative settlement imposed upon a larger ecology.</p></div>
+    <div class="card"><h3>Mathematical theory</h3><p>Seven may be a minimum basis sufficient to span the Straits' local relational possibility-space.</p></div>
+  </div>
+
+  <div class="quote"><strong>Seven is real.</strong><br><br><strong>Seven is constructed.</strong></div>
+</section>
+
+<section>
+  <div class="part">VIII · Orthodoxy</div>
+  <h2>8. Shadow Traditions May Preserve the Originals Better</h2>
+
+  <p>Official Schools may not be the purest descendants of ancestral physics. They may be the safest translations.</p>
+
+  <p>A shadow lineage could therefore be more faithful to the foreign law while being far less compatible with the Straits.</p>
+
+  <div class="math">$$
+  \text{authenticity}
+  \not\Rightarrow
+  \text{survivability}
+  $$</div>
+
+  <p>This destabilises the language of corruption and orthodoxy.</p>
+
+  <div class="quote">The outlaw may be more original.<br><br>The institution may be more livable.</div>
+</section>
+
+<section id="greyclear">
+  <div class="part">IX · Grey and Clear Reinterpreted</div>
+  <h2>9. Two Failures of the Compatibility Layer</h2>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>The Grey</h3>
+      <p>Axiomatic decoherence.</p>
+      <p>No single causal regime fully governs an object, identity or relation. Translation loosens without replacement.</p>
+      <div class="math">$$
+      A_{\text{local}}
+      \rightarrow
+      \text{indeterminate mixture}
+      $$</div>
+    </div>
+    <div class="card">
+      <h3>The Clear</h3>
+      <p>Axiomatic monopoly.</p>
+      <p>One causal regime achieves complete dominance. Everything interoperates because everything finally obeys the same law.</p>
+      <div class="math">$$
+      A_1,A_2,\ldots,A_n
+      \rightarrow
+      A^\*
+      $$</div>
+    </div>
+  </div>
+
+  <p>The Settled becomes especially chilling under this model.</p>
+
+  <p>It is not dead magic.</p>
+
+  <p>It may be a world in which causal mismatch has vanished.</p>
+
+  <div class="quote">No World Resistance. No load. No magic.<br><br>Because reality and expectation have finally become identical.</div>
+</section>
+
+<section>
+  <div class="part">X · Scale</div>
+  <h2>10. Powerful Magic Means Larger Axiomatic Territory</h2>
+
+  <p>High-level magic may not mean “more energy.” It may mean a larger volume of reality temporarily governed by a non-default law.</p>
+
+  <div class="math">$$
+  \text{spell scale}
+  \sim
+  V_{\text{foreign law}}
+  $$</div>
+
+  <p>A great relic can therefore be terrifying without behaving like a weapon.</p>
+
+  <p>It may cause an entire valley to obey another world's causal rules.</p>
+
+  <div class="grid3">
+    <div class="card"><h3>Granary field</h3><p>Every grievance acquires causal force.</p></div>
+    <div class="card"><h3>Lettered field</h3><p>Unnamed mechanisms cease functioning.</p></div>
+    <div class="card"><h3>Regard field</h3><p>Embodiment becomes perspectivally unstable.</p></div>
+  </div>
+
+  <div class="quote">The greatest magical weapon attacks not the object—but the rules the object thought it lived under.</div>
+</section>
+
+<section>
+  <div class="part">XI · Exchange</div>
+  <h2>11. Returning to an Ancestral World</h2>
+
+  <p>A student from one of the Seven travels to a world whose physics resembles their School's ancestral grammar.</p>
+
+  <p>All their life, magic required concentration, cost and World Resistance.</p>
+
+  <p>Then they arrive.</p>
+
+  <p>They perform the familiar action.</p>
+
+  <p>Nothing glows.</p>
+
+  <p>Nothing strains.</p>
+
+  <p>The world simply complies.</p>
+
+  <div class="quote">For the first time in their life, reality feels effortless.</div>
+
+  <p>Some students would experience this as homecoming.</p>
+  <p>Others as betrayal.</p>
+
+  <p>The living culture of the ancestral world may also find the diaspora School bizarre:</p>
+
+  <div class="quote">“Why are you doing that ritual?”</div>
+
+  <p>The School believed the ritual sacred. In the origin world, it may be unnecessary because the law it recreates in the Straits is simply ambient reality there.</p>
+
+  <p>This creates diaspora identity at cosmic scale.</p>
+</section>
+
+<section>
+  <div class="part">XII · Reverse Exchange</div>
+  <h2>12. The Foreign Student Discovers Magic</h2>
+
+  <p>A student from an adjacent world may have never considered themselves magical.</p>
+
+  <p>They cross into the Straits.</p>
+
+  <p>Suddenly every ordinary competency becomes costly.</p>
+
+  <p>For the first time they experience World Resistance.</p>
+
+  <div class="quote">“Why does speaking correctly hurt here?”</div>
+
+  <p>What a School calls elite magical technique may be a foreign visitor's everyday embodied literacy.</p>
+
+  <p>This would puncture enormous amounts of institutional prestige.</p>
+</section>
+
+<section>
+  <div class="part">XIII · Axiomatic Inheritance</div>
+  <h2>13. Affinity Need Not Be Biological</h2>
+
+  <p>Some people adapt unusually well to certain adjacent worlds.</p>
+
+  <p>Researchers initially look for ancestry in blood.</p>
+
+  <p>They find nothing decisive.</p>
+
+  <p>Because the inheritance is primarily relational.</p>
+
+  <div class="math">$$
+  \text{axiomatic inheritance}
+  =
+  f(\text{language, training, ritual, attention, embodiment, memory})
+  $$</div>
+
+  <p>People inherit a foreign law by being formed inside practices that preserve it.</p>
+
+  <div class="callout"><strong>The tradition carries the physics, not the ethnicity.</strong></div>
+</section>
+
+<section>
+  <div class="part">XIV · The Schools as Memory Machines</div>
+  <h2>14. Education May Preserve the Route Home</h2>
+
+  <p>A School's deepest function may be to keep an ancestral causal grammar cognitively reproducible.</p>
+
+  <div class="math">$$
+  \text{education}
+  \rightarrow
+  \text{grammar persistence}
+  \rightarrow
+  \text{Seam persistence}
+  $$</div>
+
+  <p>If the grammar dies, perhaps the route dies with it.</p>
+
+  <p>This gives extraordinary stakes to seemingly ordinary cultural preservation:</p>
+
+  <table>
+    <thead><tr><th>Practice</th><th>Possible deeper function</th></tr></thead>
+    <tbody>
+      <tr><td>Archive</td><td>Preserves a causal model</td></tr>
+      <tr><td>Recipe</td><td>Maintains a material calibration sequence</td></tr>
+      <tr><td>School song</td><td>Stores phonetic or rhythmic coordinates</td></tr>
+      <tr><td>Funeral rite</td><td>Maintains relational topology across generations</td></tr>
+      <tr><td>Heirloom</td><td>Retains an address to an ancestral world</td></tr>
+      <tr><td>Museum collection</td><td>Distributed map of a lost Axiomatic Stratum</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quote">Museums may be Seam infrastructure without knowing it.</div>
+</section>
+
+<section id="harbour">
+  <div class="part">XV · The Sevenfold Harbour Rewritten</div>
+  <h2>15. The Harbour May Have Been Becoming Seven Worlds at Once</h2>
+
+  <p>Normally a School operates as a low-intensity translation of ancestral law.</p>
+
+  <div class="math">$$
+  G_i
+  \approx
+  \text{local approximation of }A_i
+  $$</div>
+
+  <p>During the Harbour catastrophe, every School pushed beyond normal limits.</p>
+
+  <div class="math">$$
+  G_i
+  \rightarrow
+  A_i
+  $$</div>
+
+  <p>For several hours, the ancestral physics began to reinstantiate.</p>
+
+  <p>The harbour was not merely being interpreted seven ways.</p>
+
+  <p>It was becoming governed by seven causal regimes simultaneously.</p>
+
+  <div class="math">$$
+  A_1\parallel A_2\parallel A_3\parallel\cdots\parallel A_7
+  $$</div>
+
+  <p>That is why every lineage's observations were correct.</p>
+
+  <p>And that makes the First Concordance almost impossibly sophisticated.</p>
+
+  <div class="math">$$
+  \boxed{
+  A_1,A_2,\ldots,A_7
+  \rightarrow
+  \text{cohabitation without overwrite}
+  }
+  $$</div>
+</section>
+
+<section id="concordat">
+  <div class="part">XVI · The Concordat Rewritten</div>
+  <h2>16. A Constitution, Runtime and Cosmological Ceasefire</h2>
+
+  <p>The Concordat can now be read as several things at once:</p>
+
+  <div class="grid3">
+    <div class="card"><h3>Political constitution</h3><p>No School may become sovereign over reality.</p></div>
+    <div class="card"><h3>Compatibility layer</h3><p>Foreign grammars can coexist without overwriting one another.</p></div>
+    <div class="card"><h3>Safety architecture</h3><p>Each School remains separate enough to preserve difference and connected enough to share one city.</p></div>
+  </div>
+
+  <div class="math">$$
+  \boxed{
+  \text{difference sufficient for persistence}
+  +
+  \text{translation sufficient for coexistence}
+  }
+  $$</div>
+
+  <p>Too much separation produces fracture.</p>
+  <p>Too much interoperability produces convergence.</p>
+
+  <p>The Concordat may therefore be the most sophisticated magical technology ever created.</p>
+
+  <div class="quote">Not a relic.<br><br>A civilisation.</div>
+</section>
+
+<section id="protagonists">
+  <div class="part">XVII · The Seven Human Interfaces</div>
+  <h2>17. The Protagonists May Possess Weak Axiomatic Locking</h2>
+
+  <p>Most people become strongly calibrated to one School's compatibility grammar.</p>
+
+  <p>Our seven do not.</p>
+
+  <p>Their institutions read this as poor fit, impurity, indecision or unreliability.</p>
+
+  <p>But it may actually be:</p>
+
+  <div class="math">$$
+  \text{low axiomatic locking}
+  $$</div>
+
+  <p>They can tolerate movement between causal systems without immediate collapse.</p>
+
+  <p>True Concordance may therefore be physiological and cognitive rather than ritual.</p>
+
+  <div class="math">$$
+  \boxed{
+  C
+  =
+  \text{multi-axiomatic homeostasis}
+  }
+  $$</div>
+
+  <p>They do not become stronger than others.</p>
+
+  <div class="quote">They become capable of remaining themselves while reality changes its rules around them.</div>
+</section>
+
+<section>
+  <div class="part">XVIII · Counterfactualist Risk</div>
+  <h2>18. The Seven-Way Hinge May Decompress the Schools</h2>
+
+  <p>The Counterfactualist may believe they need the seven protagonists to create a stable historical Hinge.</p>
+
+  <p>But the deeper danger is that the seven Schools are compressed foreign axioms.</p>
+
+  <div class="math">$$
+  G_1,\ldots,G_7
+  \rightarrow
+  A_1,\ldots,A_7
+  $$</div>
+
+  <p>Inside one city.</p>
+
+  <p>The attempted Second Concordance might therefore restore ancestral physics at full scale.</p>
+
+  <p>That would be something unprecedented:</p>
+
+  <div class="math">$$
+  H^{(7)}_{\text{axiomatic}}
+  =
+  R(A_1,A_2,\ldots,A_7)
+  $$</div>
+
+  <p>A Hinge not merely across histories—but across laws.</p>
+</section>
+
+<section id="exitH">
+  <div class="part">XIX · Exit H</div>
+  <h2>19. Exit H May Be a Fault Exposure</h2>
+
+  <p>Exit H may not be a portal to another Singapore in the simple sense.</p>
+
+  <p>It may be a place where one buried ancestral law becomes strong enough to expose all the historical settlements compatible with it.</p>
+
+  <p>The station itself could stand above:</p>
+
+  <div class="grid2">
+    <div class="card"><h3>A buried Axiomatic Anchor</h3><p>A relic from a pre-School migration.</p></div>
+    <div class="card"><h3>An erased eighth tradition</h3><p>A grammar excluded from the official compatibility system.</p></div>
+    <div class="card"><h3>An original migration site</h3><p>A place where early foreign law first entered the Straits.</p></div>
+    <div class="card"><h3>A collapsed Seam nexus</h3><p>A former intersection of multiple worlds later covered by civic infrastructure.</p></div>
+  </div>
+
+  <p>For 384 seconds, the Straits loses exclusive causal control.</p>
+
+  <p>Exit H becomes not a door, but a cut through buried layers of reality.</p>
+
+  <div class="quote">A fault exposure.</div>
+</section>
+
+<section id="ultimate">
+  <div class="part">XX · Ultimate Conjecture</div>
+  <h2>20. What If the Straits Never Fully Crystallised?</h2>
+
+  <p>Most worlds may be stable solutions drawn from \(\Omega\).</p>
+
+  <div class="math">$$
+  \Omega
+  \rightarrow
+  A_i
+  $$</div>
+
+  <p>But perhaps the Straits is unusual because the crystallisation never fully closed.</p>
+
+  <div class="math">$$
+  \Omega
+  \rightarrow
+  A_{\text{Straits}}
+  \quad\text{with residual openness}
+  $$</div>
+
+  <p>Its defining property may be not one positive axiom but a capacity to host axioms.</p>
+
+  <p>This does not make the Straits superior.</p>
+
+  <p>It may make it unstable, expensive and exhausting.</p>
+
+  <p>Reality itself requires negotiation there.</p>
+
+  <div class="quote">The Straits is not the centre of the pluriverse.<br><br>It is a passage.</div>
+
+  <p>A narrow relational corridor where realities that should not be mutually habitable can remain together long enough to change one another.</p>
+
+  <h3>The deepest version of the Seven</h3>
+
+  <div class="quote">The Seven were never teaching seven ways to do magic.<br><br>They were teaching seven incompatible realities how to remember themselves without destroying their neighbours.</div>
+
+  <h3>The deepest version of Concordance</h3>
+
+  <div class="math">$$
+  \boxed{
+  \text{Concordance}
+  =
+  \text{difference becoming intimate without becoming identical}
+  }
+  $$</div>
+
+  <p>At the scale of seven students.</p>
+  <p>Seven Schools.</p>
+  <p>Seven ancestral realities.</p>
+  <p>And perhaps, eventually, an entire pluriverse.</p>
+
+  <p class="footer-note">Parallel Straits · The Seven as Domesticated Physics · conjectural deep-origin document.</p>
+</section>
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false,
+      strict: "ignore"
+    });
+  }
+});
+</script>
+
+</body>
+</html>

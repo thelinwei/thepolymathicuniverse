@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beside the Straits · 旁世</title>
+<style>
+:root{
+  --paper:#F6F6F2; --ink:#1E2129; --soft:#4A4F5C; --rule:#C4C7CC; --seam:#2E6E62; --warn:#A3322B; --panel:#ECEDE8;
+  --tk:#2B4A78; --am:#1F6F5C; --bp:#8C6A1C; --lf:#9B2C2C; --nr:#6A3E83; --sk:#B0601A; --su:#5F8497;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --seam:#6FC2AE; --warn:#E6776E; --panel:#20232B;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}}
+:root[data-theme="dark"]{
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --seam:#6FC2AE; --warn:#E6776E; --panel:#20232B;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Times New Roman",Times,"Songti SC","Noto Serif SC","SimSun",serif;
+  font-size:19px;line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding-left:22px;padding-right:22px}
+.wide{max-width:1040px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{padding-top:64px;padding-bottom:24px}
+.series{font-style:italic;color:var(--soft);margin:0 0 18px;font-size:17px}
+h1{font-weight:400;font-size:clamp(48px,10vw,96px);line-height:.95;letter-spacing:-.02em;margin:0}
+h1 .zh{display:block;font-size:.55em;letter-spacing:.3em;margin-top:14px;color:var(--seam)}
+.deck{font-size:22px;line-height:1.45;margin:28px 0 0;max-width:34em}
+h2{font-weight:400;font-size:clamp(32px,6vw,46px);line-height:1.05;margin:0 0 20px;letter-spacing:-.01em}
+h3{font-weight:700;font-size:21px;margin:30px 0 6px}
+section{padding-top:48px;padding-bottom:48px;border-top:1px solid var(--rule)}
+p{margin:0 0 16px}
+.lede{font-size:21px}
+figure{margin:0}
+.map{width:100%;height:auto;display:block}
+.cap{font-style:italic;color:var(--soft);font-size:16px;margin-top:10px}
+.law{margin:26px 0;padding-left:20px;border-left:3px solid var(--seam)}
+.law h3{margin-top:0}
+.world{padding-top:52px;padding-bottom:52px;border-top:1px solid var(--rule)}
+.whead{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-bottom:6px}
+.whead h2{margin:0}
+.whead .wzh{font-size:28px;color:var(--c)}
+.kind{font-variant:small-caps;letter-spacing:.06em;color:var(--c);font-size:18px;margin:0 0 18px}
+.statute{background:var(--panel);padding:20px 22px;margin:18px 0 24px;font-size:20px;line-height:1.5;border-top:3px solid var(--c)}
+.statute b{font-variant:small-caps;letter-spacing:.05em;font-weight:400;color:var(--c);display:block;margin-bottom:4px;font-size:17px}
+dl{margin:0;display:grid;grid-template-columns:8.2em 1fr;gap:10px 18px}
+dt{font-style:italic;color:var(--c)}
+dd{margin:0}
+@media (max-width:560px){dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:12px}}
+.hook{margin-top:22px;font-style:italic;padding-top:14px;border-top:1px dashed var(--rule)}
+.hook::before{content:"Unresolved. ";font-style:normal;font-variant:small-caps;color:var(--warn)}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:16px;min-width:640px;width:100%}
+th,td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--rule)}
+th{font-weight:400;font-style:italic;vertical-align:bottom}
+td.h{text-align:left;white-space:nowrap}
+td.h i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.d{display:inline-block;border-radius:50%;border:1.5px solid var(--ink)}
+.d0{width:12px;height:12px;background:none;opacity:1;border-color:var(--rule)}
+.d1{width:10px;height:10px;background:var(--ink)}
+.d2{width:15px;height:15px;background:var(--ink)}
+.d3{width:20px;height:20px;background:var(--ink)}
+.x{color:var(--warn);font-weight:700;margin-left:2px}
+.na{color:var(--soft)}
+ol.time{list-style:none;padding:0;margin:0;border-left:1px solid var(--rule)}
+ol.time li{padding:0 0 22px 22px;position:relative}
+ol.time li::before{content:"";position:absolute;left:-5px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--seam)}
+ol.time .era{font-variant:small-caps;letter-spacing:.05em;color:var(--seam);display:block}
+.rumour{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;margin-top:10px}
+.rumour div{border-top:2px solid var(--ink);padding-top:10px}
+.rumour b{display:block;font-size:20px;font-weight:400}
+.src p{font-size:17px}
+footer{padding-top:40px;padding-bottom:80px;color:var(--soft);font-style:italic;font-size:16px;border-top:1px solid var(--rule)}
+a{color:var(--seam)}
+:focus-visible{outline:2px solid var(--seam);outline-offset:2px}
+.wide>.inner{padding-left:0;padding-right:0;max-width:676px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <p class="series">The Great Schools of the Straits · magic series, following The Unholding</p>
+  <h1>Beside the Straits<span class="zh">旁世</span></h1>
+  <p class="deck">A gazetteer of the worlds that touch ours: where students go on exchange, where graduates go to study further, where expeditions go and some do not return, and where the city’s own history went to be forgotten.</p>
+</header>
+
+<section class="wrap" style="border-top:none;padding-top:10px">
+  <p class="lede">The Straits are one world among several. Its physics is the local case of a larger law: every world has an Axiomatic stratum, the 相律层, which sets the terms on which things may relate to one another. The Straits’ terms are generous. Relations can be held against World Resistance, and the load is billed somewhere. Other worlds settled their terms differently, and each one is internally rigorous, consequential, and livable by the people born into it.</p>
+  <p>Where two worlds agree on a single relation, their Axiomatic strata touch and a seam opens. The city’s registrars know nine worlds by seam. Three more are rumoured. Each world below is given with its law stated plainly, what that law does to bodies, minds and societies, how each of the seven houses fares there, and its ties to the city.</p>
+</section>
+
+<section class="wide" id="map">
+  <figure>
+    <svg class="map" id="seammap" viewBox="0 0 820 870" role="img" aria-label="Map of seams: the Straits at the centre, nine worlds arranged by purpose, distance showing how far their laws are from ours."><text x="730" y="160" text-anchor="middle" font-size="20" font-style="italic" fill="var(--soft)">Exchange</text><text x="710" y="830" text-anchor="middle" font-size="20" font-style="italic" fill="var(--soft)">Further study</text><text x="110" y="800" text-anchor="middle" font-size="20" font-style="italic" fill="var(--soft)">Frontier</text><text x="130" y="40" text-anchor="middle" font-size="20" font-style="italic" fill="var(--soft)">Forsaken and forgotten</text><circle cx="410" cy="435" r="190" fill="none" stroke="var(--rule)" stroke-width="1" stroke-dasharray="2 6"></circle><circle cx="410" cy="435" r="270" fill="none" stroke="var(--rule)" stroke-width="1" stroke-dasharray="2 6"></circle><circle cx="410" cy="435" r="350" fill="none" stroke="var(--rule)" stroke-width="1" stroke-dasharray="2 6"></circle><line x1="445.5617390537649" y1="384.2125732540825" x2="508.65514705237996" y2="294.1058483822934" stroke="var(--lf)" stroke-width="2.5" stroke-dasharray="none" stroke-linecap="round"></line><circle cx="518.9795229066988" cy="279.3611115850915" r="14" fill="var(--lf)" stroke="var(--lf)" stroke-width="2.5"></circle><a href="#reach"><text x="518.9795229066988" y="235.36111158509152" text-anchor="middle" font-size="21" fill="var(--ink)">Lettered Reach  字土</text></a><text x="518.9795229066988" y="255.36111158509152" text-anchor="middle" font-size="14" font-style="italic" fill="var(--lf)">a name set in a thing</text><line x1="469.88740122992226" y1="418.9532192036437" x2="590.6281295160558" y2="386.60083856582867" stroke="var(--am)" stroke-width="2.5" stroke-dasharray="none" stroke-linecap="round"></line><circle cx="608.014794389259" cy="381.94209575398327" r="14" fill="var(--am)" stroke="var(--am)" stroke-width="2.5"></circle><a href="#granary"><text x="608.014794389259" y="337.94209575398327" text-anchor="middle" font-size="21" fill="var(--ink)">Granary  无偶</text></a><text x="608.014794389259" y="357.94209575398327" text-anchor="middle" font-size="14" font-style="italic" fill="var(--am)">a grievance spoken aloud</text><line x1="466.1910827962723" y1="461.20233222792336" x2="615.7318676573196" y2="530.9343454151388" stroke="var(--nr)" stroke-width="2.5" stroke-dasharray="none" stroke-linecap="round"></line><circle cx="632.0454078239793" cy="538.5414741264714" r="14" fill="var(--nr)" stroke="var(--nr)" stroke-width="2.5"></circle><a href="#turning"><text x="632.0454078239793" y="578.5414741264714" text-anchor="middle" font-size="21" fill="var(--ink)">Turning  横时</text></a><text x="632.0454078239793" y="598.5414741264714" text-anchor="middle" font-size="14" font-style="italic" fill="var(--nr)">a promise kept across time</text><line x1="436.20233222792336" y1="491.1910827962723" x2="518.6128932673597" y2="667.9211012684191" stroke="var(--tk)" stroke-width="2.5" stroke-dasharray="none" stroke-linecap="round"></line><circle cx="526.2200219786923" cy="684.2346414350787" r="14" fill="var(--tk)" stroke="var(--tk)" stroke-width="2.5"></circle><a href="#defect"><text x="526.2200219786923" y="724.2346414350787" text-anchor="middle" font-size="21" fill="var(--ink)">Defect  界算</text></a><text x="526.2200219786923" y="744.2346414350787" text-anchor="middle" font-size="14" font-style="italic" fill="var(--tk)">a proof both sides accept</text><line x1="383.79766777207664" y1="491.1910827962723" x2="305.61328935004724" y2="658.8580233980526" stroke="var(--su)" stroke-width="2" stroke-dasharray="8 6" stroke-linecap="round"></line><circle cx="298.0061606387147" cy="675.1715635647123" r="14" fill="var(--su)" stroke="var(--su)" stroke-width="2.5"></circle><a href="#vault"><text x="298.0061606387147" y="715.1715635647123" text-anchor="middle" font-size="21" fill="var(--ink)">Vault  天盖</text></a><text x="298.0061606387147" y="735.1715635647123" text-anchor="middle" font-size="14" font-style="italic" fill="var(--su)">a work built by many hands</text><line x1="351.7390575112737" y1="456.2052488861915" x2="159.10207025016246" y2="526.3193782679535" stroke="var(--nr)" stroke-width="2" stroke-dasharray="8 6" stroke-linecap="round"></line><circle cx="142.1876030760161" cy="532.4757408478156" r="14" fill="var(--nr)" stroke="var(--nr)" stroke-width="2.5"></circle><a href="#regard"><text x="142.1876030760161" y="572.4757408478156" text-anchor="middle" font-size="21" fill="var(--ink)">Regard  众目</text></a><text x="142.1876030760161" y="592.4757408478156" text-anchor="middle" font-size="14" font-style="italic" fill="var(--nr)">being seen as a person by another kind</text><line x1="351.7390575112737" y1="413.79475111380856" x2="145.00668093837385" y2="338.5503195821615" stroke="var(--sk)" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"></line><circle cx="128.0922137642275" cy="332.39395700229943" r="14" fill="var(--paper)" stroke="var(--sk)" stroke-width="2.5"></circle><a href="#spent"><text x="128.0922137642275" y="288.39395700229943" text-anchor="middle" font-size="21" fill="var(--ink)">Spent  枯</text></a><text x="128.0922137642275" y="308.39395700229943" text-anchor="middle" font-size="14" font-style="italic" fill="var(--sk)">a debt never paid</text><line x1="374.4382609462351" y1="384.21257325408254" x2="236.779916221984" y2="187.61608262472456" stroke="var(--bp)" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"></line><circle cx="226.45554036766515" cy="172.8713458275227" r="14" fill="var(--paper)" stroke="var(--bp)" stroke-width="2.5"></circle><a href="#remembered"><text x="226.45554036766515" y="128.8713458275227" text-anchor="middle" font-size="21" fill="var(--ink)">Remembered  忆城</text></a><text x="226.45554036766515" y="148.8713458275227" text-anchor="middle" font-size="14" font-style="italic" fill="var(--bp)">a thing someone still recalls</text><line x1="407.8362312044449" y1="373.0377687248161" x2="398.41336709476946" y2="103.20224542966022" stroke="var(--tk)" stroke-width="2" stroke-dasharray="12 5" stroke-linecap="round"></line><polygon points="398.48316608817447,105.20102708369842 404.96810400412403,118.98310168175075 392.9754140798949,119.40189564218076" fill="var(--tk)"></polygon><circle cx="397.78517615412443" cy="85.2132105433165" r="14" fill="var(--paper)" stroke="var(--tk)" stroke-width="2.5"></circle><a href="#settled"><text x="397.78517615412443" y="41.21321054331651" text-anchor="middle" font-size="21" fill="var(--ink)">Settled  定世</text></a><text x="397.78517615412443" y="61.21321054331651" text-anchor="middle" font-size="14" font-style="italic" fill="var(--tk)">one agreed account of the world</text><circle cx="410" cy="435" r="58" fill="var(--ink)"></circle><text x="410" y="433" text-anchor="middle" font-size="20" fill="var(--paper)">The Straits</text><text x="410" y="457" text-anchor="middle" font-size="16" fill="var(--paper)">七院</text></svg>
+    <figcaption class="cap">Distance from the centre is translation cost: how far a world’s law sits from the Straits’ own. The label under each world is the relation its seam is anchored to. Solid seams are open and regulated, dashed seams are frontier crossings, dotted seams are closed or fading. The Settled is reached one way.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap" id="laws">
+  <h2>The laws of crossing</h2>
+  <p>Four laws govern every seam. They were learned in the usual way, by people who crossed before anyone knew them.</p>
+  <div class="law"><h3>The shared relation</h3><p>A seam exists only where both worlds recognise one relation: a debt, a name, a common work, a memory. The seam sits on that relation and moves with it. The Granary seam opens wherever a grievance is spoken aloud between two people; settle the grievance and the door shuts behind you. Seams are therefore social as much as spatial. A family that stops remembering can close a world.</p></div>
+  <div class="law"><h3>The carried grammar</h3><p>A crosser carries their house’s grammar and leaves its power behind. A casting works abroad in proportion to how much its kind of relation exists in the host world. A Lan Fong compositor in a world made of names is a giant; a Toa Keng surveyor in a world with no neutral viewpoint is prey. This is the affinity recorded in the matrix below.</p></div>
+  <div class="law"><h3>The following bill</h3><p>Load is paid wherever there is pliancy to pay it with. Inside the Straits that means downhill, to the kampongs and to Basin Seven. Across seams it means any world soft enough to absorb it. Most of the city does not know this law exists. The Clausius Lodge does.</p></div>
+  <div class="law"><h3>The lag</h3><p>A crosser’s body adjusts in days and their reasoning in months. For the first weeks abroad you think in home law inside a world that does not obey it, and every mistake has consequences. Return lag is worse: students come home fluent in another causality and find their own city briefly absurd.</p></div>
+</section>
+
+<!-- WORLDS -->
+<div id="worlds"><section class="world" id="reach" style="--c: var(--lf);"><div class="wrap">
+    <div class="whead"><h2>The Lettered Reach</h2><span class="wzh">字土</span></div>
+    <p class="kind">Exchange · seam anchored on a name set in a thing</p>
+    <div class="statute"><b>The law</b>Matter is inert until it is named. A name is a sequence of letters that, set into clay, metal or flesh, makes it act according to the name. World Resistance is total against the unnamed and nearly nothing against the correctly named.</div>
+    <p>Streets worked by clay figures, each carrying a slip of letters in its chest. Seeds are named at sowing. Rivers are registered and flow as registered. The guild of Nomenclators holds a chair in every other guild.</p>
+    <dl>
+      <dt>On the body</dt><dd>Straits visitors arrive unnamed and their bodies work anyway, which Reach physicians find either miraculous or obscene. Students who stay past a season find that tools obey them only once named. Most begin naming their own hands.</dd>
+      <dt>On the mind</dt><dd>People whose names are forgotten go slack and still. Fame animates; obscurity is a medical condition, and the Reach has hospitals for the unremembered.</dd>
+      <dt>On the world</dt><dd>Reach bodies are preformed: each generation lies folded inside the last, and their philosophers have counted the folds. Eleven generations remain. The Nomenclators believe the answer to their extinction is in the Straits, where children are born with no name set in them and live.</dd>
+      <dt>The houses</dt><dd>Lan Fong is the Reach’s natural partner, since setting type is setting names; a compositor can do in a week what a Nomenclator does in a year, and the guild watches them closely. Sané-Kora praise-names carry real force here. Toa Keng’s habit of renaming places reads to the Reach as seizure, which they recognise and remember.</dd>
+      <dt>Programme</dt><dd>The Nomenclature Year: Lan Fong and Sané-Kora students study at the Collegium of Letters. In return, Reach scholars sit in on Straits birth registries, watching children be named after the fact.</dd>
+    </dl>
+    <p class="hook">A Reach student has stopped reporting home. She was last seen at a Lan Fong type foundry, buying single letters.</p>
+  </div></section><section class="world" id="granary" style="--c: var(--am);"><div class="wrap">
+    <div class="whead"><h2>The Granary</h2><span class="wzh">无偶</span></div>
+    <p class="kind">Exchange · seam anchored on a grievance spoken aloud</p>
+    <div class="statute"><b>The law</b>Nothing befalls a person by accident. Every event has two causes: how it happened, and who it happened for. The second is as physical as the first. Resentment has weight, and held long enough, it lands.</div>
+    <p>The granary still falls because termites ate the posts. It falls at noon, onto those three people, because someone wished it. There is no word for bad luck. Every misfortune opens an inquiry, answered by the cooling bowl, an oracle that gives yes or no to the question of who.</p>
+    <dl>
+      <dt>On the body</dt><dd>Straits visitors carry unexamined resentments, and in the Granary those resentments act. Nearly every exchange student hurts someone in their first month without meaning to.</dd>
+      <dt>On the mind</dt><dd>Nothing is random, which is exhausting and also a relief: there is always someone to speak with about what happened. Returning students find Straits accidents unbearable. They ask how anyone lives where a tree falls for no one.</dd>
+      <dt>On the world</dt><dd>The named person is asked to cool their heart in public: to drink water, blow it out, and say that if they held ill will they release it. Justice is the upkeep of feeling between neighbours. The Granary is intimate before it is harsh.</dd>
+      <dt>The houses</dt><dd>Al-Merikani thrive, because their ledgers are already instruments of grievance and trust. Sané-Kora voices clear the air. Sund assemblies, hearing grievances in the open, translate almost exactly. Toa Keng is in danger here: surveyors treat causes as impersonal, and their quiet contempt lands as curses. The Granary keeps a standing inquest on the Toa Keng mission.</dd>
+      <dt>Programme</dt><dd>The Inquest Semester, required of every Al-Merikani arbitrator and open to students of mediation from any house.</dd>
+    </dl>
+    <p class="hook">Asked who caused Basin Seven’s water crisis, the Granary’s oracles have given the same answer three times: a name nobody in the Straits recognises.</p>
+  </div></section><section class="world" id="turning" style="--c: var(--nr);"><div class="wrap">
+    <div class="whead"><h2>The Turning</h2><span class="wzh">横时</span></div>
+    <p class="kind">Further study · seam anchored on a promise kept across time</p>
+    <div class="statute"><b>The law</b>Time is a direction a body can face. Everything moves through time as it moves through space, and with effort a body can be turned a few degrees toward pastward or sideways. Light gains energy as it shines, so every lamp tends to run away.</div>
+    <p>Observatories built as slow rotors. Scholars who have turned live slightly crosswise to their neighbours and age at an angle. Weather sometimes arrives from yesterday. Darkness is safety; their painters work in shadow.</p>
+    <dl>
+      <dt>On the body</dt><dd>Turnsickness: a body turned even five degrees comes home with its heartbeat half a beat out of phase with its breath.</dd>
+      <dt>On the mind</dt><dd>The turned remember a few seconds of what is about to happen and lose a few seconds of what has. Students describe it as hearing the end of the sentence first.</dd>
+      <dt>On the world</dt><dd>A whole civilisation built on containing light. Every lamp has a governor; fire is the great civic danger; the most honoured trade is the lamp-warden.</dd>
+      <dt>The houses</dt><dd>Nine Rain is most at home. Their weaving already runs warp and weft, and records of reciprocity owed become maps through turned time. Toa Keng surveyors are prized for four-dimensional survey. Al-Merikani understand deferred debt as a relation across time and do well. Balai Pusaka struggles, since rooting resists turning.</dd>
+      <dt>Programme</dt><dd>The Residency of Turned Hours: two years, graduates only. The register records each returning scholar with the angle they came home at.</dd>
+    </dl>
+    <p class="hook">The Observatory’s register holds an entry dated three years from now, recording the arrival of a Straits delegation that nobody has planned.</p>
+  </div></section><section class="world" id="defect" style="--c: var(--tk);"><div class="wrap">
+    <div class="whead"><h2>The Defect</h2><span class="wzh">界算</span></div>
+    <p class="kind">Further study · seam anchored on a proof both sides accept</p>
+    <div class="statute"><b>The law</b>Arithmetic is not given. Two mathematics hold the world between them, the Near and the Far, and meet along a moving frontier called the Defect. When a statement is proved it becomes true, and the frontier moves. Mathematics is territory.</div>
+    <p>Bridges designed on the Near side fail when the frontier passes under them. Counting stones disagree with one another. Research stations float on the frontier itself, proving in order to stay where they are.</p>
+    <dl>
+      <dt>On the body</dt><dd>When the frontier moves through a town, the body’s own arithmetic slips: doses stop adding up, and fevers follow.</dd>
+      <dt>On the mind</dt><dd>Mathematicians who have held both sides develop double certainty, the ability to know two incompatible things fully. Some find it unbearable. Some find it is the only honest state.</dd>
+      <dt>On the world</dt><dd>A cold war fought in lemmas. Neither side is wicked; each is the ground its people stand on. The Defect is the Straits’ seven houses rendered pure, rival physics with no achar between them.</dd>
+      <dt>The houses</dt><dd>Toa Keng recognises the Defect as its own dream, proof as conquest, and its scholars do brilliantly and dangerously. Lan Fong can recompose a proof into a new one, which both sides pay well for. Sund joiners are sought for truce-work along the frontier. Sané-Kora and Balai Pusaka find little to hold.</dd>
+      <dt>Programme</dt><dd>The Frontier Fellowship: one year at the Defect Station. The only programme in the city with a mortality clause. The Defect values Straits scholars most for one reason: theirs is the only city that has kept seven truths in one place without a frontier.</dd>
+    </dl>
+    <p class="hook">Someone on the Far side has proved a statement about the Straits.</p>
+  </div></section><section class="world" id="vault" style="--c: var(--su);"><div class="wrap">
+    <div class="whead"><h2>The Vault</h2><span class="wzh">天盖</span></div>
+    <p class="kind">Frontier · seam anchored on a work built by many hands</p>
+    <div class="statute"><b>The law</b>The world is closed and finite. The sky is solid granite. Sun and moon are small and near and are set into it. Every direction, followed far enough, returns. There is no infinity anywhere in the Vault, so every relation held there eventually meets itself.</div>
+    <p>A tower begun centuries ago climbs toward the granite. Whole towns live on it, farming its terraces. The climb takes four months. Near the top, the sun passes close enough to scorch, and gravity begins to turn over.</p>
+    <dl>
+      <dt>On the body</dt><dd>Vault-born people feel held. Straits-born climbers feel claustrophobic and, to their surprise, safe.</dd>
+      <dt>On the mind</dt><dd>Vault-calm: without infinity there is no dread of the unbounded, and little ambition beyond the ceiling. Straits explorers report their ambitions going quiet and do not all want them back.</dd>
+      <dt>On the world</dt><dd>Straits theorists have a suspicion. If World Resistance must come from somewhere, the Vault’s granite may be it, stored. The ceiling of the Vault may be the back of the Straits’ physics, and the tower may be drilling into it from below.</dd>
+      <dt>The houses</dt><dd>Sund is most at home. A common work is their native relation, and a Sund crew was the first Straits team welcomed onto the tower. Balai Pusaka reads the tower’s foundations as a rooted thing and is respected there. Sané-Kora songs relay messages up and down its length. Al-Merikani and Lan Fong find the closed economy airless.</dd>
+      <dt>Programme</dt><dd>The Ascent: joint Sund and Balai Pusaka expeditions ride the tower to the summit crews. No expedition has yet gone through the granite.</dd>
+    </dl>
+    <p class="hook">The miners at the summit have begun to hear knocking from the other side.</p>
+  </div></section><section class="world" id="regard" style="--c: var(--nr);"><div class="wrap">
+    <div class="whead"><h2>The Regard</h2><span class="wzh">众目</span></div>
+    <p class="kind">Frontier · seam anchored on being seen as a person by another kind</p>
+    <div class="statute"><b>The law</b>There is one way of being a person and many natures. Every creature sees itself as a person and its world as a village. What a thing is depends on whose eyes are on it. What you see as blood, a jaguar sees as beer. Change who sees you and your body changes kind.</div>
+    <p>A forest with no neutral ground. Every clearing is somebody’s house, every river somebody’s road.</p>
+    <dl>
+      <dt>On the body</dt><dd>A visitor who accepts another kind’s hospitality, eats their food or answers when called, begins to see as they see, and the body follows the eyes. The danger is always in accepting.</dd>
+      <dt>On the mind</dt><dd>Expedition members come home unsure what they have eaten, and sometimes unsure who they are.</dd>
+      <dt>On the world</dt><dd>The Regard’s own peoples honour one skill above all others: to cross into another kind’s perspective on purpose and come back. Those who can are its diplomats, doctors and judges.</dd>
+      <dt>The houses</dt><dd>Nine Rain’s reciprocity reaches across kinds and translates well. Sané-Kora speech addressed to beings is understood. Toa Keng is in the greatest danger here: an observer who believes their own view is neutral is the easiest to capture, and the Regard is said to eat surveyors. The Mishearers of the Straits, who answer names not their own, may be a Regard technique that came home wrong.</dd>
+      <dt>Programme</dt><dd>The Traverse. It has never been mapped and has one rule: do not answer when your name is called from the trees.</dd>
+    </dl>
+    <p class="hook">A Toa Keng survey team came back from the Traverse complete in number. Their families insist they are not the same people.</p>
+  </div></section><section class="world" id="spent" style="--c: var(--sk);"><div class="wrap">
+    <div class="whead"><h2>The Spent</h2><span class="wzh">枯</span></div>
+    <p class="kind">Forsaken · seam anchored on a debt never paid</p>
+    <div class="statute"><b>The law</b>Pliancy was a finite store, and it is gone. World Resistance is absolute: nothing can be held that the world did not already hold. Ordinary physics remains. Everything else has stopped.</div>
+    <p>Floating cities lie where they fell, like beached whales. Aqueducts run dry for a thousand miles. Spell-engines stand inert in the squares. Straits casters call it going deaf in the hands.</p>
+    <dl>
+      <dt>On the body</dt><dd>For the first days a caster feels their power draining. Then comes a flat quiet. Some fall ill. Some become strangely well.</dd>
+      <dt>On the mind</dt><dd>Withdrawal, then clarity. A few Straits casters never want to go home.</dd>
+      <dt>On the world</dt><dd>Survivors live a plain, stubborn life and distrust anyone who glows. Their chronicles blame their own emperors for mining the world dry. The Clausius Lodge keeps a different account, drawn from the law of the following bill: the Spent was spent paying for someone else’s city.</dd>
+      <dt>The houses</dt><dd>No house can cast. What matters here is the shadow ecology: the Jubilee, whose creed is the cancelling of debts, treats the Spent as a holy site, and the Clausius Lodge treats it as evidence. Sund commons-work, which needs no magic, is the only Straits labour the survivors accept.</dd>
+      <dt>Programme</dt><dd>None. The seam is officially closed. The Jubilee makes pilgrimages anyway.</dd>
+    </dl>
+    <p class="hook">A trickle has begun in one of the Spent’s dry aqueducts, in the same week Basin Seven’s reservoir fell.</p>
+  </div></section><section class="world" id="remembered" style="--c: var(--bp);"><div class="wrap">
+    <div class="whead"><h2>The Remembered</h2><span class="wzh">忆城</span></div>
+    <p class="kind">Forgotten · seam anchored on a thing someone still recalls</p>
+    <div class="statute"><b>The law</b>A thing exists as long as it is attended. Forgotten objects fade. Lost objects, expected hard enough, are found again as copies made of the expectation. The world is idealist all the way down.</div>
+    <p>Once a sister city of the Straits, its seam anchored on a shared market memory. The Straits forgot it. Now it consists of what is still recalled: an address on an old ledger, a song, a way of cooking a dish. Streets end where memory ends.</p>
+    <dl>
+      <dt>On the body</dt><dd>Straits visitors are solid there, remembered by a whole world. The Remembered’s people come to lean on them, literally, for substance.</dd>
+      <dt>On the mind</dt><dd>To stay is to be asked, all day, whether you remember. Every answer builds a street, and every honest ‘no’ loses one.</dd>
+      <dt>On the world</dt><dd>Its inhabitants are the most desperate diplomats of any world. Every visitor is building material.</dd>
+      <dt>The houses</dt><dd>Sané-Kora keeps worlds by keeping memory, and its griots are revered. Balai Pusaka’s heirlooms act as anchors; a single pusaka can hold a district. Lan Fong’s archives matter. The red-ink clerk’s exercise books, from the Basin Seven wake, may be the Remembered’s last land registry.</dd>
+      <dt>Programme</dt><dd>No official programme. The Keepers, an informal society in the Straits, meet to remember it on purpose.</dd>
+    </dl>
+    <p class="hook">The Remembered has begun sending back copies of things the Straits has lost. Some of them are people.</p>
+  </div></section><section class="world" id="settled" style="--c: var(--tk);"><div class="wrap">
+    <div class="whead"><h2>The Settled</h2><span class="wzh">定世</span></div>
+    <p class="kind">Forsaken · seam anchored on one agreed account of the world</p>
+    <div class="statute"><b>The law</b>One account won. Every other way of relating was declared impossible, and in a world where consensus shapes the Axiomatic stratum, being declared impossible made it so. World Resistance is total and uniform. There is one physics. It works extraordinarily well.</div>
+    <p>It looks like a city you know: an equatorial port with trains, towers, public housing and hawker centres. The same streets, the same weather. No one casts. No one remembers that anyone did.</p>
+    <dl>
+      <dt>On the body</dt><dd>Casters feel nothing at all. No deafness, no pain, as if they had never had it. This is what frightens them most.</dd>
+      <dt>On the mind</dt><dd>Those who stay reinterpret their memories of magic as metaphor within weeks. What survives of magic lives in art, story, ritual, and the way a room can be arranged to change the people who enter it. It works, and it cannot be proven.</dd>
+      <dt>On the world</dt><dd>The Settled is what the Straits becomes if one house wins. Toa Keng’s founding papers call it the Settlement and describe it as the goal. The achar principle, the city’s refusal of purity, is its defence against it.</dd>
+      <dt>The houses</dt><dd>Every house is at zero, by definition. There is one rumoured exception: storytellers there move people in ways that look, from the Straits, like low casting.</dd>
+      <dt>Programme</dt><dd>The seam runs one way in practice. Returning requires someone in the Straits to remember you as a caster.</dd>
+    </dl>
+    <p class="hook">A Straits student crossed ten years ago and was never recovered. She has been located. She is an architect. She has no memory of the Straits, and her students say her crits feel like weather.</p>
+  </div></section></div>
+
+<section class="wide" id="matrix">
+  <div class="wrap inner">
+    <h2>Affinity of the seven houses</h2>
+    <p>How well each house’s grammar carries into each world. The larger the mark, the more of that house’s relation exists there to work with. A red cross marks a world where the house is actively endangered, where its habits of mind become a liability.</p>
+  </div>
+  <div class="tbl"><table id="aff"><thead><tr><th></th><th>Lettered Reach</th><th>Granary</th><th>Turning</th><th>Defect</th><th>Vault</th><th>Regard</th><th>Spent</th><th>Remembered</th><th>Settled</th></tr></thead><tbody><tr><td class="h"><i style="background:var(--tk)"></i>Toa Keng</td><td title="Toa Keng in The Lettered Reach: 2"><span class="d d2"></span></td><td title="Toa Keng in The Granary: 0 (endangered)"><span class="d d0"></span><span class="x">×</span></td><td title="Toa Keng in The Turning: 2"><span class="d d2"></span></td><td title="Toa Keng in The Defect: 3 (endangered)"><span class="d d3"></span><span class="x">×</span></td><td title="Toa Keng in The Vault: 2"><span class="d d2"></span></td><td title="Toa Keng in The Regard: 0 (endangered)"><span class="d d0"></span><span class="x">×</span></td><td class="na" title="Nothing casts here">—</td><td title="Toa Keng in The Remembered: 1"><span class="d d1"></span></td><td class="na" title="Nothing casts here">—</td></tr><tr><td class="h"><i style="background:var(--am)"></i>Al-Merikani</td><td title="Al-Merikani in The Lettered Reach: 2"><span class="d d2"></span></td><td title="Al-Merikani in The Granary: 3"><span class="d d3"></span></td><td title="Al-Merikani in The Turning: 2"><span class="d d2"></span></td><td title="Al-Merikani in The Defect: 2"><span class="d d2"></span></td><td title="Al-Merikani in The Vault: 1"><span class="d d1"></span></td><td title="Al-Merikani in The Regard: 1"><span class="d d1"></span></td><td class="na" title="Nothing casts here">—</td><td title="Al-Merikani in The Remembered: 1"><span class="d d1"></span></td><td class="na" title="Nothing casts here">—</td></tr><tr><td class="h"><i style="background:var(--bp)"></i>Balai Pusaka</td><td title="Balai Pusaka in The Lettered Reach: 2"><span class="d d2"></span></td><td title="Balai Pusaka in The Granary: 2"><span class="d d2"></span></td><td title="Balai Pusaka in The Turning: 0"><span class="d d0"></span></td><td title="Balai Pusaka in The Defect: 0"><span class="d d0"></span></td><td title="Balai Pusaka in The Vault: 2"><span class="d d2"></span></td><td title="Balai Pusaka in The Regard: 2"><span class="d d2"></span></td><td class="na" title="Nothing casts here">—</td><td title="Balai Pusaka in The Remembered: 3"><span class="d d3"></span></td><td class="na" title="Nothing casts here">—</td></tr><tr><td class="h"><i style="background:var(--lf)"></i>Lan Fong</td><td title="Lan Fong in The Lettered Reach: 3"><span class="d d3"></span></td><td title="Lan Fong in The Granary: 2"><span class="d d2"></span></td><td title="Lan Fong in The Turning: 2"><span class="d d2"></span></td><td title="Lan Fong in The Defect: 3"><span class="d d3"></span></td><td title="Lan Fong in The Vault: 1"><span class="d d1"></span></td><td title="Lan Fong in The Regard: 1"><span class="d d1"></span></td><td class="na" title="Nothing casts here">—</td><td title="Lan Fong in The Remembered: 2"><span class="d d2"></span></td><td class="na" title="Nothing casts here">—</td></tr><tr><td class="h"><i style="background:var(--nr)"></i>Nine Rain</td><td title="Nine Rain in The Lettered Reach: 1"><span class="d d1"></span></td><td title="Nine Rain in The Granary: 2"><span class="d d2"></span></td><td title="Nine Rain in The Turning: 3"><span class="d d3"></span></td><td title="Nine Rain in The Defect: 2"><span class="d d2"></span></td><td title="Nine Rain in The Vault: 2"><span class="d d2"></span></td><td title="Nine Rain in The Regard: 3"><span class="d d3"></span></td><td class="na" title="Nothing casts here">—</td><td title="Nine Rain in The Remembered: 1"><span class="d d1"></span></td><td class="na" title="Nothing casts here">—</td></tr><tr><td class="h"><i style="background:var(--sk)"></i>Sané-Kora</td><td title="Sané-Kora in The Lettered Reach: 3"><span class="d d3"></span></td><td title="Sané-Kora in The Granary: 3"><span class="d d3"></span></td><td title="Sané-Kora in The Turning: 2"><span class="d d2"></span></td><td title="Sané-Kora in The Defect: 0"><span class="d d0"></span></td><td title="Sané-Kora in The Vault: 2"><span class="d d2"></span></td><td title="Sané-Kora in The Regard: 2"><span class="d d2"></span></td><td class="na" title="Nothing casts here">—</td><td title="Sané-Kora in The Remembered: 3"><span class="d d3"></span></td><td class="na" title="Nothing casts here">—</td></tr><tr><td class="h"><i style="background:var(--su)"></i>Sund</td><td title="Sund in The Lettered Reach: 0"><span class="d d0"></span></td><td title="Sund in The Granary: 2"><span class="d d2"></span></td><td title="Sund in The Turning: 1"><span class="d d1"></span></td><td title="Sund in The Defect: 2"><span class="d d2"></span></td><td title="Sund in The Vault: 3"><span class="d d3"></span></td><td title="Sund in The Regard: 2"><span class="d d2"></span></td><td class="na" title="Nothing casts here">—</td><td title="Sund in The Remembered: 1"><span class="d d1"></span></td><td class="na" title="Nothing casts here">—</td></tr></tbody></table></div>
+</section>
+
+<section class="wrap" id="history">
+  <h2>A history of the seams</h2>
+  <ol class="time">
+    <li><span class="era">Before the city</span>The Remembered and a trading town on the Straits share a seam anchored on a common market memory. In the Spent, the chronicles record the last flight of their floating cities and blame their own emperors.</li>
+    <li><span class="era">The merchant century</span>Al-Merikani factors open the Granary seam by accident, through a debt disputed across two ledgers. The first exchange of students is a dispute settlement: each side sends children to learn the other’s justice.</li>
+    <li><span class="era">The kongsi years</span>Lan Fong compositors, setting a disputed name in type, find the Lettered Reach on the other side of the press. The Nomenclators’ first embassy arrives asking how the Straits keeps unnamed children alive.</li>
+    <li><span class="era">The survey era</span>Toa Keng opens the Defect and the Turning in the same decade. In its founding papers it writes the doctrine of the Settlement: one account of the world, universally held. The other six houses read it as a declaration of war and are, for once, united.</li>
+    <li><span class="era">The forgetting</span>The generation that knew the Remembered dies. Its streets thin. The Keepers form as an informal society to remember it on purpose.</li>
+    <li><span class="era">The recent decades</span>A Sund crew is welcomed on the Vault tower. The Regard Traverse returns a survey team complete in number. The registrars close the Spent seam after an incident involving the Clausius Lodge that is recorded only by its date.</li>
+    <li><span class="era">Now</span>Basin Seven’s reservoir falls. A trickle begins in one of the Spent’s dry aqueducts. The Granary’s oracles give the same name three times.</li>
+  </ol>
+</section>
+
+<section class="wrap" id="rumoured">
+  <h2>Rumoured, unconfirmed</h2>
+  <p>Three worlds appear in the registrars’ margins. No seam has been verified.</p>
+  <div class="rumour">
+    <div><b>The Resonance · 感应</b>A world where things of one kind move one another without contact. Strike a note in the east and every bell of that pitch in the west answers. Causation by category. Lan Fong’s oldest texts describe it as home.</div>
+    <div><b>The Tally · 数众</b>A world where quantity is a relation between people rather than an amount in a thing. Three is always three of something, for someone, and a sum can be owed. Al-Merikani ledgers seem to work there unaltered.</div>
+    <div><b>The Recursion · 层城</b>A world built self-similar at every scale, where a village is a house of houses and a house a village of rooms. Repair a hearth and the kingdom mends. Balai Pusaka and Nine Rain both claim to have dreamed it.</div>
+  </div>
+</section>
+
+<section class="wrap src" id="sources">
+  <h2>What these worlds are borrowed from</h2>
+  <p>The Lettered Reach draws on Ted Chiang’s “Seventy-Two Letters”; the Granary on E. E. Evans-Pritchard’s account of Azande causation, where the granary falls because of termites and falls on those people because of someone’s ill will; the Turning on Greg Egan’s <i>Orthogonal</i>; the Defect on Egan’s “Luminous”; the Vault on Chiang’s “Tower of Babylon”; the Regard on Eduardo Viveiros de Castro’s Amerindian perspectivism; the Spent on Larry Niven’s “The Magic Goes Away”; the Remembered on Borges’s “Tlön, Uqbar, Orbis Tertius”; the Settled on the Technocracy of <i>Mage: The Ascension</i>. The rumoured worlds draw on Joseph Needham’s correlative thinking, Helen Verran’s <i>Science and an African Logic</i>, and Ron Eglash’s <i>African Fractals</i>. Customs, names and institutions in each world are invented for the Straits and belong to no real people.</p>
+</section>
+
+<footer class="wrap">Registrar’s note: seams move. Anything recorded here was true when the ink dried.</footer>
+
+
+
+
+</body></html>

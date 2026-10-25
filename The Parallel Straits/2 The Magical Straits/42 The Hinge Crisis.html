@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hinge Crisis — Parallel Straits</title>
+<meta name="description" content="Worldbuilding document on the Hinge Crisis: factions, permeability, education, alternate settlements, and the emergence of the Revisionist position.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+<style>
+:root{--bg:#0d0f12;--paper:#15181e;--paper2:#11141a;--ink:#efeae0;--muted:#aaa59c;--line:#2b3038;--gold:#ccb474;--teal:#7aa5a0;--max:1120px;}
+*{box-sizing:border-box}html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink)}
+body{font-family:ui-serif,Georgia,Cambria,"Times New Roman",serif;line-height:1.72}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+header{padding:88px 0 56px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 14% 12%,rgba(204,180,116,.12),transparent 28%),radial-gradient(circle at 85% 20%,rgba(122,165,160,.10),transparent 30%)}
+.eyebrow{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.17em;font-size:.74rem;color:var(--gold);margin-bottom:18px}
+h1,h2,h3{font-weight:500;line-height:1.12;margin:0}h1{font-size:clamp(2.8rem,7vw,6.5rem);letter-spacing:-.045em;max-width:980px}
+.dek{max-width:860px;color:var(--muted);font-size:clamp(1.08rem,2vw,1.34rem);margin:26px 0 0}
+nav{position:sticky;top:0;z-index:10;background:#101218;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;overflow:auto;padding:12px 0;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.78rem}
+nav a{color:var(--muted);text-decoration:none;white-space:nowrap}
+main{padding:56px 0 110px}section{padding:46px 0;border-bottom:1px solid var(--line)}section:last-child{border-bottom:0}
+.part{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.15em;font-size:.74rem;color:var(--teal);margin-bottom:10px}
+h2{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-.03em;margin-bottom:18px}h3{font-size:1.35rem;color:var(--gold);margin:28px 0 10px}
+p{max-width:900px;margin:0 0 18px}.lead{font-size:1.2rem;color:#f7f1e7}
+.quote{margin:28px 0;padding:24px 26px;border-left:3px solid var(--gold);background:rgba(255,255,255,.025);font-size:1.18rem;max-width:950px}
+.math{margin:26px 0;padding:18px 20px;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:auto}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;min-width:0}
+.tag{display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 8px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;margin:24px 0;background:var(--paper);border:1px solid var(--line)}
+th,td{padding:13px 15px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;color:var(--gold)}
+tr:last-child td{border-bottom:0}
+.callout{margin:28px 0;padding:24px 26px;background:var(--paper2);border:1px solid #30343d;border-radius:16px;max-width:960px}
+.callout strong{color:var(--teal)}
+.faction{border-top:1px solid var(--line);padding:28px 0}.faction:first-of-type{border-top:0}.faction h3{margin-top:0}
+.character{display:grid;grid-template-columns:84px 1fr;gap:18px;align-items:start;padding:20px 0;border-bottom:1px solid var(--line)}
+.num{width:60px;height:60px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:ui-sans-serif,system-ui,sans-serif;color:var(--gold);font-size:1.1rem}
+.character h3{margin:0 0 8px}.badge{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;color:var(--teal)}
+.footer-note{font-size:.9rem;color:var(--muted);padding-top:20px;border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}.wrap{width:min(var(--max),calc(100% - 24px))}.character{grid-template-columns:56px 1fr}.num{width:46px;height:46px}table{display:block;overflow-x:auto}}
+@media print{:root{--bg:#fff;--paper:#f7f5f0;--paper2:#faf8f4;--ink:#111;--muted:#555;--line:#ccc}nav{display:none}body{background:#fff}.card,.math,.callout,.character{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="eyebrow">The Parallel Straits · Narrative Architecture</div><h1>The Hinge Crisis</h1><p class="dek">When the partitions between magical grammars begin to fail, the crisis does not produce one enemy. It produces competing theories of what civilisation should become next.</p></div></header>
+
+<nav><div class="wrap">
+<a href="#hinge">The Hinge</a><a href="#factions">Four Factions</a><a href="#children">Children & Permeability</a><a href="#seven">The Seven Misfits</a><a href="#exit">Exit H</a><a href="#alternate">Alternate Settlements</a><a href="#revisionists">The Revisionist Position</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="hinge"><div class="part">I · Phenomenon</div><h2>1. What the Hinge Actually Is</h2>
+<p class="lead">The Hinge is not a portal, another dimension or a separate realm. It is a failure of exclusivity between magical descriptions.</p>
+<p>Under the Concordat, the Seven grammars remain sufficiently distinct that reality is stabilised through recognised interpretive frameworks. A Hinge appears when two or more incompatible accounts remain simultaneously operative.</p>
+<div class="math">$$G_i(x)\neq G_j(x)$$</div>
+<p>Yet both descriptions remain valid. Instead of reality collapsing, a relation appears between them:</p>
+<div class="math">$$H_{ij}=R(G_i,G_j)$$</div>
+<div class="quote">“What else can this thing be while still remaining this thing?”</div>
+<p>A door may be both open and never built. A person may be both heir and stranger. A building may be demolished and occupied. A memory may be historically false but causally effective.</p>
+<div class="callout"><strong>The Hinge does not abolish logic.</strong> It allows multiple logics to remain operative long enough to interact.</div>
+</section>
+
+<section id="factions"><div class="part">II · Political Response</div><h2>2. The Four Major Positions</h2>
+<p>The Hinge Crisis divides the magical world not by school, but by what different groups believe should happen next.</p>
+
+<div class="faction"><span class="tag">Faction One</span><h3>The Conservators</h3>
+<p><strong>The partitions exist for a reason.</strong> They include senior school leadership, civic safety authorities, archivists, relic custodians and practitioners with access to suppressed histories.</p>
+<div class="math">$$\text{uncertainty}+\text{scale}=\text{catastrophic risk}$$</div>
+<p>They close archives, restrict cross-school work, isolate relic systems and suspend risky exchanges. Their problem is not ignorance. It is that they possess knowledge the public does not.</p></div>
+
+<div class="faction"><span class="tag">Faction Two</span><h3>The Continuists</h3>
+<p><strong>The Concordat was never meant to freeze magical civilisation forever.</strong> They see seven authorised grammars becoming seven authorised boxes.</p>
+<div class="math">$$\text{pluralism}\neq\text{partition}$$</div>
+<p>They argue for a post-Seven civilisation in which cross-school literacy and new forms of magical cognition are legitimate rather than exceptional.</p></div>
+
+<div class="faction"><span class="tag">Faction Three</span><h3>The Intercessors</h3>
+<p>Merchant houses, intelligence services, private laboratories, military units, criminal networks, collectors and governments recognise the Hinge as an operational advantage.</p>
+<div class="math">$$G_a\rightarrow G_b\rightarrow G_c\rightarrow G_a'$$</div>
+<p>If an action is impossible under one grammar, route it through another and return it altered. This is magical jurisdiction shopping. Their most valuable people are translators, mixed practitioners and failed specialists.</p></div>
+
+<div class="faction"><span class="tag">Faction Four</span><h3>The Unbound</h3>
+<div class="quote">“The Concordat did not preserve magic. It colonised it.”</div>
+<p>They include descendants of outlaw traditions, communities never recognised as Schools, Grey practitioners, Severed peoples and lineages whose techniques were absorbed into institutional systems.</p>
+<p>Where the Conservators see a partition failing, the Unbound see a prison opening.</p>
+<div class="quote">“What did the Seven have to exclude in order to become Seven?”</div></div>
+</section>
+
+<section id="children"><div class="part">III · Cognitive Consequence</div><h2>3. Children and the Problem of Magical Education</h2>
+<p>A child sees an unstable Hinge state that trained adults cannot perceive and asks why a house is “remembering two shapes.” Other children begin reporting similar perceptions.</p>
+<p>The explanation is not purity. It is <strong>under-consolidation</strong>.</p>
+<div class="math">$$\text{mastery}\uparrow\Rightarrow\text{interpretive stability}\uparrow$$</div>
+<div class="math">$$\text{interpretive permeability}\downarrow$$</div>
+<div class="callout"><strong>The child is not more powerful.</strong> The child is less finished.</div>
+<p>Magical education may always have had a hidden secondary function: teaching people not only how to perceive one grammar, but how not to perceive the spaces between grammars.</p></section>
+
+<section id="seven"><div class="part">IV · Character Logic</div><h2>4. Why the Seven Protagonists Can See</h2>
+<p class="lead">They are not chosen because they are perfect representatives. They are useful because each failed, slightly, at becoming one.</p>
+
+<div class="character"><div class="num">1</div><div><div class="badge">TKI · Parallax</div><h3>Resists closure</h3><p>Exceptional at holding multiple frames, poor at selecting one. What looks like indecision may be resistance to premature closure.</p></div></div>
+<div class="character"><div class="num">2</div><div><div class="badge">Al-Merican · Amanah</div><h3>Distrusts inherited authority</h3><p>Understands obligation deeply but refuses to assume that legitimacy automatically follows lineage, office or inheritance.</p></div></div>
+<div class="character"><div class="num">3</div><div><div class="badge">Sri Temenggong · Communion</div><h3>Cannot cleanly separate memory from possibility</h3><p>Perceives relationships institutions classify as projection or unreliability.</p></div></div>
+<div class="character"><div class="num">4</div><div><div class="badge">Lam Keng · Recomposition</div><h3>Allows material to answer back</h3><p>Technically gifted but insufficiently controlling. Materials appear to participate in operations.</p></div></div>
+<div class="character"><div class="num">5</div><div><div class="badge">Nine Rains · Reciprocity</div><h3>Refuses system boundaries</h3><p>Keeps tracing consequences beyond the officially defined field. “Why does the system stop here?”</p></div></div>
+<div class="character"><div class="num">6</div><div><div class="badge">Kora · Third Voice</div><h3>Finds absence where no absence should exist</h3><p>May be perceiving unrealised positions rather than missing witnesses.</p></div></div>
+<div class="character"><div class="num">7</div><div><div class="badge">Sund Commons</div><h3>Refuses to confuse fairness with even distribution</h3><p>Constantly asks whether a burden becomes legitimate merely because everyone carries the same amount.</p></div></div>
+
+<div class="math">$$\boxed{\text{Concordance}\neq\text{seven perfect representatives}}$$</div>
+<div class="math">$$\boxed{\text{Concordance}=\text{seven incomplete people capable of remaining permeable}}$$</div>
+</section>
+
+<section id="exit"><div class="part">V · First Collective Event</div><h2>5. Their First Meeting: Exit H</h2>
+<p>The seven do not meet elegantly. They disagree immediately. TKI keeps reframing the problem. Sund demands to know who carries the risk. Lam Keng wants to test the physical system. Temenggong refuses because the site is distressed. Al-Merican asks who authorised intervention. Kora wants to interview the station cleaner. Nine Rains wants months of data.</p>
+<p>Meanwhile Exit H remains open for 384 seconds.</p>
+<div class="quote">“Fine. We disagree later.”</div>
+<p>This becomes their first proto-Concordance: operational cooperation under unresolved disagreement.</p>
+</section>
+
+<section id="alternate"><div class="part">VI · Relational Possibility</div><h2>6. Beyond Exit H</h2>
+<p>They do not enter another universe. They emerge into the same Straits under a different historical settlement of magical relations.</p>
+<p>The city is familiar but wrong: another founder, another school crest, an eighth delegation on a war memorial, a civic institution that never existed in their world.</p>
+<div class="math">$$\text{actual}\neq\text{necessary}$$</div>
+<p>The Hinge moves them through <strong>relational possibility</strong>: coherent states of the same world that were never actualised but were never impossible.</p>
+<div class="callout"><strong>Some alternate settlements must be better.</strong> Otherwise the story becomes conservative. The pressure comes from discovering worlds that expose the contingency of their own.</div>
+</section>
+
+<section id="revisionists"><div class="part">VII · The New Antagonist Position</div><h2>7. The Revisionists</h2>
+<p>Eventually the protagonists discover that someone has been opening Hinges deliberately—not to destroy reality, but to compare outcomes.</p>
+<div class="quote">“Our world is a bad draft.”</div>
+<p>The Revisionist position treats history as a relational configuration that can be edited. Prevent a war. Restore an erased people. Recover a lost ecology. Save someone who died. Undo a violent settlement.</p>
+<p>But every edit transforms the network:</p>
+<div class="math">$$\Delta R_a\Rightarrow \Delta R_b,\Delta R_c,\dots,\Delta R_n$$</div>
+<div class="quote">“History is only sacred to those who benefited from the version that happened.”</div>
+
+<table>
+<thead><tr><th>Position</th><th>Core claim</th></tr></thead>
+<tbody>
+<tr><td>Grey</td><td>Nothing should be forced to remain itself.</td></tr>
+<tr><td>Clear</td><td>Reality should be stabilised into maximally coherent form.</td></tr>
+<tr><td>Conservators</td><td>Continuity has moral and civilisational weight.</td></tr>
+<tr><td>Continuists</td><td>The Seven should evolve beyond historical partition.</td></tr>
+<tr><td>Unbound</td><td>Continuity may preserve exclusion and enclosure.</td></tr>
+<tr><td>Revisionists</td><td>Actuality is not legitimacy.</td></tr>
+</tbody>
+</table>
+
+<div class="quote">Does a world have the right to remain itself merely because it happened?</div>
+<p>The emerging answer may be neither preservation nor revision. Concordance may evolve into the capacity to acknowledge unrealised worlds without allowing any one of them to erase the others.</p>
+<div class="math">$$\boxed{\text{the actual}+\text{the possible}+\text{the lost}+\text{the refused}}$$</div>
+
+<p class="footer-note">Parallel Straits · The Hinge Crisis · documented at the point where cosmology became political order, character logic and narrative conflict.</p>
+</section>
+
+</main>
+</body>
+</html>

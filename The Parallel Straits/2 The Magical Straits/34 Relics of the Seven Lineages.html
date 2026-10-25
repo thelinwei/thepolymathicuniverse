@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relics of the Seven Lineages</title>
+<style>
+:root{
+  --bg:#0e0d0b;
+  --paper:#171512;
+  --paper2:#1f1b16;
+  --ink:#f0e6d2;
+  --muted:#b8aa91;
+  --line:#5a4a34;
+  --gold:#c79a4a;
+  --red:#7e3d31;
+  --blue:#475f6f;
+  --green:#58664d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(199,154,74,.08), transparent 28rem),
+    linear-gradient(180deg,#0e0d0b,#11100d 65%,#0c0b09);
+  color:var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height:1.65;
+}
+a{color:#d8b86e}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 24px 90px}
+.hero{
+  border:1px solid var(--line);
+  padding:64px 7vw 56px;
+  min-height:68vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.45)),
+    linear-gradient(135deg,#272017,#12110e 70%);
+  position:relative;
+  overflow:hidden;
+}
+.hero:before{
+  content:"";
+  position:absolute; inset:18px;
+  border:1px solid rgba(199,154,74,.25);
+  pointer-events:none;
+}
+.kicker{
+  font-family:Arial,sans-serif;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-size:.76rem;
+  margin-bottom:18px;
+}
+h1{
+  font-size:clamp(3rem,8vw,7rem);
+  line-height:.92;
+  margin:0 0 22px;
+  font-weight:500;
+  max-width:980px;
+}
+.deck{font-size:1.2rem;color:#d8ccb6;max-width:760px;margin:0}
+.meta{
+  margin-top:28px;
+  display:flex;flex-wrap:wrap;gap:10px;
+  font-family:Arial,sans-serif;font-size:.78rem;color:var(--muted)
+}
+.meta span{border:1px solid #4f4434;padding:6px 9px}
+.section{padding:68px 0;border-bottom:1px solid #352f26}
+.section h2{
+  font-size:clamp(2rem,4vw,3.7rem);
+  line-height:1.04;margin:0 0 22px;font-weight:500
+}
+.lead{font-size:1.18rem;max-width:900px;color:#ddd1bd}
+.pull{
+  margin:38px 0;
+  padding:24px 28px;
+  border-left:3px solid var(--gold);
+  background:#18140f;
+  font-size:1.55rem;
+  line-height:1.35;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:24px;
+  margin-top:32px
+}
+.card{
+  border:1px solid #40382d;
+  background:linear-gradient(180deg,#191612,#14120f);
+  padding:28px;
+}
+.card h3{font-size:1.45rem;margin:0 0 12px;font-weight:500}
+.card p{margin:.6rem 0;color:#d6c9b5}
+.label{
+  font-family:Arial,sans-serif;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);font-size:.7rem;margin-bottom:10px
+}
+.relic{
+  border-top:1px solid #4b4031;
+  padding:56px 0;
+  display:grid;
+  grid-template-columns:1fr 2.1fr;
+  gap:42px;
+}
+.relic .num{
+  font-family:Arial,sans-serif;
+  font-size:5rem;line-height:1;
+  color:#5b4b34;
+}
+.relic h3{font-size:2.3rem;line-height:1.05;margin:0 0 10px;font-weight:500}
+.subtitle{font-style:italic;color:#cdbb9c;font-size:1.15rem}
+.specs{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;margin:20px 0 8px
+}
+.spec{
+  border:1px solid #3a332a;
+  padding:12px 14px;
+  background:#12100d
+}
+.spec b{
+  display:block;
+  font-family:Arial,sans-serif;font-size:.66rem;
+  letter-spacing:.12em;text-transform:uppercase;color:#a98b57;
+  margin-bottom:4px
+}
+.note{
+  color:#c8b99e;
+  border-left:2px solid #574832;
+  padding-left:16px;
+  margin:18px 0;
+}
+.weapon-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px
+}
+.weapon{
+  padding:22px;border:1px solid #3e362b;background:#15120f
+}
+.weapon h3{margin:0 0 8px;font-size:1.35rem}
+.table{
+  width:100%;border-collapse:collapse;margin-top:28px;font-size:.94rem
+}
+.table th,.table td{
+  border-bottom:1px solid #3b3328;padding:14px 12px;vertical-align:top
+}
+.table th{
+  text-align:left;font-family:Arial,sans-serif;font-size:.68rem;
+  text-transform:uppercase;letter-spacing:.12em;color:#aa8e5d
+}
+.timeline{
+  display:grid;grid-template-columns:170px 1fr;gap:18px;margin:18px 0
+}
+.timeline .era{color:#b9924d;font-family:Arial,sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+.sources li{margin:.5rem 0;color:#d3c4ad}
+.footer{padding-top:44px;color:#958975;font-size:.9rem}
+.smallcaps{font-variant:small-caps;letter-spacing:.05em}
+@media(max-width:800px){
+  .hero{min-height:58vh;padding:46px 30px}
+  .grid,.weapon-grid,.relic,.specs{grid-template-columns:1fr}
+  .relic{gap:14px}
+  .relic .num{font-size:3.6rem}
+  .timeline{grid-template-columns:1fr;gap:4px}
+}
+@media print{
+  body{background:#fff;color:#111}
+  .hero,.card,.weapon,.spec{background:#fff;color:#111}
+  .wrap{max-width:none}
+  a{color:#111}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Archive of the Seven Lineages · Crown Treasury Catalogue</div>
+  <h1>Relics of the Seven Lineages</h1>
+  <p class="deck">
+    Crown treasures, lost instruments, weapons, garments, seals and civic machines
+    from a magical world in which power is not simply stored in objects,
+    but mediated through relationship, obligation, place, memory and collective action.
+  </p>
+  <div class="meta">
+    <span>Worldbuilding Document</span>
+    <span>Museum Catalogue Edition</span>
+    <span>Fully Expanded</span>
+    <span>26 September 2026</span>
+  </div>
+</header>
+
+<section class="section">
+  <div class="kicker">Curatorial Premise</div>
+  <h2>Museum object first. Magical object second.</h2>
+  <p class="lead">
+    The relics are most convincing when they feel like objects that could sit quietly in a museum vitrine:
+    darkened bronze, rubbed silver, cracked lacquer, silk, garnet, shell, meteorite iron,
+    worm-eaten timber, old repairs, replacement rivets and inscriptions added by later custodians.
+    Their power does not need to announce itself.
+  </p>
+
+  <div class="pull">
+    The greatest relics are not treasured because they contain more magical energy.
+    They are treasured because humanity no longer knows how to make objects that establish
+    relationships at their scale.
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="label">Material logic</div>
+      <h3>Power has a body</h3>
+      <p>
+        Every artifact has weight, grain, corrosion, brittleness, repair history and craft genealogy.
+        Its materials are not decoration: they are part of the magical grammar.
+      </p>
+    </div>
+    <div class="card">
+      <div class="label">Ritual logic</div>
+      <h3>Power has conditions</h3>
+      <p>
+        A relic may refuse ownership, demand reciprocal obligation, require several wielders,
+        or fail when used to confirm a pre-existing conclusion.
+      </p>
+    </div>
+    <div class="card">
+      <div class="label">Institutional logic</div>
+      <h3>Power has custody</h3>
+      <p>
+        Crown treasures are embedded in schools, archives, courts, temples, engineering guilds and public trusts.
+        The institution matters as much as the object.
+      </p>
+    </div>
+    <div class="card">
+      <div class="label">Deep-time logic</div>
+      <h3>The relic may be only a handle</h3>
+      <p>
+        The surviving object may be a key, interface, control plate or broken component of an older
+        planetary infrastructure whose complete form is no longer understood.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">Catalogue I</div>
+  <h2>The Seven Crown Relics</h2>
+
+  <article class="relic">
+    <div>
+      <div class="num">I</div>
+      <div class="label">Meridian Orders / Parallax</div>
+    </div>
+    <div>
+      <h3>The Astrolabe of the Unfixed Heaven</h3>
+      <div class="subtitle">A survey instrument for realities that disagree about their centre.</div>
+      <div class="specs">
+        <div class="spec"><b>Materials</b>Darkened brass, meteoric iron, silver wire, rock crystal</div>
+        <div class="spec"><b>Scale</b>Approx. 70 cm diameter</div>
+        <div class="spec"><b>Wielding condition</b>The user must declare their frame of reference and limitation</div>
+        <div class="spec"><b>Status</b>Crown treasure; only three of seven crystal plates survive</div>
+      </div>
+      <p>
+        Seven nested retes represent not seven locations, but seven frames of reference.
+        When calibrated, they reveal mismatches between political, ecological, historical,
+        social and spatial realities.
+      </p>
+      <p>
+        Its most feared operation is <span class="smallcaps">The Removal of North</span>:
+        for a short period, a supposed constant—ownership, hierarchy, border, identity or cause—
+        can be removed from a magical system so that all remaining relationships become visible.
+      </p>
+      <p class="note">
+        Anyone claiming complete objectivity causes the retes to lock.
+        The central axle fits descriptions of the legendary World Measure,
+        suggesting that the surviving object may once have been a detachable control instrument
+        for a planetary surveying machine.
+      </p>
+    </div>
+  </article>
+
+  <article class="relic">
+    <div>
+      <div class="num">II</div>
+      <div class="label">Covenant Roads / Amanah</div>
+    </div>
+    <div>
+      <h3>The Seal That Signs Twice</h3>
+      <div class="subtitle">A device that makes obligation reciprocal.</div>
+      <div class="specs">
+        <div class="spec"><b>Materials</b>Blackened silver, red carnelian, flawless rock crystal</div>
+        <div class="spec"><b>Scale</b>Palm-sized, double-ended seal</div>
+        <div class="spec"><b>Wielding condition</b>Mutual comprehension and informed consent</div>
+        <div class="spec"><b>Status</b>Constitutional treasure under three-key custody</div>
+      </div>
+      <p>
+        The Seal does not merely bind a promise. It binds each party to the full structure of the obligation.
+        A ruler who guarantees a village's water becomes metaphysically incapable of forgetting
+        that the water belongs to the covenant rather than to the ruler.
+      </p>
+      <p>
+        A lender can make repayment enforceable, but exploitation becomes equally impossible:
+        the creditor carries the debtor's suffering as measurable weight.
+      </p>
+      <p class="note">
+        The crystal clouds when legal language is deliberately designed to obscure obligation.
+        Micro-inscriptions around its core list vanished ports, suggesting that it may once have been
+        a terminal in the legendary Ocean of Trust.
+      </p>
+    </div>
+  </article>
+
+  <article class="relic">
+    <div>
+      <div class="num">III</div>
+      <div class="label">Keepers of Ground / Communion</div>
+    </div>
+    <div>
+      <h3>The Vessel That Cannot Be Moved</h3>
+      <div class="subtitle">A ritual bronze containing no liquid, but place itself.</div>
+      <div class="specs">
+        <div class="spec"><b>Materials</b>Copper, tin, iron, pulverised ceramics, impossible geological trace minerals</div>
+        <div class="spec"><b>Scale</b>Approx. one metre wide; depth unknown</div>
+        <div class="spec"><b>Wielding condition</b>The user must identify as custodian, not proprietor</div>
+        <div class="spec"><b>Status</b>Immovable; museum constructed around it</div>
+      </div>
+      <p>
+        Touching the inner surface reveals successive occupations of the ground beneath:
+        river, forest, settlement, cemetery, battlefield, rail line, tower—held simultaneously.
+      </p>
+      <p>
+        Its operation, <span class="smallcaps">Rooting</span>, can make a threatened place temporarily
+        impossible to erase from collective reality.
+      </p>
+      <p class="note">
+        Anyone attempting to claim the land for themselves becomes unable to remove their hand from the rim
+        until another person releases them. Seismic readings imply the object continues beneath the surface
+        for kilometres. The visible vessel may be only an exposed node of the Root Below Continents.
+      </p>
+    </div>
+  </article>
+
+  <article class="relic">
+    <div>
+      <div class="num">IV</div>
+      <div class="label">Houses of Setting / Recomposition</div>
+    </div>
+    <div>
+      <h3>The First Forme</h3>
+      <div class="subtitle">A printing machine whose type is made of operations rather than letters.</div>
+      <div class="specs">
+        <div class="spec"><b>Materials</b>Bronze, mercury-black compound, ceramic matrices, lost alloys</div>
+        <div class="spec"><b>Scale</b>Cabinet-sized press with 384 type pieces</div>
+        <div class="spec"><b>Wielding condition</b>The cost of every transformation must be locatable</div>
+        <div class="spec"><b>Status</b>71 known characters survive</div>
+      </div>
+      <p>
+        Divide. Bind. Hollow. Mirror. Harden. Remember. Reverse. Branch. Dissolve.
+        Each piece of type encodes an operation.
+      </p>
+      <p>
+        A Setter composes a sentence, inks the surface and presses it against matter.
+        For several minutes, matter obeys the syntax. A collapsed bridge may remember its previous geometry;
+        a wall may become porous without ceasing to stand; armour can be recomposed around a body.
+      </p>
+      <p class="note">
+        Setting cannot create matter. Every transformation produces an account elsewhere.
+        The oldest injunction is therefore: <em>Never print a sentence whose costs you cannot locate.</em>
+        A type slug recovered from the Port That Was Carried Away fits the mechanism perfectly.
+      </p>
+    </div>
+  </article>
+
+  <article class="relic">
+    <div>
+      <div class="num">V</div>
+      <div class="label">Weaving Calendars / Reciprocity</div>
+    </div>
+    <div>
+      <h3>The Carpet Upon Which Rain Returns</h3>
+      <div class="subtitle">A woven hydrological model that can negotiate with a watershed.</div>
+      <div class="specs">
+        <div class="spec"><b>Materials</b>Indigo wool, silk, reed fibre, silver filament, horsehair, human hair, mineral beads</div>
+        <div class="spec"><b>Scale</b>Approx. 25 metres long</div>
+        <div class="spec"><b>Wielding condition</b>No single human may know the complete pattern</div>
+        <div class="spec"><b>Status</b>Living crown treasure; re-woven annually</div>
+      </div>
+      <p>
+        Every knot represents a relationship rather than a point: rain, aquifer, crop,
+        evaporation, river, migration, storage, population.
+      </p>
+      <p>
+        Spread correctly during monsoon rites, the Carpet begins altering infiltration,
+        runoff, cloud formation and groundwater recharge until imbalance is gradually corrected.
+        It cannot simply "make rain": increase elsewhere creates an account somewhere else.
+      </p>
+      <p class="note">
+        At least forty-nine people must operate different regions simultaneously.
+        Nine Rains teaches that the power lies in object + ecology + distributed knowledge + maintenance.
+        Border motifs correspond to descriptions of the lost Planetary Loom.
+      </p>
+    </div>
+  </article>
+
+  <article class="relic">
+    <div>
+      <div class="num">VI</div>
+      <div class="label">Singing Lineages / Third Voice</div>
+    </div>
+    <div>
+      <h3>The Lyre of Those Who Were Not Recorded</h3>
+      <div class="subtitle">An instrument that does not reveal truth; it reveals absence.</div>
+      <div class="specs">
+        <div class="spec"><b>Materials</b>Wood, gold, shell, lapis, bitumen, unknown string material</div>
+        <div class="spec"><b>Scale</b>Ceremonial lyre, seven surviving strings</div>
+        <div class="spec"><b>Wielding condition</b>The player must not seek confirmation of a predetermined conclusion</div>
+        <div class="spec"><b>Status</b>One string lost; notation possibly survives elsewhere</div>
+      </div>
+      <p>
+        During performances recounting historical events, extra tones emerge:
+        the rhythm of fleeing civilians beneath a victory song, an omitted branch beneath a genealogy,
+        pauses corresponding to questions nobody asked.
+      </p>
+      <p>
+        The Lyre does not adjudicate a single authoritative account.
+        It makes absence audible.
+      </p>
+      <p class="note">
+        Museum records identify an eighth string made from an unknown material.
+        The Forbidden Verse recovered from the Port That Was Carried Away may not be prose at all,
+        but notation for this missing string.
+      </p>
+    </div>
+  </article>
+
+  <article class="relic">
+    <div>
+      <div class="num">VII</div>
+      <div class="label">Ring Assemblies / Commons</div>
+    </div>
+    <div>
+      <h3>The Bell That Cannot Be Rung Alone</h3>
+      <div class="subtitle">A machine for making burdens visible and shareable.</div>
+      <div class="specs">
+        <div class="spec"><b>Materials</b>Layered bronze, many repair alloys, old timber suspension frame</div>
+        <div class="spec"><b>Scale</b>Monumental bell with seven ropes</div>
+        <div class="spec"><b>Wielding condition</b>Seven distinct social roles must act together</div>
+        <div class="spec"><b>Status</b>Public crown treasure; extensively repaired</div>
+      </div>
+      <p>
+        One person can pull a rope. Nothing happens. Two produce a vibration.
+        Seven acting together make the Bell ring.
+      </p>
+      <p>
+        When it rings, load redistributes: structural stress, magical expenditure,
+        logistics, labour, shortages and other burdens can be spread across a network.
+        It never eliminates cost. Someone still carries it.
+      </p>
+      <p class="note">
+        Sund law requires the burden-bearers to be publicly named before the Bell is rung.
+        A seemingly insignificant timber peg in its frame is older than the Bell itself.
+        That peg matches the surviving timber fragment from the Port That Was Carried Away.
+        The Bell may simply be the latest apparatus humanity has attached to the true relic.
+      </p>
+    </div>
+  </article>
+</section>
+
+<section class="section">
+  <div class="kicker">Catalogue II</div>
+  <h2>Weapons, Armour & Instruments of Conflict</h2>
+  <p class="lead">
+    Weapons in this world should express the metaphysics of their lineage.
+    They are not merely enhanced instruments of violence; each one imposes a conceptual cost.
+  </p>
+
+  <div class="weapon-grid">
+    <div class="weapon">
+      <div class="label">Parallax</div>
+      <h3>The Parallax Helm</h3>
+      <p>
+        A dark iron helm plated with tinned copper, silver wire and garnet oculars.
+        It reveals several plausible interpretations of an opponent's next movement at once.
+        Extended use erodes confidence that any single perception is real.
+      </p>
+    </div>
+    <div class="weapon">
+      <div class="label">Amanah</div>
+      <h3>Both Edges of the Promise</h3>
+      <p>
+        A sword that can be drawn only against someone who has violated an oath.
+        If the wielder's own side has broken the same covenant, the sword cuts the wielder first.
+      </p>
+    </div>
+    <div class="weapon">
+      <div class="label">Communion</div>
+      <h3>The Cuirass of Home Soil</h3>
+      <p>
+        Hundreds of fired-earth plates made from the defender's homeland.
+        It becomes extraordinarily strong while defending that ground and unbearably heavy during conquest.
+      </p>
+    </div>
+    <div class="weapon">
+      <div class="label">Setting</div>
+      <h3>The Recomposition Gauntlet</h3>
+      <p>
+        Allows blade, chain, shield and spear to be recomposed from the same material during combat.
+        Every transformation permanently consumes a small amount of matter.
+      </p>
+    </div>
+    <div class="weapon">
+      <div class="label">Reciprocity</div>
+      <h3>The Monsoon Mantle</h3>
+      <p>
+        Thousands of weighted silk tassels shape air, moisture and pressure across a battlefield.
+        It fails when local wells and soils are already exhausted.
+      </p>
+    </div>
+    <div class="weapon">
+      <div class="label">Third Voice</div>
+      <h3>The Mask of the Unheard</h3>
+      <p>
+        Causes everyone within hearing to perceive testimony from casualties, prisoners,
+        bystanders and others normally excluded from command decisions.
+      </p>
+    </div>
+    <div class="weapon">
+      <div class="label">Commons</div>
+      <h3>The Sevenfold Shield</h3>
+      <p>
+        Seven mediocre shields when separated. When interlocked by seven defenders,
+        impact striking one is distributed across all.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">Catalogue III</div>
+  <h2>Why These Objects Became Crown Treasures</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Ordinary magic</th>
+        <th>Ancient relic-scale magic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Summon fire</td>
+        <td>Maintain a four-hundred-year relationship between a civilisation and its watershed</td>
+      </tr>
+      <tr>
+        <td>Enchant a sword</td>
+        <td>Encode reciprocal obligation into public law</td>
+      </tr>
+      <tr>
+        <td>Repair a wall</td>
+        <td>Teach matter to remember previous structural states</td>
+      </tr>
+      <tr>
+        <td>Read a memory</td>
+        <td>Hold successive occupations of a place simultaneously</td>
+      </tr>
+      <tr>
+        <td>Shield a person</td>
+        <td>Redistribute burdens across an entire civic network</td>
+      </tr>
+      <tr>
+        <td>Tell the truth</td>
+        <td>Make absence itself perceptible without collapsing it into a single authorised account</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <div class="kicker">Deep-Time Hypothesis</div>
+  <h2>The Seven Keys of the Port That Was Carried Away</h2>
+  <p class="lead">
+    The humblest surviving objects may be the most dangerous:
+    a seal fragment, a type slug, a timber peg, a line of notation, a shard of crystal,
+    a strand of textile, a buried metal fitting.
+  </p>
+  <div class="pull">
+    They may not be relics of the lost port.<br>
+    They may be seven interfaces removed from the same planetary machine.
+  </div>
+
+  <div class="timeline">
+    <div class="era">Modern interpretation</div>
+    <div>Seven unrelated antiquities from different magical traditions.</div>
+  </div>
+  <div class="timeline">
+    <div class="era">Scholarly suspicion</div>
+    <div>Repeated dimensional correspondences suggest technical compatibility across institutions.</div>
+  </div>
+  <div class="timeline">
+    <div class="era">Forbidden hypothesis</div>
+    <div>The Seven Lineages may not have originated as separate traditions at all,
+      but as custodial specialisations around one lost planetary infrastructure.</div>
+  </div>
+  <div class="timeline">
+    <div class="era">Unanswered question</div>
+    <div>Nobody alive remembers what happens when all seven surviving interfaces are brought together.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">Real-World Material Anchors</div>
+  <h2>Museum traditions informing the visual language</h2>
+  <p class="lead">
+    The fictional relics are intentionally grounded in real traditions of metalwork,
+    textile making, instrument construction, reliquary craft, ritual bronze casting and mechanical objects.
+    These references are starting points for visual imagination rather than direct copies.
+  </p>
+  <ul class="sources">
+    <li><a href="https://www.britishmuseum.org/blog/seeing-stars-astrolabes-and-islamic-world">British Museum — Astrolabes and the Islamic world</a></li>
+    <li><a href="https://www.britishmuseum.org/collection/object/A_1957-0221-1">British Museum — Chinese ritual bronze vessel</a></li>
+    <li><a href="https://www.britishmuseum.org/collection/object/W_1928-1010-1">British Museum — Lyre from Ur</a></li>
+    <li><a href="https://www.vam.ac.uk/articles/the-ardabil-carpet">V&A — The Ardabil Carpet</a></li>
+    <li><a href="https://www.vam.ac.uk/articles/tipus-tiger">V&A — Tipu's Tiger</a></li>
+    <li><a href="https://www.metmuseum.org/art/collection/search/193674">The Met — Medieval reliquary with rock crystal</a></li>
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>
+    <strong>Relics of the Seven Lineages</strong><br>
+    Worldbuilding archive · museum catalogue draft · September 2026
+  </p>
+  <p>
+    Design note: the document is intentionally static and fully expanded for archival reading.
+    No collapsible panels, horizontal swivel, or hidden sections are used.
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

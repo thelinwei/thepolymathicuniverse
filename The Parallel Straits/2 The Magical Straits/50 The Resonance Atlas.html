@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Resonance Atlas · 感应录</title>
+<style>
+:root{
+  --paper:#F6F6F2; --ink:#1E2129; --soft:#4A4F5C; --rule:#C4C7CC; --acc:#7A4A12; --panel:#ECEDE8; --seam:#2E6E62;
+  --tk:#2B4A78; --am:#1F6F5C; --bp:#8C6A1C; --lf:#9B2C2C; --nr:#6A3E83; --sk:#B0601A; --su:#5F8497;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --acc:#E3AE62; --panel:#20232B; --seam:#6FC2AE;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}}
+:root[data-theme="dark"]{
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --acc:#E3AE62; --panel:#20232B; --seam:#6FC2AE;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Times New Roman",Times,"Songti SC","Noto Serif SC","SimSun",serif;
+  font-size:19px;line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding-left:22px;padding-right:22px}
+.wide{max-width:1000px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{padding-top:64px;padding-bottom:28px}
+.series{font-style:italic;color:var(--soft);margin:0 0 18px;font-size:17px}
+h1{font-weight:400;font-size:clamp(46px,9.5vw,90px);line-height:.95;letter-spacing:-.02em;margin:0}
+h1 .zh{display:block;font-size:.5em;letter-spacing:.3em;margin-top:14px;color:var(--acc)}
+.deck{font-size:22px;line-height:1.45;margin:28px 0 0;max-width:34em}
+.part{font-variant:small-caps;letter-spacing:.08em;color:var(--acc);font-size:19px;margin:0 0 6px}
+h2{font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.08;margin:0 0 20px;letter-spacing:-.01em}
+h3{font-weight:700;font-size:21px;margin:30px 0 8px}
+section{padding-top:50px;padding-bottom:50px;border-top:1px solid var(--rule)}
+.partbreak{padding-top:80px;padding-bottom:30px;border-top:3px double var(--ink)}
+.partbreak h2{font-size:clamp(40px,8vw,62px)}
+p{margin:0 0 16px}
+.lede{font-size:21px}
+.pull{font-size:23px;line-height:1.4;margin:26px 0;padding-left:20px;border-left:3px solid var(--acc)}
+.panel{background:var(--panel);padding:20px 22px;margin:20px 0}
+.panel p:last-child{margin:0}
+.quote{font-size:22px;margin:0 0 4px}
+.gloss{font-style:italic;color:var(--soft);font-size:17px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:20px 0}
+@media (max-width:620px){.grid2{grid-template-columns:1fr}}
+.grid2>div{border-top:2px solid var(--ink);padding-top:10px}
+.grid2 b{display:block;font-size:20px;font-weight:400;margin-bottom:4px}
+figure{margin:24px 0}
+svg{width:100%;height:auto;display:block}
+.cap{font-style:italic;color:var(--soft);font-size:16px;margin-top:10px}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+table{border-collapse:collapse;font-size:17px;width:100%;min-width:620px}
+th,td{padding:10px 8px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+th{font-weight:400;font-style:italic;color:var(--soft)}
+/* house entries */
+.house{padding-top:56px;padding-bottom:56px;border-top:1px solid var(--rule)}
+.hhead{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline}
+.hhead h2{margin:0}
+.hhead .gw{font-style:italic;color:var(--c);font-size:24px}
+.anc{font-variant:small-caps;letter-spacing:.05em;color:var(--c);margin:8px 0 18px}
+.question{font-size:22px;font-style:italic;margin:0 0 22px}
+.logic{border-top:1px solid var(--rule);padding-top:16px;padding-bottom:16px}
+.logic:first-of-type{border-top:2px solid var(--c)}
+.logic .name{font-size:21px}
+.logic .from{font-style:italic;color:var(--soft);font-size:16px;margin-left:6px}
+.logic .says{margin:6px 0 8px}
+.lawline{padding-left:16px;border-left:3px solid var(--c)}
+.lawline::before{content:"As law. ";font-variant:small-caps;letter-spacing:.04em;color:var(--c)}
+.figs{margin-top:22px;background:var(--panel);padding:18px 20px}
+.figs h3{margin:0 0 8px;font-weight:400;font-variant:small-caps;letter-spacing:.05em;color:var(--c);font-size:19px}
+.fig{margin:0 0 12px}
+.fig b{font-weight:700}
+.fig:last-child{margin:0}
+.remember{margin-top:20px;font-style:italic}
+.remember::before{content:"What the old logic remembers. ";font-style:normal;font-variant:small-caps;letter-spacing:.04em;color:var(--c)}
+.shadow{margin-top:10px}
+.shadow::before{content:"Its shadow. ";font-variant:small-caps;letter-spacing:.04em;color:var(--soft)}
+.kin{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:10px}
+.kin div{border-top:2px solid var(--ink);padding-top:10px}
+.kin b{display:block;font-size:20px;font-weight:400}
+.kin i{display:block;color:var(--soft);font-size:16px;margin-bottom:6px}
+.scene p{font-size:20px}
+footer{padding-top:40px;padding-bottom:80px;color:var(--soft);font-style:italic;font-size:16px;border-top:1px solid var(--rule)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wide>.inner{padding-left:0;padding-right:0;max-width:676px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <p class="series">The Great Schools of the Straits · companion to the Ancestral Atlas and Beyond the Human</p>
+  <h1>The Resonance Atlas<span class="zh">感应录</span></h1>
+  <p class="deck">The world’s old traditions, read for their logic of reality. Each logic is stated as a law, set beside the ancestral family it rhymes with, and followed down into the folk figures readers already love: the dragon king, the earth god, the hungry ghost, the cultivator’s tribulation.</p>
+</header>
+
+<section class="wrap" style="border-top:none;padding-top:8px">
+  <p class="lede">The Seven descend from realities that were never person-shaped: phase oceans, reef-lands, weather that returns. Human cultures across the world, reasoning about their own lives, arrived at logics that sound uncannily like those realities. In the Straits, scholars have a word for this convergence. They call it 感应, resonance: things of a kind answering one another across distance, without contact.</p>
+  <p>That gives the novel a second register beside the scientific one. Where the ancestral atlases speak of axioms and topologies, this atlas speaks of the Dao, of karma, of the mandate of Heaven, of the spirit of the gift. The physics stays the same. The reader meets it through doors they already know.</p>
+</section>
+
+<!-- ============ PART ONE ============ -->
+<section class="wrap partbreak">
+  <p class="part">Part one</p>
+  <h2>Frameworks</h2>
+</section>
+
+<section class="wrap" id="ladder">
+  <p class="part">Framework one</p>
+  <h2>The compression ladder</h2>
+  <p><i>Beyond the Human</i> gave the key idea: anthropic compression, the way a foreign causality survives by being squeezed into human shape. The ladder makes that process usable for storytelling. Every folk figure sits at the bottom of a ladder that climbs back to a reality with no people in it.</p>
+  <figure>
+    <svg viewBox="0 0 720 470" role="img" aria-label="Five rungs from ancestral reality down to the Straits reading, with the dragon king as example.">
+      <g font-family="Times New Roman, serif">
+        <g id="rungs"><rect x="20" y="30" width="680" height="66" fill="var(--panel)" stroke="var(--nr)" stroke-width="1.5"></rect><text x="40" y="57" font-size="19" font-variant="small-caps" fill="var(--nr)">Ancestral reality</text><text x="40" y="82" font-size="17" font-style="italic" fill="var(--ink)">The Returning Weather: a field-self that recurs across centuries, with no interior</text><line x1="360" y1="96" x2="360" y2="118" stroke="var(--soft)" stroke-width="1.5"></line><polygon points="354,112 366,112 360,118" fill="var(--soft)"></polygon><rect x="20" y="118" width="680" height="66" fill="var(--panel)" stroke="var(--nr)" stroke-width="1.5"></rect><text x="40" y="145" font-size="19" font-variant="small-caps" fill="var(--nr)">Kindred logic</text><text x="40" y="170" font-size="17" font-style="italic" fill="var(--ink)">Xunzi: Heaven’s course is constant and indifferent. Karma as ripening seed.</text><line x1="360" y1="184" x2="360" y2="206" stroke="var(--soft)" stroke-width="1.5"></line><polygon points="354,200 366,200 360,206" fill="var(--soft)"></polygon><rect x="20" y="206" width="680" height="66" fill="var(--panel)" stroke="var(--acc)" stroke-width="1.5"></rect><text x="40" y="233" font-size="19" font-variant="small-caps" fill="var(--acc)">Human law</text><text x="40" y="258" font-size="17" font-style="italic" fill="var(--ink)">What you set moving returns, on its own schedule, whether or not it is deserved</text><line x1="360" y1="272" x2="360" y2="294" stroke="var(--soft)" stroke-width="1.5"></line><polygon points="354,288 366,288 360,294" fill="var(--soft)"></polygon><rect x="20" y="294" width="680" height="66" fill="var(--panel)" stroke="var(--acc)" stroke-width="1.5"></rect><text x="40" y="321" font-size="19" font-variant="small-caps" fill="var(--acc)">Folk figure</text><text x="40" y="346" font-size="17" font-style="italic" fill="var(--ink)">The dragon king, lord of rain, who can be prayed to and offended</text><line x1="360" y1="360" x2="360" y2="382" stroke="var(--soft)" stroke-width="1.5"></line><polygon points="354,376 366,376 360,382" fill="var(--soft)"></polygon><rect x="20" y="382" width="680" height="66" fill="var(--panel)" stroke="var(--ink)" stroke-width="2.5"></rect><text x="40" y="409" font-size="19" font-variant="small-caps" fill="var(--ink)">Straits reading</text><text x="40" y="434" font-size="17" font-style="italic" fill="var(--ink)">The dragon is a translation of the storm. Keep the face, restore the storm.</text></g>
+      </g>
+    </svg>
+    <figcaption class="cap">Read downward, the ladder shows how a storm becomes a dragon. Read upward, it shows the novel’s whole method: every familiar trope is a door back to something stranger.</figcaption>
+  </figure>
+  <p>The dragon king works because it is a good compression. It keeps what matters about the monsoon, its return, its power, its indifference to individual petition, and gives it a face that people can pray to. The Straits reading keeps the face and restores the storm behind it.</p>
+</section>
+
+<section class="wrap" id="rules">
+  <p class="part">Framework two</p>
+  <h2>Four rules of extraction</h2>
+  <div class="grid2">
+    <div><b>Extract the logic, leave the costume</b>Each tradition is read for its claim about how reality works, stated as a law. Names, garments, geographies and institutions stay with their people.</div>
+    <div><b>Three regions per house</b>Every house draws its kindred logics from at least three parts of the world. No house reads as one ethnicity, and each reader finds a door from home.</div>
+    <div><b>Law, figure, memory, shadow</b>Every logic yields a law of the world, a folk figure to reinterpret, something it remembers that the house forgot, and the way it goes wrong.</div>
+    <div><b>Convergence is resonance</b>In the world, these traditions are independent human discoveries of real ancestral physics. The logic belongs to the people who reasoned it out, and the Straits honours them as the first scholars of it.</div>
+  </div>
+</section>
+
+<section class="wrap" id="hundun">
+  <p class="part">Framework three</p>
+  <h2>The keystone myth: seven holes</h2>
+  <p>The world already has a founding myth waiting for it. In the <i>Zhuangzi</i>, the emperors of the southern and northern seas visit Hundun, the emperor of the centre, who has no openings. Wanting to repay his kindness, they decide to give him the seven holes every person has for seeing, hearing, eating and breathing.</p>
+  <p class="quote">日凿一窍，七日而浑沌死。</p>
+  <p class="gloss">Each day they bored one hole. On the seventh day, Hundun died.</p>
+  <p>This is the Seven as partition, told as a story every Chinese reader knows. Seven senses drilled into an undivided whole so that it could perceive, and the drilling kills what it was meant to honour. The Grey cult that takes Hundun’s name reads the myth as an accusation. The Concordat reads it as the price of being able to see at all.</p>
+  <p>Almost every culture holds a version, which makes it legible from every door:</p>
+  <div class="tbl"><table>
+    <tbody><tr><th>Myth</th><th>The whole</th><th>How it was divided</th><th>Resonance in the Straits</th></tr>
+    <tr><td>浑沌</td><td>Hundun, the faceless centre</td><td>Seven holes, one a day</td><td>The Seven as senses drilled into Ω</td></tr>
+    <tr><td>盘古</td><td>Pangu in the cosmic egg</td><td>His body becomes mountains, rivers, stars</td><td>The world is made of a being’s parts</td></tr>
+    <tr><td>Ymir</td><td>The frost giant</td><td>Slain and shaped into land, sea and sky</td><td>Sund’s north carries a dismemberment in its cosmology</td></tr>
+    <tr><td>Puruṣa</td><td>The thousand-headed person</td><td>Sacrificed and distributed into world and orders</td><td>Partition becomes social order, and order becomes hierarchy</td></tr>
+    <tr><td>Babel</td><td>One language</td><td>Scattered into many tongues</td><td>The Clear remembers Babel as paradise</td></tr>
+    <tr><td>Pentecost</td><td>Many tongues</td><td>Each hears the message in their own language</td><td>The Straits’ native law: translation without sameness</td></tr>
+  </tbody></table></div>
+  <p>Babel and Pentecost belong together. Babel is the Clear’s nostalgia for one tongue. Pentecost is the Straits’ miracle, many tongues each hearing truly without becoming one. The two stories make the poles and the native law legible without an equation.</p>
+</section>
+
+<!-- ============ PART TWO ============ -->
+<section class="wrap partbreak">
+  <p class="part">Part two</p>
+  <h2>The seven kindred logics</h2>
+  <p class="lede">Each house below carries its grammar-word, its ancestral family, the traditions that reasoned their way to the same logic, and the folk figures that logic has already produced.</p>
+</section>
+
+<div id="houses"><section class="house" style="--c: var(--tk);"><div class="wrap">
+    <div class="hhead"><h2>Toa Keng</h2><span class="gw">Parallax</span></div>
+    <p class="anc">Ancestral family: covariant realities · the Phase Ocean · formerly TKI</p>
+    <p class="question">From where is this true?</p>
+    <div class="logic"><span class="name">Anekāntavāda and the sevenfold predication</span><span class="from">Jain philosophy</span>
+      <p class="says">Reality is many-sided. Every true statement is true in some respect, and a claim made without its respect is incomplete. Jain logicians built a sevenfold scheme of qualified assertion: it is, it is not, it both is and is not, it is inexpressible, and three further combinations.</p><p class="lawline">A statement uttered without its frame is unstable and decays toward falsehood. A statement that names its respect can bear weight.</p></div><div class="logic"><span class="name">道枢, the hinge of the Way</span><span class="from">Zhuangzi</span>
+      <p class="says">This and that arise together; each is a view from somewhere. The sage stands at the pivot, at the centre of the ring, and from there can answer every direction without committing to one.</p><p class="lawline">The centre of a set of opposed frames is a place with its own properties, and a trained person can stand in it.</p></div><div class="logic"><span class="name">Two truths and emptiness</span><span class="from">Nāgārjuna, Madhyamaka Buddhism</span>
+      <p class="says">Things lack own-being. They exist conventionally, in relation and designation, and ultimately are empty of any fixed essence. Emptiness is itself empty; it is no hidden substance.</p><p class="lawline">No object possesses an inside independent of its transformations. What you grip is always its relations.</p></div><div class="logic"><span class="name">The blind and the elephant</span><span class="from">Told in Jain, Buddhist, Hindu and Sufi texts alike</span>
+      <p class="says">Each touches one part and describes a different animal, each correctly. The story travelled across half the world because every culture needed it.</p><p class="lawline">Partial observation is accurate and insufficient at once.</p></div>
+    <div class="figs"><h3>Folk figures, reinterpreted</h3><p class="fig"><b>天眼, the third eye.</b> In folk religion, the extra eye sees what ordinary sight cannot. In the Straits it is a phase-organ: it sees an object across all its transformations at once. The ancestral beings had nothing else.</p><p class="fig"><b>盲人摸象, the blind and the elephant.</b> Becomes the Toa Keng qualifying examination. Candidates are given one part of something and graded on how precisely they state the limits of their part.</p></div>
+    <p class="remember">Nāgārjuna remembers what the house forgot: there may be no object at all apart from the frames. The house teaches that a true thing looks different from different places. The oldest logic says the looking is all there is.</p>
+    <p class="shadow">Endless reframing as a way of never choosing. The student who can see every side and uses that to avoid every commitment.</p>
+  </div></section><section class="house" style="--c: var(--am);"><div class="wrap">
+    <div class="hhead"><h2>Al-Merikani</h2><span class="gw">Amanah</span></div>
+    <p class="anc">Ancestral family: trust realities · the Consortium · formerly Al-Merican</p>
+    <p class="question">By whose authority does this hold?</p>
+    <div class="logic"><span class="name">The Trust the mountains refused</span><span class="from">Qur’an 33:72</span>
+      <p class="says">The Trust was offered to the heavens, the earth and the mountains, and they declined to bear it, fearing it. Humanity took it on. Capability is carried as a trust that could have been refused.</p><p class="lawline">Power exists only as something borne on behalf of another, and it weighs on the bearer.</p></div><div class="logic"><span class="name">天命, the Mandate of Heaven</span><span class="from">Zhou China, developed by Mencius</span>
+      <p class="says">Heaven entrusts rule to the virtuous, and withdraws it when rule fails the people. Heaven sees as the people see. Loss of the mandate shows itself in flood, famine and portent.</p><p class="lawline">Authority drains when recognition is withdrawn, and its draining is visible in the world.</p></div><div class="logic"><span class="name">Ubuntu</span><span class="from">Southern African, in Nguni languages</span>
+      <p class="says">Umuntu ngumuntu ngabantu: a person is a person through other persons. Personhood is conferred and sustained by recognition.</p><p class="lawline">No being fully owns itself. Capacity lives in the relations that keep a self viable.</p></div><div class="logic"><span class="name">正名, the rectification of names</span><span class="from">Analects</span>
+      <p class="says">Let the ruler be a ruler, the minister a minister, the father a father, the son a son. A role is real when it is lived as named.</p><p class="lawline">Office confers ability only while it is enacted. An unfilled title is empty in the physical sense.</p></div>
+    <div class="figs"><h3>Folk figures, reinterpreted</h3><p class="fig"><b>The genie of the lamp.</b> The bound spirit who serves whoever holds the lamp. In the Straits, a consortium-being that exists only while someone holds its trust. Rubbing the lamp is a renewal of covenant. A genie whose lamp is forgotten comes apart.</p><p class="fig"><b>Portents at the fall of a dynasty.</b> When an officeholder loses recognition, the powers of the office physically fade: the magistrate’s seal stops stamping, the captain stops seeing currents. The Mandated Coast lives this way ordinarily.</p></div>
+    <p class="remember">The Mandate remembers that it can be withdrawn. Ubuntu remembers that nobody owns themselves. Both know what the house buried: authority was always temporary, and inheritance was the diaspora’s way of pretending otherwise.</p>
+    <p class="shadow">Recognition becoming control. Whoever controls who is recognised controls everyone’s capacity.</p>
+  </div></section><section class="house" style="--c: var(--bp);"><div class="wrap">
+    <div class="hhead"><h2>Balai Pusaka</h2><span class="gw">Communion</span></div>
+    <p class="anc">Ancestral family: inhabited realities · the Reef-Land · formerly Sri Temenggong</p>
+    <p class="question">Where, and with whom, does this belong?</p>
+    <div class="logic"><span class="name">风水 and the dragon veins</span><span class="from">Chinese geomancy</span>
+      <p class="says">Land carries currents of qi along ridges and waters, the 龙脉. A site is auspicious when its flows gather; cutting a vein cuts the fortune of all who depend on it. Emperors were said to sever the dragon veins of rival regions.</p><p class="lawline">Land has circulations with their own health. Severing one is an injury to a living system, and its effects travel.</p></div><div class="logic"><span class="name">Keramat, penunggu and tumpang lalu</span><span class="from">Malay world</span>
+      <p class="says">Certain places are keramat, charged with presence. A penunggu keeps a place. One says tumpang lalu, excuse me, passing through, when crossing ground that belongs to something else.</p><p class="lawline">Place is a party with standing. Consent from place is a real transaction, and courtesy to it has effects.</p></div><div class="logic"><span class="name">Kami and musubi</span><span class="from">Shintō</span>
+      <p class="says">Kami dwell in mountains, rivers, trees, stones and places of power. Musubi is the generative binding force that makes things arise and cohere.</p><p class="lawline">A place attended with enough reverence gathers into a presence. Coherence is produced, and can be lost.</p></div><div class="logic"><span class="name">土地公, the earth god</span><span class="from">Chinese folk religion</span>
+      <p class="says">Every village, field and street has its own small god of the ground, a bureaucrat of the soil, to be reported to and kept content.</p><p class="lawline">Place is administered from inside. Every locality has a keeper, and the keeper can be neglected.</p></div>
+    <div class="figs"><h3>Folk figures, reinterpreted</h3><p class="fig"><b>The earth god’s shrine at the foot of the block.</b> In the Straits, the anthropic compression of a place-organism: the point where the place’s attention concentrates enough to be addressed. The shrine is a face given to a reef.</p><p class="fig"><b>斩龙脉, severing the dragon vein.</b> A beloved 网文 trope becomes an act of war: cutting a district’s circulations until it forgets it was a place. Redevelopment can do it by accident.</p></div>
+    <p class="remember">Kami and keramat remember that the place itself is the presence, without a person hidden inside. The house teaches that people care for land. The older logic says the land was the organism, and people were one of its organs.</p>
+    <p class="shadow">Stewardship becoming sovereignty. The custodian who begins to speak for the place instead of with it.</p>
+  </div></section><section class="house" style="--c: var(--lf);"><div class="wrap">
+    <div class="hhead"><h2>Lan Fong</h2><span class="gw">Recomposition</span></div>
+    <p class="anc">Ancestral family: morphic realities · the Morphogenic Colony · formerly Lam Keng</p>
+    <p class="question">What else may this become?</p>
+    <div class="logic"><span class="name">内丹, inner alchemy</span><span class="from">Daoist cultivation</span>
+      <p class="says">The body is refined in stages: essence into breath, breath into spirit, spirit back into emptiness. 炼精化气，炼气化神，炼神还虚. The self is a work in the furnace.</p><p class="lawline">Form is a stage of refinement. A body can be carried through transformations and remain continuous.</p></div><div class="logic"><span class="name">庖丁解牛, Cook Ding’s knife</span><span class="from">Zhuangzi</span>
+      <p class="says">The cook follows the natural grain of the ox and his blade passes through the spaces, so it stays sharp for nineteen years. He no longer sees the whole ox, only the way through it.</p><p class="lawline">Material has its own lines. Skilled making is following them, and the maker and material move as one process.</p></div><div class="logic"><span class="name">物化, the transformation of things</span><span class="from">Zhuangzi</span>
+      <p class="says">Zhuang Zhou dreams he is a butterfly and wakes unsure whether he is a man who dreamed of a butterfly, or a butterfly dreaming of a man. This, the text says, is called the transformation of things.</p><p class="lawline">Identity belongs to the passage between forms more than to any one form.</p></div><div class="logic"><span class="name">Solve et coagula</span><span class="from">European alchemy</span>
+      <p class="says">Dissolve and coagulate. Matter must be broken down before it can be reborn in a higher form.</p><p class="lawline">Every recomposition passes through an unmaking. The unmaking is the dangerous part.</p></div>
+    <div class="figs"><h3>Folk figures, reinterpreted</h3><p class="fig"><b>修仙, cultivation realms.</b> The engine of the whole 网文 tradition. In the Straits, the realms are stages of morphogenesis, and 飞升, ascension, is the moment the cultivator stops being separable from their material.</p><p class="fig"><b>本命法宝, the life-bound treasure.</b> The artefact that grows with its owner. In the Straits, a trace of the ancestral body–tool continuum: the treasure is a phase of the cultivator’s own development, and breaking it wounds them.</p></div>
+    <p class="remember">Cook Ding remembers that the knife follows the ox. The house teaches bounded operations performed by a maker on a material. The older logic has no such separation, which is why the outlaw Anatomists feel closer to the source.</p>
+    <p class="shadow">Endless negotiability of form. The body, building or species that can become anything and therefore stops being anything.</p>
+  </div></section><section class="house" style="--c: var(--nr);"><div class="wrap">
+    <div class="hhead"><h2>Nine Rain</h2><span class="gw">Reciprocity</span></div>
+    <p class="anc">Ancestral family: returning realities · the Returning Weather · formerly Nine Rains</p>
+    <p class="question">What returns because this happened?</p>
+    <div class="logic"><span class="name">Karma as seed and ripening</span><span class="from">Indian traditions, especially early Buddhism</span>
+      <p class="says">Action is a seed. It ripens when conditions allow, sometimes lifetimes later. In its most rigorous forms, no judge is involved: ripening is how things work.</p><p class="lawline">Every act sets something moving that returns on its own schedule. Return needs conditions, and conditions can be read.</p></div><div class="logic"><span class="name">天行有常, Heaven’s constant course</span><span class="from">Xunzi</span>
+      <p class="says">Heaven’s course is constant. It does not exist for the sage-king Yao, nor perish for the tyrant Jie. Respond to it with order and you prosper; with disorder, you suffer.</p><p class="lawline">Return is lawful and indifferent. It carries no verdict.</p></div><div class="logic"><span class="name">天人感应, Heaven and humanity in resonance</span><span class="from">Dong Zhongshu, Han dynasty</span>
+      <p class="says">Heaven and humanity answer one another. Misrule provokes floods, droughts and strange omens; virtue brings timely rain.</p><p class="lawline">Human conduct and the weather are coupled systems. This is the moralised reading, and it became orthodoxy.</p></div><div class="logic"><span class="name">Ayni and the spirit of the gift</span><span class="from">Andean reciprocity; the Māori hau as described by Mauss</span>
+      <p class="says">What is given carries something of the giver and wants to go home. Communities are made of gifts in motion, returned in labour, food and time.</p><p class="lawline">A transfer creates a pull back toward its source. Unreturned gifts accumulate as tension.</p></div>
+    <div class="figs"><h3>Folk figures, reinterpreted</h3><p class="fig"><b>龙王 and the rain-prayers.</b> The dragon king who sends or withholds rain is the compression of a weather field-self. Rain-prayers are an attempt at diplomacy with something that has an attractor but may have no wishes.</p><p class="fig"><b>雷劫, the heavenly tribulation.</b> Lightning strikes the cultivator who breaks through a realm. In the Straits, tribulation is the return of World Resistance on a very large held relation: the bill arriving all at once. Nine Rain can forecast it.</p></div>
+    <p class="remember">Xunzi remembers what the house moralised away. The debate between Xunzi and Dong Zhongshu is the house’s buried rupture, already written down two thousand years ago: return is real, and justice is a human addition to it.</p>
+    <p class="shadow">Moralising an indifferent law. Blaming the drowned for the flood.</p>
+  </div></section><section class="house" style="--c: var(--sk);"><div class="wrap">
+    <div class="hhead"><h2>Sané-Kora</h2><span class="gw">Third Voice</span></div>
+    <p class="anc">Ancestral family: counterfactual realities · the Hollow Ecology · formerly Kora House</p>
+    <p class="question">What is absent from this reality?</p>
+    <div class="logic"><span class="name">当其无, the use of emptiness</span><span class="from">Daodejing, chapter 11</span>
+      <p class="says">Thirty spokes share one hub; the cart is useful because of the hole at the centre. Clay is shaped into a vessel; its use is in the hollow. 有之以为利，无之以为用.</p><p class="lawline">Absence is a working part. Every made thing functions through what it leaves open.</p></div><div class="logic"><span class="name">間, ma</span><span class="from">Japanese aesthetics</span>
+      <p class="says">The interval between things, in time and space, is itself a presence: the pause in music, the space in a room, the silence in speech.</p><p class="lawline">Intervals carry force. A gap maintained is an entity, and closing it changes everything around it.</p></div><div class="logic"><span class="name">Tzimtzum, the contraction</span><span class="from">Lurianic Kabbalah</span>
+      <p class="says">Before creation, the infinite withdrew into itself to leave a space in which the world could exist. Creation begins with an absence made on purpose.</p><p class="lawline">A world exists inside a deliberate withdrawal. What was withheld to make room still shapes what is there.</p></div><div class="logic"><span class="name">The unfed dead</span><span class="from">Chinese hungry ghosts; ancestral rites across Asia and Africa</span>
+      <p class="says">The dead who are unmourned, unnamed or unfed do not rest. They act on the living until they are fed and remembered. In the seventh month, the gates open.</p><p class="lawline">Unwitnessed absences are causally active. Naming and feeding them changes what they do.</p></div>
+    <div class="figs"><h3>Folk figures, reinterpreted</h3><p class="fig"><b>中元 and the getai stage.</b> In the seventh month, the Straits sets out food and a stage with front-row seats left empty for the unseen. In the novel, those seats are Third Voice instruments. The house has always known who sits in them.</p><p class="fig"><b>The griot’s second song.</b> Behind every paid praise-song lies the song of what almost happened. Griots learn both. The Third Voice is the second song, sung only when the patron has gone home.</p></div>
+    <p class="remember">Tzimtzum remembers what the house was made to forget. If the Concordat truncated Kora, the truncation was itself a contraction to make room for the Seven, and the withheld part still shapes the city. Every empty seat at the getai is a small tzimtzum.</p>
+    <p class="shadow">Treating possibility as entitlement. Seeing the life not lived and demanding it be lived.</p>
+  </div></section><section class="house" style="--c: var(--su);"><div class="wrap">
+    <div class="hhead"><h2>Sund</h2><span class="gw">Commons</span></div>
+    <p class="anc">Ancestral family: composite polities · the Underweave · formerly Sund Commons</p>
+    <p class="question">Who is actually doing and carrying this?</p>
+    <div class="logic"><span class="name">Indra’s net</span><span class="from">Huayan Buddhism</span>
+      <p class="says">Over Indra’s palace hangs a net with a jewel at every knot, and every jewel reflects every other, endlessly. Each thing contains the whole web.</p><p class="lawline">Agency lives in the network. Pull one knot and the whole net answers.</p></div><div class="logic"><span class="name">Anattā and the heap</span><span class="from">Early Buddhism</span>
+      <p class="says">There is no fixed self, only a heap of aggregates: form, feeling, perception, formations, consciousness. The chariot is its parts in relation; the name is a convenience.</p><p class="lawline">A person is already a commons of processes. The individual is a working arrangement, and arrangements can be joined.</p></div><div class="logic"><span class="name">Dhikr and fanāʾ</span><span class="from">Sufism</span>
+      <p class="says">In the circle of remembrance, voices and breath synchronise, and the practitioner may pass away from the self into the divine. The circle is a body larger than its members.</p><p class="lawline">Synchronised practice produces a collective agent. Entry is easy. Return must be designed.</p></div><div class="logic"><span class="name">Urðr’s well</span><span class="from">Norse cosmology</span>
+      <p class="says">The Norns sit at the well beneath the world tree and lay down what will be. In one scholarly reading, deeds sink into the well as layers and return as fate for everyone who drinks.</p><p class="lawline">Collective history is stored in shared paths. What all have done becomes what each must meet.</p></div>
+    <div class="figs"><h3>Folk figures, reinterpreted</h3><p class="fig"><b>阴兵借道, the ghost soldiers borrowing the road.</b> The folk tale of a spectral army passing along an old road at night. In the Straits, a network-agent moving along its reinforced routes. The soldiers are nodes. The road is the self.</p><p class="fig"><b>The hive-mind.</b> A familiar horror of fiction. In the Straits, a homecoming: the Choir Without Names is the ancestral form, and Sund’s right of exit is the scar left by the house’s refusal of it.</p></div>
+    <p class="remember">Anattā remembers that the self was always a heap, which makes the Choir less alien than the house admits. The Sufi circle remembers the other half: the path back from fanāʾ, called baqāʾ, remaining. Sund’s demountability is its baqāʾ.</p>
+    <p class="shadow">Collective agency consuming the right to leave.</p>
+  </div></section></div>
+
+<!-- ============ PART THREE ============ -->
+<section class="wrap partbreak">
+  <p class="part">Part three</p>
+  <h2>The harbour and its poles</h2>
+</section>
+
+<section class="wrap" id="native">
+  <h2>The native law: the crossroads</h2>
+  <p><i>Beyond the Human</i> proposes that the Straits’ only native magic is translation, the capacity to keep unlike causal systems open to one another. The traditions of the world have given this capacity a face, and it is always the same face: the one who stands at the crossroads and carries messages between worlds, and changes them in the carrying.</p>
+  <div class="kin">
+    <div><b>Èṣù’s hat</b><i>Yoruba, and Legba among the Fon</i>Èṣù walks down the road between two lifelong friends wearing a hat that is red on one side and black on the other. That evening they come to blows over its colour, each entirely right. Èṣù is the messenger between worlds and receives offerings first, because no message arrives unchanged without him. This is the Hinge as a folk tale, and the Straits’ own god.</div>
+    <div><b>Hermes of the boundaries</b><i>Greek</i>Guardian of thresholds and roads, messenger of the gods, guide of souls across the border of death, thief and trickster. By long tradition he lends his name to hermeneutics, the art of interpretation. Every translation in his keeping is also a small theft.</div>
+    <div><b>和而不同</b><i>Analects</i>“The noble person harmonises without becoming the same.” Concordance, stated two and a half thousand years early: difference becoming intimate without becoming identical. It belongs beside 君子不器, the noble person is not a vessel, which is the misfit’s charter.</div>
+    <div><b>道枢</b><i>Zhuangzi</i>“Where this and that no longer find their opposite is called the hinge of the Way. Once the hinge finds the centre of the ring, it can answer endlessly.” The hinge documents found their title in a text two thousand years old.</div>
+  </div>
+  <div class="panel"><p>For the novel: the station cleaner who has used Exit H for six years is the Straits’ Èṣù. She stands at a crossroads, she is fed first (she buys the coffee), and every message between the two cities passes through her mop bucket. Nobody in either city thinks of her as holy.</p></div>
+</section>
+
+<section class="wrap" id="poles">
+  <h2>The two poles</h2>
+  <div class="grid2">
+    <div style="border-color:var(--soft)"><b>The Grey</b>Hundun before the holes. Śiva’s dance at the end of the cycle, when the worlds dissolve back into the undifferentiated. Emptiness misread as nothingness, the error Nāgārjuna warned against. The Grey practitioner is a devotee of the return to the undrilled face, and many of them are gentle.</div>
+    <div><b>The Clear</b>Babel before the scattering, one language and one tower. 大一统, great unification, as an ideal of heaven and not only of empire. Plato’s city of forms, where every copy converges on its pattern. The Clear practitioner wants the world to finally match its own description, and calls that peace.</div>
+  </div>
+</section>
+
+<section class="wrap" id="undomesticated">
+  <h2>Kin of the undomesticated realities</h2>
+  <p>The realities that could never become schools have human kin too. In each case, a tradition met the same wall and responded by refusing to write it down in the ordinary way.</p>
+  <div class="tbl"><table>
+    <tbody><tr><th>Reality</th><th>Kindred logic</th><th>Why it resists schooling</th></tr>
+    <tr><td>The Slow Choir</td><td>The Buddhist kalpa: a mountain of stone brushed with silk once a century, worn away before the aeon ends</td><td>No student lives to see one gesture</td></tr>
+    <tr><td>The Day-Selves</td><td>Buddhist momentariness; Heraclitus’ river that cannot be stepped in twice</td><td>No lineage can hold what does not continue</td></tr>
+    <tr><td>The Uncopying World</td><td>Chan’s transmission from mind to mind, outside the scriptures: 以心传心，不立文字; the flower held up, the smile</td><td>Every lesson changes both teacher and taught, so there is no text</td></tr>
+    <tr><td>The Nested Country</td><td>天人合一; the Hermetic “as above, so below”; Indra’s net at every scale</td><td>Any subject you isolate cuts through agents above and below</td></tr>
+    <tr><td>The Approaching</td><td>Aristotle’s final cause; the oracle whose prophecy fulfils itself because it was heard</td><td>Humans hear constraint as prophecy and act to cause it</td></tr>
+    <tr><td>The Productive Contradiction</td><td>The kōan, which works only while unsolved; the dot of yin within yang</td><td>A consistent doctrine destroys the law it teaches</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- ============ PART FOUR ============ -->
+<section class="wrap partbreak">
+  <p class="part">Part four</p>
+  <h2>The monsoon that did not leave</h2>
+  <p class="lede">The first foreign crisis from <i>Beyond the Human</i>, told once through the kindred logics, to show the register at work.</p>
+</section>
+
+<section class="wrap scene">
+  <p>In the second year the rain did not stop, and the aunties began calling it the dragon. Nobody meant it literally. By the third year, a temple in the old kampong had set out a rain-king’s tablet for the first time in living memory, and the offerings were being taken.</p>
+  <p>Nine Rain went first, as it always did with weather. Their elders quoted Dong Zhongshu: Heaven answers misrule with portents, so find the misrule. Their youngest trainee quoted Xunzi back at them, and the room went cold: <i>天行有常</i>, Heaven’s course is constant, it does not exist for the sage-king nor perish for the tyrant. The storm, he said, does not care what we did. That was the more frightening reading, and it was the older one.</p>
+  <p>Balai Pusaka’s custodians went down to the shore and said <i>tumpang lalu</i> before they stepped onto the sand, the old courtesy for passing through someone else’s place. For the first time in a hundred years, the sand seemed to register it. Toa Keng’s surveyors found that the storm’s shape stayed the same from every station, which should not be possible, and one of them started using the phrase 道枢 in her field notes without knowing why. Sund noticed that a million small winds were moving as one decision, the way a flock turns. Sané-Kora found the storm circling a gap in the regional record, a season the almanacs skip.</p>
+  <p>The seven met in the kampong temple because it was dry. The rain-king’s tablet looked down at them, gold paint over wood.</p>
+  <p>“The dragon is a compression,” said the Lan Fong girl. “Somebody squeezed the storm into a face so they could talk to it.”</p>
+  <p>“Then it’s a translation,” said Sund. “The question is whether it’s a good enough one to talk through.”</p>
+  <p>The station cleaner, who had come in out of the rain, put her joss sticks in the urn and did not bother to join the argument. She had been talking to things without faces for years.</p>
+</section>
+
+<section class="wrap" id="handling">
+  <h2>A note on handling</h2>
+  <p>These are living traditions. The atlas borrows their logics with their names attached and credits them as the world’s first scholars of each law. Within the fiction, no tradition is “really” alien physics; each is a human achievement of understanding, and the Straits reveres it as such. Two places ask for extra care. The Trust of the Qur’an is scripture for a living faith and is best invoked as the Al-Merikani house’s own origin story, told by believers inside the book. Karma, the Dao and the Mandate have long lives in popular fiction and can take bolder reinterpretation.</p>
+</section>
+
+<footer class="wrap">Companion to the Ancestral Atlas of the Seven and Beyond the Human. House names follow the current register, with the hinge-document names in parentheses. Quotations are from classical texts.</footer>
+
+
+
+
+</body></html>

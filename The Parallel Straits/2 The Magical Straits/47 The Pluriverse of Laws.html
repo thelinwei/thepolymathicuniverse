@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Pluriverse of Laws — Parallel Straits</title>
+<meta name="description" content="A cosmology of the Parallel Straits: shadow traditions, Hinge worlds, adjacent axiomatic worlds, comparative axiomatics, and the deeper origin of the Seven.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+<style>
+:root{
+  --bg:#0c0f12; --paper:#15191e; --paper2:#101419; --ink:#eee9df; --muted:#aaa69e;
+  --line:#2b3138; --gold:#cdb77d; --teal:#7aa8a2; --violet:#9f8fc1; --rose:#ba7e7a;
+  --blue:#7998c8; --green:#7ea979; --max:1160px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink)}
+body{font-family:ui-serif,Georgia,Cambria,"Times New Roman",serif;line-height:1.72}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
+header{
+  padding:92px 0 60px;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 12% 10%,rgba(205,183,125,.12),transparent 28%),
+    radial-gradient(circle at 88% 20%,rgba(122,168,162,.10),transparent 30%),
+    radial-gradient(circle at 58% 70%,rgba(159,143,193,.07),transparent 32%);
+}
+.eyebrow{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.17em;font-size:.74rem;color:var(--gold);margin-bottom:18px}
+h1,h2,h3,h4{font-weight:500;line-height:1.12;margin:0}
+h1{font-size:clamp(2.9rem,7vw,6.6rem);letter-spacing:-.045em;max-width:1020px}
+.dek{max-width:910px;color:var(--muted);font-size:clamp(1.08rem,2vw,1.34rem);margin:26px 0 0}
+nav{position:sticky;top:0;z-index:10;background:#101318;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;overflow:auto;padding:12px 0;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.77rem}
+nav a{color:var(--muted);text-decoration:none;white-space:nowrap}
+main{padding:56px 0 120px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+.part{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.15em;font-size:.74rem;color:var(--teal);margin-bottom:10px}
+h2{font-size:clamp(2rem,4vw,3.4rem);letter-spacing:-.03em;margin-bottom:18px}
+h3{font-size:1.4rem;color:var(--gold);margin:30px 0 10px}
+h4{font-size:1.07rem;color:var(--teal);margin:18px 0 8px}
+p{max-width:920px;margin:0 0 18px}
+.lead{font-size:1.22rem;color:#f7f2e8}
+.quote{margin:28px 0;padding:24px 26px;border-left:3px solid var(--gold);background:rgba(255,255,255,.025);font-size:1.18rem;max-width:970px}
+.math{margin:26px 0;padding:18px 20px;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:auto}
+.callout{margin:28px 0;padding:24px 26px;background:var(--paper2);border:1px solid #303640;border-radius:16px;max-width:980px}
+.callout strong{color:var(--teal)}
+.grid2,.grid3,.grid4{display:grid;gap:16px;margin:24px 0}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;min-width:0}
+.card h3{margin-top:0}.card p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 8px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;margin:24px 0;background:var(--paper);border:1px solid var(--line)}
+th,td{padding:13px 15px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;color:var(--gold)}
+tr:last-child td{border-bottom:0}
+.layer{
+  margin:18px 0;padding:18px 20px;border:1px solid var(--line);border-left:4px solid var(--c,var(--gold));
+  border-radius:14px;background:var(--paper)
+}
+.layer b{color:var(--c,var(--gold))}
+.world{
+  padding:26px 0;border-top:1px solid var(--line)
+}
+.world:first-of-type{border-top:0}
+.world .law{font-style:italic;color:var(--teal)}
+.source{
+  background:rgba(255,255,255,.02);border:1px dashed var(--line);padding:18px 20px;border-radius:14px;
+  font-size:.94rem;color:var(--muted)
+}
+.footer-note{font-size:.9rem;color:var(--muted);padding-top:20px;border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:900px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  .grid2,.grid3,.grid4{grid-template-columns:1fr}
+  .wrap{width:min(var(--max),calc(100% - 24px))}
+  table{display:block;overflow-x:auto}
+}
+@media print{
+  :root{--bg:#fff;--paper:#f7f5f0;--paper2:#faf8f4;--ink:#111;--muted:#555;--line:#ccc}
+  nav{display:none}body{background:#fff}.card,.math,.callout,.layer,.world{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap">
+  <div class="eyebrow">The Parallel Straits · Cosmology</div>
+  <h1>The Pluriverse of Laws</h1>
+  <p class="dek">A synthesis of the shadow ecology, the Hinge, and the worlds beside the Straits: not one multiverse of arbitrary possibilities, but a layered cosmos in which interpretation, history, and physical law can each diverge at different depths.</p>
+</div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#three">Three Orders</a>
+  <a href="#stack">Ontological Stack</a>
+  <a href="#seams">Seams & Hinges</a>
+  <a href="#science">Comparative Axiomatics</a>
+  <a href="#lag">Ontological Lag</a>
+  <a href="#worlds">New Worlds</a>
+  <a href="#straits">The Straits</a>
+  <a href="#origins">Deep Origins</a>
+</div></nav>
+
+<main class="wrap">
+
+<section>
+<div class="part">I · The Synthesis</div>
+<h2>1. Not One Multiverse</h2>
+<p class="lead">The world becomes larger if we refuse to treat every form of otherness as the same thing.</p>
+<p>Three distinct structures now coexist. They may overlap, but they operate at different ontological depths.</p>
+</section>
+
+<section id="three">
+<div class="part">II · Three Orders of Otherness</div>
+<h2>2. Shadow, Hinge, Adjacent</h2>
+
+<div class="grid3">
+  <div class="card">
+    <span class="tag">Order One</span>
+    <h3>Shadow Traditions</h3>
+    <p><strong>Same world. Same fundamental physics. Different reading.</strong></p>
+    <p>The Grey Houses, Red Ledgers, White Salt, Borrowed Faces, Choir, Anatomists, Echoes and Clear arise by bending or reversing the same magical law.</p>
+    <div class="math">$$A=\text{constant},\qquad I_1\neq I_2$$</div>
+    <p>These are heresies of interpretation.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Order Two</span>
+    <h3>Hinge Worlds</h3>
+    <p><strong>Same world-law. Different historical-relational settlement.</strong></p>
+    <p>Exit H reveals coherent states of the same reality in which the Concordat resolved differently, the Seven formed differently, or institutions followed another path.</p>
+    <div class="math">$$A=\text{constant},\qquad S_1\neq S_2$$</div>
+    <p>These are counterfactual realities.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Order Three</span>
+    <h3>Adjacent Worlds</h3>
+    <p><strong>Different Axiomatic Stratum.</strong></p>
+    <p>Here reality itself permits different kinds of relation: naming may animate matter, proof may change arithmetic, observation may change species, or time may be direction.</p>
+    <div class="math">$$A_i\neq A_j$$</div>
+    <p>These are different ontologies.</p>
+  </div>
+</div>
+
+<div class="callout"><strong>Canonical distinction:</strong> a Grey monastery is not another universe. An alternate Concordat is not another physics. The Lettered Reach is not a counterfactual Straits. Keeping these categories separate prevents the cosmology from dissolving into “anything can happen.”</div>
+</section>
+
+<section id="stack">
+<div class="part">III · The Deep Architecture</div>
+<h2>3. The Ontological Stack</h2>
+<p>Our earlier \(\Omega\) can now be reinterpreted as the space of possible relational laws rather than a hidden eighth school.</p>
+
+<div class="math">$$\Omega=\text{space of possible relational laws}$$</div>
+
+<p>A world is a stable crystallisation out of that deeper field:</p>
+
+<div class="layer" style="--c:var(--violet)"><b>\(\Omega\)</b> · possible relational laws</div>
+<div class="layer" style="--c:var(--blue)"><b>Axiomatic Stratum \(A_W\)</b> · what kinds of relation the world permits</div>
+<div class="layer" style="--c:var(--teal)"><b>Civilisational Grammar \(G\)</b> · how a culture learns to act inside those laws</div>
+<div class="layer" style="--c:var(--gold)"><b>Historical Settlement \(S\)</b> · which institutions, treaties and exclusions became actual</div>
+<div class="layer" style="--c:var(--rose)"><b>Individual Practice \(P\)</b> · how a person casts, teaches, resists or misreads</div>
+
+<div class="math">$$\boxed{\Omega\rightarrow A_W\rightarrow G\rightarrow S\rightarrow P}$$</div>
+
+<p>This means disagreement can occur at different depths. A Red Ledger practitioner disagrees with the Seven at the level of practice and interpretation. A Revisionist disputes the historical settlement. A traveller from the Turning lives under a different axiomatic world.</p>
+
+<div class="quote">Not every conflict is about the same layer of reality.</div>
+</section>
+
+<section>
+<div class="part">IV · Local Laws</div>
+<h2>4. The Straits Is Only One Solution</h2>
+<p>The Straits' local physics can be stated compactly:</p>
+<div class="math">$$\text{relation may be held against World Resistance, and the load must be borne somewhere}$$</div>
+
+<p>Other worlds settle relational possibility differently:</p>
+
+<table>
+<thead><tr><th>World</th><th>Axiomatic tendency</th><th>What becomes physical</th></tr></thead>
+<tbody>
+<tr><td>Lettered Reach</td><td>Name precedes operation</td><td>Correct naming animates matter</td></tr>
+<tr><td>Granary</td><td>Events have relational as well as mechanical causes</td><td>Resentment and grievance become causal</td></tr>
+<tr><td>Turning</td><td>Time can be faced as direction</td><td>Bodies can orient partially toward other temporal directions</td></tr>
+<tr><td>Defect</td><td>Proof determines arithmetic</td><td>Mathematics becomes moving territory</td></tr>
+<tr><td>Regard</td><td>Being depends on perspective</td><td>Embodiment changes according to who sees whom</td></tr>
+<tr><td>Spent</td><td>Pliancy is exhausted</td><td>World Resistance becomes absolute</td></tr>
+<tr><td>Remembered</td><td>Attention sustains existence</td><td>Forgetting erodes matter and place</td></tr>
+<tr><td>Settled</td><td>One account has become total</td><td>Plural magic disappears into stable common physics</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="seams">
+<div class="part">V · Crossing</div>
+<h2>5. Seams and Hinges Are Not the Same Thing</h2>
+
+<div class="grid2">
+  <div class="card">
+    <span class="tag">Seam</span>
+    <h3>Connection through agreement</h3>
+    <p>A Seam opens where two different worlds recognise one common relation: a name, grievance, promise, memory, common work, proof, debt.</p>
+    <div class="math">$$A_i\cap A_j\neq\varnothing$$</div>
+    <p>A Seam is anchored in a shared invariant.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Hinge</span>
+    <h3>Connection through unresolved difference</h3>
+    <p>A Hinge appears when incompatible states remain relationally accessible without one cancelling the other.</p>
+    <div class="math">$$H(x_a,x_b)=R(x_a,x_b)$$</div>
+    <p>A Hinge is anchored in non-resolution.</p>
+  </div>
+</div>
+
+<div class="quote"><strong>Seams connect worlds through what they share.</strong><br><br><strong>Hinges connect realities through what they cannot reconcile.</strong></div>
+
+<h3>The forbidden possibility: a Hinge across a Seam</h3>
+<p>This would hold two different axiomatic worlds and two different historical settlements in relation simultaneously.</p>
+<div class="math">$$H\big((A_i,S_a),(A_j,S_b)\big)$$</div>
+<p>No stable example is known. A large-scale version may be what the Counterfactualist ultimately seeks.</p>
+</section>
+
+<section id="science">
+<div class="part">VI · Knowledge</div>
+<h2>6. Comparative Axiomatics</h2>
+<p class="lead">The existence of adjacent worlds changes science itself.</p>
+
+<p>Science does not become false. It becomes local.</p>
+
+<div class="grid3">
+  <div class="card"><h3>Physics</h3><p>What follows from the local Axiomatic Stratum?</p><div class="math">$$A_W\Rightarrow P$$</div></div>
+  <div class="card"><h3>Metaphysics</h3><p>Why does this world possess this \(A_W\) rather than another?</p><div class="math">$$\Omega\rightarrow A_W\ ?$$</div></div>
+  <div class="card"><h3>Comparative Axiomatics</h3><p>What transformations map one lawful reality onto another?</p><div class="math">$$T_{ij}:A_i\rightarrow A_j$$</div></div>
+</div>
+
+<p>A physicist from the Straits who travels to the Turning does not discover that Straits physics was wrong. They discover that it was provincial.</p>
+<p>A Turning physicist visiting the Straits learns the same thing.</p>
+
+<div class="callout"><strong>Truth remains rigorous.</strong> But “universal law” becomes a hypothesis about the scope of an Axiomatic Stratum, not a metaphysical guarantee.</div>
+
+<h3>New academic fields</h3>
+<table>
+<thead><tr><th>Field</th><th>Core problem</th></tr></thead>
+<tbody>
+<tr><td>Comparative Axiomatics</td><td>What remains invariant across different physical laws?</td></tr>
+<tr><td>Seam Engineering</td><td>How can crossings be stabilised without exporting catastrophic load?</td></tr>
+<tr><td>Cross-law Medicine</td><td>What constitutes a body when embodiment changes by world?</td></tr>
+<tr><td>Ontological Anthropology</td><td>How do societies live naturally inside realities outsiders find impossible?</td></tr>
+<tr><td>Axiomatic Jurisprudence</td><td>Which laws apply when causality, personhood or obligation differ?</td></tr>
+<tr><td>Translation Ethics</td><td>What is lost when one lawful reality is rendered legible in another?</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="lag">
+<div class="part">VII · Exchange</div>
+<h2>7. Ontological Jet Lag</h2>
+<p>The body adjusts to foreign law before the mind does. Returning is often harder than arriving.</p>
+
+<div class="grid2">
+  <div class="card"><h3>From the Granary</h3><p>You watch someone slip on wet stone and cannot stop asking whose grievance made the accident land there.</p></div>
+  <div class="card"><h3>From the Regard</h3><p>You return disturbed by the Straits assumption that a chair is still the same chair regardless of who sees it.</p></div>
+  <div class="card"><h3>From the Lettered Reach</h3><p>Unnamed tools begin to feel medically unsafe. You label your drawers, hands and dreams.</p></div>
+  <div class="card"><h3>From the Turning</h3><p>You pause before people finish speaking because part of you still expects the end of the sentence first.</p></div>
+</div>
+
+<div class="math">$$\text{body adaptation}\ll\text{cognitive adaptation}\ll\text{return adaptation}$$</div>
+
+<p>Exchange programmes therefore become existential education. Students do not merely learn another culture. They become temporarily fluent in another causality.</p>
+</section>
+
+<section>
+<div class="part">VIII · The Political Consequence</div>
+<h2>8. Foreign Affairs of Ontology</h2>
+<p>If load can travel across Seams, the Straits' prosperity may depend upon worlds soft enough to absorb what it exports.</p>
+
+<div class="math">$$L_{\text{Straits}}\rightarrow L_{\text{elsewhere}}$$</div>
+
+<p>This transforms neighbouring worlds from picturesque destinations into political actors.</p>
+
+<div class="grid3">
+  <div class="card"><h3>Axiomatic dumping</h3><p>Worlds become repositories for magical load, failed operations or unstable relations.</p></div>
+  <div class="card"><h3>Seam sovereignty</h3><p>Who owns a crossing anchored in a debt, memory or common work shared by two worlds?</p></div>
+  <div class="card"><h3>Cross-law refugees</h3><p>What happens when someone's home physics is dying and their body is not adapted to ours?</p></div>
+  <div class="card"><h3>Ontological trade</h3><p>Do worlds export not only goods, but useful physical laws?</p></div>
+  <div class="card"><h3>Translation monopolies</h3><p>Institutions that control the conversion between axioms become geopolitical powers.</p></div>
+  <div class="card"><h3>Religious supremacy</h3><p>Some worlds will interpret their local law as evidence that their reality is metaphysically superior.</p></div>
+</div>
+
+<div class="quote">The Straits may eventually discover that one of the worlds it calls “Spent” was not exhausted by its own people at all.</div>
+</section>
+
+<section id="worlds">
+<div class="part">IX · New Adjacent Worlds</div>
+<h2>9. Worlds Derived from Scientific Ideas</h2>
+<p class="lead">The design discipline: change one deep assumption, then derive bodies, architecture, institutions, law, religion and ordinary life from it.</p>
+
+<div class="world">
+<span class="tag">World Law</span>
+<h3>The Noncommutative City</h3>
+<p class="law">Operations do not commute: \(AB\neq BA\).</p>
+<p>Order is physical. Open a door and then speak a name, and the resulting state differs from speaking the name before opening the door. Medicine is procedural. Courts care obsessively about testimony order. Architecture is choreography.</p>
+<p>Marriage by:</p>
+<div class="math">$$\text{vow}\rightarrow\text{gift}\neq\text{gift}\rightarrow\text{vow}$$</div>
+<p>An apology before acknowledging harm cannot repair the same relation as acknowledgement followed by apology. Children learn sequence before abstraction.</p>
+</div>
+
+<div class="world">
+<span class="tag">World Law</span>
+<h3>The Noether Court</h3>
+<p class="law">Every continuous symmetry creates a conserved quantity; breaking symmetry releases or redistributes one.</p>
+<p>Politics becomes physical symmetry management. Dynastic succession preserves authority because constitutional form remains invariant. Revolutions are literal symmetry-breaking events. Ceremonial asymmetry can release enormous stored quantities.</p>
+</div>
+
+<div class="world">
+<span class="tag">World Law</span>
+<h3>The Bayesian Sea</h3>
+<p class="law">Reality updates according to accumulated evidence.</p>
+<div class="math">$$P(H|E)=\frac{P(E|H)P(H)}{P(E)}$$</div>
+<p>Repeatedly documented realities harden. Rumours remain pliant. Secrets retain possibility. Archives stabilise matter. Propaganda changes priors. Scientific replication does not merely increase confidence—it makes the world harder to alter.</p>
+<p>Kora scholars become terrifyingly important. So do the House of Echoes.</p>
+</div>
+
+<div class="world">
+<span class="tag">World Law</span>
+<h3>The Scale</h3>
+<p class="law">No law remains invariant across observational scale.</p>
+<p>Physics changes when the relevant resolution changes. Zooming in is not merely seeing more detail; it places the observer under another effective law. Microscopy becomes travel. Urban planning and cellular biology may literally share a jurisdictional boundary.</p>
+</div>
+
+<div class="world">
+<span class="tag">World Law</span>
+<h3>The Topological Marches</h3>
+<p class="law">Connectivity is fundamental; geometry is incidental.</p>
+<p>A house may stretch across kilometres yet remain one room if adjacency is preserved. Kinship can be more physically real than distance. Cutting a relationship may sever a road. Architecture becomes a politics of neighbourhood rather than form.</p>
+</div>
+
+<div class="world">
+<span class="tag">World Law</span>
+<h3>The Decoherence Gardens</h3>
+<p class="law">Possibilities remain physically available until socially witnessed.</p>
+<p>Privacy becomes ontological protection. Public knowledge collapses possibility. Gossip can destroy futures. Closed rooms retain more possible states than public squares. Secrecy is not merely political—it is physical insulation.</p>
+</div>
+
+<div class="world">
+<span class="tag">World Law</span>
+<h3>The Gauge Isles</h3>
+<p class="law">Many descriptions are physically equivalent until local convention fixes a reference.</p>
+<p>Travellers suffer reference sickness. Orientation, identity and value require calibration. Political disputes often concern which reference standard a community should adopt rather than which measurement is “correct.”</p>
+</div>
+
+<div class="world">
+<span class="tag">World Law</span>
+<h3>The Undecidable Country</h3>
+<p class="law">Some physical questions are formally uncomputable.</p>
+<p>No amount of intelligence can predict every lawful consequence. Perfect governance is impossible in principle. Certain machines can answer only by running until they either halt or never do. Divination has hard mathematical boundaries.</p>
+</div>
+</section>
+
+<section id="straits">
+<div class="part">X · The Straits in the Pluriverse</div>
+<h2>10. The Straits' True Speciality</h2>
+<p>Most worlds are very good at one coherent reality.</p>
+<p>The Straits is comparatively messy, inefficient, redundant and argumentative.</p>
+<p>But it may possess one rare capacity:</p>
+
+<div class="math">$$\boxed{\text{Straits speciality}=T(A_i,A_j)}$$</div>
+
+<p>The Straits is good at translation.</p>
+
+<p>Its people already live amid multiple grammars. They are raised with institutional difference, contradictory traditions, plural authority and partial translation. That may make Straits-born people unusually tolerant of foreign axioms.</p>
+
+<div class="quote">The Straits becomes a port not merely for goods, people or ideas—but for laws of reality.</div>
+
+<p>It could become the pluriverse's research port, diplomatic zone, seam registry, translation market, disputed sanctuary, and educational crossroads.</p>
+</section>
+
+<section>
+<div class="part">XI · Concordance Enlarged</div>
+<h2>11. Concordance Across Laws</h2>
+<p>Concordance began as seven people remaining distinct while acting together.</p>
+<div class="math">$$C_1=\text{collective action without fusion}$$</div>
+<p>It then became seven grammars remaining relational.</p>
+<div class="math">$$C_2=\text{plural grammars without sovereignty}$$</div>
+<p>Now its mature form may be:</p>
+<div class="math">$$\boxed{C_3=\text{coherence across incompatible laws}}$$</div>
+
+<p>The protagonists may eventually learn to enter foreign axiomatic worlds without surrendering themselves to the host logic:</p>
+
+<ul>
+<li>unnamed in the Lettered Reach, yet still alive;</li>
+<li>seen in the Regard without becoming what the observer expects;</li>
+<li>standing on the Defect while holding double mathematics;</li>
+<li>entering the Settled and still remembering magic.</li>
+</ul>
+
+<p>They are not stronger because they resist foreign law.</p>
+<p>They are stronger because they can remain <strong>incomplete enough to translate</strong>.</p>
+</section>
+
+<section id="origins">
+<div class="part">XII · Deep Origin Hypothesis</div>
+<h2>12. What If the Seven Are Not Native?</h2>
+<p class="lead">The most radical synthesis is that the Seven Schools may not be seven viewpoints invented inside the Straits at all.</p>
+
+<p>They may be seven ancient survival adaptations inherited from seven other Axiomatic worlds.</p>
+
+<div class="math">$$A_1,A_2,\dots,A_7\longrightarrow \text{migration}\longrightarrow \text{Straits}$$</div>
+
+<p>Refugees, traders, exiles, lost expeditions, stranded populations and collapsing Seams may have brought fragments of foreign causality into one port over centuries.</p>
+
+<p>By the time written history begins, nobody remembers that these were once different physics.</p>
+<p>They survive as:</p>
+
+<div class="grid2">
+  <div class="card"><h3>School doctrine</h3><p>Axiomatic survival becomes pedagogy.</p></div>
+  <div class="card"><h3>Ritual</h3><p>Necessary procedures become tradition.</p></div>
+  <div class="card"><h3>Architecture</h3><p>Adaptation to another world's physics becomes style.</p></div>
+  <div class="card"><h3>Taboo</h3><p>Former physical danger becomes moral prohibition.</p></div>
+  <div class="card"><h3>Relic</h3><p>Foreign-world technology becomes sacred object.</p></div>
+  <div class="card"><h3>Myth</h3><p>Migration history becomes cosmology.</p></div>
+</div>
+
+<div class="quote">The Straits did not invent pluralism.<br><br>It is where several different realities became stranded together.</div>
+
+<h3>The Concordat reinterpreted again</h3>
+<p>If this hypothesis is true, the First Concordance was not merely seven traditions learning to cooperate.</p>
+<p>It was:</p>
+
+<div class="math">$$\boxed{\text{seven different physics learning to inhabit one city}}$$</div>
+
+<p>The Sevenfold Harbour then becomes a moment when those buried axiomatic inheritances briefly reactivated at full strength.</p>
+<p>The partition was not only political or cognitive.</p>
+<p>It may have been the infrastructure that kept seven incompatible ancestral worlds from reasserting themselves inside the same harbour.</p>
+
+<div class="callout"><strong>This makes the name Parallel Straits almost literal.</strong> A strait is the narrow passage between lands. This Straits may be the narrow relational passage between realities.</div>
+</section>
+
+<section>
+<div class="part">XIII · Consequent Story Possibilities</div>
+<h2>13. What This Opens</h2>
+
+<div class="grid3">
+  <div class="card"><h3>Exchange stories</h3><p>Students go abroad and come home speaking another causality.</p></div>
+  <div class="card"><h3>Frontier stories</h3><p>Expeditions cross into worlds whose laws make familiar expertise dangerous.</p></div>
+  <div class="card"><h3>Archaeology stories</h3><p>Relics reveal that one School's “tradition” is actually fossilised foreign physics.</p></div>
+  <div class="card"><h3>Political stories</h3><p>Worlds accuse the Straits of exporting load or monopolising translation.</p></div>
+  <div class="card"><h3>Identity stories</h3><p>A student discovers their family did not originate from the Straits at all.</p></div>
+  <div class="card"><h3>Hinge-Seam stories</h3><p>The Counterfactualist attempts the first stable Hinge across incompatible Axiomatic worlds.</p></div>
+</div>
+
+<div class="quote">The question is no longer only: “Which reality is right?”<br><br>It becomes: “What survives translation when even the laws of reality differ?”</div>
+</section>
+
+<section>
+<div class="part">XIV · Provenance</div>
+<h2>14. What Came From Where</h2>
+<div class="source">
+<p><strong>From “Beside the Straits · 旁世”:</strong> the Axiomatic Stratum, the laws of crossing, Seams as shared relations, carried grammar, following bill, lag, and the adjacent-world model including the Lettered Reach, Granary, Turning, Defect, Vault, Regard, Spent, Remembered, Settled and rumoured worlds.</p>
+<p><strong>From “The Unholding · 放下”:</strong> World Resistance, load/bill, the reversed reading of the Straits' law, Grey/Clear poles, the shadow ecology, and the principle that the same magical law can generate very different civilisations.</p>
+<p><strong>From the Hinge/Concordat development:</strong> counterfactual settlements, Exit H, relational possibility, the Revisionist/Counterfactualist conflict, constitutional incompleteness, and Concordance as stable relation without collapse.</p>
+<p><strong>New synthesis in this document:</strong> the three orders of otherness, the ontological stack, Seams versus Hinges, comparative axiomatics, ontological jet lag as a formal concept, new science-derived worlds, the Straits as a translation civilisation, and the deep-origin hypothesis that the Seven may be ancestral survivals of other Axiomatic worlds.</p>
+</div>
+
+<p class="footer-note">Parallel Straits · The Pluriverse of Laws · cosmology document.</p>
+</section>
+
+</main>
+</body>
+</html>

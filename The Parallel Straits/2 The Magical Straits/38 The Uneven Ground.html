@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Uneven Ground — How the Houses Hold Magic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#E3E8DB; --paper:#EEF1E8; --ink:#1D2925; --muted:#4E5D56; --rule:#B7C1B1;
+  --brine:#2F6F68; --sea:#C9D8D2; --land:#D6DCCB; --wild:#EEF1E8; --bill:#8A2A1A;
+  --tki:#2E3A6B; --mer:#3B6A3A; --bal:#7A2640; --lan:#A3301C; --nine:#3C6687; --kora:#8F6317; --sund:#6B4A2A; --pet:#574689; --arus:#2F6F68;
+  --serif:"Newsreader","Times New Roman",Times,Georgia,serif;
+  --cond:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121816; --paper:#1A221F; --ink:#E2E8DD; --muted:#A9B6AE; --rule:#34413B;
+    --brine:#78BDB3; --sea:#1C2B29; --land:#222C27; --wild:#2A332F; --bill:#F0876E;
+    --tki:#A9B6EE; --mer:#9AC98F; --bal:#E28AA6; --lan:#F0876E; --nine:#8FBDE0; --kora:#E4B25A; --sund:#D3A874; --pet:#B7A6EE; --arus:#78BDB3;
+  }
+}
+:root[data-theme="dark"]{
+    --ground:#121816; --paper:#1A221F; --ink:#E2E8DD; --muted:#A9B6AE; --rule:#34413B;
+    --brine:#78BDB3; --sea:#1C2B29; --land:#222C27; --wild:#2A332F; --bill:#F0876E;
+    --tki:#A9B6EE; --mer:#9AC98F; --bal:#E28AA6; --lan:#F0876E; --nine:#8FBDE0; --kora:#E4B25A; --sund:#D3A874; --pet:#B7A6EE; --arus:#78BDB3;
+}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--ground)}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:1.12rem;line-height:1.62;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brine);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.col{max-width:68ch}
+p{margin:0 0 1em}
+h1,h2,h3,h4{font-family:var(--cond);font-weight:600;line-height:1.02;margin:0;letter-spacing:.005em}
+.cond{font-family:var(--cond)}
+
+/* cover */
+.cover{position:relative;overflow:hidden;border-bottom:1px solid var(--rule);padding:72px 0 64px}
+.cover svg.contours{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cover .wrap{position:relative}
+.series{font-family:var(--cond);font-size:1.05rem;color:var(--muted);margin-bottom:26px}
+.cover h1{font-size:clamp(3.6rem,11vw,9.4rem);font-weight:700;line-height:.86;letter-spacing:-.01em}
+.cover h1 span{display:block;font-weight:400;font-style:italic;font-family:var(--serif);font-size:.3em;line-height:1.15;margin-top:.5em;letter-spacing:0;max-width:24ch}
+.cover .deck{margin-top:38px;max-width:60ch;font-size:1.22rem}
+.housebar{display:flex;gap:0;margin-top:42px;height:10px;max-width:640px}
+.housebar i{flex:1}
+
+section{padding:70px 0;border-bottom:1px solid var(--rule)}
+.part{font-family:var(--cond);font-size:1.1rem;color:var(--muted);margin-bottom:10px}
+section h2{font-size:clamp(2.4rem,6vw,4.4rem);margin-bottom:26px;max-width:18ch}
+.lede{font-size:1.28rem;line-height:1.55}
+.lede::first-letter{font-family:var(--cond);font-weight:700;float:left;font-size:4.4em;line-height:.78;margin:.06em .1em 0 0;color:var(--brine)}
+
+/* precedents */
+.family{margin-top:54px}
+.family h3{font-size:2.2rem;display:flex;align-items:baseline;gap:16px;border-top:3px solid var(--ink);padding-top:12px}
+.family h3 small{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.02rem;color:var(--muted);letter-spacing:0}
+.prec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 44px;margin-top:26px}
+.pc h4{font-size:1.55rem}
+.pc .when{font-family:var(--cond);color:var(--muted);font-size:1rem;margin:3px 0 10px}
+.pc .pattern{font-style:italic;border-left:3px solid var(--rule);padding-left:12px;margin:10px 0 12px}
+.pc .straits{background:var(--paper);padding:14px 16px;border-top:3px solid var(--c,var(--ink))}
+.pc .straits b{font-family:var(--cond);font-weight:600;font-size:1.02rem;color:var(--c,var(--ink));display:block;margin-bottom:2px}
+
+/* mechanics */
+.mech{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px 40px;margin-top:40px;border-top:1px solid var(--rule);padding-top:26px}
+.mech h3{font-size:2.6rem;line-height:.95}
+.mech h3 span{display:block;font-family:var(--serif);font-weight:400;font-style:italic;font-size:1rem;color:var(--muted);margin-top:8px;line-height:1.3}
+
+/* map */
+#map{background:var(--paper)}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:30px;align-items:start}
+.mapbox{background:var(--sea);border:1px solid var(--rule);overflow:hidden}
+.mapbox svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-direction:column;gap:6px}
+.legend button{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;font-family:var(--cond);font-size:1.08rem;padding:6px 8px;border:1px solid transparent}
+.legend button i{width:18px;height:18px;flex:none;background:var(--c);display:inline-block}
+.legend button[aria-pressed="true"]{border-color:var(--ink);background:var(--ground)}
+.legend button:focus-visible{outline:2px solid var(--brine)}
+.note{margin-top:18px;border-top:3px solid var(--nc,var(--ink));padding-top:12px;min-height:180px}
+.note h4{font-size:1.5rem;color:var(--nc,var(--ink));margin-bottom:6px}
+.note p{font-size:1rem}
+svg .layer{transition:opacity .35s}
+svg.focus .layer{opacity:.12}
+svg.focus .layer.on{opacity:1}
+svg .lbl{font-family:var(--cond);font-weight:600;font-size:17px}
+svg .sm{font-family:var(--cond);font-size:13px;fill:var(--ink)}
+svg .lbl,svg .sm{paint-order:stroke;stroke:var(--land);stroke-width:4px;stroke-linejoin:round}
+
+/* houses */
+.hs{padding:44px 0;border-top:1px solid var(--rule)}
+.hs:first-of-type{border-top:0}
+.hs header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end;border-bottom:6px solid var(--c);padding-bottom:12px;margin-bottom:22px}
+.hs h3{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--c)}
+.hs .creed{font-style:italic;font-size:1.22rem;max-width:30ch;text-align:right}
+.hs dl{display:grid;grid-template-columns:170px minmax(0,1fr);gap:12px 28px;margin:0;max-width:900px}
+.hs dt{font-family:var(--cond);font-weight:600;font-size:1.08rem;color:var(--c);padding-top:2px}
+.hs dd{margin:0}
+.struck{background:var(--paper);padding:34px 30px;margin-top:40px;border:1px dashed var(--rule)}
+.struck>p.col{margin-bottom:0}
+
+/* axes */
+.axis{margin-top:46px}
+.axis h3{font-size:1.9rem}
+.axis .ends{display:flex;justify-content:space-between;font-family:var(--cond);font-size:1.05rem;color:var(--muted);margin:8px 0 6px}
+.track{position:relative;height:118px;border-top:2px solid var(--ink)}
+.track span{position:absolute;transform:translateX(-50%);font-family:var(--cond);font-weight:600;font-size:.98rem;white-space:nowrap;color:var(--c);padding-top:6px}
+.track span::before{content:"";position:absolute;left:50%;top:-7px;width:12px;height:12px;background:var(--c);transform:translateX(-50%) rotate(45deg)}
+.track span::after{content:"";position:absolute;left:50%;top:5px;width:1px;height:var(--h,0);background:var(--c);opacity:.6}
+.axis p.read{margin-top:4px;max-width:70ch}
+
+/* engines */
+.eng{counter-reset:e;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 44px;margin-top:34px}
+.eng article{border-top:2px solid var(--ink);padding-top:12px}
+.eng h4{font-size:1.7rem;margin-bottom:6px}
+.eng .who{font-family:var(--cond);color:var(--muted);font-size:1rem;margin-bottom:8px}
+
+.coda{background:var(--ink);color:var(--ground)}
+.coda .part{color:var(--rule)}
+.coda h2{color:var(--ground)}
+footer{padding:36px 0 60px;font-size:.95rem;color:var(--muted)}
+.theme-toggle{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));font-family:var(--cond);font-size:1rem;background:var(--paper);color:var(--ink);border:1px solid var(--rule);padding:6px 14px;cursor:pointer}
+
+@media (max-width:860px){
+  .prec,.eng{grid-template-columns:1fr}
+  .mech{grid-template-columns:1fr}
+  .mapgrid{grid-template-columns:1fr}
+  .legend{flex-direction:row;flex-wrap:wrap}
+  .hs header{grid-template-columns:1fr}
+  .hs .creed{text-align:left}
+  .hs dl{grid-template-columns:1fr;gap:2px 0}
+  .hs dd{margin-bottom:12px}
+  .track span{font-size:.82rem}
+}
+@media (prefers-reduced-motion:reduce){svg .layer{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <svg class="contours" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="var(--rule)" stroke-width="1.2">
+      <path d="M760,300 C760,210 850,150 950,160 C1060,170 1120,250 1100,330 C1080,420 990,460 900,440 C820,420 760,380 760,300Z"/>
+      <path d="M720,300 C715,180 830,110 955,120 C1090,130 1165,240 1140,340 C1115,450 1000,500 890,480 C790,460 725,400 720,300Z"/>
+      <path d="M680,300 C670,150 810,70 960,80 C1120,90 1210,230 1180,350 C1150,480 1010,540 880,520 C760,500 690,420 680,300Z"/>
+      <path d="M640,300 C625,120 790,30 965,40 C1150,50 1250,220 1220,360 C1185,510 1020,580 870,560 C730,540 655,440 640,300Z"/>
+      <path d="M600,305 C580,90 770,-10 970,0 C1180,10 1290,210 1260,370 C1220,540 1030,620 860,600 C700,580 620,460 600,305Z"/>
+    </g>
+    <g stroke="var(--tki)" stroke-width="1" opacity=".5">
+      <path d="M870,250 H1010 M870,280 H1010 M870,310 H1010 M870,340 H1010 M900,230 V360 M930,230 V360 M960,230 V360 M990,230 V360"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <p class="series">Field Atlas of the Parallel Straits. Magic series, following the Armoury of the Seven Houses</p>
+    <h1>The Uneven Ground<span>How the seven houses hold magic, and what holding does to it</span></h1>
+    <p class="deck">The houses share one physics: magic rewrites relations locally, and World Resistance always sends the bill. What differs is how each house holds that power. Who may touch it, who carries it, who is paid, who pays. Over centuries that holding leaves marks in the ground itself, so the city's magic runs thick in some streets and thin in others, cheap for some hands and ruinous for others. This volume maps those marks, and the history that taught the houses how to make them.</p>
+    <div class="housebar" aria-hidden="true"><i style="background:var(--tki)"></i><i style="background:var(--mer)"></i><i style="background:var(--bal)"></i><i style="background:var(--lan)"></i><i style="background:var(--nine)"></i><i style="background:var(--kora)"></i><i style="background:var(--sund)"></i><i style="background:var(--pet)"></i><i style="background:var(--arus)"></i></div>
+  </div>
+</header>
+
+<main>
+
+<section id="precedent">
+<div class="wrap">
+  <p class="part">Part one</p>
+  <h2>The world has done this before</h2>
+  <div class="col">
+    <p class="lede">Every way the houses hold magic has a precedent in how our own world held dangerous or valuable knowledge. Silk, glass, porcelain, printing, vaccines, rubber, the bomb, and now the machines that learn. The patterns repeat across a thousand years with remarkable faithfulness, and each one, carried into a world where knowledge has physics, becomes stranger and more visible. Four verbs organise them: keeping, forbidding, fencing and freezing.</p>
+  </div>
+
+  <div class="family">
+    <h3>Keeping <small>Holding a craft inside a body, a city or a company</small></h3>
+    <div class="prec">
+      <div class="pc">
+        <h4>Silkworms in hollow canes</h4>
+        <p class="when">Byzantium, around 552</p>
+        <p>China's monopoly on sericulture held for centuries. According to Procopius, monks carried silkworm eggs west hidden in their staffs and brought them to Justinian, and the monopoly was over.</p>
+        <p class="pattern">A monopoly on a living process leaks through the smallest body that can carry it.</p>
+        <div class="straits" style="--c:var(--bal)"><b>In the Straits: groove-cuttings</b>A groove can't be carried, but a seed of one can. A pinch of kampong soil, a page torn from an Al-Merikani ledger, a splinter of Sund bridge timber. Planted elsewhere, each grows a small patch of another house's cheap ground. Groove-cuttings are the city's most smuggled contraband, and a few pots of them on a balcony can make an ordinary flat into a foreign embassy of magic.</div>
+      </div>
+      <div class="pc">
+        <h4>The glassmakers of Murano</h4>
+        <p class="when">Venice, from 1291</p>
+        <p>The Republic moved its furnaces to Murano. The master glassmakers were honoured, well paid, allowed to marry into the nobility, and forbidden to take their craft abroad.</p>
+        <p class="pattern">The most valuable practitioners become the most confined.</p>
+        <div class="straits" style="--c:var(--tki)"><b>In the Straits: the gilded registers</b>The city's greatest casters live in the best houses and hold no passports. Toa Keng lists its first-rank surveyors as instruments of the standards office; Balai Pusaka's custodians may not leave the ground their relics are rooted in. Defection is the most dramatic crime the city knows, and every house keeps a quiet file on which of its stars might go.</div>
+      </div>
+      <div class="pc">
+        <h4>The porcelain prisoner</h4>
+        <p class="when">Dresden and Meissen, 1701 to 1710</p>
+        <p>Johann Friedrich Böttger promised Augustus the Strong gold. Held under guard, he worked with Tschirnhaus toward Europe's first hard-paste porcelain, and the secret was kept behind the walls at Meissen.</p>
+        <p class="pattern">The patron pays for gold, receives something else, and keeps the maker to keep it.</p>
+        <div class="straits" style="--c:var(--lan)"><b>In the Straits: the accidental yield</b>Lan Fong shareholders fund castings for ore. Sometimes the kongsi's hands find something else instead: a new relation, a stranger metal, a way of setting type in water. Under the articles, the discovery belongs to the company. The hand who found it is promoted, housed, and never allowed to work for anyone else again.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="family">
+    <h3>Forbidding <small>Naming what may not be known</small></h3>
+    <div class="prec">
+      <div class="pc">
+        <h4>The Index of Forbidden Books</h4>
+        <p class="when">Rome, 1559 to 1966</p>
+        <p>For four centuries the Church published its list of prohibited titles. Copies circulated anyway, and for the curious the list itself became a reading guide.</p>
+        <p class="pattern">A list of what not to read is a map of what matters.</p>
+        <div class="straits" style="--c:var(--tki)"><b>In the Straits: the Register of Prohibited Relations</b>Toa Keng's register is the most studied document in the city's cellars. Every banned casting gains an aura and a price. Cellar-children learn the register by heart before they can cast anything on it, which means the office has, without meaning to, written the syllabus of the underground.</div>
+      </div>
+      <div class="pc">
+        <h4>Cover-names of the alchemists</h4>
+        <p class="when">Europe, medieval to seventeenth century</p>
+        <p>Alchemists wrote in Decknamen, cover-names such as the green lion or the king's bath, readable only to initiates. Copied and recopied, the recipes drifted.</p>
+        <p class="pattern">Knowledge hidden in language mutates as it travels.</p>
+        <div class="straits" style="--c:var(--pet)"><b>In the Straits: street variants</b>Forbidden spells passed hand to hand change with every copying. Some come out weaker, some stranger, a few more powerful than the original. These street variants have no entry in any register, so no house's dispel is written for them. The underground has its own evolution, and some of its species can't be killed because nobody has named them.</div>
+      </div>
+      <div class="pc">
+        <h4>The press</h4>
+        <p class="when">Mainz, from around 1450</p>
+        <p>Movable type made copies cheap. Within a century the institutions that governed reading had lost control of what people read.</p>
+        <p class="pattern">A cheap copying technology unsettles every priesthood at once.</p>
+        <div class="straits" style="--c:var(--lan)"><b>In the Straits: Lan Fong's type</b>Lan Fong's magic is typesetting: a relation set once can be printed and cast by many hands. That makes it the city's press. Houses that hold magic through scarcity fear Lan Fong's type more than any rival's weapon, and the standards office keeps an inspector in every Lam Keng print-hall.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="family">
+    <h3>Fencing <small>Taking from some and gating the rest</small></h3>
+    <div class="prec">
+      <div class="pc">
+        <h4>Onesimus and the smallpox</h4>
+        <p class="when">Boston, 1721</p>
+        <p>An enslaved West African man, Onesimus, described inoculation against smallpox to Cotton Mather, who championed it during the epidemic. The practice came from Africa; the city's credit went elsewhere.</p>
+        <p class="pattern">The knowledge that saves a city often comes from the people least permitted to hold it.</p>
+        <div class="straits" style="--c:var(--pet)"><b>In the Straits: the unlicensed cure</b>When the city is in real danger, the working answer is often held by someone with no writ: a Petang student, a hawker's grandmother, a crosser. Every house must then choose between accepting a cure it cannot license, licensing it after the fact under its own name, or letting the crisis run.</div>
+      </div>
+      <div class="pc">
+        <h4>Seeds at Kew, gardens here</h4>
+        <p class="when">1876 and 1888</p>
+        <p>Henry Wickham shipped rubber seeds out of Brazil to Kew. Seedlings went east, and at the Singapore Botanic Gardens Henry Ridley developed tapping methods and pressed planters to take up the crop.</p>
+        <p class="pattern">Knowledge is gathered in one place, grown in a garden in another, and profits in a third.</p>
+        <div class="straits" style="--c:var(--tki)"><b>In the Straits: the Garden of Relations</b>Toa Keng keeps a glasshouse of other people's magic: cuttings of every house's grooves, grown under measured conditions, catalogued and licensed back to the city. It is the most mixed ground in the Straits and the least owned by anyone whose ancestors made it.</div>
+      </div>
+      <div class="pc">
+        <h4>The examination halls</h4>
+        <p class="when">China, 605 to 1905</p>
+        <p>The imperial examinations opened office to anyone who could pass. Passing usually took decades of tutoring that only families with means could fund.</p>
+        <p class="pattern">An open door with a very long corridor.</p>
+        <div class="straits" style="--c:var(--tki)"><b>In the Straits: the open examination</b>Toa Keng's licensing examination admits anyone. A cellar talent with no tutor gets a desk, a paper and no real chance. Lan Fong's Hakka memory knows this corridor well, and the kongsi's night-tutoring halls exist partly to shorten it for their own.</div>
+      </div>
+      <div class="pc">
+        <h4>Enclosure</h4>
+        <p class="when">England, sixteenth to nineteenth century</p>
+        <p>Common fields were fenced and titled, act by act, parish by parish, until most of the land once shared was private.</p>
+        <p class="pattern">Shared ground becomes owned ground one lawful hedge at a time.</p>
+        <div class="straits" style="--c:var(--sund)"><b>In the Straits: fenced grooves</b>Sund's commons are grooved by all and owned by none. Each private ward built on them fences a piece, and fenced groove answers only to those inside the fence. The city's commons shrink by a courtyard a year, and nobody has ever broken a law doing it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="family">
+    <h3>Freezing <small>Holding an uneven map still and calling it stability</small></h3>
+    <div class="prec">
+      <div class="pc">
+        <h4>Born secret</h4>
+        <p class="when">United States, 1946</p>
+        <p>The Atomic Energy Act classified certain nuclear information from the moment of its creation, whoever created it. The principle came to be called born secret.</p>
+        <p class="pattern">Knowledge owned before anyone finds it.</p>
+        <div class="straits" style="--c:var(--tki)"><b>In the Straits: born registered</b>Toa Keng's founding claim: any relation of measure, discovered by anyone, anywhere, is registered at the moment of discovery. A child who finds one in a cellar has trespassed on property nobody has seen yet.</div>
+      </div>
+      <div class="pc">
+        <h4>The grand bargain</h4>
+        <p class="when">Non-Proliferation Treaty, 1968</p>
+        <p>States that already had the weapon kept it; the rest renounced it in return for access to peaceful uses and a promise of eventual disarmament.</p>
+        <p class="pattern">A treaty that freezes an uneven map.</p>
+        <div class="straits" style="--c:var(--bal)"><b>In the Straits: the Concord of Legendaries</b>Each house holds one legendary artifact and has sworn never to forge another. The struck-off schools and the crossers, who arrived after the Concord, may not forge one at all. Every legend in the Armoury is also a deterrent, and the peace of the city rests on seven weapons nobody has used in living memory.</div>
+      </div>
+      <div class="pc">
+        <h4>Dual use</h4>
+        <p class="when">Cold War export controls, 1949 onward</p>
+        <p>Machine tools, computers and chemicals that served both factories and weapons were placed under control lists, and the lists never stopped growing.</p>
+        <p class="pattern">The most useful knowledge is the hardest to govern, because it is also everyday.</p>
+        <div class="straits" style="--c:var(--nine)"><b>In the Straits: the same rain</b>Nine Rain's weather is irrigation and siege at once. The casting that could clean Basin Seven could also poison it. No house can control the dangerous magics without also controlling the ones people need to live.</div>
+      </div>
+      <div class="pc">
+        <h4>Governing the substrate</h4>
+        <p class="when">The present</p>
+        <p>As machine learning grew harder to govern as ideas, attention turned to the ground it grows on. The EU AI Act presumes systemic risk above a threshold of training compute; export controls on advanced chips began in 2022. Alongside runs an open argument: release models openly so capability and scrutiny spread widely, or hold them closed so a few accountable hands can control their use.</p>
+        <p class="pattern">When the knowledge can't be held, hold the ground it grows on.</p>
+        <div class="straits" style="--c:var(--sund)"><b>In the Straits: governing grooves</b>Spells leak; grooved ground doesn't. The houses learn to govern soil instead of formulae, and the real struggle moves to zoning, land title and demolition. The same argument runs between Sund, whose commons lie open to any caster, and Toa Keng, whose ground answers only to the licensed. And somewhere in the city is the rumour of an instrument that can teach casting to whoever holds it, which would shorten every corridor overnight.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="mechanics">
+<div class="wrap">
+  <p class="part">Part two</p>
+  <h2>Five ways holding shapes the magic</h2>
+  <div class="col"><p class="lede">Governance in the Straits is physical. How a house holds magic changes what that magic can do, what it costs, and where its bill lands. Five mechanisms carry the effect from institution to ground.</p></div>
+
+  <div class="mech">
+    <h3>The groove<span>The ground remembers who worked it</span></h3>
+    <div class="col"><p>A relation rewritten again and again in the same manner wears a groove, and World Resistance softens along it for anyone trained in that manner. A century of survey has made the gridded core cheap for measure-magic and stubborn for everything else. Balai Pusaka rooting runs deep under the old kampongs. The quays have been covenanted so often that a promise made there half binds itself. A caster walking across the city feels the resistance change underfoot like a change of soil.</p><p>So territory is magic. Whoever shapes a district shapes what can be cast there for generations, and clearance is erasure. When a kampong comes down, its groove goes with it and the old magic has nowhere to land. Reclaimed land, freshly made, carries no groove at all: every tradition works there at full price, which is why the unregistered practise on it.</p></div>
+  </div>
+
+  <div class="mech">
+    <h3>The shape<span>The institution's form becomes the power's form</span></h3>
+    <div class="col"><p>Concentrated houses produce spectacular magic carried by a few: Toa Keng's examined surveyors, Balai Pusaka's custodians with relics that hold a relation for three hundred years. Distributed houses produce magic thin in any one person and vast in total. A Sund assembly-casting spreads load across three hundred bodies, each carrying a sliver, and moves a bridge no archmage could shift. Nine Rain spreads it across time instead, a village borrowing from the season and repaying over decades.</p><p>Each shape fails in its own way. Concentrated magic is brittle: lose the archmage and the ward falls. Distributed magic is slow to direct and fails with its quorum. When too few come to the assembly, the bridge simply stays where it is that year.</p></div>
+  </div>
+
+  <div class="mech">
+    <h3>The door<span>Every house has one, and a shadow outside it</span></h3>
+    <div class="col"><p>Each tradition has its own figure for talent that arrives unsanctioned, and each house's answer produces a different kind of outsider. Toa Keng records it as contamination and sends hunters into the cellars. Sané-Kora warns that a voice with no lineage has nothing to hold its nyama, and harms its own speaker. Lan Fong offers a share, or wages. Nine Rain says the child was born on the wrong day-sign, then watches whether the season disagrees. Sund says the assembly is open. Al-Merikani asks only whether the child keeps promises. Balai Pusaka has the most unsettling answer: the relic chooses, and when a keris chooses a hawker's daughter over a prince, the court must accept it or break its own law.</p><p>Open houses make many modest casters and a city that is hard to steer. Closed houses make a few great ones and a large, untrained underground.</p></div>
+  </div>
+
+  <div class="mech">
+    <h3>The bill<span>Profit is exporting the load</span></h3>
+    <div class="col"><p>World Resistance always sends the bill, but it need not reach the caster. The cleverest institutions route load elsewhere, the way a factory routes waste downstream. Toa Keng's wards over the counting-houses discharge into the drains of the districts below, so the rich live under a clean sky while the lower kampongs inherit headaches, rot and bad luck. Lan Fong pays dividends in magic to shareholders and leaves its tailings in the ground and in the bodies of its hands. Al-Merikani covenant-credit lets a merchant cast today and have the load fall due on a debtor years later, possibly in another port.</p><p>Against these stand the magics that may not be sold: waqf endowments held forever for public use, pusaka that cannot change hands, Nine Rain's insistence that what is taken returns on its day. The market magics and the unsellable magics have never been reconciled, and Basin Seven is where their bills pool.</p></div>
+  </div>
+
+  <div class="mech">
+    <h3>The reserve<span>What each house refuses to map</span></h3>
+    <div class="col"><p>The mind-mage in the Empire's prelude teaches that another person's heart is not your territory. Every house in the Straits keeps some relation it treats as sovereign in that sense. For Sané-Kora it is the voices of the dead. For Balai Pusaka it is the will of an object. For Sund it is the commons itself, which may be used by all and enclosed by none. Toa Keng's founding instinct is that nothing lies beyond measure, so its history is a long pressure against every other house's reserves, and its greatest works and its worst harms come from the same gesture.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="map">
+<div class="wrap">
+  <p class="part">Part three</p>
+  <h2>The map of thick and thin ground</h2>
+  <div class="col"><p>Each house's groove, where its bills run, the cleared ground where a groove was erased, and the reclaimed shore where no groove has formed yet. Choose a layer to isolate it.</p></div>
+  <div class="mapgrid">
+    <div class="mapbox">
+      <svg id="city" viewBox="0 0 1000 660" role="img" aria-labelledby="mapTitle">
+        <title id="mapTitle">Map of the Straits city showing each house's grooved ground, the flow of exported load toward Basin Seven, cleared ground and reclaimed shore.</title>
+        <defs>
+          <pattern id="p-tki" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M0,0 H14 M0,0 V14" style="stroke:var(--tki)" stroke-width="1.6" fill="none"/></pattern>
+          <pattern id="p-mer" width="16" height="10" patternUnits="userSpaceOnUse"><circle cx="4" cy="5" r="2.2" style="fill:none;stroke:var(--mer)" stroke-width="1.4"/><circle cx="12" cy="5" r="2.2" style="fill:none;stroke:var(--mer)" stroke-width="1.4"/></pattern>
+          <pattern id="p-bal" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="4" style="fill:none;stroke:var(--bal)" stroke-width="1.4"/><circle cx="13" cy="13" r="9" style="fill:none;stroke:var(--bal)" stroke-width="1"/></pattern>
+          <pattern id="p-lan" width="18" height="12" patternUnits="userSpaceOnUse"><rect x="1" y="1" width="7" height="4" style="fill:var(--lan)"/><rect x="10" y="1" width="7" height="4" style="fill:var(--lan)" opacity=".55"/><rect x="5" y="7" width="7" height="4" style="fill:var(--lan)" opacity=".8"/></pattern>
+          <pattern id="p-nine" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0,6 C6,0 12,12 18,6 S24,6 24,6" style="stroke:var(--nine);fill:none" stroke-width="1.6"/></pattern>
+          <pattern id="p-kora" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.8" style="fill:var(--kora)"/></pattern>
+          <pattern id="p-sund" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0,0 L16,16 M16,0 L0,16" style="stroke:var(--sund)" stroke-width="1.4"/></pattern>
+          <pattern id="p-arus" width="20" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 C5,1 10,9 15,5 S20,5 20,5" style="stroke:var(--arus);fill:none" stroke-width="1.2" stroke-dasharray="3 2"/></pattern>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" style="fill:var(--bill)"/></marker>
+        </defs>
+        <rect width="1000" height="660" style="fill:var(--sea)"/>
+        <!-- island -->
+        <path d="M120,420 C108,300 200,190 330,150 C450,110 620,100 740,150 C860,200 912,300 890,410 C875,500 800,560 700,585 L640,600 L420,600 C300,600 200,560 150,500 Z" style="fill:var(--land);stroke:var(--rule)" stroke-width="2"/>
+
+        <!-- reclaimed / wild ground -->
+        <g class="layer" data-layer="wild">
+          <path d="M420,600 L640,600 L630,640 L430,646 Z" style="fill:var(--wild);stroke:var(--ink)" stroke-width="1.2" stroke-dasharray="5 4"/>
+          <text x="530" y="628" text-anchor="middle" class="sm">Reclaimed shore</text>
+        </g>
+
+        <!-- nine rain -->
+        <g class="layer" data-layer="nine">
+          <path d="M600,170 L780,180 L832,300 L640,322 Z" fill="url(#p-nine)" style="stroke:var(--nine)" stroke-width="2"/>
+          <text x="712" y="250" text-anchor="middle" class="lbl" style="fill:var(--nine)">Nine Rain</text>
+          <text x="712" y="270" text-anchor="middle" class="sm">gardens and catchment</text>
+          <path d="M760,300 C800,340 840,320 830,280" style="stroke:var(--nine);fill:none" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+        </g>
+
+        <!-- sane-kora -->
+        <g class="layer" data-layer="kora">
+          <path d="M270,225 L395,195 L415,300 L292,322 Z" fill="url(#p-kora)" style="stroke:var(--kora)" stroke-width="2"/>
+          <text x="342" y="258" text-anchor="middle" class="lbl" style="fill:var(--kora)">Sané-Kora</text>
+          <g style="fill:none;stroke:var(--kora)" stroke-width="1.6">
+            <circle cx="430" cy="420" r="7"/><circle cx="430" cy="420" r="14" opacity=".6"/>
+            <circle cx="605" cy="400" r="7"/><circle cx="605" cy="400" r="14" opacity=".6"/>
+            <circle cx="702" cy="545" r="7"/><circle cx="702" cy="545" r="14" opacity=".6"/>
+            <circle cx="248" cy="365" r="7"/><circle cx="248" cy="365" r="14" opacity=".6"/>
+            <circle cx="575" cy="520" r="7"/><circle cx="575" cy="520" r="14" opacity=".6"/>
+          </g>
+          <text x="248" y="395" text-anchor="middle" class="sm">listening places</text>
+        </g>
+
+        <!-- basin seven + arus -->
+        <g class="layer" data-layer="arus">
+          <ellipse cx="505" cy="248" rx="92" ry="52" style="fill:var(--brine)" opacity=".28"/>
+          <ellipse cx="505" cy="248" rx="92" ry="52" fill="url(#p-arus)" style="stroke:var(--arus)" stroke-width="2"/>
+          <text x="505" y="244" text-anchor="middle" class="lbl" style="fill:var(--ink)">Basin Seven</text>
+          <text x="505" y="263" text-anchor="middle" class="sm">drowned Arus groove below</text>
+        </g>
+
+        <!-- river -->
+        <path d="M505,300 C470,360 545,400 505,455 C478,500 532,548 515,600" style="stroke:var(--brine);fill:none" stroke-width="9" stroke-linecap="round"/>
+
+        <!-- sund -->
+        <g class="layer" data-layer="sund">
+          <path d="M150,425 L272,392 L302,502 L192,540 Z" fill="url(#p-sund)" style="stroke:var(--sund)" stroke-width="2"/>
+          <text x="226" y="468" text-anchor="middle" class="lbl" style="fill:var(--sund)">Sund</text>
+          <text x="226" y="488" text-anchor="middle" class="sm">yards and commons</text>
+          <path d="M488,430 L528,430" style="stroke:var(--sund)" stroke-width="5"/>
+          <text x="560" y="434" class="sm">Sund bridge</text>
+        </g>
+
+        <!-- al-merikani -->
+        <g class="layer" data-layer="mer">
+          <path d="M448,372 L565,368 L548,455 L462,462 Z" fill="url(#p-mer)" style="stroke:var(--mer)" stroke-width="2"/>
+          <text x="370" y="352" text-anchor="middle" class="lbl" style="fill:var(--mer)">Al-Merikani quays</text>
+          <path d="M448,372 L400,360" style="stroke:var(--mer)" stroke-width="1"/>
+          <path d="M470,470 C400,560 330,610 220,640" style="stroke:var(--bill);fill:none" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)" class="billpath"/>
+          <text x="238" y="628" class="sm">load falls due abroad</text>
+        </g>
+
+        <!-- lan fong -->
+        <g class="layer" data-layer="lan">
+          <path d="M382,472 L492,478 L502,590 L396,582 Z" fill="url(#p-lan)" style="stroke:var(--lan)" stroke-width="2"/>
+          <text x="330" y="560" text-anchor="end" class="lbl" style="fill:var(--lan)">Lan Fong</text>
+          <text x="330" y="578" text-anchor="end" class="sm">Lam Keng district</text>
+          <path d="M440,478 C400,420 420,340 450,292" style="stroke:var(--bill);fill:none" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+        </g>
+
+        <!-- toa keng -->
+        <g class="layer" data-layer="tki">
+          <path d="M528,470 L642,456 L656,572 L540,590 Z" fill="url(#p-tki)" style="stroke:var(--tki)" stroke-width="2.4"/>
+          <text x="720" y="602" text-anchor="middle" class="lbl" style="fill:var(--tki)">Toa Keng core</text>
+          <path d="M600,470 C640,390 600,320 560,290" style="stroke:var(--bill);fill:none" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+          <path d="M650,520 C680,530 700,520 720,505" style="stroke:var(--bill);fill:none" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+          <rect x="560" y="300" width="36" height="28" style="fill:none;stroke:var(--tki)" stroke-width="1.6"/>
+          <text x="578" y="345" text-anchor="middle" class="sm">Garden</text>
+        </g>
+
+        <!-- balai pusaka -->
+        <g class="layer" data-layer="bal">
+          <path d="M662,382 L822,362 L842,482 L692,522 Z" fill="url(#p-bal)" style="stroke:var(--bal)" stroke-width="2"/>
+          <text x="772" y="352" text-anchor="middle" class="lbl" style="fill:var(--bal)">Balai Pusaka</text>
+          <path d="M722,420 L772,414 L778,462 L728,468 Z" style="fill:var(--land);stroke:var(--ink)" stroke-width="1.2"/>
+          <path d="M728,420 L774,462 M772,418 L730,464" style="stroke:var(--ink)" stroke-width="1.2"/>
+          <text x="752" y="500" text-anchor="middle" class="sm">cleared kampong</text>
+        </g>
+
+        <!-- petang -->
+        <g class="layer" data-layer="pet" style="fill:var(--pet)">
+          <path d="M436,606 l5,10 11,1 -8,7 3,11 -11,-6 -11,6 3,-11 -8,-7 11,-1z"/>
+          <path d="M618,604 l5,10 11,1 -8,7 3,11 -11,-6 -11,6 3,-11 -8,-7 11,-1z"/>
+          <path d="M330,520 l5,10 11,1 -8,7 3,11 -11,-6 -11,6 3,-11 -8,-7 11,-1z"/>
+          <path d="M634,332 l5,10 11,1 -8,7 3,11 -11,-6 -11,6 3,-11 -8,-7 11,-1z"/>
+          <text x="850" y="600" text-anchor="middle" class="lbl" style="fill:var(--pet)">Petang lamps</text>
+        </g>
+
+        <!-- bill legend in-map -->
+        <g transform="translate(40,40)">
+          <rect width="200" height="58" style="fill:var(--paper);stroke:var(--rule)"/>
+          <path d="M14,20 H60" style="stroke:var(--bill)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+          <text x="70" y="24" class="sm">exported load</text>
+          <path d="M14,42 H60" style="stroke:var(--nine)" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="70" y="46" class="sm">load returned to source</text>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="legend" id="legend">
+        <button type="button" data-l="all" style="--c:var(--ink)" aria-pressed="true"><i></i>Whole city</button>
+        <button type="button" data-l="tki" style="--c:var(--tki)" aria-pressed="false"><i></i>Toa Keng</button>
+        <button type="button" data-l="mer" style="--c:var(--mer)" aria-pressed="false"><i></i>Al-Merikani</button>
+        <button type="button" data-l="bal" style="--c:var(--bal)" aria-pressed="false"><i></i>Balai Pusaka</button>
+        <button type="button" data-l="lan" style="--c:var(--lan)" aria-pressed="false"><i></i>Lan Fong</button>
+        <button type="button" data-l="nine" style="--c:var(--nine)" aria-pressed="false"><i></i>Nine Rain</button>
+        <button type="button" data-l="kora" style="--c:var(--kora)" aria-pressed="false"><i></i>Sané-Kora</button>
+        <button type="button" data-l="sund" style="--c:var(--sund)" aria-pressed="false"><i></i>Sund</button>
+        <button type="button" data-l="pet" style="--c:var(--pet)" aria-pressed="false"><i></i>Sekolah Petang</button>
+        <button type="button" data-l="arus" style="--c:var(--arus)" aria-pressed="false"><i></i>Basin Seven and Arus</button>
+        <button type="button" data-l="wild" style="--c:var(--muted)" aria-pressed="false"><i></i>Wild ground</button>
+      </div>
+      <div class="note" id="note" aria-live="polite"><h4>The whole city</h4><p>Seven grooves laid over each other, older ones showing through newer. Red dashed lines trace where load is sent instead of paid. Nearly all of them end at Basin Seven.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="houses">
+<div class="wrap">
+  <p class="part">Part four</p>
+  <h2>House by house</h2>
+  <div class="col"><p class="lede">For each house: how it holds magic, what that holding does to the magic, who stands at its door and who stands outside it, where its bill goes, which history it echoes, and the temptation that could break it.</p></div>
+
+  <article class="hs" style="--c:var(--tki)">
+    <header><h3>Toa Keng</h3><p class="creed">What is measured may be permitted.</p></header>
+    <dl>
+      <dt>Holds magic as</dt><dd>Examination, licence and register. Magic belongs to the standard, and casters are its instruments.</dd>
+      <dt>What that does</dt><dd>Castings that are exact, repeatable and portable anywhere a standard reaches. Its groove is the grid: cheapest in straight streets and surveyed lots, faltering in ground no one has measured.</dd>
+      <dt>The door</dt><dd>The examination, open to everyone and passed mostly by the tutored.</dd>
+      <dt>The shadow</dt><dd>The unlicensed talent, recorded as contamination. Toa Keng's cellar-hunters are the most feared officials in the lower city.</dd>
+      <dt>The bill</dt><dd>Wards over the counting-houses discharge downhill through the drains. Licence fees make it the richest house per caster.</dd>
+      <dt>Echoes</dt><dd>Born secret; the garden at Kew; the examination halls.</dd>
+      <dt>Temptation</dt><dd>Redefinition: rewriting the unit instead of the thing. And the Garden of Relations, which grows every house's magic under glass and owns the cuttings.</dd>
+    </dl>
+  </article>
+
+  <article class="hs" style="--c:var(--mer)">
+    <header><h3>Al-Merikani</h3><p class="creed">A promise kept is a road.</p></header>
+    <dl>
+      <dt>Holds magic as</dt><dd>Covenant, credit and endowment. Standing is the record of promises kept.</dd>
+      <dt>What that does</dt><dd>Magic that crosses distance and time. A covenant sealed on the quays binds in a port across the sea. Its groove runs along the river, where two centuries of contracts have made promises nearly self-enforcing.</dd>
+      <dt>The door</dt><dd>Anyone whose word holds. Newcomers arrive with no record, and so with very little power.</dd>
+      <dt>The shadow</dt><dd>The defaulter. A broken covenant leaves a visible mark, and a marked hand can't seal anything until the debt is cleared.</dd>
+      <dt>The bill</dt><dd>Deferred. Load falls due later, on whoever holds the obligation. Against this stands the waqf: castings endowed forever for public use, which no one may sell. It is the house's conscience and its oldest fortune.</dd>
+      <dt>Echoes</dt><dd>Endowments that outlive their founders; letters of credit across the Indian Ocean.</dd>
+      <dt>Temptation</dt><dd>Bundling deferred load and trading the bundles, until nobody in the city knows whose body owes what.</dd>
+    </dl>
+  </article>
+
+  <article class="hs" style="--c:var(--bal)">
+    <header><h3>Balai Pusaka</h3><p class="creed">We keep what keeps us.</p></header>
+    <dl>
+      <dt>Holds magic as</dt><dd>Custodianship. Relics are held by the court, but the relic chooses its bearer.</dd>
+      <dt>What that does</dt><dd>The deepest and slowest magic in the city. A pusaka can hold a relation for centuries. Its groove lies under the old kampongs, deeper than any other, and it cannot be moved.</dd>
+      <dt>The door</dt><dd>No one can apply. The court prepares heirs; the relic may refuse them.</dd>
+      <dt>The shadow</dt><dd>The unchosen heir, raised for a power that never came. And the chosen commoner the court would rather not see.</dd>
+      <dt>The bill</dt><dd>Carried across generations by the lineage, and released each year when the relics are ritually bathed. The river runs heavy that week.</dd>
+      <dt>Echoes</dt><dd>Murano's confined masters; treasures that can't be sold.</dd>
+      <dt>Temptation</dt><dd>Selling ground. When a kampong is cleared the groove dies, so a court that sells its land sells its own magic by the lot.</dd>
+    </dl>
+  </article>
+
+  <article class="hs" style="--c:var(--lan)">
+    <header><h3>Lan Fong</h3><p class="creed">Set it once, print it a thousand times.</p></header>
+    <dl>
+      <dt>Holds magic as</dt><dd>Shares in the kongsi. Members vote, draw dividends and hire hands.</dd>
+      <dt>What that does</dt><dd>Reproducible magic. A relation set in type can be printed and cast by many, which makes Lan Fong the city's press and its mass caster in ore and earth. Its groove is Lam Keng, dense and rectangular, like a forme of type.</dd>
+      <dt>The door</dt><dd>Buy a share, or work for someone who has. Open in principle, uneven in practice.</dd>
+      <dt>The shadow</dt><dd>The print-hands, who cast printed relations they don't own and carry the load of them.</dd>
+      <dt>The bill</dt><dd>Dividends rise to the shareholders; tailings sink into the ground and into the hands.</dd>
+      <dt>Echoes</dt><dd>The press at Mainz; Böttger at Meissen; the kongsi of west Borneo.</dd>
+      <dt>Temptation</dt><dd>Floating the kongsi: selling shares to outsiders, other houses included. And printing forbidden relations cheaply, because someone will pay.</dd>
+    </dl>
+  </article>
+
+  <article class="hs" style="--c:var(--nine)">
+    <header><h3>Nine Rain</h3><p class="creed">What is taken returns on its day.</p></header>
+    <dl>
+      <dt>Holds magic as</dt><dd>A loan from the season, kept by the calendar-keepers and woven into the year.</dd>
+      <dt>What that does</dt><dd>Timing, weather and foresight. Nine Rain magic is overwhelming at the right moment and nearly nothing at the wrong one. Its groove lies across the gardens and catchments, and it moves with the year.</dd>
+      <dt>The door</dt><dd>The day-sign of one's birth, though the season can overrule it. Some are called in their fortieth year.</dd>
+      <dt>The shadow</dt><dd>The wrong-born who cast out of season. Their workings come back later, with interest.</dd>
+      <dt>The bill</dt><dd>Returned to source. Every loan is repaid to the land, and a family can inherit a grandmother's borrowing.</dd>
+      <dt>Echoes</dt><dd>Dual use: the same rain for irrigation and siege.</dd>
+      <dt>Temptation</dt><dd>Borrowing against seasons not yet come, mortgaging the rains of a future the borrower won't live to see.</dd>
+    </dl>
+  </article>
+
+  <article class="hs" style="--c:var(--kora)">
+    <header><h3>Sané-Kora</h3><p class="creed">The word remembers who spoke it.</p></header>
+    <dl>
+      <dt>Holds magic as</dt><dd>Lineage. Voices, genealogies and praise pass within families of speakers.</dd>
+      <dt>What that does</dt><dd>Memory, address and the dead. A spoken relation carries every voice behind it. Its groove runs through names more than ground, so it works best wherever names are still said aloud, and those listening places are scattered all over the city.</dd>
+      <dt>The door</dt><dd>Lineage. Outsiders may learn the words; the nyama doesn't answer them.</dd>
+      <dt>The shadow</dt><dd>Voices without lineage, whose released nyama has nowhere to go and turns on the speaker.</dd>
+      <dt>The bill</dt><dd>Held by the speaker's line. Patrons pay griots for praise, and praise binds load and power to the name praised.</dd>
+      <dt>Echoes</dt><dd>Oral traditions kept by hereditary masters of the word; the Index inverted, since nothing written can be banned.</dd>
+      <dt>Temptation</dt><dd>Selling praise. A griot for hire can make a tyrant's name heavy enough to rule by.</dd>
+    </dl>
+  </article>
+
+  <article class="hs" style="--c:var(--sund)">
+    <header><h3>Sund</h3><p class="creed">Many hands, one joint.</p></header>
+    <dl>
+      <dt>Holds magic as</dt><dd>Commons and assembly. Everyone who comes carries a sliver.</dd>
+      <dt>What that does</dt><dd>Structural feats impossible for one person: bridges moved, hulls launched, roofs raised in a night. Its groove lies in the yards and on the bridges, worn smooth by many hands.</dd>
+      <dt>The door</dt><dd>Open. Anyone may come to the assembly and carry.</dd>
+      <dt>The shadow</dt><dd>The free rider, who uses the bridge and never comes to lift it.</dd>
+      <dt>The bill</dt><dd>Spread so thin it barely registers. But a joint cast too often wears out and stops answering, and an overgrazed commons can die.</dd>
+      <dt>Echoes</dt><dd>Enclosure; the case for open release.</dd>
+      <dt>Temptation</dt><dd>Letting a private ward fence one courtyard of the commons, and then the next.</dd>
+    </dl>
+  </article>
+
+  <div class="struck">
+    <p class="part">The two struck off</p>
+    <article class="hs" style="--c:var(--pet)">
+      <header><h3>Sekolah Petang</h3><p class="creed">Come after work.</p></header>
+      <dl>
+        <dt>Holds magic as</dt><dd>Practice alone: no licence, no lineage, no shares. The evening school teaches whoever arrives at dusk.</dd>
+        <dt>What that does</dt><dd>The most mixed and least grooved magic in the city. Petang casters borrow every house's groove and own none, so their work runs a little everywhere and strongly nowhere, and they are the best in the city at the unmarked reclaimed shore.</dd>
+        <dt>The door</dt><dd>Nightfall.</dd>
+        <dt>The bill</dt><dd>No one routes Petang's load anywhere, so its students pay it themselves, and often carry other houses' exported load besides.</dd>
+        <dt>Echoes</dt><dd>Onesimus; every reader the press created.</dd>
+      </dl>
+    </article>
+    <article class="hs" style="--c:var(--arus)">
+      <header><h3>Rumah Arus</h3><p class="creed">Everything flows somewhere.</p></header>
+      <dl>
+        <dt>Held magic as</dt><dd>Flow and water right, in the years before the house was struck from the rolls.</dd>
+        <dt>What became of it</dt><dd>Its groove lies drowned beneath Basin Seven. Water with a dead groove belongs to no tradition, which makes it the easiest place in the city to send a bill. Every house's exported load runs downhill into the one house nobody speaks for.</dd>
+      </dl>
+    </article>
+  </div>
+</div>
+</section>
+
+<section id="axes">
+<div class="wrap">
+  <p class="part">Part five</p>
+  <h2>Three tensions, nine positions</h2>
+  <div class="col"><p class="lede">No house sits at one end of every argument. The same house can be generous at the door and ruthless with the bill, or closed to newcomers and scrupulous about paying its own way. Placed on three axes, the city looks less like a hierarchy and more like weather.</p></div>
+
+  <div class="axis">
+    <h3>Where power sits</h3>
+    <div class="ends"><span>In the institution</span><span>In the person</span></div>
+    <div class="track">
+      <span style="left:10%;--c:var(--tki);--h:0px;top:0">Toa Keng</span>
+      <span style="left:26%;--c:var(--bal);--h:0px;top:0">Balai Pusaka</span>
+      <span style="left:34%;--c:var(--lan);--h:22px;top:22px">Lan Fong</span>
+      <span style="left:42%;--c:var(--nine);--h:0px;top:0">Nine Rain</span>
+      <span style="left:50%;--c:var(--kora);--h:44px;top:44px">Sané-Kora</span>
+      <span style="left:62%;--c:var(--mer);--h:0px;top:0">Al-Merikani</span>
+      <span style="left:74%;--c:var(--sund);--h:22px;top:22px">Sund</span>
+      <span style="left:90%;--c:var(--pet);--h:0px;top:0">Petang</span>
+    </div>
+    <p class="read">Balai Pusaka looks institutional until a relic chooses. Then power leaps to a single person the court never picked, and it is the least governable moment in the city.</p>
+  </div>
+
+  <div class="axis">
+    <h3>How wide the door</h3>
+    <div class="ends"><span>Closed</span><span>Open to all</span></div>
+    <div class="track">
+      <span style="left:8%;--c:var(--bal);--h:0px;top:0">Balai Pusaka</span>
+      <span style="left:20%;--c:var(--kora);--h:22px;top:22px">Sané-Kora</span>
+      <span style="left:34%;--c:var(--tki);--h:0px;top:0">Toa Keng</span>
+      <span style="left:42%;--c:var(--nine);--h:44px;top:44px">Nine Rain</span>
+      <span style="left:54%;--c:var(--lan);--h:0px;top:0">Lan Fong</span>
+      <span style="left:64%;--c:var(--mer);--h:22px;top:22px">Al-Merikani</span>
+      <span style="left:80%;--c:var(--sund);--h:0px;top:0">Sund</span>
+      <span style="left:93%;--c:var(--pet);--h:22px;top:22px">Petang</span>
+    </div>
+    <p class="read">Toa Keng's door is wide and its corridor is long. On paper it is the most inclusive house in the city.</p>
+  </div>
+
+  <div class="axis">
+    <h3>Who pays the bill</h3>
+    <div class="ends"><span>The caster pays</span><span>Someone else pays</span></div>
+    <div class="track">
+      <span style="left:8%;--c:var(--pet);--h:0px;top:0">Petang</span>
+      <span style="left:20%;--c:var(--nine);--h:22px;top:22px">Nine Rain</span>
+      <span style="left:28%;--c:var(--sund);--h:0px;top:0">Sund</span>
+      <span style="left:36%;--c:var(--bal);--h:44px;top:44px">Balai Pusaka</span>
+      <span style="left:52%;--c:var(--kora);--h:0px;top:0">Sané-Kora</span>
+      <span style="left:64%;--c:var(--mer);--h:22px;top:22px">Al-Merikani</span>
+      <span style="left:78%;--c:var(--tki);--h:0px;top:0">Toa Keng</span>
+      <span style="left:90%;--c:var(--lan);--h:22px;top:22px">Lan Fong</span>
+    </div>
+    <p class="read">The house most open to newcomers pays the most for its magic. Petang's students carry their own load and a share of everyone else's.</p>
+  </div>
+</div>
+</section>
+
+<section id="engines">
+<div class="wrap">
+  <p class="part">Part six</p>
+  <h2>The ground in motion</h2>
+  <div class="col"><p class="lede">Uneven ground is a story engine. Each of these begins with one house's way of holding magic and ends up in everyone's streets.</p></div>
+  <div class="eng">
+    <article><h4>The wrong hand</h4><p class="who">Balai Pusaka, Sekolah Petang</p><p>At the annual bathing of the relics, an old keris rises from the water toward a Petang student who came to watch. The court has seven days to accept her, disown the relic, or discover that a pusaka refused is a groove unmade.</p></article>
+    <article><h4>The float</h4><p class="who">Lan Fong, Toa Keng</p><p>The kongsi votes to sell shares to outsiders. The buyers are quiet, numerous and well documented, and by the end of the season the standards office controls the press it has inspected for a century.</p></article>
+    <article><h4>Downhill</h4><p class="who">Toa Keng, the Water Authority</p><p>A new ward over the counting-houses makes the core the cleanest ground in the Straits. Below it, children in the lower kampongs sleep badly and wake bruised. Josefina's engineers trace the drains, and every line leads to Basin Seven.</p></article>
+    <article><h4>The quorum</h4><p class="who">Sund, every house</p><p>The bridge must be lifted before the monsoon. Too few come to the assembly. The free riders turn out to be the other six houses, who have crossed it daily for eighty years and never once carried.</p></article>
+    <article><h4>The mortgage</h4><p class="who">Nine Rain</p><p>Forty years ago a Nine Rain elder borrowed a monsoon to end a drought. Now, in the middle of the water crisis, the season comes to collect, and the only people with the calendar to read the debt are her grandchildren.</p></article>
+    <article><h4>The street variant</h4><p class="who">Sekolah Petang, the cellars</p><p>A mutated forbidden relation spreads through the cellars. No register lists it and no dispel is written for it. It also seems to be the only thing that makes Basin Seven's water clean, and every house must decide whether to accept a cure it can't license.</p></article>
+    <article><h4>The teacher</h4><p class="who">All nine</p><p>An instrument appears that can teach casting to whoever holds it. Every door and corridor in the city is suddenly irrelevant. Six houses want it destroyed, two want it owned, and Sund wants it placed on the bridge where anyone can touch it.</p></article>
+    <article><h4>The Concord cracks</h4><p class="who">The legendaries</p><p>A crosser forges an eighth legendary artifact, outside the Concord and bound by nothing. The seven houses have kept the peace for a lifetime by never using what they hold. Now they must decide whether one new weapon makes theirs worth using.</p></article>
+  </div>
+</div>
+</section>
+
+<section class="coda">
+<div class="wrap">
+  <p class="part">Coda</p>
+  <h2>Nine permissions, one ground that keeps score</h2>
+  <div class="col">
+    <p>In the Empire's lecture hall there is one permission, and it comes from the throne. The Straits has seven, and two more that the houses would rather forget. None of them agrees about who may cast, who carries, who profits or who pays, and every disagreement leaves a mark in the soil.</p>
+    <p>That is where the magic becomes exciting. A caster in this city is always standing on someone's history. The same spell is cheap on one street and ruinous on the next, lawful at noon in the quays and contraband at dusk on the reclaimed shore. Magic here is terrain, weather and inheritance at once: uneven, contested, and alive enough to surprise the people who think they hold it.</p>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer><div class="wrap"><p>The Uneven Ground. A volume of the Field Atlas of the Parallel Straits, magic series. The historical precedents in Part one are real; their Straits counterparts are invention. Linwei's world.</p></div></footer>
+
+<button class="theme-toggle" type="button" id="themeBtn" aria-label="Switch colour theme">Dark</button>
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById('themeBtn'),k='uneven-ground-theme';
+  function isDark(){var t=r.getAttribute('data-theme');if(t)return t==='dark';return window.matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){b.textContent=isDark()?'Light':'Dark'}
+  try{var s=localStorage.getItem(k);if(s)r.setAttribute('data-theme',s)}catch(e){}
+  label();
+  b.addEventListener('click',function(){var n=isDark()?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem(k,n)}catch(e){}label()});
+
+  var notes={
+    all:['The whole city','var(--ink)','Seven grooves laid over each other, older ones showing through newer. Red dashed lines trace where load is sent instead of paid. Nearly all of them end at Basin Seven.'],
+    tki:['Toa Keng','var(--tki)','The gridded core at the river mouth, the most measured ground in the Straits. Two bills leave it: one downhill into the lower kampongs, one up the drains into Basin Seven. The small square inland is the Garden of Relations, where cuttings of every other groove grow under glass.'],
+    mer:['Al-Merikani','var(--mer)','The quays on both banks, covenanted so often that promises made there half bind themselves. Its bill leaves the map entirely: deferred load falls due on debtors in other ports, years from now.'],
+    bal:['Balai Pusaka','var(--bal)','The deepest groove in the city, under the old kampongs. The crossed square is cleared ground, where a kampong came down and its groove went with it. Nothing old can be cast there now.'],
+    lan:['Lan Fong','var(--lan)','Lam Keng district, grooved dense and rectangular like a forme of type. Its tailings run upriver along the old cuts toward Basin Seven.'],
+    nine:['Nine Rain','var(--nine)','Gardens and catchments that shift with the year. Its load does not leave: the blue dashed loop is what returns to the land on its day.'],
+    kora:['Sané-Kora','var(--kora)','A home quarter to the north-west, and listening places scattered across the city wherever names are still said aloud. Its groove moves with speech, so it survives clearance better than any other.'],
+    sund:['Sund','var(--sund)','The western yards and the commons, worn smooth by many hands, and the bridge the whole city crosses and few lift.'],
+    pet:['Sekolah Petang','var(--pet)','No district of its own. Its lamps are lit at dusk on the reclaimed shore, in the Lam Keng back lanes and at the edge of the Garden: always on someone else\u2019s ground, or on none.'],
+    arus:['Basin Seven and Rumah Arus','var(--arus)','The struck-off house\u2019s groove lies drowned under the reservoir. Water with a dead groove belongs to no tradition, so every exported bill in the city flows toward it.'],
+    wild:['Wild ground','var(--muted)','Reclaimed shore, too new to carry any groove. Every tradition casts there at full price, which puts the houses and the unregistered on equal terms for once.']
+  };
+  var svg=document.getElementById('city'),note=document.getElementById('note'),btns=document.querySelectorAll('#legend button');
+  btns.forEach(function(bt){bt.addEventListener('click',function(){
+    var l=bt.getAttribute('data-l');
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===bt?'true':'false')});
+    svg.querySelectorAll('.layer').forEach(function(g){g.classList.toggle('on',g.getAttribute('data-layer')===l)});
+    svg.classList.toggle('focus',l!=='all');
+    var n=notes[l];note.style.setProperty('--nc',n[1]);note.innerHTML='<h4>'+n[0]+'</h4><p>'+n[2]+'</p>';
+  })});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Seven Operations & The Grand Measure</title>
+<style>
+:root{
+  --bg:#0b0d10;
+  --panel:#13161b;
+  --panel2:#0f1216;
+  --text:#f2efe8;
+  --muted:#b7b2aa;
+  --line:#2a3038;
+  --gold:#d8c89f;
+  --jade:#93aaa4;
+  --rust:#b8896b;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 78% 12%, rgba(147,170,164,.12), transparent 28%),
+    radial-gradient(circle at 15% 8%, rgba(216,200,159,.10), transparent 24%),
+    linear-gradient(180deg,#0a0c0f 0%,#101319 42%,#0a0c0f 100%);
+  color:var(--text);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.65;
+}
+.wrapper{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+.hero{
+  min-height:86vh;
+  display:flex;
+  align-items:flex-end;
+  padding:82px 0 66px;
+  border-bottom:1px solid var(--line);
+}
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  font-size:.74rem;
+  color:var(--gold);
+  margin-bottom:18px;
+}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:500}
+h1{
+  font-size:clamp(3.1rem,8vw,7rem);
+  line-height:.94;
+  margin:0 0 24px;
+  max-width:1000px;
+}
+.hero p{
+  max-width:780px;
+  color:#d2cec6;
+  font-size:clamp(1.05rem,2vw,1.28rem);
+}
+.hero-note{
+  margin-top:28px;
+  display:flex;flex-wrap:wrap;gap:10px 20px;
+  color:var(--muted);font-size:.9rem
+}
+.toc{
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:blur(14px);
+  background:rgba(10,12,15,.88);
+  border-bottom:1px solid var(--line);
+}
+.toc .wrapper{
+  display:flex;flex-wrap:wrap;gap:10px 18px;
+  padding:18px 0;
+}
+.toc a{
+  color:#d8d4cb;text-decoration:none;font-size:.85rem
+}
+main{padding:62px 0 110px}
+section{scroll-margin-top:90px}
+.intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);
+  gap:30px;
+  margin-bottom:72px;
+}
+.panel{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px;
+}
+.big{
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  line-height:1.2;margin:0 0 18px
+}
+.eq{
+  margin:18px 0;
+  padding:14px 16px;
+  background:#0c0f13;
+  border-left:3px solid var(--gold);
+  font-family:"SFMono-Regular",Consolas,monospace;
+  color:#e7e1d5;
+  overflow-wrap:anywhere;
+}
+.operations{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:24px;
+}
+.op{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#11151a;
+  padding:20px;
+}
+.op .label{
+  color:var(--gold);
+  font-size:.76rem;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+}
+.op h3{font-size:1.35rem;margin:6px 0 8px}
+.op p{margin:0;color:#d3cfc7}
+.op .verb{
+  display:inline-block;margin-top:12px;
+  border:1px solid #39404a;border-radius:999px;
+  padding:5px 9px;color:#c9c4bb;font-size:.78rem
+}
+.school{
+  margin-top:76px;
+  padding-top:34px;
+  border-top:1px solid var(--line);
+}
+.school-head{
+  display:grid;grid-template-columns:130px minmax(0,1fr);
+  gap:20px;align-items:start
+}
+.num{font-family:Georgia,serif;font-size:4.5rem;line-height:.9;color:#5d6570}
+.school h2{
+  font-size:clamp(2.2rem,4.5vw,4rem);
+  margin:0 0 10px;
+}
+.question{color:var(--gold);font-size:1.08rem}
+.school-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:16px;
+  margin-top:22px;
+}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{
+  border:1px solid #343b45;
+  border-radius:999px;padding:6px 9px;
+  font-size:.78rem;color:#cbc6bd;background:#0e1115
+}
+.callout{
+  margin-top:18px;
+  border-left:3px solid var(--jade);
+  padding:14px 18px;
+  background:rgba(147,170,164,.06);
+}
+.games{
+  margin-top:96px;
+  padding-top:38px;
+  border-top:1px solid var(--line)
+}
+.games h2,.closing h2{
+  font-size:clamp(2.4rem,5vw,4.6rem);
+  margin:0 0 16px
+}
+.rulebox{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.65fr);
+  gap:18px;
+  margin:24px 0 36px;
+}
+.rule{
+  font-family:Georgia,serif;
+  font-size:clamp(1.4rem,2.5vw,2.1rem);
+  line-height:1.3
+}
+.events{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.event{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+  background:linear-gradient(180deg,#13171c,#101318)
+}
+.event .type{
+  color:var(--rust);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:.72rem
+}
+.event h3{font-size:1.7rem;margin:6px 0 10px}
+.event p{margin:0 0 12px;color:#d3cfc7}
+.params{
+  border-top:1px solid var(--line);
+  padding-top:12px;margin-top:14px
+}
+.params b{color:var(--gold)}
+.event ul{padding-left:18px;margin:8px 0 0}
+.event li{margin:4px 0}
+.supreme{
+  margin-top:18px;
+  border:1px solid #4b4436;
+  background:linear-gradient(180deg,rgba(216,200,159,.08),rgba(216,200,159,.03));
+  border-radius:18px;
+  padding:28px
+}
+.supreme h3{font-size:2rem;margin:0 0 10px}
+.matrix{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px
+}
+.row{
+  display:grid;grid-template-columns:145px minmax(0,1fr);
+  gap:14px;padding:15px 17px;
+  border:1px solid var(--line);border-radius:11px;background:#101318
+}
+.row b{color:var(--gold)}
+.closing{
+  margin-top:90px;
+  border-top:1px solid var(--line);
+  padding-top:40px
+}
+blockquote{
+  font-family:Georgia,serif;
+  font-size:clamp(1.8rem,3.4vw,3rem);
+  line-height:1.3;
+  margin:24px 0 0;
+  color:#f1ebdf
+}
+footer{
+  border-top:1px solid var(--line);
+  padding:28px 0 48px;
+  color:#858b94;font-size:.84rem
+}
+@media(max-width:900px){
+  .intro,.school-grid,.rulebox{grid-template-columns:1fr}
+  .events,.operations,.matrix{grid-template-columns:1fr}
+  .school-head{grid-template-columns:76px 1fr}
+  .num{font-size:3rem}
+}
+@media(max-width:650px){
+  .wrapper{width:min(100% - 24px,var(--max))}
+  .hero{min-height:74vh;padding-top:52px}
+  .toc{position:static}
+  .school-head{grid-template-columns:1fr;gap:8px}
+  .num{font-size:2rem}
+  .row{grid-template-columns:1fr;gap:4px}
+}
+@media print{
+  body{background:white;color:#111}
+  .toc{display:none}
+  .hero{min-height:auto}
+  .panel,.op,.event,.row,.supreme{background:white;color:#111}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrapper">
+    <div class="kicker">The Parallel Straits · Educational Cosmologies II</div>
+    <h1>The Seven Operations & The Grand Measure</h1>
+    <p>
+      Beneath conventional subjects lie deeper intellectual operations: limit, axiom, form, substrate, law, expression and intervention.
+      The Great Schools do not merely teach these differently. They absorb them into different theories of what knowing is — and once every few years, they meet in a competition where only the parameters are shared.
+    </p>
+    <div class="hero-note">
+      <span>Subjects → operations</span>
+      <span>Disciplines → epistemic reflexes</span>
+      <span>Competition → explicit boundary conditions</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrapper">
+    <a href="#operations">Seven operations</a>
+    <a href="#schools">How the Schools change them</a>
+    <a href="#grand-measure">The Grand Measure</a>
+    <a href="#events">Events</a>
+    <a href="#supreme">Intervention</a>
+    <a href="#meaning">What the Games prove</a>
+  </div>
+</nav>
+
+<main class="wrapper">
+
+  <section class="intro" id="operations">
+    <div>
+      <div class="kicker">Below the disciplines</div>
+      <h2 class="big">The familiar school subject is only one historical container for a deeper operation.</h2>
+      <p>
+        Physical education, mathematics, biology, chemistry, physics, the arts and design can be understood not as bounded domains,
+        but as recurrent ways of interrogating reality. This makes them portable across the Seven Schools.
+      </p>
+      <div class="eq">Discipline ≠ natural category<br/>Discipline ≈ institutional container for an epistemic operation</div>
+    </div>
+    <div class="panel">
+      <div class="kicker">Seven verbs of knowing</div>
+      <p>
+        <strong>endure · relate · live · transform · constrain · express · intervene</strong>
+      </p>
+      <p style="color:var(--muted)">
+        The Schools can therefore share access to the same reality while disagreeing radically about how it should be partitioned.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="operations">
+      <article class="op">
+        <div class="label">PE</div>
+        <h3>Limit & Coordination</h3>
+        <p>What can a body do — alone and with others — under constraint?</p>
+        <span class="verb">endure</span>
+      </article>
+      <article class="op">
+        <div class="label">Mathematics</div>
+        <h3>Axiom & Relation</h3>
+        <p>What follows if these premises, relations and transformations hold?</p>
+        <span class="verb">relate</span>
+      </article>
+      <article class="op">
+        <div class="label">Biology</div>
+        <h3>Form & Persistence</h3>
+        <p>How does organised life become, maintain and reproduce itself?</p>
+        <span class="verb">live</span>
+      </article>
+      <article class="op">
+        <div class="label">Chemistry</div>
+        <h3>Substrate & Transformation</h3>
+        <p>What is matter composed of, and how can composition become otherwise?</p>
+        <span class="verb">transform</span>
+      </article>
+      <article class="op">
+        <div class="label">Physics</div>
+        <h3>Law & Constraint</h3>
+        <p>What regularities delimit what can happen at all?</p>
+        <span class="verb">constrain</span>
+      </article>
+      <article class="op">
+        <div class="label">The Arts</div>
+        <h3>Experience & Representation</h3>
+        <p>How can something felt, sensed or imagined become perceptible to another?</p>
+        <span class="verb">express</span>
+      </article>
+      <article class="op">
+        <div class="label">Design</div>
+        <h3>Intervention & Mediation</h3>
+        <p>Given all these conditions, what might be changed so another condition becomes possible?</p>
+        <span class="verb">intervene</span>
+      </article>
+    </div>
+  </section>
+
+  <section id="schools">
+    <div class="school" id="tki">
+      <div class="school-head">
+        <div class="num">01</div>
+        <div>
+          <h2>TKI — Operations as Frames</h2>
+          <div class="question">What had to be framed this way for this knowledge to become possible?</div>
+        </div>
+      </div>
+      <div class="school-grid">
+        <div class="panel">
+          <p>PE becomes the body as frame and limit. Mathematics becomes declared assumptions. Biology asks where organism ends and environment begins. Physics studies models that claim independence from perspective. Art is explicit framing. Design becomes deliberate reframing.</p>
+          <div class="tags">
+            <span class="tag">body as frame</span><span class="tag">axiomatic assumptions</span><span class="tag">boundary drawing</span>
+            <span class="tag">model dependence</span><span class="tag">reframing</span>
+          </div>
+        </div>
+        <div class="panel">
+          <p>A TKI mathematics class changes axioms to see which conclusions survive. A biology lesson redraws the same system from organism, ecosystem and molecular perspectives. PE might remove sight, speech or individual mobility to expose how “ability” depends on the frame.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="school">
+      <div class="school-head">
+        <div class="num">02</div>
+        <div>
+          <h2>Amanah — Operations as Warranted Capability</h2>
+          <div class="question">Can you demonstrate why you should be trusted to do this?</div>
+        </div>
+      </div>
+      <div class="school-grid">
+        <div class="panel">
+          <p>PE asks when competence has genuinely been earned. Mathematics models explicit justification. Biology and chemistry introduce obligations toward living systems and dangerous transformations. Physics becomes trustworthy measurement. Art becomes transmission with lineage. Design becomes authorised intervention.</p>
+        </div>
+        <div class="panel">
+          <p>Gymnasium, laboratory, studio and clinic all operate through apprenticeship, witness and competency. Graduation is not simply completion: one is <em>entrusted</em> with a capacity.</p>
+          <div class="tags">
+            <span class="tag">witness</span><span class="tag">competency</span><span class="tag">provenance</span><span class="tag">custody</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="school">
+      <div class="school-head">
+        <div class="num">03</div>
+        <div>
+          <h2>Sri Temenggong — Operations Inside Continuity</h2>
+          <div class="question">What relationships allow this knowledge to remain alive?</div>
+        </div>
+      </div>
+      <div class="school-grid">
+        <div class="panel">
+          <p>The seven operations remain present, but never become isolated shelves. Mathematics is encountered in recurrence; chemistry in soil, fermentation and dye; physics in tide, heat and wind; biology in ecology; art in memory; design in careful modification of continuity.</p>
+        </div>
+        <div class="panel">
+          <p>Their equivalent of “Chemistry I” might simply be <strong>The Estuary</strong>: salinity, hydrodynamics, mangrove biology, fishing, boat-building, statistics, songs, law, memory and intervention held together as one living field.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="school">
+      <div class="school-head">
+        <div class="num">04</div>
+        <div>
+          <h2>Lam Keng — Operations as Operations</h2>
+          <div class="question">What transformation is occurring?</div>
+        </div>
+      </div>
+      <div class="school-grid">
+        <div class="panel">
+          <p>PE becomes optimisation of bodily capacity. Mathematics is the pure grammar of transformation. Biology becomes morphogenesis and replication. Chemistry is paradigmatic transformation. Physics supplies invariants. Art is composition. Design is orchestration.</p>
+          <div class="tags">
+            <span class="tag">repeat</span><span class="tag">transform</span><span class="tag">stabilise</span>
+            <span class="tag">amplify</span><span class="tag">compress</span><span class="tag">compose</span>
+          </div>
+        </div>
+        <div class="panel">
+          <p>The same operation might be studied through equations in the morning, metallurgy at noon, dance in the afternoon and architecture in the evening. Disciplinary identity matters less than transferable operational grammar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="school">
+      <div class="school-head">
+        <div class="num">05</div>
+        <div>
+          <h2>Nine Rains — Operations as Flow</h2>
+          <div class="question">What enters, what leaves, what accumulates and what returns?</div>
+        </div>
+      </div>
+      <div class="school-grid">
+        <div class="panel">
+          <p>PE becomes oxygen, energy, attention and coordinated effort. Mathematics becomes rates and gradients. Biology becomes metabolism. Chemistry becomes reaction pathways. Physics becomes transfer. Art becomes circulation of affect and meaning. Design becomes intervention into flows.</p>
+        </div>
+        <div class="panel">
+          <p>Traffic congestion, insulin regulation, capital concentration, flooding, heat transfer and public attention are not treated as the same phenomenon — but they share a grammar of bottleneck, storage, feedback, threshold and return.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="school">
+      <div class="school-head">
+        <div class="num">06</div>
+        <div>
+          <h2>Kora — Operations as Claims</h2>
+          <div class="question">What kind of account is this, and what can it legitimately claim?</div>
+        </div>
+      </div>
+      <div class="school-grid">
+        <div class="panel">
+          <p>PE asks what a body can testify to. Mathematics becomes explicit claim structure. Biology exposes competing taxonomies. Chemistry foregrounds reproducibility. Physics foregrounds instrumentation. Art proves that representation is never identical to experience. Design negotiates incompatible definitions of the problem.</p>
+        </div>
+        <div class="panel">
+          <p>Kora does not collapse all knowledge into mere opinion. It trains students to distinguish radically different kinds of account while never confusing the account with reality itself.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="school">
+      <div class="school-head">
+        <div class="num">07</div>
+        <div>
+          <h2>Sund — Operations as Collective Capability</h2>
+          <div class="question">What must a society actually be able to do?</div>
+        </div>
+      </div>
+      <div class="school-grid">
+        <div class="panel">
+          <p>PE asks what bodies and groups can practically accomplish. Mathematics enables allocation and coordination. Biology sustains health and food. Chemistry enables sanitation and materials. Physics supports infrastructure. Art produces shared meaning. Design integrates all of them into usable conditions.</p>
+        </div>
+        <div class="panel">
+          <p>To understand water means being able to measure, move, clean, allocate, conserve, repair, govern and communicate it. Knowledge that cannot enter collective capability remains incomplete.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="games" id="grand-measure">
+    <div class="kicker">The inter-school mega-games</div>
+    <h2>The Grand Measure</h2>
+    <p>
+      The Schools cannot agree on subjects. They cannot agree on epistemology. They cannot even fully agree on what excellence means.
+      So the Games are built around something narrower:
+      <strong>shared parameters.</strong>
+    </p>
+
+    <div class="rulebox">
+      <div class="panel rule">
+        No School defines the method.<br/>
+        The organisers define only the boundary conditions, permissible resources, measurement and end-state.
+      </div>
+      <div class="panel">
+        <div class="kicker">The neutral territory</div>
+        <p>Method is free. Parameters are strict. Outcomes are measured. Interpretation comes afterward.</p>
+        <div class="eq">conditions + constraints + measurement → comparable result</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <div class="events">
+      <article class="event">
+        <div class="type">Bodily event</div>
+        <h3>The Common Pulse</h3>
+        <p>Seven participants must move themselves and a fixed mass through a complex course. Each begins with different sensory, informational or physical constraints.</p>
+        <div class="params">
+          <b>Measured:</b>
+          <ul>
+            <li>completion time</li>
+            <li>errors and penalties</li>
+            <li>energy expenditure</li>
+            <li>injury / safety</li>
+            <li>load integrity</li>
+          </ul>
+        </div>
+        <p class="callout">Nobody possesses enough information or capacity to complete the course alone.</p>
+      </article>
+
+      <article class="event">
+        <div class="type">Axiomatic event</div>
+        <h3>The Closed World</h3>
+        <p>Teams receive a completely novel formal system: a small set of axioms, symbols and legal transformations invented for the Games.</p>
+        <div class="params">
+          <b>Task:</b>
+          <ul>
+            <li>derive what follows</li>
+            <li>identify what is undecidable</li>
+            <li>detect contradiction if present</li>
+            <li>construct the most complex valid structure possible</li>
+          </ul>
+        </div>
+        <p class="callout">A universe whose laws were invented that morning: what can be true here?</p>
+      </article>
+
+      <article class="event">
+        <div class="type">Physical event</div>
+        <h3>The Constraint Engine</h3>
+        <p>Every team receives identical material mass, volume, tools, energy allowance and time.</p>
+        <div class="params">
+          <b>Task:</b> move a fixed mass vertically to a precise target location.
+          <div class="eq">score ≈ useful work / (energy × material mass) × precision</div>
+        </div>
+        <p>Physics, geometry, fabrication, coordination and strategic interpretation collapse into one measurable challenge.</p>
+      </article>
+
+      <article class="event">
+        <div class="type">Material event</div>
+        <h3>Matter</h3>
+        <p>Teams receive the same safe starting materials and target properties rather than a prescribed object.</p>
+        <div class="params">
+          <b>Example requirement:</b>
+          <ul>
+            <li>support a defined load</li>
+            <li>remain below a thermal threshold</li>
+            <li>survive a set number of cycles</li>
+            <li>return cleanly to constituent streams afterward</li>
+          </ul>
+        </div>
+        <p class="callout">The rules committee becomes almost as famous as the competitors.</p>
+      </article>
+
+      <article class="event">
+        <div class="type">Living systems event</div>
+        <h3>Persistence</h3>
+        <p>Each team receives an identical closed ecological system with fixed water, light, volume, organisms, energy and time.</p>
+        <div class="params">
+          <b>Objective:</b> maintain viable biological function while producing a required output without destabilising the system.
+          <div class="eq">score ≈ output + stability + diversity − external input</div>
+        </div>
+      </article>
+
+      <article class="event">
+        <div class="type">Representational event</div>
+        <h3>Representation</h3>
+        <p>Competitors experience something unavailable to the audience, then construct an artefact or performance that transmits something of that experience.</p>
+        <div class="params">
+          <b>Measured across blinded viewers:</b>
+          <ul>
+            <li>semantic transmission</li>
+            <li>affective correspondence</li>
+            <li>memory persistence</li>
+            <li>interpretive variance</li>
+          </ul>
+        </div>
+        <p class="callout">The scoring controversy is itself part of the event: is low variance clarity, or merely conformity?</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="supreme" class="supreme">
+    <div class="kicker">The supreme event</div>
+    <h3>Intervention</h3>
+    <p>
+      A temporary settlement is built for the Games. Each team receives the same land area, population profile, resource envelope, climate data, budget and construction period.
+      Then the organisers reveal a live systems challenge.
+    </p>
+    <div class="tags">
+      <span class="tag">water failure</span><span class="tag">heat shock</span><span class="tag">mass relocation</span>
+      <span class="tag">energy constraint</span><span class="tag">mobility disruption</span>
+    </div>
+    <p style="margin-top:18px">
+      Teams must intervene. The settlement then operates. No jury decides whether the answer is “beautiful.”
+      Consequences are measured.
+    </p>
+    <div class="matrix">
+      <div class="row"><b>Measured</b><span>water availability</span></div>
+      <div class="row"><b>Measured</b><span>energy use</span></div>
+      <div class="row"><b>Measured</b><span>travel time</span></div>
+      <div class="row"><b>Measured</b><span>injury and safety</span></div>
+      <div class="row"><b>Measured</b><span>accessibility</span></div>
+      <div class="row"><b>Measured</b><span>waste</span></div>
+      <div class="row"><b>Measured</b><span>recovery time</span></div>
+      <div class="row"><b>Measured</b><span>maintenance burden</span></div>
+    </div>
+    <div class="eq">intention → intervention → measured consequence</div>
+  </section>
+
+  <section class="closing" id="meaning">
+    <div class="kicker">Why the Games matter</div>
+    <h2>The Schools cannot hide inside their own definitions of excellence.</h2>
+    <p>
+      TKI cannot merely argue that the framing is wrong. Amanah cannot stop at proper authority. Sri Temenggong cannot preserve continuity indefinitely.
+      Lam Keng cannot transform forever. Nine Rains cannot only map the system. Kora cannot remain with unresolved accounts.
+      Sund cannot rely only on robustness.
+    </p>
+    <blockquote>
+      The clock starts. The boundary conditions are declared. Something has to happen.
+    </blockquote>
+    <p>
+      And afterward, naturally, the Seven Schools spend the next four years arguing about what the result actually proved.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrapper">
+    The Seven Operations & The Grand Measure · Great Schools Field Atlas · Working worldbuilding document
+  </div>
+</footer>
+
+</body>
+</html>

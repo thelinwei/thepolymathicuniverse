@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basin Seven — The Story Engine · Field Atlas VII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#222b2e; --paper:#f6f1e7; --dim:#5d6769; --hair:#d1c9bc;
+  --sea:#6f9391; --ember:#d57b50; --gold:#a9863f; --forest:#355746;
+  --red:#a53e33; --plum:#68536b; --nord:#6c8a8f; --night:#1f282c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#e6c3a4;color:#172022}
+a{color:inherit}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.sc{font-family:'Noto Serif SC',serif}
+
+.cover{min-height:100vh;position:relative;display:flex;flex-direction:column;overflow:hidden;padding:30px 34px 48px;color:#232e2c;background:
+ radial-gradient(circle at 24% 70%,rgba(111,147,145,.5),transparent 32%),
+ radial-gradient(circle at 76% 24%,rgba(165,62,51,.26),transparent 28%),
+ linear-gradient(160deg,#dfd7c3 0%,#b6c5be 50%,#d3bda3 100%)}
+.cover:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(rgba(38,50,54,.05) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(38,50,54,.038) 1px,transparent 1px);
+ background-size:34px 34px;pointer-events:none}
+.cover>*{position:relative;z-index:2}
+.cover-top{display:flex;justify-content:space-between;gap:20px}
+.cover-logo{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,94px);font-weight:900;line-height:.82;text-transform:uppercase}
+.cover-index{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.82;letter-spacing:.12em;text-transform:uppercase}
+.cover-side{margin-top:30px;max-width:355px;border-left:1.5px solid currentColor;padding-left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.7}
+.cover-title{margin-top:auto;text-align:center;padding-bottom:8px}
+.cover-kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;margin-bottom:13px}
+.cover-title h1{font-family:'Playfair Display',serif;font-size:clamp(52px,10vw,132px);font-weight:500;line-height:.82;letter-spacing:-.025em;text-transform:uppercase}
+.cover-title h1 em{display:block;font-weight:400;text-transform:none}
+.cover-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2.1vw,24px);margin-top:22px;line-height:1.34}
+
+.runhead{position:sticky;top:0;z-index:80;background:rgba(246,241,231,.96);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--ink);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brandtab{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:#fff;padding:6px 9px;white-space:nowrap}
+.tabs{display:flex;gap:5px;overflow:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);background:#fff;padding:5px 8px;white-space:nowrap}
+.tabs a:hover{background:var(--ink);color:#fff}
+
+.opener{max-width:1180px;margin:0 auto;padding:72px 34px 40px}
+.credit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.opener h2{font-family:'Playfair Display',serif;font-size:clamp(44px,8vw,96px);line-height:.9;font-weight:500;letter-spacing:-.02em;max-width:1000px}
+.standfirst{font-size:clamp(19px,2.3vw,26px);line-height:1.42;max-width:900px;margin-top:30px}
+.article{max-width:1180px;margin:0 auto;padding:18px 34px 46px}
+.cols{columns:2;column-gap:48px;column-rule:1px solid var(--hair);text-align:justify;hyphens:auto}
+.cols p{font-size:16.2px;margin-bottom:15px}
+.dropcap:first-letter{font-family:'Playfair Display',serif;font-size:74px;font-weight:900;float:left;line-height:.68;padding:8px 10px 0 0;color:var(--sea)}
+.pull{max-width:930px;margin:44px auto 58px;padding:0 34px;text-align:center}
+.pull q{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(26px,4vw,44px);line-height:1.17;quotes:none}
+.pull .by{display:block;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+.band{padding:70px 34px;background:var(--night);color:#EDE6DA}
+.band-inner{max-width:1180px;margin:0 auto}
+.band .eyebrow{color:#d9a67c}
+.band h2{font-family:'Playfair Display',serif;font-size:clamp(36px,6.2vw,76px);font-weight:500;line-height:.94;max-width:980px;color:#f6f1e7}
+.band p{max-width:830px;color:#EDE6DA;font-size:18.5px;margin-top:20px}
+
+/* clocks */
+.clocks{max-width:1180px;margin:0 auto;padding:60px 34px 20px}
+.clockgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#bcb6ac;border:1px solid #bcb6ac;margin-top:26px}
+.clock{background:#faf7ef;padding:26px}
+.clock .t{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:.9;color:var(--red)}
+.clock h4{font-family:'Playfair Display',serif;font-size:24px;font-weight:500;margin:10px 0 9px}
+.clock p{font-size:15.4px}
+
+/* options */
+.options{max-width:1180px;margin:0 auto;padding:56px 34px 30px}
+.option{border-top:1.5px solid var(--ink);padding:30px 0 32px;display:grid;grid-template-columns:1fr 330px;gap:44px}
+.options .option:last-child{border-bottom:1.5px solid var(--ink)}
+.option .who{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.option h3{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,44px);font-weight:500;line-height:1.02;margin:8px 0 6px}
+.option .bet{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;color:var(--dim);margin-bottom:14px}
+.option p{font-size:16px;margin-bottom:12px;max-width:640px}
+.ledger{border:1px solid var(--ink);background:#fff;align-self:start}
+.ledger .row{border-bottom:1px solid var(--hair);padding:12px 15px}
+.ledger .row:last-child{border-bottom:0}
+.ledger .k{font-family:'IBM Plex Mono',monospace;font-size:8.8px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.ledger .v{font-size:15.4px;line-height:1.34}
+.ledger .row.cost{background:#f7e9e6}
+
+/* layers */
+.layers{max-width:1180px;margin:0 auto;padding:56px 34px 30px}
+.lgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#bcb6ac;border:1px solid #bcb6ac;margin-top:26px}
+.layer{background:#faf7ef;padding:26px;min-height:210px}
+.layer .k{font-family:'IBM Plex Mono',monospace;font-size:9.2px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.layer h4{font-family:'Playfair Display',serif;font-size:27px;font-weight:500;margin:9px 0 10px;line-height:1.05}
+.layer p{font-size:15.4px;margin-bottom:9px}
+.layer .ex{font-family:'IBM Plex Mono',monospace;font-size:9.4px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);border-top:1px solid var(--hair);padding-top:10px;margin-top:12px}
+
+/* structure */
+.structure{max-width:1180px;margin:0 auto;padding:60px 34px 30px}
+.part{display:grid;grid-template-columns:200px 1fr;gap:36px;border-top:1px solid var(--hair);padding:28px 0}
+.structure .part:last-of-type{border-bottom:1px solid var(--hair)}
+.part .lab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);line-height:1.9}
+.part h3{font-family:'Playfair Display',serif;font-size:31px;font-weight:500;margin-bottom:10px}
+.part p{font-size:15.8px;max-width:820px;margin-bottom:10px}
+.part .beat{border-left:3px solid var(--ember);padding:2px 0 2px 15px;font-family:'Playfair Display',serif;font-style:italic;font-size:21px;line-height:1.28;margin-top:12px}
+
+/* scenes */
+.scenes{padding:74px 34px;background:#20282b;color:#EDE6DA}
+.scenes-inner{max-width:1180px;margin:0 auto}
+.scenes h2{font-family:'Playfair Display',serif;font-size:clamp(38px,6.4vw,78px);font-weight:500;line-height:.94;color:#f6f1e7}
+.scenes .intro{max-width:820px;font-size:18.5px;margin:22px 0 40px;color:#EDE6DA}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(237,230,218,.28);border:1px solid rgba(237,230,218,.28)}
+.scene{background:#20282b;padding:24px;min-height:200px}
+.scene .n{font-family:'IBM Plex Mono',monospace;font-size:9.4px;letter-spacing:.15em;text-transform:uppercase;color:#e0a97e}
+.scene h4{font-family:'Playfair Display',serif;font-size:25px;font-weight:500;margin:9px 0 10px;line-height:1.06;color:#f6f1e7}
+.scene p{font-size:15.2px;color:#EDE6DA}
+
+/* rules */
+.rules{max-width:1180px;margin:0 auto;padding:60px 34px 40px}
+.rule{display:grid;grid-template-columns:64px 1fr;gap:26px;border-top:1px solid var(--hair);padding:24px 0}
+.rule .n{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;line-height:.8;color:var(--plum)}
+.rule h4{font-family:'Playfair Display',serif;font-size:25px;font-weight:500;margin-bottom:8px}
+.rule p{font-size:15.8px;max-width:820px}
+
+.ending{max-width:1180px;margin:0 auto;padding:40px 34px 90px}
+.instrument{border:1.5px solid var(--ink);background:#fff;padding:34px}
+.instrument .h{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.instrument h3{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:500;line-height:1.04;margin-bottom:18px}
+.instrument p{font-size:16.4px;margin-bottom:13px;max-width:760px}
+.annexes{margin-top:24px;border-top:1px solid var(--hair)}
+.annex{border-bottom:1px solid var(--hair);padding:13px 0;display:grid;grid-template-columns:150px 1fr;gap:20px}
+.annex .a{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding-top:3px}
+.annex .b{font-size:16px}
+
+footer{border-top:1.5px solid var(--ink);padding:36px 34px 60px;max-width:1180px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);line-height:2}
+
+@media(max-width:900px){
+ .cols{columns:1}
+ .option{grid-template-columns:1fr;gap:22px}
+ .clockgrid,.lgrid,.sgrid{grid-template-columns:1fr}
+ .part,.annex{grid-template-columns:1fr;gap:12px}
+ .opener,.article,.options,.layers,.structure,.rules,.ending,.clocks{padding-left:22px;padding-right:22px}
+ .scenes{padding:56px 22px}
+ .cover{padding:24px 22px 40px}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Field<br>Atlas VII</div>
+    <div class="cover-index">
+      Three Clocks<br>
+      Four Solutions, No Villain<br>
+      Six Layers of Conflict<br>
+      Five Hearings &amp; One Flood<br>
+      Twelve Set Pieces<br>
+      The Instrument &amp; Its Dissents
+    </div>
+  </div>
+  <div class="cover-side">
+    The dramatic architecture of the parallel Straits novel. The crisis is water, the antagonist is time, and the ending is a signed compromise that nobody is willing to defend in full — which is the only honest shape available to a book about several incompatible ways of knowing.
+  </div>
+  <div class="cover-title">
+    <div class="cover-kicker">The Parallel Straits · Story Engine</div>
+    <h1>Basin<em>Seven</em></h1>
+    <div class="cover-sub">Fifteen years of fresh water, four civilisational bets, and a hearing that has ninety days to choose badly</div>
+  </div>
+</header>
+
+<nav class="runhead">
+  <span class="brandtab">Field Atlas VII · Basin Seven</span>
+  <div class="tabs">
+    <a href="#swap">The swap</a>
+    <a href="#clocks">Clocks</a>
+    <a href="#options">Four bets</a>
+    <a href="#layers">Conflict</a>
+    <a href="#structure">Structure</a>
+    <a href="#scenes">Set pieces</a>
+    <a href="#rules">Rules</a>
+    <a href="#end">The ending</a>
+  </div>
+</nav>
+
+<section class="opener" id="swap">
+  <div class="credit">Prelude · putting the first engine back</div>
+  <h2>The best crisis was already on page one.</h2>
+  <p class="standfirst">Atlas I ended with a question: the island's freshwater system will fail within fifteen years, what should be done. Atlas IV replaced it with a pattern emitted by the Earth. The pattern makes the seven houses allies pointed at a mystery. The water makes them antagonists pointed at each other, which is the book worth writing.</p>
+</section>
+
+<section class="article">
+  <div class="cols">
+    <p class="dropcap">A cosmic anomaly has one dramatic function: it converts every institution into an instrument for detecting it. Whatever the houses believe, they end up doing the same thing — measuring, interpreting, convening. Their differences become perspectives on a single object, and perspectives do not fight. They triangulate.</p>
+    <p>Water does the opposite. Water is finite, jurisdictional, dull and absolutely non-negotiable. Every house has a real interest in the outcome, and those interests are incompatible in ways that cannot be resolved by better understanding — which is precisely the claim the world has been making since Atlas I. The achar principle says the mixture was never pure. A plot proves it by making the mixture expensive.</p>
+    <p>So: Basin Seven, the eastern catchment, named in the Errata volume as a cost the earlier atlas had left out. It supplies roughly a third of the city's fresh water. It is failing for the ordinary reasons — saline intrusion, sedimentation, a century of drainage decisions each locally sensible — and Padma Iyer-Rasmussen has put a number on it. Fifteen years. Later, twelve.</p>
+    <p>The pattern is not discarded. It is demoted to what it always was: an eerie regularity in a nineteen-year-old's model, mythologised by people who wanted the crisis to mean something, and finally explained as a measurement echo. That subplot now does real work — it is the novel's argument about how societies convert uncertainty into significance — instead of carrying the plot on its back.</p>
+  </div>
+</section>
+
+<div class="pull">
+  <q>Nobody is wrong. Everybody is expensive.</q>
+  <span class="by">Basin Seven · the whole book in four words</span>
+</div>
+
+<section class="clocks" id="clocks">
+  <div class="credit">Part I · three clocks, running at different speeds</div>
+  <div class="clockgrid">
+    <div class="clock">
+      <div class="t">90</div>
+      <h4>Days of statutory hearing</h4>
+      <p>The Basin Hearing convenes under an emergency water instrument with a hard ninety-day reporting duty. This is the scene clock: it produces deadlines, guillotines, ambushes, and the fatal power of whoever controls the order of business. Erik Soren controls the order of business.</p>
+    </div>
+    <div class="clock">
+      <div class="t">1</div>
+      <h4>Monsoon, arriving in week nine</h4>
+      <p>The body clock. Two-thirds through the hearing the north-east monsoon does what it has always done and what the drainage can no longer take. The flood is not a climax; it is a pressure test that makes every abstraction in the record suddenly physical, and it kills someone minor whom the reader has met three times.</p>
+    </div>
+    <div class="clock">
+      <div class="t">12</div>
+      <h4>Years, revised down from fifteen</h4>
+      <p>The civilisational clock, and the only one that outlives the book. Padma's revision in the fourth hearing removes three years from everyone's plan simultaneously, helps the case she opposes, and cannot be shown to be honest by any procedure available.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="options">
+  <div class="band-inner">
+    <div class="eyebrow">Part II · the four bets</div>
+    <h2>Every solution works. Each one costs a different civilisation something it said was not for sale.</h2>
+    <p>This is the design constraint that keeps the novel out of allegory: no option is a strawman, none is secretly evil, and the reader's sympathies should move at least twice. If a reader finishes the book confident about which plan was correct, the plans were built wrong.</p>
+  </div>
+</section>
+
+<section class="options">
+
+  <article class="option">
+    <div>
+      <div class="who">Straits Water Authority · Toa Keng modelling · off-world energy contract</div>
+      <h3>Extraction</h3>
+      <div class="bet">The bet: engineering can outrun politics if it is big enough</div>
+      <p>Desalination at scale, upstream extraction from a neighbouring polity, and an energy contract with off-world suppliers. It meets the twelve-year horizon with margin, it is fully costed, and it is the only plan that does not require anybody to change how they live.</p>
+      <p>It also breaks Balai Pusaka's custodial status over the eastern land, converts water permanently into a market good, and builds exactly the dependency structure Mayu Quispe was sent to warn Earth about — a settlement whose survival is a supply contract held by someone else.</p>
+    </div>
+    <aside class="ledger">
+      <div class="row"><div class="k">Champion</div><div class="v">Registrar Josefina Aurelio Bautista</div></div>
+      <div class="row"><div class="k">Wins</div><div class="v">Time, certainty, four hundred thousand connections, no behaviour change</div></div>
+      <div class="row cost"><div class="k">Costs</div><div class="v">Custodial land status; water as commodity in perpetuity; a dependency the off-world settlements know intimately</div></div>
+      <div class="row"><div class="k">Who pays</div><div class="v">People who will not be born for sixty years, plus 1,100 households immediately</div></div>
+    </aside>
+  </article>
+
+  <article class="option">
+    <div>
+      <div class="who">Nine Rain hydrology · Rumah Arus routes · Ferry Trades construction</div>
+      <h3>Restoration</h3>
+      <div class="bet">The bet: the basin can be made to work again if we admit what we forgot</div>
+      <p>Rebuild the catchment on its original hydrology: reopen silted channels, restore tidal exchange, re-time the sluices to a logic that was never written down. It is cheaper, it is slower, it is more beautiful, and it is the plan the reader will want to win.</p>
+      <p>It requires two things. Roro Lestari must write down four generations of routes that were deliberately kept unwritten — after which the channels become property, permanently, held by whoever holds the paper. And approximately forty thousand people must move, including Ha Kim-lian, who is drafting the compromise.</p>
+    </div>
+    <aside class="ledger">
+      <div class="row"><div class="k">Champions</div><div class="v">Padma Iyer-Rasmussen; Roro Lestari, reluctantly</div></div>
+      <div class="row"><div class="k">Wins</div><div class="v">A basin that works without a supply contract; cost; the long horizon</div></div>
+      <div class="row cost"><div class="k">Costs</div><div class="v">The routes become legible and therefore expropriable; 40,000 relocations; nine years before it holds</div></div>
+      <div class="row"><div class="k">Who pays</div><div class="v">Rumah Arus, entirely, and Lam Keng district, immediately</div></div>
+    </aside>
+  </article>
+
+  <article class="option">
+    <div>
+      <div class="who">Sund Commons · civic-time doctrine · statutory rationing</div>
+      <h3>Demand collapse</h3>
+      <div class="bet">The bet: a society can choose to want less, by law, without becoming cruel</div>
+      <p>Cap consumption by statute — industrial first, then domestic — and hold the basin at a survivable level while restoration proceeds. Technically the safest plan on the table, and the only one that treats the crisis as a question about how people live rather than what machines can supply.</p>
+      <p>Rationing requires means-testing. Means-testing requires assessing whose activity is worth water. Within one page of drafting, the Minimum Unowned Life — the constitutional floor of time not owned by production — has to be assessed, quantified and traded, which is the exact thing Erik Soren has spent twenty years preventing.</p>
+    </div>
+    <aside class="ledger">
+      <div class="row"><div class="k">Champion</div><div class="v">Erik Soren, until he reads his own draft</div></div>
+      <div class="row"><div class="k">Wins</div><div class="v">Buys nine years; no new dependency; no relocations</div></div>
+      <div class="row cost"><div class="k">Costs</div><div class="v">The unowned life becomes a means-tested benefit; the floor becomes a ceiling</div></div>
+      <div class="row"><div class="k">Who pays</div><div class="v">Everyone slightly; the afternoon shift enormously</div></div>
+    </aside>
+  </article>
+
+  <article class="option">
+    <div>
+      <div class="who">Al-Merikani trust law · the Hundred-Year Instrument</div>
+      <h3>Purchase</h3>
+      <div class="bet">The bet: a promise can be broken well</div>
+      <p>Break the Hundred-Year Trust, release the endowment, and buy the city out of the crisis — bulk water, imported infrastructure, compensation for everyone displaced by whatever else is chosen. It is the plan that makes every other plan affordable, which is why it ends up inside the final mixture.</p>
+      <p>The Trust exists precisely to be unbreakable. Merikani law was built so that a promise survives governments, currencies and death. Breaking it because circumstances changed establishes that promises hold only until they are inconvenient — and Idris Bharucha will say so, in open hearing, correctly.</p>
+    </div>
+    <aside class="ledger">
+      <div class="row"><div class="k">Champion</div><div class="v">Samira Bharucha al-Haddad, against her own family</div></div>
+      <div class="row"><div class="k">Wins</div><div class="v">Money; speed; compensation that makes the other plans humane</div></div>
+      <div class="row cost"><div class="k">Costs</div><div class="v">The credibility of every long instrument in the city, including the ones protecting the off-world settlements</div></div>
+      <div class="row"><div class="k">Who pays</div><div class="v">Anyone in the next two centuries who needs a promise to outlive its author</div></div>
+    </aside>
+  </article>
+</section>
+
+<section class="layers" id="layers">
+  <div class="credit">Part III · six layers of conflict, running simultaneously</div>
+  <div class="lgrid">
+    <div class="layer">
+      <div class="k">Layer one</div>
+      <h4>Jurisdictional</h4>
+      <p>Who is entitled to decide. Land status, statutory standing, whether an unincorporated body of pilots can be a party, whether a river has a representative, whether an off-world settlement gets a vote on Earth's water.</p>
+      <p class="ex">Procedure as thriller: the ambush is always a scheduling decision</p>
+    </div>
+    <div class="layer">
+      <div class="k">Layer two</div>
+      <h4>Evidentiary</h4>
+      <p>Whose knowledge counts as knowledge. Roro's unwritten routes, Sol's unauditable model, Elias's compromised dataset, Amadou's certification of a record he cannot fully hear. Every house has a different answer and all four answers are in the room.</p>
+      <p class="ex">The book's actual subject, disguised as a filing dispute</p>
+    </div>
+    <div class="layer">
+      <div class="k">Layer three</div>
+      <h4>Domestic</h4>
+      <p>The civic argument fought at dinner. Erik and Padma and Sol. Nur and Sofia. Samira and Idris. Roro and a nephew who will be paid to build whatever the paper says.</p>
+      <p class="ex">Nobody argues about principles at home; they argue about the dishes</p>
+    </div>
+    <div class="layer">
+      <div class="k">Layer four</div>
+      <h4>Generational</h4>
+      <p>Sol, Owl and Fadhli are ahead of the institutions and cannot be heard by them. The novel's cruellest running joke is that all three are proved right and none of them is thanked in the instrument.</p>
+      <p class="ex">The future arrives badly dressed and in a hurry</p>
+    </div>
+    <div class="layer">
+      <div class="k">Layer five</div>
+      <h4>Reputational</h4>
+      <p>Uncle Sec's Thursday show narrates the hearing to a city that will not read the filings, which means every character is performing for an audience they cannot see, and one joke can end a career mid-cross-examination.</p>
+      <p class="ex">Satire as the fourth branch of government</p>
+    </div>
+    <div class="layer">
+      <div class="k">Layer six</div>
+      <h4>Bodily</h4>
+      <p>Heat, hearing loss, the flood, the fans switched off at three in the afternoon, a stall that is demolished, an old man who dies in week nine. Every abstraction in the record has a physical counterpart somewhere in the city.</p>
+      <p class="ex">Keeps the philosophy from floating</p>
+    </div>
+  </div>
+</section>
+
+<section class="structure" id="structure">
+  <div class="credit">Part IV · five hearings and one flood</div>
+
+  <article class="part">
+    <div class="lab">Part one · days 1–18<br>The forecast<br>POV: Padma, Ha Kim-lian, Fadhli</div>
+    <div>
+      <h3>An annex nobody read</h3>
+      <p>Eleven months after publication, Padma's number reaches the city. The hearing convenes; the seven houses appoint representatives; a hawker is selected as lay assessor by a lottery designed as decoration. Open on the ordinary — a stall, a shift school, a technical annex — so the institutions arrive into a world that already exists.</p>
+      <div class="beat">Ends when Roro Lestari is subpoenaed as a party and the room discovers she cannot be one, because she has no address.</div>
+    </div>
+  </article>
+
+  <article class="part">
+    <div class="lab">Part two · days 19–41<br>The four bets<br>POV: Bautista, Samira, Erik</div>
+    <div>
+      <h3>Everybody is right, expensively</h3>
+      <p>The plans are laid out and the reader's sympathies are deliberately moved twice. Bautista is formidable and correct about time. Sund's plan collapses under its own drafting. Samira begins the fourteen-month work of breaking a perfect instrument. Sol's model surfaces and is refused on procedural grounds by a committee that has not read it.</p>
+      <div class="beat">Ends with Lin Yanshi declining, for four days, to pass Sol's model to the technical panel — the novel's quietest betrayal.</div>
+    </div>
+  </article>
+
+  <article class="part">
+    <div class="lab">Part three · days 42–60<br>The leak · midpoint reversal<br>POV: Owl, Elias, Amadou</div>
+    <div>
+      <h3>Right, at the worst possible speed</h3>
+      <p>Owl gets Elias's raw data and publishes. The fraud is real, the public claim is legitimate, and the consequence is catastrophic: the restoration case rests on models built on that dataset, six weeks of evidence are struck, and extraction gains the ground it needed. Elias confesses fully, which helps nobody and saves him.</p>
+      <div class="beat">Reversal: the ensemble must now argue for a plan they do not believe in, because the plan they believe in has lost its evidence.</div>
+    </div>
+  </article>
+
+  <article class="part">
+    <div class="lab">Part four · days 61–79<br>The monsoon<br>POV: Roro, Mayu, Nur</div>
+    <div>
+      <h3>The water arrives early to its own hearing</h3>
+      <p>The flood does in four days what nine hundred pages could not: it makes the record physical. A minor character the reader has met three times drowns in a culvert that appears, correctly specified, in an annex nobody actioned. Roro pilots a boat through channels she has refused to describe, in front of a Water Authority engineer who is taking notes.</p>
+      <div class="beat">Roro agrees to write the routes down. She sets one condition, and the condition is broken in Part five by someone who means well.</div>
+    </div>
+  </article>
+
+  <article class="part">
+    <div class="lab">Part five · days 80–90 &amp; after<br>The instrument<br>POV: Ha Kim-lian, Sofia, Sol</div>
+    <div>
+      <h3>A mixture nobody will defend in full</h3>
+      <p>Erik uses the order of business to engineer the outcome he believes is right, and it works. Mayu wins her motion for extraction and then withdraws it. Nur signs the release. Sofia takes the office in order to dissolve it. Sol discloses the artifact in his own model, destroying his own claim, three days before the report is due.</p>
+      <div class="beat">Ha Kim-lian's mixture is adopted: a partial restoration, a smaller extraction, a broken trust funding both, and a consumption cap that expires in nine years and will be renewed forever.</div>
+    </div>
+  </article>
+</section>
+
+<section class="scenes" id="scenes">
+  <div class="scenes-inner">
+    <div class="eyebrow">Part V · twelve set pieces</div>
+    <h2>Scenes only this world can produce.</h2>
+    <p class="intro">A setting earns a novel when its institutions generate scenes that could not be transplanted. These are the twelve to write first; the rest of the book can be built by connecting them.</p>
+    <div class="sgrid">
+      <div class="scene"><div class="n">01 · Sané-Kora</div><h4>The oral, turned on a minister</h4><p>Three examiners: one gives testimony, one contradicts it, the third asks what neither of them said. Applied, under statutory powers, to a witness who has never been asked that question in her life.</p></div>
+      <div class="scene"><div class="n">02 · Al-Merikani</div><h4>The graduation dinner</h4><p>A student must host, not attend. Seating is the negotiation. Faculty insert one social problem deliberately. This year, two hearing parties are at the same table and the student is Idris's niece.</p></div>
+      <div class="scene"><div class="n">03 · Lam Keng</div><h4>Setting the type</h4><p>Owl's leak issue on the stone at two in the morning. An argument about a headline that is really an argument about a person's life, conducted in terms of measure and leading.</p></div>
+      <div class="scene"><div class="n">04 · Balai Pusaka</div><h4>Walking the boundary</h4><p>The custodial perambulation, performed annually since before the survey. Nur walks a line that a transport alignment will cross, with the surveyor invited, as courtesy, to walk it too.</p></div>
+      <div class="scene"><div class="n">05 · Basin Seven</div><h4>The survey party</h4><p>Roro takes engineers into channels no map records. Every hour of the trip is knowledge transfer she can never reverse. Nobody says this aloud and everyone knows it.</p></div>
+      <div class="scene"><div class="n">06 · Listening Quarter</div><h4>Thursday night, Uncle Sec</h4><p>Eleven minutes on the hearing. Four careers move. The bit about Amadou lands, the room roars, and one person in the third row stops laughing.</p></div>
+      <div class="scene"><div class="n">07 · Temporal Court</div><h4>Breaking a perfect promise</h4><p>Samira argues that an instrument designed to survive discontinuity must contain the discontinuity of its own purpose. Idris answers her. He is better than she expected.</p></div>
+      <div class="scene"><div class="n">08 · Stall 14</div><h4>The back channel</h4><p>Two parties who cannot be seen meeting eat at the same hawker stall at eleven at night, served by the assessor who will decide between them, who says nothing and remembers everything.</p></div>
+      <div class="scene"><div class="n">09 · Toa Keng</div><h4>Three in the afternoon</h4><p>Fadhli walks the hearing through the building they think they know: the fans off, the reagents locked, the good microscopes signed out at noon. Four pages, no rhetoric.</p></div>
+      <div class="scene"><div class="n">10 · Rain Theatre</div><h4>Performance in the flood</h4><p>Outdoor architecture designed to incorporate weather meets weather it was not designed for. The choreography reroutes through the stage channels and then the channels overflow.</p></div>
+      <div class="scene"><div class="n">11 · Sund Commons</div><h4>The kitchen</h4><p>Erik, Padma and Sol. Twenty years of civic-time doctrine dismantled over dishes by a nineteen-year-old who is winning and does not know he is being cruel.</p></div>
+      <div class="scene"><div class="n">12 · The Room</div><h4>Certification</h4><p>Amadou signs the record of a hearing he could not fully hear, having checked it by a method his school considers heresy. The signature takes six seconds and settles the future of a tradition.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rules" id="rules">
+  <div class="credit">Part VI · seven rules to keep the novel out of allegory</div>
+  <div class="rule"><div class="n">1</div><div><h4>No villains, and no fools</h4><p>The strongest case belongs to the person most characters dislike. Bautista's numbers are correct. Any moment where the opposition is stupid is a moment the book stops being about knowledge.</p></div></div>
+  <div class="rule"><div class="n">2</div><div><h4>No prophecy, no selection</h4><p>Nobody is chosen. They are in the room because of standing, appointment, subpoena, lottery and one act of trespass. Every entrance must be procedurally explicable.</p></div></div>
+  <div class="rule"><div class="n">3</div><div><h4>The houses never speak as houses</h4><p>Seven institutions cannot be characters. Each is present only through a person who is partly disloyal to it, and every doctrine reaches the page already bent by the individual carrying it.</p></div></div>
+  <div class="rule"><div class="n">4</div><div><h4>Demote the mystery</h4><p>The pattern stays, as a measurement artifact that a frightened city turns into a meaning. Its function is to show how significance gets manufactured — not to drive events.</p></div></div>
+  <div class="rule"><div class="n">5</div><div><h4>Every philosophical claim has a bill attached</h4><p>Custodianship costs a transport line. Reciprocity costs eleven thousand people air. Unowned time costs nine years of water. If a value never appears as a number in an annex, it is decoration.</p></div></div>
+  <div class="rule"><div class="n">6</div><div><h4>Let the young be right and unrewarded</h4><p>Sol, Owl and Fadhli change the outcome and appear nowhere in the instrument. This is the most accurate thing the book can say about how institutions absorb correction.</p></div></div>
+  <div class="rule"><div class="n">7</div><div><h4>Refuse synthesis</h4><p>No character arrives at a view that reconciles the seven. The mixture is adopted because a deadline expires, and it is worse than three of the four plans and survivable, which is what actually happens.</p></div></div>
+</section>
+
+<section class="ending" id="end">
+  <div class="credit">Part VII · the last chapter is a document</div>
+  <div class="instrument">
+    <div class="h">Basin Seven Instrument · adopted day 90 · seven dissenting annexes</div>
+    <h3>The book ends in the form the world has been arguing about all along.</h3>
+    <p>Not a scene. The instrument itself: eleven pages of operative clauses in flat statutory prose, adopted three hours before the reporting duty expires, signed by people who each betrayed the tradition that formed them in order to sign it.</p>
+    <p>Then the annexes — because Merikani drafting requires that dissent be recorded rather than resolved, and because the achar principle finally has a legal form. Seven houses, seven refusals, each of them true, printed in the same document as the thing they refuse. The reader closes the book holding a mixture that no one defends in full and everyone has signed.</p>
+    <div class="annexes">
+      <div class="annex"><div class="a">Annex A · Balai Pusaka</div><div class="b">Records that the release of custodial status was signed under duress of arithmetic, and that arithmetic is not a form of consent.</div></div>
+      <div class="annex"><div class="a">Annex B · Nine Rain</div><div class="b">Records that a reciprocity suspended for twelve years has been abolished, whatever the drafting says.</div></div>
+      <div class="annex"><div class="a">Annex C · Al-Merikani</div><div class="b">Records, in the words of the losing party, that a promise breakable at need was never a promise. Filed by Samira. Written by Idris.</div></div>
+      <div class="annex"><div class="a">Annex D · Sund Commons</div><div class="b">Records that a consumption cap with a nine-year expiry has, in the drafter's professional judgement, no expiry.</div></div>
+      <div class="annex"><div class="a">Annex E · Jit Sin</div><div class="b">Records Lin Yanshi's dissent from her own successful argument, which she asked to have printed in full.</div></div>
+      <div class="annex"><div class="a">Annex F · Sané-Kora</div><div class="b">Records what none of the parties said, in four sentences, certified by a listener who could not hear them.</div></div>
+      <div class="annex"><div class="a">Annex G · Rumah Arus</div><div class="b">One page. The routes, as filed. No dissent, no signature, and a condition that was already broken by the time it was printed.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Field Atlas VII · Basin Seven: The Story Engine<br>
+  Working title of the novel · Basin Seven · alt: The Instrument · alt: Twelve Years<br>
+  Companion to The Register of Names · The Ensemble
+</footer>
+
+</body>
+</html>

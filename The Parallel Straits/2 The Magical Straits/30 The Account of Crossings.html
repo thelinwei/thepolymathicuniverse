@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Account of Crossings — Magical Atlas V</title>
+<style>
+:root{
+  --paper:#e8ebe6; --leaf:#f3f5f1; --ink:#1c2630; --ink2:#34424e; --rule:#9aa6a8; --sea:#2f5d6b;
+  --toa:#2e6f6c; --mer:#2f3f7a; --pus:#2f5a33; --lan:#a3271c; --rain:#a4552a; --kora:#5a2a4f; --sund:#3e5a6e;
+  --pet:#6b4f8a; --arus:#1f6f8b;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141a1f; --leaf:#1b232a; --ink:#e9ece6; --ink2:#c9d0cf; --rule:#566269; --sea:#8fc0cc;
+    --toa:#7fc3bf; --mer:#9eaaf0; --pus:#8fc796; --lan:#f08a7e; --rain:#e7a57c; --kora:#d69ac7; --sund:#9fbdd3;
+    --pet:#c3a8e6; --arus:#7fcbe6;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141a1f; --leaf:#1b232a; --ink:#e9ece6; --ink2:#c9d0cf; --rule:#566269; --sea:#8fc0cc;
+  --toa:#7fc3bf; --mer:#9eaaf0; --pus:#8fc796; --lan:#f08a7e; --rain:#e7a57c; --kora:#d69ac7; --sund:#9fbdd3;
+  --pet:#c3a8e6; --arus:#7fcbe6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--paper);color:var(--ink);font-family:"Times New Roman",Tinos,Times,"Liberation Serif",serif;font-size:19px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
+.sc{font-variant:small-caps;letter-spacing:.04em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.col{max-width:66ch}
+p+p{margin-top:.9em}
+h1,h2,h3,h4{font-weight:400;line-height:1.08}
+em{font-style:italic}
+
+/* cover */
+.cover{padding:clamp(40px,8vw,90px) 0 clamp(30px,6vw,60px);border-bottom:1px solid var(--rule)}
+.cover .issuer{font-size:15px;color:var(--ink2)}
+.cover h1{font-size:clamp(3rem,11vw,7.6rem);letter-spacing:-.02em;margin:.2em 0 .15em;font-style:italic}
+.cover h1 span{display:block;font-style:normal}
+.cover .deck{font-size:clamp(1.15rem,2.6vw,1.45rem);max-width:40ch;color:var(--ink2)}
+.strait{width:100%;height:auto;display:block;margin:clamp(24px,5vw,48px) 0 8px}
+.strait-cap{font-size:15px;color:var(--ink2);max-width:70ch}
+
+/* index */
+nav.index{border-bottom:1px solid var(--rule);padding:18px 0}
+nav.index ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:17px}
+nav.index a{text-decoration:none;border-bottom:1px solid transparent}
+nav.index a:hover{border-bottom-color:currentColor}
+
+section{padding:clamp(48px,8vw,96px) 0;border-bottom:1px solid var(--rule)}
+.part{font-size:16px;color:var(--ink2);margin-bottom:10px}
+section>.wrap>h2{font-size:clamp(2.2rem,6vw,3.8rem);margin-bottom:.45em;max-width:18ch}
+.lede{font-size:1.18em;color:var(--ink)}
+
+.scroll{overflow-x:auto;margin:28px 0}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:16.5px;line-height:1.4}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-top:1px solid var(--rule)}
+th{font-weight:400;font-variant:small-caps;letter-spacing:.04em;color:var(--ink2);border-top:2px solid var(--ink)}
+td b{font-weight:700}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:1px}
+
+/* house chapters */
+.house{display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:clamp(16px,4vw,48px);padding:clamp(40px,6vw,64px) 0;border-top:1px solid var(--rule)}
+.house:first-of-type{border-top:0}
+.house aside{position:relative}
+.house aside svg{width:100%;max-width:190px;height:auto;display:block;color:var(--c)}
+.house .native{font-size:15px;color:var(--ink2);margin-top:12px;line-height:1.45}
+.house h3{font-size:clamp(2rem,5vw,3rem);color:var(--c)}
+.house .motto{font-style:italic;color:var(--ink2);margin:.2em 0 1em}
+.house h4{font-size:1.05em;font-variant:small-caps;letter-spacing:.05em;margin:1.4em 0 .35em;color:var(--c)}
+.ranks{display:flex;flex-wrap:wrap;gap:0;margin:.6em 0 0;border-left:3px solid var(--c)}
+.ranks div{padding:4px 14px;font-size:16px;line-height:1.35;flex:1 1 150px}
+.ranks b{display:block;font-weight:700}
+dl.arts{margin-top:.4em}
+dl.arts dt{font-weight:700;margin-top:.8em}
+dl.arts dd{margin-left:0}
+.forbid{margin-top:1.4em;padding:14px 18px;background:var(--leaf);border-left:3px solid var(--c)}
+.forbid b{font-variant:small-caps;letter-spacing:.05em;font-weight:400;color:var(--c);display:block;font-size:1.02em}
+@media (max-width:720px){.house{grid-template-columns:1fr}.house aside svg{max-width:120px}}
+
+.minor{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,44px);margin-top:36px}
+.minor div{border-top:3px solid var(--c);padding-top:12px}
+.minor h4{font-size:1.5rem;color:var(--c);margin-bottom:.3em}
+@media (max-width:720px){.minor{grid-template-columns:1fr}}
+
+/* infrastructure */
+.places{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:30px 44px;margin-top:34px}
+.place{border-top:3px solid var(--c);padding-top:12px}
+.place h4{font-size:1.45rem;color:var(--c);margin-bottom:.35em}
+.place p{font-size:17.5px}
+.place p b{font-variant:small-caps;letter-spacing:.04em;font-weight:400;color:var(--ink2)}
+.harbour{margin-top:48px;padding:clamp(20px,4vw,40px);background:var(--leaf)}
+.harbour h3{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:.5em}
+.harbour ol{margin:.8em 0 0 1.3em}
+.harbour li{margin-top:.55em}
+.harbour li b{color:var(--c)}
+
+/* duel */
+.match{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:10px 30px;padding:16px 0;border-top:1px solid var(--rule)}
+.match .vs{font-size:1.3rem;line-height:1.25}
+.match .vs i{color:var(--ink2);font-size:.8em}
+@media (max-width:720px){.match{grid-template-columns:1fr}}
+.events{margin-top:30px}
+.events p{margin-top:.8em}
+
+/* chapter */
+.chapter{background:var(--leaf)}
+.chapter .col{margin:0 auto;max-width:62ch}
+.chapter h2{text-align:left}
+.chapter .title-block{max-width:62ch;margin:0 auto 2em}
+.chapter .title-block h2{font-size:clamp(2.4rem,7vw,4.4rem);font-style:italic}
+.chapter .title-block p{color:var(--ink2)}
+.chapter p{text-indent:1.4em;margin-top:0}
+.chapter p.first{text-indent:0}
+.chapter p.first::first-letter{float:left;font-size:4.2em;line-height:.82;padding:.05em .08em 0 0;color:var(--rain)}
+.chapter .break{text-align:center;margin:1.6em 0;color:var(--ink2);text-indent:0;letter-spacing:.6em}
+.chapter .knot{text-indent:0;margin:1.2em 0;padding-left:1.4em;border-left:3px solid var(--rain);font-style:italic}
+
+footer{padding:40px 0 60px;font-size:15.5px;color:var(--ink2)}
+.theme-toggle{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));font:inherit;font-size:15px;background:var(--leaf);color:var(--ink);border:1px solid var(--rule);border-radius:20px;padding:6px 14px;cursor:pointer}
+@media (prefers-reduced-motion:no-preference){ .strait .flow{stroke-dasharray:6 10;animation:drift 9s linear infinite} @keyframes drift{to{stroke-dashoffset:-160}} }
+
+table.cap{min-width:760px;font-size:15.5px}
+table.cap th.h{color:var(--c);border-top:3px solid var(--c);text-align:center}
+table.cap td{text-align:center;font-size:1.25rem;line-height:1}
+table.cap td:first-child{text-align:left;font-size:15.5px;white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:6px 26px;font-size:16px;margin-top:10px;color:var(--ink2)}
+.legend span b{font-size:1.2rem;color:var(--ink);font-weight:400;margin-right:6px}
+.blind{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px 40px;margin-top:30px}
+.blind div{border-top:3px solid var(--c);padding-top:10px}
+.blind h4{font-size:1.35rem;color:var(--c)}
+.blind .w{font-style:italic;font-size:1.1em;margin:.2em 0 .4em}
+.blind .x{color:var(--ink2);font-size:16px;margin-top:.5em}
+.xgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px 38px;margin-top:30px}
+.xc{padding-top:10px;border-top:1px solid var(--rule)}
+.xc .bar{display:flex;height:6px;margin-bottom:10px}
+.xc .bar span{flex:1}
+.xc h4{font-size:1.4rem}
+.xc .pp{font-variant:small-caps;letter-spacing:.05em;color:var(--ink2);font-size:15px}
+.xc .en{font-style:italic;color:var(--ink2)}
+.xc dl{font-size:16.5px;line-height:1.45}
+.xc dt{font-variant:small-caps;letter-spacing:.05em;margin-top:.5em;color:var(--ink2)}
+.xc dd{margin:0}
+.ladder2 .rung{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:8px 28px;padding:14px 0;border-top:1px solid var(--rule)}
+.ladder2 .rung b{font-size:1.2rem}
+@media (max-width:640px){.ladder2 .rung{grid-template-columns:1fr}}
+.def{margin:26px 0;padding:22px 24px;background:var(--leaf);border-left:3px solid var(--ink);max-width:66ch}
+.def p{font-size:1.1em}
+.story .col{margin:0 auto;max-width:62ch}
+.story p{text-indent:1.4em;margin-top:0}
+.story p.first{text-indent:0}
+.story p.first::first-letter{color:var(--pet)}
+.story .break{text-align:center;margin:1.4em 0;color:var(--ink2);text-indent:0;letter-spacing:.6em}
+</style></head><body>
+<header class="cover"><div class="wrap">
+<p class="issuer">The Parallel Straits · Magical Atlas · Volume V</p>
+<h1>The Account <span>of Crossings</span></h1>
+<p class="deck">What every grammar cannot see, what it costs a body to pierce two of them, where the crossers really come from, and the one thing no single mind is allowed to attempt.</p>
+<svg class="strait" viewBox="0 0 1000 200" role="img" aria-label="Seven horizontal bands, with a single vertical line piercing all of them">
+<g stroke-width="10" stroke-linecap="round">
+<line x1="120" y1="30" x2="880" y2="30" stroke="var(--toa)"/><line x1="120" y1="53" x2="880" y2="53" stroke="var(--mer)"/><line x1="120" y1="76" x2="880" y2="76" stroke="var(--pus)"/><line x1="120" y1="99" x2="880" y2="99" stroke="var(--lan)"/><line x1="120" y1="122" x2="880" y2="122" stroke="var(--rain)"/><line x1="120" y1="145" x2="880" y2="145" stroke="var(--kora)"/><line x1="120" y1="168" x2="880" y2="168" stroke="var(--sund)"/>
+</g>
+<line x1="560" y1="8" x2="560" y2="192" stroke="var(--paper)" stroke-width="9"/>
+<line x1="560" y1="8" x2="560" y2="192" stroke="var(--ink)" stroke-width="2.5"/>
+</svg>
+<p class="strait-cap">Seven grammars laid side by side. A crosser is anyone who has gone straight down through more than one of them.</p>
+</div></header>
+<nav class="index" aria-label="Contents"><div class="wrap"><ul>
+<li><a href="#capability">The capability chart</a></li><li><a href="#blind">Blind spots</a></li><li><a href="#hands">Twenty-one hands</a></li><li><a href="#ordeal">The piercing</a></li><li><a href="#nursery">Where crossers come from</a></li><li><a href="#concordance">Concordance</a></li><li><a href="#reckoning">The Reckoning</a></li><li><a href="#stencil">The stencil press</a></li></ul></div></nav>
+<main>
+<section id="capability"><div class="wrap"><p class="part">Part one</p><h2>Who is good at what, honestly</h2>
+<div class="col"><p class="lede">The earlier atlases showed that every house can reach almost every power. That is true, and it makes for a world without drama. This chart says how each house reaches each power: natively, fluently, only at a heavy cost, or not at all.</p><p>Every house has at least one blind spot, and most have several powers they can only buy at a price. That is what makes crossers necessary, rivalries real, and every mixed team in the Straits worth watching.</p></div>
+<div class="scroll"><table class="cap"><thead><tr><th>Power</th><th class="h" style="--c:var(--toa)">Toa Keng</th><th class="h" style="--c:var(--mer)">Al-Merikani</th><th class="h" style="--c:var(--pus)">Balai Pusaka</th><th class="h" style="--c:var(--lan)">Lan Fong</th><th class="h" style="--c:var(--rain)">Nine Rain</th><th class="h" style="--c:var(--kora)">Sané-Kora</th><th class="h" style="--c:var(--sund)">Sund</th></tr></thead><tbody><tr><td>Fire and lightning</td><td title="Possible, at heavy cost" style="color:var(--toa)">◐</td><td title="Fluent" style="color:var(--mer)">●</td><td title="Possible, at heavy cost" style="color:var(--pus)">◐</td><td title="Native mastery" style="color:var(--lan)">◆</td><td title="Possible, at heavy cost" style="color:var(--rain)">◐</td><td title="Blind" style="color:var(--kora)">○</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Telekinesis, flight, force</td><td title="Fluent" style="color:var(--toa)">●</td><td title="Fluent" style="color:var(--mer)">●</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Native mastery" style="color:var(--lan)">◆</td><td title="Possible, at heavy cost" style="color:var(--rain)">◐</td><td title="Blind" style="color:var(--kora)">○</td><td title="Native mastery" style="color:var(--sund)">◆</td></tr><tr><td>Healing and regeneration</td><td title="Fluent" style="color:var(--toa)">●</td><td title="Fluent" style="color:var(--mer)">●</td><td title="Native mastery" style="color:var(--pus)">◆</td><td title="Native mastery" style="color:var(--lan)">◆</td><td title="Fluent" style="color:var(--rain)">●</td><td title="Fluent" style="color:var(--kora)">●</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Plants, animals, ecology</td><td title="Possible, at heavy cost" style="color:var(--toa)">◐</td><td title="Fluent" style="color:var(--mer)">●</td><td title="Native mastery" style="color:var(--pus)">◆</td><td title="Fluent" style="color:var(--lan)">●</td><td title="Native mastery" style="color:var(--rain)">◆</td><td title="Fluent" style="color:var(--kora)">●</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Telepathy, emotion, dream</td><td title="Fluent" style="color:var(--toa)">●</td><td title="Fluent" style="color:var(--mer)">●</td><td title="Possible, at heavy cost" style="color:var(--pus)">◐</td><td title="Fluent" style="color:var(--lan)">●</td><td title="Possible, at heavy cost" style="color:var(--rain)">◐</td><td title="Native mastery" style="color:var(--kora)">◆</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Illusion and invisibility</td><td title="Native mastery" style="color:var(--toa)">◆</td><td title="Fluent" style="color:var(--mer)">●</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Native mastery" style="color:var(--lan)">◆</td><td title="Fluent" style="color:var(--rain)">●</td><td title="Native mastery" style="color:var(--kora)">◆</td><td title="Possible, at heavy cost" style="color:var(--sund)">◐</td></tr><tr><td>Clairvoyance and divination</td><td title="Native mastery" style="color:var(--toa)">◆</td><td title="Fluent" style="color:var(--mer)">●</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Fluent" style="color:var(--lan)">●</td><td title="Native mastery" style="color:var(--rain)">◆</td><td title="Fluent" style="color:var(--kora)">●</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Teleportation and portals</td><td title="Native mastery" style="color:var(--toa)">◆</td><td title="Native mastery" style="color:var(--mer)">◆</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Fluent" style="color:var(--lan)">●</td><td title="Possible, at heavy cost" style="color:var(--rain)">◐</td><td title="Fluent" style="color:var(--kora)">●</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Shapeshifting and form</td><td title="Fluent" style="color:var(--toa)">●</td><td title="Possible, at heavy cost" style="color:var(--mer)">◐</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Native mastery" style="color:var(--lan)">◆</td><td title="Fluent" style="color:var(--rain)">●</td><td title="Possible, at heavy cost" style="color:var(--kora)">◐</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Spirits and ancestors</td><td title="Possible, at heavy cost" style="color:var(--toa)">◐</td><td title="Native mastery" style="color:var(--mer)">◆</td><td title="Native mastery" style="color:var(--pus)">◆</td><td title="Blind" style="color:var(--lan)">○</td><td title="Fluent" style="color:var(--rain)">●</td><td title="Native mastery" style="color:var(--kora)">◆</td><td title="Possible, at heavy cost" style="color:var(--sund)">◐</td></tr><tr><td>Wards and countermagic</td><td title="Native mastery" style="color:var(--toa)">◆</td><td title="Native mastery" style="color:var(--mer)">◆</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Fluent" style="color:var(--lan)">●</td><td title="Fluent" style="color:var(--rain)">●</td><td title="Fluent" style="color:var(--kora)">●</td><td title="Native mastery" style="color:var(--sund)">◆</td></tr><tr><td>Weather and water</td><td title="Possible, at heavy cost" style="color:var(--toa)">◐</td><td title="Blind" style="color:var(--mer)">○</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Possible, at heavy cost" style="color:var(--lan)">◐</td><td title="Native mastery" style="color:var(--rain)">◆</td><td title="Possible, at heavy cost" style="color:var(--kora)">◐</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Probability and time</td><td title="Fluent" style="color:var(--toa)">●</td><td title="Native mastery" style="color:var(--mer)">◆</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Possible, at heavy cost" style="color:var(--lan)">◐</td><td title="Native mastery" style="color:var(--rain)">◆</td><td title="Fluent" style="color:var(--kora)">●</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Memory and identity</td><td title="Possible, at heavy cost" style="color:var(--toa)">◐</td><td title="Fluent" style="color:var(--mer)">●</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Fluent" style="color:var(--lan)">●</td><td title="Possible, at heavy cost" style="color:var(--rain)">◐</td><td title="Native mastery" style="color:var(--kora)">◆</td><td title="Fluent" style="color:var(--sund)">●</td></tr><tr><td>Death and return</td><td title="Blind" style="color:var(--toa)">○</td><td title="Possible, at heavy cost" style="color:var(--mer)">◐</td><td title="Fluent" style="color:var(--pus)">●</td><td title="Possible, at heavy cost" style="color:var(--lan)">◐</td><td title="Blind" style="color:var(--rain)">○</td><td title="Fluent" style="color:var(--kora)">●</td><td title="Possible, at heavy cost" style="color:var(--sund)">◐</td></tr></tbody></table></div><div class="legend"><span><b>◆</b>Native mastery</span><span><b>●</b>Fluent</span><span><b>◐</b>Possible, at heavy cost</span><span><b>○</b>Blind</span></div></div></section><section id="blind"><div class="wrap"><p class="part">Part two</p><h2>What each grammar cannot see</h2><div class="col"><p class="lede">A grammar is a way of seeing, and every way of seeing has an edge. These are the edges, and who stands just past each one.</p></div><div class="blind"><div style="--c:var(--toa)"><h4>Toa Keng</h4><p class="w">Anything that cannot be measured.</p><p>Grief, loyalty and the dead have no decimal places. A surveyor standing in a house of mourning sees a room of the correct dimensions.</p><p class="x">Kora and Balai Pusaka can make a Toa Keng inspector look foolish in any case involving feeling or inheritance.</p></div><div style="--c:var(--mer)"><h4>Al-Merikani</h4><p class="w">Anything that cannot be a party.</p><p>The sea signs nothing, the sky keeps no promise, and a person unconscious cannot consent. A trustee in a storm is only a passenger.</p><p class="x">Nine Rain treats Merikani weather covenants as polite fiction, and is right.</p></div><div style="--c:var(--pus)"><h4>Balai Pusaka</h4><p class="w">Anything new, and anywhere else.</p><p>A thing with no history offers nothing to commune with, and a practitioner away from her ground is ordinary.</p><p class="x">Lan Fong constructs and Toa Keng benchmarks are the two things a Balai Pusaka elder cannot read.</p></div><div style="--c:var(--lan)"><h4>Lan Fong</h4><p class="w">Anything that must stay as it is.</p><p>Every Lan Fong act is an edit. The house cannot preserve, and it cannot summon, because a spirit has no characters to set.</p><p class="x">Balai Pusaka and Sané-Kora both keep what Lan Fong would improve, and neither forgives the improvement.</p></div><div style="--c:var(--rain)"><h4>Nine Rain</h4><p class="w">Anything urgent.</p><p>The weave waits for the right day. In an emergency, a Nine Rain master can only tell you, very precisely, when help would have been cheap.</p><p class="x">Sund and Lan Fong own every fast crisis; Nine Rain owns every slow one.</p></div><div style="--c:var(--kora)"><h4>Sané-Kora</h4><p class="w">Anything with no voice.</p><p>Stone, iron, fire and machines have no account to hear. A Kora master can calm a riot and cannot move a pebble.</p><p class="x">Lan Fong and Toa Keng rule the material world the Kora ear cannot reach.</p></div><div style="--c:var(--sund)"><h4>Sund</h4><p class="w">Anything done alone, or in secret.</p><p>A ring cannot keep a secret and cannot act fast; it has to agree first. A single Sund caster is the weakest person in the room.</p><p class="x">Every house that works alone, in private or at speed has the advantage over Sund until the load gets too heavy.</p></div></div></div></section><section id="hands"><div class="wrap"><p class="part">Part three</p><h2>The twenty-one crossings, with their hands and their accounts</h2><div class="col"><p class="lede">The Book of Crossings names the twenty-one dyadic orders and what each one discovered. Here is what each looks like when it casts, and what it costs. A crosser pays in both houses’ currencies at once, and the two prices do not add up. They compound.</p></div><div class="xgrid"><article class="xc"><div class="bar"><span style="background:var(--toa)"></span><span style="background:var(--mer)"></span></div><p class="pp">Toa Keng × Al-Merikani</p><h4>Juru-Wasīṭ</h4><p class="en">Covenant Translator</p><dl><dt>The hand</dt><dd>A chalk line snapped through a sealed palm. The line hangs in the air written in two scripts at once.</dd><dt>The account</dt><dd>Cold fingers and a hot lining together. Translators shiver and sweat in the same minute, and the ports call them the fevers.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--toa)"></span><span style="background:var(--pus)"></span></div><p class="pp">Toa Keng × Balai Pusaka</p><h4>Juru Selat</h4><p class="en">Strait Adept</p><dl><dt>The hand</dt><dd>A barefoot surveyor drawing lines along coasts that no longer exist, walking the old shore straight through modern buildings.</dd><dt>The account</dt><dd>They lose the present map. Old Juru Selat get lost between their house and the market and have to be led home by children.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--toa)"></span><span style="background:var(--lan)"></span></div><p class="pp">Toa Keng × Lan Fong</p><h4>通变师</h4><p class="en">Master of Penetrating Transformation</p><dl><dt>The hand</dt><dd>A chalk grid filled with cinnabar characters. Their spells look like tables, and read like proofs.</dd><dt>The account</dt><dd>The brass taste and the forgetting together. They lose numbers before characters, and the greatest of them count on their fingers.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--toa)"></span><span style="background:var(--rain)"></span></div><p class="pp">Toa Keng × Nine Rain</p><h4>Horizon-Keeper</h4><p class="en">Many-Sky Adept</p><dl><dt>The hand</dt><dd>The haze of possible futures woven into strands, and several futures held in the hands at once like threads.</dd><dt>The account</dt><dd>Insomnia, and the inability to commit. Horizon-Keepers are late to everything, because every future they arrive in is only one of several.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--toa)"></span><span style="background:var(--kora)"></span></div><p class="pp">Toa Keng × Sané-Kora</p><h4>The Fourth Listener</h4><p class="en">Erased-Viewpoint Seer</p><dl><dt>The hand</dt><dd>A single lamp and a single clap. Where the missing shadow and the missing echo coincide, a removed person is reconstructed.</dd><dt>The account</dt><dd>Slowly, they begin to lose their own. An old Fourth Listener casts one faint shadow and no echo at all.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--toa)"></span><span style="background:var(--sund)"></span></div><p class="pp">Toa Keng × Sund</p><h4>Lögbrú</h4><p class="en">Law-Bridge</p><dl><dt>The hand</dt><dd>Chalk lines strung from clasped forearm to clasped forearm. A ring agrees on a frame for one hour without agreeing on anything else.</dd><dt>The account</dt><dd>Bruises in exact geometric grids. The ring can read the meeting&#x27;s minutes on each other&#x27;s shoulders.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--mer)"></span><span style="background:var(--pus)"></span></div><p class="pp">Al-Merikani × Balai Pusaka</p><h4>Penjaga Amanah</h4><p class="en">Keeper of the Trust</p><dl><dt>The hand</dt><dd>A palm over the lining while standing barefoot. A title deed goes cold in the hand of an owner who has not kept the land.</dd><dt>The account</dt><dd>They carry the weight of land and trust together, and so can neither leave home nor own anything themselves.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--mer)"></span><span style="background:var(--lan)"></span></div><p class="pp">Al-Merikani × Lan Fong</p><h4>契符师</h4><p class="en">Covenant-Talisman Master</p><dl><dt>The hand</dt><dd>Contracts set in type and sealed in wax: talismans that execute their own conditions.</dd><dt>The account</dt><dd>A red stain that smells of oud. Every breach of every contract they ever wrote burns their fingertips, wherever it happens.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--mer)"></span><span style="background:var(--rain)"></span></div><p class="pp">Al-Merikani × Nine Rain</p><h4>Ayni Underwriter</h4><p class="en">Intergenerational Risk-Keeper</p><dl><dt>The hand</dt><dd>Knots tied in sealing wax. Weather debts insured across generations, with premiums paid in rain.</dd><dt>The account</dt><dd>They carry other people&#x27;s arrears. Their shoulder bands grow heavier every year until they can barely lift their arms.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--mer)"></span><span style="background:var(--kora)"></span></div><p class="pp">Al-Merikani × Sané-Kora</p><h4>Name-Notary</h4><p class="en">Witness of Continuity</p><dl><dt>The hand</dt><dd>A name sung and then pressed with the double seal. The person named cannot be erased, possessed or replaced.</dd><dt>The account</dt><dd>They can never forget a name, and nobody can ever forget theirs. Name-Notaries do not sleep well, and cannot travel incognito.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--mer)"></span><span style="background:var(--sund)"></span></div><p class="pp">Al-Merikani × Sund</p><h4>Quorum Arbiter</h4><p class="en">Witness of Collective Legitimacy</p><dl><dt>The hand</dt><dd>Standing inside a ring with a hand on the lining. A consenting ring warms it; a coerced one burns.</dd><dt>The account</dt><dd>They feel every unwilling participant as a burn. An arbiter at a great public work comes home scarred.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--pus)"></span><span style="background:var(--lan)"></span></div><p class="pp">Balai Pusaka × Lan Fong</p><h4>Pusaka Engineer</h4><p class="en">Engineer of Maturing Things</p><dl><dt>The hand</dt><dd>Tools set once in type and then worn by a family for generations until they gather tuah. Machines that grow wiser with use.</dd><dt>The account</dt><dd>The house&#x27;s two prices at once: bound to the ground, and forgetting. Their tools end up remembering them better than they remember themselves.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--pus)"></span><span style="background:var(--rain)"></span></div><p class="pp">Balai Pusaka × Nine Rain</p><h4>Penjaga Aliran</h4><p class="en">Keeper of the Flow</p><dl><dt>The hand</dt><dd>Barefoot in a river, knotting the current. A place is restored as a moving pattern, never a frozen past.</dd><dt>The account</dt><dd>They age with the seasons. A Penjaga Aliran looks visibly younger in the rains and older in the drought.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--pus)"></span><span style="background:var(--kora)"></span></div><p class="pp">Balai Pusaka × Sané-Kora</p><h4>Saksi Tanah</h4><p class="en">Witness of the Land</p><dl><dt>The hand</dt><dd>Kneeling, one palm on the soil, singing low. The ground&#x27;s testimony becomes audible and admissible.</dd><dt>The account</dt><dd>They hear every site they stand on. Cities are unbearable, so most of them live in forests and come to court by boat.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--pus)"></span><span style="background:var(--sund)"></span></div><p class="pp">Balai Pusaka × Sund</p><h4>Penjaga Bersama</h4><p class="en">Shared Keeper</p><dl><dt>The hand</dt><dd>A barefoot ring on kampung soil. A place grows sturdier with every hand that maintains it.</dd><dt>The account</dt><dd>Their roots spread to everyone in the ring, so a whole neighbourhood finds it hard to move away.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--lan)"></span><span style="background:var(--rain)"></span></div><p class="pp">Lan Fong × Nine Rain</p><h4>Cycle Engineer</h4><p class="en">Living-System Master</p><dl><dt>The hand</dt><dd>Characters knotted into cord. Spells that revise themselves every season, in answer to how the world responded.</dd><dt>The account</dt><dd>Their spells outlive their intentions and keep changing. A Cycle Engineer must proofread every casting she ever made, once a year, for life.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--lan)"></span><span style="background:var(--kora)"></span></div><p class="pp">Lan Fong × Sané-Kora</p><h4>Namewright</h4><p class="en">Engineer of Personhood</p><dl><dt>The hand</dt><dd>A construct&#x27;s name set in type and then sung. The result can say I, and remembers being made.</dd><dt>The account</dt><dd>Every construct takes a character from its maker&#x27;s memory. The great Namewrights ended their lives unable to write their own names.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--lan)"></span><span style="background:var(--sund)"></span></div><p class="pp">Lan Fong × Sund</p><h4>Commons Engineer</h4><p class="en">Civic Systems Mage</p><dl><dt>The hand</dt><dd>A ballot and a ring together. The users of a machine become working parts of it.</dd><dt>The account</dt><dd>Bruises shaped like characters. Families of Commons Engineers can read a public works budget on their grandmothers&#x27; shoulders.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--rain)"></span><span style="background:var(--kora)"></span></div><p class="pp">Nine Rain × Sané-Kora</p><h4>Keeper of the Missing Season</h4><p class="en">Ecological-Cultural Seer</p><dl><dt>The hand</dt><dd>Listening for the rain that did not come, and for the silence where a bird should have answered.</dd><dt>The account</dt><dd>Grief for things that never happened. They mourn harvests nobody else knows were lost.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--rain)"></span><span style="background:var(--sund)"></span></div><p class="pp">Nine Rain × Sund</p><h4>Ayni Steward</h4><p class="en">Civilisational Reciprocity Keeper</p><dl><dt>The hand</dt><dd>A ring holding the warp of a monsoon, sharing a season across a whole population.</dd><dt>The account</dt><dd>The whole ring&#x27;s thirst. Entire districts find themselves drinking water at the same hour.</dd></dl></article><article class="xc"><div class="bar"><span style="background:var(--kora)"></span><span style="background:var(--sund)"></span></div><p class="pp">Sané-Kora × Sund</p><h4>Chorus-Lawspeaker</h4><p class="en">Plurality Binder</p><dl><dt>The hand</dt><dd>A ring singing in deliberate dissonance, every contradiction held. Decisions are reached without anyone agreeing.</dd><dt>The account</dt><dd>The ring&#x27;s ears ring in a chord. Old lawspeakers can tell who was in their assembly by the interval.</dd></dl></article></div></div></section><section id="ordeal"><div class="wrap"><p class="part">Part four</p><h2>What piercing feels like</h2>
+<div class="col"><p class="lede">Everyone in the Straits agrees that studying two houses does not make a crosser. Nobody agrees what does. The crossers themselves describe the same four stages.</p></div>
+<div class="ladder2" style="margin-top:22px">
+<div class="rung"><div class="t"><b>The double bill</b></div><div>The student casts in one grammar and pays in the other’s currency. A Toa Keng surveyor’s lining goes warm; a Sund joiner’s ears ring. It is terrifying, and most students stop here and choose one house for good.</div></div>
+<div class="rung"><div class="t"><b>The mistranslation</b></div><div>For a season, nothing works. Each grammar reads the other’s casting as an error and cancels it. Crossers call this the deaf year. Houses call it failure, and many withdraw their scholarships.</div></div>
+<div class="rung"><div class="t"><b>The floor</b></div><div>One day the student reaches the relation underneath both grammars and finds it has no name in either. This is the piercing. The student usually says nothing about it for months, because there is nobody to tell.</div></div>
+<div class="rung"><div class="t"><b>The disowning</b></div><div>Both parent houses notice the new operation, and both object. No house wants a practitioner who can prove its grammar is a surface. Every crosser in the Book was disowned at least once, and most were readmitted only after a crisis made them indispensable.</div></div>
+</div>
+<div class="col" style="margin-top:22px"><p>There is a residue test for crossers, and investigators use it at every scene. A single grammar leaves one kind of trace. A crosser leaves two traces that do not agree: chalk dust that smells of oud, a missing echo exactly where a double shadow falls. When the traces disagree, the Board sends for someone senior.</p></div>
+</div></section><section id="nursery"><div class="wrap"><p class="part">Part five</p><h2>Where crossers really come from</h2>
+<div class="col"><p class="lede">The official histories say crossers are trained at the great houses. Look at the Book’s biographies and a different pattern appears: most of the famous ones were never properly inside any house at all.</p></div>
+<div class="minor">
+<div style="--c:var(--pet)"><h4>Sekolah Petang · the stencil nursery</h4><p>Petang students copy castings from every house onto duplicator sheets, badly, without the grammar that came with them. A stencil does not know which house it belongs to. So Petang children grow up casting across all seven before anyone tells them that is supposed to be impossible, and a startling number of Straitwalkers first cast from a purple smudge. The houses call Petang magic crude. The Book of Crossings calls it the nursery.</p></div>
+<div style="--c:var(--arus)"><h4>Rumah Arus · the school under the schools</h4><p>Arus holds no relation of its own; it reads what is already moving. Which means an Arus pilot learns, from childhood, to feel the current beneath every grammar rather than the grammar itself. Of the twenty or so Deepwalkers in recorded history, the Book lists four as Arus-trained, and suspects several more. When the school was struck off, the city lost its only formal training for the thing every house most fears.</p></div>
+</div></div></section><section id="concordance"><div class="wrap"><p class="part">Part six</p><h2>Concordance</h2>
+<div class="col"><p class="lede">The Book of Crossings says that Concordance is not the highest rank, but a different category, and then declines to explain. This is the explanation.</p></div>
+<div class="def"><p><b>Concordance</b> is a relation that several minds from several grammars can hold together and that no single mind can hold at all. Its account belongs to no caster. It is owed by the Concordance itself.</p></div>
+<div class="col">
+<p>That last clause is why the houses fear it. An account that belongs to nobody does not disappear; it persists, and a relation held long enough with its own account begins to behave like a person. Al-Merikani learned this with its old contracts, which is where the Straits’ djinn come from. A Concordance is the same thing at the scale of a city.</p>
+<p>There are three generally accepted Concordances.</p>
+</div>
+<div class="ladder2" style="margin-top:18px">
+<div class="rung"><div class="t"><b>The Port</b><br><i>legendary</i></div><div>The lost capital that all seven lineages built together and then carried away. If the legends are right, the Port was never merely a city. It was a Concordance with its own account, and it is still owed. That would explain why every house keeps one piece of it in a locked room, and why none of them will let the others hold theirs.</div></div>
+<div class="rung"><div class="t"><b>The Night of Two Tides</b><br><i>Year 307</i></div><div>Forty-seven districts, pumps and pylons and neighbourhood wards, held together as one system. The Book credits the Commons Engineers. The survivors credit something that answered when the districts called, which none of them could describe afterwards, and which has not answered since.</div></div>
+<div class="rung"><div class="t"><b>The Unregistered Return</b><br><i>1917</i></div><div>The one resurrection in the Straits, performed by all seven houses in one night for a woman nobody will name. It worked. What came back was continuous in every way the Continuity Case would later require. The account for it is the snarled cord in Nine Rain’s sealed room, and it has never been reconciled. The houses do not discuss who, or what, is still paying.</div></div>
+</div>
+<div class="col" style="margin-top:22px">
+<h3 style="font-size:1.7rem">The prohibition, and the glued joint</h3>
+<p>Scholars insist that a Deepwalker is not Concordant, and most students think this is a point of taxonomy. It is a warning. A Deepwalker, one mind that sees beneath four or more grammars, is the one kind of person who could try to hold a Concordance alone, and the attempt has only one outcome: a relation held by a single mind with no one to share its account can never be let go of again.</p>
+<p>Sund has a word for a joint that can never be taken apart. The glued joint somewhere in the city that no one at Sund will locate is not a piece of bad carpentry. It is the one time a Deepwalker tried.</p>
+</div></div></section><section id="reckoning"><div class="wrap"><p class="part">Part seven</p><h2>A calendar for the crossings</h2>
+<div class="col"><p class="lede">The Book of Crossings dates its crises from a Year 0 it never names. The lineages count from the same event, and they call it the Reckoning of the Carrying: the night the Port was taken apart.</p>
+<p>The outside world remembers that night as the great raid of 1025, when a fleet from the Coromandel sacked the old maritime empire and its capital was never found again. The lineages know better. The raid came, and the Port was already gone.</p></div>
+<div class="scroll"><table><thead><tr><th>Reckoning</th><th>Common era</th><th>Event</th></tr></thead><tbody>
+<tr><td>RC 0</td><td>1025</td><td>The Port is carried away; the seven lineages disperse</td></tr>
+<tr><td>RC 188</td><td>1213</td><td>The Seven Quays Crisis; the first bound translation</td></tr>
+<tr><td>RC 241</td><td>1266</td><td>The Old Breakwater Inquiry; the land testifies</td></tr>
+<tr><td>RC 307</td><td>1332</td><td>The Night of Two Tides; the second Concordance</td></tr>
+<tr><td>RC 366</td><td>1391</td><td>The Missing Monsoon; weather debt becomes law</td></tr>
+<tr><td>RC 411</td><td>1436</td><td>The Continuity Case; the first person returned in law</td></tr>
+<tr><td>RC 796</td><td>1821</td><td>Toa Keng founded at the ditch</td></tr>
+<tr><td>RC 860</td><td>1885</td><td>Lan Fong arrives with a press and a sixteen-page annal</td></tr>
+<tr><td>RC 892</td><td>1917</td><td>The Unregistered Return</td></tr>
+<tr><td>RC 1001</td><td>2026</td><td>The King Tide at Basin Seven; the Concord courtyard stone</td></tr>
+</tbody></table></div>
+<div class="col"><p>Magic moves technology on faster in this world, which is why the crises of the fourteenth century already involve pumps, pylons and forecasting arrays. The Straits children who notice that the thousandth year of the Reckoning has just passed are told to stop counting.</p></div>
+</div></section><section id="stencil" class="chapter story"><div class="wrap"><div class="title-block"><p class="part">Part eight · a first piercing</p><h2>The Stencil Press</h2><p>Sekolah Petang, the evening shift, a Tuesday.</p></div><div class="col">
+<p class="first">Nur Hidayah was fourteen and on duplicator duty, which meant cranking the drum of the old spirit duplicator in the back room while the evening shift did arithmetic next door. The purple ink got into everything. She had stopped noticing it on her hands.</p>
+<p>The sheet on the drum was a cantrip copied from a copy of a copy: a Toa Keng line for keeping a table level, which the canteen used under its wobbly legs. Someone had written the Kora word for <em>listen</em> in the margin, because the canteen auntie was going deaf and the girls wrote her notes on whatever paper was lying about.</p>
+<p>Hidayah cranked the drum and the sheet came out warm, and the back room went silent.</p>
+<p>It was not quiet. It was silent in the exact shape of a person. The echo of the drum came back from every wall except one corner by the filing cabinet, where it simply did not return, and on the floor under the lamp, in that same corner, there was a second shadow with nobody to cast it.</p>
+<p>She knew what that meant. Every child in the Straits knows the residue table the way other children know their times tables. A double shadow is Toa Keng. A missing echo is Kora. The two together in the same place mean someone has been taken out of the room.</p>
+<p class="break">· · ·</p>
+<p>It took the Board three weeks to establish who. A night-school teacher who had run the back room in the 1970s had been quietly erased from the school’s records after a dispute with an inspector: removed from the rolls, the photographs and the memory of everyone who had worked with her. Hidayah’s stencil had found her outline. Nobody had asked it to.</p>
+<p>Two houses wrote to the school in the same week. Toa Keng offered a scholarship, on condition that Hidayah never again cast with a Kora word in the margin. Sané-Kora offered a place, on condition that she give up the chalk line. Both letters described her as promising and both described what she had done as an error.</p>
+<p>Hidayah read them in the back room, with purple hands. Then she put both letters on the drum face down, cranked out forty copies of the canteen table-leveller for the evening shift, with <em>listen</em> in the margin, and went next door to do her arithmetic.</p>
+<p>The teacher’s name has since been restored to the school’s honours board. It was the first thing Hidayah proofread every evening that year.</p>
+</div></div></section></main><footer><div class="wrap"><p>The Account of Crossings. Magical Atlas V of the Parallel Straits, following the Great Schools Magical Atlas and the Book of Crossings. Linwei's world.</p></div></footer>
+<button class="theme-toggle" type="button" id="themeBtn" aria-label="Switch colour theme">Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('themeBtn'),k='crossings-theme';function d(){var t=r.getAttribute('data-theme');if(t)return t==='dark';return window.matchMedia('(prefers-color-scheme: dark)').matches}function l(){b.textContent=d()?'Light':'Dark'}try{var s=localStorage.getItem(k);if(s)r.setAttribute('data-theme',s)}catch(e){}l();b.addEventListener('click',function(){var n=d()?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem(k,n)}catch(e){}l()})})();</script>
+</body></html>

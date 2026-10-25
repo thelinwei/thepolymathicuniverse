@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How the Seven Teach · 七学</title>
+<style>
+:root{
+  --paper:#F6F6F2; --ink:#1E2129; --soft:#4A4F5C; --rule:#C4C7CC; --acc:#3D5A3A; --panel:#ECEDE8;
+  --tk:#2B4A78; --am:#1F6F5C; --bp:#8C6A1C; --lf:#9B2C2C; --nr:#6A3E83; --sk:#B0601A; --su:#5F8497;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --acc:#9CCB94; --panel:#20232B;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}}
+:root[data-theme="dark"]{
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --acc:#9CCB94; --panel:#20232B;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Times New Roman",Times,"Songti SC","Noto Serif SC","SimSun",serif;
+  font-size:19px;line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding-left:22px;padding-right:22px}
+.wide{max-width:1040px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{padding-top:64px;padding-bottom:28px}
+.series{font-style:italic;color:var(--soft);margin:0 0 18px;font-size:17px}
+h1{font-weight:400;font-size:clamp(46px,9.5vw,90px);line-height:.95;letter-spacing:-.02em;margin:0}
+h1 .zh{display:block;font-size:.5em;letter-spacing:.3em;margin-top:14px;color:var(--acc)}
+.deck{font-size:22px;line-height:1.45;margin:28px 0 0;max-width:34em}
+.part{font-variant:small-caps;letter-spacing:.08em;color:var(--acc);font-size:19px;margin:0 0 6px}
+h2{font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.08;margin:0 0 18px;letter-spacing:-.01em}
+h3{font-weight:700;font-size:20px;margin:22px 0 6px}
+section{padding-top:50px;padding-bottom:50px;border-top:1px solid var(--rule)}
+p{margin:0 0 14px}
+.lede{font-size:21px}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px}
+nav.toc a{text-decoration:none;border-bottom:1px solid currentColor}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+table{border-collapse:collapse;font-size:16px;width:100%;min-width:900px}
+th,td{padding:9px 8px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+th{font-weight:400;font-style:italic}
+td:first-child{font-style:italic;color:var(--soft);white-space:nowrap}
+.house{padding-top:60px;padding-bottom:60px;border-top:3px double var(--ink)}
+.hhead{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline}
+.hhead h2{margin:0;color:var(--c)}
+.hhead .gw{font-style:italic;font-size:22px}
+.motto{font-size:22px;font-style:italic;margin:14px 0 8px}
+.premise{margin:0 0 20px}
+.stage{border-top:1px solid var(--rule);padding-top:6px;padding-bottom:10px}
+.shead{padding-top:14px;padding-bottom:4px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.shead .st{font-size:24px;color:var(--c)}
+.shead .age{font-style:italic;color:var(--soft);font-size:16px}
+.stage-name{font-variant:small-caps;letter-spacing:.05em;color:var(--c);margin:0 0 10px}
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:12px 0 18px}
+.subj{background:var(--panel);padding:12px 14px;border-top:3px solid var(--c)}
+.subj b{display:block;font-size:19px;font-weight:400}
+.subj i{display:block;color:var(--soft);font-size:15px;margin-bottom:4px}
+.subj span{font-size:16px;line-height:1.45;display:block}
+.how{padding-left:16px;border-left:3px solid var(--c)}
+.how::before{content:"How it is taught. ";font-variant:small-caps;letter-spacing:.04em;color:var(--c)}
+.rite{font-style:italic}
+.rite::before{content:"Rite of passage. ";font-style:normal;font-variant:small-caps;letter-spacing:.04em;color:var(--c)}
+.lib dl{display:grid;grid-template-columns:8em 1fr;gap:10px 18px;margin:10px 0 0}
+.lib dt{font-style:italic;color:var(--c)}
+.lib dd{margin:0}
+@media (max-width:560px){.lib dl{grid-template-columns:1fr;gap:2px}.lib dd{margin-bottom:10px}}
+.shelves{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}
+.shelves span{border:1.5px solid var(--c);padding:4px 10px;font-size:16px}
+.misfit{margin-top:20px;background:var(--panel);padding:14px 18px}
+.misfit::before{content:"Who fails here. ";font-variant:small-caps;letter-spacing:.04em;color:var(--c)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:20px 0}
+@media (max-width:620px){.grid2{grid-template-columns:1fr}}
+.grid2>div{border-top:2px solid var(--ink);padding-top:10px}
+.grid2 b{display:block;font-size:20px;font-weight:400;margin-bottom:4px}
+.book{background:var(--panel);padding:20px 22px;margin:20px 0}
+.book ol{margin:10px 0 0;padding-left:1.3em}
+.book li{margin-bottom:8px}
+footer{padding-top:40px;padding-bottom:80px;color:var(--soft);font-style:italic;font-size:16px;border-top:1px solid var(--rule)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.partbreak2{padding-top:80px;padding-bottom:20px;border-top:3px double var(--ink)}
+table.day{min-width:1100px;font-size:15px}
+.bldg p{margin-bottom:16px}
+ol.qs{padding-left:1.3em} ol.qs li{margin-bottom:8px}
+.cards{display:grid;grid-template-columns:1fr;gap:20px;margin-top:18px}
+.card{border:1.5px solid var(--c);padding:16px 18px;background:var(--panel)}
+.card h3{margin:0 0 8px;color:var(--c);font-weight:400;font-size:21px}
+.card p{margin:0 0 8px;font-size:17px}
+.card .cr{font-style:italic}
+.card .rm span{font-variant:small-caps;letter-spacing:.04em;color:var(--c)}
+.stamp{margin-top:22px}
+.stamp i{color:#A3322B}
+.wide>.inner{padding-left:0;padding-right:0;max-width:676px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <p class="series">The Great Schools of the Straits · on schooling, disciplines and libraries</p>
+  <h1>How the Seven Teach<span class="zh">七学</span></h1>
+  <p class="deck">Seven ways of dividing what can be known, followed from a six-year-old’s first morning to a doctorate, and into the libraries each house built to hold it.</p>
+  <nav class="toc" id="toc"><a href="#tk" style="color:var(--tk)">Toa Keng</a><a href="#am" style="color:var(--am)">Al-Merikani</a><a href="#bp" style="color:var(--bp)">Balai Pusaka</a><a href="#lf" style="color:var(--lf)">Lan Fong</a><a href="#nr" style="color:var(--nr)">Nine Rain</a><a href="#sk" style="color:var(--sk)">Sané-Kora</a><a href="#su" style="color:var(--su)">Sund</a><a href="#day">A day at ten</a><a href="#buildings">Buildings</a><a href="#exam">The Crossing Examination</a><a href="#reports">Seven report cards</a><a href="#concordat">The Concordat Library</a></nav>
+</header>
+
+<section class="wrap" style="border-top:none;padding-top:6px">
+  <p class="lede">Every curriculum is a cosmology. Our own sorts knowledge by object: the body to medicine, the past to history, number to mathematics. Each of the Seven sorts it by the question its house asks of reality, and those questions cut across our disciplines at strange angles. Cooking and chemistry share a classroom. Medicine splits in two. Mathematics begins with zero, or with a ledger, or with a folded sheet of paper.</p>
+  <p>Stages follow the Straits’ common pattern: primary from seven to twelve, secondary from thirteen to seventeen, tertiary after. Each house runs its own schools; the Concordat requires only that every child spend some hours each week in another house’s classroom, which is where most of the trouble starts.</p>
+</section>
+
+<section class="wide" id="compare">
+  <div class="wrap inner">
+    <p class="part">At a glance</p>
+    <h2>Our subjects, in seven translations</h2>
+    <p>The same school timetable, read through each house. Scroll sideways on a phone.</p>
+  </div>
+  <div class="tbl"><table id="cmp"><thead><tr><th>Our subject</th><th style="color:var(--tk)">Toa Keng</th><th style="color:var(--am)">Al-Merikani</th><th style="color:var(--bp)">Balai Pusaka</th><th style="color:var(--lf)">Lan Fong</th><th style="color:var(--nr)">Nine Rain</th><th style="color:var(--sk)">Sané-Kora</th><th style="color:var(--su)">Sund</th></tr></thead><tbody><tr><td>Mathematics</td><td>Transforms</td><td>Ledger</td><td>Counting of the place</td><td>Reckoning</td><td>Cycles</td><td>Rhythm and Zero</td><td>Fair Shares</td></tr><tr><td>Science</td><td>Survey</td><td>Navigation</td><td>Land Reading</td><td>Dissolving and Hardening</td><td>Weather</td><td>Listening to things</td><td>Crew Work</td></tr><tr><td>Language and literature</td><td>Other Tongues</td><td>Promising</td><td>Pantun</td><td>Composing</td><td>Weaving</td><td>Voices</td><td>Sagas</td></tr><tr><td>History</td><td>Testimony</td><td>Witness</td><td>The place’s memory</td><td>Recompositions</td><td>Consequence</td><td>Genealogy and the Second Song</td><td>Histories of the commons</td></tr><tr><td>Geography</td><td>Survey</td><td>Routes</td><td>Of the place</td><td>Sources</td><td>Tending</td><td>Where people were</td><td>Networks</td></tr><tr><td>PE and health</td><td>Here: the body as station</td><td>Stewardship of the body</td><td>Walking the bounds</td><td>Refining</td><td>Breath</td><td>Dance</td><td>Carrying</td></tr><tr><td>Art and music</td><td>Perspective</td><td>Seals and hands</td><td>Crafts of the pusaka</td><td>Making</td><td>Weaving and song</td><td>Praise</td><td>Choir</td></tr><tr><td>Civics and moral education</td><td>Standing</td><td>Covenant</td><td>Adat</td><td>The Kongsi</td><td>The Gift</td><td>Witness</td><td>Assembly</td></tr></tbody></table></div>
+</section>
+
+<div id="houses"><section class="house" id="tk" style="--c: var(--tk);"><div class="wrap">
+    <div class="hhead"><h2>Toa Keng</h2><span class="gw">Parallax</span></div>
+    <p class="motto">“Where were you standing?”</p>
+    <p class="premise">Knowledge is sorted by distance from the knower: me, us, them, others. Every fact is taught together with the place from which it holds. A Toa Keng child learns early that an answer without a standpoint is only half an answer.</p>
+    <div class="stage">
+     <div class="shead"><span class="st">Primary</span><span class="age">The Near School</span></div>
+     <div class="subjects"><div class="subj"><b>Here</b><i>Science of the body, PE</i><span>Measuring one’s own pace, reach, pulse and eyesight. The body as the first instrument.</span></div><div class="subj"><b>Near</b><i>Social studies</i><span>Family, street and neighbourhood, described by the child and then by the neighbour.</span></div><div class="subj"><b>Far</b><i>Languages, world studies</i><span>Other peoples, always introduced by someone from among them.</span></div><div class="subj"><b>Beyond</b><i>Mathematics, astronomy</i><span>Number, shape and stars: the things that look the same from everywhere, or seem to.</span></div></div>
+     <p class="how">Every lesson is done twice from two places. Children swap desks each morning. Before a teacher accepts any answer, she asks where the child was standing when they found it.</p>
+     <p class="rite">The Two-Station Test at twelve: each child describes the same object from two stations and must say precisely where the descriptions disagree.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Secondary</span><span class="age">The Middle Rings</span></div>
+     <div class="subjects"><div class="subj"><b>Frames</b><i>Geometry, drawing, map projection</i><span>How the same world looks in different coordinate systems, and the rules for moving between them.</span></div><div class="subj"><b>Transforms</b><i>Algebra</i><span>Mathematics taught as the art of carrying a truth from one frame into another.</span></div><div class="subj"><b>Survey</b><i>Physics, geography</i><span>Fieldwork with instruments. Every measurement is recorded with its station.</span></div><div class="subj"><b>Testimony</b><i>History</i><span>The past as competing accounts. Students must write each event three times from three witnesses.</span></div><div class="subj"><b>Other Tongues</b><i>Languages, translation</i><span>Translation as a science of loss: what each crossing keeps and drops.</span></div></div>
+     <p class="how">Classes are held in rotating rooms around a central court. Examinations give each student a fixed station and grade them on the honesty of their limits.</p>
+     <p class="rite">盲人摸象, the elephant examination, at seventeen: each candidate is given one part of something unseen and graded on how exactly they state what their part cannot tell them.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Tertiary</span><span class="age">The College of Stations</span></div>
+     <div class="subjects"><div class="subj"><b>Reference</b><i>Metrology, statistics, logic</i><span>How standards are fixed and who fixes them.</span></div><div class="subj"><b>Covariance</b><i>Physics, mathematics</i><span>What stays invariant when every frame changes.</span></div><div class="subj"><b>Cartography</b><i>Geography, planning, architecture</i><span>Maps as arguments. The famous Survey of the Straits is taught here.</span></div><div class="subj"><b>Reported Worlds</b><i>Anthropology, journalism</i><span>How to describe others in terms they would recognise.</span></div></div>
+     <p class="how">Doctoral work is supervised by two advisers who must hold opposed frames. The Frontier Fellowship at the Defect is the elite path.</p>
+     <p class="rite">The defence is held in the round, examiners seated on every side. The candidate stands at the centre, the 道枢, and must answer each examiner in that examiner’s frame.</p>
+   </div>
+    <div class="stage lib"><div class="shead"><span class="st">The library</span><span class="age">shelved by 4 divisions</span></div>
+      <div class="shelves"><span>Me</span><span>Us</span><span>Them</span><span>Others</span></div>
+      <dl><dt>The building</dt><dd>Four concentric rings around a round reading room. Me is the innermost ring, nearest the reader; Others is the outer wall.</dd><dt>The catalogue</dt><dd>Each book carries several call numbers, as coordinates of distance and angle from the reader. A book on the heart is shelved in Me when it is your heart and in Them when it is a stranger’s.</dd><dt>The rule</dt><dd>Reading slips record where the reader was standing. No book may be read in only one ring before it is returned.</dd><dt>No shelf for</dt><dd>No ring holds the reader. The library shelves everything except the one who is looking.</dd></dl>
+    </div>
+    <p class="misfit">The child who can stand everywhere and so answers from nowhere. Toa Keng teachers call it drifting and mark it down.</p>
+  </div></section><section class="house" id="am" style="--c: var(--am);"><div class="wrap">
+    <div class="hhead"><h2>Al-Merikani</h2><span class="gw">Amanah</span></div>
+    <p class="motto">“On whose behalf do you hold this?”</p>
+    <p class="premise">Knowledge is sorted by whom it is held for. Every fact arrives as a trust from someone and is owed onward to someone else. An Al-Merikani child learns that to know a thing is to become answerable for it.</p>
+    <div class="stage">
+     <div class="shead"><span class="st">Primary</span><span class="age">The Keeping School</span></div>
+     <div class="subjects"><div class="subj"><b>Keeping</b><i>Moral education, science</i><span>On the first day each child is entrusted with something alive: a plant, a fish, a younger child’s reading.</span></div><div class="subj"><b>Counting-for</b><i>Mathematics</i><span>Quantity is always quantity for someone. Sums are done in a class ledger with real consequences.</span></div><div class="subj"><b>Promising</b><i>Language, composition</i><span>How to make a promise, write one down and keep it. Poetry begins with vows.</span></div><div class="subj"><b>Hosting</b><i>Geography, social studies</i><span>Trade routes and guests: who arrives, what they carry, what they are owed.</span></div></div>
+     <p class="how">The teacher’s authority is renewed by the class each term, by a simple show of hands. Teachers take this very seriously, and so do the children.</p>
+     <p class="rite">At twelve, the child returns the thing entrusted on the first day, in whatever state it is now, and gives an account of it.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Secondary</span><span class="age">The Counting House</span></div>
+     <div class="subjects"><div class="subj"><b>Ledger</b><i>Mathematics, statistics, accounting</i><span>Double entry as a philosophy: every credit is someone’s debit.</span></div><div class="subj"><b>Covenant</b><i>Law, civics</i><span>Contracts, oaths, and the conditions under which they dissolve.</span></div><div class="subj"><b>Witness</b><i>History</i><span>Sources as testimony. Who saw it, who vouches for the one who saw it.</span></div><div class="subj"><b>Navigation</b><i>Physics, astronomy</i><span>Taught as ship’s captaincy: currents, stars and weather perceived on behalf of a crew.</span></div><div class="subj"><b>Held Bodies</b><i>Biology, health</i><span>The body as something entrusted to its owner, and to physicians in turn.</span></div></div>
+     <p class="how">Students run a real fund together for five years. Every lesson in mathematics eventually touches it.</p>
+     <p class="rite">The first countersignature at seventeen: a stranger entrusts the student with a real matter, and the student must answer for it a year later.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Tertiary</span><span class="age">The Houses of Deposit</span></div>
+     <div class="subjects"><div class="subj"><b>Trusts</b><i>Law</i><span>Covenant law, waqf, inheritance, and the renewal of office.</span></div><div class="subj"><b>Deposit</b><i>Finance, economics</i><span>Money as recorded trust. The College of Living Trusts at the Mandated Coast is the elite exchange.</span></div><div class="subj"><b>Stewardship</b><i>Medicine, nursing</i><span>A patient’s body is held in trust. Surgery requires a spoken entrustment.</span></div><div class="subj"><b>Witness</b><i>Journalism, historiography</i><span>The profession of vouching.</span></div></div>
+     <p class="how">Degrees are held in trust by the faculty and can be withdrawn for betrayal of a trust, even decades later.</p>
+     <p class="rite">Graduation is the receipt of a trust from someone the graduate has never met.</p>
+   </div>
+    <div class="stage lib"><div class="shead"><span class="st">The library</span><span class="age">shelved by 5 divisions</span></div>
+      <div class="shelves"><span>Inherited</span><span>Lent</span><span>Sworn</span><span>Kept</span><span>Owed Forward</span></div>
+      <dl><dt>The building</dt><dd>A treasury. Reading counters like the old money-changers’ booths at the Arcade, and a vault below for what is Kept.</dd><dt>The catalogue</dt><dd>Each book lists its holder of record and every hand it passed through. Knowledge borrowed from other peoples is shelved as Lent and marked with what is owed to its source.</dd><dt>The rule</dt><dd>No book leaves without a countersignature from another reader, who becomes answerable for its return.</dd><dt>No shelf for</dt><dd>What was never entrusted to anyone. Knowledge held by people with no standing, such as servants and children, has no shelf.</dd></dl>
+    </div>
+    <p class="misfit">The child who keeps faith with the thing and disobeys the person who gave it. The school calls it disloyalty.</p>
+  </div></section><section class="house" id="bp" style="--c: var(--bp);"><div class="wrap">
+    <div class="hhead"><h2>Balai Pusaka</h2><span class="gw">Communion</span></div>
+    <p class="motto">“Where does this belong?”</p>
+    <p class="premise">Knowledge is sorted by place. Tide physics, a fisherman’s pantun and the medicine of the mangrove share a shelf because they share a shore. A Balai Pusaka child learns that knowledge taken too far from its place begins to go wrong.</p>
+    <div class="stage">
+     <div class="shead"><span class="st">Primary</span><span class="age">The Rooted School</span></div>
+     <div class="subjects"><div class="subj"><b>Of the Tree</b><i>Biology, art</i><span>Each class adopts one place for six years: a banyan, a stretch of shore, a monsoon drain.</span></div><div class="subj"><b>Of the Water</b><i>Physics, geography</i><span>Flow, tide and flood, learned from that one place across six years of seasons.</span></div><div class="subj"><b>Of the Kampung</b><i>Social studies, history</i><span>Who lived here, who lives here, who is buried here.</span></div><div class="subj"><b>Pantun</b><i>Language, literature</i><span>Literacy through the paired quatrain, where the first couplet is always drawn from the place.</span></div></div>
+     <p class="how">Classes are held outdoors in the adopted place. The first lesson on the first day is to say tumpang lalu before stepping onto the ground.</p>
+     <p class="rite">At twelve, each child gives a spoken account of their place to the elders, and the elders judge whether the place would recognise itself.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Secondary</span><span class="age">The Second Ground</span></div>
+     <div class="subjects"><div class="subj"><b>Land Reading</b><i>Geography, geology, ecology</i><span>Students move to a place unlike their first and must read it without help.</span></div><div class="subj"><b>Adat</b><i>Civics, law</i><span>Customary law, and how it bends from place to place.</span></div><div class="subj"><b>Pusaka</b><i>Crafts, material culture</i><span>The care of heirlooms: keris, textiles, tablets. Each object is studied as a record of its place.</span></div><div class="subj"><b>Voices of the Place</b><i>Languages, oral history</i><span>Interviews with the oldest living people of the second ground.</span></div></div>
+     <p class="how">All subjects are taught through the comparison of two places. Examinations are held on site.</p>
+     <p class="rite">At seventeen, the student walks the bounds of the second ground at night, alone, and returns with one thing the place gave them.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Tertiary</span><span class="age">The Faculty of Inhabited Law</span></div>
+     <div class="subjects"><div class="subj"><b>Custodianship</b><i>Environmental science, planning</i><span>A degree is three years living with one place.</span></div><div class="subj"><b>Inhabited Law</b><i>Law</i><span>Places as parties to agreements. The Civic Watershed is the elite exchange.</span></div><div class="subj"><b>Keeping-Houses</b><i>Heritage, museum studies</i><span>The care of pusaka and the question of whether a relic is an object at all.</span></div><div class="subj"><b>Place Medicine</b><i>Medicine, pharmacology</i><span>Remedies taught with the ground they grow in.</span></div></div>
+     <p class="how">Supervisors are elders of the place, often without degrees of their own. The university pays them as faculty.</p>
+     <p class="rite">The thesis is the place’s own testimony, recorded by the graduate. Graduates are known afterwards by the name of their place.</p>
+   </div>
+    <div class="stage lib"><div class="shead"><span class="st">The library</span><span class="age">shelved by 5 divisions</span></div>
+      <div class="shelves"><span>Of the Shore</span><span>Of the Kampung</span><span>Of the Forest Edge</span><span>Of the Deep Water</span><span>Of the Sky Above</span></div>
+      <dl><dt>The building</dt><dd>There is no central building. Knowledge is kept in small keeping-houses at its places, like wayside shrines. The only central object is a great map, the register.</dd><dt>The catalogue</dt><dd>Every item is catalogued by its place of belonging and its keeper. The model is the local gazetteer, 地方志, which gathers everything about one county into one book.</dd><dt>The rule</dt><dd>Some knowledge may not leave its place and must be read there. Scholars travel to books.</dd><dt>No shelf for</dt><dd>Knowledge of movement: migrants, sailors, anything that belongs to the passage between places.</dd></dl>
+    </div>
+    <p class="misfit">The child whose place moves: a sea nomad, a child of the ferries, a child who has lived in six estates. The school calls it rootlessness.</p>
+  </div></section><section class="house" id="lf" style="--c: var(--lf);"><div class="wrap">
+    <div class="hhead"><h2>Lan Fong</h2><span class="gw">Recomposition</span></div>
+    <p class="motto">“What else can this become?”</p>
+    <p class="premise">Knowledge is sorted by verb. Every discipline is a kind of transformation. A Lan Fong child learns to read by setting type and to do mathematics by folding paper, and learns early that nothing made is finished.</p>
+    <div class="stage">
+     <div class="shead"><span class="st">Primary</span><span class="age">The Workshop School</span></div>
+     <div class="subjects"><div class="subj"><b>Taking Apart</b><i>Science</i><span>Clocks, radios, flowers, sentences.</span></div><div class="subj"><b>Joining</b><i>Chemistry, cooking</i><span>Cooking is the first chemistry. Children learn reactions at the stove.</span></div><div class="subj"><b>Setting</b><i>Reading, writing</i><span>Children learn to read by composing words from metal type, letter by letter.</span></div><div class="subj"><b>Folding</b><i>Mathematics</i><span>Geometry, fractions and symmetry, learned from paper.</span></div></div>
+     <p class="how">Children work in apprentice pairs. Everything a child makes must be unmade at the end of the term and made into something else.</p>
+     <p class="rite">At twelve, the child recomposes their first year’s work into a single new object, and must explain every part’s origin.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Secondary</span><span class="age">The Foundry</span></div>
+     <div class="subjects"><div class="subj"><b>Dissolving</b><i>Chemistry</i><span>Solutions, acids and decay: the art of unmaking.</span></div><div class="subj"><b>Hardening</b><i>Materials, metallurgy, engineering</i><span>Casting, forging, curing.</span></div><div class="subj"><b>Refining</b><i>PE, health, breath</i><span>Inner cultivation: the body refined in stages, breath and posture as a craft.</span></div><div class="subj"><b>Composing</b><i>Literature, music, typography</i><span>Text as arrangement. Every student sets a book by hand.</span></div><div class="subj"><b>Grafting</b><i>Biology, botany</i><span>How living things join, and where joins reject.</span></div><div class="subj"><b>Reckoning</b><i>Mathematics</i><span>Combinatorics: how many things can be made from these parts.</span></div></div>
+     <p class="how">Teaching follows the kongsi guild: masters, journeymen, apprentices. Knowledge is passed hand to hand.</p>
+     <p class="rite">At seventeen, the student recomposes one of their master’s works into a new work the master could not have made.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Tertiary</span><span class="age">The Guild Workshops</span></div>
+     <div class="subjects"><div class="subj"><b>The Press</b><i>Letters, publishing, linguistics</i><span>Language as a type case, set and distributed.</span></div><div class="subj"><b>The Kitchen</b><i>Food science, chemistry</i><span>Cooking is a full faculty.</span></div><div class="subj"><b>The Clinic of Mending</b><i>Medicine, surgery</i><span>The body as a thing that can be recomposed.</span></div><div class="subj"><b>The Anatomists’ Hall</b><i>Closed</i><span>An old faculty, sealed for a century, whose students went too far into the body.</span></div></div>
+     <p class="how">There are no lectures. Tertiary students are placed in workshops and learn by doing the work.</p>
+     <p class="rite">The masterwork: a recomposition of your teacher’s masterwork, carrying every part of the old one.</p>
+   </div>
+    <div class="stage lib"><div class="shead"><span class="st">The library</span><span class="age">shelved by 7 divisions</span></div>
+      <div class="shelves"><span>Dissolving</span><span>Joining</span><span>Growing</span><span>Hardening</span><span>Mending</span><span>Decaying</span><span>Refining</span></div>
+      <dl><dt>The building</dt><dd>A type case the size of a hall. Knowledge is kept in fragments, such as formulas, recipes, passages and diagrams, in thousands of small drawers.</dd><dt>The catalogue</dt><dd>Drawers are sorted by verb and by how often the fragment is used. The most recombined knowledge sits nearest the hand, the way the letter e sits in a compositor’s case.</dd><dt>The rule</dt><dd>There are no finished books. You set a book from fragments when you need it, and distribute it back into the drawers when you are done.</dd><dt>No shelf for</dt><dd>Anything that cannot be broken into fragments: a whole song, a life story, a face.</dd></dl>
+    </div>
+    <p class="misfit">The child who wants to keep something as it is. Lan Fong teachers call it sentimentality.</p>
+  </div></section><section class="house" id="nr" style="--c: var(--nr);"><div class="wrap">
+    <div class="hhead"><h2>Nine Rain</h2><span class="gw">Reciprocity</span></div>
+    <p class="motto">“What returns?”</p>
+    <p class="premise">Knowledge is sorted by timescale of return: the breath, the day, the season, the generation, the age. Medicine splits in two, economics shelves with ecology, and history is taught as weather. A Nine Rain child learns that every act is a seed.</p>
+    <div class="stage">
+     <div class="shead"><span class="st">Primary</span><span class="age">The Season School</span></div>
+     <div class="subjects"><div class="subj"><b>Breath</b><i>PE, health</i><span>The body now: breathing, eating, sleeping.</span></div><div class="subj"><b>Day</b><i>Science</i><span>Sun, tide and shadow, measured every day at the same hour.</span></div><div class="subj"><b>Season</b><i>Biology, geography</i><span>The school year follows twenty-four seasons, each a fortnight long.</span></div><div class="subj"><b>Gift</b><i>Economics, moral education</i><span>What we owe to parents, farmers and the sea, and how it is returned.</span></div><div class="subj"><b>Knots</b><i>Literacy, numeracy</i><span>Children record their days in knotted cords before they learn to write.</span></div></div>
+     <p class="how">Every lesson ends with the same question: what returns? On the first day each child plants something they will harvest at twelve.</p>
+     <p class="rite">The harvest at twelve. The child eats what they planted, and gives half away.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Secondary</span><span class="age">The House of Returns</span></div>
+     <div class="subjects"><div class="subj"><b>Weather</b><i>Physics, meteorology</i><span>Forecasting as a moral art.</span></div><div class="subj"><b>Tending</b><i>Ecology, agriculture</i><span>Long cycles of soil and forest.</span></div><div class="subj"><b>Exchange</b><i>Economics</i><span>Gift, debt, interest and release.</span></div><div class="subj"><b>Consequence</b><i>History</i><span>The past as chains of return: what came back, and when.</span></div><div class="subj"><b>Weaving</b><i>Mathematics, data</i><span>Periodicity, trigonometry, records kept in textile.</span></div><div class="subj"><b>Heaven’s Course</b><i>Ethics</i><span>The debate between Xunzi and Dong Zhongshu, taught for a full year.</span></div></div>
+     <p class="how">The timetable is set by the almanac. Some subjects only run in the wet season.</p>
+     <p class="rite">At seventeen, the student writes a letter to be opened in twenty years, predicting one return.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Tertiary</span><span class="age">The Academy of Deferred Consequence</span></div>
+     <div class="subjects"><div class="subj"><b>Breath Medicine</b><i>Acute medicine</i><span>Emergencies, surgery, the body now.</span></div><div class="subj"><b>Generation Medicine</b><i>Chronic medicine, public health</i><span>What illness returns through families.</span></div><div class="subj"><b>Long Planning</b><i>Economics, planning</i><span>The Long Return is the elite exchange.</span></div><div class="subj"><b>Forecasting</b><i>Climate science</i><span>The monsoon as a field with memory.</span></div></div>
+     <p class="how">Faculties are organised by timescale. A doctorate takes as long as the return it studies.</p>
+     <p class="rite">Some doctorates are awarded after the student’s death, when the predicted return arrives. A few are awarded to the student’s grandchildren.</p>
+   </div>
+    <div class="stage lib"><div class="shead"><span class="st">The library</span><span class="age">shelved by 5 divisions</span></div>
+      <div class="shelves"><span>The Breath</span><span>The Day</span><span>The Season</span><span>The Generation</span><span>The Age</span></div>
+      <dl><dt>The building</dt><dd>A round building laid out as a calendar. Rooms open and close with the seasons; some are sealed for decades.</dd><dt>The catalogue</dt><dd>Books are shelved by when they will be needed. The catalogue is an almanac, like the 通书, and every entry has a date of next relevance.</dd><dt>The rule</dt><dd>Every loan is repaid with a contribution: a note, a correction, a seed. A textile archive holds records woven by generations of readers.</dd><dt>No shelf for</dt><dd>What happens once and never returns. Singular events have no shelf.</dd></dl>
+    </div>
+    <p class="misfit">The child who wants something now and for itself. The school calls it impatience.</p>
+  </div></section><section class="house" id="sk" style="--c: var(--sk);"><div class="wrap">
+    <div class="hhead"><h2>Sané-Kora</h2><span class="gw">Third Voice</span></div>
+    <p class="motto">“Who is missing?”</p>
+    <p class="premise">Knowledge is sorted by absence: the known, the not yet known, the lost, the suppressed, the unsayable. The lost wing is always largest. A Sané-Kora child learns to count from zero, and to notice the empty chair.</p>
+    <div class="stage">
+     <div class="shead"><span class="st">Primary</span><span class="age">The Listening School</span></div>
+     <div class="subjects"><div class="subj"><b>Listening</b><i>Science, music</i><span>To what is said, and to what is left out. Birds, machines, the sea.</span></div><div class="subj"><b>Naming</b><i>History, social studies</i><span>Whose child are you? Genealogies recited back five generations.</span></div><div class="subj"><b>Zero</b><i>Mathematics</i><span>Counting begins with nothing. Rests in music are taught as numbers.</span></div><div class="subj"><b>Praise</b><i>Language, composition</i><span>Children compose praise for one another.</span></div><div class="subj"><b>The Missing</b><i>Moral education</i><span>Who is not in the class photograph, and why.</span></div></div>
+     <p class="how">Every classroom has an empty chair. Lessons are call and response, learned by heart before they are written.</p>
+     <p class="rite">At twelve, the child recites their genealogy and names one ancestor nobody else in the family remembers.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Secondary</span><span class="age">The House of Voices</span></div>
+     <div class="subjects"><div class="subj"><b>Genealogy</b><i>History</i><span>Lineages as the spine of history.</span></div><div class="subj"><b>The Second Song</b><i>Historiography</i><span>Every account paired with the account it silenced.</span></div><div class="subj"><b>Voices</b><i>Languages, oral literature</i><span>Epic, recitation and translation of the spoken.</span></div><div class="subj"><b>Rhythm</b><i>Mathematics, music</i><span>Pattern, meter and interval.</span></div><div class="subj"><b>Omission</b><i>Statistics, journalism</i><span>Missing data as the most important data.</span></div><div class="subj"><b>Mourning</b><i>Psychology, care</i><span>How to sit with the bereaved.</span></div></div>
+     <p class="how">Teachers are apprenticed griots. Much of the curriculum is never written down, and examinations are spoken.</p>
+     <p class="rite">At seventeen, the student sits with a family for their seventh-month offerings and learns whom the empty seats are for.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Tertiary</span><span class="age">The Hall of the Third Voice</span></div>
+     <div class="subjects"><div class="subj"><b>Lineage</b><i>History, law of inheritance</i><span>Who descends from whom, and who was left out of the line.</span></div><div class="subj"><b>Counterfactual Studies</b><i>Philosophy, history</i><span>The Archive of Foreclosed Histories is the elite exchange.</span></div><div class="subj"><b>Witness</b><i>Law, human rights</i><span>Testimony for those who cannot testify.</span></div><div class="subj"><b>The Unsaid</b><i>Psychology, poetics</i><span>What cannot be said, and how it acts anyway.</span></div></div>
+     <p class="how">Each student is apprenticed to a master for the full course. There are no classes, only sittings.</p>
+     <p class="rite">The final examination: sing a patron’s praise and then, once the patron has left, its second song.</p>
+   </div>
+    <div class="stage lib"><div class="shead"><span class="st">The library</span><span class="age">shelved by 5 divisions</span></div>
+      <div class="shelves"><span>The Known</span><span>The Not Yet Known</span><span>The Lost</span><span>The Suppressed</span><span>The Unsayable</span></div>
+      <dl><dt>The building</dt><dd>The Living Stacks: much of the library is people. Readers make an appointment with a griot and sit with them. The building itself holds the Archive of the Lost.</dd><dt>The catalogue</dt><dd>The Archive of the Lost is a catalogue of books that no longer exist, with empty shelf slots labelled with their titles. Every surviving book is shelved beside what it leaves out.</dd><dt>The rule</dt><dd>No consultation of the Living Stacks without a gift. Nothing in the Unsayable may be quoted.</dd><dt>No shelf for</dt><dd>Its own omissions. The house that knows who is missing is the last to see who is missing from it.</dd></dl>
+    </div>
+    <p class="misfit">The child who hears the second song and sings it aloud at the wrong time. The school calls it indiscretion.</p>
+  </div></section><section class="house" id="su" style="--c: var(--su);"><div class="wrap">
+    <div class="hhead"><h2>Sund</h2><span class="gw">Commons</span></div>
+    <p class="motto">“Who is carrying this?”</p>
+    <p class="premise">Knowledge is sorted by what it takes to carry: what one person can hold, what needs a crew, a village, a whole city. A second index lists what dies if nobody practises it. A Sund child learns that knowing is a kind of labour, and labour is shared.</p>
+    <div class="stage">
+     <div class="shead"><span class="st">Primary</span><span class="age">The Crew School</span></div>
+     <div class="subjects"><div class="subj"><b>Carrying</b><i>PE, physics</i><span>Moving heavy things together: levers, balance, rhythm.</span></div><div class="subj"><b>Tending</b><i>Science, civics</i><span>The school is cleaned, repaired and gardened by its pupils.</span></div><div class="subj"><b>Fair Shares</b><i>Mathematics</i><span>Division as the question of how to split a load fairly.</span></div><div class="subj"><b>Assembly</b><i>Civics</i><span>The class decides real matters together each week.</span></div><div class="subj"><b>Sagas</b><i>Literature</i><span>Long stories told in turns, each child carrying one part.</span></div></div>
+     <p class="how">Grades are given to crews. Every child may leave their crew once a term without explanation, and the crew must reorganise without them.</p>
+     <p class="rite">At twelve, the crew builds something that none of them could carry alone, and then takes it apart.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Secondary</span><span class="age">The Assembly House</span></div>
+     <div class="subjects"><div class="subj"><b>Crew Work</b><i>Engineering, design</i><span>Every project is built by a crew.</span></div><div class="subj"><b>Networks</b><i>Mathematics, ecology</i><span>Graphs, colonies, mycelia and routes.</span></div><div class="subj"><b>The Commons</b><i>Economics</i><span>Shared resources, and how they fail.</span></div><div class="subj"><b>Assembly</b><i>Law, politics</i><span>The Thing, the council, the vote.</span></div><div class="subj"><b>Burden</b><i>Health, labour history</i><span>Who has carried the city’s load, and what it cost them.</span></div><div class="subj"><b>Leaving</b><i>Philosophy</i><span>Rites of exit: when and how a person may leave a whole.</span></div></div>
+     <p class="how">Lessons are run by students in rotation. Teachers act as the assembly’s clerk.</p>
+     <p class="rite">At seventeen, the student formally leaves their crew for a month, and returns only if they choose.</p>
+   </div><div class="stage">
+     <div class="shead"><span class="st">Tertiary</span><span class="age">The School of Composite Governance</span></div>
+     <div class="subjects"><div class="subj"><b>Maintenance</b><i>Engineering</i><span>The unglamorous science of keeping things working.</span></div><div class="subj"><b>Composite Governance</b><i>Politics, organisation</i><span>When a group becomes a person, and when it may not.</span></div><div class="subj"><b>Commons Law</b><i>Law, economics</i><span>Burden rolls and their audits.</span></div><div class="subj"><b>Choral Studies</b><i>Music, psychology</i><span>The Choir, studied carefully and at a distance.</span></div></div>
+     <p class="how">Degrees are awarded to crews. Individuals may leave a crew and take their share of the degree with them.</p>
+     <p class="rite">The thesis must be maintained by its crew for a full year after the defence. If it falls apart, the degree is suspended.</p>
+   </div>
+    <div class="stage lib"><div class="shead"><span class="st">The library</span><span class="age">shelved by 5 divisions</span></div>
+      <div class="shelves"><span>One Hand</span><span>A Crew</span><span>A Village</span><span>A City</span><span>Dies Unpractised</span></div>
+      <dl><dt>The building</dt><dd>Open stacks, run by the readers. Well-used paths wear into the floor, and books migrate to where they are most read.</dd><dt>The catalogue</dt><dd>The catalogue is the wear. A register of practices lists knowledge that lives only in people doing it, with the number of living practitioners beside each.</dd><dt>The rule</dt><dd>Books are borrowed in pairs. Every reader owes the library one shift of shelving a month.</dd><dt>No shelf for</dt><dd>Knowledge that belongs to one person and should stay that way: a diary, a secret, a private grief.</dd></dl>
+    </div>
+    <p class="misfit">The child who works best alone. The school calls it withholding.</p>
+  </div></section></div>
+
+<section class="wrap partbreak2" id="day">
+  <p class="part">Continued</p>
+  <h2>A day at ten</h2>
+  <p>One ordinary weekday for a ten-year-old in each house. The shape of the day is where a cosmology becomes a habit. Scroll sideways on a phone.</p>
+</section>
+<section class="wide" style="border-top:none;padding-top:0">
+  <div class="tbl"><table class="day">
+    <thead><tr><th></th><th style="color:var(--tk)">Toa Keng</th><th style="color:var(--am)">Al-Merikani</th><th style="color:var(--bp)">Balai Pusaka</th><th style="color:var(--lf)">Lan Fong</th><th style="color:var(--nr)">Nine Rain</th><th style="color:var(--sk)">Sané-Kora</th><th style="color:var(--su)">Sund</th></tr></thead>
+    <tbody>
+    <tr><td>Gathering</td><td>Desks are swapped. Roll call asks each child where they are standing today.</td><td>Each child reports on the thing entrusted to them.</td><td>At the adopted place. Tumpang lalu, then a reading of what changed overnight.</td><td>Yesterday’s type is distributed back into the cases.</td><td>The almanac is read aloud: which of the twenty-four seasons it is.</td><td>Call and response, naming who is absent and why.</td><td>Assembly decides the day’s rota.</td></tr>
+    <tr><td>First lesson</td><td>Frames, at drawing boards around the court.</td><td>Counting-for, in the class ledger.</td><td>Of the Water: the tide is measured.</td><td>Setting: one page composed by hand.</td><td>Breath: breathing and movement.</td><td>Zero and rhythm, on drums.</td><td>Carrying: moving the week’s supplies.</td></tr>
+    <tr><td>Second lesson</td><td>Near: interviewing a neighbour, then being interviewed by them.</td><td>Promising: writing and reading vows.</td><td>Pantun about the morning’s changes.</td><td>Joining: a cooking lesson that becomes lunch.</td><td>Knots: yesterday recorded in cord.</td><td>Naming: genealogies recited.</td><td>Fair Shares: dividing the school’s real supplies.</td></tr>
+    <tr><td>Midday meal</td><td>Each child eats at a different table every day.</td><td>Hosted by a rota of children, with invited guests.</td><td>Cooked from what the place gave.</td><td>The lesson, eaten.</td><td>Everyone brings something for someone else.</td><td>A plate is set for the empty chair.</td><td>Cooked by a crew.</td></tr>
+    <tr><td>Afternoon</td><td>Crossing hour.</td><td>Hosting: routes and the stories of arrivals.</td><td>Of the Kampung, with an elder.</td><td>Folding.</td><td>Day: shadows measured at the same hour as always.</td><td>A listening walk.</td><td>Tending: repairs to the school.</td></tr>
+    <tr><td>After school</td><td>Survey club.</td><td>Tending the entrusted plants.</td><td>Walking home along the bounds.</td><td>The unmaking hour: something taken apart.</td><td>Watering the seed planted at seven.</td><td>Composing praise for a classmate.</td><td>Sagas, told in turns.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="wrap" id="buildings">
+  <p class="part">Continued</p>
+  <h2>The buildings</h2>
+  <p>Each house’s school building is its pedagogy made solid. An architect could identify the house from the plan alone.</p>
+  <div class="bldg">
+    <p><b style="color:var(--tk)">Toa Keng.</b> Classrooms ring an open court with no fixed front; the teacher’s desk moves weekly. Windows are set at deliberately different heights, so no two rooms frame the same view of the city. At the centre of the court, a round platform for examinations.</p>
+    <p><b style="color:var(--am)">Al-Merikani.</b> A counting house. Every classroom has a counter between teacher and pupils, where things are handed across and signed for. Beneath the school, a small vault holds what each child has been entrusted with, each box labelled with two names.</p>
+    <p><b style="color:var(--bp)">Balai Pusaka.</b> Barely a building. A shelter on stilts at each adopted place, attap-roofed and open-sided, light enough to be carried by twenty people. The central school is only a hall for elders and a room for the register map.</p>
+    <p><b style="color:var(--lf)">Lan Fong.</b> A row of shophouses knocked through. Every classroom has a stove and a type case. The walls are panelled so that pupils can take them down, and the plan changes every year.</p>
+    <p><b style="color:var(--nr)">Nine Rain.</b> Courtyards open to the sky, arranged around a sundial floor. Classrooms face different directions and are used in different seasons. A garden at the centre holds every seed planted by every class still enrolled.</p>
+    <p><b style="color:var(--sk)">Sané-Kora.</b> A round hall tuned for the unamplified voice, where a whisper at one side can be heard at the other. Every room has one chair more than it has pupils. The windows are small; the school is for listening.</p>
+    <p><b style="color:var(--su)">Sund.</b> Built by its own pupils in demountable timber, and rebuilt by each new intake. Nobody quite remembers the original plan. The only permanent element is the assembly floor, worn smooth.</p>
+  </div>
+</section>
+
+<section class="wrap" id="teachers">
+  <p class="part">Continued</p>
+  <h2>How teachers are made</h2>
+  <div class="tbl"><table style="min-width:560px">
+    <tbody><tr><td style="color:var(--tk)">Toa Keng</td><td>Trained by teaching the same lesson in every classroom around the court, then defending the differences.</td></tr>
+    <tr><td style="color:var(--am)">Al-Merikani</td><td>Appointed by entrustment from families, and re-authorised by each class each term.</td></tr>
+    <tr><td style="color:var(--bp)">Balai Pusaka</td><td>Chosen by a place. Most teachers are elders who never trained, and the university pays them anyway.</td></tr>
+    <tr><td style="color:var(--lf)">Lan Fong</td><td>Journeymen who have recomposed a master’s work. A teacher is anyone further along the same craft.</td></tr>
+    <tr><td style="color:var(--nr)">Nine Rain</td><td>Former pupils who return after a generation. A teacher is a return.</td></tr>
+    <tr><td style="color:var(--sk)">Sané-Kora</td><td>Apprenticed griots. Teaching is a family calling, and the families keep the curriculum.</td></tr>
+    <tr><td style="color:var(--su)">Sund</td><td>Rotated from the assembly. Everyone teaches for a term; nobody teaches for long.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="wrap" id="exam">
+  <p class="part">Continued</p>
+  <h2>The Crossing Examination</h2>
+  <p>At twelve, every child in the Straits sits the one examination the Concordat sets for all houses. The paper is a single object placed on the desk. This year it was a cracked bowl.</p>
+  <p>Each child answers twice: once in their own house’s question, and once in the question of their current crossing house.</p>
+  <ol class="qs">
+    <li><i style="color:var(--tk)">Toa Keng.</i> From where is the bowl cracked?</li>
+    <li><i style="color:var(--am)">Al-Merikani.</i> On whose behalf is the bowl held, and who answers for the crack?</li>
+    <li><i style="color:var(--bp)">Balai Pusaka.</i> Where does the bowl belong?</li>
+    <li><i style="color:var(--lf)">Lan Fong.</i> What else can the bowl become?</li>
+    <li><i style="color:var(--nr)">Nine Rain.</i> What returns because the bowl cracked?</li>
+    <li><i style="color:var(--sk)">Sané-Kora.</i> Who is missing from the story of this bowl?</li>
+    <li><i style="color:var(--su)">Sund.</i> Who has been carrying the bowl?</li>
+  </ol>
+  <p>Paired examiners mark each answer, one from each house concerned. The regulations contain one clause that almost never applies. An answer written in two houses’ forms at once, so that neither examiner can mark it alone, is stamped <i>unclassifiable</i> and forwarded to the Concordat registry.</p>
+  <p>Most years the registry receives none. In the protagonists’ year, it received seven.</p>
+</section>
+
+<section class="wrap" id="reports">
+  <p class="part">Continued</p>
+  <h2>Seven report cards</h2>
+  <p>The records the registry received. Each house grades in its own terms. Names are left open to be set against the ensemble.</p>
+  <div class="cards">
+    <div class="card" style="--c:var(--tk)"><h3>Toa Keng · the surveyor’s daughter</h3>
+      <p class="grades">Frames: <b>drifting</b> · Survey: <b>station-honest</b>, the mark in a different ink · Transforms: <b>station-honest</b></p>
+      <p class="cr">Crossing hours at Sané-Kora: <b>sung</b></p>
+      <p class="rm"><span>Home teacher.</span> Answers from nowhere. Can see every side and will not choose.</p>
+      <p class="rm"><span>Crossing teacher.</span> She stands where the missing stand. I have not had a pupil like this in thirty years.</p></div>
+    <div class="card" style="--c:var(--am)"><h3>Al-Merikani · the keeper’s grandson</h3>
+      <p class="grades">Ledger: <b>held</b> · Promising: <b>held</b> · Keeping: <b>not held</b></p>
+      <p class="cr">Crossing hours at Balai Pusaka: <b>recognised by the place</b></p>
+      <p class="rm"><span>Home teacher.</span> At the returning, he gave his entrusted plant back to the garden it came from instead of to me. Kept faith with the thing and disobeyed the giver.</p>
+      <p class="rm"><span>Crossing teacher.</span> The ground knew him on the first day.</p></div>
+    <div class="card" style="--c:var(--bp)"><h3>Balai Pusaka · the custodian</h3>
+      <p class="grades">Of the Water: <b>recognised</b> · Pantun: <b>unrecognised</b> · Of the Kampung: <b>recognised</b></p>
+      <p class="cr">Crossing hours at Nine Rain: <b>returned early</b></p>
+      <p class="rm"><span>Home teacher.</span> The first couplets of her pantun describe a place that is not there yet. She speaks for the place before it has spoken.</p>
+      <p class="rm"><span>Crossing teacher.</span> Forecasts seasons that have not been named.</p></div>
+    <div class="card" style="--c:var(--lf)"><h3>Lan Fong · the apprentice</h3>
+      <p class="grades">Setting: <b>remade</b> · Joining: <b>remade</b> · The unmaking hour: <b>not remade</b></p>
+      <p class="cr">Crossing hours at Al-Merikani: <b>held</b></p>
+      <p class="rm"><span>Home teacher.</span> Refused to unmake her first object. Sentimental.</p>
+      <p class="rm"><span>Crossing teacher.</span> Keeps what she is given. A natural trustee.</p></div>
+    <div class="card" style="--c:var(--nr)"><h3>Nine Rain · the trainee with the cough</h3>
+      <p class="grades">Breath: <b>excused</b> · Weather: <b>returned</b> · Gift: <b>unreturned</b></p>
+      <p class="cr">Crossing hours at Sund: <b>crew grade, first</b></p>
+      <p class="rm"><span>Home teacher.</span> Wants every return now, and for his mother. Impatient.</p>
+      <p class="rm"><span>Crossing teacher.</span> Knows who is carrying what before the audit is run.</p></div>
+    <div class="card" style="--c:var(--sk)"><h3>Sané-Kora · the griot’s son</h3>
+      <p class="grades">Voices: <b>fading</b>, noted with regret · Naming: <b>sung</b> · The Second Song: <b>sung at the wrong time</b></p>
+      <p class="cr">Crossing hours at Toa Keng: <b>station-honest</b></p>
+      <p class="rm"><span>Home teacher.</span> Sings the second song while the patron is still in the room. Indiscreet.</p>
+      <p class="rm"><span>Crossing teacher.</span> Hears where a sound is standing.</p></div>
+    <div class="card" style="--c:var(--su)"><h3>Sund · the boy on the burden roll</h3>
+      <p class="grades">Crew grade: <b>withheld by the crew</b> · Fair Shares: <b>disputed</b> · Leaving: <b>exercised every term</b></p>
+      <p class="cr">Crossing hours at Lan Fong: <b>remade</b></p>
+      <p class="rm"><span>Home teacher.</span> Works alone. Disputes every division. Withholding.</p>
+      <p class="rm"><span>Crossing teacher.</span> Works like a master, alone at the bench, and remakes whatever he is given.</p></div>
+  </div>
+  <p class="stamp">Each card carries the same registry stamp, in red: <i>unclassifiable, forwarded</i>. A clerk has added a note in pencil: “Seven again. Last time was forty years ago.”</p>
+</section>
+
+<section class="wrap" id="concordat">
+  <p class="part">Where the seven meet</p>
+  <h2>The Concordat Library</h2>
+  <p>At the centre of the city stands the one library that belongs to no house. Every book in it carries seven call numbers, one from each catalogue, and the seven numbers disagree about what the book is. Librarians are trained in a single catalogue and consult colleagues for the rest. Readers are asked to choose one catalogue at the door.</p>
+  <div class="book">
+    <p><b>One book, shelved seven ways.</b> A fisherman’s logbook from the harbour, 1911: tides, catches, weather, debts, and the names of the crew.</p>
+    <ol id="onebook"><li><i>Toa Keng.</i> Us, ring two: the harbour described from inside it.</li><li><i>Al-Merikani.</i> Sworn: a crew’s record, vouched by the skipper’s mark, with debts still open.</li><li><i>Balai Pusaka.</i> Of the Deep Water: kept at the harbour keeping-house, and may not leave it.</li><li><i>Lan Fong.</i> Distributed into drawers: tide tables under Joining, fish prices under Reckoning.</li><li><i>Nine Rain.</i> The Generation: shelved for the year the same tides next return.</li><li><i>Sané-Kora.</i> Beside what it omits: the one crewman whose name is never written, only his share.</li><li><i>Sund.</i> A Crew: knowledge that took nine people to make, and one register entry for the practice of reading those tides, with two living practitioners.</li></ol>
+  </div>
+  <p>The children who cannot choose a catalogue are the ones who find things. A girl walking the Toa Keng rings with a Nine Rain slip in her hand ends up in a room nobody has entered for forty years. The library has a rule that its staff never discuss: a book found through the wrong catalogue may be read, and may not be reshelved.</p>
+  <div class="grid2">
+    <div><b>Crossing hours</b>Every child in the Straits spends four hours a week in another house’s classroom, rotating each year. By seventeen they have sat in all seven. Most remember the crossing hours as the most confusing and most honest lessons of their schooling.</div>
+    <div><b>The misfits’ education</b>The seven protagonists are all children who did better in their crossing hours than in their own house. Their records read as failures. Read through all seven catalogues at once, they are the only complete transcripts in the city.</div>
+  </div>
+</section>
+
+<footer class="wrap">Companion to the Resonance Atlas and the Ancestral Atlas of the Seven. House names follow the current register.</footer>
+
+
+
+
+</body></html>

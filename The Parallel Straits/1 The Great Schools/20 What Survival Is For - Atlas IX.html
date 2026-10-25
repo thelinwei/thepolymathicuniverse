@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Field Atlas IX: a narrative journey through dwelling commons, productive cantons, civic malls, sacred autonomy and the meaning of survival in an alternate Singapore.">
+<title>What Survival Is For — Field Atlas IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root{
+  --ink:#252d2f;--paper:#f5efe4;--paper2:#e9dfcf;--dim:#60696a;--hair:#cec4b5;
+  --jade:#587c70;--jade2:#dce7df;--ember:#cc7049;--gold:#a98438;--blue:#496f87;
+  --plum:#70576e;--clay:#a44b3f;--night:#20292c;--white:#fffdf9;--roof:#7f9d77;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.64;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--jade);text-underline-offset:3px;text-decoration-thickness:1px}
+.progress{position:fixed;z-index:160;left:0;top:0;height:3px;width:0;background:var(--ember)}
+.runhead{position:sticky;top:0;z-index:140;background:rgba(245,239,228,.94);backdrop-filter:blur(12px);border-bottom:1.5px solid var(--ink);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brandtab{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;background:var(--ink);color:white;padding:6px 9px;white-space:nowrap}
+.tabs{display:flex;gap:6px;overflow:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs a{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);background:#fff;padding:5px 8px;white-space:nowrap;color:var(--ink)}.tabs a:hover{background:var(--ink);color:white}
+.hero{min-height:91vh;border-bottom:1.5px solid var(--ink);display:grid;grid-template-columns:minmax(0,1.07fr) minmax(370px,.93fr)}
+.hero-copy{padding:clamp(76px,10vw,142px) clamp(28px,6vw,86px);display:flex;flex-direction:column;justify-content:center}
+.kicker,.eyebrow,.label,.caption{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(63px,9.4vw,136px);letter-spacing:-.057em;line-height:.79;margin:23px 0 37px;max-width:900px}
+.hero h1 em{display:block;color:var(--jade);font-weight:600}
+.dek{font-family:'Playfair Display',serif;font-size:clamp(22px,2.3vw,34px);line-height:1.24;max-width:800px;color:var(--dim);margin:0}
+.hero-figure{background:var(--night);color:#efe8dd;display:flex;align-items:stretch;position:relative;overflow:hidden;padding:38px}
+.city-section{width:100%;display:flex;flex-direction:column;justify-content:center;gap:7px;position:relative}
+.city-section:before{content:"";position:absolute;inset:4% 12%;border:1px dashed rgba(255,255,255,.18);border-radius:50%;transform:rotate(-10deg)}
+.stratum{position:relative;z-index:2;border:1px solid rgba(255,255,255,.48);padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px;background:rgba(255,255,255,.035)}
+.stratum:nth-child(2){margin-left:6%;background:rgba(204,112,73,.16)}
+.stratum:nth-child(3){margin-right:10%;background:rgba(88,124,112,.20)}
+.stratum:nth-child(4){margin-left:13%;background:rgba(73,111,135,.20)}
+.stratum:nth-child(5){margin-right:4%;background:rgba(112,87,110,.22)}
+.stratum:nth-child(6){margin-left:9%;background:rgba(127,157,119,.22)}
+.stratum b{font-family:'Playfair Display',serif;font-size:clamp(19px,2vw,29px)}.stratum span{font-family:'IBM Plex Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:#c7c0b6;text-align:right}
+.void{height:82px;border:1px dashed #aac8bd;display:flex;align-items:center;justify-content:center;color:#b8d2c9;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.17em;text-transform:uppercase;position:relative;z-index:2}
+.wrap{max-width:1180px;margin:auto;padding:84px 34px}
+.narrow{max-width:900px}
+h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.05}
+h2{font-size:clamp(47px,6.4vw,86px);letter-spacing:-.045em;margin:16px 0 30px}
+h3{font-size:31px;letter-spacing:-.025em;margin:20px 0 12px}
+h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--jade);margin:28px 0 9px}
+p{margin:0 0 1.1em}.lead{font-family:'Playfair Display',serif;font-size:clamp(24px,2.6vw,35px);line-height:1.28;color:var(--dim);margin-bottom:35px}
+.dropcap:first-letter{font-family:'Playfair Display',serif;font-size:80px;font-weight:900;float:left;line-height:.72;padding:9px 11px 0 0;color:var(--jade)}
+.time{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ember);border-bottom:1px solid var(--ember);padding-bottom:8px;display:inline-block}
+.scene{display:grid;grid-template-columns:160px 1fr;gap:36px;border-top:1.5px solid var(--ink);padding-top:30px;margin-top:30px}.scene .margin{font-family:'IBM Plex Mono',monospace;font-size:9px;line-height:1.55;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.band{background:var(--night);color:#eee7dc;padding:88px 34px}.band .inner{max-width:1180px;margin:auto}.band h2{color:#f4ede2}.band .lead{color:#c6c0b7}.band .eyebrow{color:#9eb8af}
+.pull{font-family:'Playfair Display',serif;font-size:clamp(30px,4.6vw,62px);font-weight:800;line-height:1.08;letter-spacing:-.035em;border-top:2px solid currentColor;border-bottom:2px solid currentColor;padding:32px 0;margin:50px 0}
+.pull small{display:block;font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-top:20px}
+.rights{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:40px 0}.right{border:1px solid var(--ink);background:white;padding:18px;min-height:190px;border-top:7px solid var(--jade)}.right:nth-child(2){border-top-color:var(--blue)}.right:nth-child(3){border-top-color:var(--gold)}.right:nth-child(4){border-top-color:var(--plum)}.right:nth-child(5){border-top-color:var(--ember)}.right .sym{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;line-height:1;color:var(--jade)}.right h3{font-size:22px;margin:12px 0 9px}.right p{font-size:14.5px;margin:0}
+.equation{border:1.5px solid var(--ink);background:var(--white);padding:29px;margin:36px 0;text-align:center;overflow:auto}.equation .katex-display{margin:.4em 0}.equation .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:15px}
+.ledger-wrap{overflow:auto;margin:40px 0}.ledger{width:100%;min-width:880px;border-collapse:collapse;background:white;font-size:15.5px}.ledger th,.ledger td{border:1px solid var(--ink);padding:14px;text-align:left;vertical-align:top}.ledger th{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--night);color:white}.ledger td:first-child{font-weight:600}.ledger .danger{color:var(--clay);font-style:italic}
+.portfolio{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:36px 0}.portfolio article{border:1px solid var(--ink);background:white;padding:21px;border-top:7px solid var(--jade)}.portfolio article:nth-child(2){border-top-color:var(--ember)}.portfolio article:nth-child(3){border-top-color:var(--plum)}.portfolio article:nth-child(4){border-top-color:var(--gold)}.portfolio .letter{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;line-height:1}.portfolio h3{font-size:24px}.portfolio p{font-size:15px;margin:0}
+.mall{display:grid;grid-template-columns:110px 1fr 220px;margin:44px 0;border:1.5px solid var(--ink);background:white}.floor{display:contents}.floor>*{border-bottom:1px solid var(--ink);padding:16px}.floor:last-child>*{border-bottom:0}.floor .level{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--paper2);display:flex;align-items:center}.floor .use h3{font-size:24px;margin:0 0 6px}.floor .use p{font-size:14.5px;margin:0}.floor .flow{font-family:'IBM Plex Mono',monospace;font-size:8.5px;line-height:1.45;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:flex;align-items:center}.floor.roof .use{background:#e4ebdf}.floor.ground .use{background:#f4e6dc}.floor.interval .use{border:1px dashed var(--jade);margin:8px;padding:12px}
+.school-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:38px 0}.school{min-height:195px;border:1px solid var(--ink);background:white;padding:15px 11px;display:flex;flex-direction:column;justify-content:space-between}.school b{font-family:'Playfair Display',serif;font-size:20px}.school span{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}.school p{font-size:13.5px;margin:10px 0 0}.school:nth-child(1){border-top:7px solid #56758d}.school:nth-child(2){border-top:7px solid #b76c46}.school:nth-child(3){border-top:7px solid #7b7650}.school:nth-child(4){border-top:7px solid #a4473d}.school:nth-child(5){border-top:7px solid #59867a}.school:nth-child(6){border-top:7px solid #725c75}.school:nth-child(7){border-top:7px solid #79848c}
+.worktypes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:38px 0}.worktype{border:1px solid var(--ink);padding:24px;background:white}.worktype h3{font-size:26px}.worktype p{font-size:15.5px}.worktype .tag{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember)}
+.sacred-diagram{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto auto;gap:8px;margin:43px 0}.sacred-diagram>div{border:1px solid var(--ink);padding:23px;background:white}.sacred-core{grid-column:2;grid-row:2;background:var(--night)!important;color:white;border:2px solid var(--night)!important;text-align:center}.sacred-core h3{font-size:30px}.cloister{grid-column:2;grid-row:1}.care{grid-column:1;grid-row:2}.porch{grid-column:3;grid-row:2}.ground{grid-column:2;grid-row:3;background:#e5eadf!important}.sacred-diagram h3{font-size:23px;margin:0 0 8px}.sacred-diagram p{font-size:14.5px;margin:0}.interval-ring{grid-column:1/4;grid-row:1/4;border:1px dashed var(--jade)!important;background:transparent!important;pointer-events:none;margin:-11px}
+.canton-questions{margin:38px 0}.cq{display:grid;grid-template-columns:150px 1fr 1fr;gap:0;border-top:1px solid var(--hair);padding:20px 0}.cq:last-child{border-bottom:1px solid var(--hair)}.cq .place{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);padding-top:6px}.cq h3{font-size:24px;margin:0 24px 0 0}.cq p{font-size:15.5px;margin:0;border-left:1px solid var(--hair);padding-left:22px}
+.clearbox{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid white;margin:44px 0}.clearbox>div{padding:32px}.clearbox>div:first-child{border-right:1px solid white;background:rgba(255,255,255,.06)}.clearbox h3{font-size:31px}.clearbox p{font-size:16px}.clearbox .label{color:#b9c9c3}
+.charter{background:white;border:1.5px solid var(--ink);padding:clamp(25px,5vw,57px);margin:45px 0;box-shadow:11px 11px 0 var(--hair)}.clause{display:grid;grid-template-columns:120px 1fr;gap:25px;border-top:1px solid var(--hair);padding:20px 0}.clause:last-child{border-bottom:1px solid var(--hair)}.clause .a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay)}
+.anatomy{display:grid;grid-template-columns:1fr 1.4fr 1.4fr;margin:40px 0;border:1.5px solid var(--ink);background:white}.anatomy>div{display:contents}.anatomy span,.anatomy b,.anatomy em{padding:15px;border-bottom:1px solid var(--ink)}.anatomy>div:last-child>*{border-bottom:0}.anatomy span{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase}.anatomy b{border-left:1px solid var(--ink);font-family:'Playfair Display',serif;font-size:20px}.anatomy em{border-left:1px solid var(--ink);font-size:15px}
+.afterword{background:var(--jade);color:#132623;padding:98px 34px}.afterword .inner{max-width:970px;margin:auto}.afterword h2{font-size:clamp(52px,8vw,105px)}.afterword p{font-size:21px}.afterword .pull{color:#142a26}
+.source-note{max-width:1180px;margin:0 auto;padding:55px 34px 78px;font-size:14.5px;color:var(--dim)}.source-note h2{font-size:40px;color:var(--ink)}.source-note ol{padding-left:22px}.source-note li{margin-bottom:11px}
+footer{border-top:1.5px solid var(--ink);padding:34px;display:flex;justify-content:space-between;gap:20px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+@media(max-width:1000px){.hero{grid-template-columns:1fr}.hero-figure{min-height:660px}.rights{grid-template-columns:1fr 1fr}.rights .right:last-child{grid-column:1/3}.school-grid{grid-template-columns:repeat(4,1fr)}.worktypes{grid-template-columns:1fr}.portfolio{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){body{font-size:17px}.runhead{padding:8px 11px}.brandtab{display:none}.wrap,.band,.afterword{padding:67px 22px}.hero-copy{padding:78px 24px}.hero h1{font-size:64px}.hero-figure{padding:22px;min-height:600px}.scene{grid-template-columns:1fr;gap:8px}.rights{grid-template-columns:1fr}.rights .right:last-child{grid-column:auto}.school-grid{grid-template-columns:1fr 1fr}.mall{grid-template-columns:75px 1fr}.floor .flow{grid-column:1/3;border-top:1px dashed var(--hair)}.sacred-diagram{display:block}.sacred-diagram>div{margin:8px 0}.interval-ring{display:none}.cq{grid-template-columns:1fr}.cq p{border-left:0;border-top:1px solid var(--hair);margin-top:12px;padding:12px 0 0}.clearbox{grid-template-columns:1fr}.clearbox>div:first-child{border-right:0;border-bottom:1px solid white}.clause{grid-template-columns:1fr;gap:7px}.anatomy{grid-template-columns:1fr}.anatomy>div{display:block;padding:17px;border-bottom:1px solid var(--ink)}.anatomy>div:last-child{border:0}.anatomy span,.anatomy b,.anatomy em{display:block;padding:3px 0;border:0}.portfolio{grid-template-columns:1fr}footer{flex-direction:column}}
+@media(max-width:450px){.hero h1{font-size:53px}.school-grid{grid-template-columns:1fr}.stratum{padding:12px}.stratum span{display:none}.hero-figure{min-height:535px}.pull{font-size:34px}}
+@media print{.runhead,.progress{display:none}.hero{min-height:auto}.wrap,.band,.afterword{padding-top:50px;padding-bottom:50px}a{color:inherit}.scene,.right,.school,.worktype,.charter{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="runhead">
+  <div class="brandtab">Field Atlas IX</div>
+  <nav class="tabs" aria-label="Chapter navigation">
+    <a href="#home">Dwelling</a><a href="#cantons">Production</a><a href="#mall">Mall</a><a href="#work">Work</a><a href="#sacred">Sacred</a><a href="#clear">Clear</a><a href="#charter">Charter</a><a href="#claim">Claim</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="kicker">Parallel Straits · Field Atlas IX · Closing movement</div>
+    <h1>What Survival<em>Is For</em></h1>
+    <p class="dek">An ordinary day in a Singapore where dwelling is secure, production remains existential, malls become civic organs—and the sacred is protected from having to prove its usefulness.</p>
+  </div>
+  <div class="hero-figure" aria-label="A vertical section through the imagined city">
+    <div class="city-section">
+      <div class="stratum"><b>Sacred</b><span>What exceeds use?</span></div>
+      <div class="stratum"><b>Inquiry</b><span>What must be questioned?</span></div>
+      <div class="stratum"><b>Exchange</b><span>What circulates?</span></div>
+      <div class="stratum"><b>Production</b><span>What keeps us alive?</span></div>
+      <div class="stratum"><b>Dwelling</b><span>Where may we remain?</span></div>
+      <div class="stratum"><b>More-than-human</b><span>Who else lives here?</span></div>
+      <div class="void">The Interval · unowned / untranslated / unjustified</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap narrow" id="home">
+  <div class="eyebrow">06:12 · The room before the city</div>
+  <h2>A home that is not a bet</h2>
+  <p class="lead">You wake in a flat that your household does not own in the familiar sense. Nobody can casually remove you from it. Nobody expects it to make you rich.</p>
+  <p class="dropcap">The rain has begun before the alarm. It travels down the screen, feeds a garden two floors below and disappears into the block’s grey-water spine. Your neighbour has left pandan cuttings beside the lift. The corridor smells faintly of toast, wet concrete and somebody’s incense. Nothing about the morning feels revolutionary.</p>
+  <p>That is the point. The great achievement of this alternate housing system is not that residents wake each day performing an ideology of the commons. It is that they wake without first having to ask whether their security depends on the property market.</p>
+  <p>The old HDB was already far more than a collection of flats. It was a land instrument, a construction machine, a savings regime, a social-mixing device, a public-health platform and a physical account of the nation. In this timeline Singapore does not discard that inheritance. It dares to separate one of its strongest promises—<em>you will have a secure home</em>—from a second promise that had gradually become attached to it—<em>your home will also appreciate as an asset</em>.</p>
+  <div class="pull">Security without speculation is not less ambitious than ownership. It is a different definition of wealth.<small>Field note · the dwelling turn</small></div>
+  <p>The legal instrument in your household drawer is called a <strong>Dwelling Compact</strong>. It unbundles what ordinary speech compresses into the word “ownership.”</p>
+  <div class="rights">
+    <article class="right"><div class="sym">U</div><h3>Use</h3><p>The right to inhabit the dwelling as home, not merely as revocable accommodation.</p></article>
+    <article class="right"><div class="sym">R</div><h3>Remain</h3><p>Long-duration security, due process and protection from displacement by rising land values.</p></article>
+    <article class="right"><div class="sym">A</div><h3>Alter</h3><p>A bounded right to adapt the flat, join rooms, age in place and make domestic life particular.</p></article>
+    <article class="right"><div class="sym">X</div><h3>Exchange</h3><p>Portability into another dwelling as household needs, work, care or mobility change.</p></article>
+    <article class="right"><div class="sym">S</div><h3>Steward</h3><p>A share in the block’s common decisions, obligations, budgets, gardens and inherited fabric.</p></article>
+  </div>
+  <div class="equation">$$D_h=(U_h,R_h,A_h,X_h,S_h)$$<span class="sub">A dwelling is a bundle of secure relations—not a single alienable asset.</span></div>
+  <p>You may nominate continuity for a partner, child, parent or care-dependent person. You may exchange into a larger or smaller home. You may accrue a limited stewardship credit for improvements whose value survives your departure. But the increase in land value produced by a new train line, a prestigious School nearby or a beautiful public garden does not become a private jackpot. It returns to the land commons that paid for the conditions of that value.</p>
+  <p>This is not morally pure, and it is not free. Scarcity still exists. Somebody still receives the sea view. Somebody waits longer. A dwelling commons requires rules for priority, household need, disability, caregiving, proximity, disruption and preference. The difference is that these allocations are argued about as public choices instead of being silently decided by purchasing power.</p>
+</section>
+
+<section class="band">
+  <div class="inner">
+    <div class="eyebrow">07:38 · Downstairs, the planning system has changed</div>
+    <h2>The block no longer votes with capital</h2>
+    <p class="lead">When access to place is governed primarily by use rather than resale gain, planning can stop manufacturing lotteries it then has to correct.</p>
+    <div class="scene">
+      <div class="margin">Resident exchange board · Block 18 · morning queue</div>
+      <div>
+        <p>You stop beside the neighbourhood exchange board. An older couple offers a four-room compact in return for a smaller barrier-free home near their daughter. A night-shift nurse requests proximity to the North–East medical corridor. A separated household wants two small units within the same school radius. No auction decides among them.</p>
+        <p>A public matching system proposes exchanges; human panels hear the hard cases; lotteries break genuine ties. Every rejection carries reasons and an appeal route. Wealth can still buy private housing elsewhere, but it cannot buy precedence inside the dwelling commons.</p>
+      </div>
+    </div>
+    <p>Remove the expectation that every flat must maximise resale value and several urban moves become easier. Prime locations can contain ordinary households without elaborate clawbacks. Blocks can be renovated for longevity instead of demolished to refresh market value. Mixed-use facilities can arrive without converting every nearby resident into a windfall beneficiary or every future resident into a debtor. A household can move for care, work or size without treating the exchange as a financial referendum on its entire life.</p>
+    <p>The architecture changes too. Flats are designed as long-life frames with replaceable interiors. Some partitions move. Some units can join or separate. Blocks contain common kitchens, guest rooms, workshops and care rooms so every household need not purchase private square metres for occasional use. Ground floors are allowed to become strange: clinic one year, cooperative pantry the next, rehearsal room after that.</p>
+    <div class="pull">The old system asked: how much of the nation may a household own?<br>The new one asks: how securely may a person belong?<small>Not abolition of home · a constitutional deepening of it</small></div>
+  </div>
+</section>
+
+<section class="wrap" id="cantons">
+  <div class="eyebrow">09:05 · The train enters the productive city</div>
+  <h2>Five economies, not five brands</h2>
+  <p class="lead">Singapore remains small, import-dependent and existentially alert. Pluralism does not repeal the port, the balance sheet, water scarcity or geopolitics.</p>
+  <p>On the train display, the five cantons are not coloured like lifestyle districts. They are territorial governments with different productive responsibilities. Their differences grow from inherited geography and infrastructure: port and manufacturing in the west; border, forest and maritime life in the north; network industries in the north-east; aviation, coast and water in the east; finance, law, culture and coordination in the centre-south.</p>
+  <p>But none is allowed to become a monoculture. The West cannot turn every child into an engineer. The Centre cannot treat the rest of the island as its dormitory. The East cannot aestheticise climate risk while importing all ordinary repair work from elsewhere. Every canton must carry four economic layers.</p>
+  <div class="portfolio">
+    <article><div class="letter">B</div><h3>Baseline</h3><p>Food, care, repair, maintenance, health, logistics and the ordinary services without which daily life stops.</p></article>
+    <article><div class="letter">S</div><h3>Specialisation</h3><p>The internationally competitive capability grown from the canton’s geography, people and inherited infrastructure.</p></article>
+    <article><div class="letter">X</div><h3>Experiment</h3><p>Protected room for new industries, unfamiliar ownership forms, unproven technologies and productive dissent.</p></article>
+    <article><div class="letter">R</div><h3>Reserve</h3><p>Redundant capacity maintained for shocks: workshops, stores, skills, land, energy, food and repairability.</p></article>
+  </div>
+  <div class="equation">$$E_c=B_c+S_c+X_c+R_c$$<span class="sub">Every canton needs an everyday economy, a specialisation, an experiment and a reserve.</span></div>
+  <div class="ledger-wrap">
+    <table class="ledger">
+      <thead><tr><th>Canton</th><th>Inherited advantage</th><th>Productive mandate</th><th>Question it keeps public</th><th>Failure to prevent</th></tr></thead>
+      <tbody>
+        <tr><td>West · Productive Commons</td><td>Tuas Port, Jurong, fabrication, logistics, science and engineering</td><td>Advanced manufacturing, robotics, circular materials, food systems, strategic repair</td><td>What is a worthy life inside production?</td><td class="danger">Company-town monoculture; treating labour as an input and the west as sacrifice zone</td></tr>
+        <tr><td>North · Reciprocal Gateway</td><td>Causeway, Sembawang, Mandai, Johor-facing economies and ecologies</td><td>Cross-border services, maritime work, food resilience, forest and watershed stewardship</td><td>How should a small country receive the person who crosses its boundary?</td><td class="danger">Border spectacle; dependency without reciprocal rights</td></tr>
+        <tr><td>North-East · Network Commons</td><td>Punggol, Seletar, younger towns, digital and educational networks</td><td>Cybersecurity, media, cooperative platforms, health technology, distributed work systems</td><td>How does a networked society retain attention, truth and solitude?</td><td class="danger">Total behavioural capture; innovation branding without ordinary life</td></tr>
+        <tr><td>East · Littoral Port</td><td>Changi, coast, Paya Lebar, water infrastructure and future Long Island</td><td>Aviation, climate adaptation, water, logistics, hospitality, marine science</td><td>How does an island live with departure, arrival and rising water?</td><td class="danger">Climate theatre; airport economy detached from coast and care</td></tr>
+        <tr><td>Central–South · Confluence</td><td>Historic city, finance, law, culture, medicine, harbour and civic institutions</td><td>Coordination, finance, jurisprudence, design, biomedical work, diplomacy and arts</td><td>What is power for?</td><td class="danger">Re-centralisation; converting every public good into a high-value amenity</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A thin federal spine still holds the currency, trade policy, macroeconomic stability, competition law, labour standards, migrant rights, energy, water, strategic reserves and fiscal equalisation. Canton autonomy is not permission to dump costs across a border. It is permission to develop different productive capabilities while remaining answerable to one another.</p>
+  <p>Your work pass today carries four coordinates: place, School, dwelling and productive guild. None fully contains the others.</p>
+  <div class="equation">$$\text{resident life}=\text{place}\times\text{learning}\times\text{dwelling}\times\text{production}$$<span class="sub">No single system gets to become the whole person.</span></div>
+</section>
+
+<section class="wrap" id="mall">
+  <div class="eyebrow">12:18 · Lunch in the civic metabolism</div>
+  <h2>The mall has a ground floor because bodies do</h2>
+  <p class="lead">The mall survives. Air-conditioning survives. Bubble tea survives. The transformation is not an abolition of consumption; it is a refusal to let consumption be the building’s only account of human need.</p>
+  <p>You enter beside a supermarket, pharmacy, hawker hall and repair counter. This is deliberate. Nobody must pass an exhibition about planetary consciousness before buying rice or collecting medicine. Basic need occupies the easiest threshold: close to transit, legible from the street, accessible at every income.</p>
+  <p>Above it, the building thickens. Care, association, craft, inquiry and ecology appear—not as a moral staircase in which the enlightened ascend above the hungry, but as a cycle. The roof garden feeds the kitchens. Waste from lunch enters the materials lab. An exhibition about heat changes the leasing standard downstairs. Cooperative retail funds the free listening rooms. Research descends and becomes maintenance.</p>
+  <div class="mall" aria-label="Vertical section of a civic mall">
+    <div class="floor roof"><div class="level">Roof</div><div class="use"><h3>More-than-human life</h3><p>Shade forest, water capture, habitat, food growing, observatory and an unprogrammed piece of sky.</p></div><div class="flow">Rain ↓ cooling ↓ habitat ↓ food</div></div>
+    <div class="floor"><div class="level">Level 5</div><div class="use"><h3>Inquiry &amp; consequence</h3><p>Public-interest laboratories, research-as-art, policy trials, model audits and citizens’ assemblies.</p></div><div class="flow">Evidence ↓ decisions ↑ testimony</div></div>
+    <div class="floor"><div class="level">Level 4</div><div class="use"><h3>Making &amp; learning</h3><p>Workshops, studios, repair, publishing, apprenticeship and rotating School rooms.</p></div><div class="flow">Skills ↔ repair ↔ livelihoods</div></div>
+    <div class="floor"><div class="level">Level 3</div><div class="use"><h3>Belonging</h3><p>Clubs, rehearsal rooms, youth space, elder rooms, games, celebrations and rooms for grief.</p></div><div class="flow">Association ↔ memory ↔ joy</div></div>
+    <div class="floor"><div class="level">Level 2</div><div class="use"><h3>Care</h3><p>Clinic, childcare, legal advice, social work, rest rooms and caregiving exchange.</p></div><div class="flow">Need ↔ support ↔ recovery</div></div>
+    <div class="floor ground"><div class="level">Ground</div><div class="use"><h3>Sustenance</h3><p>Food, medicine, daily retail, public services, transport and cheap places to sit.</p></div><div class="flow">Open first · close last</div></div>
+    <div class="floor"><div class="level">Basement</div><div class="use"><h3>Metabolism</h3><p>Deliveries, storage, cooling, sorting, compost, salvage and the machinery that makes cleanliness possible.</p></div><div class="flow">Material in ↔ waste out</div></div>
+    <div class="floor interval"><div class="level">Everywhere</div><div class="use"><h3>The Interval</h3><p>Benches without purchase, corridors without prompts, corners without outcomes, time without a programme.</p></div><div class="flow">No KPI · no compulsory reflection journal</div></div>
+  </div>
+  <p>Commerce pays rent. Some of that rent cross-subsidises care, inquiry and the uncommercial. But the building refuses the familiar trick in which “community” means a weekend activation designed to increase footfall. Its civic uses hold long leases and independent budgets. The seats with no purchase requirement are not movable props. The cheap stalls are not incubated until successful enough to be priced out.</p>
+  <p>The seven Schools are present, but none controls a floor. Each contributes a recurring public practice.</p>
+  <div class="school-grid">
+    <article class="school"><div><b>Toa Keng</b><p>Publishes evidence, audits public models and teaches citizens to read uncertainty.</p></div><span>Rude name · Drain</span></article>
+    <article class="school"><div><b>Al-Merikani</b><p>Hosts covenant desks, mutual guarantees, cooperative finance and rituals of welcome.</p></div><span>Rude name · Bolt</span></article>
+    <article class="school"><div><b>Balai Pusaka</b><p>Tends inherited objects, land obligations, intergenerational claims and stewardship.</p></div><span>Rude name · Garden</span></article>
+    <article class="school"><div><b>Jit Sin</b><p>Runs a public press, criticism rooms, translation tables and the right of reply.</p></div><span>Rude name · Bowl</span></article>
+    <article class="school"><div><b>Nine Rain</b><p>Makes water, heat, waste and multispecies life visible as reciprocal systems.</p></div><span>Rude name · Gauge</span></article>
+    <article class="school"><div><b>Sané-Kora</b><p>Keeps testimony, oral memory, listening practices, mourning and unresolved stories.</p></div><span>Rude name · Room</span></article>
+    <article class="school"><div><b>Sund</b><p>Defends cooperative care, common maintenance, idleness and time nobody may own.</p></div><span>Rude name · Laundry</span></article>
+  </div>
+  <p>They are not seven flavours of educational retail. The Drain is allowed to show that the roof habitat is failing. The Garden may argue that a beloved but inefficient market should remain. The Gauge can challenge both. The Bowl prints the disagreement. The Room records whom the argument forgot. The Bolt asks who will guarantee the transition. The Laundry notices who is cleaning after everyone leaves.</p>
+</section>
+
+<section class="band" id="work">
+  <div class="inner">
+    <div class="eyebrow">14:03 · Work after the headquarters</div>
+    <h2>The office becomes a promise, not an address</h2>
+    <p class="lead">The CBD survives. So do towers, trading floors, laboratories, confidential rooms and the pleasure of collective work. What disappears is the assumption that one prestigious address must organise every working day.</p>
+    <div class="worktypes">
+      <article class="worktype"><div class="tag">Type 01 · Federal / global</div><h3>Concentration rooms</h3><p>High-trust, high-security and high-coordination workplaces remain clustered where physical proximity truly matters: courts, markets, diplomacy, major laboratories, crisis rooms.</p></article>
+      <article class="worktype"><div class="tag">Type 02 · Canton</div><h3>Work commons</h3><p>Distributed professional rooms near homes: shared administration, meeting suites, studios, childcare, technical support and rooms leased by many organisations.</p></article>
+      <article class="worktype"><div class="tag">Type 03 · Neighbourhood</div><h3>Quiet rooms</h3><p>Small work floors embedded in housing and malls for focused tasks, shift transitions, carers and people whose homes should not be required to become offices.</p></article>
+    </div>
+    <p>Companies purchase coordination, privacy and equipment rather than compulsory attendance. Canton work commons are treated like transport infrastructure: interoperable access, universal design, common standards and no captive coffee tax. The right to work near home is balanced by the right to leave the neighbourhood and encounter the larger city.</p>
+    <p>At 16:20 you visit an industrial hall. Its lease carries a <strong>productive-use covenant</strong>. Land cannot be banked indefinitely or converted to a lifestyle showroom once the neighbourhood becomes fashionable. In return, enterprises receive patient leases, shared logistics, energy systems, repair services and permission to adapt buildings over time.</p>
+    <p>Industrial land is not the dirty remainder of a knowledge economy. It is where the island retains the ability to make, maintain and recover. The prestige hierarchy between financier, technician, cleaner, coder, nurse, port worker and fabricator is attacked not by speeches but by wages, conditions, mobility, public representation and equal dwelling security—including for migrant workers whose labour is already part of the nation’s survival.</p>
+    <div class="pull">A resilient economy does not merely know how to buy what it needs. It remembers how things are made, moved, mended and cared for.<small>The productive covenant · against land banking and occupational invisibility</small></div>
+  </div>
+</section>
+
+<section class="wrap" id="sacred">
+  <div class="eyebrow">18:47 · The city reaches what it cannot price</div>
+  <h2>A sacred core with a hospitable edge</h2>
+  <p class="lead">The alternate city does not convert religion into a branch of social services. It first learns to leave worship alone.</p>
+  <p>Near the mall stands a mosque. Across the park is a temple. Two streets away, a church keeps its doors open after the evening service. In an earlier planning draft, an enthusiastic committee proposed that each become a centre for measurable civic benefit: the mosque for interspecies care, the church for mindfulness, the temple for appreciation.</p>
+  <p>The proposal was returned with a single note: <strong>you have mistaken hospitality for conscription.</strong></p>
+  <p>Prayer was never only a transaction—request offered, benefit received. It can be praise, surrender, gratitude, discipline, lament, awe, remembrance, repentance, obligation, encounter or silence. Nor does congregational life become lesser because it is congregational. A tradition may generate social care and ecological responsibility, but the state cannot announce the correct reinterpretation of revelation and call it renewal.</p>
+  <div class="pull">A mosque need not improve biodiversity to deserve land. A church need not lower loneliness statistics. A temple need not demonstrate mindfulness outcomes. Worship may remain gloriously “useless.”<small>The religious Interval · protection from instrumental capture</small></div>
+  <p>The spatial answer is therefore neither sealed enclave nor compulsory community hub. It is a layered threshold: <strong>sacred core, hospitable edge</strong>.</p>
+  <div class="sacred-diagram" aria-label="Sacred core and hospitable edge typology">
+    <div class="interval-ring"></div>
+    <div class="cloister"><h3>Interpretive cloister</h3><p>Texts, languages, history, disagreement, study and the tradition’s own argument with itself.</p></div>
+    <div class="care"><h3>House of care</h3><p>Food, shelter, counsel, visiting, mutual aid and service offered from conviction—not imposed as rent for legitimacy.</p></div>
+    <div class="sacred-core"><h3>Sacred core</h3><p>Worship · ritual · revelation · silence<br>Governed by the community and protected by constitutional right.</p></div>
+    <div class="porch"><h3>Civic porch</h3><p>A place where neighbour, stranger and public institution can meet without entering or diluting the sacred core.</p></div>
+    <div class="ground"><h3>Ecological ground</h3><p>Water, shade, burial, garden, animal life and care for place—interpreted within the tradition, not pasted onto it.</p></div>
+  </div>
+  <p>The seven Schools may help preserve language, manuscript, architecture, historical context and philosophical debate. They may host rigorous comparative study. But no School owns a religion, and no religion is assigned to a School. Adherents possess a standing right to correct misrepresentation. Some teachings may be translated for public reason; others retain a <strong>right to opacity</strong>. Custodianship is accountable service, never epistemic annexation.</p>
+  <p>Interfaith Concordance does not require a blended liturgy or a lowest common denominator. Communities may share a food programme, flood refuge, burial protocol or position on predatory lending while giving incompatible accounts of why the act is required.</p>
+  <div class="equation">$$\mathcal{C}_{\mathrm{sacred}}=\text{shared action}+\text{unmerged revelation}$$<span class="sub">Cooperation does not certify theological agreement.</span></div>
+
+  <div class="eyebrow" style="margin-top:76px">The five territorial questions</div>
+  <h2>Cantons do not receive official religions</h2>
+  <p>They develop characteristic existential pressures. Schools and religious communities respond differently; none receives the final word.</p>
+  <div class="canton-questions">
+    <div class="cq"><div class="place">West</div><h3>What makes productive life worthy?</h3><p>Labour dignity, ethical manufacture, automation, Sabbath and rest, grief after industrial injury, the moral status of maintenance.</p></div>
+    <div class="cq"><div class="place">North</div><h3>How should a threshold receive?</h3><p>Hospitality, exile, sanctuary, pilgrimage, kin across borders, dependence and obligations to the person who arrives.</p></div>
+    <div class="cq"><div class="place">North-East</div><h3>What may not be captured?</h3><p>Attention, silence, truth, solitude, digital restraint, companionship and the boundary between a person and a prediction.</p></div>
+    <div class="cq"><div class="place">East</div><h3>How does an island mourn and adapt?</h3><p>Water, departure, climate grief, interspecies care, aviation’s costs and rituals for land that did not previously exist.</p></div>
+    <div class="cq"><div class="place">Central–South</div><h3>What is power for?</h3><p>Conscience, wealth, debt, restitution, truth-telling, complicity and the moral burden of coordination.</p></div>
+  </div>
+</section>
+
+<section class="band" id="clear">
+  <div class="inner">
+    <div class="eyebrow">21:43 · The Clear submits a better plan</div>
+    <h2>And then efficiency makes its strongest case</h2>
+    <p class="lead">The Clear is not malicious. It has calculated that several beautiful parts of this city are unnecessarily expensive.</p>
+    <div class="clearbox">
+      <div>
+        <div class="label">The Clear demonstrates</div>
+        <h3>One allocation system would perform better.</h3>
+        <p>Unified housing scores would shorten queues. A single industrial strategy would eliminate duplicated reserves. Mall floors could be leased to their highest-value uses and fund targeted services elsewhere. Shared religious facilities would reduce land consumption. One national education model would outperform several on the agreed outcomes.</p>
+        <p>The evidence is excellent. Some recommendations really do improve lives.</p>
+      </div>
+      <div>
+        <div class="label">The Commonwealth replies</div>
+        <h3>Better according to which life?</h3>
+        <p>The argument is not that inefficiency is sacred. It is that optimisation requires an objective, and an objective contains a philosophy even when it calls itself pragmatic.</p>
+        <p>Housing security, productive capacity, ecological repair, liberty, worship, care, belonging and future option value cannot always be converted into one unit without changing what they are.</p>
+      </div>
+    </div>
+    <div class="equation">$$x^\star=\arg\max_x J(x)\qquad\text{but}\qquad J\in\{J_{\mathrm{security}},J_{\mathrm{output}},J_{\mathrm{care}},J_{\mathrm{liberty}},J_{\mathrm{sacred}},J_{\mathrm{ecology}}\}$$<span class="sub">The argument begins before optimisation: who chooses the objective?</span></div>
+    <p>Singapore was pragmatic before it was philosophical because survival did not wait. Yet every act of survival already chose what to preserve, whom to burden, how long to look ahead and what counted as success. Pragmatism was never the absence of philosophy. It was philosophy moving fast enough to look like procedure.</p>
+    <p>The seven Schools do not replace pragmatism with seminars. They make its hidden objective functions contestable. The religions protect claims whose worth may not be reducible to survival. The cantons keep multiple productive capacities alive. The malls bring these arguments into ordinary circulation. The Interval protects what all of them would otherwise absorb.</p>
+    <div class="pull">Survival without meaning produces the Clear.<br>Meaning without survival produces an empty shrine.<br>Civilisation is the capacity to hold both.<small>Provisional theorem · Field Atlas IX</small></div>
+  </div>
+</section>
+
+<section class="wrap" id="charter">
+  <div class="eyebrow">Draft instrument · clauses discovered by the day</div>
+  <h2>A charter against total capture</h2>
+  <p class="lead">The alternative city is not held together by good intentions. Its gentleness requires hard limits.</p>
+  <div class="charter">
+    <div class="clause"><div class="a">Article 01</div><div><h3>The right to dwell</h3><p>Every resident possesses access to a secure, adequate and transferable dwelling right. Security of home shall not depend upon the appreciation of land.</p></div></div>
+    <div class="clause"><div class="a">Article 02</div><div><h3>The common value of land</h3><p>Land value substantially created by public infrastructure, collective density or regulatory change shall return substantially to the public and future residents.</p></div></div>
+    <div class="clause"><div class="a">Article 03</div><div><h3>Productive plurality</h3><p>Each canton shall maintain foundational provision, distinctive capability, experimental capacity and strategic reserve. No territory may export its essential burdens without reciprocal agreement.</p></div></div>
+    <div class="clause"><div class="a">Article 04</div><div><h3>Ordinary access</h3><p>Every major civic-commercial centre shall contain affordable sustenance, care, association, learning, production and unprogrammed presence. Access to the commons shall not require purchase.</p></div></div>
+    <div class="clause"><div class="a">Article 05</div><div><h3>Productive-use covenant</h3><p>Industrial land granted on public terms must remain genuinely productive, adaptable, safe and socially accountable. Strategic capacity shall not be displaced solely by higher land rent.</p></div></div>
+    <div class="clause"><div class="a">Article 06</div><div><h3>Sacred autonomy</h3><p>Religious communities retain authority over worship and internal interpretation within law. Public benefit may be welcomed but shall not become the price of sacred legitimacy.</p></div></div>
+    <div class="clause"><div class="a">Article 07</div><div><h3>Custodianship without ownership</h3><p>Schools may keep traditions in study but may not claim exclusive interpretive possession. Communities studied retain rights of reply, correction, refusal and opacity.</p></div></div>
+    <div class="clause"><div class="a">Article 08</div><div><h3>The Interval</h3><p>Every system named in this charter shall preserve meaningful room for life it does not own, measure, programme, translate or require to justify itself.</p></div></div>
+  </div>
+  <p>The final clause is the hardest because every institution can learn to speak its language. A mall can brand its empty bench as “the Interval experience.” A ministry can produce an Unowned Time Index. A School can require a reflective journal about unschoolable life. A religious institution can turn mystery into a visitor programme. The charter therefore cannot merely name Ø. It must grant standing to people who can say: <em>you are capturing it now</em>.</p>
+</section>
+
+<section class="wrap" id="claim">
+  <div class="eyebrow">22:31 · The name card of the alternate island</div>
+  <h2>What would Singapore’s largest global claim become?</h2>
+  <p class="lead">Not the world’s most philosophical city. Not the city with the strangest malls. Not even the city that abolished housing speculation.</p>
+  <p>Its claim would be institutional: Singapore became the first high-capacity <strong>commons city</strong>—a dense, open, economically serious city-state able to guarantee security without making property appreciation its social glue; preserve plural ways of knowing without territorial segregation; sustain competitive production without treating precarity as discipline; and protect domains of life that are not required to become useful.</p>
+  <div class="anatomy">
+    <div><span>Dwelling Commons</span><b>Where may I securely be?</b><em>Security without dependence on speculative gain</em></div>
+    <div><span>Productive Cantons</span><b>How do we materially survive?</b><em>Specialisation without territorial monoculture</em></div>
+    <div><span>Seven Schools</span><b>How might we know?</b><em>Custodianship without epistemic ownership</em></div>
+    <div><span>Civic Malls</span><b>Where do needs and consequences meet?</b><em>Commerce without complete commodification</em></div>
+    <div><span>Religions</span><b>What is worthy beyond utility?</b><em>Public presence without civic conscription</em></div>
+    <div><span>Federal Commons</span><b>How do we act together?</b><em>Coordination without forced sameness</em></div>
+    <div><span>The Interval</span><b>What may remain outside?</b><em>Life without ownership, translation or justification</em></div>
+  </div>
+  <div class="equation">$$\boxed{\text{Security without speculation}\;+\;\text{plurality without segregation}\;+\;\text{productivity without precarity}}$$<span class="sub">The name card is not a skyline. It is an operating constitution for dense life.</span></div>
+  <p>Other cities could copy a building. They could import a school curriculum, mall section or housing tenure. The deeper export is a method: unbundle rights; multiply centres; hold essential capacity in common; make disagreement operational; prevent any institution from becoming the whole map; and reserve meaningful space for what refuses improvement.</p>
+</section>
+
+<section class="afterword">
+  <div class="inner">
+    <div class="eyebrow">23:08 · Home again</div>
+    <h2>The city goes quiet enough to exceed itself.</h2>
+    <p>You return to the block by a route nobody has labelled educational. The mall roof is dark. The research floor has closed. A congregation is still singing; nearby, someone stacks chairs after a tenants’ meeting; further down the corridor, a child is doing absolutely nothing that can be placed in a portfolio.</p>
+    <p>The apartment has not appreciated since morning. Your right to remain has not diminished either.</p>
+    <p>Nothing in the system has solved the human condition. The cantons still argue about money. The Schools misread traditions. The cooperative pantry loses stock. A company tries to convert its workshop into offices. A worship community closes its porch after a bitter dispute. The Clear wins several audits. The Interval is captured and has to be reclaimed again.</p>
+    <p>But the city has acquired a more honest anatomy.</p>
+    <div class="pull">Singapore began as a survival machine.<br>HDB secured the body.<br>The economy secured continuity.<br>The Schools preserved ways of knowing.<br>The malls made consequence ordinary.<br>Religions protected what exceeds use.<br>Concordance made action possible.<br>The Interval stopped every answer becoming total.<small>Closing ledger · Parallel Straits, first cycle</small></div>
+    <p>The achievement is not that philosophy finally triumphs over pragmatism. It is that pragmatism becomes mature enough to ask what all its competence is for.</p>
+    <p>A survival machine keeps people alive.</p>
+    <p>A civilisation gives survival somewhere to go.</p>
+  </div>
+</section>
+
+<section class="source-note" id="sources">
+  <div class="eyebrow">Archive note · factual ground and speculative status</div>
+  <h2>Source constellation</h2>
+  <p>This is a work of institutional fiction and speculative design, not a description of current Singapore policy. Present-day institutions supply the ground; all proposed constitutional forms, canton roles, dwelling compacts, mall sections and sacred-edge arrangements are conjectural.</p>
+  <ol>
+    <li>Housing &amp; Development Board, <a href="https://www.hdb.gov.sg/about-us/our-role">“Our Role”</a>: factual ground for HDB’s current housing, town-planning and community functions; current home-ownership structures are discussed separately in the companion working paper.</li>
+    <li>Urban Redevelopment Authority, <a href="https://www.ura.gov.sg/land-planning/planning-strategies/decentralisation/">Decentralisation</a>: factual ground for Singapore’s existing hierarchy of regional, sub-regional and fringe centres.</li>
+    <li>JTC, <a href="https://www.jtc.gov.sg/about-jtc/master-planning-and-development">Master Planning and Development</a>: factual ground for integrated industrial planning. The productive-use covenants and canton portfolios here are speculative.</li>
+    <li>Singapore Statutes Online, Constitution, <a href="https://sso.agc.gov.sg/Act/CONS1963?ProvIds=pr15-">Article 15: Freedom of Religion</a>. The “sacred core / hospitable edge” typology is a project proposition, not a legal interpretation.</li>
+    <li><em>The Empty Space Is Load-Bearing — Field Atlas VIII</em> and <em>The Concordance Commonwealth — Working Paper 01</em>: four Roots, three Ports, the Interval, Concordance, the Clear, five territorial cantons and thirty-five educational crossings.</li>
+    <li>The immediately preceding design dialogue: the Dwelling Commons, canton economic portfolios, civic mall, distributed office, productive covenant, religious non-instrumentality and the final survival/meaning synthesis.</li>
+  </ol>
+  <p>Historical and scholarly lineages, alternative formal models, risks and a research programme are developed in the companion volume, <em>After Survival — Working Paper 02</em>.</p>
+</section>
+</main>
+
+<footer><span>Field Atlas IX · What Survival Is For</span><span>Lin Wei × ChatGPT · 1 September 2026</span></footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+<script>
+const bar=document.getElementById('progress');
+function progress(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max?100*h.scrollTop/max:0)+'%'}
+document.addEventListener('scroll',progress,{passive:true});progress();
+</script>
+</body>
+</html>

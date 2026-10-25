@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111311">
+  <meta name="description" content="Field Atlas IX of The Parallel Straits: seven museum-estates, the future economies that sustain them, and the constitutional void at their centre.">
+  <title>The Museums of Parallel Straits — Field Atlas IX</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --ink: #171814;
+      --night: #0d100f;
+      --paper: #eee9dd;
+      --paper-2: #dcd4c3;
+      --muted: #918c80;
+      --brass: #bd8b46;
+      --brass-light: #e0bd7e;
+      --line: rgba(238,233,221,.18);
+      --tki: #91aec1;
+      --merican: #d7a752;
+      --temenggong: #7ea178;
+      --lamkeng: #d26b57;
+      --rains: #66a9ad;
+      --kora: #a68abe;
+      --sund: #d0b86c;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Inter, 'Helvetica Neue', Arial, sans-serif;
+      --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+      overscroll-behavior-x: none;
+    }
+    body {
+      margin: 0;
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 80% 7%, rgba(189,139,70,.12), transparent 26rem),
+        linear-gradient(180deg, #101311 0%, #090b0a 100%);
+      font-family: var(--sans);
+      line-height: 1.55;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+      overscroll-behavior-x: none;
+      touch-action: pan-y;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .14;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      z-index: 20;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    p, h1, h2, h3, h4, span, small { overflow-wrap: anywhere; }
+    ::selection { background: var(--brass); color: var(--night); }
+
+    .rail {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 3.5rem;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0;
+      z-index: 10;
+      background: rgba(10,12,11,.76);
+      backdrop-filter: blur(12px);
+    }
+    .rail-mark { writing-mode: vertical-rl; font: .62rem/1 var(--mono); letter-spacing: .2em; color: var(--muted); }
+    .rail-nav { display: flex; flex-direction: column; gap: .7rem; }
+    .rail-nav a { width: .48rem; height: .48rem; border: 1px solid var(--muted); border-radius: 50%; opacity: .7; transition: .2s; }
+    .rail-nav a:hover, .rail-nav a:focus { background: var(--brass-light); border-color: var(--brass-light); transform: scale(1.35); }
+
+    main { margin-left: 3.5rem; max-width: calc(100% - 3.5rem); overflow-x: clip; }
+    main > *, .wrap, .hero-grid > *, .section-head > *, .constellation > *, .museum-body > * { min-width: 0; }
+    .wrap { width: min(1160px, calc(100% - 3rem)); margin: 0 auto; }
+
+    .hero {
+      min-height: 96vh;
+      display: grid;
+      align-items: end;
+      padding: 7rem 0 4rem;
+      position: relative;
+      isolation: isolate;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: min(58vw, 48rem); aspect-ratio: 1;
+      border: 1px solid rgba(224,189,126,.22);
+      border-radius: 50%; right: -9vw; top: -10vw;
+      box-shadow: 0 0 0 4rem rgba(224,189,126,.018), 0 0 0 9rem rgba(224,189,126,.012);
+      z-index: -1;
+    }
+    .eyebrow { font: .68rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .22em; color: var(--brass-light); }
+    h1, h2, h3, .display { font-family: var(--serif); font-weight: 400; }
+    h1 { font-size: clamp(4rem, 11vw, 9.2rem); line-height: .82; letter-spacing: -.065em; margin: 1.5rem 0 2rem; max-width: 9ch; }
+    h1 em { display: block; color: var(--brass-light); font-weight: 400; }
+    .dek { max-width: 47rem; font: clamp(1.15rem, 2vw, 1.55rem)/1.5 var(--serif); color: #c9c3b7; }
+    .hero-grid { display: grid; grid-template-columns: 1fr minmax(15rem, .55fr); gap: 4rem; align-items: end; }
+    .edition { border-top: 1px solid var(--line); padding-top: 1rem; font: .7rem/1.65 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+    .edition b { color: var(--paper); font-weight: 400; }
+
+    section { padding: 7rem 0; }
+    .section-head { display: grid; grid-template-columns: 12rem 1fr; gap: 3rem; margin-bottom: 3.5rem; }
+    .section-number { font: .68rem var(--mono); letter-spacing: .15em; color: var(--brass-light); padding-top: .55rem; }
+    h2 { font-size: clamp(2.6rem, 6vw, 5.3rem); line-height: .98; letter-spacing: -.04em; margin: 0; max-width: 14ch; }
+    .lead { font: clamp(1.22rem, 2vw, 1.6rem)/1.55 var(--serif); max-width: 50rem; color: #d2ccbf; }
+    .lead strong { color: var(--brass-light); font-weight: 400; }
+
+    .thesis { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .thesis-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .thesis-card { padding: 2.2rem; min-height: 15rem; border-right: 1px solid var(--line); }
+    .thesis-card:last-child { border-right: 0; }
+    .thesis-card .big { font: 4rem/1 var(--serif); color: var(--brass-light); }
+    .thesis-card h3 { font-size: 1.5rem; margin: 1.5rem 0 .6rem; }
+    .thesis-card p { color: #aaa397; margin: 0; }
+
+    .constellation { display: grid; grid-template-columns: minmax(18rem, .9fr) 1.1fr; gap: 5rem; align-items: center; }
+    .map { display: block; width: 100%; max-width: 36rem; height: auto; margin: auto; overflow: hidden; }
+    .map .orbit { fill: none; stroke: rgba(238,233,221,.17); stroke-width: 1; stroke-dasharray: 3 8; }
+    .map .link { stroke: rgba(238,233,221,.13); }
+    .map text { fill: var(--paper); font-family: var(--mono); font-size: 9px; letter-spacing: .08em; }
+    .map .void { fill: #080a09; stroke: var(--brass-light); stroke-width: 1.2; }
+    .map .pulse { fill: none; stroke: var(--brass-light); opacity: .23; transform-origin: center; animation: breathe 6s ease-in-out infinite; }
+    @keyframes breathe { 50% { transform: scale(1.06); opacity: .08; } }
+    .legend { display: grid; gap: .9rem; }
+    .legend-row { display: grid; grid-template-columns: 1.1rem 8.5rem 1fr; gap: .8rem; align-items: baseline; padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
+    .swatch { width: .55rem; height: .55rem; border-radius: 50%; background: var(--c); box-shadow: 0 0 1rem var(--c); }
+    .legend-row b { font: .7rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .legend-row span:last-child { color: #aaa397; font: .92rem var(--serif); }
+
+    .museums { display: grid; gap: 1rem; }
+    .museum {
+      --accent: var(--brass);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,.018);
+      transition: background .3s ease, border-color .3s ease;
+    }
+    .museum:hover { background: rgba(255,255,255,.036); border-color: rgba(238,233,221,.27); border-left-color: var(--accent); }
+    .museum-head { padding: 1.7rem 2rem; display: grid; grid-template-columns: 4rem 1.2fr .8fr; gap: 1.4rem; align-items: center; }
+    .museum-no { color: var(--accent); font: .72rem var(--mono); letter-spacing: .16em; }
+    .museum-title { font: clamp(1.25rem, 2.5vw, 2rem)/1.1 var(--serif); }
+    .museum-sense { color: #a39c90; font: .72rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .museum-body { border-top: 1px solid var(--line); padding: 2.5rem 2rem 2.8rem 7.4rem; display: grid; grid-template-columns: 1.1fr .9fr; gap: 4rem; }
+    .museum-body p { margin-top: 0; color: #c1baae; }
+    .museum-body h3 { font-size: 1.75rem; color: var(--accent); margin: 0 0 1rem; }
+    .museum-body h4 { font: .65rem var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 .8rem; }
+    .museum-facts { display: grid; gap: 1.4rem; }
+    .fact { border-top: 1px solid var(--line); padding-top: .8rem; }
+    .fact b { display: block; font: .7rem var(--mono); letter-spacing: .11em; text-transform: uppercase; color: var(--accent); margin-bottom: .35rem; }
+    .fact span { font-family: var(--serif); color: #ddd7cb; }
+    .exhibit { margin-top: 2rem; padding: 1.5rem; border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); position: relative; }
+    .exhibit::before { content: 'SIGNATURE EXHIBIT'; position: absolute; top: -.55rem; left: 1rem; padding: 0 .5rem; background: var(--night); color: var(--accent); font: .6rem var(--mono); letter-spacing: .13em; }
+    .exhibit strong { font: 1.25rem var(--serif); color: var(--paper); }
+
+    .covenants { background: var(--paper); color: var(--ink); }
+    .covenants .section-number, .covenants .eyebrow { color: #775827; }
+    .covenants h2 { max-width: 16ch; }
+    .exchange { margin-top: 4rem; border-top: 1px solid rgba(23,24,20,.25); }
+    .exchange-row { display: grid; grid-template-columns: 1fr 1.1fr 1.2fr; gap: 2rem; padding: 1.15rem 0; border-bottom: 1px solid rgba(23,24,20,.18); align-items: baseline; }
+    .exchange-row:first-child { font: .65rem var(--mono); text-transform: uppercase; letter-spacing: .13em; color: #746e62; }
+    .exchange-row b { font: 1.15rem var(--serif); font-weight: 400; }
+    .exchange-row .becomes { font: clamp(1.25rem, 2.4vw, 2rem) var(--serif); color: #765626; }
+    .exchange-row small { color: #665f54; }
+
+    .confluence { position: relative; overflow: hidden; }
+    .confluence::before { content: 'Ø'; position: absolute; right: -2vw; top: 0; font: min(42vw, 34rem)/.85 var(--serif); color: rgba(238,233,221,.026); }
+    .void-card { position: relative; border: 1px solid var(--brass); min-height: 31rem; display: grid; place-items: center; text-align: center; padding: 3rem; margin-top: 4rem; background: radial-gradient(circle, rgba(189,139,70,.08), transparent 45%); }
+    .void-card::before, .void-card::after { content: ''; position: absolute; inset: 1rem; border: 1px solid rgba(189,139,70,.18); pointer-events: none; }
+    .void-card::after { inset: 2rem; border-color: rgba(189,139,70,.08); }
+    .void-card .zero { font: clamp(6rem, 16vw, 13rem)/.8 var(--serif); color: var(--brass-light); }
+    .void-card p { max-width: 38rem; color: #b9b2a6; font-family: var(--serif); font-size: 1.15rem; }
+
+    .seven-accounts { display: grid; grid-template-columns: repeat(7, 1fr); margin-top: 4rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .account { padding: 1.3rem .85rem; border-right: 1px solid var(--line); min-height: 11rem; }
+    .account:last-child { border-right: 0; }
+    .account b { display: block; color: var(--c); font: .65rem var(--mono); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1rem; }
+    .account span { font: 1.05rem/1.25 var(--serif); }
+
+    .coda { min-height: 80vh; display: grid; place-items: center; text-align: center; }
+    .coda blockquote { margin: 0; max-width: 19ch; font: clamp(2.5rem, 6vw, 5.7rem)/1.06 var(--serif); letter-spacing: -.035em; }
+    .coda blockquote em { color: var(--brass-light); font-weight: 400; }
+    .coda p { color: var(--muted); max-width: 37rem; margin: 2rem auto 0; }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem; font: .65rem/1.7 var(--mono); letter-spacing: .1em; color: var(--muted); text-transform: uppercase; display: flex; justify-content: space-between; gap: 2rem; }
+
+    /* Content is visible by default. Motion is progressively enhanced only
+       when JavaScript has actually started, so restrictive HTML previews can
+       never leave the document trapped at opacity: 0. */
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 820px) {
+      .rail { display: none; }
+      main { margin-left: 0; max-width: 100%; }
+      .wrap { width: min(100% - 2rem, 680px); }
+      .hero { min-height: 88vh; padding-top: 5rem; }
+      .hero-grid, .section-head, .constellation { grid-template-columns: 1fr; gap: 2rem; }
+      .thesis-grid { grid-template-columns: 1fr; }
+      .thesis-card { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .museum-head { grid-template-columns: 2.8rem 1fr; padding: 1.4rem 1rem; gap: .8rem; }
+      .museum-sense { grid-column: 2; grid-row: 2; }
+      .museum-body { padding: 2rem 1.2rem; grid-template-columns: 1fr; gap: 2rem; }
+      .exchange-row { grid-template-columns: 1fr 1fr; gap: .7rem; }
+      .exchange-row small { grid-column: 1 / -1; }
+      .exchange-row:first-child { display: none; }
+      .seven-accounts { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .account { border-bottom: 1px solid var(--line); min-height: 8rem; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media print {
+      body { background: white; color: #111; }
+      body::before, .rail { display: none; }
+      main { margin: 0; }
+      .wrap { width: 92%; }
+      .hero { min-height: auto; padding: 2cm 0; }
+      section { padding: 1.5cm 0; break-inside: avoid; }
+      .museum { break-inside: avoid; border-color: #aaa; }
+      .museum-body { grid-template-columns: 1fr 1fr; }
+      .covenants { color: #111; background: white; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="rail" aria-label="Atlas navigation">
+    <div class="rail-mark">PARALLEL STRAITS · FIELD ATLAS IX</div>
+    <nav class="rail-nav">
+      <a href="#premise" aria-label="Premise"></a><a href="#system" aria-label="System"></a><a href="#estates" aria-label="Museum estates"></a><a href="#patrons" aria-label="Patrons"></a><a href="#confluence" aria-label="Confluence"></a>
+    </nav>
+    <div class="rail-mark">MUSEUM CIVILISATION</div>
+  </aside>
+
+  <main>
+    <header class="hero wrap" id="top">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">The Parallel Straits · Field Atlas IX</div>
+          <h1>The Museums <em>of the Straits</em></h1>
+          <p class="dek">Seven houses of inheritance. Seven economies of legitimacy. One protected void that no civilisation is permitted to possess.</p>
+        </div>
+        <div class="edition"><b>A speculative civic atlas</b><br>Concerning museums, patrons, future wealth and the right to remain uncollected.</div>
+      </div>
+    </header>
+
+    <section class="thesis" id="premise">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="section-number">00 / PREMISE</div><h2>Wealth attempts to become memory.</h2></div>
+        <p class="lead reveal">Museums disclose what a civilisation believes is worth inheriting. Patrons disclose who has acquired enough power to make that choice. In Parallel Singapore, the museum is therefore never neutral: it is the place where <strong>new wealth attempts to become old legitimacy</strong>.</p>
+        <div class="thesis-grid reveal">
+          <article class="thesis-card"><div class="big">7</div><h3>Great museum-estates</h3><p>Each shaped by one School’s incomplete sense, but none permitted to claim a complete civilisation.</p></article>
+          <article class="thesis-card"><div class="big">1</div><h3>Shared Confluence</h3><p>A museum governed by all seven Schools, owning no permanent collection and speaking in no final voice.</p></article>
+          <article class="thesis-card"><div class="big">Ø</div><h3>Constitutional absence</h3><p>A protected interval that cannot be collected, sponsored, illuminated, translated or explained away.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="system">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="section-number">01 / ARCHIPELAGO</div><h2>Not a museum district. A museum civilisation.</h2></div>
+        <div class="constellation">
+          <svg class="map reveal" viewBox="0 0 420 420" role="img" aria-labelledby="maptitle mapdesc">
+            <title id="maptitle">The museum constellation</title><desc id="mapdesc">Seven museum estates orbit the Confluence and its protected central void.</desc>
+            <circle class="orbit" cx="210" cy="210" r="160"/><circle class="orbit" cx="210" cy="210" r="113"/>
+            <g class="links">
+              <line class="link" x1="210" y1="210" x2="210" y2="50"/><line class="link" x1="210" y1="210" x2="335" y2="110"/>
+              <line class="link" x1="210" y1="210" x2="366" y2="246"/><line class="link" x1="210" y1="210" x2="280" y2="354"/>
+              <line class="link" x1="210" y1="210" x2="140" y2="354"/><line class="link" x1="210" y1="210" x2="54" y2="246"/>
+              <line class="link" x1="210" y1="210" x2="85" y2="110"/>
+            </g>
+            <circle class="pulse" cx="210" cy="210" r="48"/><circle class="void" cx="210" cy="210" r="32"/><text x="210" y="214" text-anchor="middle">Ø</text>
+            <g fill="var(--tki)"><circle cx="210" cy="50" r="10"/><text x="210" y="28" text-anchor="middle">TKI</text></g>
+            <g fill="var(--merican)"><circle cx="335" cy="110" r="10"/><text x="355" y="99">MERICAN</text></g>
+            <g fill="var(--temenggong)"><circle cx="366" cy="246" r="10"/><text x="340" y="273">TEMENGGONG</text></g>
+            <g fill="var(--lamkeng)"><circle cx="280" cy="354" r="10"/><text x="292" y="379">LAM KENG</text></g>
+            <g fill="var(--rains)"><circle cx="140" cy="354" r="10"/><text x="128" y="379" text-anchor="end">NINE RAINS</text></g>
+            <g fill="var(--kora)"><circle cx="54" cy="246" r="10"/><text x="26" y="273">KORA</text></g>
+            <g fill="var(--sund)"><circle cx="85" cy="110" r="10"/><text x="18" y="99">SUND</text></g>
+          </svg>
+          <div class="legend reveal">
+            <div class="legend-row" style="--c:var(--tki)"><i class="swatch"></i><b>Parallax</b><span>What can be known?</span></div>
+            <div class="legend-row" style="--c:var(--merican)"><i class="swatch"></i><b>Amanah</b><span>What has been entrusted?</span></div>
+            <div class="legend-row" style="--c:var(--temenggong)"><i class="swatch"></i><b>Communion</b><span>What must be remembered?</span></div>
+            <div class="legend-row" style="--c:var(--lamkeng)"><i class="swatch"></i><b>Recomposition</b><span>What may be transformed?</span></div>
+            <div class="legend-row" style="--c:var(--rains)"><i class="swatch"></i><b>Reciprocity</b><span>What makes survival possible?</span></div>
+            <div class="legend-row" style="--c:var(--kora)"><i class="swatch"></i><b>Third Voice</b><span>Whose account is missing?</span></div>
+            <div class="legend-row" style="--c:var(--sund)"><i class="swatch"></i><b>Commons</b><span>Who carries the cost?</span></div>
+          </div>
+        </div>
+        <p class="lead reveal" style="margin:4rem 0 0 auto">Each estate occupies six to twenty hectares, but only part is gallery. The rest is archive, theatre, workshop, housing, garden, market, school, laboratory and civic chamber: <strong>a piece of city that happens to collect things.</strong></p>
+      </div>
+    </section>
+
+    <section id="estates">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="section-number">02 / SEVEN ESTATES</div><h2>What each civilisation chooses to inherit.</h2></div>
+        <div class="museums reveal">
+          <article class="museum" style="--accent:var(--tki)">
+            <header class="museum-head"><span class="museum-no">01</span><span class="museum-title">The Museum of Unfinished Knowledge</span><span class="museum-sense">TKI · Parallax</span></header>
+            <div class="museum-body"><div><h3>Certainty, placed under observation.</h3><p>An accreted complex of laboratories, observatories, courtrooms and data centres on TKI’s inland wet ground. Nothing quite aligns. Each new wing preserves the errors of the one before it.</p><p>The galleries contain discoveries alongside retractions, suppressed variables, failed forecasts and elegant theories that proved beautifully wrong.</p><div class="exhibit"><strong>The Room That Disagrees</strong><p>One phenomenon is reconstructed through seven internally persuasive and mutually incompatible models. Visitors must act on one before learning what it could not perceive.</p></div></div><div class="museum-facts"><div class="fact"><b>Future wealth</b><span>Model foundries, verification systems, public-interest AI, scientific instruments, epistemic security.</span></div><div class="fact"><b>Patrons</b><span>Those whose systems determine what society accepts as reliable knowledge.</span></div><div class="fact"><b>The price</b><span>Every patron permanently discloses one consequential error.</span></div><div class="fact"><b>Ritual chamber</b><span>The Hall of Consequential Errors.</span></div></div></div>
+          </article>
+
+          <article class="museum" style="--accent:var(--merican)">
+            <header class="museum-head"><span class="museum-no">02</span><span class="museum-title">The House of Trust and Beautiful Obligations</span><span class="museum-sense">Al-Merican · Amanah</span></header>
+            <div class="museum-body"><div><h3>Value carried without corruption.</h3><p>A great sequence of shaded courtyards along the Merican Quays: gardens, libraries, perfume rooms, mathematical chambers, music salons, arbitration halls and public kitchens.</p><p>Its houses became wealthy by carrying value between systems that could not otherwise trust one another.</p><div class="exhibit"><strong>The Ledger of Promises</strong><p>A suspended archive of shipping guarantees, debts forgiven, peace treaties, safe-conduct letters, vows to the dead and obligations to people not yet born. Some are held as writing; others as scent, rhythm, knot or witnessed speech.</p></div></div><div class="museum-facts"><div class="fact"><b>Future wealth</b><span>Ethical finance, treaty banking, data trusts, arbitration, inheritance structures and long-horizon endowments.</span></div><div class="fact"><b>Patrons</b><span>Merchant houses and fiduciaries trusted across incompatible jurisdictions.</span></div><div class="fact"><b>The price</b><span>Every gift becomes irrevocable. The donor loses control.</span></div><div class="fact"><b>Central object</b><span>A blank ledger for beneficiaries not yet born.</span></div></div></div>
+          </article>
+
+          <article class="museum" style="--accent:var(--temenggong)">
+            <header class="museum-head"><span class="museum-no">03</span><span class="museum-title">The Pusaka Estate of Living Custody</span><span class="museum-sense">Sri Temenggong · Communion</span></header>
+            <div class="museum-body"><div><h3>Memory held by a living landscape.</h3><p>The least conventionally museum-like and perhaps the largest: forest, wetland, cemetery, court, animal corridor, theatre and inhabited kampung gathered around Bukit Temenggong.</p><p>Its treasures are continuities: a fertile soil, an inhabited coast, a returning species, a community that remembers how to care.</p><div class="exhibit"><strong>The Forest That Remembers Every Treaty</strong><p>Every compact affecting the landscape has been planted into it. Broken agreements return as salt intrusion; honoured ones become groves. Under monsoon rain, buried boundaries reappear and the estate becomes the Rain Theatre.</p></div></div><div class="museum-facts"><div class="fact"><b>Future wealth</b><span>Ecological estates, land trusts, mangrove economies, heritage agriculture and biocultural stewardship.</span></div><div class="fact"><b>Patrons</b><span>Custodial families, river guardians, seed-lineage houses and habitat treaty holders.</span></div><div class="fact"><b>The price</b><span>Land or custodial rights must be surrendered—not merely money.</span></div><div class="fact"><b>Collection</b><span>What remains alive because someone kept faith.</span></div></div></div>
+          </article>
+
+          <article class="museum" style="--accent:var(--lamkeng)">
+            <header class="museum-head"><span class="museum-no">04</span><span class="museum-title">The Museum of Ten Thousand Versions</span><span class="museum-sense">Lam Keng · Recomposition</span></header>
+            <div class="museum-body"><div><h3>No inheritance without transformation.</h3><p>A studio city growing through old printery streets: film archive, night market, fabrication district and performance complex. Its façade is never the same for more than a season.</p><p>Nothing that enters is permitted to remain singular.</p><div class="exhibit"><strong>One City, Ten Thousand Cuts</strong><p>Singapore filmed continuously for generations—never from one authoritative viewpoint. Each year, a young filmmaker receives the entire archive and may destroy the previous “definitive” cut.</p></div></div><div class="museum-facts"><div class="fact"><b>Future wealth</b><span>Diasporic media, synthetic worlds, fashion, games, adaptive manufacturing and cultural IP.</span></div><div class="fact"><b>Patrons</b><span>Creator dynasties, entertainment networks, studios and guild conglomerates.</span></div><div class="fact"><b>The price</b><span>Every donation may be copied, contradicted and remade.</span></div><div class="fact"><b>Collection rule</b><span>The original may survive; authorship cannot remain sovereign.</span></div></div></div>
+          </article>
+
+          <article class="museum" style="--accent:var(--rains)">
+            <header class="museum-head"><span class="museum-no">05</span><span class="museum-title">The Museum of Reciprocal Habitat</span><span class="museum-sense">Nine Rains · Reciprocity</span></header>
+            <div class="museum-body"><div><h3>A museum that is also infrastructure.</h3><p>An amphibious district extending through reservoir, floodplain, reef nursery, atmospheric laboratory and inhabited structure. Galleries change depth during storms; some appear only at low tide.</p><p>Its collection includes repaired rivers, revived soils and technologies rendered unnecessary because a habitat learned to regulate itself.</p><div class="exhibit"><strong>The Monsoon Engine</strong><p>A functioning climate system that receives real rainfall, cleans water, cools surrounding districts and feeds wetlands. Visitors may alter one parameter only if they follow its costs through every affected system.</p></div></div><div class="museum-facts"><div class="fact"><b>Future wealth</b><span>Climate engineering, water systems, aquaculture, coastal construction, restoration and habitat utilities.</span></div><div class="fact"><b>Patrons</b><span>Reef builders, insurers, water cooperatives and ecological consortia.</span></div><div class="fact"><b>The price</b><span>Dividends become contingent upon measurable repair.</span></div><div class="fact"><b>Naming right</b><span>A donor’s name vanishes when its ecological contribution turns negative.</span></div></div></div>
+          </article>
+
+          <article class="museum" style="--accent:var(--kora)">
+            <header class="museum-head"><span class="museum-no">06</span><span class="museum-title">The House of the Unfinished Account</span><span class="museum-sense">Kora · Third Voice</span></header>
+            <div class="museum-body"><div><h3>Testimony without compulsory closure.</h3><p>The Listening Quarter awakens after dark. Stories enter through kitchens, witness rooms, rehearsal spaces and public assemblies. Some cannot be found by search; one must be introduced by a person who carries the memory.</p><p>Its importance grows in an age when perfect synthetic evidence makes recorded reality unreliable.</p><div class="exhibit"><strong>The Trial of the Missing Witness</strong><p>A historical event is reconstructed through every surviving account except the central one. The absent voice was not lost: it refused collection. Resolution would violate the witness’s right to opacity.</p></div></div><div class="museum-facts"><div class="fact"><b>Future wealth</b><span>Diplomacy, conflict mediation, narrative rights, oral jurisprudence and memory technologies.</span></div><div class="fact"><b>Patrons</b><span>Treaty organisations, mediators, memory trusts and compulsory reparative endowments.</span></div><div class="fact"><b>The price</b><span>No donor may purchase the final word about themselves.</span></div><div class="fact"><b>Second chamber</b><span>The Contradiction Choir: accounts heard together without becoming one truth.</span></div></div></div>
+          </article>
+
+          <article class="museum" style="--accent:var(--sund)">
+            <header class="museum-head"><span class="museum-no">07</span><span class="museum-title">The Museum of Maintenance and Common Life</span><span class="museum-sense">Sund · Commons</span></header>
+            <div class="museum-body"><div><h3>The splendour of what does not fail.</h3><p>The museum is woven through the Cooperative Belt: laundries, repair halls, childcare centres, kitchens, clinics, housing assemblies and energy exchanges.</p><p>At first it appears less spectacular than the others. Then one realises that its systems have functioned continuously for centuries.</p><div class="exhibit"><strong>The Million-Year Repair Manual</strong><p>An ordinary public bench opens into every material, skill, agreement and act of care required to keep it useful across generations—until it contains forests, mines, migration law, metallurgy, software and children learning to mend.</p></div></div><div class="museum-facts"><div class="fact"><b>Future wealth</b><span>Cooperative platforms, public automation, community energy, mutual care and civic dividends.</span></div><div class="fact"><b>Patrons</b><span>Federations of neighbourhood trusts, carers, unions, cooperatives and citizen funds.</span></div><div class="fact"><b>The price</b><span>Patrons surrender governance votes, not merely capital.</span></div><div class="fact"><b>Quiet masterpiece</b><span>The nearly empty Hall of Things That Never Failed.</span></div></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="covenants" id="patrons">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="section-number">03 / PATRON COVENANTS</div><h2>Legitimacy has seven exchange rates.</h2></div>
+        <p class="lead reveal" style="color:#4d493f">The future patron is not merely someone with money. They control a form of continuity: truth, trust, land, culture, habitat, memory or collective provision. Yet no fortune is universally legible. <strong style="color:#765626">Excellence is real. Rank is local. Legibility costs something.</strong></p>
+        <div class="exchange reveal">
+          <div class="exchange-row"><span>Institution</span><span>Money must become</span><span>Conversion cost</span></div>
+          <div class="exchange-row"><b>TKI</b><span class="becomes">Confession</span><small>Reveal the failure your intelligence concealed.</small></div>
+          <div class="exchange-row"><b>Al-Merican</b><span class="becomes">Trust</span><small>Give without retaining command.</small></div>
+          <div class="exchange-row"><b>Sri Temenggong</b><span class="becomes">Custody</span><small>Return possession to obligation.</small></div>
+          <div class="exchange-row"><b>Lam Keng</b><span class="becomes">Permission</span><small>Allow what you made to become otherwise.</small></div>
+          <div class="exchange-row"><b>Nine Rains</b><span class="becomes">Repair</span><small>Bind prestige to the health of another system.</small></div>
+          <div class="exchange-row"><b>Kora</b><span class="becomes">Accountability</span><small>Fund a story whose conclusion you cannot own.</small></div>
+          <div class="exchange-row"><b>Sund</b><span class="becomes">Shared power</span><small>Let contribution alter governance.</small></div>
+          <div class="exchange-row"><b>Confluence</b><span class="becomes">Silence</span><small>Accept that not everything exists to be made legible.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="confluence" id="confluence">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="section-number">04 / THE EIGHTH INSTITUTION</div><h2>The Museum of No Final Account.</h2></div>
+        <p class="lead reveal">At the Bras Basah–Civic Confluence stands the most famous cultural institution in the Straits. All seven Schools govern it. None may possess it. It owns no permanent collection: every object must arrive from somewhere else, and eventually return.</p>
+
+        <div class="void-card reveal"><div><div class="eyebrow">The protected Interval</div><div class="zero">Ø</div><p>The central chamber cannot be programmed, monetised, sponsored or illuminated for spectacle. It protects people, knowledge and life that remain outside institutional vocabulary: the right not to become an exhibit.</p></div></div>
+
+        <div style="margin-top:6rem" class="reveal"><div class="eyebrow">Once every twelve years</div><h2 style="margin-top:1rem">The Night of Seven Accounts</h2><p class="lead">One event—the founding, the Great Flood, First Contact, or the moment of Concordance—is exhibited seven times. At the centre is an eighth chamber containing nothing. Visitors cross it without explanation.</p></div>
+        <div class="seven-accounts reveal">
+          <div class="account" style="--c:var(--tki)"><b>TKI</b><span>What can be known?</span></div>
+          <div class="account" style="--c:var(--merican)"><b>Merican</b><span>What was entrusted?</span></div>
+          <div class="account" style="--c:var(--temenggong)"><b>Temenggong</b><span>What must be remembered?</span></div>
+          <div class="account" style="--c:var(--lamkeng)"><b>Lam Keng</b><span>What may be transformed?</span></div>
+          <div class="account" style="--c:var(--rains)"><b>Nine Rains</b><span>What made survival possible?</span></div>
+          <div class="account" style="--c:var(--kora)"><b>Kora</b><span>Whose account is missing?</span></div>
+          <div class="account" style="--c:var(--sund)"><b>Sund</b><span>Who carried the cost?</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coda">
+      <div class="wrap reveal">
+        <blockquote>The patrons build magnificently—<em>but the building changes them too.</em></blockquote>
+        <p>The Rain Theatre fills during a storm. Kora opens at dusk. Lam Keng projects films across the printery streets. Sund begins its annual repair procession. Merican’s courtyards are perfumed at night. TKI inducts another billionaire into the Hall of Consequential Errors. At the centre of everything lies a piece of extremely valuable land that no one is allowed to name.</p>
+      </div>
+    </section>
+
+    <footer class="wrap"><span>The Parallel Straits · Field Atlas IX</span><span>A thought experiment by Lin Wei with ChatGPT · 2026</span></footer>
+  </main>
+
+  <script>
+    (() => {
+      const items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        items.forEach(el => el.classList.add('visible')); return;
+      }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+      }, { threshold: .1, rootMargin: '0px 0px -4% 0px' });
+      items.forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>

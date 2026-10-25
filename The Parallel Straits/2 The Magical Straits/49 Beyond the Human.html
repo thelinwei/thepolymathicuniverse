@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beyond the Human — Inhuman Ancestries of the Parallel Straits</title>
+<meta name="description" content="A conjectural atlas of nonhuman ancestral realities behind the Seven Schools, and of realities that resist human translation altogether.">
+<style>
+:root{
+  --bg:#0c0f11; --paper:#15191c; --paper2:#101416; --ink:#efeae0; --muted:#aaa69d;
+  --line:#2c3237; --gold:#ceb97d; --teal:#79aaa2; --violet:#9d8fc0; --rose:#b97e79;
+  --blue:#799bc9; --green:#82a979; --stone:#9a968c; --max:1180px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink)}
+body{font-family:ui-serif,Georgia,Cambria,"Times New Roman",serif;line-height:1.72}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
+header{
+  padding:94px 0 62px;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 14% 11%,rgba(206,185,125,.12),transparent 29%),
+    radial-gradient(circle at 86% 17%,rgba(121,170,162,.11),transparent 31%),
+    radial-gradient(circle at 54% 76%,rgba(157,143,192,.07),transparent 36%);
+}
+.eyebrow{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.17em;font-size:.74rem;color:var(--gold);margin-bottom:18px}
+h1,h2,h3,h4{font-weight:500;line-height:1.12;margin:0}
+h1{font-size:clamp(2.9rem,7vw,6.5rem);letter-spacing:-.045em;max-width:1080px}
+.dek{max-width:940px;color:var(--muted);font-size:clamp(1.08rem,2vw,1.36rem);margin:26px 0 0}
+nav{position:sticky;top:0;z-index:20;background:#0f1316;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;overflow:auto;padding:12px 0;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.77rem}
+nav a{color:var(--muted);text-decoration:none;white-space:nowrap}
+main{padding:56px 0 120px}
+section{padding:50px 0;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+.part{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.15em;font-size:.74rem;color:var(--teal);margin-bottom:10px}
+h2{font-size:clamp(2rem,4vw,3.45rem);letter-spacing:-.03em;margin-bottom:18px}
+h3{font-size:1.42rem;color:var(--gold);margin:30px 0 10px}
+h4{font-size:1.08rem;color:var(--teal);margin:18px 0 8px}
+p{max-width:930px;margin:0 0 18px}
+.lead{font-size:1.22rem;color:#f7f2e8}
+.quote{margin:28px 0;padding:24px 26px;border-left:3px solid var(--gold);background:rgba(255,255,255,.025);font-size:1.19rem;max-width:990px}
+.callout{margin:28px 0;padding:24px 26px;background:var(--paper2);border:1px solid #303740;border-radius:16px;max-width:990px}
+.callout strong{color:var(--teal)}
+.eq{
+  margin:26px 0;padding:18px 20px;background:var(--paper);border:1px solid var(--line);
+  border-radius:14px;overflow:auto;text-align:center;font-size:1.12rem;font-style:italic;
+  font-family:"Times New Roman",Times,serif;letter-spacing:.01em
+}
+.grid2,.grid3{display:grid;gap:16px;margin:24px 0}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;min-width:0}
+.card h3{margin-top:0}.card p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 8px;margin-bottom:10px}
+.family{padding:30px 0;border-top:1px solid var(--line)}
+.family:first-of-type{border-top:0}
+.family-head{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start}
+.sig{width:60px;height:60px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:ui-sans-serif,system-ui,sans-serif;color:var(--gold);font-size:1.15rem}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.spec div{padding:13px 14px;background:var(--paper);border:1px solid var(--line);border-radius:12px}
+.spec b{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin-bottom:5px}
+table{width:100%;border-collapse:collapse;margin:24px 0;background:var(--paper);border:1px solid var(--line)}
+th,td{padding:13px 15px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;color:var(--gold)}
+tr:last-child td{border-bottom:0}
+.rule{height:1px;background:var(--line);margin:30px 0}
+.footer-note{font-size:.9rem;color:var(--muted);padding-top:20px;border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:840px){
+  .grid2,.grid3,.spec{grid-template-columns:1fr}
+  .wrap{width:min(var(--max),calc(100% - 24px))}
+  .family-head{grid-template-columns:54px 1fr}
+  .sig{width:46px;height:46px}
+  table{display:block;overflow-x:auto}
+}
+@media print{
+  :root{--bg:#fff;--paper:#f7f5f0;--paper2:#faf8f4;--ink:#111;--muted:#555;--line:#ccc}
+  nav{display:none}body{background:#fff}.card,.eq,.callout,.family{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap">
+  <div class="eyebrow">The Parallel Straits · Inhuman Cosmologies</div>
+  <h1>Beyond the Human</h1>
+  <p class="dek">If the Seven are domesticated remnants of foreign physics, then the next question is unavoidable: why assume those realities were organised around human beings at all?</p>
+</div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#constraint">Design Constraint</a>
+  <a href="#compression">Anthropic Compression</a>
+  <a href="#topologies">Identity Topologies</a>
+  <a href="#families">Seven Deep Families</a>
+  <a href="#undomesticated">Undomesticated Realities</a>
+  <a href="#contact">First Contact</a>
+  <a href="#schools">School Scandals</a>
+  <a href="#straits">The Native Law</a>
+  <a href="#story">Story Consequences</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="constraint">
+<div class="part">I · Constraint</div>
+<h2>1. Stop Making the Universe Person-Shaped</h2>
+<p class="lead">Most fantasy and science fiction changes bodies before it changes ontology. The “nonhuman” remains recognisably human in its assumptions: one body, one mind, one lifespan, one intention, one memory, one language, one point of view.</p>
+
+<p>The Parallel Straits can take a harder route.</p>
+
+<p>In the pluriverse, <strong>personhood is only one local topology of agency</strong>.</p>
+
+<div class="eq">person ≠ universal unit of mind</div>
+
+<p>Some realities may organise agency as fields, colonies, flows, absences, networks, processes, symbioses or events stretched over centuries.</p>
+
+<div class="quote">The challenge of first contact is not always learning what another being is saying.<br><br>Sometimes it is recognising that there is a being there at all.</div>
+</section>
+
+<section id="compression">
+<div class="part">II · Translation</div>
+<h2>2. Anthropic Compression</h2>
+
+<p>Humans who encounter a radically nonhuman reality cannot import its entire ontology. They translate it into categories human cognition and institutions can reproduce.</p>
+
+<div class="eq">foreign causal ecology → human-readable relation → ritual → institution</div>
+
+<p>This process can be called <strong>Anthropic Compression</strong>.</p>
+
+<p>It is not necessarily deception. It may be the only way a foreign law survives in human culture.</p>
+
+<div class="grid2">
+  <div class="card"><h3>What survives</h3><p>A usable rule, a ritual, a doctrine, an architectural practice, a metaphor, a social ethic.</p></div>
+  <div class="card"><h3>What is lost</h3><p>The original locus of agency, timescale, embodiment, causal scale, and often the fact that no human analogue existed.</p></div>
+</div>
+
+<div class="callout"><strong>The Seven may therefore be faithful and false at once.</strong> Faithful enough to preserve foreign causality; false because that causality has been forced into human concepts.</div>
+</section>
+
+<section id="topologies">
+<div class="part">III · A Larger Vocabulary</div>
+<h2>3. Identity Has More Than One Shape</h2>
+
+<table>
+<thead><tr><th>Topology</th><th>What counts as “self”</th><th>Human difficulty</th></tr></thead>
+<tbody>
+<tr><td>Point-self</td><td>One organism, one bounded continuity</td><td>Our default assumption</td></tr>
+<tr><td>Network-self</td><td>A pattern of exchange across many bodies</td><td>No single member is the agent</td></tr>
+<tr><td>Field-self</td><td>A persistent dynamic across space</td><td>No stable boundary</td></tr>
+<tr><td>Colony-self</td><td>Many organisms forming one durable body</td><td>Birth and death become ambiguous</td></tr>
+<tr><td>Process-self</td><td>A recurring transformation rather than matter</td><td>Identity persists through total material replacement</td></tr>
+<tr><td>Negative-self</td><td>A maintained absence, gap or constraint</td><td>Presence is constituted by what is not there</td></tr>
+<tr><td>Temporal-self</td><td>A pattern distributed across generations or centuries</td><td>No human lifespan contains the whole entity</td></tr>
+<tr><td>Nested-self</td><td>Multiple agents inside agents at different scales</td><td>No single level owns agency</td></tr>
+</tbody>
+</table>
+
+<p>The Seven Schools may each have humanised one or more of these stranger identity topologies.</p>
+</section>
+
+<section id="families">
+<div class="part">IV · The Seven Deep Families</div>
+<h2>4. What the Schools May Have Compressed</h2>
+
+<div class="family">
+<div class="family-head"><div class="sig">01</div><div><span class="tag">Parallax family</span><h3>The Phase Ocean</h3></div></div>
+<p>The deepest ancestor of Parallax may not have been a civilisation of observers. It may have been a reality populated by <strong>standing patterns</strong> whose identity was defined by phase relations rather than location.</p>
+<div class="eq">identity = coherence across frames, not occupation of one position</div>
+<div class="spec">
+  <div><b>Self</b>Nonlocal phase pattern</div>
+  <div><b>Memory</b>Persistence of interference relations</div>
+  <div><b>Death</b>Loss of phase coherence</div>
+</div>
+<p>Humans translated this into perspective, frame and transformation between descriptions.</p>
+<p>What was lost: the possibility that one “self” may genuinely occupy several relational states at once.</p>
+<div class="quote">TKI says: “Check your frame.”<br><br>The ancestral law may have said: “There is no object independent of its transformations.”</div>
+</div>
+
+<div class="family">
+<div class="family-head"><div class="sig">02</div><div><span class="tag">Amanah family</span><h3>The Consortium</h3></div></div>
+<p>Amanah may descend partly from worlds where organisms were not individuals but temporary coalitions of symbionts, tissues, microbes, hosts and environmental partners.</p>
+<div class="eq">capability exists where mutual recognition sustains the consortium</div>
+<div class="spec">
+  <div><b>Self</b>Nested coalition</div>
+  <div><b>Authority</b>Temporary mutual enablement</div>
+  <div><b>Death</b>Breakdown or reformation of the consortium</div>
+</div>
+<p>Humans translated mutual enablement into entrustment, covenant, office and inheritance.</p>
+<p>What was lost: the ancestral premise that no being fully owns itself.</p>
+<p>This creates an exquisite historical irony: hereditary authority may be a diaspora technology invented to preserve a physics in which authority was originally contingent and shared.</p>
+</div>
+
+<div class="family">
+<div class="family-head"><div class="sig">03</div><div><span class="tag">Communion family</span><h3>The Reef-Land</h3></div></div>
+<p>Communion may carry memories of realities where place itself was the enduring organism.</p>
+<div class="eq">place = soil + water + species + memory + circulation + accretion</div>
+<div class="spec">
+  <div><b>Self</b>Ecological place-system</div>
+  <div><b>Memory</b>Accreted structure and recurring relations</div>
+  <div><b>Death</b>Loss of enough participants that the place ceases being that place</div>
+</div>
+<p>Humans translated this into custodianship: people care for land.</p>
+<p>But the ancestral physics may have had no privileged “people.” Fungi, mangroves, fish, storms, sediments and future inhabitants were all constituents of place.</p>
+<div class="quote">Sri Temenggong may preserve Communion while simultaneously having humanised it.</div>
+</div>
+
+<div class="family">
+<div class="family-head"><div class="sig">04</div><div><span class="tag">Recomposition family</span><h3>The Morphogenic Colony</h3></div></div>
+<p>The ancestor of Recomposition may have been a causal ecology in which body, tool, building and organism were phases of one developmental process.</p>
+<div class="eq">identity of matter = continuity of transformation</div>
+<div class="spec">
+  <div><b>Self</b>Developmental trajectory</div>
+  <div><b>Communication</b>Growth, graft, differentiation</div>
+  <div><b>Death</b>Termination of transformation, not loss of material</div>
+</div>
+<p>Humans translated morphogenesis into craft: maker, operation, material, result.</p>
+<p>What was lost was precisely that separation.</p>
+<p>The Anatomists may therefore be scandalously closer to the ancestral physics than orthodox Lam Keng.</p>
+</div>
+
+<div class="family">
+<div class="family-head"><div class="sig">05</div><div><span class="tag">Reciprocity family</span><h3>The Returning Weather</h3></div></div>
+<p>The ancestral substrate of Nine Rains may have been field-agencies: monsoons, pressure systems, ocean cycles and recurring attractors whose “selves” persisted while all their matter changed.</p>
+<div class="eq">event → propagation → return, across scales larger than any participant</div>
+<div class="spec">
+  <div><b>Self</b>Persistent dynamic pattern</div>
+  <div><b>Memory</b>Recurrence and path dependence</div>
+  <div><b>Death</b>Leaving the attractor basin</div>
+</div>
+<p>Humans translated this into reciprocity, season, consequence and debt.</p>
+<p>What was lost: the absence of intention. Weather does not repay because it is fair. It returns because the field requires it.</p>
+<p>This makes the difference between ethics and physics crucial. Nine Rains may have moralised a causal law that originally had no concept of justice.</p>
+</div>
+
+<div class="family">
+<div class="family-head"><div class="sig">06</div><div><span class="tag">Third Voice family</span><h3>The Hollow Ecology</h3></div></div>
+<p>Kora's ancestry may include realities where absences are structural entities: holes, unrealised branches, interrupted continuities and missing relations exert force precisely because they are absent.</p>
+<div class="eq">full state = actual presence + structured absence</div>
+<div class="spec">
+  <div><b>Self</b>Maintained absence or unrealised relation</div>
+  <div><b>Communication</b>Constraint, omission, negative space</div>
+  <div><b>Death</b>Being completely filled, resolved or forgotten</div>
+</div>
+<p>Humans translated this into witness: who is missing, who was silenced, what account was omitted.</p>
+<p>What was lost was the larger ontology that a non-event can remain causally present.</p>
+<p>This may explain why Kora sits uncomfortably close to Hinge realities, Revisionism and the Unwritten Archive.</p>
+</div>
+
+<div class="family">
+<div class="family-head"><div class="sig">07</div><div><span class="tag">Commons family</span><h3>The Underweave</h3></div></div>
+<p>Sund may descend partly from network beings more analogous to fungal mycelia, swarms, bacterial films or stigmergic colonies than to societies of persons.</p>
+<div class="eq">agency belongs to the path network, not to the nodes</div>
+<div class="spec">
+  <div><b>Self</b>Distributed exchange topology</div>
+  <div><b>Memory</b>Reinforced routes and altered environment</div>
+  <div><b>Death</b>Fragmentation below functional connectivity</div>
+</div>
+<p>Humans translated this into commons, assembly, burden-sharing and collective work.</p>
+<p>But the original system may have had no concept of individual exit.</p>
+<div class="quote">The Choir Without Names may not be Sund's corruption.<br><br>It may be its homecoming.</div>
+<p>Sund's obsession with demountability and exit could therefore be a civilisational scar: a human safeguard against the original network's indifference to individual autonomy.</p>
+</div>
+
+</section>
+
+<section>
+<div class="part">V · The Seven Are Braids</div>
+<h2>5. No School Has One Ancestor</h2>
+
+<p>These examples should not become a new one-to-one taxonomy. Each School is likely a braid of several source realities that the Straits discovered were mutually translatable.</p>
+
+<div class="eq">many foreign causal ecologies → one stable human compatibility family</div>
+
+<p>Parallax may contain phase-world ancestry, perspectival ecologies and mathematical frontier traditions. Communion may combine reef-place, fungal memory and custodial human migrations. Amanah may mix symbiosis with relational-recognition worlds.</p>
+
+<div class="callout"><strong>The School genealogy is therefore neither racial nor planetary.</strong> It is a history of which causal structures could coexist inside one human teaching tradition.</div>
+</section>
+
+<section id="undomesticated">
+<div class="part">VI · What Could Not Become a School</div>
+<h2>6. Undomesticated Realities</h2>
+
+<p>Some realities could never survive institutional translation.</p>
+
+<div class="grid2">
+  <div class="card">
+    <span class="tag">Geological</span>
+    <h3>The Slow Choir</h3>
+    <p>Agency exists at tectonic timescale. One “gesture” takes centuries. Human civilisation rises and falls inside a single utterance.</p>
+    <p>There is no usable curriculum because no student can witness a complete act.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Ephemeral</span>
+    <h3>The Day-Selves</h3>
+    <p>Identity persists for one cycle only. Tomorrow's being is not considered the continuation of today's.</p>
+    <p>Lineage institutions cannot form because continuity itself is false.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Irreversible Knowledge</span>
+    <h3>The Uncopying World</h3>
+    <p>Knowledge cannot be transmitted without irreversibly changing both teacher and learner. There is no stable text, repetition or identical lesson.</p>
+    <p>Education destroys the conditions required for standardisation.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Recursive Scale</span>
+    <h3>The Nested Country</h3>
+    <p>Agency repeats at every scale: cell, body, household, city, watershed, planet. No scale possesses privileged reality.</p>
+    <p>Any human attempt to isolate a “subject” cuts through larger and smaller agents simultaneously.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Future Constraint</span>
+    <h3>The Approaching</h3>
+    <p>Present states are partly determined by viable future configurations. Causality runs as constraint from both directions.</p>
+    <p>Humans interpret this as prophecy and immediately misunderstand it.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Contradiction</span>
+    <h3>The Productive Contradiction</h3>
+    <p>Contradictory states generate stability rather than collapse. Resolve the contradiction and the structure fails.</p>
+    <p>The act of writing a consistent doctrine destroys the very law being taught.</p>
+  </div>
+</div>
+
+<div class="quote">Some realities cannot become Schools because schooling is itself the wrong ontology.</div>
+</section>
+
+<section id="contact">
+<div class="part">VII · First Contact Without Persons</div>
+<h2>7. What Arrives May Not Be an Ambassador</h2>
+
+<p>The pluriverse should rarely announce itself with a visitor stepping through a glowing portal.</p>
+
+<p>Instead:</p>
+
+<div class="grid3">
+  <div class="card"><h3>A monsoon remains</h3><p>A storm pattern persists across seasons, slowly altering its route in response to human interventions. Everyone argues about whether it is “communicating.”</p></div>
+  <div class="card"><h3>A reef begins remembering</h3><p>New coral growth reproduces streets, coastlines and structures from a world no diver recognises.</p></div>
+  <div class="card"><h3>The MRT grows a second nervous system</h3><p>Fungal routing spreads along service tunnels, optimising flows no transport model predicted.</p></div>
+  <div class="card"><h3>A mountain answers once</h3><p>A seismic pattern repeats after 430 years. Only then do scholars realise the previous earthquake may have been the first half of a signal.</p></div>
+  <div class="card"><h3>A species stops being a species</h3><p>Birds, insects and trees begin participating in one migratory process that behaves as a single agent.</p></div>
+  <div class="card"><h3>An absence expands</h3><p>Nothing visibly arrives. Instead, more and more unrelated systems begin organising around the same missing relation.</p></div>
+</div>
+
+<div class="callout"><strong>Nonhuman diplomacy is not necessarily conversation.</strong> It may mean designing a relation in which both sides can affect one another without ever possessing comparable models of the other.</div>
+</section>
+
+<section>
+<div class="part">VIII · The Error of Intention</div>
+<h2>8. Humans Will Keep Asking the Wrong Question</h2>
+
+<p>When the monsoon changes course, people will ask:</p>
+<div class="quote">“What does it want?”</div>
+
+<p>But “want” may already be an anthropic compression.</p>
+
+<p>The Returning Weather may have:</p>
+
+<p>an attractor,<br>
+a recurrence,<br>
+a stability condition,<br>
+a response surface,</p>
+
+<p>but no interior intention analogous to human desire.</p>
+
+<div class="eq">responsiveness ≠ intention</div>
+
+<p>This creates difficult forms of respect. Must agency resemble consciousness to matter? Must a being model us before we owe it consideration? Can there be diplomacy without mutual comprehension?</p>
+
+<p>The Straits becomes the civilisation forced to develop answers because it lives at the crossing.</p>
+</section>
+
+<section id="schools">
+<div class="part">IX · Institutional Earthquakes</div>
+<h2>9. What Each School Could Discover</h2>
+
+<table>
+<thead><tr><th>School</th><th>Institutional myth</th><th>Potential discovery</th></tr></thead>
+<tbody>
+<tr><td>TKI</td><td>Human masters developed perspectival rigour</td><td>Its oldest techniques derive from nonlocal phase entities with no singular bodies</td></tr>
+<tr><td>Al-Merican</td><td>Authority was refined into covenant</td><td>Covenant is the human legalisation of symbiotic mutual enablement</td></tr>
+<tr><td>Sri Temenggong</td><td>Humans learned to care for place</td><td>The ancestral “place” was itself the primary organism</td></tr>
+<tr><td>Lam Keng</td><td>Masters learned to transform matter</td><td>The maker/material distinction may be a later human simplification</td></tr>
+<tr><td>Nine Rains</td><td>Reciprocity encodes ethical balance</td><td>The ancestral return law may have no moral concept whatsoever</td></tr>
+<tr><td>Kora</td><td>The Third Voice protects omitted persons</td><td>Its original ontology concerns causal non-events, not merely social witness</td></tr>
+<tr><td>Sund</td><td>Commons demonstrates responsible collective agency</td><td>The original network-agent may have been entirely indifferent to individual autonomy</td></tr>
+</tbody>
+</table>
+
+<p>None of these discoveries invalidates the School.</p>
+
+<p>They reveal that every School contains a long history of human ethical invention layered over nonhuman causality.</p>
+
+<div class="quote">The values of the Seven may be humanity's contribution—not the original physics.</div>
+</section>
+
+<section>
+<div class="part">X · A New Meaning of Civilisation</div>
+<h2>10. Domestication Was Not Merely Loss</h2>
+
+<p>There is a danger of romanticising the “original” realities as purer.</p>
+
+<p>We should resist that.</p>
+
+<p>Anthropic Compression loses things.</p>
+
+<p>But it also creates things that never existed in the source worlds:</p>
+
+<div class="grid2">
+  <div class="card"><h3>Exit</h3><p>Sund may have invented individual exit where its ancestral network had none.</p></div>
+  <div class="card"><h3>Accountability</h3><p>Nine Rains may have moralised consequence into responsibility.</p></div>
+  <div class="card"><h3>Consent</h3><p>Amanah may have transformed mutual enablement into explicit human legitimacy.</p></div>
+  <div class="card"><h3>Witness</h3><p>Kora may have turned ontological absence into an ethic of listening to those excluded.</p></div>
+</div>
+
+<p>The Schools are not degraded copies.</p>
+
+<div class="eq">translation = loss + invention</div>
+
+<p>Humanity did something genuinely new with foreign law.</p>
+</section>
+
+<section>
+<div class="part">XI · Nonhuman Ancestry Without Biological Essentialism</div>
+<h2>11. A Human Can Inherit a Fungal Physics</h2>
+
+<p>These ancestries should not become races.</p>
+
+<p>A human inherits an axiomatic tradition through formation:</p>
+
+<div class="eq">inheritance = language + ritual + architecture + attention + bodily habit + social relation</div>
+
+<p>A person with no biological connection to an old lineage may become deeply calibrated through apprenticeship.</p>
+
+<p>A biological descendant raised elsewhere may inherit almost none of it.</p>
+
+<div class="callout"><strong>The causal ancestry belongs to practices, not blood.</strong></div>
+</section>
+
+<section>
+<div class="part">XII · Museums Become More Dangerous</div>
+<h2>12. Collections May Contain Pieces of Nonhuman Minds</h2>
+
+<p>If relics carry Axiomatic Anchors, then museums may unknowingly hold fragments of beings rather than objects.</p>
+
+<p>A carved stone classified as ritual art may be one node of a geological temporal intelligence.</p>
+
+<p>A textile may be a preserved routing surface from a distributed network.</p>
+
+<p>A bowl may not represent weather—it may participate in a dormant pressure pattern.</p>
+
+<p>A blank tablet may be an absence-organ whose function is destroyed the moment curators inscribe a label beside it.</p>
+
+<div class="quote">The most serious provenance question may become: “Is this actually an object?”</div>
+</section>
+
+<section id="straits">
+<div class="part">XIII · The Native Law</div>
+<h2>13. Perhaps Translation Is the Only Indigenous Magic of the Straits</h2>
+
+<p>Suppose none of the Seven is native.</p>
+
+<p>Suppose the Straits' own Axiomatic Stratum is not another specialised causal grammar.</p>
+
+<p>Its native capacity is:</p>
+
+<div class="eq">foreign law ↔ foreign law</div>
+
+<p>Relation between differences.</p>
+
+<p>Not Parallax.</p>
+<p>Not Amanah.</p>
+<p>Not Communion.</p>
+<p>Not Recomposition.</p>
+<p>Not Reciprocity.</p>
+<p>Not Third Voice.</p>
+<p>Not Commons.</p>
+
+<p>The Straits itself is the capacity to keep unlike causal systems sufficiently open to one another that translation can occur.</p>
+
+<div class="eq">A<sub>Straits</sub> = capacity for relational translation under incomplete compatibility</div>
+
+<div class="quote">The Seven had mistaken the harbour for the ships.</div>
+
+<p>The Eighth Sense is therefore not an eighth imported grammar.</p>
+
+<p>It is the native condition that made all seven survivable.</p>
+
+<p>That might be why nobody can found an Eighth School.</p>
+
+<p>The moment you institutionalise it as one more grammar, you misunderstand it.</p>
+</section>
+
+<section id="story">
+<div class="part">XIV · Story Consequences</div>
+<h2>14. The Seven Protagonists Must Learn to Stop Looking for People</h2>
+
+<p>Their next development should not simply be mastering more worlds.</p>
+
+<p>Each needs to unlearn an anthropic assumption.</p>
+
+<div class="grid2">
+  <div class="card"><h3>One learns that responsiveness is not intention</h3><p>They stop demanding that another intelligence want something before treating it as an agent.</p></div>
+  <div class="card"><h3>One learns that body is not boundary</h3><p>They encounter a self distributed across thousands of organisms.</p></div>
+  <div class="card"><h3>One learns that a place can be the interlocutor</h3><p>Not a spirit living in the place. The place itself.</p></div>
+  <div class="card"><h3>One learns that absence can be alive</h3><p>Presence is not a prerequisite for causal participation.</p></div>
+  <div class="card"><h3>One learns that memory need not be stored</h3><p>A system remembers by changing how future processes flow.</p></div>
+  <div class="card"><h3>One learns that continuity is not identity</h3><p>An ancestral reality repeatedly rebuilds itself without preserving individuals.</p></div>
+</div>
+
+<h3>The first truly foreign crisis</h3>
+
+<p>I would not introduce it as an invading civilisation.</p>
+
+<p>I would let the monsoon fail to leave.</p>
+
+<p>For a second year, the same pressure topology returns.</p>
+
+<p>Then a third.</p>
+
+<p>Its route subtly changes around Seams, school campuses and Axiomatic Anchors.</p>
+
+<p>Nine Rains assumes it is a reciprocity disturbance.</p>
+
+<p>TKI finds the storm preserves relational invariants across different observation frames.</p>
+
+<p>Sund detects that millions of local micro-events collectively behave as one action.</p>
+
+<p>Kora finds that the storm continually organises itself around an absence in the regional weather record.</p>
+
+<p>Eventually the seven reach the impossible conclusion:</p>
+
+<div class="quote">The weather system is not carrying a visitor.<br><br>The weather system is the visitor.</div>
+
+<p>And even then, they should not know whether it is conscious.</p>
+
+<p>That question may never become answerable.</p>
+
+<p>The real challenge is whether they can create a relationship with it anyway.</p>
+
+<div class="eq">diplomacy without personhood</div>
+
+<p>That feels like the right frontier for this world.</p>
+
+<p class="footer-note">Parallel Straits · Beyond the Human · inhuman ancestral realities, anthropic compression, and first contact beyond personhood.</p>
+</section>
+
+</main>
+</body>
+</html>

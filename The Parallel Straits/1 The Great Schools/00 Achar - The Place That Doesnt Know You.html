@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#132320">
+<title>Achar / The Place That Doesn't Know You</title>
+<meta name="description" content="A private reflection on P. Ramlee, cultural memory, and returning to Singapore as someone changed by elsewhere.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17201e;
+  --deep:#132320;
+  --deep2:#0d1715;
+  --paper:#f5efe3;
+  --paper2:#e9dfce;
+  --gold:#c39b4a;
+  --turmeric:#d8a73e;
+  --pandan:#58796a;
+  --teal:#2e5d58;
+  --lacquer:#8f3d32;
+  --muted:#7d796f;
+  --line:rgba(23,32,30,.18);
+  --white:#fffaf0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--deep)}
+body{
+  margin:0;color:var(--ink);background:var(--paper);
+  font-family:"Source Serif 4",Georgia,serif;
+  line-height:1.67;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+.shell{width:min(1120px, calc(100% - 36px));margin:auto}
+.mono{font-family:"IBM Plex Mono",monospace;letter-spacing:.035em}
+.smallcaps{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-family:"IBM Plex Mono",monospace}
+.songket{
+  height:22px;
+  background:
+    linear-gradient(135deg, transparent 0 44%, var(--gold) 44% 56%, transparent 56% 100%) 0 0/28px 22px,
+    linear-gradient(225deg, transparent 0 44%, rgba(195,155,74,.55) 44% 56%, transparent 56% 100%) 14px 0/28px 22px,
+    var(--deep2);
+  opacity:.95;
+}
+.hero{
+  position:relative;min-height:88vh;color:var(--white);background:
+  radial-gradient(circle at 82% 20%, rgba(195,155,74,.18), transparent 23%),
+  radial-gradient(circle at 15% 78%, rgba(88,121,106,.22), transparent 28%),
+  linear-gradient(135deg,#0e1a18 0%,#142b27 52%,#1c3029 100%);
+  display:grid;align-items:end;overflow:hidden;
+}
+.hero:before{
+  content:"";position:absolute;inset:0;opacity:.13;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23d1ae63' stroke-width='1.2'%3E%3Cpath d='M90 18 C110 35 115 55 90 72 C65 55 70 35 90 18Z'/%3E%3Cpath d='M90 162 C110 145 115 125 90 108 C65 125 70 145 90 162Z'/%3E%3Cpath d='M18 90 C35 70 55 65 72 90 C55 115 35 110 18 90Z'/%3E%3Cpath d='M162 90 C145 70 125 65 108 90 C125 115 145 110 162 90Z'/%3E%3Ccircle cx='90' cy='90' r='14'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;z-index:2;padding:10vh 0 8vh}
+.kicker{color:#d9bf83;margin:0 0 18px}
+h1{
+  margin:0;font-family:"Playfair Display",Georgia,serif;font-size:clamp(3.3rem,9vw,8.6rem);
+  font-weight:600;line-height:.86;letter-spacing:-.055em;max-width:1000px;
+}
+h1 em{font-weight:600;color:#d4b66e}
+.subtitle{
+  margin:30px 0 0;max-width:760px;font-size:clamp(1.18rem,2.5vw,1.7rem);
+  color:#e7dfcf;line-height:1.45
+}
+.meta{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:38px;color:#b9c6c0;font-size:.74rem}
+.motif-divider{position:absolute;bottom:0;left:0;width:100%;height:64px;opacity:.6}
+main{position:relative}
+.intro{
+  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(250px,.55fr);
+  gap:clamp(34px,7vw,100px);padding:11vh 0 9vh
+}
+.dek{font-size:clamp(1.45rem,3vw,2.25rem);line-height:1.42;margin:0}
+.margin-note{
+  border-left:1px solid var(--gold);padding-left:20px;color:#625f58;font-size:.92rem;align-self:end
+}
+section{padding:8vh 0;border-top:1px solid var(--line)}
+.section-grid{display:grid;grid-template-columns:160px minmax(0,720px) 1fr;gap:36px}
+.num{color:var(--lacquer);font-size:.75rem;padding-top:8px}
+.copy{font-size:1.08rem}
+.copy p:first-child{margin-top:0}
+.copy h2{
+  font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.1rem,4.5vw,4rem);
+  line-height:1.02;letter-spacing:-.035em;margin:0 0 28px
+}
+.copy h3{font-size:1.18rem;margin:2.3rem 0 .6rem}
+.aside{font-size:.83rem;color:#666157;align-self:start}
+.pull{
+  margin:50px 0;padding:12px 0 12px 26px;border-left:3px solid var(--gold);
+  font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.7rem,3.7vw,3.1rem);
+  line-height:1.2;letter-spacing:-.02em
+}
+.chat{
+  margin:28px 0;padding:22px 24px;background:#ebe3d5;border-radius:16px 16px 16px 4px;
+  border:1px solid rgba(23,32,30,.08);font-size:1.03rem
+}
+.chat.me{margin-left:7%;background:#dce7dc;border-radius:16px 16px 4px 16px}
+.chat .who{display:block;margin-bottom:8px;color:#77684c;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-family:"IBM Plex Mono",monospace}
+.room{
+  background:var(--deep);color:#f2eadb;position:relative;overflow:hidden
+}
+.room section{border-color:rgba(255,255,255,.14)}
+.room .num{color:#d6b56c}
+.room .aside{color:#aeb9b2}
+.room .pull{border-color:#d6b56c}
+.room .copy h2{color:#fff7e8}
+.observation-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:32px 0
+}
+.obs{
+  padding:20px;border:1px solid rgba(255,255,255,.14);border-radius:10px;
+  background:rgba(255,255,255,.035)
+}
+.obs b{display:block;color:#d7ba77;margin-bottom:5px;font-size:.8rem;font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.08em}
+.hinge{
+  background:#e6ddcd;border:1px solid rgba(23,32,30,.13);border-radius:18px;padding:24px 26px;margin:34px 0
+}
+.hinge summary{cursor:pointer;font-family:"IBM Plex Mono",monospace;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}
+.hinge .inside{padding-top:18px;font-size:.96rem}
+.achar{
+  position:relative;margin:46px 0;padding:32px 30px;border-radius:22px;
+  background:#efe2c5;border:1px solid rgba(143,61,50,.22);overflow:hidden
+}
+.achar:after{
+  content:"";position:absolute;width:200px;height:200px;border-radius:50%;right:-80px;top:-80px;
+  border:28px solid rgba(143,61,50,.08);box-shadow:0 0 0 24px rgba(88,121,106,.07)
+}
+.achar-title{font-family:"Playfair Display",serif;font-size:2.1rem;margin:0 0 8px}
+.ingredients{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;position:relative;z-index:2}
+.ingredient{border:1px solid rgba(23,32,30,.18);border-radius:100px;padding:7px 11px;font-size:.78rem;font-family:"IBM Plex Mono",monospace;background:rgba(255,255,255,.28)}
+.return{
+  background:linear-gradient(180deg,#f5efe3 0%,#eee4d3 100%)
+}
+.big-line{
+  font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.3rem,5vw,4.8rem);
+  line-height:1.02;letter-spacing:-.045em;margin:16px 0 36px
+}
+.lowres{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:38px 0
+}
+.lowres>div{padding:22px;border-top:2px solid var(--ink)}
+.lowres .label{font-family:"IBM Plex Mono";font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.lowres p{margin:.7rem 0 0}
+.coda{
+  background:var(--deep2);color:var(--white);padding:12vh 0 9vh
+}
+.coda .copy{max-width:820px;margin:auto;font-size:1.16rem}
+.coda .last{
+  font-family:"Playfair Display",serif;font-size:clamp(2.4rem,5.5vw,5.2rem);line-height:1.02;
+  letter-spacing:-.045em;margin:50px 0 0;color:#e4cc92
+}
+.endnotes{background:#e7dece;padding:8vh 0}
+.endnotes ol{max-width:860px;padding-left:1.4rem}
+.endnotes li{margin:0 0 1rem;color:#5e5a51;font-size:.88rem}
+.privacy{margin-top:40px;padding-top:25px;border-top:1px solid rgba(255,255,255,.15);font-size:.78rem;color:#9dacaa}
+.footer-songket{height:34px}
+@media (max-width:900px){
+  .intro{grid-template-columns:1fr}
+  .section-grid{grid-template-columns:1fr}
+  .num{padding:0}
+  .aside{border-left:1px solid var(--gold);padding-left:18px}
+}
+@media (max-width:620px){
+  .shell{width:min(100% - 28px,1120px)}
+  .hero{min-height:82vh}
+  .hero-inner{padding:12vh 0 10vh}
+  .meta{display:block}.meta span{display:block;margin:7px 0}
+  section{padding:7vh 0}
+  .observation-grid,.lowres{grid-template-columns:1fr}
+  .chat.me{margin-left:0}
+  .achar{padding:26px 20px}
+}
+@media print{
+  .hero{min-height:auto;padding:60px 0;background:#fff;color:#111}
+  .hero:before,.motif-divider{display:none}
+  .hero .subtitle,.hero .meta,.hero .kicker{color:#333}
+  .room,.coda{background:#fff;color:#111}
+  .room .copy h2,.coda .last{color:#111}
+  .obs{border-color:#bbb}
+  section{break-inside:avoid}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="songket" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="shell hero-inner">
+    <p class="kicker smallcaps">25 August 2026 · Funan, Singapore</p>
+    <h1><em>Achar</em><br>The Place That<br>Doesn't Know You</h1>
+    <p class="subtitle">P. Ramlee, a room full of inherited memory, and the strange work of returning home as someone changed by elsewhere.</p>
+    <div class="meta mono">
+      <span>A private record of one night</span>
+      <span>Names intentionally withheld</span>
+      <span>Written after <i>Tunggu Sekejap: The P. Ramlee Suite</i></span>
+    </div>
+  </div>
+  <svg class="motif-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,62 C120,22 220,82 340,45 C480,2 590,73 715,38 C850,1 965,77 1090,39 C1220,0 1340,57 1440,27" fill="none" stroke="#c39b4a" stroke-width="2"/>
+    <path d="M0,70 C130,32 230,91 360,53 C480,18 610,82 730,49 C865,13 980,85 1110,50 C1240,14 1345,68 1440,41" fill="none" stroke="#58796a" stroke-width="1.2"/>
+  </svg>
+</header>
+
+<main>
+  <div class="shell intro">
+    <p class="dek">I thought I was going to hear an orchestral arrangement of P. Ramlee. Instead, I walked into a room where people were remembering something I did not know I had forgotten.</p>
+    <aside class="margin-note">
+      This is not a biography of P. Ramlee, nor a review of the performance. It is a record of what the performance opened: culture, identity, memory, friendship, and the difficulty of returning to a place that still calls itself home.
+    </aside>
+  </div>
+
+  <section>
+    <div class="shell section-grid">
+      <div class="num mono">01 / ARRIVAL</div>
+      <div class="copy">
+        <h2>I crashed a cultural event.</h2>
+        <p>That was the first feeling.</p>
+        <p>I knew almost nothing about P. Ramlee before the performance. I knew the name in the way one knows the names of monuments one has never entered: important, familiar, belonging somehow to the landscape.</p>
+        <p>Then the music began. The films appeared. People laughed before I understood why. A younger Malay man near me seemed to know dialogue before it was spoken. Around the room, there was sniffing. Not polite applause, not heritage appreciation: <em>recognition</em>.</p>
+        <div class="chat me">
+          <span class="who">Me, later that night</span>
+          “I felt like I crashed a cultural event.”
+        </div>
+        <p>It was an unexpectedly useful feeling: to be at home and yet temporarily foreign to something that was clearly alive in the home around me.</p>
+        <div class="pull">I was not only watching P. Ramlee. I was watching what P. Ramlee did to the room.</div>
+      </div>
+      <aside class="aside">
+        The night became less about “understanding the artwork” and more about reading a social field: who remembered, who translated, who cried, who knew the codes, and who was encountering them for the first time.
+      </aside>
+    </div>
+  </section>
+
+  <div class="room">
+    <section>
+      <div class="shell section-grid">
+        <div class="num mono">02 / THE ROOM</div>
+        <div class="copy">
+          <h2>Memory was distributed unevenly.</h2>
+          <p>The room was not one audience.</p>
+          <div class="observation-grid">
+            <div class="obs"><b>Inherited memory</b>Older audience members and Malay viewers carrying songs, jokes and films across decades.</div>
+            <div class="obs"><b>Living transmission</b>A Gen Z Malay audience member parroting lines from an old film clip word for word.</div>
+            <div class="obs"><b>Translation</b>A Chinese Singaporean composer-arranger moving deeply through Malay repertoire and language.</div>
+            <div class="obs"><b>Re-encounter</b>People like me, culturally adjacent to the history yet discovering how little of it we actually knew.</div>
+          </div>
+          <p>Even the instrumentation became legible differently once I started looking. Western strings, harp, violin virtuosity—and the pulse and grain of Malay percussion cutting through the ensemble. Not a neutral arrangement, but cultures translated through one another.</p>
+          <p>At first I joked about the racial composition. Then the joke became a question: <em>what does it mean when a culture enters a form that another part of society has learned to treat as universal?</em></p>
+          <p>One critic of the 2025 production, writing as a Chinese Singaporean musician trained in Western classical music, asked almost exactly this: does a Chinese, classically trained arranger help P. Ramlee become newly legible as “Singaporean,” and what does that reveal about which art forms are allowed to feel universal?</p>
+          <p>I do not think that question diminishes the work. It makes the work richer.</p>
+        </div>
+        <aside class="aside">
+          The best criticism I found did not ask whether Chinese musicians had the “right” to perform Malay music. It asked what institutional and aesthetic conditions make some cultural inheritance newly audible to a majority audience.
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <section>
+    <div class="shell section-grid">
+      <div class="num mono">03 / THE STORY</div>
+      <div class="copy">
+        <h2>The beautiful story was too clean.</h2>
+        <p>The production carried a strong emotional arc: P. Ramlee flourished in Singapore, moved north, was rejected, died too young, and was canonised too late. I felt the force of it—and immediately distrusted how neat it was.</p>
+        <p>Singapore and Malaysia have become very good at retroactively sorting shared histories into national cupboards. This one resisted sorting.</p>
+
+        <details class="hinge">
+          <summary>Open the historical hinge</summary>
+          <div class="inside">
+            <p>P. Ramlee left Singapore for Kuala Lumpur in April 1964. At that moment, Singapore and Kuala Lumpur were both within Malaysia; separation came in August 1965. So the familiar sentence “he left Singapore and returned to Malaysia” projects later national borders backwards onto a life that moved through an older Malayan cultural world.</p>
+            <p>His late-career decline was real, but so was the decline of the studio ecology around him: labour tensions, television, changing popular taste, foreign competition and the closure of Malay Film Productions in Singapore. He was not simply an abandoned genius who stopped working. He remained remarkably productive.</p>
+            <p>The “unrecognised until death” version is also too strong. He had major acclaim and honours in life. What came later was something different: posthumous canonisation.</p>
+          </div>
+        </details>
+
+        <p>The correction did not make the evening less moving. It made it more honest.</p>
+        <div class="pull">P. Ramlee does not fit comfortably inside “Singaporean” or “Malaysian.” The categories are younger than the cultural world that made him.</div>
+        <p>Perhaps that was why I was so alert to the reclamation. I know, in a much smaller and more private way, what happens when a complicated life is tidied according to geography.</p>
+      </div>
+      <aside class="aside">
+        A 2024 academic study describes P. Ramlee's cinema as having once imagined a transnational future, explicitly unsettling later hypernationalist characterisations of him.
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell section-grid">
+      <div class="num mono">04 / ACHAR</div>
+      <div class="copy">
+        <h2>Mixed, stirred, messy, rich.</h2>
+        <p>Later, talking with an old friend, the conversation moved from P. Ramlee into language.</p>
+        <p>She described a Straits-born Chinese family world in which Hokkien and Malay sit beside one another—not as a multicultural brochure, but as residue, intonation, fragments, inherited familiarity. She cannot really speak Malay, yet it sounds familiar. Her children respond to Bahasa differently from Mandarin. Her mother can speak Hokkien in Germany to a neighbour from Xiamen and still discover that a supposedly shared “Chinese” language history does not line up neatly.</p>
+        <p>Then the obvious metaphor arrived.</p>
+
+        <div class="achar">
+          <h3 class="achar-title">Achar is not a salad.</h3>
+          <p>The pieces remain visible, but they no longer taste only of themselves. They have been cut, salted, spiced, soaked, exchanged. Difference survives; purity does not.</p>
+          <div class="ingredients">
+            <span class="ingredient">Malay</span>
+            <span class="ingredient">Hokkien</span>
+            <span class="ingredient">Peranakan</span>
+            <span class="ingredient">Singapore</span>
+            <span class="ingredient">Malaya</span>
+            <span class="ingredient">China</span>
+            <span class="ingredient">classical</span>
+            <span class="ingredient">popular</span>
+            <span class="ingredient">memory</span>
+            <span class="ingredient">translation</span>
+          </div>
+        </div>
+
+        <p>That felt closer to what I had watched than “multiculturalism.” Multiculturalism too easily becomes four ingredients arranged politely on a plate.</p>
+        <p>This was fermentation.</p>
+        <p>People had absorbed one another across generations without necessarily retaining the vocabulary to explain how.</p>
+      </div>
+      <aside class="aside">
+        Malay decorative reference in this page is deliberately abstract: a restrained <i>pucuk rebung</i>-like geometric rhythm and flowing vine lines, rather than a costume of “ethnic” ornament.
+      </aside>
+    </div>
+  </section>
+
+  <section class="return">
+    <div class="shell section-grid">
+      <div class="num mono">05 / RETURN</div>
+      <div class="copy">
+        <h2>The place that doesn't know you.</h2>
+        <p>Somewhere in the conversation I finally wrote the thing the evening had been circling.</p>
+        <div class="chat me">
+          <span class="who">Me</span>
+          “I guess I resonated tonight not just with the music but all P Ramlee’s journey. Abt culture, identity, coming back to a place that doesn’t know u. 🤣”
+        </div>
+        <p>The laughing emoji was doing useful work.</p>
+        <p>Because “a place that doesn't know you” sounds accusatory if read too quickly. I do not mean that Singapore rejected me, or that nobody here knows me. Home can welcome you and still fail to recognise the person who returned.</p>
+        <p>The problem is temporal.</p>
+        <p>A place remembers the version of you who left. You return carrying experiences, habits, wounds, languages, instincts and calibrations acquired elsewhere. Friends can recognise your face; institutions can read your CV; family can remember your origin story. None of those necessarily explains the person standing in front of them.</p>
+
+        <div class="chat">
+          <span class="who">A close friend</span>
+          “It must have been difficult to come back and have a different identity that people recognise you in.”
+        </div>
+        <div class="chat me">
+          <span class="who">Me</span>
+          “Very very.”<br>“I don’t talk abt China.”<br>“At all.”
+        </div>
+
+        <p class="big-line">That was the sentence beneath the sentence.</p>
+
+        <p>Not because that life did not matter. Perhaps because it mattered too much to compress safely into anecdotes.</p>
+        <p>When a long chapter of life is geopolitically complicated, its achievements can become oddly difficult to translate. What was ordinary there sounds improbable here. What formed you there is invisible here. What you learned there arrives without witnesses.</p>
+        <p>So the self becomes strangely over-documented and under-recognised at the same time.</p>
+
+        <div class="lowres">
+          <div>
+            <span class="label">Low-resolution category</span>
+            <p>Singaporean who spent time in China.</p>
+          </div>
+          <div>
+            <span class="label">Higher-resolution reality</span>
+            <p>A person whose ways of seeing, making, negotiating, belonging and surviving were changed by more than one place.</p>
+          </div>
+        </div>
+
+        <p>This is where P. Ramlee ceased to be an analogy and became a trigger.</p>
+        <p>I do not need his tragedy to resemble mine. I do not need to borrow his rejection. The resonance is more precise than that: <strong>what happens when a person exceeds the categories available to recognise them?</strong></p>
+      </div>
+      <aside class="aside">
+        The danger of analogy is self-dramatisation. The usefulness of analogy is pattern recognition. The night mattered because the second remained possible without requiring the first.
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell section-grid">
+      <div class="num mono">06 / WITNESSES</div>
+      <div class="copy">
+        <h2>Old friends have longitudinal vision.</h2>
+        <p>There was something else I almost missed.</p>
+        <p>The people I was messaging were not strangers admiring a polished version of me after the fact. They have history with me. They have older reference points. They can remember earlier versions against which the returned version becomes visible.</p>
+
+        <div class="chat">
+          <span class="who">An old school friend</span>
+          “I’m so glad you are so intellectually-curious 💪 very big strength. And you are a sort of synthesis yourself!!”
+        </div>
+
+        <p><em>Synthesis.</em></p>
+        <p>That word connected the entire night.</p>
+        <p>P. Ramlee's gift was synthesis: musical forms, languages, class worlds, popular comedy, melodrama, cosmopolitan Singapore, the wider Malay world. The synthesis was powerful precisely because the seams often disappeared into the work.</p>
+        <p>But a synthetic life creates a different problem. Institutions like categories. Nations like categories. Biographies like chapters. People ask which one you are.</p>
+        <p>The truthful answer is sometimes:</p>
+        <div class="pull">All of these have already changed one another inside me.</div>
+        <p>Perhaps the gift of an old friend is not that they understand every transformation. It is that they know enough versions of you to believe the transformation happened.</p>
+      </div>
+      <aside class="aside">
+        Names are withheld in this document, but their presence is not. Friendship is part of the evidence.
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell section-grid">
+      <div class="num mono">07 / INVERSION</div>
+      <div class="copy">
+        <h2>Then Singapore turned the question back on me.</h2>
+        <p>I had been carrying one story about return: I came back to Singapore and sometimes felt that Singapore did not fully know the person who came back.</p>
+        <p>That night the relationship inverted.</p>
+        <p>I sat in a Singapore theatre surrounded by people who knew P. Ramlee's dialogue, songs and emotional vocabulary better than I did. Malay cultural memory was alive beside me. A Peranakan friend later described linguistic traces I had not considered. A Chinese composer had travelled much further into this repertoire than I had.</p>
+        <p>Suddenly I was the one who did not completely know Singapore.</p>
+        <p>That was humbling, and strangely comforting.</p>
+        <p>Because perhaps home is not a finished object that either recognises us or fails to. Perhaps returning home also means allowing home to become unfamiliar again.</p>
+        <p>There are histories here I did not inherit directly. There are memories being carried by people beside me. There are parts of Singapore that do not need to be “claimed” by me before they can enlarge my understanding of what this place is.</p>
+        <div class="pull">I returned to a place that did not completely know me—and discovered a place I did not completely know.</div>
+        <p>That feels less like alienation than an invitation.</p>
+      </div>
+      <aside class="aside">
+        The symmetry is the quiet centre of this document: misrecognition can run in both directions.
+      </aside>
+    </div>
+  </section>
+
+  <section class="coda">
+    <div class="shell">
+      <div class="copy">
+        <p class="smallcaps" style="color:#cdb473">CODA / STILL HERE</p>
+        <p>At one point I wrote, almost casually, that I am 48 and P. Ramlee died at 44.</p>
+        <p>The arithmetic surfaced because the evening had made a life suddenly visible as a completed arc: enormous creative force, changing times, diminishing recognition, then death, then mythology.</p>
+        <p>I do not know what exactly I was counting in that moment. Time? Recognition? Chances left to become legible? The distance between what one has done and what a place remembers?</p>
+        <p>But unlike a completed biography, I am still inside mine.</p>
+        <p>I am still allowed to revise the relationship with home. Still allowed to speak about what I do not speak about. Still allowed to discover histories that complicate my own. Still allowed to make work that does not fit the available boxes. Still allowed to be known differently by old friends, new institutions, this city—and by myself.</p>
+        <p>Perhaps that is what I want to retain from the night. Not the tragedy. Not the nationalist claim. Not even the beautiful music by itself.</p>
+        <p>The permission to remain mixed.</p>
+        <p>To let the pieces keep their shape while exchanging flavour.</p>
+        <p class="last">Mixed and stirred and messy and rich.<br>Like achar.</p>
+        <p class="privacy mono">This version intentionally withholds the names of the two friends whose words appear above. Their words remain because they were part of the night, and part of what made the reflection possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="endnotes">
+    <div class="shell">
+      <p class="smallcaps">Historical notes / for the record</p>
+      <ol>
+        <li>Raphaël Millet, “P. Ramlee: The Singapore Years,” <i>BiblioAsia</i>, National Library Board, 18 March 2026. Useful for the chronology of his Singapore years, his April 1964 move to Kuala Lumpur, and his final visit to Singapore in May 1973. <a href="https://biblioasia.nlb.gov.sg/all-sections/vol-22-issue-1-apr-jun-2026-p-ramlee-the-singapore-years/" target="_blank" rel="noopener">Open source ↗</a></li>
+        <li>Yeo Min Hui, “Transnationalising Malay Cinema: P. Ramlee in Hong Kong,” <i>Journal of Southeast Asian Studies</i> 55.1 (2024), pp. 145–169. The article explicitly challenges later hypernationalist framings and recovers a once-imagined transnational future for Malay cinema. <a href="https://www.cambridge.org/core/journals/journal-of-southeast-asian-studies/article/abs/transnationalising-malay-cinema-p-ramlee-in-hong-kong/68B9F75A5BCC7CD6337B21EB1520ED8A" target="_blank" rel="noopener">Open abstract ↗</a></li>
+        <li>“The Golden Age of Malay Cinema: 1947–1972,” <i>BiblioAsia</i>. Helpful context for labour tensions, television, market change and the decline of the Singapore studio ecosystem surrounding P. Ramlee's move. <a href="https://biblioasia.nlb.gov.sg/all-sections/vol-11-issue-1-apr-jun-2015-golden-age-of-malay-cinema/" target="_blank" rel="noopener">Open source ↗</a></li>
+        <li>Heng Jia Min, review of <i>Tunggu Sekejap: The P. Ramlee Suite</i>, Critics Circle Blog, 24 August 2026. Particularly useful as a response to the current revival and its handling of cultural difference, Malay percussion and the late-life “has-been / guilt” dramaturgy. <a href="https://criticscircleblog.wordpress.com/2026/08/24/review-heng-jia-min-on-tunggu-sekejap-the-p-ramlee-suite-by-julian-wong-wild-rice/" target="_blank" rel="noopener">Open review ↗</a></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="songket footer-songket" aria-hidden="true"></div>
+</body>
+</html>

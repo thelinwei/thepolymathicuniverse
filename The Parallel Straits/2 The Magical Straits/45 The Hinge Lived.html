@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Hinge, Lived · 户枢</title>
+<style>
+:root{
+  --paper:#F6F6F2; --ink:#1E2129; --soft:#4A4F5C; --rule:#C4C7CC; --acc:#8E3B2E; --panel:#ECEDE8; --seam:#2E6E62;
+  --tk:#2B4A78; --am:#1F6F5C; --bp:#8C6A1C; --lf:#9B2C2C; --nr:#6A3E83; --sk:#B0601A; --su:#5F8497;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --acc:#E68B78; --panel:#20232B; --seam:#6FC2AE;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}}
+:root[data-theme="dark"]{
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --acc:#E68B78; --panel:#20232B; --seam:#6FC2AE;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Times New Roman",Times,"Songti SC","Noto Serif SC","SimSun",serif;
+  font-size:19px;line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding-left:22px;padding-right:22px}
+.wide{max-width:1000px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{padding-top:64px;padding-bottom:28px}
+.series{font-style:italic;color:var(--soft);margin:0 0 18px;font-size:17px}
+h1{font-weight:400;font-size:clamp(48px,10vw,92px);line-height:.95;letter-spacing:-.02em;margin:0}
+h1 .zh{display:block;font-size:.5em;letter-spacing:.3em;margin-top:14px;color:var(--acc)}
+.deck{font-size:22px;line-height:1.45;margin:28px 0 0;max-width:34em}
+.part{font-variant:small-caps;letter-spacing:.08em;color:var(--acc);font-size:19px;margin:0 0 6px}
+h2{font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.08;margin:0 0 20px;letter-spacing:-.01em}
+h3{font-weight:700;font-size:21px;margin:30px 0 8px}
+section{padding-top:50px;padding-bottom:50px;border-top:1px solid var(--rule)}
+.partbreak{padding-top:80px;padding-bottom:30px;border-top:3px double var(--ink)}
+.partbreak h2{font-size:clamp(40px,8vw,64px)}
+p{margin:0 0 16px}
+.lede{font-size:21px}
+.pull{font-size:24px;line-height:1.4;margin:26px 0;padding-left:20px;border-left:3px solid var(--acc)}
+.panel{background:var(--panel);padding:20px 22px;margin:20px 0}
+.panel p:last-child{margin:0}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+table{border-collapse:collapse;font-size:17px;width:100%;min-width:620px}
+th,td{padding:10px 8px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+th{font-weight:400;font-style:italic;color:var(--soft)}
+td:first-child{white-space:nowrap}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:20px 0}
+@media (max-width:620px){.grid2{grid-template-columns:1fr}}
+.grid2>div{border-top:2px solid var(--ink);padding-top:10px}
+.grid2 b{display:block;font-size:20px;font-weight:400;margin-bottom:4px}
+figure{margin:24px 0}
+svg{width:100%;height:auto;display:block}
+.cap{font-style:italic;color:var(--soft);font-size:16px;margin-top:10px}
+.opening{padding-top:48px;padding-bottom:48px;border-top:1px solid var(--rule)}
+.ohead{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.ohead h2{margin:0}
+.ohead .house{font-variant:small-caps;letter-spacing:.06em;color:var(--c)}
+.was{font-style:italic;color:var(--soft);margin:10px 0 18px}
+.was::before{content:"In the hinge documents: ";font-style:normal;font-variant:small-caps;letter-spacing:.04em}
+dl{margin:18px 0 0;display:grid;grid-template-columns:7.8em 1fr;gap:10px 18px}
+dt{font-style:italic;color:var(--c)}
+dd{margin:0}
+@media (max-width:560px){dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:12px}}
+.faces{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:10px}
+.faces div{border-top:2px solid var(--acc);padding-top:10px}
+.faces b{display:block;font-size:20px;font-weight:400}
+.faces i{display:block;color:var(--soft);margin-bottom:6px}
+footer{padding-top:40px;padding-bottom:80px;color:var(--soft);font-style:italic;font-size:16px;border-top:1px solid var(--rule)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wide>.inner{padding-left:0;padding-right:0;max-width:676px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <p class="series">The Great Schools of the Straits · a reading of the two hinge documents, and what follows</p>
+  <h1>The Hinge, Lived<span class="zh">户枢</span></h1>
+  <p class="deck">Frameworks for reading the hinge documents alongside the world already built, followed by a first pass at telling the same crisis through people with rent to pay, parents to disappoint, and something to hide.</p>
+</header>
+
+<section class="wrap" style="border-top:none;padding-top:8px">
+  <p class="lede">The two documents you brought, <i>The Other Side of Magic</i> and <i>The Hinge Crisis</i>, carry the world from a gallery of traditions to a civilisation with a constitution, a founding lie, a failing partition and seven people who notice. The architecture is strong. It is also clean in the way a model is clean, and the task now is to let it get dirty without losing its shape.</p>
+  <p>户枢不蠹: a door-hinge that is used never rots. The Chinese title takes that proverb as its bearing. A hinge stays alive by being worked, by hands, grudgingly, every day. Part One sets out seven frameworks. Part Two uses them for a first extrapolation.</p>
+</section>
+
+<!-- ============ PART ONE ============ -->
+<section class="wrap partbreak">
+  <p class="part">Part one</p>
+  <h2>Frameworks</h2>
+</section>
+
+<section class="wrap" id="f1">
+  <p class="part">Framework one</p>
+  <h2>The spine</h2>
+  <p>Read together, the two documents make one argument in eight moves:</p>
+  <div class="tbl"><table>
+    <tbody><tr><th>Move</th><th>What it establishes</th></tr>
+    <tr><td>The Seven</td><td>Seven ancient grammars, each an epistemology and an institution.</td></tr>
+    <tr><td>The shadows</td><td>The same laws permit other civilisations: Grey, Red Ledger, White Salt, Borrowed Faces, Choir, Anatomists, Echoes, the Clear.</td></tr>
+    <tr><td>The two poles</td><td>Grey dissolves everything; Clear fixes everything. The Seven are a strategy for living between.</td></tr>
+    <tr><td>The Sevenfold Harbour</td><td>A catastrophe in which every house was right at once.</td></tr>
+    <tr><td>The Concordat</td><td>Constitutional incompleteness: four Keys (Operation, Legitimacy, Feedback, Witness), none owned by one house.</td></tr>
+    <tr><td>The Great Lie</td><td>The Seven are also a partition of something deeper, Ω, kept apart on purpose.</td></tr>
+    <tr><td>The Hinge</td><td>The partition begins to fail. Two valid descriptions stay live on one thing. Children notice first.</td></tr>
+    <tr><td>The crisis</td><td>Seven misfits, Exit H, four factions, and the Revisionists, who edit history to compare outcomes.</td></tr>
+  </tbody></table></div>
+  <p class="pull">In one breath: the Seven were a treaty, the treaty was a firebreak, and the firebreak is failing.</p>
+</section>
+
+<section class="wrap" id="f2">
+  <p class="part">Framework two</p>
+  <h2>What is strong, and what is thin</h2>
+  <p>The strongest ideas are institutional. Constitutional incompleteness, the four Keys, the partition as firebreak, and the three registers of public myth, scholarly history and buried truth give the world a political order with real stakes. The children who see because they are less finished is the best single idea in either document: it turns education itself into a form of blindness, and every reader has been a child. The Revisionists are a genuinely difficult antagonist, because their best line is true.</p>
+  <p>The thin places are all in the same direction. Every conflict is a disagreement about what reality is. Nobody in these pages is hungry, in debt, in love, grieving, jealous of a sibling, or afraid of their examiner. Each of the seven misfits is their school’s question with a pronoun attached; the character and the concept are the same size. The boxed equations mostly restate the prose, with one exception worth keeping as a working quantity: ε, the remainder after translation. And the writing leans on a single rhetorical move, “it is not this, it is that,” so often that the world keeps arriving by correction.</p>
+  <div class="panel"><p>The repair is additive. Keep the architecture, and hang weight on it: give every abstraction a body it lands on, and give every character a want the plot did not assign them.</p></div>
+</section>
+
+<section class="wrap" id="f3">
+  <p class="part">Framework three</p>
+  <h2>One world, two canons</h2>
+  <p>The hinge documents were written against the earlier house names. They align closely with the current register, and where they differ, the difference is useful. The proposal: keep the current names, and adopt each hinge-document concept as that house’s grammar-word, the one-word answer a student gives when asked what their house knows.</p>
+  <div class="tbl"><table>
+    <tbody><tr><th>Hinge name</th><th>Current house</th><th>Grammar-word</th><th>How they meet</th></tr>
+    <tr><td><span class="sw" style="background:var(--tk)"></span>TKI</td><td>Toa Keng</td><td>Parallax</td><td>Surveyors triangulate. Parallax is the survey’s own method turned philosophical.</td></tr>
+    <tr><td><span class="sw" style="background:var(--am)"></span>Al-Merican</td><td>Al-Merikani</td><td>Amanah</td><td>Identical: trust held and answered for.</td></tr>
+    <tr><td><span class="sw" style="background:var(--bp)"></span>Sri Temenggong</td><td>Balai Pusaka</td><td>Communion</td><td>Custodianship of living place. Sri Temenggong can survive as a court office inside the house.</td></tr>
+    <tr><td><span class="sw" style="background:var(--lf)"></span>Lam Keng</td><td>Lan Fong</td><td>Recomposition</td><td>Typesetting is recomposition. Lam Keng is retired in favour of Lan Fong.</td></tr>
+    <tr><td><span class="sw" style="background:var(--nr)"></span>Nine Rains</td><td>Nine Rain</td><td>Reciprocity</td><td>Weaving as the record of what is owed.</td></tr>
+    <tr><td><span class="sw" style="background:var(--sk)"></span>Kora House</td><td>Sané-Kora</td><td>Third Voice</td><td>A griot knows the genealogy and knows whom the praise-song leaves out. The Third Voice is that second knowledge.</td></tr>
+    <tr><td><span class="sw" style="background:var(--su)"></span>Sund Commons</td><td>Sund</td><td>Commons</td><td>The burden audit is what a Nordic assembly does when it meets.</td></tr>
+  </tbody></table></div>
+  <p>The shadow ecologies also rhyme. The Grey Houses are kin to the Hundun Society; the Borrowed Faces to the Mishearers, who answer names not their own; the Red Ledger Clans practise what the Clausius Lodge knows as the law of the following bill; White Salt, the art of severance, is probable kin to the Lepas. Both drafts arrived at the same two poles, the Grey and the Clear, independently. A convergence like that suggests the poles belong to the world rather than to either draft.</p>
+</section>
+
+<section class="wrap" id="f4">
+  <p class="part">Framework four</p>
+  <h2>Two kinds of elsewhere</h2>
+  <p>The Straits now has two kinds of other place, and keeping them distinct will save the novel from confusion. <i>Beside the Straits</i> mapped worlds with a different law: the Granary, the Reach, the Vault. The hinge documents open onto the same law under a different settlement: the city as it would be with another founder, another crest, an eighth delegation on the war memorial.</p>
+  <figure>
+    <svg viewBox="0 0 720 520" role="img" aria-label="Two-by-two: law ours or other, settlement ours or other.">
+      <line x1="120" y1="40" x2="120" y2="440" stroke="var(--ink)" stroke-width="1.5"></line>
+      <line x1="120" y1="440" x2="690" y2="440" stroke="var(--ink)" stroke-width="1.5"></line>
+      <line x1="405" y1="40" x2="405" y2="440" stroke="var(--rule)" stroke-dasharray="4 5"></line>
+      <line x1="120" y1="240" x2="690" y2="240" stroke="var(--rule)" stroke-dasharray="4 5"></line>
+      <text x="262" y="475" text-anchor="middle" font-size="18" font-style="italic" fill="var(--soft)">our law</text>
+      <text x="548" y="475" text-anchor="middle" font-size="18" font-style="italic" fill="var(--soft)">another law</text>
+      <text x="96" y="345" text-anchor="middle" font-size="18" font-style="italic" fill="var(--soft)" transform="rotate(-90 96 345)">our settlement</text>
+      <text x="96" y="140" text-anchor="middle" font-size="18" font-style="italic" fill="var(--soft)" transform="rotate(-90 96 140)">another settlement</text>
+      <circle cx="262" cy="340" r="44" fill="var(--ink)"></circle>
+      <text x="262" y="345" text-anchor="middle" font-size="18" fill="var(--paper)">The Straits</text>
+      <text x="262" y="100" text-anchor="middle" font-size="22" fill="var(--acc)">Hinge settlements</text>
+      <text x="262" y="126" text-anchor="middle" font-size="16" font-style="italic" fill="var(--ink)">through Exit H</text>
+      <text x="262" y="150" text-anchor="middle" font-size="16" font-style="italic" fill="var(--ink)">same physics, other history</text>
+      <text x="548" y="300" text-anchor="middle" font-size="22" fill="var(--seam)">Adjacent worlds</text>
+      <text x="548" y="326" text-anchor="middle" font-size="16" font-style="italic" fill="var(--ink)">through seams</text>
+      <text x="548" y="350" text-anchor="middle" font-size="16" font-style="italic" fill="var(--ink)">Reach, Granary, Turning, Vault…</text>
+      <path d="M300 170 C 340 205, 380 200, 405 150" fill="none" stroke="var(--tk)" stroke-width="2" stroke-dasharray="10 5"></path>
+      <circle cx="405" cy="150" r="10" fill="var(--paper)" stroke="var(--tk)" stroke-width="2.5"></circle>
+      <text x="548" y="120" text-anchor="middle" font-size="20" fill="var(--tk)">The Settled</text>
+      <text x="548" y="144" text-anchor="middle" font-size="15" font-style="italic" fill="var(--ink)">a settlement that</text>
+      <text x="548" y="164" text-anchor="middle" font-size="15" font-style="italic" fill="var(--ink)">hardened into law</text>
+    </svg>
+    <figcaption class="cap">The Settled sits on the border. It began as a hinge settlement in which the Clear won, and went on winning until its history became its physics. It is where the Revisionists’ logic ends if nobody stops editing.</figcaption>
+  </figure>
+  <p>That border case is the most useful thing on the diagram. It shows how the two kinds of elsewhere connect: push any settlement far enough toward the Clear and it stops being a choice and becomes a law. The novel can make that the long-range danger of the Hinge Crisis.</p>
+</section>
+
+<section class="wrap" id="f5">
+  <p class="part">Framework five</p>
+  <h2>One physics underneath</h2>
+  <p>The hinge documents describe the crisis in the language of description and translation. The world already has a physics of holding and cost. They fit together cleanly, and fitting them gives the crisis a mechanism.</p>
+  <h3>The Hinge is double holding</h3>
+  <p>A casting holds a relation true against World Resistance, and the load is billed. At a Hinge, two houses hold incompatible relations on the same thing, and both hold. World Resistance pushes back on both. The load is real and doubled, and it cannot be billed to either house, because neither of them is wrong.</p>
+  <h3>ε is load with two senders</h3>
+  <p>The remainder the Sund student labels ε is exactly this: load the following bill cannot route, because it has no single sender. That is why Sund finds cost carried by no one and Nine Rain finds consequence without a cause. They are measuring the same unbilled load from two ends.</p>
+  <h3>Unbilled load still lands</h3>
+  <p>The law of the following bill says load is paid wherever there is pliancy to pay it. Unassigned load drains to the softest ground: Basin Seven, the kampongs, and across the seams to the Spent. So the Hinge Crisis and the Basin Seven water crisis are the same crisis, seen from the institutions above and the void decks below. That joins the two story engines into one.</p>
+  <h3>Exit H is a seam to the city’s own other self</h3>
+  <p>Every seam is anchored on a relation both sides recognise. Exit H is anchored on the station itself, a common work that exists in both settlements. It opens where the Straits and its unrealised twin agree on one thing.</p>
+  <h3>Why 384 seconds</h3>
+  <p>The Book of Changes has sixty-four hexagrams of six lines: 384 lines in all, 三百八十四爻, every possible change once. The proposal is that Exit H stays open for exactly one complete reading of the changes. The documents wanted a pre-Concordat counting system; this is one, and it is Lan Fong’s oldest inheritance. It also lets the world’s cosmology speak to the 易 work without explaining it.</p>
+</section>
+
+<section class="wrap" id="f6">
+  <p class="part">Framework six</p>
+  <h2>Tests for a human grammar</h2>
+  <p>A magical grammar becomes believable when it survives contact with ordinary life. Four tests, applied to every house, every faction, every cult:</p>
+  <div class="grid2">
+    <div><b>The kitchen</b>How does this magic feed people? Who cooks with it, and what does it taste like?</div>
+    <div><b>The funeral</b>How does it bury people? What does it promise the dead, and what does it cost the living?</div>
+    <div><b>The bribe</b>How does it get corrupted in small, everyday ways? What is the petty version of its worst sin?</div>
+    <div><b>The joke</b>How do outsiders mock it? What do its own students say about it after a drink?</div>
+  </div>
+  <p>Three more rules for characters:</p>
+  <div class="grid2">
+    <div><b>A want the plot didn’t assign</b>Each misfit keeps their school’s question, and also wants something smaller and more urgent: money, a parent’s approval, to not be found out.</div>
+    <div><b>A reason that isn’t the principle</b>Every faction member holds their position for a private reason. The Conservator who closes archives lost a brother in the last opening.</div>
+    <div><b>Cost lands on a body we’ve met</b>No abstract ε. Every unbilled load shows up as a cough, a debt, a crack in a named wall.</div>
+    <div><b>The fourth register</b>Public myth, scholarly history and buried truth need a fourth: what grandmothers say, which is often wrong and sometimes the only true one.</div>
+  </div>
+</section>
+
+<section class="wrap" id="f7">
+  <p class="part">Framework seven</p>
+  <h2>Parallel legibility</h2>
+  <p>Every element of the Hinge has a precedent in how our own cultures lived with the same problem. The precedents give readers from each tradition a door in, and they supply the mess: real history is never as tidy as a model.</p>
+  <div class="tbl"><table>
+    <tbody><tr><th>Hinge element</th><th>Precedent</th><th>What it lends</th></tr>
+    <tr><td>Seven grammars, one state</td><td>The Straits Settlements’ plural law: English courts deciding, case by case, how far Muslim, Hindu and Chinese customary law applied, as in the Six Widows case of 1908</td><td>Pluralism in practice was improvised by tired judges and full of exceptions</td></tr>
+    <tr><td>The Sevenfold Harbour</td><td>The Maria Hertogh riots, Singapore, 1950: a custody case where each legal and religious order was right by its own lights, and the collision spilled into the streets</td><td>A local, remembered template for a catastrophe of correct parties</td></tr>
+    <tr><td>Constitutional incompleteness</td><td>Jain anekāntavāda and its sevenfold predication, saptabhaṅgī: every claim held “in some respect”</td><td>A classical logic with seven modes, already built for the Hinge</td></tr>
+    <tr><td>Partitions as firebreaks</td><td>The Ottoman millets; colonial census categories that hardened into identities people now defend</td><td>Protective partitions become selves, and selves resist repeal</td></tr>
+    <tr><td>The Great Lie</td><td>正史, the official histories written by the dynasty that came next; every national founding story</td><td>The successor writes the harmony</td></tr>
+    <tr><td>Children see between</td><td>The common belief, in Malay and Chinese households alike, that small children see what adults no longer can; Mencius on 赤子之心</td><td>Readers across the Straits already half-believe it</td></tr>
+    <tr><td>Obligation with no author</td><td>Waqf endowments that outlive their founders; the unrecorded labour of domestic servants across generations</td><td>Duties that exist before anyone signs for them</td></tr>
+    <tr><td>Place remembers the future</td><td>风水, where land holds latent configurations; keramat shrines tended across communities</td><td>Place as an agent with its own time</td></tr>
+    <tr><td>Change by observation</td><td>点主, the dotting that makes a wooden tablet an ancestor; the eye-opening that consecrates a murti</td><td>Seeing completes the object</td></tr>
+    <tr><td>Consequence without cause</td><td>承负 in the Taiping Jing, where descendants bear ancestors’ deeds; Greek miasma</td><td>Costs arrive through lineage, long after the act</td></tr>
+    <tr><td>Absence as possibility</td><td>The variant tellings of griot epics; Benjamin’s history of the defeated</td><td>Every telling is chosen from possible tellings</td></tr>
+    <tr><td>Cost carried by no one</td><td>Elinor Ostrom’s commons; the Jubilee of Leviticus</td><td>Commons fail through unowned remainders, and societies invented ritual release</td></tr>
+    <tr><td>Revisionists</td><td>Damnatio memoriae; South Africa’s Truth and Reconciliation Commission</td><td>Two answers to a bad draft: erase it, or testify to it</td></tr>
+    <tr><td>Seven misfits</td><td>The pilgrims of 西游记, each a punished excess; the outlaws of 水浒</td><td>An ensemble that works because nobody in it is whole</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- ============ PART TWO ============ -->
+<section class="wrap partbreak">
+  <p class="part">Part two</p>
+  <h2>The messy versions</h2>
+  <p class="lede">A first extrapolation. Each opening keeps its anomaly and gains a want, a secret, a family and a body. Names are left open so they can be set against the existing ensemble.</p>
+</section>
+
+<div id="openings"><section class="opening" style="--c: var(--tk);"><div class="wrap">
+   <div class="ohead"><h2>The frame that refuses to choose</h2></div>
+   <p class="house" style="font-variant:small-caps;letter-spacing:.06em;color:var(--c);margin:6px 0 0">Toa Keng · Parallax</p>
+   <p class="was">A gifted student finds seven frames that all stay valid. Parallax has met something invariant.</p>
+   <p>She is only gifted at generating frames; she has failed her qualifying survey twice because she cannot commit to one. Her father, a senior surveyor, has been quietly correcting her marks. When the invariant appears, her first fear is small and specific: an inquiry will pull her record. So she reports it as instrument contamination herself, before anyone else can, and spends the next month trying to prove herself wrong.</p>
+   <dl><dt>The want</dt><dd>To pass on her own, once.</dd><dt>The secret</dt><dd>The corrected marks.</dd><dt>The cost</dt><dd>Every week she hides it, the invariant grows, and she is the only one measuring it.</dd><dt>Legible through</dt><dd>Parallax as the surveyor’s triangulation; 正史 and the edited record.</dd></dl>
+  </div></section><section class="opening" style="--c: var(--am);"><div class="wrap">
+   <div class="ohead"><h2>The obligation with no author</h2></div>
+   <p class="house" style="font-variant:small-caps;letter-spacing:.06em;color:var(--c);margin:6px 0 0">Al-Merikani · Amanah</p>
+   <p class="was">A covenant recognises a genuine obligation from someone with no standing.</p>
+   <p>The claimant is the woman who cleans the covenant vault. Her family kept his family’s house for three generations, unrecorded, unwaged in the years that mattered. The covenant is working perfectly: the debt is real, so the obligation is real. Amanah could never explain it because amanah was written by the people who held the keys. If he files the finding, his grandmother owes more than the family owns.</p>
+   <dl><dt>The want</dt><dd>To be the good grandson and the honest keeper at the same time.</dd><dt>The secret</dt><dd>He has known the family’s name all his life and never asked what they were owed.</dd><dt>The cost</dt><dd>Filing it breaks his family. Burying it breaks his craft.</dd><dt>Legible through</dt><dd>Waqf that outlives its founder; unrecorded domestic labour.</dd></dl>
+  </div></section><section class="opening" style="--c: var(--bp);"><div class="wrap">
+   <div class="ohead"><h2>The place that remembers the future</h2></div>
+   <p class="house" style="font-variant:small-caps;letter-spacing:.06em;color:var(--c);margin:6px 0 0">Balai Pusaka · Communion</p>
+   <p class="was">A custodian of a coastal tract receives memories of relationships that have not yet formed.</p>
+   <p>The tract is her grandmother’s old kampung, and she was assigned to it because she is local and cheap. She wants the redevelopment stopped. The land keeps showing her the future: the new estate, children under a tree not yet planted, and it looks good. One of the children has her face. In her report she leaves out every happy memory and keeps the flood.</p>
+   <dl><dt>The want</dt><dd>To keep the place as it was, for her grandmother.</dd><dt>The secret</dt><dd>She edited the land’s testimony.</dd><dt>The cost</dt><dd>Her own falsified report is now the official future, and the land keeps remembering a different one.</dd><dt>Legible through</dt><dd>风水; keramat shrines; the fourth register of what grandmothers say.</dd></dl>
+  </div></section><section class="opening" style="--c: var(--lf);"><div class="wrap">
+   <div class="ohead"><h2>The object that changes without operation</h2></div>
+   <p class="house" style="font-variant:small-caps;letter-spacing:.06em;color:var(--c);margin:6px 0 0">Lan Fong · Recomposition</p>
+   <p class="was">A ceremonial object changes state between inspections, matching what each school’s observers recorded.</p>
+   <p>The object is an ancestral tablet pawned at the kongsi counter decades ago and never redeemed. Its dotted name changes to match whoever looks: three families have come to claim it, and each reads its own grandfather. The kongsi wants to sell it to a collector to cover her apprenticeship, which it can no longer afford. She is the one who has to decide which family it belongs to, and every time she looks, it shows her a name from her own clan register.</p>
+   <dl><dt>The want</dt><dd>To keep her apprenticeship.</dd><dt>The secret</dt><dd>She has started to believe the tablet is hers.</dd><dt>The cost</dt><dd>Whoever she gives it to becomes, by the act of looking, its true descendant, and the others lose an ancestor.</dd><dt>Legible through</dt><dd>点主, the dotting that makes a tablet an ancestor; eye-opening of a murti.</dd></dl>
+  </div></section><section class="opening" style="--c: var(--nr);"><div class="wrap">
+   <div class="ohead"><h2>The consequence without a cause</h2></div>
+   <p class="house" style="font-variant:small-caps;letter-spacing:.06em;color:var(--c);margin:6px 0 0">Nine Rain · Reciprocity</p>
+   <p class="was">A trainee traces a growing ecological debt back to nothing.</p>
+   <p>The instruments show the debt accumulating along the coast; the trainee’s own lungs show it too. His family was resettled from a coastal village the year the Concordat was signed, and every child in that line has had the same wet cough. His supervisor wants the signal recoded as noise before the grant review. He suspects the cause is the Concordat itself, a debt his family has been carrying since the founding, in a grammar that abolished its own record.</p>
+   <dl><dt>The want</dt><dd>The grant renewed, so his mother can stop working nights.</dd><dt>The secret</dt><dd>He has been using his own breath as an instrument.</dd><dt>The cost</dt><dd>Proving the cause means proving the founding treaty sent its bill to his family.</dd><dt>Legible through</dt><dd>承负, inherited burden; the following bill; Basin Seven.</dd></dl>
+  </div></section><section class="opening" style="--c: var(--sk);"><div class="wrap">
+   <div class="ohead"><h2>The witness who was never missing</h2></div>
+   <p class="house" style="font-variant:small-caps;letter-spacing:.06em;color:var(--c);margin:6px 0 0">Sané-Kora · Third Voice</p>
+   <p class="was">A Third Voice exercise finds absent witnesses who turn out to be fully documented: absence as unrealised possibility.</p>
+   <p>His family business is praise: they sing patrons’ genealogies at weddings and funerals, and they are paid well for it. The ritual keeps finding the places where a patron’s history could have gone otherwise, the betrayals that almost happened, the ancestor who nearly chose differently. He is losing his hearing, and the absences come in clearer as the room goes quiet. This could be Amadou.</p>
+   <dl><dt>The want</dt><dd>To keep singing as his father sang.</dd><dt>The secret</dt><dd>He hears the unsung versions better than the paid ones.</dd><dt>The cost</dt><dd>Singing what he hears would end the family’s patronage in a season.</dd><dt>Legible through</dt><dd>Griot variants; Benjamin’s history of the defeated; Old Brine.</dd></dl>
+  </div></section><section class="opening" style="--c: var(--su);"><div class="wrap">
+   <div class="ohead"><h2>The cost carried by no one</h2></div>
+   <p class="house" style="font-variant:small-caps;letter-spacing:.06em;color:var(--c);margin:6px 0 0">Sund · Commons</p>
+   <p class="was">A difficult student finds a burden that belongs to nobody, and labels it ε.</p>
+   <p>He challenges every allocation exercise because his mother is on the burden roll: she carries civic load for a stipend, as many in the lower estates do. He runs the audit hoping to find her share and argue it down. When he finds a remainder assigned to no one, he is relieved for an afternoon. Then he learns where unassigned load goes, to the softest ground, and understands his mother’s cough is ε.</p>
+   <dl><dt>The want</dt><dd>His mother off the roll.</dd><dt>The secret</dt><dd>The joke name for the variable was the first thing she ever taught him to write.</dd><dt>The cost</dt><dd>ε has a body, and he lives with it.</dd><dt>Legible through</dt><dd>Ostrom’s commons; the Jubilee; the law of the following bill.</dd></dl>
+  </div></section></div>
+
+<section class="wrap" id="exith">
+  <p class="part">The convergence, lived</p>
+  <h2>Exit H, and the cleaner</h2>
+  <p class="was" style="--c:var(--acc)">A commuter finds an eighth exit, open 384 seconds, into a city almost correct.</p>
+  <p>Kora wants to interview the station cleaner, and the others roll their eyes. She is right. The cleaner, an auntie on the 4am shift, has known about Exit H for six years. It opens most weeks, always before the first train, always for exactly as long as it takes her to mop from the gantry to the stairs.</p>
+  <p>She never reported it, because who would believe her, and because she uses it. On the other side, her husband is alive. He never took the job on the barge that killed him. He is older there, and a little heavier, and married to someone else, and he runs a kopi stall by the exit where she buys a cup and he calls her “auntie” and gives her extra condensed milk because she looks tired.</p>
+  <p>She is the first person the seven meet who has already answered the Revisionists’ question, alone, every week, with a paper cup in her hand. She will not let them close it.</p>
+</section>
+
+<section class="wrap" id="faces">
+  <p class="part">The factions, with faces</p>
+  <h2>Who holds each position, and why</h2>
+  <div class="faces">
+    <div><b>A Conservator</b><i>The Toa Keng archivist</i>Closes the archives because her brother went through the last opening, forty years ago, and came back correct in every measurable way. She has never been able to say what was missing.</div>
+    <div><b>A Continuist</b><i>A primary school teacher</i>Her students keep describing houses that remember two shapes. The syllabus tells her to correct them. She has started keeping their drawings in a drawer instead.</div>
+    <div><b>An Intercessor</b><i>A moneychanger at the Arcade</i>Has always moved value between currencies that do not agree. Now he moves permissions. His rate is fair, his books are clean, and his clients include two ministries.</div>
+    <div><b>One of the Unbound</b><i>A hawker from a lineage never recognised as a school</i>Her family’s cooking has always done small things to people who eat it. The Concordat classed it as folk practice. She wants back what was taken from her grandmother’s recipes and filed under Balai Pusaka.</div>
+    <div><b>A Revisionist</b><i>A mother</i>Her son died in the Choir Event. In one settlement, the ritual was never performed and he lived. She is careful, methodical and entirely reasonable, and she has opened eleven hinges.</div>
+    <div><b>A Grey</b><i>A retired builder</i>Spent his life making walls that would outlast him. Now he sits with old buildings and lets them go softly, a little each night, and describes it as the first honest work he has done.</div>
+  </div>
+</section>
+
+<section class="wrap" id="coda">
+  <p class="part">Coda</p>
+  <h2>What the mess gives back</h2>
+  <p>The hinge documents end on a large question: do the seven repair the world that kept civilisation safe, or let people see what it was built to hide. Told through these people, the question arrives smaller and harder. It becomes whether the cleaner keeps her cup of coffee, whether the keeper’s grandmother pays her debt, whether a boy’s mother stops coughing.</p>
+  <p>The big question is still there, carried the way people actually carry big questions, inside small ones, at four in the morning. The permeability the documents call the missing faculty turns out to be something ordinary: the ability to love someone on the other side of a line you were taught to hold.</p>
+</section>
+
+<footer class="wrap">Built from <i>The Other Side of Magic</i> and <i>The Hinge Crisis</i>, read against <i>Beside the Straits</i>, <i>The Unholding</i> and <i>Old Brine</i>. Names are provisional until set against the ensemble register.</footer>
+
+
+
+
+</body></html>

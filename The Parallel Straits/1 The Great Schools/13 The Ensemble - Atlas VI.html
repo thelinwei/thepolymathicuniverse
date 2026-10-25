@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ensemble — Seventeen People of the Parallel Straits · Field Atlas VI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#222b2e; --paper:#f6f1e7; --dim:#5d6769; --hair:#d1c9bc;
+  --sea:#6f9391; --ember:#d57b50; --gold:#a9863f; --forest:#355746;
+  --red:#a53e33; --plum:#68536b; --nord:#6c8a8f; --night:#1f282c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#e6c3a4;color:#172022}
+a{color:inherit}
+.mono{font-family:'IBM Plex Mono',monospace}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.sc{font-family:'Noto Serif SC',serif}
+
+.cover{min-height:100vh;position:relative;display:flex;flex-direction:column;overflow:hidden;padding:30px 34px 48px;color:#2a2b26;background:
+ radial-gradient(circle at 18% 76%,rgba(213,123,80,.34),transparent 28%),
+ radial-gradient(circle at 82% 20%,rgba(104,83,107,.34),transparent 30%),
+ linear-gradient(120deg,#e3d9c3 0%,#c9c3ba 46%,#d7bfa6 100%)}
+.cover:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(rgba(38,50,54,.05) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(38,50,54,.038) 1px,transparent 1px);
+ background-size:34px 34px;pointer-events:none}
+.cover>*{position:relative;z-index:2}
+.cover-top{display:flex;justify-content:space-between;gap:20px}
+.cover-logo{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,94px);font-weight:900;line-height:.82;text-transform:uppercase}
+.cover-index{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.82;letter-spacing:.12em;text-transform:uppercase}
+.cover-side{margin-top:30px;max-width:350px;border-left:1.5px solid currentColor;padding-left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.7}
+.cover-title{margin-top:auto;text-align:center;padding-bottom:8px}
+.cover-kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;margin-bottom:13px}
+.cover-title h1{font-family:'Playfair Display',serif;font-size:clamp(52px,10vw,132px);font-weight:500;line-height:.82;letter-spacing:-.025em;text-transform:uppercase}
+.cover-title h1 em{display:block;font-weight:400;text-transform:none}
+.cover-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2.1vw,24px);margin-top:22px;line-height:1.34}
+
+.runhead{position:sticky;top:0;z-index:80;background:rgba(246,241,231,.96);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--ink);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brandtab{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:#fff;padding:6px 9px;white-space:nowrap}
+.tabs{display:flex;gap:5px;overflow:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);background:#fff;padding:5px 8px;white-space:nowrap}
+.tabs a:hover{background:var(--ink);color:#fff}
+
+.opener{max-width:1180px;margin:0 auto;padding:72px 34px 40px}
+.credit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.opener h2{font-family:'Playfair Display',serif;font-size:clamp(44px,8vw,96px);line-height:.9;font-weight:500;letter-spacing:-.02em;max-width:1000px}
+.standfirst{font-size:clamp(19px,2.3vw,26px);line-height:1.42;max-width:900px;margin-top:30px}
+.article{max-width:1180px;margin:0 auto;padding:18px 34px 46px}
+.cols{columns:2;column-gap:48px;column-rule:1px solid var(--hair);text-align:justify;hyphens:auto}
+.cols p{font-size:16.2px;margin-bottom:15px}
+.dropcap:first-letter{font-family:'Playfair Display',serif;font-size:74px;font-weight:900;float:left;line-height:.68;padding:8px 10px 0 0;color:var(--plum)}
+.pull{max-width:930px;margin:44px auto 58px;padding:0 34px;text-align:center}
+.pull q{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(26px,4vw,44px);line-height:1.17;quotes:none}
+.pull .by{display:block;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+.band{padding:70px 34px;background:var(--night);color:#EDE6DA}
+.band-inner{max-width:1180px;margin:0 auto}
+.band .eyebrow{color:#d9a67c}
+.band h2{font-family:'Playfair Display',serif;font-size:clamp(36px,6.2vw,76px);font-weight:500;line-height:.94;max-width:980px;color:#f6f1e7}
+.band p{max-width:830px;color:#EDE6DA;font-size:18.5px;margin-top:20px}
+
+/* character cards */
+.people{max-width:1180px;margin:0 auto;padding:56px 34px 30px}
+.person{border-top:1.5px solid var(--ink);padding:32px 0 34px;display:grid;grid-template-columns:1fr 340px;gap:44px}
+.people .person:last-child{border-bottom:1.5px solid var(--ink)}
+.person .slug{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.person h3{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,46px);font-weight:500;line-height:1;margin:8px 0 2px}
+.person h3 .ch{font-family:'Noto Serif SC',serif;font-size:.6em;font-weight:600;margin-left:.3em;color:var(--forest)}
+.person .role{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;color:var(--dim);margin-bottom:15px}
+.person p{font-size:16px;margin-bottom:12px;max-width:640px}
+.person .voice{margin-top:14px;border-left:3px solid var(--ember);padding:3px 0 3px 16px;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;line-height:1.28}
+.dossier{border:1px solid var(--ink);background:#fff;align-self:start}
+.dossier .row{border-bottom:1px solid var(--hair);padding:12px 15px}
+.dossier .row:last-child{border-bottom:0}
+.dossier .k{font-family:'IBM Plex Mono',monospace;font-size:8.8px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.dossier .v{font-size:15.4px;line-height:1.34}
+.dossier .row.arc{background:#f0ece1}
+.dossier .row.betray{background:#f7e9e6}
+
+/* map */
+.mapwrap{max-width:1180px;margin:0 auto;padding:20px 34px 80px}
+.mapbox{border:1px solid var(--ink);background:#ece5d8;padding:22px}
+.mapbox svg{display:block;width:100%;height:auto}
+.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.legend span{display:inline-block;width:22px;height:0;border-top-width:2px;vertical-align:middle;margin-right:8px}
+
+/* method */
+.method{max-width:1180px;margin:0 auto;padding:26px 34px 90px}
+.mrow{display:grid;grid-template-columns:64px 1fr;gap:26px;border-top:1px solid var(--hair);padding:24px 0}
+.mrow .n{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;line-height:.8;color:var(--sea)}
+.mrow h4{font-family:'Playfair Display',serif;font-size:25px;font-weight:500;margin-bottom:8px}
+.mrow p{font-size:15.8px;max-width:820px}
+
+footer{border-top:1.5px solid var(--ink);padding:36px 34px 60px;max-width:1180px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);line-height:2}
+
+@media(max-width:900px){
+ .cols{columns:1}
+ .person{grid-template-columns:1fr;gap:22px}
+ .legend{grid-template-columns:1fr}
+ .opener,.article,.people,.method,.mapwrap{padding-left:22px;padding-right:22px}
+ .cover{padding:24px 22px 40px}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Field<br>Atlas VI</div>
+    <div class="cover-index">
+      Seven Signatories<br>
+      Six The Atlas Forgot<br>
+      Four Who Are Too Young<br>
+      Ages 16 to 71<br>
+      Wants · Lies · Arcs · Betrayals
+    </div>
+  </div>
+  <div class="cover-side">
+    A working cast for the parallel Straits. Every entry carries what the person wants, the false thing they believe, the pressure that will break it, the arc that follows, and the specific person they will betray to get there. No prophecies. No chosen ones.
+  </div>
+  <div class="cover-title">
+    <div class="cover-kicker">The Parallel Straits · Dramatis Personae</div>
+    <h1>Seventeen<em>People</em></h1>
+    <div class="cover-sub">A hawker, a deaf listener, a route-keeper, a fraud, a registrar who is right, and three teenagers who are ahead of everybody</div>
+  </div>
+</header>
+
+<nav class="runhead">
+  <span class="brandtab">Field Atlas VI · The Ensemble</span>
+  <div class="tabs">
+    <a href="#fix">The fix</a>
+    <a href="#seven">Signatories</a>
+    <a href="#forgot">The forgotten</a>
+    <a href="#young">The young</a>
+    <a href="#map">Obligations</a>
+    <a href="#method">Method</a>
+  </div>
+</nav>
+
+<section class="opener">
+  <div class="credit">Prelude · what was wrong with the first ensemble</div>
+  <h2>Seven people, one shape.</h2>
+  <p class="standfirst">The first cast was well made and identically made: seven mid-career professionals, ages 29 to 41, one per house, each defined by a single contradiction of the same design — a faithful practitioner meets the case where their tradition fails. That is one good character repeated seven times, and it produces seven parallel arcs that cannot collide.</p>
+</section>
+
+<section class="article" id="fix">
+  <div class="cols">
+    <p class="dropcap">Four changes fix it. First, widen the ages: sixteen to seventy-one, so that some characters are formed and some are still being formed, and so that the argument passes down a family rather than across a committee. Second, vary the arc shapes. A cast needs a corruption arc, a reversal arc, a confession arc, a disillusion arc and at least one flat arc — a person who does not change and instead changes everyone around them.</p>
+    <p>Third, and most important: bring in people the schools do not contain. The atlases have never had a character with no education, no doctrine and no institutional loyalty, which means the whole world has been narrated from inside the seven buildings. A hawker, a boat pilot, a trades-school welder and an afternoon-shift sixteen-year-old are not diversity ornaments; they are the only people who can say what the schools look like from outside, and their testimony is what makes the schools' self-descriptions unreliable.</p>
+    <p>Fourth, remove the mysticism. In the earlier ensemble two characters had supernatural problems — non-local cognition, borrowed memory. Both have been converted into material ones: a statistician's nine-year-old data fraud, and a listener going deaf. The drama is larger, not smaller, because nobody can be exempted from consequence by a phenomenon.</p>
+    <p>What follows is organised in three tiers — the seven signatories, the six the atlas forgot, the four who are too young to be listened to — and every entry ends with a betrayal, because a character in this world is only useful at the point where their private conviction rubs against the tradition that formed them.</p>
+  </div>
+</section>
+
+<div class="pull">
+  <q>Nobody here is a representative. They are all disappointing somebody on principle.</q>
+  <span class="by">Atlas VI · casting rule</span>
+</div>
+
+<section class="band" id="seven">
+  <div class="band-inner">
+    <div class="eyebrow">Tier one</div>
+    <h2>The seven who will have to sign something.</h2>
+    <p>Each is the person their house would send, and the wrong person to send. Their arcs are now five different shapes rather than one, and three of them are directly implicated in each other's failures.</p>
+  </div>
+</section>
+
+<section class="people">
+
+  <article class="person">
+    <div>
+      <div class="slug">Balai Pusaka · 39 · Bukit Temenggong</div>
+      <h3>Nur Iskandar</h3>
+      <div class="role">Legal custodian of the eastern watershed</div>
+      <p>A scholarship child in a house of inherited duty, which means he has all of the obligation and none of the standing. He is the best custodian of his generation because he had to learn the ritual grammar rather than absorb it, and everybody can hear the seam.</p>
+      <p>He is asked to represent a watershed against a transport and water scheme that will, on any honest accounting, keep several million people supplied. His house's doctrine has no formula for a duty that must be weighed against a larger duty; <em>pusaka</em> is inseparable, and inseparability is exactly what the situation forbids.</p>
+      <div class="voice">“I can tell you what I inherited. I cannot tell you what to do when two things I inherited want opposite outcomes.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To be trusted with what was handed to him</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That an obligation can be discharged without dishonour if the reasoning is good enough</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Tengku Sofia, the actual heir, wants custodianship abolished and says so publicly</div></div>
+      <div class="row arc"><div class="k">Arc · corruption as growth</div><div class="v">Signs the release. Becomes the traitor who was right. Ends as custodian of a place that no longer needs one, which he continues to visit.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">His own house, in writing, on a Tuesday afternoon, with a witness present</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Jit Sin · 31 · Lam Keng district</div>
+      <h3>Lin Yanshi<span class="ch">林衍时</span></h3>
+      <div class="role">Architect, essayist, editor of the quarterly</div>
+      <p>Third generation in a printery family, and the sharpest internal critic her school has produced in forty years. Her thesis — that Jit Sin's love of transformation has hardened into an ideology that can no longer recognise a good conservation — made her famous at twenty-six and unemployable inside the school for three years.</p>
+      <p>Then a nineteen-year-old with no institutional standing produces a basin model demonstrably better than anything the schools have, and Yanshi discovers that she does not want it accepted. Not because it is wrong. Because of who made it, and what accepting it would cost the practice of argument she has spent her life inside.</p>
+      <div class="voice">“I have been calling myself a radical since I was twenty-two. It turns out I am a person who likes the room to be a certain way.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To be the one who reforms her house from within, and be thanked</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That she is a radical rather than a very good editor of other people's radicalism</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Sol Soren-Iyer's model; and her own father, who set the type for her first essay</div></div>
+      <div class="row arc"><div class="k">Arc · reversal</div><div class="v">Argues against the better idea, wins, and spends the last third of the book publishing her own dissent from her own victory</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">Sol — by delay, not by lying, which she considers a meaningful distinction and nobody else does</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Toa Keng · 34 · Institution Gate</div>
+      <h3>Elias Tan</h3>
+      <div class="role">Statistician of collective cognition</div>
+      <p>The most quoted researcher of his cohort, brilliant in the specific way that comes from having something to outrun. Nine years ago, finishing a dissertation on distributed decision-making, he smoothed eleven observations. He has called it housekeeping ever since. It was not housekeeping, and the entire downstream field — including the models the water hearing will rely on — sits on top of it.</p>
+      <p>He is not a coward. He is a man who did one small dishonest thing at twenty-five and then did nine years of excellent work to make it retrospectively unimportant, which is a strategy that works until somebody needs the raw data.</p>
+      <div class="voice">“Eleven points. You could fit them on the back of a receipt. I have not been able to put them down for nine years.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To remain the person everyone quotes</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That a small correction becomes true if the work built on it is good</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">The hearing subpoenas primary data; a seventeen-year-old editor gets to it first</div></div>
+      <div class="row arc"><div class="k">Arc · confession</div><div class="v">Loses the career, gains the book's most useful witness. The only character who ends lighter than he began.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">Himself first, at twenty-five; then a graduate student he let take the blame for four days</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Al-Merikani · 36 · Merican Quays</div>
+      <h3>Samira Bharucha al-Haddad</h3>
+      <div class="role">Trust architect</div>
+      <p>Old-family enough to find old-family status embarrassing, and good enough at instruments to know exactly how much of her family's dignity is a legal fiction that has held. She inherits responsibility for a Hundred-Year Trust whose stated purpose — the maintenance of the eastern catchment in perpetuity — has become the single largest obstacle to fixing the water supply.</p>
+      <p>Merikani law was built for discontinuity: promises that survive governments, deaths, currencies. It was not built for a promise that becomes harmful while remaining valid. Breaking it correctly will take her fourteen months, cost her every family relationship she has, and provide the money that saves the basin.</p>
+      <div class="voice">“The instrument is perfect. That is the problem. Nobody drafts a way out of a perfect instrument.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To be worthy of a document written before she was born</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That money can be made to keep a promise if the drafting is careful enough</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Her cousin Idris, suing for the family's residual claim, who is sympathetic and partly right</div></div>
+      <div class="row arc"><div class="k">Arc · disillusion into power</div><div class="v">Breaks the trust legally, correctly, publicly. Ends holding more influence than anyone in the book and despising the fact.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">Four generations, itemised in an annex, with the citations that make it lawful</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Sané-Kora · 33 · Listening Quarter</div>
+      <h3>Amadou Sane</h3>
+      <div class="role">Second Hearer; official listener to the hearing</div>
+      <p>The finest listener of his generation in a city where listening is the prestige skill, and he is losing his hearing — progressively, asymmetrically, with maybe three years of usable range left. In a tradition that locates authority in the trained body, this is not an inconvenience. It is a disqualification his school has no doctrine for, because the doctrine assumes the ear.</p>
+      <p>He is appointed official listener to a statutory hearing whose record he cannot fully hear, and rather than resign he begins building something heretical: a Second Hearing that works through transcript, breath, delay and the shape of an evasion on paper. His school considers this a betrayal of embodied knowledge. It is also, obviously, the future of the school.</p>
+      <div class="voice">“Ask me what neither of them said. I can still do that. I have just stopped needing my ears to do it, and they cannot forgive me for the discovery.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">One more year of the thing he is best at</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That his authority lives in his ears</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Uncle Sec does a bit about it, on air, three weeks before Amadou intended to disclose</div></div>
+      <div class="row arc"><div class="k">Arc · flat — he changes the institution instead</div><div class="v">Does not resign, does not recover, does not soften. Certifies the record. Leaves behind a method that will be orthodoxy within a generation.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">His teacher's central claim, in a footnote, on purpose</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Nine Rain · 29 · born off-world, has never seen rain</div>
+      <h3>Mayu Quispe</h3>
+      <div class="role">Habitat metabolic engineer</div>
+      <p>Second-generation off-world, sent to Earth to argue a case her own house finds obscene: that reciprocity is a planetary luxury, affordable only by people who live inside a biosphere that forgives them. Her habitat is failing metabolically. The engineering fix requires extraction, dependency and a supply contract with people who will use it as leverage.</p>
+      <p>She is the ensemble's antagonist and its conscience in the same body — the only person present with a constituency that dies on a schedule. She is also furious, continuously, in a way the Earth characters find rude and cannot answer, that dead philosophers get opinions about her oxygen.</p>
+      <div class="voice">“You have weather. You have an atmosphere that repairs your mistakes for free. Do not lecture me about obligation from inside a machine you did not have to build.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">Eleven thousand people to still be breathing in four years</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That an emergency suspends the rules rather than revealing which ones were load-bearing</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">She wins the argument in the fourth hearing, and immediately sees what her win licenses on Earth</div></div>
+      <div class="row arc"><div class="k">Arc · refusal of victory</div><div class="v">Argues for extraction, gets the vote, then withdraws her own motion — a decision that may kill people she is related to</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">Her settlement's council, who authorised her to say only one thing and are watching</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Sund Commons · 41 · Cooperative Belt</div>
+      <h3>Erik Soren</h3>
+      <div class="role">Civic economist; chair of the Basin Hearing</div>
+      <p>Career defender of the Minimum Unowned Life — the constitutional floor of time not owned by production. He chairs the hearing, which makes him the one character with procedural power, and procedural power is the most corrupting kind because it never looks like force.</p>
+      <p>Separated from Padma Iyer-Rasmussen, whose forecast started all of this, and co-parenting a nineteen-year-old who has publicly rejected protected time in order to work eighteen-hour days on a model nobody will accept. The argument Erik has spent twenty years winning in public is being lost in his own kitchen, by someone he loves, with better evidence.</p>
+      <div class="voice">“I have never once made anyone do anything. I have only ever decided what gets heard, and in what order, and for how long.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">A fair procedure, which he sincerely believes he can deliver</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That protected time is a gift he is giving people, rather than a rule he is imposing</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">His own child; and the discovery, at the midpoint, that the fair procedure produces the worse outcome</div></div>
+      <div class="row arc"><div class="k">Arc · corruption</div><div class="v">Uses the order of business to engineer a result he believes is right. It works. He resigns, and no one accepts the resignation, which is worse.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">The procedure itself — quietly, in a scheduling decision that takes four seconds</div></div>
+    </aside>
+  </article>
+</section>
+
+<section class="band" id="forgot">
+  <div class="band-inner">
+    <div class="eyebrow">Tier two</div>
+    <h2>The six the atlas forgot.</h2>
+    <p>None of them will sign the instrument. Between them they hold the knowledge the basin actually needs, the power to build anything, the ability to destroy any reputation in the city, and the only claim on the reader's sympathy that does not run through a doctrine.</p>
+  </div>
+</section>
+
+<section class="people">
+
+  <article class="person">
+    <div>
+      <div class="slug">Rumah Arus · 44 · no premises, no gazette name</div>
+      <h3>Suriya Lestari</h3>
+      <div class="role">Route-keeper and boat pilot; called Roro by everyone</div>
+      <p>Fourth-generation route-keeper. What she holds is not a map: it is a set of channels, tidal windows, silting behaviours and old sluice logics carried as practice, inherited in the body, taught only by going. Basin Seven's original hydrology is in her family's routes and in no survey ever filed, because filing it would have made it property, and every generation of her house has understood that legibility precedes expropriation.</p>
+      <p>The basin can be restored. To restore it, she must write down what four generations deliberately refused to write down, and hand it to a hearing that includes a Water Authority, a trust, and two schools with financial interests. She is the moral engine of the entire novel and she never raises her voice once.</p>
+      <div class="voice">“You want the routes. Fine. But understand what you are asking. After this, the channel belongs to whoever holds the paper, and that will never be me.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To keep the routes unwritten and still save the basin</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That illegibility is a form of safety rather than a form of delay</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Her own nephew is a Ferry Trades welder who will be paid to build whatever the paper says</div></div>
+      <div class="row arc"><div class="k">Arc · sacrifice with open eyes</div><div class="v">Writes it down. Watches it become an asset class within eighteen months. Was right about everything and did it anyway.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">Four generations of a promise, in a room with a stenographer</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">No school · 62 · Lam Keng, stall 14</div>
+      <h3>Ha Kim-lian<span class="ch">何金莲</span></h3>
+      <div class="role">Hawker; lay assessor to the Basin Hearing</div>
+      <p>Thirty-eight years at the same stall, in a district declared dead since 1917. She attended no Great School, holds no doctrine, and is selected as lay assessor by a statutory lottery that the schools designed as a legitimacy ornament and have never taken seriously. She takes it extremely seriously, having read every filing, at night, twice.</p>
+      <p>She is the reader's proxy for the first third of the book and something much sharper afterwards: the person who notices that all four proposed solutions have been costed in money and years, and none in whose afternoon disappears. The compromise that ends the novel is substantially hers, and the recomposition it authorises runs directly through stall 14.</p>
+      <div class="voice">“Seven schools, four plans, nine hundred pages. Not one of you has written down who has to move house.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To be left alone; then, having read the filings, to be taken seriously</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That the schools and their arguments have nothing to do with her life</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">The plan she is drafting will close her stall, and she works this out before anybody tells her</div></div>
+      <div class="row arc"><div class="k">Arc · reluctant authorship</div><div class="v">Writes the mixture. Votes for it. Loses the stall. Refuses the citation in the instrument, because a citation would make her one of them.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">Her own neighbours, forty of whom stop speaking to her</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Straits Water Authority · 57 · civil service, 31 years</div>
+      <h3>Josefina Aurelio Bautista</h3>
+      <div class="role">Registrar of Water; author of the extraction scheme</div>
+      <p>The antagonist, and she is right. Her scheme — desalination at scale, upstream extraction, an off-world energy contract — works, on the numbers, within the window. It also breaks Balai Pusaka's custodial land status, converts water into a permanent market good, and creates the dependency Mayu Quispe has flown eleven weeks to warn about.</p>
+      <p>Thirty-one years of being the only person in the room who had read the annexes have taught her that competence is a form of virtue. It is not. It is a form of competence. The novel is not interested in humiliating her; it is interested in the moment she gets everything she asked for and understands that she was never the only adult present.</p>
+      <div class="voice">“Everybody in this room has a philosophy. I have a fifteen-year horizon and four hundred thousand connections. Tell me which of those is negotiable.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">The problem solved before the fifteen years becomes five</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That being correct and being trustworthy are the same credential</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">She is proved right about the timeline and wrong about the city in the same week</div></div>
+      <div class="row arc"><div class="k">Arc · disillusion</div><div class="v">Gets the core of her scheme, inside a mixture she considers sentimental. Retires early. Sends Ha Kim-lian a note nobody else ever sees.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">A junior engineer whose objection she buries for six weeks, and remembers for the rest of her life</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Sané-Kora · 71 · Listening Quarter, Thursday nights</div>
+      <h3>Baba Osei</h3>
+      <div class="role">Satirist; known citywide as Uncle Sec, from “second voice”</div>
+      <p>Fifty years of the most feared weekly show in the Straits, which narrates the hearing to a city that will not read nine hundred pages. He can end a career in ninety seconds and has done, eleven times, mostly deservedly. He is beloved, which he has decided is the same as being correct.</p>
+      <p>Structurally he is the chorus: the mechanism by which the novel's institutional argument reaches ordinary people, and the reason every character is performing for an audience they cannot see. Then he does the bit about Amadou's hearing — funny, accurate, three weeks early — and the novel gets to show that the second voice is a weapon and not only a virtue.</p>
+      <div class="voice">“Somebody in this city has to say the thing. I have simply never worked out how to say it late.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To be feared and loved simultaneously, forever</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That a joke has no author and therefore no consequence</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Amadou will not respond, will not complain, and continues to greet him warmly</div></div>
+      <div class="row arc"><div class="k">Arc · late self-knowledge</div><div class="v">Builds his final show around a formal right of reply that he cannot control, then sits in silence for two of its eleven minutes</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">The one person in the city who had never once asked him to be kind</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Nine Rain trained · 48 · Water District</div>
+      <h3>Padma Iyer-Rasmussen</h3>
+      <div class="role">Hydrologist; author of the fifteen-year forecast</div>
+      <p>The number that starts the novel is hers. Fifteen years, published in a technical annex nobody read for eleven months, then read by everybody. She is not a public person and becomes one against her will, which she manages by becoming steadily more precise as the pressure increases — a defence that reads, to a city looking for reassurance, as coldness.</p>
+      <p>Separated from Erik Soren; the two of them conduct the novel's central political argument as a custody negotiation about their son's working hours. In the fourth hearing she revises the forecast downward — twelve years, not fifteen — and is immediately accused of timing it, which she was not, and which she cannot prove.</p>
+      <div class="voice">“I did not choose the number. I measured it. Those are different verbs and this city has stopped hearing the difference.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">Her measurement believed on its own terms</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That being believed and being heard are the same event</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Her revision helps Bautista, whom she opposes, and Sol, whom she is trying to protect</div></div>
+      <div class="row arc"><div class="k">Arc · from precision to advocacy</div><div class="v">Ends the book arguing rather than reporting — and knows exactly what she has traded away to do it</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">Her own methodological rule about publishing mid-proceeding, for her son</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Al-Merikani · 29 · Merican Quays</div>
+      <h3>Idris Bharucha</h3>
+      <div class="role">Family claimant against the Hundred-Year Trust</div>
+      <p>Samira's cousin, and the case against her. The family's residual claim is real, the family's decline is real, and his argument — that a trust which can be broken whenever it becomes inconvenient was never a trust — is the strongest legal argument in the novel. He is also grasping, self-pitying and frequently unbearable, because sympathetic antagonists should not be dignified.</p>
+      <p>He loses. Then, in the last part, he is proved right about something else entirely: the instrument that saves the basin does contain a clause that will be abused within a decade, and he identified it in a filing nobody bothered to read.</p>
+      <div class="voice">“You are all extremely comfortable dissolving a promise that was made to people like me. Try dissolving one that was made to people like you.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">The money, and, more than the money, to be treated as a legitimate party</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That inheritance is a reward for something</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Samira offers him a settlement that would be comfortable and humiliating</div></div>
+      <div class="row arc"><div class="k">Arc · vindication too late to help</div><div class="v">Loses publicly, is right privately, and is remembered by exactly one person: the drafter who reads his filing four years later</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">His own case, by making it about his dignity in front of a stenographer</div></div>
+    </aside>
+  </article>
+</section>
+
+<section class="band" id="young">
+  <div class="band-inner">
+    <div class="eyebrow">Tier three</div>
+    <h2>The four who are too young to be listened to.</h2>
+    <p>Two of them are correct. All four are inside the plot's mechanism rather than commenting on it, which is the only defensible way to put teenagers in a novel about institutions. And the future arrives in this book the way it always does — badly dressed, in a hurry, with no manners and better data.</p>
+  </div>
+</section>
+
+<section class="people">
+
+  <article class="person">
+    <div>
+      <div class="slug">Sund · 19 · rejects protected time</div>
+      <h3>Sol Soren-Iyer</h3>
+      <div class="role">Unaffiliated modeller</div>
+      <p>Erik and Padma's son, working eighteen-hour days in deliberate violation of everything his father's career stands for, on a basin model that is better than the institutions'. Not marginally: it forecasts the third-quarter drawdown within two per cent, which nothing else does. It also cannot be audited in the way the hearing's rules require, and it was built by a person with no standing.</p>
+      <p>He wants to be right, publicly, now. He is nineteen, so he believes a correct answer compels agreement, and the novel's job is to take that belief apart without punishing him for having had it. In the last part he finds the artifact in his own model — a measurement echo that produced the eerie regularity everyone had begun to mythologise — and has to decide whether to say so.</p>
+      <div class="voice">“You keep asking who I studied under. Ask me what the model says about November.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To be right in public, immediately, with attribution</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That a correct answer compels agreement</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Lin Yanshi could get him a hearing and does not; Owl publishes him without asking</div></div>
+      <div class="row arc"><div class="k">Arc · chooses truth over admission</div><div class="v">Discloses the artifact himself, destroying his own claim, and is offered a place he no longer wants</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">His father's life's work, at dinner, in one sentence he does not realise is unforgivable</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Jit Sin · 17 · editor, Weather Report</div>
+      <h3>Tay Wei-en</h3>
+      <div class="role">Student editor; called Owl since she was twelve</div>
+      <p>Eleventh editor of a paper banned eleven times, and the only journalist in the city who gets Elias Tan's raw data — because she asked a records clerk a polite question that nine professional reporters were too senior to ask.</p>
+      <p>She publishes. She is entirely right that the fraud is real and the public has a claim on it. She is also the direct cause of the novel's midpoint collapse: the best available solution loses its evidentiary base, six months are lost, and the extraction scheme gains the ground it needed. Being right at speed is its own kind of damage, and she is seventeen, so nobody will let her carry it and she has to anyway.</p>
+      <div class="voice">“Everyone keeps telling me the timing was unfortunate. Nobody will tell me which month I should have chosen.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">A story that matters, under her own name, before she graduates</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That speed is a form of honesty</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Elias, who does not blame her, and whose refusal to blame her is unbearable</div></div>
+      <div class="row arc"><div class="k">Arc · earns her judgement</div><div class="v">Holds the second, bigger story for eleven days. Publishes it better. Tells no one why she waited.</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">A records clerk who trusted her, and is dismissed</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Sekolah Petang · 16 · afternoon shift, Toa Keng building</div>
+      <h3>Fadhli Zulkarnain</h3>
+      <div class="role">Second Bell; witness to the hearing</div>
+      <p>He attends the afternoon shift in Toa Keng's building — same walls, same laboratories, twelve hours apart, different world. He is exceptional and profoundly tired of being told so, since every compliment is really a statement about the afternoon.</p>
+      <p>He wins a morning place and takes it, which is the harder and less flattering choice, and it makes him the one person who can describe the building at three in the afternoon to a hearing that has only ever seen it at nine. His testimony is four pages long and changes the resource allocation in the final instrument more than any argument by any signatory.</p>
+      <div class="voice">“You have all been in this room. None of you has been in it after the fans get switched off.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">To be good at something without being an example of anything</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That the morning school is the thing he has been looking at from outside</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">His friends treat the transfer as defection; the hearing treats him as a symbol</div></div>
+      <div class="row arc"><div class="k">Arc · from specimen to author</div><div class="v">Stops being evidence and becomes a witness — the difference being that a witness chooses what to say</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">The afternoon, by leaving it, and then repays it in four pages</div></div>
+    </aside>
+  </article>
+
+  <article class="person">
+    <div>
+      <div class="slug">Balai Pusaka · 24 · the actual heir</div>
+      <h3>Tengku Sofia binti Anwar</h3>
+      <div class="role">Custodial heir; publicly in favour of abolition</div>
+      <p>Nur Iskandar's foil and, structurally, his replacement. She holds by birth everything he earned, does not want it, and has said so in a Kora interview her family has not recovered from. Her argument is not adolescent: custodianship, she says, launders a hereditary claim as an ecological duty, and the watershed would be better held by a public trust with no ancestors.</p>
+      <p>She is right about the laundering and wrong about the trust, which will be captured within a generation. Her arc is not learning to love her inheritance. It is discovering that abolishing something requires exactly the authority she was trying to give up.</p>
+      <div class="voice">“Everyone tells me it is a duty, not a privilege. Fine. Then let me resign from it, the way you can resign from a duty.”</div>
+    </div>
+    <aside class="dossier">
+      <div class="row"><div class="k">Wants</div><div class="v">An ordinary life, and the abolition of the thing that prevents one</div></div>
+      <div class="row"><div class="k">Believes, falsely</div><div class="v">That custodianship is a costume that can be taken off</div></div>
+      <div class="row"><div class="k">Pressure</div><div class="v">Nur signs the release she campaigned for, and she is the only person who sees what it costs him</div></div>
+      <div class="row arc"><div class="k">Arc · assumes power in order to end it</div><div class="v">Takes the office, dissolves the custodial title, and spends her thirties chairing the public trust she does not believe in</div></div>
+      <div class="row betray"><div class="k">Betrays</div><div class="v">Her own position, in the last chapter, by accepting a title she spent six years attacking</div></div>
+    </aside>
+  </article>
+</section>
+
+<section class="mapwrap" id="map">
+  <div class="credit">Obligation map · who owes what to whom</div>
+  <div class="mapbox">
+    <svg viewBox="0 0 1000 470" role="img" aria-label="Diagram of obligations and antagonisms between the seventeen characters">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5d6769"/></marker>
+      </defs>
+      <!-- lines: family (gold), institutional (sea), antagonism (red) -->
+      <g stroke-width="2" fill="none">
+        <line x1="500" y1="90" x2="330" y2="215" stroke="#a53e33"/>
+        <line x1="500" y1="90" x2="675" y2="215" stroke="#6f9391"/>
+        <line x1="180" y1="120" x2="330" y2="215" stroke="#6f9391"/>
+        <line x1="180" y1="120" x2="130" y2="330" stroke="#a9863f"/>
+        <line x1="820" y1="120" x2="675" y2="215" stroke="#a9863f"/>
+        <line x1="820" y1="120" x2="880" y2="330" stroke="#a53e33"/>
+        <line x1="330" y1="215" x2="500" y2="300" stroke="#6f9391"/>
+        <line x1="675" y1="215" x2="500" y2="300" stroke="#6f9391"/>
+        <line x1="500" y1="300" x2="330" y2="405" stroke="#a9863f"/>
+        <line x1="500" y1="300" x2="675" y2="405" stroke="#a53e33"/>
+        <line x1="130" y1="330" x2="330" y2="405" stroke="#a53e33"/>
+        <line x1="880" y1="330" x2="675" y2="405" stroke="#6f9391"/>
+        <line x1="330" y1="215" x2="675" y2="215" stroke="#a53e33" stroke-dasharray="6 5"/>
+        <line x1="330" y1="405" x2="675" y2="405" stroke="#6f9391" stroke-dasharray="6 5"/>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#222b2e">
+        <g><circle cx="500" cy="90" r="7" fill="#1f282c"/><text x="500" y="72" text-anchor="middle" font-size="12.5">Roro Lestari · the routes</text></g>
+        <g><circle cx="180" cy="120" r="6" fill="#6f9391"/><text x="180" y="102" text-anchor="middle">Padma · the forecast</text></g>
+        <g><circle cx="820" cy="120" r="6" fill="#6f9391"/><text x="820" y="102" text-anchor="middle">Samira · the trust</text></g>
+        <g><circle cx="330" cy="215" r="6" fill="#a53e33"/><text x="330" y="197" text-anchor="middle">Bautista · the scheme</text></g>
+        <g><circle cx="675" cy="215" r="6" fill="#68536b"/><text x="675" y="197" text-anchor="middle">Nur · the watershed</text></g>
+        <g><circle cx="500" cy="300" r="7" fill="#1f282c"/><text x="500" y="330" text-anchor="middle" font-size="12.5">Erik Soren · the chair</text></g>
+        <g><circle cx="130" cy="330" r="6" fill="#a9863f"/><text x="130" y="356" text-anchor="middle">Sol · the model</text></g>
+        <g><circle cx="880" cy="330" r="6" fill="#a9863f"/><text x="880" y="356" text-anchor="middle">Idris · the claim</text></g>
+        <g><circle cx="330" cy="405" r="6" fill="#d57b50"/><text x="330" y="432" text-anchor="middle">Ha Kim-lian · the mixture</text></g>
+        <g><circle cx="675" cy="405" r="6" fill="#d57b50"/><text x="675" y="432" text-anchor="middle">Mayu · the habitat</text></g>
+      </g>
+    </svg>
+  </div>
+  <div class="legend">
+    <div><span style="border-top:2px solid #a9863f"></span>Family obligation</div>
+    <div><span style="border-top:2px solid #6f9391"></span>Institutional duty</div>
+    <div><span style="border-top:2px solid #a53e33"></span>Direct antagonism</div>
+  </div>
+</section>
+
+<section class="method">
+  <div class="credit" id="method">Casting method · five tests before adding an eighteenth</div>
+  <div class="mrow"><div class="n">1</div><div><h4>Different arc shapes, not different doctrines</h4><p>Seven people can hold seven philosophies and still be the same character. The variety that matters is structural: corruption, reversal, confession, disillusion, sacrifice, vindication-too-late, and one flat arc that changes the institution instead of the person.</p></div></div>
+  <div class="mrow"><div class="n">2</div><div><h4>Somebody with no doctrine at all</h4><p>Ha Kim-lian and Roro Lestari are load-bearing precisely because they cannot be answered in the schools' vocabulary. Any world narrated only by its institutions will flatter them.</p></div></div>
+  <div class="mrow"><div class="n">3</div><div><h4>No supernatural exemptions</h4><p>A material problem — a fraud, a failing ear, a stall in a demolition zone — implicates everyone around it. A phenomenon implicates nobody, and quietly excuses the character who has it from ordinary moral pressure.</p></div></div>
+  <div class="mrow"><div class="n">4</div><div><h4>The antagonist gets the best numbers</h4><p>Bautista is right about the timeline. If the opposing case is weaker than the protagonists' case, the book is a lecture with characters in it.</p></div></div>
+  <div class="mrow"><div class="n">5</div><div><h4>Every entry ends in a specific betrayal</h4><p>Not a tension, not a dilemma — an act, with a date, a room and a person on the other end of it. That is the line that converts a dossier into a plot.</p></div></div>
+</section>
+
+<footer>
+  Field Atlas VI · The Ensemble<br>
+  Seventeen entries · ages 16–71 · nine houses and three institutions that are not houses<br>
+  Companion to The Register of Names · Basin Seven: The Story Engine
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>There Is Another Account — The Great Schools · Errata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e2426;
+  --paper:#f2eee3;
+  --dim:#5f6a6c;
+  --hair:#cdc5b5;
+  --cream:#e9e3d4;
+  --red:#a8382c;
+  --sea:#668b8c;
+  --sun:#e48354;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#e8c6a6;color:#1c2324}
+a{color:inherit}
+.mono,.eyebrow{font-family:'IBM Plex Mono',monospace}
+.eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.reveal{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* ===== signature: correction marks ===== */
+.struck{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:1.5px;color:#6d7679}
+.caret{color:var(--red);font-family:'IBM Plex Mono',monospace;font-weight:600}
+.ins{color:var(--red);border-bottom:1px solid var(--red)}
+.marg{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.5;color:var(--red);
+  border-left:1.5px solid var(--red);padding-left:11px;margin:18px 0
+}
+.stamp{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red);border:1.5px solid var(--red);padding:4px 8px;
+  transform:rotate(-2.2deg)
+}
+
+/* ===== cover ===== */
+.cover{
+  min-height:100vh;position:relative;display:flex;flex-direction:column;overflow:hidden;
+  padding:30px 34px 48px;color:#242c2e;
+  background:
+    radial-gradient(circle at 78% 22%,rgba(168,56,44,.20),transparent 26%),
+    radial-gradient(circle at 14% 76%,rgba(102,139,140,.30),transparent 30%),
+    linear-gradient(118deg,#e6e0cf 0%,#cbc7b6 44%,#c3ad9f 100%);
+}
+.cover:after{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(0deg,transparent 0 31px,rgba(30,36,38,.06) 31px 32px),
+  repeating-linear-gradient(90deg,transparent 0 31px,rgba(30,36,38,.04) 31px 32px);
+  pointer-events:none;mix-blend-mode:multiply}
+.cover:before{
+  content:"";position:absolute;top:16%;left:-6%;width:112%;height:1.5px;background:var(--red);
+  transform:rotate(-1.1deg);opacity:.55;z-index:1
+}
+.cover-top,.cover-title,.cover-note,.cover-side{position:relative;z-index:2}
+.cover-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.cover-logo{font-family:'Playfair Display',serif;font-size:clamp(38px,7vw,92px);font-weight:900;line-height:.84;text-transform:uppercase}
+.cover-index{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.85;letter-spacing:.14em;text-transform:uppercase}
+.cover-note{margin-top:28px;max-width:260px;border-left:1.5px solid currentColor;padding-left:13px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.6}
+.cover-side{margin-top:22px}
+.cover-title{margin-top:auto;text-align:center;padding:28px 0 8px}
+.cover-kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;margin-bottom:13px}
+.cover-title h1{font-family:'Playfair Display',serif;font-size:clamp(44px,9vw,116px);font-weight:500;line-height:.84;letter-spacing:-.025em;text-transform:uppercase}
+.cover-title h1 em{display:block;font-weight:400;text-transform:none;font-style:italic}
+.cover-title .sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2.1vw,24px);margin-top:22px}
+.scrollcue{text-align:center;margin-top:34px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;position:relative;z-index:2}
+.scrollcue span{display:block;margin-top:7px;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+.runhead{
+  position:sticky;top:0;z-index:70;background:rgba(242,238,227,.96);backdrop-filter:blur(10px);
+  border-bottom:1.5px solid var(--ink);padding:11px 25px;display:flex;align-items:center;justify-content:space-between;gap:14px
+}
+.runhead .tabs{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none}
+.runhead .tabs::-webkit-scrollbar{display:none}
+.runhead a{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);padding:5px 8px;white-space:nowrap;background:#fff}
+.runhead a:hover{background:var(--ink);color:#fff}
+.brandtab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;background:var(--red);color:#fff;padding:6px 9px;white-space:nowrap}
+
+.opener{max-width:1180px;margin:0 auto;padding:72px 34px 45px}
+.opener .credit{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.opener h2{font-family:'Playfair Display',serif;font-size:clamp(42px,7.4vw,92px);line-height:.94;font-weight:500;letter-spacing:-.02em;max-width:950px}
+.opener h2 em{font-weight:400}
+.standfirst{font-size:clamp(20px,2.4vw,27px);line-height:1.42;max-width:850px;margin-top:32px}
+.article{max-width:1180px;margin:0 auto;padding:20px 34px 60px}
+.cols{columns:2;column-gap:48px;column-rule:1px solid var(--hair);text-align:justify;hyphens:auto}
+.cols p{margin:0 0 15px;font-size:16.3px}
+.cols p:first-child{text-align:left}
+.dropcap:first-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:74px;float:left;line-height:.7;padding:8px 10px 0 0;color:var(--red)}
+.pull{max-width:920px;margin:54px auto 78px;padding:0 34px;text-align:center}
+.pull q{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(25px,4vw,44px);line-height:1.16;quotes:none}
+.pull .by{display:block;margin-top:17px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+/* ===== entry dossiers ===== */
+.entry{position:relative;overflow:hidden;border-top:1.5px solid var(--ink)}
+.entry-hero{min-height:78vh;display:grid;grid-template-columns:1.05fr .95fr;position:relative}
+.entry-copy{padding:70px 48px 55px max(34px,calc((100vw - 1180px)/2 + 34px));display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.entry-visual{position:relative;min-height:470px;overflow:hidden}
+.entry-no{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
+.entry-name{font-family:'Playfair Display',serif;font-size:clamp(48px,7.4vw,102px);font-weight:500;line-height:.82;letter-spacing:-.025em}
+.entry-name .alt{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:18px 0 0;line-height:1.6}
+.entry-claim{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,2.4vw,29px);line-height:1.28;max-width:650px;margin-top:28px}
+.motto{margin-top:34px;border-top:1px solid currentColor;padding-top:14px;max-width:580px}
+.motto .latin{font-family:'Playfair Display',serif;font-size:26px;font-style:italic}
+.motto .trans{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.entry-body{max-width:1180px;margin:0 auto;padding:58px 34px 82px;display:grid;grid-template-columns:1.15fr .85fr;gap:64px}
+.entry-body h3{font-family:'Playfair Display',serif;font-size:clamp(27px,3.5vw,44px);font-weight:500;line-height:1.05;margin-bottom:18px}
+.entry-body p{margin-bottom:15px;font-size:16px}
+.entry-body .side{border-left:1px solid currentColor;padding-left:24px}
+.entry-body .side .label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:20px 0 7px}
+.entry-body .side .label:first-child{margin-top:0}
+.entry-body .side .value{font-family:'Playfair Display',serif;font-size:20px;line-height:1.25}
+.entry-body blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:23px;line-height:1.25;margin:32px 0;padding-left:20px;border-left:3px solid var(--red)}
+.entry-tagline{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;margin-top:24px}
+
+/* entry 00 — the shift schools: institutional grey, no crest */
+.petang{background:#e5e2d8;color:#22282a}
+.petang .entry-hero{background:linear-gradient(100deg,#eae7dd 0 54%,#b9b7ab 54% 100%)}
+.petang .entry-visual:before{
+  content:"";position:absolute;inset:9% 11%;
+  background:repeating-linear-gradient(90deg,transparent 0 47px,rgba(34,40,42,.5) 47px 48px),
+             repeating-linear-gradient(0deg,transparent 0 27px,rgba(34,40,42,.32) 27px 28px)
+}
+.petang .entry-visual:after{
+  content:"07.30 · 13.00";position:absolute;bottom:9%;left:11%;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#22282a
+}
+
+/* entry — : the deregistered house */
+.arus{background:#dfe4e2;color:#1c2b2c}
+.arus .entry-hero{background:
+  radial-gradient(circle at 30% 64%,rgba(102,139,140,.55),transparent 34%),
+  linear-gradient(160deg,#e7ebe8 0 48%,#9db3b1 100%)}
+.arus .entry-visual:before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(-24deg,transparent 0 22px,rgba(28,43,44,.22) 22px 23px)
+}
+.arus .entry-visual:after{
+  content:"";position:absolute;inset:26% 22%;border:1.5px dashed rgba(168,56,44,.75);border-radius:50%
+}
+
+/* ===== register ===== */
+.register{background:var(--ink);color:#f0ebdf;padding:88px 34px 96px}
+.register .wrap{max-width:1180px;margin:0 auto}
+.register .eyebrow{color:#c9a99f}
+.register h2{font-family:'Playfair Display',serif;font-size:clamp(38px,6.4vw,80px);font-weight:500;line-height:.94;margin:16px 0 20px;letter-spacing:-.02em}
+.register h2 em{font-style:italic;font-weight:400}
+.register .lede{max-width:760px;font-size:18.5px;margin-bottom:52px}
+.charges{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#3b4447;border:1px solid #3b4447}
+.charge{background:#242c2e;padding:28px 26px 30px}
+.charge .who{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#c9a99f;margin-bottom:12px}
+.charge h4{font-family:'Playfair Display',serif;font-size:26px;font-weight:500;line-height:1.1;margin-bottom:13px}
+.charge p{font-size:15.4px;margin-bottom:11px;color:#eee9dd}
+.charge .verdict{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#e0a99f;border-top:1px solid #3f4a4d;padding-top:11px;margin-top:4px}
+
+/* ===== dark convergences ===== */
+.dark{max-width:1180px;margin:0 auto;padding:86px 34px 40px}
+.dark .eyebrow{color:var(--red)}
+.dark h2{font-family:'Playfair Display',serif;font-size:clamp(38px,6.4vw,80px);font-weight:500;line-height:.94;margin:16px 0 22px;letter-spacing:-.02em}
+.dark .lede{max-width:780px;font-size:18.5px;margin-bottom:50px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.card{background:#faf7f0;padding:26px 24px 28px}
+.card .n{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:11px}
+.card h4{font-family:'Playfair Display',serif;font-size:24px;font-weight:500;line-height:1.12;margin-bottom:12px}
+.card p{font-size:15.2px;margin-bottom:10px}
+.card .cost{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);border-top:1px solid var(--hair);padding-top:10px}
+
+/* ===== ledger table ===== */
+.ledger{max-width:1180px;margin:70px auto 20px;padding:0 34px}
+.ledger table{width:100%;border-collapse:collapse;background:#faf7f0;border:1px solid var(--hair)}
+.ledger th,.ledger td{border:1px solid var(--hair);padding:13px 14px;text-align:left;vertical-align:top}
+.ledger th{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--cream)}
+.ledger td{font-size:14.6px}
+.ledger td:first-child{font-family:'Playfair Display',serif;font-size:18px;white-space:nowrap}
+.ledger td.q{font-style:italic}
+.ledger caption{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:left;padding-bottom:12px}
+
+/* ===== coda ===== */
+.coda{background:linear-gradient(160deg,#e6e0cf 0%,#c8c3b2 58%,#c0a99b 100%);padding:96px 34px 104px;position:relative;overflow:hidden}
+.coda:after{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(0deg,transparent 0 31px,rgba(30,36,38,.05) 31px 32px);
+  pointer-events:none;mix-blend-mode:multiply}
+.coda .wrap{max-width:900px;margin:0 auto;position:relative;z-index:2;text-align:center}
+.coda .eyebrow{color:#7d3c33}
+.coda h2{font-family:'Playfair Display',serif;font-size:clamp(38px,6.6vw,84px);font-weight:500;line-height:.95;margin:16px 0 26px;letter-spacing:-.02em}
+.coda h2 em{font-style:italic;font-weight:400}
+.coda p{font-size:19px;margin-bottom:17px;text-align:left}
+.coda .rule{width:80px;height:1.5px;background:var(--red);margin:36px auto}
+.coda .final{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,3.2vw,34px);line-height:1.3;text-align:center;margin-top:8px}
+
+.colophon{border-top:1.5px solid var(--ink);padding:34px;max-width:1180px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.9;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+
+@media(max-width:1000px){
+  .entry-hero{grid-template-columns:1fr}
+  .entry-visual{min-height:360px}
+  .entry-copy{padding-left:34px}
+  .charges,.cards{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  body{font-size:16.5px}
+  .cover{padding:22px 22px 36px}.cover-index{display:none}
+  .runhead{padding:8px 10px}.brandtab{display:none}
+  .opener,.article{padding-left:22px;padding-right:22px}
+  .cols{columns:1}
+  .entry-copy{padding:56px 22px 40px}
+  .entry-body{grid-template-columns:1fr;gap:34px;padding:44px 22px 64px}
+  .side{border-left:none;border-top:1px solid currentColor;padding:22px 0 0}
+  .entry-visual{min-height:280px}
+  .register,.dark,.coda{padding-left:22px;padding-right:22px}
+  .ledger{padding:0 22px}
+  .ledger table,.ledger thead,.ledger tbody,.ledger th,.ledger td,.ledger tr{display:block}
+  .ledger thead{display:none}
+  .ledger tr{border-bottom:1.5px solid var(--ink);padding:6px 0}
+  .ledger td{border:none;padding:5px 12px}
+  .ledger td:first-child{font-size:22px;padding-top:12px}
+}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}.scrollcue span{animation:none}}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Field<br>Errata</div>
+    <div class="cover-index">
+      Entry 00 · Sekolah Petang<br>
+      Entry — · Rumah Arus<br>
+      The Register of Charges<br>
+      Atlas II · Dark Convergences<br>
+      On the Bias of Atlases
+    </div>
+  </div>
+  <div class="cover-side">
+    <div class="cover-note">
+      Filed against <em>The Great Schools of the Straits</em> and <em>After the Future</em> by the Keeper of the Second Voice, Kora House, under the standing right of contradiction. Not a retraction. An unfinished correction.
+    </div>
+  </div>
+  <div class="cover-title">
+    <div class="cover-kicker">Two Omissions · Seven Charges · Six Costs</div>
+    <h1>There Is<br><em>Another Account</em></h1>
+    <div class="sub">An errata sheet for an atlas that described a city by the schools it could afford to admire</div>
+  </div>
+  <div class="scrollcue">Hear the objection<span>▼</span></div>
+</section>
+
+<nav class="runhead">
+  <div class="brandtab">Errata · Parallel Straits</div>
+  <div class="tabs">
+    <a href="#bias">Bias</a>
+    <a href="#petang">Entry 00</a>
+    <a href="#arus">Entry —</a>
+    <a href="#register">Charges</a>
+    <a href="#dark">Dark Convergences</a>
+    <a href="#coda">Coda</a>
+  </div>
+</nav>
+
+<header class="opener reveal" id="bias">
+  <div class="credit">Prelude · the standing right of contradiction</div>
+  <h2>An atlas of seven schools <em>and no city.</em></h2>
+  <p class="standfirst">The atlas is not false. It is <em>selective in a way it never declares</em> — and the shape of the selection is not an accident of research. It is the shape of what leaves records.</p>
+</header>
+
+<div class="article reveal">
+  <div class="cols">
+    <p class="dropcap">Read the atlas again and notice how each house is identified. By its founding year. By its motto. By its crest. By its campus. By its song. By the professions of its alumni. Every one of those is an artifact that costs money to produce and an endowment to preserve. An institution without a Latin motto is not thereby less of a theory of knowledge; it is merely harder to typeset.</p>
+    <p>So the method selects. It finds the seven houses that generated durable paper about themselves, and calls the result an educational ecology. The city it describes contains no ordinary child.</p>
+    <p>Two absences follow directly from the method, and neither is marginal. The first is quantitative: the atlas describes the education of roughly six per cent of the port's children while calling itself a map of how the city thinks. The second is conceptual: it can only see an institution that stands still. A school whose premises are a route rather than a plot of land is invisible to it — not because the surveyors were malicious, but because the form they used had a field for <em>address</em>.</p>
+    <p><span class="caret">‸</span> The atlas also handles conflict too kindly. It gives each house a <span class="struck">blind spot</span> <span class="ins">blind spot it irritates in others</span> — which is to say, it grants every house the flattering position that its failing is other people's error. Nowhere does a house appear as captured, cowardly, or complicit. Institutions that have survived two centuries near power have all three in their files.</p>
+    <div class="marg">
+      Correction of principle: “blind spot it irritates in others” is not a fault. It is a compliment in the grammar of a fault. Each house requires a charge that its own tradition cannot answer.
+    </div>
+    <p>What follows is therefore in three parts. Two entries the atlas omitted. Seven charges the houses cannot dismiss. And, for the second volume, the six costs that the space age produced alongside its wonders — because a future in which no civilisation defines <em>advanced</em> is also a future in which no civilisation can be held solely responsible.</p>
+  </div>
+</div>
+
+<div class="pull reveal">
+  <q>An institution is not the same thing as a building that survived.</q>
+  <span class="by">Standing objection · Kora House · filed annually since the atlas first appeared</span>
+</div>
+
+<!-- ENTRY 00 -->
+<section class="entry petang" id="petang">
+  <div class="entry-hero">
+    <div class="entry-copy reveal">
+      <div class="entry-no">Entry 00 · not eighth · precedes and outnumbers all seven</div>
+      <h1 class="entry-name">Sekolah<br>Petang
+        <span class="alt">The Shift Schools · 二部制 · “afternoon school”</span>
+      </h1>
+      <p class="entry-claim">Ninety-four per cent of the city's children were educated by an institution the atlas did not consider an institution.</p>
+      <div class="motto">
+        <div class="latin">No motto recorded.</div>
+        <div class="trans">Nothing was engraved because nothing was endowed</div>
+      </div>
+    </div>
+    <div class="entry-visual" aria-hidden="true"></div>
+  </div>
+  <div class="entry-body">
+    <div class="reveal">
+      <h3>Two schools sharing one set of walls, twelve hours apart.</h3>
+      <p>The shift schools are not a system anyone designed. They are what happens when a port's population grows faster than its building programme. One cohort arrives at half past seven and leaves at one. A second cohort arrives at one and leaves at seven. The desks do not change. The teachers, in the bad years, do not change either.</p>
+      <p>There is no single Sekolah Petang, which is precisely why the atlas could not enter it. There are two hundred and forty of them, distinguished by number and district: Kranji Shift School No. 4, Rochor No. 11, Kaki Bukit No. 2. They have no founding myth because they were not founded; they were <em>opened</em>, often in a month, sometimes in a converted warehouse, once in a cinema whose seats were unbolted over a weekend.</p>
+      <p>Their pedagogy was invented under duress and never credited. Given no materials, teachers wrote their own — mimeographed, corrected in the margins by the next teacher who used them, revised across a decade by dozens of hands with no author's name on any version. Given no laboratory, they taught chemistry from a bucket, a kerosene stove and the honest admission that the demonstration might fail. Given no library, they taught a child to read a bus timetable, a tenancy agreement and a debt notice, because those were the documents that would decide her life.</p>
+      <blockquote>“The houses have a question. We have a timetable.”</blockquote>
+      <p>Two of the atlas's celebrated innovations were practised here first and named elsewhere. TKI's <em>Comparative Pedagogic Improvisation</em>, formalised in the 1970s to considerable acclaim, is a description of what a shift-school teacher does at half past seven with no chalk. Sund's rotation of institutional responsibility was a daily necessity in a school where the principal also unblocked the drains — Sund made it a principle; Kranji No. 4 made it a rota, and no international design award followed.</p>
+      <p>The deepest correction is this. The atlas gives each house a primary question, as though having one were natural. A theory of knowledge is expensive. It requires an endowment, an archive, a faculty with time to argue and a century in which nobody demanded the building back. The shift schools' question is therefore not a seventh or eighth alternative to the others. It sits underneath all of them:</p>
+      <blockquote>“Who is permitted to have a theory of knowledge?”</blockquote>
+      <p>Which is why the Concord of Houses is not, as the atlas suggests, the moment the city becomes intelligent by refusing to let one tradition become the whole world. Seven seats are set at a table. One-point-two million students are not in the room. The Concord is the most sophisticated argument in the port and it is still an argument among landlords.</p>
+    </div>
+    <aside class="side reveal">
+      <div class="label">Deep instinct</div>
+      <div class="value">Get through the day, and get somebody through with you.</div>
+      <div class="label">Produces</div>
+      <div class="value">Everyone. Nurses, drivers, fitters, clerks, cooks, technicians, shopkeepers, midwives, soldiers, and the parents of the scholarship children the houses later display.</div>
+      <div class="label">Campus</div>
+      <div class="value">Borrowed. Measured in sessions rather than acres. Best-known feature is a corridor that is quiet twice a day for four minutes.</div>
+      <div class="label">Crest</div>
+      <div class="value">A number. Yours is No. 4.</div>
+      <div class="label">Song</div>
+      <div class="value">Several hundred, mostly unwritten, mostly local, one of which — <em>Empat, Empat</em> — is sung at Kranji reunions by men in their seventies who cannot agree on the second verse.</div>
+      <div class="label">What the houses say</div>
+      <div class="value">Nothing. It does not occur to them that there is anything to say.</div>
+      <div class="label">Archive status</div>
+      <div class="value">Almost none. Mimeograph does not keep. The pedagogy survives in the bodies of retired teachers and in nothing else.</div>
+      <p class="entry-tagline">A theory of knowledge is a luxury good. This is where the city actually learned.</p>
+      <div class="marg">Note for the next edition: this entry cannot be written properly from documents. It has to be recorded from people, and they are dying at a rate the atlas has not costed.</div>
+    </aside>
+  </div>
+</section>
+
+<!-- ENTRY — -->
+<section class="entry arus" id="arus">
+  <div class="entry-hero">
+    <div class="entry-copy reveal">
+      <div class="entry-no">Entry — · unnumbered · deregistered, not closed</div>
+      <h1 class="entry-name">Rumah<br>Arus
+        <span class="alt">House of Currents · no premises · no founding year on record</span>
+      </h1>
+      <p class="entry-claim">A school whose campus was four hundred nautical miles wide and moved with the monsoon. The city could not see it, so the city abolished it.</p>
+      <div class="motto">
+        <div class="latin">Jalan itu guru.</div>
+        <div class="trans">The passage is the teacher · knowledge held as route, not as room</div>
+      </div>
+    </div>
+    <div class="entry-visual" aria-hidden="true"></div>
+  </div>
+  <div class="entry-body">
+    <div class="reveal">
+      <h3>Its curriculum was a set of routes, and a route cannot be donated to a museum.</h3>
+      <p>Rumah Arus belonged to the sea peoples of the straits, and it is a school by every criterion the atlas applies except one. It had a canon: several hundred passages, held as sequences of swell, bird, cloud, smell, bottom-colour, star and current, each with named authorship and a chain of transmission. It had examination: a candidate took a vessel through a passage in the wrong season, and was assessed by whether the passage was still legible to the examiner from the choices the candidate made. It had teachers, ranks, disputes, heresies and a two-hundred-year quarrel about whether a new route may be taught before it has been sailed three times.</p>
+      <p>What it did not have was an address. When the modern port introduced registration, the form required a permanent site, a fixed enrolment, an annual calendar and a named principal resident within the municipality. Rumah Arus could satisfy none of these, not through poverty but by constitution: its enrolment moved, its calendar was the monsoon, and its most senior teacher was, by the tradition's own rule, whoever was furthest from home.</p>
+      <blockquote>“You have asked us for the location of the school. The school is the water between the locations.”</blockquote>
+      <p>It was deregistered on administrative grounds. Nobody banned it. No troops arrived. A clerk noted an incomplete return, and a second clerk, three years later, removed the entry. Its students became, in the language of the record, unschooled — and their children were enrolled in shift schools, where they were taught geography from a wall map.</p>
+      <p>The consequence for the atlas is not sentimental, it is doctrinal. The House of Nine Rains is praised for the principle that <em>the institution must learn the sky where it stands</em>, recalibrating its astronomical court to the equatorial sky rather than reproducing a homeland temple. Rumah Arus had practised exactly that for centuries, without a court to recalibrate, and it was struck off in the same decade Nine Rains was congratulated. The port did not reject the idea. It rejected the idea unaccompanied by masonry.</p>
+      <p>Two further corrections follow. First, Nine Rains' celebrated fibre mathematics — knowledge represented in cords, weaves and spatial arrays rather than notation — has a straits precedent nobody cited, because the precedent had no faculty left to lodge a claim. Second, Kora House exists to ask whose account is missing from the archive, and did not notice for a century that the answer was moored two miles from its own courtyard. The Second Voice is an instrument. It still has to be pointed at something.</p>
+    </div>
+    <aside class="side reveal">
+      <div class="label">Deep instinct</div>
+      <div class="value">Learn the thing that will not hold still.</div>
+      <div class="label">Produced</div>
+      <div class="value">Pilots, salvage divers, weather readers, fishers, smugglers, and — for two generations after deregistration — men whose expertise was hired by the harbour authority as casual labour.</div>
+      <div class="label">Campus</div>
+      <div class="value">Seasonal. Reconstructable, in part, from where the passages say the water changes.</div>
+      <div class="label">Crest</div>
+      <div class="value">None. A crest is for a gate.</div>
+      <div class="label">Examination</div>
+      <div class="value">“Take this passage in the wrong season. We will read your choices.”</div>
+      <div class="label">Cause of death</div>
+      <div class="value">An incomplete form. Registry field 4(b): permanent premises.</div>
+      <div class="label">Current status</div>
+      <div class="value">Eleven passages recorded in full. Somewhere between forty and three hundred lost. The uncertainty in that figure is the entry.</div>
+      <p class="entry-tagline">The atlas describes each house by its campus. That is not a style choice. It is the filter that killed this one.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="register" id="register">
+  <div class="wrap">
+    <div class="eyebrow reveal">The register of charges</div>
+    <h2 class="reveal">What each house <em>cannot defend.</em></h2>
+    <p class="lede reveal">One charge per house. Not a rival's insult, not a blind spot that flatters — a charge from inside the house's own ethic, which is the only kind that cannot be answered by saying the accuser has a different tradition.</p>
+    <div class="charges">
+      <div class="charge reveal">
+        <div class="who">01 · Toa Keng Institution</div>
+        <h4>Its dissidents are its alibi.</h4>
+        <p>TKI questions inherited categories, and has staffed every administration the port has had. Both facts are true, and the second is the business model. Each regime it served is redeemed in memory by the one graduate who resigned spectacularly — a resignation the school records with pride and the ministry absorbs as ventilation.</p>
+        <p>The specific charge: the language in which Rumah Arus was deregistered was drafted in TKI's own public administration faculty, by people who would have found the school fascinating had anyone shown them the file.</p>
+        <div class="verdict">Charge · questioning sold as a service, at a rate the buyer sets</div>
+      </div>
+      <div class="charge reveal">
+        <div class="who">02 · Al-Merican College</div>
+        <h4>Stewardship includes what should not have passed through the port.</h4>
+        <p>Merican measures wealth by what survives its owner, which is a genuine ethic and also an exact description of inheritance. Three generations of “intergenerational capital” is the correct technical term for a closed door with a courtyard behind it.</p>
+        <p>Its own doctrine supplies the charge. If trust means answering for what you handled, the College has never published a full account of the monsoon-route cargoes its founding houses carried, and stewardship without that ledger is reputation management wearing the ethic's clothes.</p>
+        <div class="verdict">Charge · an unaudited century, defended by the value it violates</div>
+      </div>
+      <div class="charge reveal">
+        <div class="who">03 · Sri Temenggong Institution</div>
+        <h4>The admission argument was not lost gracefully.</h4>
+        <p>The atlas reports that the old families lost, the hierarchy changed and the ethic held. The archive reports sixty-one years, four expulsions, one burned annexe, two rival boards claiming the seal, and a settlement in which the families conceded admissions and retained the endowment. They still hold it.</p>
+        <p>And an institution whose ethic is custodianship of land sits on the largest single grant in the city, awarded by an administration whose legitimacy the school does not otherwise recognise. Roots uphold the sky. Somebody had to be moved off the roots.</p>
+        <div class="verdict">Charge · a settlement narrated as a conversion</div>
+      </div>
+      <div class="charge reveal">
+        <div class="who">04 · Lam Keng College · 南景书院</div>
+        <h4>“Why are we still doing it this way” is also how an archive is thrown out.</h4>
+        <p>Lam Keng's appetite for transformation is real, and twice it discarded a generation of its own records because they belonged to a faction that lost: the 1911 reformist minutes, and the wartime correspondence that named which patrons paid whom. Both were destroyed by people who sincerely believed they were clearing space.</p>
+        <p>Recomposition, the twenty-year civic ritual it later gives the world, was invented by an institution with a documented habit of forgetting on purpose. Temenggong's constraint — that a loss must be stated before a change is made — is not a philosophical refinement. It is a patch on a known defect, and the defect is the inventor's.</p>
+        <div class="verdict">Charge · transformation that has twice been indistinguishable from disposal</div>
+      </div>
+      <div class="charge reveal">
+        <div class="who">05 · The House of Nine Rains</div>
+        <h4>Infrastructure made legible. Labour left illegible.</h4>
+        <p>Every litre of water on the campus can be traced. The names of the people who clear the terrace channels after the November rain appear in no publication, and their contracts are held by a third party in another jurisdiction.</p>
+        <p>By its own standard this is a failure of consequence, not of ethics-in-general: the house insists abstraction must answer to what it costs, and then publishes a metabolic account with the human labour line absent. If it cannot feed the valley, what does it know? If it cannot name who feeds it, the same question applies.</p>
+        <div class="verdict">Charge · a metabolic ledger with one column missing</div>
+      </div>
+      <div class="charge reveal">
+        <div class="who">06 · Kora House</div>
+        <h4>Constitutionalised contradiction is contradiction with a scheduled slot.</h4>
+        <p>The Keeper of the Second Voice speaks after the Head, by right, at a known moment, having been appointed. That is an office. An office can be allocated, and the record shows who has held it: never once a student then in dispute with the House.</p>
+        <p>The most admired dissent mechanism in the port is also the safest place in the city to put dissent. And the House that asks whose account is missing failed to notice, for a hundred years, a deregistered school of navigation two miles from its gate.</p>
+        <div class="verdict">Charge · an instrument mistaken for a conscience</div>
+      </div>
+      <div class="charge reveal" style="grid-column:1/-1">
+        <div class="who">07 · The Sund Commons</div>
+        <h4>It knows. That is the charge.</h4>
+        <p>Sund observes that its refusal of elite signalling makes admission ferociously desirable among the elite, and treats this as evidence that the problem remains unsolved. Stated once, that is honesty. Stated annually for ninety years, in a prospectus, it is the most sophisticated form of not solving it available anywhere in the city — a permanent confession that functions as a permanent permission.</p>
+        <p>Rotating institutional responsibility teaches obligation to people who will never be obliged. Ability creates obligation, the motto says. It does not say that the obligation may be discharged inside the institution that conferred the ability. Meanwhile, four kilometres away, the rota at Kranji No. 4 exists because nobody else will do the work, and no design award has ever been given for it.</p>
+        <div class="verdict">Charge · a solved paradox is not the same as a solved problem, and Sund is the only house clever enough to know the difference and keep the fees</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEDGER -->
+<section class="ledger reveal">
+  <table>
+    <caption>Table · the atlas grid, corrected — each house's question, and the question it is structurally unable to ask</caption>
+    <thead>
+      <tr><th>House</th><th>Its question</th><th>The question it cannot ask</th><th>Who pays for the gap</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Toa Keng</td><td class="q">What can be known?</td><td>Who benefits from the questioning being ours?</td><td>Whoever the questioning was performed upon</td></tr>
+      <tr><td>Merican</td><td class="q">What must be entrusted?</td><td>What passed through that should not have?</td><td>Parties to contracts never published</td></tr>
+      <tr><td>Temenggong</td><td class="q">What must be carried?</td><td>Who was moved so the roots could be held?</td><td>Tenants of the grant</td></tr>
+      <tr><td>Lam Keng</td><td class="q">What can become?</td><td>What did we destroy while clearing space?</td><td>Two lost generations of its own record</td></tr>
+      <tr><td>Nine Rains</td><td class="q">What feeds the valley?</td><td>Who maintains the thing we made legible?</td><td>Subcontracted labour, offshore</td></tr>
+      <tr><td>Kora</td><td class="q">Whose account is missing?</td><td>Who appoints the person who asks that?</td><td>Dissenters who were never appointed</td></tr>
+      <tr><td>Sund</td><td class="q">Who carries the cost?</td><td>Why is our answer still a school?</td><td>Everyone outside the intake</td></tr>
+      <tr><td>Sekolah Petang</td><td class="q">Who is permitted a theory of knowledge?</td><td>—</td><td>It is the answer, not the asker</td></tr>
+      <tr><td>Rumah Arus</td><td class="q">How is what will not hold still learned?</td><td>—</td><td>Struck off · field 4(b)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- DARK CONVERGENCES -->
+<section class="dark" id="dark">
+  <div class="eyebrow reveal">Atlas II · errata</div>
+  <h2 class="reveal">Six costs the second volume left out.</h2>
+  <p class="lede reveal">The second atlas is right that technology follows worldview, and wrong in one structural respect: by the space age its seven incompatible houses have become complementary contributors to shared programmes. The argument that powered the first volume has quietly become interdisciplinary teamwork. A world with seven irreconcilable epistemologies and full-spectrum capability does not become harmonious. It becomes dangerous in six new ways, and each wonder should be filed with its cost.</p>
+  <div class="cards">
+    <div class="card reveal">
+      <div class="n">01 · against Impossible Observation</div>
+      <h4>Entrainment without exit</h4>
+      <p>Collective cognitive states require a protocol of consent, and the protocol was drafted by the party holding the instrument. Three jurisdictions permit resonance in custodial interrogation on the reasoning that no substance is administered and no statement compelled.</p>
+      <p>Nothing is extracted. The subject simply becomes, for forty minutes, part of a cognitive system whose other members are not on trial.</p>
+      <div class="cost">Cost · privacy becomes cognitive, and so does coercion</div>
+    </div>
+    <div class="card reveal">
+      <div class="n">02 · against Gaia Listening</div>
+      <h4>The river has standing and no constituency</h4>
+      <p>Non-human proxies acquire separate legal standing, which is a genuine advance, and a proxy is a person with a mandate nobody can revoke. Bioregional authorities now overrule the settlements they speak for, citing telemetry the settlement cannot contest.</p>
+      <p>“The watershed does not consent” is unanswerable in exactly the way older unanswerable sentences were, and the people who read the sensors are the ones who decide what the Earth said.</p>
+      <div class="cost">Cost · an authority that cannot be argued with, wearing ecology's clothes</div>
+    </div>
+    <div class="card reveal">
+      <div class="n">03 · against Reciprocal Habitats</div>
+      <h4>Basin Seven</h4>
+      <p>The annual declaration of water loss, nutrient balance and biological debt is read aloud for nine years, then abridged for length, then presented as a summary index, then presented as a rating.</p>
+      <p>Basin Seven's rating was adequate for eleven months before the settlement failed. The metabolic figures were all published. Nobody had read a full one since the abridgement, and civic literacy had become a number people trusted rather than a balance people held.</p>
+      <div class="cost">Cost · ecological honesty compressed into a score, which is how honesty dies</div>
+    </div>
+    <div class="card reveal">
+      <div class="n">04 · against Ancestral Continuance</div>
+      <h4>The dead are consultable, therefore subpoenaed</h4>
+      <p>Decision patterns and ethical tendencies are not ghosts, which is the point, and they are also evidence. Estates litigate over whose reading of a grandmother's reasoning-structure governs. Two ministries have consulted a dead general.</p>
+      <p>“How did she reason under uncertainty?” is a beautiful question when a descendant asks it in grief and a dangerous one when a state asks it about a commander who cannot revise a view.</p>
+      <div class="cost">Cost · the dead lose the right to have changed their minds</div>
+    </div>
+    <div class="card reveal">
+      <div class="n">05 · against Civic Time</div>
+      <h4>The market in unowned life</h4>
+      <p>The Minimum Unowned Life is constitutionally protected, and constitutional protections are assets. Nothing prevents a person who needs money now from selling it quietly, and the contracts are not called that.</p>
+      <p>Sund's answer — that the protected portion is inalienable — is correct on paper and depends entirely on nobody being desperate. Fusion did not abolish desperation. It relocated it into time.</p>
+      <div class="cost">Cost · a right that becomes collateral for the people it was written for</div>
+    </div>
+    <div class="card reveal">
+      <div class="n">06 · against Cosmological Hermeneutics</div>
+      <h4>Grammar without an author, read by houses with interests</h4>
+      <p>If persistent cosmic structure resembles grammar rather than message, someone must be qualified to parse it, and qualification is institutional. Within a century the reading of cosmological structure carries the authority that scripture once did, held by the houses best equipped to read it.</p>
+      <p>The failure mode is the exact error the Second Voice exists to prevent: silence in the record treated as absence, and now the record is the sky.</p>
+      <div class="cost">Cost · a new priesthood, staffed by universities</div>
+    </div>
+  </div>
+</section>
+
+<!-- CODA -->
+<section class="coda" id="coda">
+  <div class="wrap">
+    <div class="eyebrow reveal">The question beneath the errata</div>
+    <h2 class="reveal">The atlas is not wrong. <em>It is early.</em></h2>
+    <p class="reveal">Achar is what happens when purity was never historically true. That claim is correct and the first atlas earns it. But the same argument has a second edge the atlas never turns on itself: if no tradition was ever pure, then no tradition can be described from its own paperwork. An institution's account of itself is a genre, and the genre has conventions — a founding, a motto, a crest, a distinguished alumnus, an endearing story about a ditch.</p>
+    <p class="reveal">So the rule proposed here is procedural rather than moral. Every atlas of this city must be bound with an errata sheet, and the errata must be written by someone the atlas does not contain. Not to shame the atlas. To keep it usable. A map of seven houses is a real instrument, and an instrument that cannot state its own filter will be mistaken for the territory within a generation.</p>
+    <p class="reveal">Which produces the last correction, and it is against this document. This errata was written by a Kora student holding a Kora office, in the house's own idiom, and filed under a right the house itself created. It is therefore an eighth entry in the atlas it claims to correct: articulate, endowed, appointed, and speaking on behalf of two institutions that cannot speak here — one whose pedagogy lives only in the bodies of retired teachers, one abolished by a clerk over an incomplete form.</p>
+    <p class="reveal">Neither of them wrote this. That is not a flourish. It is the outstanding item.</p>
+    <div class="rule"></div>
+    <p class="final reveal">There is another account.<br>There is always one more after that.<br>The city is intelligent only for as long as somebody is still standing up.</p>
+    <div class="reveal" style="margin-top:38px"><span class="stamp">Errata · unfinished · reopen annually</span></div>
+  </div>
+</section>
+
+<div class="colophon">
+  Field Errata · The Great Schools of the Straits · filed against Atlas I and Atlas II<br>
+  Same editorial lineage · proof-correction skin: proof stock, correction red, struck rule<br>
+  Two entries added · seven charges laid · six costs filed · one charge outstanding against this document
+</div>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

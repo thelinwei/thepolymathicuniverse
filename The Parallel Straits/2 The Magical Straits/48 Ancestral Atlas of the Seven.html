@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ancestral Atlas of the Seven — Parallel Straits</title>
+<meta name="description" content="A field atlas of the Seven Schools, their candidate ancestral realities, cousin worlds, exchange institutions, disputed genealogies, relic evidence, and buried discoveries.">
+<style>
+:root{
+  --bg:#0d1012; --paper:#161a1e; --paper2:#111519; --ink:#efeae1; --muted:#aaa69d;
+  --line:#2d3338; --gold:#ccb77c; --teal:#7da9a2; --violet:#9b8fbd; --rose:#b97e79;
+  --blue:#789ac8; --green:#83a778; --amber:#bd965b; --max:1200px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink)}
+body{font-family:ui-serif,Georgia,Cambria,"Times New Roman",serif;line-height:1.7}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+header{
+  padding:92px 0 62px;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 14% 12%,rgba(204,183,124,.12),transparent 30%),
+    radial-gradient(circle at 84% 18%,rgba(125,169,162,.10),transparent 30%),
+    radial-gradient(circle at 56% 72%,rgba(155,143,189,.07),transparent 34%);
+}
+.eyebrow{
+  font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;
+  letter-spacing:.17em;font-size:.74rem;color:var(--gold);margin-bottom:18px
+}
+h1,h2,h3,h4{font-weight:500;line-height:1.12;margin:0}
+h1{font-size:clamp(2.9rem,7vw,6.5rem);letter-spacing:-.045em;max-width:1060px}
+.dek{max-width:940px;color:var(--muted);font-size:clamp(1.08rem,2vw,1.34rem);margin:26px 0 0}
+nav{position:sticky;top:0;z-index:20;background:#101417;border-bottom:1px solid var(--line)}
+nav .wrap{
+  display:flex;gap:18px;overflow:auto;padding:12px 0;
+  font-family:ui-sans-serif,system-ui,sans-serif;font-size:.77rem
+}
+nav a{color:var(--muted);text-decoration:none;white-space:nowrap}
+main{padding:56px 0 120px}
+section{padding:50px 0;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+.part{
+  font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;
+  letter-spacing:.15em;font-size:.74rem;color:var(--teal);margin-bottom:10px
+}
+h2{font-size:clamp(2rem,4vw,3.45rem);letter-spacing:-.03em;margin-bottom:18px}
+h3{font-size:1.42rem;color:var(--gold);margin:30px 0 10px}
+h4{font-size:1.08rem;color:var(--teal);margin:18px 0 8px}
+p{max-width:930px;margin:0 0 18px}
+.lead{font-size:1.22rem;color:#f7f2e8}
+.quote{
+  margin:28px 0;padding:24px 26px;border-left:3px solid var(--gold);
+  background:rgba(255,255,255,.025);font-size:1.18rem;max-width:990px
+}
+.eq{
+  margin:26px 0;padding:18px 20px;background:var(--paper);border:1px solid var(--line);
+  border-radius:14px;overflow:auto;text-align:center;font-size:1.12rem;font-style:italic;
+  font-family:"Times New Roman",Times,serif;letter-spacing:.01em
+}
+.callout{
+  margin:28px 0;padding:24px 26px;background:var(--paper2);
+  border:1px solid #303740;border-radius:16px;max-width:990px
+}
+.callout strong{color:var(--teal)}
+.grid2,.grid3{display:grid;gap:16px;margin:24px 0}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;min-width:0
+}
+.card h3{margin-top:0}.card p:last-child{margin-bottom:0}
+.tag{
+  display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.7rem;
+  text-transform:uppercase;letter-spacing:.09em;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:4px 8px;margin-bottom:10px
+}
+.school{
+  margin:34px 0 0;padding:34px 0 0;border-top:1px solid var(--line)
+}
+.school:first-of-type{margin-top:0;border-top:0;padding-top:0}
+.school-head{
+  display:grid;grid-template-columns:84px 1fr;gap:18px;align-items:start;margin-bottom:18px
+}
+.seal{
+  width:68px;height:68px;border-radius:50%;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-family:ui-sans-serif,system-ui,sans-serif;color:var(--gold);font-size:1.05rem
+}
+.meta{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 22px
+}
+.meta div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+.meta b{
+  display:block;font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin-bottom:5px
+}
+.world{
+  padding:20px 0;border-top:1px dashed var(--line)
+}
+.world:first-of-type{border-top:0}
+.world .kind{
+  font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-size:.7rem;color:var(--violet)
+}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.badge{
+  font-family:ui-sans-serif,system-ui,sans-serif;font-size:.68rem;
+  text-transform:uppercase;letter-spacing:.07em;padding:4px 7px;border-radius:999px;
+  border:1px solid var(--line);color:var(--muted)
+}
+table{width:100%;border-collapse:collapse;margin:24px 0;background:var(--paper);border:1px solid var(--line)}
+th,td{padding:13px 15px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{
+  font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-size:.74rem;color:var(--gold)
+}
+tr:last-child td{border-bottom:0}
+.timeline{margin:26px 0;border-left:2px solid var(--line);padding-left:24px}
+.timeline .event{position:relative;margin-bottom:24px}
+.timeline .event:before{
+  content:"";position:absolute;left:-31px;top:.5em;width:12px;height:12px;
+  border-radius:50%;background:var(--gold);border:2px solid var(--bg)
+}
+.footer-note{font-size:.9rem;color:var(--muted);padding-top:20px;border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:900px){.meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:780px){
+  .grid2,.grid3,.meta{grid-template-columns:1fr}
+  .wrap{width:min(var(--max),calc(100% - 24px))}
+  .school-head{grid-template-columns:56px 1fr}
+  .seal{width:46px;height:46px}
+  table{display:block;overflow-x:auto}
+}
+@media print{
+  :root{--bg:#fff;--paper:#f7f5f0;--paper2:#faf8f4;--ink:#111;--muted:#555;--line:#ccc}
+  nav{display:none}body{background:#fff}.card,.eq,.callout,.school,.meta div{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap">
+  <div class="eyebrow">The Parallel Straits · Comparative Axiomatic Survey</div>
+  <h1>Ancestral Atlas of the Seven</h1>
+  <p class="dek">Seven Schools, not as seven pure lineages, but as seven surviving families of translated causality—each braided from living cousin worlds, extinct homes, failed migrations, institutional edits, and foreign laws made teachable in the Straits.</p>
+</div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#method">Method</a>
+  <a href="#registry">Seam Registry</a>
+  <a href="#tki">TKI</a>
+  <a href="#amanah">Al-Merican</a>
+  <a href="#temenggong">Sri Temenggong</a>
+  <a href="#lamkeng">Lam Keng</a>
+  <a href="#ninerains">Nine Rains</a>
+  <a href="#kora">Kora</a>
+  <a href="#sund">Sund</a>
+  <a href="#phylogeny">Phylogeny</a>
+  <a href="#unknown">Unknown Eighth</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="method">
+<div class="part">I · Method</div>
+<h2>1. What This Atlas Assumes</h2>
+
+<p class="lead">No School has one uncontested home world. Each is a compatibility family: a human institution formed from several causal ancestries that proved mutually translatable inside the Straits.</p>
+
+<div class="eq">many ancestral axioms → translation → one School-family</div>
+
+<p>Every entry therefore separates five things that school mythology tends to collapse:</p>
+
+<div class="grid3">
+  <div class="card"><h3>Claimed origin</h3><p>What the School officially teaches about its ancestry.</p></div>
+  <div class="card"><h3>Candidate realities</h3><p>Living, extinct or hypothetical worlds whose physics match the School-family.</p></div>
+  <div class="card"><h3>Material evidence</h3><p>Relics, architecture, language, ritual and bodily adaptation patterns.</p></div>
+  <div class="card"><h3>Comparative evidence</h3><p>What neighbouring worlds say about the School—and whether they recognise it as kin.</p></div>
+  <div class="card"><h3>Institutional edit</h3><p>What the Straits changed to make the foreign law survivable and teachable.</p></div>
+  <div class="card"><h3>Buried rupture</h3><p>The discovery capable of destabilising the School's identity.</p></div>
+</div>
+
+<div class="callout"><strong>The atlas treats ancestry as causal rather than racial.</strong> A person inherits a School through language, practice, ritual, bodily calibration, attention and social formation—not through blood alone.</div>
+</section>
+
+<section id="registry">
+<div class="part">II · Crossing Status</div>
+<h2>2. Seam Registry Classification</h2>
+
+<table>
+<thead><tr><th>Class</th><th>Meaning</th><th>Typical use</th></tr></thead>
+<tbody>
+<tr><td>Exchange</td><td>Human visitors can remain for extended periods with ordinary adaptation.</td><td>Semester programmes, family travel, diplomacy</td></tr>
+<tr><td>Residency</td><td>Long stays require specialised training, medical support or cognitive recalibration.</td><td>Graduate study, research, professional training</td></tr>
+<tr><td>Traverse</td><td>Short supervised crossings only; host law progressively destabilises Straits cognition or embodiment.</td><td>Fieldwork, ritual apprenticeship, survey</td></tr>
+<tr><td>Frontier</td><td>No stable civilian settlement; expeditions require dedicated return protocols.</td><td>Scientific exploration, relic recovery</td></tr>
+<tr><td>Forsaken</td><td>Crossing officially prohibited or one-way in practice.</td><td>Illegal pilgrimage, classified research</td></tr>
+<tr><td>Untranslatable</td><td>No reliable human-compatible return state known.</td><td>Theoretical contact only</td></tr>
+<tr><td>Extinct</td><td>No surviving world-state can be reached; law survives only in translated form.</td><td>Archaeology, School preservation</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<div class="part">III · The Seven</div>
+<h2>3. Ancestral Families</h2>
+
+<div class="school" id="tki">
+  <div class="school-head"><div class="seal">TKI</div><div><span class="tag">Parallax Family</span><h3>From Where Is This True?</h3></div></div>
+  <p>TKI preserves causal systems in which properties depend strongly on frame, while transformation between frames remains lawful.</p>
+
+  <div class="meta">
+    <div><b>School myth</b>Truth becomes reliable through disciplined comparison of perspectives.</div>
+    <div><b>Deep family</b>Covariant realities</div>
+    <div><b>Primary danger</b>Loss of singular identity</div>
+    <div><b>Key Straits invention</b>Stable reference protocols</div>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Residency</div>
+    <h4>The Defect</h4>
+    <div class="badge-row"><span class="badge">living</span><span class="badge">mathematical frontier</span><span class="badge">strong TKI affinity</span></div>
+    <p>Two mathematical regimes remain locally true, separated by a frontier moved by proof. TKI treats it as the strongest known cousin of its ancestral law.</p>
+    <p><strong>Exchange institution:</strong> Frontier Fellowship at the Defect Station; specialists learn double-certainty and frame-transition cartography.</p>
+    <p><strong>Problem:</strong> TKI records predate the known Defect Seam by centuries. The Defect may be cousin, descendant—or even a world altered by early Straits contact.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Exchange</div>
+    <h4>The Faceted Republics</h4>
+    <div class="badge-row"><span class="badge">human-compatible</span><span class="badge">multi-geometry cities</span></div>
+    <p>Buildings possess several valid geometries depending on approach, civic role and instrument. Their engineers never seek one canonical plan; they certify transformations between plans.</p>
+    <p><strong>Exchange institution:</strong> College of Covariant Architecture.</p>
+    <p><strong>Straits shock:</strong> local scholars regard TKI's rhetoric of “multiple perspectives” as a beginner's simplification. To them, frame-dependent reality is ordinary physics.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Frontier</div>
+    <h4>The Phase Ocean</h4>
+    <div class="badge-row"><span class="badge">nonlocal agents</span><span class="badge">weak human compatibility</span></div>
+    <p>Persistent entities are phase-relations spread across regions rather than bodies. A self can occupy several relational states without selecting one location.</p>
+    <p><strong>Scholarly suspicion:</strong> certain archaic TKI diagrams resemble phase-coherence maps more than surveys.</p>
+  </div>
+
+  <div class="callout"><strong>Buried rupture:</strong> TKI may not descend from a tradition of observing multiple frames. It may descend from entities that never possessed a single frame to begin with.</div>
+</div>
+
+<div class="school" id="amanah">
+  <div class="school-head"><div class="seal">AM</div><div><span class="tag">Amanah Family</span><h3>By Whose Authority Does This Hold?</h3></div></div>
+  <p>Al-Merican preserves worlds where capability is created by recognised obligation, entrustment and mutual enablement.</p>
+
+  <div class="meta">
+    <div><b>School myth</b>Authority is legitimate when entrusted and witnessed.</div>
+    <div><b>Deep family</b>Trust realities</div>
+    <div><b>Primary danger</b>Recognition becoming control</div>
+    <div><b>Key Straits invention</b>Explicit consent and renewable covenant</div>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Exchange</div>
+    <h4>The Mandated Coast</h4>
+    <div class="badge-row"><span class="badge">human civilisation</span><span class="badge">legal physics</span></div>
+    <p>Entrustment physically alters capacity. A captain entrusted with a ship perceives currents others cannot. A civic officeholder gains abilities only while recognition remains active.</p>
+    <p><strong>Exchange institution:</strong> College of Living Trusts.</p>
+    <p><strong>Straits shock:</strong> locals consider hereditary magical office grotesque. “Authority inherited without renewed recognition” sounds to them like a contradiction.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Residency</div>
+    <h4>The Consortium</h4>
+    <div class="badge-row"><span class="badge">nested selves</span><span class="badge">symbiotic personhood</span></div>
+    <p>Persons are temporary coalitions of organisms, tissues, microbial communities, hosts and environmental partners. Capability exists where mutual recognition keeps the coalition viable.</p>
+    <p><strong>Comparative implication:</strong> covenant may be the human juridical translation of biological mutual enablement.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Disputed</div>
+    <h4>The Tally</h4>
+    <div class="badge-row"><span class="badge">rumoured</span><span class="badge">relational quantity</span></div>
+    <p>Quantity is never intrinsic; it is always quantity-for-someone. Old Al-Merican ledgers reportedly function there without translation.</p>
+  </div>
+
+  <div class="callout"><strong>Buried rupture:</strong> hereditary authority may be a diaspora invention created to stabilise a physics in which authority was originally temporary, contingent and continually renegotiated.</div>
+</div>
+
+<div class="school" id="temenggong">
+  <div class="school-head"><div class="seal">ST</div><div><span class="tag">Communion Family</span><h3>Where and With Whom Does This Belong?</h3></div></div>
+  <p>Sri Temenggong preserves realities where place is not container but participant: geography is sustained by ecological, social and temporal relations.</p>
+
+  <div class="meta">
+    <div><b>School myth</b>Humans inherit duties of custodianship toward land.</div>
+    <div><b>Deep family</b>Inhabited realities</div>
+    <div><b>Primary danger</b>Human stewardship becoming human sovereignty</div>
+    <div><b>Key Straits invention</b>Consent rituals with place</div>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Exchange</div>
+    <h4>The Civic Watershed</h4>
+    <div class="badge-row"><span class="badge">human-compatible</span><span class="badge">place has standing</span></div>
+    <p>Districts, rivers and forests can acquire civic agency when enough relations sustain them. Urban planning requires negotiation with the place-system itself.</p>
+    <p><strong>Exchange institution:</strong> Faculty of Inhabited Law.</p>
+    <p><strong>Straits shock:</strong> human representatives are only one class of participants among water, species, infrastructure and future occupancy.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Residency</div>
+    <h4>The Reef-Land</h4>
+    <div class="badge-row"><span class="badge">ecological superorganism</span><span class="badge">distributed memory</span></div>
+    <p>A place persists through accretion among species, sediments, tides and recurring habitation. Humans are guests inside an older composite organism.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Rumoured cousin</div>
+    <h4>The Recursion</h4>
+    <div class="badge-row"><span class="badge">nested settlement</span><span class="badge">scale correspondence</span></div>
+    <p>House, village and polity repeat one another structurally. Repair at one scale propagates into others. Both Sri Temenggong and Nine Rains claim ancestral resonance.</p>
+  </div>
+
+  <div class="callout"><strong>Buried rupture:</strong> the School may not descend from humans who learned to care for land. It may descend from a world in which the land was the primary organism and humans were one organ among many.</div>
+</div>
+
+<div class="school" id="lamkeng">
+  <div class="school-head"><div class="seal">LK</div><div><span class="tag">Recomposition Family</span><h3>What Else May This Become?</h3></div></div>
+  <p>Lam Keng preserves worlds in which identity belongs to transformation rather than fixed form.</p>
+
+  <div class="meta">
+    <div><b>School myth</b>Form can be deliberately recomposed through skilled making.</div>
+    <div><b>Deep family</b>Morphic realities</div>
+    <div><b>Primary danger</b>Collapse of maker/material distinction</div>
+    <div><b>Key Straits invention</b>Bounded operations and reversibility</div>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Exchange</div>
+    <h4>The Morphic Archipelago</h4>
+    <div class="badge-row"><span class="badge">human civilisation</span><span class="badge">elective morphology</span></div>
+    <p>Architecture grows, furniture differentiates, bodies change through adulthood, and continuity is tracked by developmental trajectory rather than static anatomy.</p>
+    <p><strong>Exchange institution:</strong> Institute of Developmental Architecture and Continuity Studies.</p>
+    <p><strong>Straits shock:</strong> local scholars view Lam Keng as astonishingly conservative.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Residency</div>
+    <h4>The Morphogenic Colony</h4>
+    <div class="badge-row"><span class="badge">body/tool continuum</span><span class="badge">nonhuman-biotic</span></div>
+    <p>Tool, organism and building are phases of one developmental field. Communication occurs through graft, budding and differentiation.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Historic fragment</div>
+    <h4>The Lettered Reach</h4>
+    <div class="badge-row"><span class="badge">naming shapes matter</span><span class="badge">strong craft affinity</span></div>
+    <p>Lam Keng shares some operational resonance with naming-as-form, though most scholars treat the Reach as a cousin rather than ancestor.</p>
+  </div>
+
+  <div class="callout"><strong>Buried rupture:</strong> the Anatomists may preserve more of the ancestral causal logic than the orthodox School. Lam Keng's bounded “operations” may be a safety technology invented after migration.</div>
+</div>
+
+<div class="school" id="ninerains">
+  <div class="school-head"><div class="seal">9R</div><div><span class="tag">Reciprocity Family</span><h3>What Returns Because This Happened?</h3></div></div>
+  <p>Nine Rains preserves realities in which consequence propagates through fields, cycles and delayed return rather than remaining local.</p>
+
+  <div class="meta">
+    <div><b>School myth</b>Every intervention carries consequence and therefore responsibility.</div>
+    <div><b>Deep family</b>Returning realities</div>
+    <div><b>Primary danger</b>Moralising an indifferent causal law</div>
+    <div><b>Key Straits invention</b>Accountability for delayed effects</div>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Exchange</div>
+    <h4>The Long Return</h4>
+    <div class="badge-row"><span class="badge">human civilisation</span><span class="badge">120-year planning</span></div>
+    <p>Consequences are perceptible long before they arrive. Finance, ecology and politics are built around return profiles spanning generations.</p>
+    <p><strong>Exchange institution:</strong> Academy of Deferred Consequence.</p>
+    <p><strong>Straits shock:</strong> local planners regard project approval without mapped returns as reckless adolescence.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Residency</div>
+    <h4>The Turning</h4>
+    <div class="badge-row"><span class="badge">temporal orientation</span><span class="badge">deferred causality</span></div>
+    <p>Time behaves as direction, making deferred relation unusually concrete. Nine Rains scholars thrive there.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Frontier</div>
+    <h4>The Returning Weather</h4>
+    <div class="badge-row"><span class="badge">field-self</span><span class="badge">nonintentional agency</span></div>
+    <p>Persistent dynamics recur over immense scales. What humans call “return” is not moral repayment but field behaviour.</p>
+  </div>
+
+  <div class="callout"><strong>Buried rupture:</strong> reciprocity may not be ethical in its original form. Nine Rains may have invented moral responsibility by humanising a causality that simply returned, without caring who deserved what.</div>
+</div>
+
+<div class="school" id="kora">
+  <div class="school-head"><div class="seal">KH</div><div><span class="tag">Third Voice Family</span><h3>What Is Absent From This Reality?</h3></div></div>
+  <p>Kora preserves worlds where absence, unrealised alternatives and interrupted relations possess causal structure.</p>
+
+  <div class="meta">
+    <div><b>School myth</b>Every account must attend to the missing voice.</div>
+    <div><b>Deep family</b>Counterfactual realities</div>
+    <div><b>Primary danger</b>Treating possibility as entitlement to instantiation</div>
+    <div><b>Key Straits invention</b>Witness without compulsory revision</div>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Exchange</div>
+    <h4>The Counterfactual Republic</h4>
+    <div class="badge-row"><span class="badge">human civilisation</span><span class="badge">negative structures</span></div>
+    <p>Major decisions leave perceptible unrealised structures. Courts, historians and families routinely account for lives not lived without treating them as alternate worlds to be imported.</p>
+    <p><strong>Exchange institution:</strong> Archive of Foreclosed Histories.</p>
+    <p><strong>Straits shock:</strong> local scholars consider Revisionism dangerously immature: seeing what could have been does not confer the right to make it actual.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Frontier</div>
+    <h4>The Hollow Ecology</h4>
+    <div class="badge-row"><span class="badge">negative-self</span><span class="badge">absence agency</span></div>
+    <p>Gaps, interrupted continuities and missing relations can act as stable entities. Filling them may kill them.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Forgotten</div>
+    <h4>The Remembered</h4>
+    <div class="badge-row"><span class="badge">attention sustains existence</span><span class="badge">archive affinity</span></div>
+    <p>Kora and Sri Temenggong both claim ancient ties. The surviving Seam suggests memory and absence may once have belonged to a larger ancestral branch.</p>
+  </div>
+
+  <div class="callout"><strong>Buried rupture:</strong> Kora may have been deliberately weakened more than any other School because full counterfactual causality threatened the original Concordat. The Third Voice may be a tiny ethical remnant of a much larger science.</div>
+</div>
+
+<div class="school" id="sund">
+  <div class="school-head"><div class="seal">SU</div><div><span class="tag">Commons Family</span><h3>Who Is Actually Doing and Carrying This?</h3></div></div>
+  <p>Sund preserves realities in which collective patterns are causally real agents rather than metaphors for many individuals acting together.</p>
+
+  <div class="meta">
+    <div><b>School myth</b>Collective work must distribute agency and burden responsibly.</div>
+    <div><b>Deep family</b>Composite polities</div>
+    <div><b>Primary danger</b>Collective agency consuming individual exit</div>
+    <div><b>Key Straits invention</b>Demountability</div>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Exchange</div>
+    <h4>The Composite Polities</h4>
+    <div class="badge-row"><span class="badge">human civilisation</span><span class="badge">group personhood</span></div>
+    <p>A crew, neighbourhood, university or orchestra may become a legally and magically real person after sufficient relational integration.</p>
+    <p><strong>Exchange institution:</strong> School of Composite Governance.</p>
+    <p><strong>Straits shock:</strong> the central legal question is not whether collectives are persons, but when they are permitted to become one.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Residency</div>
+    <h4>The Underweave</h4>
+    <div class="badge-row"><span class="badge">network-self</span><span class="badge">stigmergic memory</span></div>
+    <p>Agency belongs to routing patterns across nodes rather than any individual node. Memory is stored in altered pathways.</p>
+  </div>
+
+  <div class="world">
+    <div class="kind">Candidate reality · Frontier</div>
+    <h4>The Vault</h4>
+    <div class="badge-row"><span class="badge">common work</span><span class="badge">closed world</span></div>
+    <p>Sund crews adapt unusually well because collective labour itself anchors the Seam. Whether this indicates ancestry or only affinity remains disputed.</p>
+  </div>
+
+  <div class="callout"><strong>Buried rupture:</strong> the Choir Without Names may not be a corruption of Sund. It may reproduce an ancestral network-form from before Sund invented the ethical right to leave.</div>
+</div>
+
+</section>
+
+<section>
+<div class="part">IV · Exchange Culture</div>
+<h2>4. The Pluriverse Is Already Ordinary to Students</h2>
+
+<p>Adjacent worlds should not exist only as mysteries. Some are mundane enough to generate prestige, envy, bureaucracy and jokes.</p>
+
+<table>
+<thead><tr><th>Programme</th><th>Destination</th><th>Student stereotype on return</th></tr></thead>
+<tbody>
+<tr><td>Frontier Fellowship</td><td>The Defect</td><td>Insists every disagreement requires two simultaneous proofs</td></tr>
+<tr><td>Living Trusts Year</td><td>The Mandated Coast</td><td>Refuses to accept any authority without asking who renews it</td></tr>
+<tr><td>Inhabited Law Exchange</td><td>Civic Watershed</td><td>Asks permission from buildings before renovation crits</td></tr>
+<tr><td>Morphogenesis Fellowship</td><td>Morphic Archipelago</td><td>Returns unbearably avant-garde about the concept of “finished design”</td></tr>
+<tr><td>Deferred Consequence Residency</td><td>The Long Return</td><td>Cannot discuss lunch without a 60-year externality map</td></tr>
+<tr><td>Foreclosed Histories Seminar</td><td>Counterfactual Republic</td><td>Makes every dinner conversation emotionally exhausting</td></tr>
+<tr><td>Composite Governance Exchange</td><td>Composite Polities</td><td>Occasionally refers to their studio group as a legal person</td></tr>
+</tbody>
+</table>
+
+<div class="quote">The pluriverse needs bureaucracy, academic snobbery and bad exchange-student personalities as much as it needs cosmic mystery.</div>
+</section>
+
+<section>
+<div class="part">V · The Politics of Homecoming</div>
+<h2>5. Ancestral Does Not Mean Home</h2>
+
+<p>When a School discovers a causal kinship with a living adjacent world, students may imagine return. The locals may disagree.</p>
+
+<div class="grid2">
+  <div class="card"><h3>“You are our descendants.”</h3><p>Some worlds embrace Straits Schools as diasporic relatives and build political or cultural ties around ancestry.</p></div>
+  <div class="card"><h3>“You are not us.”</h3><p>Others regard 1,000 years of divergence as more important than shared causal ancestry.</p></div>
+  <div class="card"><h3>“You stole our law.”</h3><p>Some accuse the Straits of appropriating techniques, patenting translations and returning as experts.</p></div>
+  <div class="card"><h3>“We learned from you.”</h3><p>A supposed ancestral world may turn out to have been changed by early Straits travellers instead.</p></div>
+</div>
+
+<p>Causal ancestry therefore produces politics rather than simple belonging.</p>
+</section>
+
+<section>
+<div class="part">VI · Extinct Homes</div>
+<h2>6. Some Schools Cannot Go Home</h2>
+
+<p>At least one School should eventually discover that no living source-world survives.</p>
+
+<p>Its grammar exists nowhere else.</p>
+
+<p>The School is not a diaspora preserving a route home.</p>
+
+<p>It is the last known habitat of an extinct physics.</p>
+
+<div class="eq">extinct world-law → surviving human practice</div>
+
+<div class="quote">The School is not preserving heritage.<br><br>It is keeping a dead universe alive inside human bodies.</div>
+
+<p>Conversely, another adjacent world may survive while its Straits School vanished centuries ago. On the far side, a receiving station could have been maintained for generations by people waiting for emigrants who never returned.</p>
+</section>
+
+<section id="phylogeny">
+<div class="part">VII · Phylogeny of Realities</div>
+<h2>7. Worlds May Have Ancestry Too</h2>
+
+<p>Comparative axiomatics eventually notices that world-laws form families.</p>
+
+<div class="eq">ancestral axiom A₀ → descendant axioms A₁, A₂, A₃</div>
+
+<p>A small change in one foundational relation may produce a stable descendant world. Worlds can therefore share ancestry much as biological species do.</p>
+
+<div class="eq">Seam probability rises with shared axiomatic ancestry</div>
+
+<p>But the diagram may not be a clean tree. Seams allow causal structures to move between realities. Laws can hybridise.</p>
+
+<div class="quote">The pluriverse may have reticulate evolution: a network of realities exchanging pieces of physics.</div>
+
+<p>The Straits may itself be an ancient hybrid zone—an axiomatic ecotone where several branches overlapped before recorded human history.</p>
+</section>
+
+<section>
+<div class="part">VIII · The Great Academic Dispute</div>
+<h2>8. Why Exactly Seven?</h2>
+
+<div class="grid2">
+  <div class="card"><h3>Primordialist</h3><p>There were seven foundational migrations from seven deep world-families.</p></div>
+  <div class="card"><h3>Historical</h3><p>Dozens of traditions arrived; institutional consolidation reduced them to seven.</p></div>
+  <div class="card"><h3>Structural</h3><p>Seven is the minimum basis required to span the Straits' translation space.</p></div>
+  <div class="card"><h3>Unbound</h3><p>Seven is political: an administrative settlement that rendered other grammars illegible.</p></div>
+</div>
+
+<p>The most interesting answer is that all four may contain truth.</p>
+
+<div class="eq">historical multiplicity → seven stable compatibility classes → political Schools</div>
+
+<p>Seven is simultaneously discovered, produced and institutionalised.</p>
+</section>
+
+<section id="unknown">
+<div class="part">IX · The Question That Refuses Closure</div>
+<h2>9. Is There an Eighth Ancestral Family?</h2>
+
+<p>The obvious temptation is to hunt for an eighth world-family.</p>
+
+<p>That may be exactly the wrong question.</p>
+
+<p>If the Seven are stable grammars, then the Eighth may not be another grammar at all.</p>
+
+<div class="eq">Eighth ≠ G₈</div>
+
+<p>It may be the transformation between grammars.</p>
+
+<div class="eq">Eighth ≈ how Gᵢ changes while becoming legible to Gⱼ</div>
+
+<p>In mathematical language, scholars might compare it to a connection rather than another basis vector.</p>
+
+<div class="callout"><strong>The Seven stabilise realities.</strong> The Eighth describes what happens when realities enter relation and neither remains exactly what it was.</div>
+
+<p>If so, the Eighth cannot have a home world in the conventional sense.</p>
+
+<p>Its “home” is wherever incompatible laws meet.</p>
+
+<p>That may make the Straits itself the closest thing it has to an ancestral reality.</p>
+
+<div class="quote">The Seven brought their worlds to the harbour.<br><br>The harbour taught them how to change in one another's presence.</div>
+</section>
+
+<section>
+<div class="part">X · Seven Future Revelations</div>
+<h2>10. What Each Protagonist Could Eventually Discover</h2>
+
+<table>
+<thead><tr><th>Protagonist family</th><th>Possible revelation</th></tr></thead>
+<tbody>
+<tr><td>TKI</td><td>The School is a synthesis of several realities and its supposedly oldest “pure” branch is relatively recent.</td></tr>
+<tr><td>Al-Merican</td><td>The ancestral home still exists and considers hereditary authority a betrayal of the original law.</td></tr>
+<tr><td>Sri Temenggong</td><td>The School's founding “human custodian” may have been the translator for a nonhuman place-agent.</td></tr>
+<tr><td>Lam Keng</td><td>The outlaw Anatomists preserve a more ancestral form of the causal grammar than the School itself.</td></tr>
+<tr><td>Nine Rains</td><td>The original law contains consequence but no justice; the ethical dimension was invented in the Straits.</td></tr>
+<tr><td>Kora</td><td>Its grammar was deliberately truncated during the Concordat because full counterfactual perception was judged too dangerous.</td></tr>
+<tr><td>Sund</td><td>The Choir resembles the ancestral network-form more closely than official Commons doctrine does.</td></tr>
+</tbody>
+</table>
+
+<p>None of these discoveries says the Schools are false.</p>
+
+<p>They reveal something more interesting:</p>
+
+<div class="quote">A tradition can become less original and more humane at the same time.</div>
+
+<p class="footer-note">Parallel Straits · Ancestral Atlas of the Seven · comparative origins, living cousin worlds, disputed genealogies, exchange institutions, and buried ruptures.</p>
+</section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Unholding · 放下 — a counter-atlas of the Parallel Straits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --salt:#ECEFE9; --paper:#F6F7F3; --ink:#1C211E; --brine:#335E4F; --rust:#8F3F1E;
+  --turmeric:#B8861F; --grey:#6E736F; --clear:#DCE8EE; --rule:#B9C2BC;
+  --serif:"Times New Roman", Times, "Liberation Serif", "Nimbus Roman", Georgia, serif;
+  --han:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --salt:#161A18; --paper:#1D2220; --ink:#ECEBE4; --brine:#8CC2AE; --rust:#E08A63;
+  --turmeric:#E1B552; --grey:#A7ADA8; --clear:#23313A; --rule:#3E4843; } }
+:root[data-theme="dark"]{
+  --salt:#161A18; --paper:#1D2220; --ink:#ECEBE4; --brine:#8CC2AE; --rust:#E08A63;
+  --turmeric:#E1B552; --grey:#A7ADA8; --clear:#23313A; --rule:#3E4843; }
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--salt);color:var(--ink);font-family:var(--serif);
+  font-size:clamp(17px,1.05rem + .25vw,20px);line-height:1.62;-webkit-font-smoothing:antialiased}
+.han{font-family:var(--han)}
+a{color:var(--brine)}
+:focus-visible{outline:2px solid var(--turmeric);outline-offset:3px}
+.wrap{max-width:40rem;margin:0 auto;padding:0 1.25rem}
+.wide{max-width:58rem;margin:0 auto;padding:0 1.25rem}
+
+/* cover */
+header.cover{min-height:92vh;display:flex;flex-direction:column;justify-content:space-between;
+  padding:2.5rem 0 2rem;border-bottom:1px solid var(--rule);
+  background:
+   radial-gradient(ellipse at 50% 120%, color-mix(in srgb,var(--turmeric) 22%,transparent), transparent 60%),
+   linear-gradient(180deg,var(--clear) 0%, var(--salt) 38%, var(--salt) 70%, color-mix(in srgb,var(--grey) 18%,var(--salt)) 100%)}
+.cover .run{font-variant:small-caps;letter-spacing:.08em;font-size:.95rem;color:var(--brine)}
+.cover h1{font-weight:400;font-size:clamp(3.6rem,15vw,9rem);line-height:.9;margin:0;letter-spacing:-.02em}
+.cover h1 em{display:block;font-size:.34em;letter-spacing:.02em;margin-top:.6rem;color:var(--rust)}
+.cover .zh{font-family:var(--han);font-size:clamp(2.2rem,9vw,4.6rem);color:var(--brine);margin:.4rem 0 0;letter-spacing:.3em}
+.cover .deck{font-style:italic;font-size:clamp(1.1rem,1rem + .6vw,1.4rem);max-width:34rem;margin:1.8rem 0 0;line-height:1.45}
+.epi{margin-top:2.5rem;max-width:34rem;border-left:2px solid var(--turmeric);padding-left:1rem;font-size:.98rem}
+.epi .zhline{font-family:var(--han);font-size:1.15rem;display:block;margin-top:.5rem;color:var(--rust)}
+
+/* sections */
+section{padding:3.5rem 0 1rem}
+.part{font-variant:small-caps;letter-spacing:.1em;color:var(--rust);font-size:1rem;margin:0}
+h2{font-weight:400;font-size:clamp(2rem,1.4rem + 3vw,3.2rem);line-height:1.05;margin:.2rem 0 1.4rem}
+h2 .han{font-size:.6em;color:var(--brine);margin-left:.4em;letter-spacing:.15em;white-space:nowrap}
+h3{font-weight:700;font-size:1.2rem;margin:2rem 0 .3rem}
+h3 .han{font-weight:400;color:var(--brine);margin-left:.35em;font-size:.95em}
+p{margin:0 0 1.05rem;hyphens:auto}
+.lead::first-letter{float:left;font-size:4.1em;line-height:.82;padding:.06em .09em 0 0;color:var(--brine)}
+.note{background:var(--paper);border:1px solid var(--rule);padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.96rem}
+.note b{font-variant:small-caps;letter-spacing:.06em;font-weight:400;color:var(--rust)}
+.eq{font-style:italic;text-align:center;font-size:1.15rem;margin:1.4rem 0;color:var(--brine)}
+blockquote.pull{margin:2rem 0;font-size:clamp(1.3rem,1.1rem + 1vw,1.75rem);line-height:1.3;font-style:italic;color:var(--rust);border:0;padding:0}
+
+/* poles figure */
+figure{margin:2rem 0}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:.9rem;font-style:italic;color:var(--grey);margin-top:.5rem}
+.poles{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+.pole{padding:1rem;border:1px solid var(--rule)}
+.pole.g{background:color-mix(in srgb,var(--grey) 16%,var(--paper))}
+.pole.c{background:var(--clear)}
+.pole h4{margin:0 0 .3rem;font-weight:400;font-size:1.5rem}
+.pole h4 .han{margin-left:.3em;color:var(--brine)}
+.pole p{font-size:.94rem;margin:0}
+@media (max-width:560px){.poles{grid-template-columns:1fr}}
+
+/* ecology */
+.family{margin:2.6rem 0 0;padding-top:1rem;border-top:3px double var(--rule)}
+.family > .fam{font-variant:small-caps;letter-spacing:.08em;color:var(--brine);font-size:1.05rem;margin:0}
+.family > .law{font-style:italic;margin:.1rem 0 .6rem;color:var(--grey)}
+.order{margin:1.3rem 0 0}
+.order h3{margin:0}
+.order .lin{font-size:.88rem;font-style:italic;color:var(--rust);margin:.1rem 0 .5rem}
+.order p{margin-bottom:.7rem}
+
+/* thresholds */
+.thr{width:100%;border-collapse:collapse;font-size:.95rem;margin:1.2rem 0}
+.tablewrap{overflow-x:auto}
+.thr th,.thr td{text-align:left;vertical-align:top;padding:.55rem .5rem;border-bottom:1px solid var(--rule)}
+.thr th{font-weight:400;font-variant:small-caps;letter-spacing:.06em;color:var(--brine)}
+.thr td:first-child{font-weight:700;white-space:nowrap}
+.thr .arrow{color:var(--grey)}
+
+/* propositions */
+.prop{margin:2.2rem 0}
+.prop .num{font-size:2.6rem;line-height:1;color:var(--turmeric);font-style:italic;float:left;width:3rem;margin-top:.1rem}
+.prop h3{margin:0 0 .5rem;padding-left:3rem;font-size:1.3rem}
+.prop .body{padding-left:3rem}
+@media (max-width:480px){.prop .num{float:none;display:block;width:auto}.prop h3,.prop .body{padding-left:0}}
+
+/* brine table */
+.jars{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.9rem;margin:1.5rem 0}
+.jar{background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--turmeric);padding:.9rem 1rem}
+.jar .h{font-weight:700}
+.jar .f{font-style:italic;color:var(--brine)}
+.jar p{font-size:.92rem;margin:.35rem 0 0}
+
+/* relics & temptations */
+dl.list{margin:1.2rem 0}
+dl.list dt{font-weight:700;margin-top:1.1rem}
+dl.list dd{margin:.2rem 0 0}
+
+/* coda: the text unholds */
+.coda{padding:4rem 0 5rem;border-top:1px solid var(--rule);margin-top:3rem;
+  background:linear-gradient(180deg,var(--salt),color-mix(in srgb,var(--grey) 14%,var(--salt)))}
+.coda .q{font-size:clamp(1.4rem,1.1rem + 1.4vw,2.1rem);line-height:1.3;font-style:italic;margin:0 0 2rem}
+.loose{font-size:1.15rem;line-height:1.9;margin:0}
+.loose span{display:block}
+.l1{letter-spacing:0}
+.l2{letter-spacing:.05em;word-spacing:.2em}
+.l3{letter-spacing:.14em;word-spacing:.6em}
+.l4{letter-spacing:.3em;word-spacing:1.4em;padding-left:1.5rem}
+.l5{letter-spacing:.55em;word-spacing:2.6em;padding-left:3.5rem;color:var(--grey)}
+.l6{letter-spacing:1em;word-spacing:4em;padding-left:6rem;color:var(--grey);opacity:1}
+@media (max-width:480px){.l4{padding-left:.6rem}.l5{padding-left:1.4rem;letter-spacing:.35em;word-spacing:1.4em}.l6{padding-left:2.2rem;letter-spacing:.6em;word-spacing:2em}}
+footer{font-size:.85rem;color:var(--grey);padding:2rem 0 3rem;font-style:italic}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <p class="run">The Parallel Straits · a counter-atlas</p>
+  </div>
+  <div class="wrap">
+    <h1>The Unholding<em>the other side of the city’s magic</em></h1>
+    <p class="zh" lang="zh">放下</p>
+    <p class="deck">What the same laws allow once someone stops holding. The two poles every civilisation drifts toward. The shadow ecology that lives between them, the shadow that already lives inside the Seven, and the jar that has kept the city alive in the brine.</p>
+    <div class="epi">
+      The emperor of the South Sea and the emperor of the North Sea often met in the land of Hundun, the emperor of the centre, and he treated them well. Wishing to repay him, they said: every person has seven openings, to see, hear, eat and breathe; he alone has none. Let us bore them for him. Each day they bored one opening.
+      <span class="zhline" lang="zh">日凿一窍，七日而浑沌死。</span>
+      <span style="font-size:.85rem;font-style:italic">On the seventh day, Hundun died. — Zhuangzi, 应帝王</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="drafts">
+<div class="wrap">
+  <p class="part">Before the plates</p>
+  <h2>Two drafts, one fault line</h2>
+  <p class="lead">This chapter was drafted twice, by two hands working apart, and both arrived at the same parallels: entropy as a magic, the bill that need not return to its caster, a shadow already folded inside each respectable house. When two surveys find the same fault, the fault probably runs through the ground. So this atlas treats those parallels as properties of the world and keeps both drafts. One draft supplied the physics, the cults and their roots. The other supplied the poles, the thresholds, the history of catastrophe and the relics as frozen arguments. What follows sets them in one brine and then keeps going, into the places where the world becomes uncomfortable to live in and impossible to stop thinking about.</p>
+  <p>The epigraph is the key to all of it. Seven openings, bored kindly, one a day, into something that had no face. Read the Straits through it and the Seven Houses are the seven openings. The city is what happened to the centre after its friends decided it should see.</p>
+</div>
+</section>
+
+<section id="law">
+<div class="wrap">
+  <p class="part">Plate one</p>
+  <h2>The law, read backwards <span class="han" lang="zh">反读</span></h2>
+  <p>Every casting in the Straits holds a relation true against World Resistance, the world’s steady tendency to restore itself. The load is the bill the world sends for being held. The Seven are all holders: they survey, covenant, root, recompose, wait, invoke and join, and each pays in its own currency.</p>
+  <p>Read the same law backwards and three things follow.</p>
+  <p><b>Letting go is cheap.</b> An unholder works with the resistance. The world does most of the labour, so entropic magic barely registers on the Board’s crystals and is almost impossible to examine or license.</p>
+  <p><b>A held relation is stored load.</b> A ward held for a century is a century of payments banked behind a dam. Loosen it in the right place and the whole account comes out in a night, as fire, rot, flood or madness depending on what was being held. Unholders draw their power from the order other people built. They are the only mages in the city who grow stronger as the city grows grander.</p>
+  <p><b>They are born where the bills pool.</b> The lower kampongs that drink Toa Keng’s discharge, the Lan Fong tailings, the debtors’ ports at the far end of Al-Merikani credit, Basin Seven. Children raised saturated in exported load come into their power already knowing where every bill in the city goes. The other side of the Straits is the city’s waste returning uphill with a grievance the reader cannot dismiss.</p>
+  <p class="eq">same law + a different reading = a different civilisation</p>
+  <p>The other draft’s axiom completes the picture. The laws never guaranteed a single morality. The physics makes the other side cheap; the readings turn it into cities, clans, monasteries and markets.</p>
+</div>
+</section>
+
+<section id="poles">
+<div class="wrap">
+  <p class="part">Plate two</p>
+  <h2>The two poles <span class="han" lang="zh">灰 · 澄</span></h2>
+  <p>Every reading of the law drifts toward one of two endpoints. Both are beautiful. Both are prosperous. Both end plural life.</p>
+  <div class="poles">
+    <div class="pole g"><h4>The Grey <span class="han" lang="zh">灰</span></h4><p>Constraint dissolves. Identity, structure and obligation grow indeterminate. It offers release from every bond you never chose, and it ends in a world where nothing can be promised. H → ∞.</p></div>
+    <div class="pole c"><h4>The Clear <span class="han" lang="zh">澄</span></h4><p>Difference dissolves. Reality is made stable, legible, compatible and optimised. It offers release from every friction, and it ends in a world where nothing can surprise. H → 0.</p></div>
+  </div>
+  <figure>
+    <svg viewBox="0 0 360 440" role="img" aria-labelledby="jarT jarD">
+      <title id="jarT">The jar between the poles</title>
+      <desc id="jarD">A sealed jar. The top layer is a crystalline lattice labelled Clear. The bottom is sediment labelled Grey. In the brine between them float seven slices labelled with the seven houses.</desc>
+      <defs>
+        <pattern id="lat" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 6h12M6 0v12" stroke="var(--brine)" stroke-width=".6" opacity=".55"/></pattern>
+        <pattern id="sed" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r="1.2" fill="var(--grey)"/><circle cx="7" cy="7" r=".9" fill="var(--grey)"/></pattern>
+        <clipPath id="jc"><path d="M90 92 Q70 110 70 150 L70 392 Q70 418 100 418 L260 418 Q290 418 290 392 L290 150 Q290 110 270 92 Z"/></clipPath>
+      </defs>
+      <rect x="104" y="52" width="152" height="30" rx="3" fill="var(--turmeric)"/>
+      <rect x="112" y="80" width="136" height="14" fill="var(--turmeric)" opacity=".6"/>
+      <g clip-path="url(#jc)">
+        <rect x="60" y="88" width="240" height="340" fill="color-mix(in srgb,var(--turmeric) 16%,var(--paper))"/>
+        <rect x="60" y="88" width="240" height="62" fill="var(--clear)"/>
+        <rect x="60" y="88" width="240" height="62" fill="url(#lat)"/>
+        <rect x="60" y="360" width="240" height="70" fill="color-mix(in srgb,var(--grey) 30%,var(--paper))"/>
+        <rect x="60" y="360" width="240" height="70" fill="url(#sed)"/>
+      </g>
+      <path d="M90 92 Q70 110 70 150 L70 392 Q70 418 100 418 L260 418 Q290 418 290 392 L290 150 Q290 110 270 92 Z" fill="none" stroke="var(--ink)" stroke-width="1.6"/>
+      <text x="180" y="126" text-anchor="middle" font-family="Times New Roman,serif" font-size="15" fill="var(--ink)" font-style="italic">the Clear · H → 0</text>
+      <text x="180" y="398" text-anchor="middle" font-family="Times New Roman,serif" font-size="15" fill="var(--ink)" font-style="italic" stroke="var(--paper)" stroke-width="4" paint-order="stroke">the Grey · H → ∞</text>
+      <g font-family="Times New Roman,serif" font-size="12.5" fill="var(--ink)">
+        <g transform="translate(118 180) rotate(-12)"><ellipse rx="34" ry="11" fill="var(--paper)" stroke="var(--brine)"/><text text-anchor="middle" y="4">Toa Keng</text></g>
+        <g transform="translate(236 190) rotate(9)"><ellipse rx="40" ry="11" fill="var(--paper)" stroke="var(--brine)"/><text text-anchor="middle" y="4">Al-Merikani</text></g>
+        <g transform="translate(160 228) rotate(5)"><ellipse rx="42" ry="11" fill="var(--paper)" stroke="var(--brine)"/><text text-anchor="middle" y="4">Balai Pusaka</text></g>
+        <g transform="translate(246 250) rotate(-14)"><ellipse rx="32" ry="11" fill="var(--paper)" stroke="var(--brine)"/><text text-anchor="middle" y="4">Lan Fong</text></g>
+        <g transform="translate(114 276) rotate(14)"><ellipse rx="34" ry="11" fill="var(--paper)" stroke="var(--brine)"/><text text-anchor="middle" y="4">Nine Rain</text></g>
+        <g transform="translate(206 300) rotate(-4)"><ellipse rx="36" ry="11" fill="var(--paper)" stroke="var(--brine)"/><text text-anchor="middle" y="4">Sané-Kora</text></g>
+        <g transform="translate(150 330) rotate(-9)"><ellipse rx="24" ry="11" fill="var(--paper)" stroke="var(--brine)"/><text text-anchor="middle" y="4">Sund</text></g>
+      </g>
+      <g fill="none" stroke="var(--rust)" stroke-width=".8" opacity=".8"><circle cx="262" cy="330" r="3"/><circle cx="270" cy="312" r="2"/><circle cx="258" cy="292" r="1.5"/><circle cx="96" cy="336" r="2.4"/><circle cx="92" cy="316" r="1.4"/></g>
+      <text x="180" y="30" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="var(--rust)" font-style="italic">sealed enough to hold, alive enough to sour</text>
+    </svg>
+    <figcaption>The Seven are the brine. The Clear is what forms at the top when the jar is chilled and filtered; the Grey is what settles when it is left open. The bubbles are the fermentation that keeps it alive, and Plate six explains them.</figcaption>
+  </figure>
+  <p>The Seven occupy neither goodness nor the middle by default. Their experiment is harder than balance. They are trying to keep a world where uncertainty is neither annihilated nor allowed to dissolve everything, and the only working model anyone has found for that is a jar of achar.</p>
+</div>
+</section>
+
+<section id="ecology">
+<div class="wrap">
+  <p class="part">Plate three</p>
+  <h2>The shadow ecology <span class="han" lang="zh">影生态</span></h2>
+  <p>The other side is untidy: clans, outlaw monasteries, merchant houses, hedge lineages, criminal fraternities, itinerant mystics, dissident academies and the ruins of whole civilisations. None of it looks generically evil. Some of its monasteries are serene, its art is unsurpassed, and it solves real problems the Seven cannot. The clearest way to sort it is by which term of the law it bends.</p>
+
+  <div class="family">
+    <p class="fam">Those who bend the hold</p>
+    <p class="law">They release what others keep true. Collectively, the Grey Houses.</p>
+
+    <div class="order"><h3>The Hundun Society <span class="han" lang="zh">混沌会</span></h3>
+    <p class="lin">Shadow of Lan Fong · from the faceless emperor of the centre</p>
+    <p>Their casters wear blank masks with no openings. They un-set type: the parties to an agreement forget they agreed, the shareholding slackens, the dividend stops. Their creed is that every structure is a well-meant hole bored into Hundun. Their cost is that they gradually lose their own features and their names, and the oldest members cannot be addressed by any house at all.</p></div>
+
+    <div class="order"><h3>The Pachakuti</h3>
+    <p class="lin">Shadow of Nine Rain · from the Andean overturning of the world-time</p>
+    <p>Nine Rain waits for the right day. The Pachakuti cast on the wrong day deliberately, cut the annual knotted cords and break the season open: rain in drought, drought in monsoon. They hold that a cycle that never breaks is a prison and that the next age begins only when this one is turned over like soil.</p></div>
+
+    <div class="order"><h3>The Naglfar Crew</h3>
+    <p class="lin">Shadow of Sund · from the ship of dead men’s nails that sails at Ragnarök</p>
+    <p>They feed on deferred maintenance. Every repair Sund skipped is a loose pin they can pull from across the harbour; bridges shed planks, roofs lift like lids. Sund’s ethic of demountability makes it the house most exposed to them. The Crew keep a manual of their own, recording the repairs that were never made.</p></div>
+
+    <div class="order"><h3>The Lepas</h3>
+    <p class="lin">Shadow of Balai Pusaka · from the release of what is kept</p>
+    <p>The pusaka chooses its holder. The Lepas teach objects to refuse all holders. A keris forgets its lineage, a house forgets its foundation, a genealogy slides. They call it freeing the objects. Each release takes one memory from the releaser, so their elders are serene and nearly empty.</p></div>
+
+    <div class="order"><h3>The Clausius Lodge</h3>
+    <p class="lin">Shadow of Toa Keng · born inside the Enlightenment</p>
+    <p>Surveyors who took measurement to its end and found that the only law that always wins is the second law of thermodynamics. Their fog erases coordinates, maps go blank, distances lie. They consider themselves the most honest scientists in the city, and their papers are still cited in Toa Keng’s own journals under other names.</p></div>
+  </div>
+
+  <div class="family">
+    <p class="fam">Those who bend the bill</p>
+    <p class="law">Cost need not return to the caster. The question is where it goes.</p>
+
+    <div class="order"><h3>The Red Ledger Clans <span class="han" lang="zh">红账</span></h3>
+    <p class="lin">Lineage: the revenue farms that paid for the first city</p>
+    <p>They sign on someone else’s behalf. Load is exported across people, generations and ecologies, to districts, to descendants, to forests in other countries. In the Parallel Straits the first charter of the port was financed by the spirit and opium farms, which makes the city’s first budget a Red Ledger. Their prosperity is real and their art is exquisite. Their only crime, as Plate five argues, is that they stopped looking.</p></div>
+
+    <div class="order"><h3>The Jubilee</h3>
+    <p class="lin">Shadow of Al-Merikani · from the year of release and the dervishes who kept no reputation</p>
+    <p>The counter-Ledger. They publicly break every promise so that no covenant can hold them, and their great casting is the Remission: covenant-credit cancelled, and all the load deferred onto debtors in far ports falls back on the lenders at once. They are the most sympathetic sect in the city and the most economically catastrophic, and they are the one the Red Ledger fears.</p></div>
+  </div>
+
+  <div class="family">
+    <p class="fam">Those who bend the address</p>
+    <p class="law">Every casting is aimed. They sever, spoof, intercept or fabricate the aim.</p>
+
+    <div class="order"><h3>The White Salt <span class="han" lang="zh">白盐</span></h3>
+    <p class="lin">Lineage: the coastal salt pans, and the old punishment of salting the earth</p>
+    <p>They sever relation. A salted person becomes unreachable: no summons, curse, debt or love can find them. It protects witnesses and lets the hunted vanish. Salted ground grows nothing, though, and a salted person cannot be helped either. Salt preserves and salt kills, and Plate six returns to this.</p></div>
+
+    <div class="order"><h3>The Borrowed Faces</h3>
+    <p class="lin">Lineage: the topeng mask-carvers and the face-changers of the opera stage</p>
+    <p>Recognition is an access condition. Wards, pusaka, covenants and crowns recognise a relational signature, and the Faces wear signatures. Every authentication system in the city was designed by people who first learnt from them. The Board’s seals are Borrowed Face work turned inside out.</p></div>
+
+    <div class="order"><h3>The Mishearers</h3>
+    <p class="lin">Shadow of Sané-Kora · from the crossroads where the trickster answers</p>
+    <p>A Kora casting holds only while it is answered, and its cost goes to whoever answers. The Mishearers answer everything, including calls never meant for them, and drink the cost of each. They speak so that every listener hears something different. They are why griots guard who may reply.</p></div>
+
+    <div class="order"><h3>The House of Echoes</h3>
+    <p class="lin">Lineage: the dealers in recovered antiquities</p>
+    <p>Absence can be shaped. They manufacture hauntings, forge provenance and make true pasts unprovable. Their most feared weapon is doubt placed carefully in an archive. Every museum in the Straits keeps a drawer of objects it no longer dares to label.</p></div>
+  </div>
+
+  <div class="family">
+    <p class="fam">Those who bend the caster</p>
+    <p class="law">The self and its categories are inherited habits, and habits can be changed.</p>
+
+    <div class="order"><h3>The Choir Without Names</h3>
+    <p class="lin">Shadow of Sund’s assembly · recruiting in the single rooms of the high blocks</p>
+    <p>Agency distributed beyond individuals. A Choir casting has no author, so it cannot be blamed, licensed or tried. Members describe the end of loneliness as the first sensation of joining. It is Sund’s forbidden joint made of people: an assembly with no exit, and nobody wants to leave.</p></div>
+
+    <div class="order"><h3>The Anatomists of Form</h3>
+    <p class="lin">Shadow of Lan Fong’s recomposition · from the budding knives of the botanic gardens</p>
+    <p>Categories are cultural inheritances rather than laws of magic. Hybrid bodies, living architecture, grafted memory, organisms nobody can name. Their lineage runs through the colonial gardeners whose grafted rubber remade the whole peninsula, which makes them Toa Keng’s children as much as Lan Fong’s.</p></div>
+  </div>
+
+  <div class="family">
+    <p class="fam">Those who bend difference itself</p>
+    <p class="law">Difference is friction, and friction is waste.</p>
+
+    <div class="order"><h3>The Clear <span class="han" lang="zh">澄</span></h3>
+    <p class="lin">Toa Keng’s dream at its limit, and civic convenience at its most generous</p>
+    <p>Extreme optimisation through enforced compatibility. Its patron saint is the chemist who heated wine to kill what lived in it and so saved the vintage. Its gifts are genuine: cholera ended by clean water, a standard gauge, a common tongue. It never needs an army. It arrives as a campaign, and Plate five follows it home.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="inside">
+<div class="wrap">
+  <p class="part">Plate four</p>
+  <h2>The shadow inside the Seven <span class="han" lang="zh">内影</span></h2>
+  <p>The other side does not wait beyond the border. It appears as a sequence of thresholds inside respectable magic, each step reasonable, the last step heresy.</p>
+</div>
+<div class="wrap tablewrap">
+  <table class="thr">
+    <thead><tr><th>House</th><th>The threshold</th><th>Where it ends</th></tr></thead>
+    <tbody>
+      <tr><td>Toa Keng</td><td>survey <span class="arrow">→</span> ward <span class="arrow">→</span> standard</td><td>the Clear; or, turned around, the Clausius Lodge</td></tr>
+      <tr><td>Al-Merikani</td><td>covenant <span class="arrow">→</span> credit <span class="arrow">→</span> deferral</td><td>the Red Ledger; its answer is the Jubilee</td></tr>
+      <tr><td>Balai Pusaka</td><td>custody <span class="arrow">→</span> canon <span class="arrow">→</span> the defeated claim</td><td>the House of Echoes; or release, and the Lepas</td></tr>
+      <tr><td>Lan Fong</td><td>recomposition <span class="arrow">→</span> graft <span class="arrow">→</span> category</td><td>the Anatomists; or the unset charter, and Hundun</td></tr>
+      <tr><td>Nine Rain</td><td>waiting <span class="arrow">→</span> managing <span class="arrow">→</span> displacing</td><td>the Red Ledger at ecological scale; or the Pachakuti</td></tr>
+      <tr><td>Sané-Kora</td><td>answer <span class="arrow">→</span> witness <span class="arrow">→</span> record</td><td>the Mishearers and the Echoes</td></tr>
+      <tr><td>Sund</td><td>assembly <span class="arrow">→</span> quorum <span class="arrow">→</span> no exit</td><td>the Choir; or lapse, and the Naglfar Crew</td></tr>
+      <tr><td>The Board</td><td>renewal <span class="arrow">→</span> clearance <span class="arrow">→</span> erasure</td><td>licensed unholding, practised daily</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="wrap">
+  <p>Schools therefore teach two curricula: what students may do, and what they are not authorised to pursue. The question every probationer eventually asks is this one: if entropy works, why are we not taught it? The honest answer is that it is taught, to demolition crews, surgeons, witness officers and disaster marshals, under supervision and other names. The line runs through governance, from knowledge to capability to authority to responsibility, and it is drawn in a different place by every house. Magical education comes to resemble engineering, medicine, security, theology and constitutional law at once.</p>
+</div>
+</section>
+
+<section id="further">
+<div class="wrap">
+  <p class="part">Plate five</p>
+  <h2>Further than the poles <span class="han" lang="zh">更远处</span></h2>
+  <p>Seven propositions. Each follows from the law, and each makes the Straits harder to live in and harder to leave.</p>
+
+  <div class="prop"><span class="num">i</span><h3>To live is to keep a Red Ledger</h3>
+  <div class="body"><p>Every living body holds itself true against the world and exports disorder to do it: heat, waste, the eaten. A physicist in the 1940s put it plainly: life feeds on order taken from its surroundings. In the Straits this is magical fact. A heartbeat is a small casting. A child is a relation held true by two bodies for twenty years. The Red Ledger is the condition of being alive, and there are no clean hands in the city.</p>
+  <p>What remains is an ethic of sight: know where your bill lands, and name who carries it. The Clans’ real crime is that they stopped looking. The Seven’s real virtue, when they have one, is that they keep looking even when it ruins dinner.</p></div></div>
+
+  <div class="prop"><span class="num">ii</span><h3>The ground is borrowed</h3>
+  <div class="body"><p>The reclaimed shore has no groove, and the atlases have always said so. The reason is that its groove lies elsewhere. The sand was dredged from islands in other seas, some of which no longer break the surface. The newest district of the city is built from other people’s unheld places. Casters who grow up there feel a faint pull, something close to grief, toward coastlines they have never seen, and the strongest of them can cast with a dead island’s accent.</p></div></div>
+
+  <div class="prop"><span class="num">iii</span><h3>Death is the largest unholding anyone performs</h3>
+  <div class="body"><p>A person holds hundreds of relations true: names, debts, promises, a way of cooking fish, the grammar of a dialect. At death they all release at once. Mourning in every tradition is load engineering. The seven-day wake under the block, relatives taking shifts, cards played through the night to keep awake, the chanting, the tea: this is a Sund assembly convened to carry one person’s collapsing relations until they can be set down safely. Griots and bilal and priests are its engineers.</p>
+  <p>Then the seventh month. The gates open and the unpaid bills walk. Joss paper is entropic transfer: order burnt into smoke to pay the unholding dead. The city already stages an annual Jubilee. It calls it a festival, lays out food on the kerb, and performs opera for a front row of empty seats that nobody would dream of sitting in.</p></div></div>
+
+  <div class="prop"><span class="num">iv</span><h3>The Clear arrives with posters</h3>
+  <div class="body"><p>No war. A campaign: one tongue for commerce, one for school, please retire the others. It worked. Trade flowed and the classrooms rose. And a generation of grandparents found they could no longer hold a conversation with their grandchildren, a whole lattice of relations unheld quietly, at the dinner table, over thirty years. The Clear and the Grey turn out to be the same event seen from two rooms of one flat. In the living room it looked like progress. In the grandmother’s room it looked like fog.</p></div></div>
+
+  <div class="prop"><span class="num">v</span><h3>The Grey arrives as tiredness</h3>
+  <div class="body"><p>A plural city is expensive to hold: seven grammars, seven calendars, seven etiquettes of debt and apology, every relation kept true by someone who is also working two jobs. The most numerous entropic sect in the Straits has no masks, no creed and no members. It is simply people too tired to keep holding. The Choir recruits there, offering rest in company. The Clear recruits there too, offering rest in simplicity. The fiercest struggle in the city is over its exhausted.</p></div></div>
+
+  <div class="prop"><span class="num">vi</span><h3>The Board is the greatest unholder of all</h3>
+  <div class="body"><p>Clearance, redevelopment, the expressway cut through the hill of sixty thousand graves. Renewal is unholding with a permit, and the Board casts it every working day. The cults’ real offence, read coldly, is doing without a permit what the city does with one, and choosing different targets. Unholders in Basin Seven keep a map of the Board’s clearances pinned beside their own, and the two maps are hard to tell apart.</p></div></div>
+
+  <div class="prop"><span class="num">vii</span><h3>The atlas is a holding too</h3>
+  <div class="body"><p>Every page of these atlases holds the Straits true against the resistance of never having existed. The world lives exactly as long as someone keeps carrying it, and its author pays the load in hours. The unwritten is Grey territory, and it presses on every margin. A novel of this world needs pages left deliberately unheld, relations it declines to resolve, or it will harden into the Clear. Bore six openings. Leave the seventh.</p></div></div>
+</div>
+</section>
+
+<section id="brine">
+<div class="wrap">
+  <p class="part">Plate six</p>
+  <h2>The Brine <span class="han" lang="zh">腌</span></h2>
+  <p>The world’s founding principle was always named after a pickle. Achar is vegetables in salt, oil, vinegar and spice, left to sour: controlled rot, alive, sealed enough to hold and open enough to breathe. It is the synthesis both drafts were circling. The Clear is the pasteurised jar, safe and dead. The Grey is the jar left open. The Straits is the jar kept.</p>
+  <p>And here is the discovery that turns the history over. While every school forbade unholding, every kitchen kept a ferment. The cooks, mostly grandmothers, unlicensed and never examined, have been the city’s real entropic masters all along. They manage decay daily, by smell, by weather, by memory, and nothing they make has ever been measured on a crystal.</p>
+</div>
+<div class="wide">
+  <div class="jars">
+    <div class="jar"><div class="h">Toa Keng</div><div class="f">the brewery, and its enemy the pasteuriser</div><p>The house that gave the city its lager also gave it the idea of killing what lives in the barrel. Both sides of the pole in one building.</p></div>
+    <div class="jar"><div class="h">Al-Merikani</div><div class="f">vinegar and lime achar</div><p>The word itself travelled the monsoon routes. Vinegar is a covenant with time: wine allowed to go wrong in exactly the agreed way.</p></div>
+    <div class="jar"><div class="h">Balai Pusaka</div><div class="f">belacan, budu, tempoyak</div><p>Shrimp and fish and durian given to salt and heat until they become heirlooms. The smell that announces a house before its gate does.</p></div>
+    <div class="jar"><div class="h">Lan Fong</div><div class="f">梅菜 and 腐乳</div><p>Salted greens dried in the sun, bean curd left to bloom. Hakka thrift in a jar: recomposition done slowly by microbes, never by fiat.</p></div>
+    <div class="jar"><div class="h">Nine Rain</div><div class="f">chicha</div><p>Maize beer started with saliva, chewed communally. Every jar carries everyone who made it. Fermentation as reciprocity, timed by the feast calendar.</p></div>
+    <div class="jar"><div class="h">Sané-Kora</div><div class="f">soumbala</div><p>Néré seeds fermented into a pungent cake. Its flavour depends on who tends it and when, and the recipe is spoken, never written.</p></div>
+    <div class="jar"><div class="h">Sund</div><div class="f">gravlax and rakfisk</div><p>Gravlax means buried salmon. Sund’s oldest joint is fish, salt and earth, demountable in months, and the house has eaten its own entropy for a thousand winters.</p></div>
+  </div>
+</div>
+<div class="wrap">
+  <p><b>Salt preserves and salt kills.</b> The White Salt heresy is brine with nothing in it: severance without the vegetable, preservation without the living thing. Every cook knows the difference between a salted fish and a salted field. The city’s lawmakers took four centuries to learn it.</p>
+  <p><b>The Compact was sealed at a meal.</b> The other draft proposed that the Seven arose as a post-catastrophe constitution, a refusal to let any single grammar monopolise reality again after an entropic age that built nothing permanent, a Ledger empire paid for by territories that never learnt why their roofs fell, and a Clear century in which eccentricity became indistinguishable from malfunction. Here is the rest of that story. The founding parties each brought a ferment to the table and mixed them in one jar. That jar was the first achar. It sits in the Board’s vault, still sour, still breathing, and nobody is allowed to taste it.</p>
+  <blockquote class="pull">Concordance is fermentation: distinct things sharing a brine, changing one another, never becoming one.</blockquote>
+  <p>This is also what Basin Seven has been asking for. The freshwater crisis cannot be solved by a casting, because every conjured litre is a loan from the world. It asks for a culture, in both senses of the word.</p>
+</div>
+</section>
+
+<section id="relics">
+<div class="wrap">
+  <p class="part">Plate seven</p>
+  <h2>Relics as frozen arguments <span class="han" lang="zh">凝固之争</span></h2>
+  <p>A legendary object matters less for what it can do than for the kind of world its existence assumes.</p>
+  <dl class="list">
+    <dt>The Climate Crown</dt><dd>It steadies the monsoon over the Straits and is carried in every civic procession. It is a Red Ledger instrument. The missing rain has always fallen somewhere, as drought, on a coast the city has never mapped.</dd>
+    <dt>The City-Killer</dt><dd>Believed to annihilate settlements. It removes nothing physical. It unholds the relational architecture by which a city continues to believe itself one city, and the buildings are left standing, full of strangers.</dd>
+    <dt>The Crown That Remembers</dt><dd>It recognises a relational signature rather than blood, which is why the Borrowed Faces have worn it twice in recorded history and possibly a third time in unrecorded history.</dd>
+    <dt>The Unbored Mask</dt><dd>Hundun’s face, carved with no openings. Whoever wears it cannot be addressed by any house: no summons, covenant, answer or survey reaches them. The Society keeps it for the day the city needs someone nobody can command.</dd>
+    <dt>The Compact Jar</dt><dd>The first achar. Proof that the Seven were once seven hungry parties at a table. If it ever stops souring, the Compact is dead, and the Board checks it every morning by smell.</dd>
+  </dl>
+</div>
+</section>
+
+<section id="temptation">
+<div class="wrap">
+  <p class="part">Plate eight</p>
+  <h2>The temptations <span class="han" lang="zh">诱</span></h2>
+  <p>The other side becomes dramatic when it tells each character something true that their own house cannot comfortably say. The forbidden technique works, and it produces an undeniable local good while exporting consequences beyond the field of vision.</p>
+  <dl class="list">
+    <dt>Nela</dt><dd>Her prayers are answered, and she learns they are being paid. Someone in Basin Seven has been carrying her miracles since she was nine. Her gift is a Red Ledger she never signed, and the Jubilee offers to cancel it, which would return every answered prayer at once.</dd>
+    <dt>Amadou</dt><dd>Going deaf in a tradition that locates authority in the ear. The Mishearers offer to hear for him. They would answer on his behalf, and every answer’s cost would be theirs to drink. It would save his standing and hand them the voice of his house.</dd>
+    <dt>A Sund apprentice</dt><dd>The Choir, and the first night in years without loneliness.</dd>
+    <dt>A Toa Keng surveyor from the lower kampongs</dt><dd>The Clear, which would end the fevers that killed her brothers, and would also end her grandmother’s dialect.</dd>
+    <dt>A Balai Pusaka custodian</dt><dd>The Lepas, and the chance to free the keris that chose her and has been miserable ever since.</dd>
+    <dt>A Lan Fong heir</dt><dd>The Hundun Society, and a clean unsetting of the 140-year charter that binds his family’s debt.</dd>
+    <dt>A Nine Rain calendar-keeper</dt><dd>The Pachakuti. Her village’s season has not turned in eleven years. It will not turn unless someone overturns it.</dd>
+  </dl>
+  <p>“We know this is forbidden.” “Yes. But it will save them.” The question the novel asks is never whether the magic is strong enough. It asks who carries the consequence, and whether the character is willing to look.</p>
+</div>
+</section>
+
+<section class="coda" id="coda">
+<div class="wrap">
+  <p class="part">Coda</p>
+  <p class="q">How much relation can reality sustain without becoming a prison, how much freedom before nothing holds, and how sour can a city become and still be food?</p>
+  <p class="loose" aria-label="Hold this lightly. The jar is sealed but breathing. Somewhere under the reclaimed shore an island is still unholding, and every page of this atlas is an opening, bored kindly.">
+    <span class="l1">Hold this lightly.</span>
+    <span class="l2">The jar is sealed but breathing.</span>
+    <span class="l3">Somewhere under the reclaimed shore an island is still unholding,</span>
+    <span class="l4">and every page of this atlas</span>
+    <span class="l5">is an opening,</span>
+    <span class="l6">bored kindly.</span>
+  </p>
+</div>
+</section>
+
+</main>
+<footer><div class="wrap">The Parallel Straits · The Unholding 放下 · a counter-atlas synthesising two drafts, September 2026.</div></footer>
+</body>
+</html>

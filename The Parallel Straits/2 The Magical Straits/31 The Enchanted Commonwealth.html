@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10131b">
+<meta name="description" content="The Enchanted Commonwealth — Volume V of the Parallel Straits Magical Atlas. Civic infrastructure, public magic, lost works, and the Eighth Gate.">
+<title>魔法共和国 · The Enchanted Commonwealth</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+
+<style>
+:root{
+  --night:#10131b;
+  --night2:#171b25;
+  --paper:#efe9df;
+  --paper2:#e4d8c9;
+  --ink:#24252c;
+  --soft:#625f67;
+  --faint:#8d8992;
+  --line:rgba(36,37,44,.14);
+  --gold:#b58d50;
+  --goldp:#e9d7b2;
+  --violet:#766995;
+  --teal:#587a75;
+  --green:#6d7f69;
+  --rust:#9b6653;
+  --blue:#637d91;
+  --wine:#8b4f5d;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Songti SC","STSong",serif;
+  --song:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans CJK SC",sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{overflow-x:hidden;scroll-behavior:smooth;background:var(--night);overscroll-behavior-x:none}
+body{
+  margin:0;overflow-x:hidden;color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.72;
+  background:linear-gradient(180deg,var(--night) 0 830px,var(--paper) 830px 100%);
+}
+@supports(overflow:clip){html,body{overflow-x:clip}}
+.wrap{width:min(calc(100% - 48px),1220px);margin:0 auto;min-width:0}
+.mini{font:700 .63rem/1.4 var(--sans);letter-spacing:.13em;text-transform:uppercase}
+.cn{font-family:var(--song)}
+.muted{color:var(--soft)}
+.hero{
+  min-height:830px;color:#f7f1e8;display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);
+  gap:72px;align-items:center;padding:86px 0 76px;position:relative
+}
+.hero:before{
+  content:"";position:absolute;inset:0 -12vw;pointer-events:none;
+  background:
+    radial-gradient(circle at 72% 36%,rgba(181,141,80,.18),transparent 19rem),
+    radial-gradient(circle at 72% 38%,rgba(118,105,149,.14),transparent 34rem),
+    radial-gradient(circle at 15% 10%,rgba(88,122,117,.08),transparent 24rem)
+}
+.hero-copy,.hero-art{position:relative;z-index:1}
+.eyebrow{color:var(--goldp);margin-bottom:27px}
+h1{
+  margin:0;font-size:clamp(4rem,8vw,8.1rem);
+  font-weight:400;line-height:.92;letter-spacing:-.045em
+}
+h1 span{
+  display:block;font-family:var(--song);font-size:.42em;letter-spacing:.015em;
+  margin-bottom:18px;color:#efe2d0
+}
+h1 em{font-weight:400;color:var(--goldp)}
+.deck{
+  font-size:clamp(1.2rem,2vw,1.56rem);line-height:1.55;
+  color:rgba(247,241,232,.77);max-width:760px;margin-top:29px
+}
+.hero-quote{
+  margin-top:38px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);
+  color:rgba(247,241,232,.62);max-width:720px
+}
+.hero-art svg{display:block;width:min(100%,520px);margin:auto;filter:drop-shadow(0 22px 55px rgba(0,0,0,.18))}
+.paper{
+  background:
+    radial-gradient(circle at 10% 4%,rgba(255,255,255,.55),transparent 28rem),
+    radial-gradient(circle at 90% 18%,rgba(118,105,149,.06),transparent 31rem),
+    linear-gradient(135deg,var(--paper),#f7f2e9 48%,var(--paper2));
+  padding-bottom:100px
+}
+.running{
+  position:sticky;top:0;z-index:10;background:rgba(239,233,223,.9);
+  backdrop-filter:blur(16px);border-bottom:1px solid var(--line)
+}
+.running .wrap{
+  display:flex;justify-content:space-between;gap:20px;padding:11px 0;color:var(--faint)
+}
+section{padding:96px 0;border-bottom:1px solid var(--line)}
+.section-head{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(245px,.35fr);
+  gap:60px;align-items:end;margin-bottom:46px
+}
+.kicker{color:var(--violet);margin-bottom:15px}
+h2{
+  margin:0;font-size:clamp(2.7rem,5.6vw,5.5rem);
+  font-weight:400;line-height:1.01;letter-spacing:-.035em
+}
+h2 em{font-weight:400;color:var(--violet)}
+.side-note{
+  border-top:2px solid var(--gold);padding-top:14px;
+  color:var(--faint);font-size:.82rem;line-height:1.62
+}
+.lede{
+  font-size:clamp(1.34rem,2.35vw,1.84rem);line-height:1.57;
+  max-width:930px;color:#39363f
+}
+.pull{
+  margin:52px 0;padding-left:28px;border-left:3px solid var(--gold);
+  font-size:clamp(1.55rem,3.3vw,2.95rem);line-height:1.35
+}
+.pull small{
+  display:block;margin-top:18px;color:var(--faint);
+  font:700 .62rem/1.45 var(--sans);letter-spacing:.13em;text-transform:uppercase
+}
+.plate{
+  margin:40px 0;padding:32px;background:rgba(255,255,255,.45);
+  border:1px solid var(--line);position:relative
+}
+.plate:before,.plate:after{
+  content:"";position:absolute;width:18px;height:18px;border-color:var(--gold)
+}
+.plate:before{left:-1px;top:-1px;border-left:2px solid;border-top:2px solid}
+.plate:after{right:-1px;bottom:-1px;border-right:2px solid;border-bottom:2px solid}
+.plate-tag{
+  font:750 .59rem/1.4 var(--sans);letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:18px
+}
+.tex{text-align:center;font:500 1.08rem/1.6 var(--mono);overflow-x:auto}
+.tex .katex-display{overflow-x:auto;overflow-y:hidden}
+
+/* civic spectrum */
+.spectrum{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:34px 0}
+.spectrum article{
+  padding:23px 18px;background:rgba(255,255,255,.42);border:1px solid var(--line);
+  min-width:0
+}
+.spectrum b{
+  display:block;color:var(--gold);font:750 .6rem/1.4 var(--sans);
+  letter-spacing:.11em;text-transform:uppercase;margin-bottom:10px
+}
+.spectrum h3{font-size:1.15rem;margin:0 0 8px;font-weight:500}
+.spectrum p{font-size:.83rem;color:var(--soft);margin:0}
+
+/* mundane */
+.mundane-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.mundane{
+  padding:24px;background:rgba(255,255,255,.4);border:1px solid var(--line);
+  border-top:3px solid var(--teal)
+}
+.mundane h3{margin:0 0 8px;font-size:1.2rem}
+.mundane p{margin:0;color:var(--soft);font-size:.86rem}
+.mundane .tag{
+  display:inline-block;margin-bottom:10px;color:var(--teal);
+  font:750 .58rem/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase
+}
+
+/* school fingerprints */
+.fingerprint-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fingerprint{
+  padding:27px;background:rgba(255,255,255,.4);border:1px solid var(--line);
+  position:relative
+}
+.fingerprint:before{
+  content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:4px;background:var(--accent)
+}
+.fingerprint .mini{color:var(--accent);margin-bottom:9px}
+.fingerprint h3{margin:0 0 8px;font-size:1.35rem}
+.fingerprint p{margin:0;color:var(--soft);font-size:.88rem}
+
+/* commons block */
+.block-diagram{
+  background:#151822;padding:30px;border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 20px 60px rgba(30,27,40,.15)
+}
+.block-diagram svg{width:100%;display:block}
+.block-diagram figcaption{color:rgba(247,241,232,.55);font:500 .68rem/1.5 var(--sans);margin-top:14px}
+
+/* transit */
+.transit{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);
+  gap:45px;align-items:center
+}
+.route-map{
+  background:#151822;padding:28px;border:1px solid rgba(255,255,255,.1)
+}
+.route-map svg{display:block;width:100%}
+.route-map figcaption{color:rgba(247,241,232,.55);font:500 .68rem/1.5 var(--sans);margin-top:14px}
+
+/* doctrine */
+.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-top:30px}
+.key{
+  padding:24px;background:rgba(255,255,255,.42);border:1px solid var(--line);
+  border-top:3px solid var(--wine)
+}
+.key b{display:block;font-size:1.15rem;margin-bottom:7px}
+.key p{margin:0;color:var(--soft);font-size:.84rem}
+
+/* legends */
+.legend-list{display:grid;gap:16px}
+.legend{
+  display:grid;grid-template-columns:95px minmax(0,1fr);gap:28px;
+  padding:32px;background:rgba(255,255,255,.42);border:1px solid var(--line)
+}
+.legend-num{font-size:3.2rem;line-height:1;color:var(--gold);opacity:.72}
+.legend .mini{color:var(--wine);margin-bottom:8px}
+.legend h3{margin:0 0 13px;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400}
+.legend p{margin:0 0 12px;color:var(--soft)}
+.legend .rumour{
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+  color:#4f4c55;font-style:italic
+}
+
+/* eighth gate */
+.gate{
+  padding:42px;background:linear-gradient(135deg,#171923,#202433);
+  color:#f7f1e8;border:1px solid rgba(255,255,255,.1);position:relative;overflow:hidden
+}
+.gate:after{
+  content:"VIII";position:absolute;right:-12px;top:-70px;
+  font-size:17rem;line-height:1;color:rgba(255,255,255,.035);font-family:var(--serif)
+}
+.gate h3{
+  position:relative;margin:0 0 15px;font-size:clamp(2.1rem,4vw,3.7rem);
+  font-weight:400;color:var(--goldp)
+}
+.gate p{position:relative;color:rgba(247,241,232,.72);max-width:850px}
+.gate-grid{
+  position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;margin-top:24px
+}
+.gate-grid div{
+  padding:15px;border:1px solid rgba(255,255,255,.12);
+  color:rgba(247,241,232,.7);font-size:.85rem
+}
+.gate-grid b{color:#fff}
+
+/* closing */
+.closing{padding:110px 0 120px}
+.closing q{
+  display:block;max-width:1050px;font-size:clamp(2.2rem,5vw,5.3rem);
+  line-height:1.17;letter-spacing:-.025em
+}
+.closing q:before,.closing q:after{color:var(--gold)}
+.closing p{max-width:770px;color:var(--soft);margin-top:30px}
+footer{padding:30px 0 60px;border-top:1px solid var(--line);color:var(--faint)}
+.footer-row{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap}
+
+@media(max-width:1000px){
+  body{background:linear-gradient(180deg,var(--night) 0 1000px,var(--paper) 1000px 100%)}
+  .hero,.section-head,.transit{grid-template-columns:1fr}
+  .spectrum{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mundane-grid,.fingerprint-grid{grid-template-columns:1fr}
+  .keys{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:650px){
+  body{font-size:17px}
+  .wrap{width:min(calc(100% - 26px),1220px)}
+  .hero{padding:58px 0 64px;gap:36px}
+  h1{font-size:clamp(3.6rem,18vw,6rem)}
+  section{padding:74px 0}
+  .running .right{display:none}
+  .spectrum,.keys,.gate-grid{grid-template-columns:1fr}
+  .legend{grid-template-columns:1fr;padding:26px 20px}
+  .legend-num{font-size:2.3rem}
+  .plate{padding:25px 17px}
+  .tex{font-size:.9rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+<header class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow mini">THE PARALLEL STRAITS · MAGICAL ATLAS · VOLUME V</div>
+    <h1><span>魔法共和国</span>The Enchanted <em>Commonwealth</em></h1>
+    <p class="deck">When magic leaves the duelling ground and enters drains, lifts, markets, housing, hospitals, ports, transit, law, maintenance — and eventually the half-remembered megastructures that later generations call legend.</p>
+    <p class="hero-quote">The world stops being “a place with mages” when ordinary citizens begin complaining that the communal load-balancing field in Block 73B has been miscalibrated for three weeks.</p>
+  </div>
+
+  <div class="hero-art">
+    <svg viewBox="0 0 560 520" role="img" aria-label="Magically empowered city infrastructure diagram">
+      <g fill="none" stroke="#ead7b2" stroke-opacity=".32">
+        <circle cx="280" cy="250" r="190"/>
+        <circle cx="280" cy="250" r="132" stroke-dasharray="4 10"/>
+      </g>
+      <g stroke="#f3e7d5" stroke-opacity=".22" fill="none">
+        <path d="M95 310 C170 270 215 285 280 250 C350 215 405 230 465 180"/>
+        <path d="M105 370 C185 338 235 342 280 315 C330 286 390 305 455 275"/>
+        <path d="M145 130 C205 160 230 200 280 250 C325 295 365 340 415 385"/>
+      </g>
+      <g fill="#ead7b2">
+        <circle cx="95" cy="310" r="6"/><circle cx="465" cy="180" r="6"/>
+        <circle cx="105" cy="370" r="6"/><circle cx="455" cy="275" r="6"/>
+        <circle cx="145" cy="130" r="6"/><circle cx="415" cy="385" r="6"/>
+      </g>
+      <g fill="none" stroke="#7e719a" stroke-opacity=".55">
+        <rect x="196" y="170" width="168" height="160" rx="8"/>
+        <line x1="196" y1="210" x2="364" y2="210"/>
+        <line x1="196" y1="250" x2="364" y2="250"/>
+        <line x1="196" y1="290" x2="364" y2="290"/>
+      </g>
+      <text x="280" y="232" text-anchor="middle" fill="#f7f1e8" font-size="18" font-family="serif">MAGIC AS</text>
+      <text x="280" y="258" text-anchor="middle" fill="#f7f1e8" font-size="18" font-family="serif">INFRASTRUCTURE</text>
+      <text x="280" y="286" text-anchor="middle" fill="#a99fad" font-size="9" letter-spacing="2" font-family="sans-serif">MAINTAINED RELATIONSHIPS</text>
+    </svg>
+  </div>
+</header>
+</div>
+
+<main class="paper">
+<div class="running">
+  <div class="wrap mini">
+    <span><strong>The Enchanted Commonwealth</strong> · Volume V</span>
+    <span class="right">mundane systems → civic magic → legendary works</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section id="principle">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§0 · THE CIVILISATIONAL TURN</div>
+      <h2>The hardest magic is not spectacular.<br>It is <em>maintained</em>.</h2>
+    </div>
+    <aside class="side-note">A legendary mage can hold a bridge for ten minutes. A civilisation has to keep it functioning for three centuries through flood, migration, budget cuts and changing governments.</aside>
+  </div>
+
+  <p class="lede">Civic enchantment is not a spell attached to an object. It is an engineered relation among technical performance, public legitimacy, ongoing maintenance, social use and world resistance.</p>
+
+  <div class="plate">
+    <div class="plate-tag">Plate I · infrastructure magic</div>
+    <div class="tex" data-tex="I_{\mathrm{magic}}=\text{engineered relation}+\text{maintenance}+\text{legitimacy}+\text{public use}+\text{resistance management}">
+      I_magic = engineered relation + maintenance + legitimacy + public use + resistance management
+    </div>
+  </div>
+
+  <div class="pull">Infrastructure is not the object. Infrastructure is the maintained relationship between object and society.<small>Sund’s great civilisational insight</small></div>
+</section>
+
+<section id="spectrum">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§1 · FROM DRAINS TO LEGENDS</div>
+      <h2>A civic spectrum of <em>enchanted scale</em></h2>
+    </div>
+    <aside class="side-note">The mythology works because the legendary systems grow out of ordinary ones. The same principles that keep a market cool can, centuries later, hold a coastal city against the sea.</aside>
+  </div>
+
+  <div class="spectrum">
+    <article><b>Domestic</b><h3>Almost invisible</h3><p>Load-balanced lifts, spoilage-slowing cabinets, heat-exchanging kitchens, self-clearing drains.</p></article>
+    <article><b>Neighbourhood</b><h3>Shared resilience</h3><p>Cooling courtyards, communal protection fields, clinics, gardens, shared storage and emergency shelters.</p></article>
+    <article><b>District</b><h3>Coordinated systems</h3><p>Floodable parks, food distribution, transit nodes, recovery wards, public information fields.</p></article>
+    <article><b>Metropolitan</b><h3>City-scale relations</h3><p>Harbour wards, watershed control, magical MRT, civic memory, climate buffering.</p></article>
+    <article><b>Legendary</b><h3>Half history, half myth</h3><p>Vanished harbours, buried rivers, floating districts, impossible transit, lost constitutional machines.</p></article>
+  </div>
+</section>
+
+<section id="mundane">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§2 · EVERYDAY MAGIC</div>
+      <h2>The city is enchanted.<br>Nobody is <em>impressed</em>.</h2>
+    </div>
+    <aside class="side-note">The best sign that a magical technology has matured is that citizens stop describing it as magic and start describing it as unreliable service provision.</aside>
+  </div>
+
+  <div class="mundane-grid">
+    <article class="mundane"><span class="tag">Hawker centre</span><h3>Heat-exchange exhaust</h3><p>Waste heat from cooking is redirected into communal hot-water storage instead of being magically “deleted.” The stallholder merely complains when ventilation is lousy.</p></article>
+    <article class="mundane"><span class="tag">Public service</span><h3>Honest Queue field</h3><p>Makes the already-existing order of arrival perceptually obvious. It does not compel obedience; it makes accidental queue-cutting difficult to rationalise.</p></article>
+    <article class="mundane"><span class="tag">Housing</span><h3>Load-balanced lifts</h3><p>Sund-style distribution compensates uneven weight, elderly mobility and emergency use without requiring brute-force levitation.</p></article>
+    <article class="mundane"><span class="tag">Markets</span><h3>Freshness commons</h3><p>Cold storage, airflow and spoilage are distributed across neighbouring stalls so no vendor bears the full resistance cost alone.</p></article>
+    <article class="mundane"><span class="tag">Stormwater</span><h3>Remembering drains</h3><p>Temenggong and Nine Rains methods allow drains to respond to recurrent local flow patterns and old watercourses rather than fixed engineering assumptions alone.</p></article>
+    <article class="mundane"><span class="tag">Wayfinding</span><h3>Plural signage</h3><p>TKI navigation systems present the same place through several legible frameworks without changing the underlying spatial relation.</p></article>
+  </div>
+</section>
+
+<section id="fingerprints">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§3 · SCHOOL FINGERPRINTS</div>
+      <h2>Seven traditions leave marks on the <em>same city</em></h2>
+    </div>
+    <aside class="side-note">By the mature Commonwealth era, no large system belongs to a single School. Yet specialists can still recognise which grammar shaped its deepest assumptions.</aside>
+  </div>
+
+  <div class="fingerprint-grid">
+    <article class="fingerprint" style="--accent:#6f819a"><div class="mini">TKI · Parallax</div><h3>Legibility & interoperability</h3><p>Wayfinding, multilingual systems, protocol translation and transport interchange. The question: how can one system remain legible under several descriptions?</p></article>
+    <article class="fingerprint" style="--accent:#9c6b50"><div class="mini">Al-Merican · Amanah</div><h3>Access & jurisdiction</h3><p>Hospitals, shelters, ports and public buildings operate through conditional permissions rather than crude binary locks.</p></article>
+    <article class="fingerprint" style="--accent:#657d68"><div class="mini">Temenggong · Communion</div><h3>Continuity of place</h3><p>Old waterways, trees, routes and neighbourhood relations remain perceptible inside redevelopment. Heritage becomes relational continuity, not façade preservation.</p></article>
+    <article class="fingerprint" style="--accent:#9a5f56"><div class="mini">Lam Keng · Recomposition</div><h3>Utilities & executable magic</h3><p>Electrical grids, propulsion, purification, automated spell arrays and repeatable civic technology. The city acquires magical engineering departments.</p></article>
+    <article class="fingerprint" style="--accent:#607e87"><div class="mini">Nine Rains · Reciprocity</div><h3>Feedback & watershed intelligence</h3><p>Reservoirs, soil, planting, tides, heat and rain become one adaptive water system. Flood control begins months before rainfall.</p></article>
+    <article class="fingerprint" style="--accent:#806d92"><div class="mini">Kora · Third Voice</div><h3>Public memory & testimony</h3><p>Courts, archives, missing persons, heritage surveys and civic memorials retain relationships ordinary records would otherwise erase.</p></article>
+    <article class="fingerprint" style="--accent:#8a7f5c"><div class="mini">Sund · Commons</div><h3>Maintenance as public magic</h3><p>Cleaners, repairers, gardeners, transit crews and estate managers become part of the enchantment itself. Care is not ancillary to infrastructure; it is constitutive.</p></article>
+  </div>
+</section>
+
+<section id="commons-block">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§4 · THE FIRST COMMONS BLOCK</div>
+      <h2>Architecture that becomes <em>better with age</em></h2>
+    </div>
+    <aside class="side-note">This is the first civic project where all seven grammars are deliberately integrated around ordinary residential life rather than prestige or warfare.</aside>
+  </div>
+
+  <p class="lede">After fifty years, the building is not merely older. Repeated care has strengthened particular relations. The estate has acquired what planners call <strong>mature place intelligence</strong>.</p>
+
+  <figure class="block-diagram">
+    <svg viewBox="0 0 1100 620" role="img" aria-label="Commons Block relational infrastructure diagram">
+      <rect x="310" y="90" width="480" height="420" rx="10" fill="none" stroke="#ead7b2" stroke-opacity=".6" stroke-width="2"/>
+      <g stroke="#7d7196" stroke-opacity=".55" fill="none">
+        <line x1="310" y1="180" x2="790" y2="180"/>
+        <line x1="310" y1="270" x2="790" y2="270"/>
+        <line x1="310" y1="360" x2="790" y2="360"/>
+        <line x1="310" y1="450" x2="790" y2="450"/>
+      </g>
+      <g fill="#f7f1e8" font-family="sans-serif" font-size="13">
+        <text x="550" y="135" text-anchor="middle">HOUSING / MEMORY / CARE / WATER / ENERGY / ACCESS</text>
+        <text x="550" y="228" text-anchor="middle">corridors learn movement patterns</text>
+        <text x="550" y="318" text-anchor="middle">void deck strengthens conflict-cooling relations</text>
+        <text x="550" y="408" text-anchor="middle">maintenance increases resilience</text>
+        <text x="550" y="492" text-anchor="middle">storm load redistributes toward available capacity</text>
+      </g>
+      <g fill="#ead7b2">
+        <circle cx="240" cy="160" r="7"/><circle cx="240" cy="250" r="7"/><circle cx="240" cy="340" r="7"/><circle cx="240" cy="430" r="7"/>
+        <circle cx="860" cy="160" r="7"/><circle cx="860" cy="250" r="7"/><circle cx="860" cy="340" r="7"/><circle cx="860" cy="430" r="7"/>
+      </g>
+      <g stroke="#f3e7d5" stroke-opacity=".28">
+        <line x1="240" y1="160" x2="310" y2="160"/><line x1="240" y1="250" x2="310" y2="250"/><line x1="240" y1="340" x2="310" y2="340"/><line x1="240" y1="430" x2="310" y2="430"/>
+        <line x1="790" y1="160" x2="860" y2="160"/><line x1="790" y1="250" x2="860" y2="250"/><line x1="790" y1="340" x2="860" y2="340"/><line x1="790" y1="430" x2="860" y2="430"/>
+      </g>
+      <g fill="#a9a0ad" font-family="sans-serif" font-size="11">
+        <text x="215" y="152" text-anchor="end">TKI</text>
+        <text x="215" y="242" text-anchor="end">Amanah</text>
+        <text x="215" y="332" text-anchor="end">Temenggong</text>
+        <text x="215" y="422" text-anchor="end">Lam Keng</text>
+        <text x="885" y="152">Nine Rains</text>
+        <text x="885" y="242">Kora</text>
+        <text x="885" y="332">Sund</text>
+        <text x="885" y="422">residents</text>
+      </g>
+    </svg>
+    <figcaption>Commons Block · conceptual diagram. The building is not conscious; it becomes relationally mature through repeated use, care and maintenance.</figcaption>
+  </figure>
+
+  <div class="plate">
+    <div class="plate-tag">Plate II · mature place</div>
+    <div class="tex" data-tex="\text{architecture}+\text{history}+\text{care}\rightarrow\text{civic intelligence}">
+      architecture + history + care → civic intelligence
+    </div>
+  </div>
+</section>
+
+<section id="mrt">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§5 · THE MAGICAL MRT</div>
+      <h2>Distance becomes a matter of <em>public policy</em></h2>
+    </div>
+    <aside class="side-note">The mature transit system avoids brute-force spatial compression. Instead it negotiates adjacency, route history, use and public legitimacy.</aside>
+  </div>
+
+  <div class="transit">
+    <div>
+      <p class="lede">Repeated travel strengthens a route’s relational coherence. Heavily used journeys become slightly easier to sustain magically — creating an immediate equity problem.</p>
+      <div class="plate">
+        <div class="plate-tag">Plate III · effective distance</div>
+        <div class="tex" data-tex="d_{\mathrm{effective}}\neq d_{\mathrm{geographic}}">
+          d_effective ≠ d_geographic
+        </div>
+      </div>
+      <p class="muted">Without intervention, wealthy or central routes could become magically “closer” simply because they are travelled more often. Sund planners therefore subsidise relational proximity to preserve spatial equity.</p>
+    </div>
+
+    <figure class="route-map">
+      <svg viewBox="0 0 620 420" role="img" aria-label="Magical MRT route equity diagram">
+        <g stroke="#ead7b2" stroke-width="4" fill="none">
+          <path d="M90 310 C175 285 220 220 310 220 C405 220 455 155 530 120"/>
+        </g>
+        <g stroke="#7a6d97" stroke-width="2" stroke-dasharray="5 8" fill="none">
+          <path d="M105 350 C200 330 245 300 330 305 C410 312 470 285 545 250"/>
+        </g>
+        <g fill="#f7f1e8">
+          <circle cx="90" cy="310" r="9"/><circle cx="210" cy="245" r="9"/><circle cx="310" cy="220" r="9"/><circle cx="430" cy="180" r="9"/><circle cx="530" cy="120" r="9"/>
+          <circle cx="105" cy="350" r="7"/><circle cx="330" cy="305" r="7"/><circle cx="545" cy="250" r="7"/>
+        </g>
+        <g fill="#b8afbd" font-family="sans-serif" font-size="11">
+          <text x="80" y="292">high-use route</text>
+          <text x="320" y="334">publicly subsidised relational proximity</text>
+        </g>
+      </svg>
+      <figcaption>Concept sketch · route use naturally lowers resistance; civic policy prevents low-ridership districts from drifting relationally farther away.</figcaption>
+    </figure>
+  </div>
+
+  <div class="pull">Transport planners eventually invent the “spatial equity coefficient.”<small>because of course magical Singapore has one</small></div>
+</section>
+
+<section id="doctrine">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§6 · CONSTITUTIONAL MAGIC</div>
+      <h2>The Four Keys <em>Doctrine</em></h2>
+    </div>
+    <aside class="side-note">Once public infrastructure can literally encode social relations, magical engineering becomes inseparable from governance.</aside>
+  </div>
+
+  <p class="lede">After several historical failures, metropolitan enchantments above a certain scale may no longer be authored entirely inside one grammar.</p>
+
+  <div class="keys">
+    <article class="key"><b>Operation</b><p>Someone must understand how the system actually functions.</p></article>
+    <article class="key"><b>Legitimacy</b><p>Someone must verify who has authority, consent and jurisdiction.</p></article>
+    <article class="key"><b>Feedback</b><p>Someone must track externalities, resistance accumulation and unintended consequences.</p></article>
+    <article class="key"><b>Witness</b><p>Someone must preserve an independent account of what happened and what was changed.</p></article>
+  </div>
+
+  <div class="plate">
+    <div class="plate-tag">Plate IV · no single grammar governs alone</div>
+    <div class="tex" data-tex="\boxed{\text{Operation}+\text{Legitimacy}+\text{Feedback}+\text{Witness}}">
+      Operation + Legitimacy + Feedback + Witness
+    </div>
+  </div>
+</section>
+
+<section id="legends">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§7 · LOST WORKS</div>
+      <h2>Infrastructure so ambitious it became <em>myth</em></h2>
+    </div>
+    <aside class="side-note">Each legend remains plausible enough to have left records, ruins or technical descendants — but incomplete enough that historians still dispute what actually existed.</aside>
+  </div>
+
+  <div class="legend-list">
+
+    <article class="legend">
+      <div class="legend-num">I</div>
+      <div>
+        <div class="mini">PORT / COVENANT / RECIPROCITY</div>
+        <h3>The Ninth Harbour</h3>
+        <p>A port with no fixed geographic location. Vessels could reach it only if entering trade under reciprocal conditions. Cargo acquired through predation allegedly failed to find the approach.</p>
+        <p>For two centuries, it may have been the wealthiest harbour in the world. Then the covenant collapsed — or the merchants became too extractive — and the port ceased to be reachable.</p>
+        <p class="rumour">Some trading families insist the harbour still exists. Their grandparents simply stopped teaching the route.</p>
+      </div>
+    </article>
+
+    <article class="legend">
+      <div class="legend-num">II</div>
+      <div>
+        <div class="mini">PLACE-MEMORY / PARALLAX / WATER</div>
+        <h3>The Under-River</h3>
+        <p>A transit network built from every watercourse the city had ever possessed: vanished creeks, old shorelines, filled streams, drains and riverbeds, all remaining adjacent in the Axiomatic Stratum.</p>
+        <p>Juru Selat practitioners could allegedly enter one remembered waterway and emerge beside another kilometres away.</p>
+        <p class="rumour">Excavation crews occasionally uncover stairs descending toward water that has not physically existed for centuries.</p>
+      </div>
+    </article>
+
+    <article class="legend">
+      <div class="legend-num">III</div>
+      <div>
+        <div class="mini">COMMONS / FORCE / CIVIC LOAD</div>
+        <h3>The City That Rose</h3>
+        <p>An entire coastal district is said to have redistributed its gravitational relation during an extreme surge. It did not fly. For twelve minutes, it was simply less attached to the ground.</p>
+        <p>No surviving engineer can reproduce the equations.</p>
+        <p class="rumour">Old residents say only: “My grandmother remembered the night the horizon went down.”</p>
+      </div>
+    </article>
+
+    <article class="legend">
+      <div class="legend-num">IV</div>
+      <div>
+        <div class="mini">IDENTITY / MIGRATION / PUBLIC MEMORY</div>
+        <h3>The Reservoir of Names</h3>
+        <p>Migrants deposited relational anchors there: names, languages, places left behind, kinship, songs, promises and lost villages. Not memories themselves — anchors by which continuity could later be restored.</p>
+        <p>The archive became politically frightening as it accumulated identities erased elsewhere.</p>
+        <p class="rumour">The reservoir is said to remember everyone who has ever belonged somewhere else.</p>
+      </div>
+    </article>
+
+    <article class="legend">
+      <div class="legend-num">V</div>
+      <div>
+        <div class="mini">CLIMATE / FEEDBACK / DEFERRED RESISTANCE</div>
+        <h3>The Hundred-Year Monsoon Engine</h3>
+        <p>A regional climate stabilisation system integrating forest, sea, agriculture, cities, rivers and atmosphere. For almost a century, it worked.</p>
+        <p>Then Nine Rains practitioners discovered that variability had not been eliminated — only deferred. A century of climate resistance existed somewhere outside the controlled system.</p>
+        <p class="rumour">The Engine was dismantled before anyone discovered where the debt had gone.</p>
+      </div>
+    </article>
+
+    <article class="legend">
+      <div class="legend-num">VI</div>
+      <div>
+        <div class="mini">SEVEN SCHOOLS / TRANSIT / CONCORDANCE ADJACENCY</div>
+        <h3>The Deep Line</h3>
+        <p>Seven stations. One at each Great School. No tracks. Each School described the journey differently, yet all seven descriptions produced the same line.</p>
+        <p>It operated for forty-three days and vanished.</p>
+        <p class="rumour">Some late-night travellers report a train arriving on an unlisted platform. The destination board reads only: STRAITS.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="gate">
+  <div class="section-head">
+    <div>
+      <div class="kicker mini">§8 · THE UNRESOLVED WORK</div>
+      <h2>The <em>Eighth Gate</em></h2>
+    </div>
+    <aside class="side-note">Unlike the other legendary systems, the Gate is not agreed to be infrastructure at all. Every School records a different object — and all may be correct.</aside>
+  </div>
+
+  <div class="gate">
+    <h3>It cannot be opened alone.</h3>
+    <p>No two traditions agree on what the Gate looks like. This disagreement is not considered evidence against its existence. It may be the essential property of the object.</p>
+
+    <div class="gate-grid">
+      <div><b>Temenggong:</b> a tree rooted in several histories at once.</div>
+      <div><b>Lam Keng:</b> a machine whose operators cannot be represented in one notation.</div>
+      <div><b>Al-Merican:</b> a threshold awaiting legitimate entry conditions.</div>
+      <div><b>Kora:</b> a question whose missing answer has shape.</div>
+      <div><b>TKI:</b> seven mutually inconsistent maps, all locally correct.</div>
+      <div><b>Sund:</b> “It cannot be opened alone.”</div>
+      <div><b>Nine Rains:</b> an event that exists only at a specific conjunction.</div>
+      <div><b>Deepwalkers:</b> no confirmed opening, despite mastery of multiple grammars.</div>
+    </div>
+
+    <div class="tex" style="color:#fff;margin-top:28px" data-tex="7\ \text{distinct perspectives}+\Gamma(\text{relations among them})">
+      7 distinct perspectives + Γ(relations among them)
+    </div>
+  </div>
+
+  <div class="pull">A Deepwalker can master many grammars. The Gate appears to require plurality itself to become the faculty.<small>and so the seven characters still matter</small></div>
+</section>
+
+<section class="closing">
+  <div class="mini" style="color:var(--gold);margin-bottom:26px">✦ VOLUME V · WORKING CANON ✦</div>
+  <q>What can become possible when relationships themselves become infrastructure?</q>
+  <p>The drain spell, the housing block, the MRT, the disappearing harbour, the city that remembered care, the Deep Line and the Eighth Gate are not separate ideas. They are one civilisational proposition unfolding across scale.</p>
+</section>
+
+<footer>
+  <div class="footer-row mini">
+    <span>Waterloo × Sunrise Harbour editorial grammar · civic grimoire / infrastructural myth</span>
+    <span>Volume V · enchanted infrastructure · lost works · the Eighth Gate</span>
+  </div>
+</footer>
+
+</div>
+</main>
+
+<script>
+function typeset(root){
+  if(!window.katex) return false;
+  (root||document).querySelectorAll('.tex[data-tex]').forEach(function(el){
+    if(el.dataset.typeset==='1') return;
+    try{
+      katex.render(el.dataset.tex,el,{displayMode:true,throwOnError:false,strict:'ignore',output:'html'});
+      el.dataset.typeset='1';
+    }catch(e){}
+  });
+  return true;
+}
+(function w(n){
+  if(typeset(document)||n>40)return;
+  setTimeout(function(){w(n+1)},150)
+})(0);
+</script>
+
+</body>
+</html>

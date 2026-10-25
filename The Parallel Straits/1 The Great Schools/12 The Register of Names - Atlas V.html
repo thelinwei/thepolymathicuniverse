@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Register of Names — The Great Schools · Field Atlas V</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#222b2e; --paper:#f6f1e7; --dim:#5d6769; --hair:#d1c9bc;
+  --sea:#6f9391; --ember:#d57b50; --gold:#a9863f; --forest:#355746;
+  --red:#a53e33; --plum:#68536b; --nord:#6c8a8f; --night:#1f282c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#e6c3a4;color:#172022}
+a{color:inherit}
+.mono{font-family:'IBM Plex Mono',monospace}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.sc{font-family:'Noto Serif SC',serif}
+
+/* cover */
+.cover{min-height:100vh;position:relative;display:flex;flex-direction:column;overflow:hidden;padding:30px 34px 48px;color:#26302f;background:
+ radial-gradient(circle at 22% 18%,rgba(169,134,63,.32),transparent 26%),
+ radial-gradient(circle at 78% 74%,rgba(111,147,145,.42),transparent 32%),
+ linear-gradient(150deg,#e6dcc6 0%,#c3ccbf 45%,#dcc0a4 100%)}
+.cover:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(rgba(38,50,54,.05) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(38,50,54,.038) 1px,transparent 1px);
+ background-size:34px 34px;pointer-events:none}
+.cover>*{position:relative;z-index:2}
+.cover-top{display:flex;justify-content:space-between;gap:20px}
+.cover-logo{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,94px);font-weight:900;line-height:.82;text-transform:uppercase}
+.cover-index{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.82;letter-spacing:.12em;text-transform:uppercase}
+.cover-side{margin-top:30px;max-width:340px;border-left:1.5px solid currentColor;padding-left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.7}
+.cover-title{margin-top:auto;text-align:center;padding-bottom:8px}
+.cover-kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;margin-bottom:13px}
+.cover-title h1{font-family:'Playfair Display',serif;font-size:clamp(52px,10vw,132px);font-weight:500;line-height:.82;letter-spacing:-.025em;text-transform:uppercase}
+.cover-title h1 em{display:block;font-weight:400;text-transform:none}
+.cover-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2.1vw,24px);margin-top:22px;line-height:1.34}
+
+/* nav */
+.runhead{position:sticky;top:0;z-index:80;background:rgba(246,241,231,.96);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--ink);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brandtab{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:#fff;padding:6px 9px;white-space:nowrap}
+.tabs{display:flex;gap:5px;overflow:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);background:#fff;padding:5px 8px;white-space:nowrap}
+.tabs a:hover{background:var(--ink);color:#fff}
+
+/* editorial */
+.opener{max-width:1180px;margin:0 auto;padding:72px 34px 40px}
+.credit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.opener h2{font-family:'Playfair Display',serif;font-size:clamp(44px,8vw,96px);line-height:.9;font-weight:500;letter-spacing:-.02em;max-width:980px}
+.standfirst{font-size:clamp(19px,2.3vw,26px);line-height:1.42;max-width:880px;margin-top:30px}
+.article{max-width:1180px;margin:0 auto;padding:18px 34px 50px}
+.cols{columns:2;column-gap:48px;column-rule:1px solid var(--hair);text-align:justify;hyphens:auto}
+.cols p{font-size:16.2px;margin-bottom:15px}
+.dropcap:first-letter{font-family:'Playfair Display',serif;font-size:74px;font-weight:900;float:left;line-height:.68;padding:8px 10px 0 0;color:var(--sea)}
+.pull{max-width:930px;margin:48px auto 62px;padding:0 34px;text-align:center}
+.pull q{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(26px,4vw,44px);line-height:1.17;quotes:none}
+.pull .by{display:block;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+.band{padding:74px 34px;background:var(--night);color:#EDE6DA}
+.band-inner{max-width:1180px;margin:0 auto}
+.band .eyebrow{color:#d9a67c}
+.band h2{font-family:'Playfair Display',serif;font-size:clamp(38px,6.6vw,80px);font-weight:500;line-height:.94;max-width:960px;color:#f6f1e7}
+.band p{max-width:820px;color:#EDE6DA;font-size:18.5px;margin-top:20px}
+
+/* three-name system */
+.system{max-width:1180px;margin:0 auto;padding:66px 34px 20px}
+.sysgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#bcb6ac;border:1px solid #bcb6ac;margin-top:30px}
+.syscell{background:#faf7ef;padding:26px}
+.syscell h4{font-family:'Playfair Display',serif;font-size:26px;font-weight:500;margin-bottom:10px}
+.syscell p{font-size:15.5px}
+.syscell .tag{font-family:'IBM Plex Mono',monospace;font-size:9.4px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+
+/* entries */
+.entries{max-width:1180px;margin:0 auto;padding:60px 34px 40px}
+.entry{border-top:1.5px solid var(--ink);padding:34px 0 38px;display:grid;grid-template-columns:1fr 330px;gap:44px}
+.entry:last-of-type{border-bottom:1.5px solid var(--ink)}
+.entry .no{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.entry .was{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--red);text-decoration:line-through;margin-top:14px;letter-spacing:.04em}
+.entry h3{font-family:'Playfair Display',serif;font-size:clamp(32px,4.4vw,50px);font-weight:500;line-height:.98;margin:6px 0 4px}
+.entry h3 .ch{font-family:'Noto Serif SC',serif;font-size:.62em;font-weight:600;margin-left:.28em;color:var(--forest)}
+.entry .call{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;color:var(--dim);margin-bottom:16px}
+.entry p{font-size:16px;margin-bottom:13px;max-width:640px}
+.entry .verdict{margin-top:16px;border-left:3px solid var(--sea);padding:2px 0 2px 16px;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;line-height:1.28}
+.namebox{border:1px solid var(--ink);background:#fff;align-self:start}
+.namebox .row{border-bottom:1px solid var(--hair);padding:13px 16px}
+.namebox .row:last-child{border-bottom:0}
+.namebox .k{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:5px}
+.namebox .v{font-size:16.5px;line-height:1.3}
+.namebox .v.rude{font-family:'Playfair Display',serif;font-style:italic;font-size:20px}
+.keep{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--forest);color:var(--forest);padding:4px 7px;margin-top:12px}
+.changed{border-color:var(--red);color:var(--red)}
+
+/* minor register */
+.minor{max-width:1180px;margin:0 auto;padding:56px 34px 84px}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#bcb6ac;border:1px solid #bcb6ac;margin-top:28px}
+.mcell{background:#faf7ef;padding:24px}
+.mcell .k{font-family:'IBM Plex Mono',monospace;font-size:9.2px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.mcell h4{font-family:'Playfair Display',serif;font-size:25px;font-weight:500;margin:8px 0 10px;line-height:1.05}
+.mcell p{font-size:15.2px}
+
+/* rules */
+.rules{max-width:1180px;margin:0 auto;padding:20px 34px 90px}
+.rule{display:grid;grid-template-columns:64px 1fr;gap:26px;border-top:1px solid var(--hair);padding:24px 0}
+.rule .n{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;line-height:.8;color:var(--ember)}
+.rule h4{font-family:'Playfair Display',serif;font-size:25px;font-weight:500;margin-bottom:8px}
+.rule p{font-size:15.8px;max-width:800px}
+
+footer{border-top:1.5px solid var(--ink);padding:36px 34px 60px;max-width:1180px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);line-height:2}
+
+@media(max-width:900px){
+ .cols{columns:1}
+ .entry{grid-template-columns:1fr;gap:24px}
+ .sysgrid,.mgrid{grid-template-columns:1fr}
+ .opener,.article,.entries,.minor,.rules,.system{padding-left:22px;padding-right:22px}
+ .cover{padding:24px 22px 40px}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Field<br>Atlas V</div>
+    <div class="cover-index">
+      The Three-Name Rule<br>
+      Seven Revised Entries<br>
+      The Bowl &amp; The Drain<br>
+      Names Not In The Atlas<br>
+      Six Rules of Nomenclature
+    </div>
+  </div>
+  <div class="cover-side">
+    A naming register for the parallel Straits. Institutions do not name themselves after their philosophies. They are named after ground, cloth, drains, day-signs, dead kings and clerical error — and then spend two centuries explaining the name away.
+  </div>
+  <div class="cover-title">
+    <div class="cover-kicker">The Great Schools · Nomenclature</div>
+    <h1>The Register<em>of Names</em></h1>
+    <div class="cover-sub">What each house calls itself, what the city calls it, and what its rivals call it after nine o'clock</div>
+  </div>
+</header>
+
+<nav class="runhead">
+  <span class="brandtab">Field Atlas V · Register of Names</span>
+  <div class="tabs">
+    <a href="#rule">Three names</a>
+    <a href="#entries">The seven</a>
+    <a href="#minor">Unlisted</a>
+    <a href="#laws">Rules</a>
+  </div>
+</nav>
+
+<section class="opener">
+  <div class="credit">Prelude · why the old names were half-right</div>
+  <h2>A name is a fossil, not a thesis.</h2>
+  <p class="standfirst">Four of the seven names in Atlas I were doing real work. Three were describing their own institution's worldview, which no real institution has ever been permitted to do. This volume fixes the three, gives the four their etymologies, and adds the friction that names generate when the city refuses to update them.</p>
+</section>
+
+<section class="article">
+  <div class="cols">
+    <p class="dropcap">The test for an institutional name is whether it could have been chosen by someone who did not yet know what the institution would become. Raffles Institution is named after a man. Tao Nan is named after a direction. Jit Sin, in Penang, is named after a line scratched into a washing basin three thousand years ago. Penang Free School is named after a fee structure. None of these names describe a pedagogy, and all of them have outlived the pedagogies they were attached to.</p>
+    <p>Measured against that test, <em>Toa Keng Institution</em> passes easily: the city's oldest school is named after a large drain, and its students have spent two hundred years converting the insult into a doctrine. <em>The Sund Commons</em> passes, though for a reason the earlier atlas did not notice. <em>Al-Merican College</em> passes only once its etymology is corrected, at which point it becomes the best name in the set.</p>
+    <p>Three names failed. <em>Lam Keng College</em> failed most interestingly: it is euphonious, it means nothing in particular, and it rhymes with Toa Keng, which is a collision no real city would tolerate for a century without inventing nicknames to escape it. <em>The House of Nine Rains</em> failed because it sounds like a name invented for a novel — plural, atmospheric, ungrounded. <em>Kora House</em> failed because it borrowed an instrument and appended the one English noun a school of carried knowledge would never accept.</p>
+    <p>What follows keeps the sound of the world and gives every name a cause outside itself. In four cases that means an etymology. In three it means a revision, plus the grievance the revision creates — because the second gift of renaming a school is the ninety years during which nobody complies.</p>
+  </div>
+</section>
+
+<div class="pull">
+  <q>A school that can explain its own name has not had it long enough.</q>
+  <span class="by">Atlas V · first principle</span>
+</div>
+
+<section class="band" id="rule">
+  <div class="band-inner">
+    <div class="eyebrow">The system</div>
+    <h2>Every house carries three names, and only one of them is official.</h2>
+    <p>This is the mechanism that made the earlier atlases feel curated: each school had exactly one name, used identically by everybody. Real institutional names arrive in triplicate, and the gap between the three is where class, affection and contempt are stored.</p>
+  </div>
+</section>
+
+<section class="system">
+  <div class="sysgrid">
+    <div class="syscell">
+      <div class="tag">First name</div>
+      <h4>The gazette name</h4>
+      <p>What appears on the deed, the statute and the envelope. Usually assigned by a registrar who misheard something, and never used by anyone inside the building. It is the name that gets a school sued.</p>
+    </div>
+    <div class="syscell">
+      <div class="tag">Second name</div>
+      <h4>The mouth name</h4>
+      <p>What the city actually says: shorter, older, often geographic, frequently the name of a place the school left. It cannot be changed by any authority, and attempts to change it are the funniest recurring event in Straits public life.</p>
+    </div>
+    <div class="syscell">
+      <div class="tag">Third name</div>
+      <h4>The rude name</h4>
+      <p>What rivals say, and what the school's own students say once they are fond enough of it to be cruel. Almost always a mundane object: a drain, a bowl, a bolt of cloth, a laundry, a rain gauge. Affection in this city is expressed by refusing grandeur.</p>
+    </div>
+  </div>
+</section>
+
+<section class="entries" id="entries">
+  <div class="credit" style="margin-bottom:6px">Part I · the seven revised entries</div>
+
+  <article class="entry">
+    <div>
+      <div class="no">Entry 01 · unchanged · gazetted 1823</div>
+      <h3>Toa Keng Institution</h3>
+      <div class="call">Officially <em>The Institution at Toa Keng</em>; the preposition was dropped by usage, not by decree</div>
+      <p>The name records a location that no longer exists in the form that produced it: <span class="sc">大坑</span>, a large storm drain cut through soft ground on the eastern edge of the old harbour, around which a subscription school was built because the land was cheap and nobody else wanted it.</p>
+      <p>The Institution has never petitioned to change the name. It has instead spent two centuries arguing that being named after drainage is the correct condition of an epistemic institution: everything the city produces eventually passes through it, unsorted, and the work is downstream.</p>
+      <p>The rude name and the mouth name have therefore fused, which is what happens when a school wins an argument about its own insult. The student paper is called <em>The Drain</em> without irony and with considerable pride.</p>
+      <div class="verdict">The only name in the set that needed nothing. It was already a fossil.</div>
+      <span class="keep">Retained</span>
+    </div>
+    <aside class="namebox">
+      <div class="row"><div class="k">Gazette</div><div class="v">The Institution at Toa Keng</div></div>
+      <div class="row"><div class="k">Mouth</div><div class="v">Toa Keng · “Keng”</div></div>
+      <div class="row"><div class="k">Rude</div><div class="v rude">The Drain</div></div>
+      <div class="row"><div class="k">Etymology</div><div class="v" style="font-size:15px">Hokkien <span class="sc">大坑</span>, a big ditch; the ditch was culverted in 1908 and the name did not notice</div></div>
+    </aside>
+  </article>
+
+  <article class="entry">
+    <div>
+      <div class="no">Entry 02 · etymology corrected</div>
+      <h3>Al-Merikani College</h3>
+      <div class="call">Formerly rendered <em>Al-Merican</em>, which invited the wrong continent</div>
+      <p class="was">Al-Merican College</p>
+      <p>The school is named after a cloth. <em>Merikani</em> — also <em>marikani</em>, <em>kain merikani</em> — was unbleached cotton sheeting that moved across the Indian Ocean in such volume that its origin became its trade name, then its unit of account, then a family fortune, then a college. The founding houses were cloth factors before they were anything else, and the name is a ledger entry that got out of hand.</p>
+      <p>Everything the school teaches follows from a bolt of fabric: standard measure, credit across distance, the trust instrument that survives the death of the parties, the hospitality that makes a stranger's promise enforceable. A school named after a nation would have had to defend a nation. A school named after a fabric only has to defend the quality of the weave.</p>
+      <p>Students carry a small metal token for life, and the token is stamped with a selvedge mark rather than a crest. Rivals call the school <em>the Bolt</em>, which the school affects to find commercial and secretly finds accurate.</p>
+      <div class="verdict">Same sound, entirely different world: the name now comes from goods, not geopolitics.</div>
+      <span class="keep changed">Revised spelling · etymology added</span>
+    </div>
+    <aside class="namebox">
+      <div class="row"><div class="k">Gazette</div><div class="v">The Al-Merikani College of the Straits</div></div>
+      <div class="row"><div class="k">Mouth</div><div class="v">Merikani · “Merika”</div></div>
+      <div class="row"><div class="k">Rude</div><div class="v rude">The Bolt</div></div>
+      <div class="row"><div class="k">Etymology</div><div class="v" style="font-size:15px">A grade of traded cotton sheeting; by 1840 the word meant credit as often as it meant cloth</div></div>
+    </aside>
+  </article>
+
+  <article class="entry">
+    <div>
+      <div class="no">Entry 03 · second name restored</div>
+      <h3>Balai Pusaka</h3>
+      <div class="call">Gazetted, against its wishes, as <em>Sri Temenggong Institution</em></div>
+      <p>The house has always called itself <em>Balai Pusaka</em> — the hall of what is inherited. <em>Pusaka</em> is not heritage in the museum sense; it is the property, obligation and ritual duty that arrives together and cannot be separated. You do not own pusaka. You are next in the sequence of people responsible for it.</p>
+      <p>In 1867 a colonial registrar, requiring a name that identified an owner, entered the school under the title of the office that endowed it. The gazette name has stood ever since. The school has never once used it in its own documents, with the result that two centuries of official correspondence has been addressed to an institution that does not, internally, exist.</p>
+      <p>This is the school's favourite piece of evidence. Its whole argument is that the record and the obligation are different objects, and it has a filing cabinet proving the record was wrong from the first envelope.</p>
+      <div class="verdict">The grievance is now structural rather than temperamental — it lives in the letterhead.</div>
+      <span class="keep changed">Renamed · gazette name retained as friction</span>
+    </div>
+    <aside class="namebox">
+      <div class="row"><div class="k">Gazette</div><div class="v">Sri Temenggong Institution</div></div>
+      <div class="row"><div class="k">Mouth</div><div class="v">Temenggong · “Balai”</div></div>
+      <div class="row"><div class="k">Rude</div><div class="v rude">The Garden</div></div>
+      <div class="row"><div class="k">Etymology</div><div class="v" style="font-size:15px">Malay <em>balai</em>, a public hall; <em>pusaka</em>, inherited property inseparable from inherited duty</div></div>
+    </aside>
+  </article>
+
+  <article class="entry">
+    <div>
+      <div class="no">Entry 04 · renamed · the requested revision</div>
+      <h3>Jit Sin Institute<span class="ch">日新書院</span></h3>
+      <div class="call">Renamed by its own governors in 1904; the city has declined to comply for a hundred and twenty years</div>
+      <p class="was">Lam Keng College · 南景书院</p>
+      <p>The old name was a view: <span class="sc">南景</span>, southern scene, pleasant and inert. The reform decade could not live with it. The governors took the line scratched into the bathing bowl of a Shang king and preserved in the <em>Daxue</em>: <span class="sc">苟日新，日日新，又日新</span> — if renewed for a day, renew daily, and renew again. The school became <span class="sc">日新書院</span>, Daily Renewal, romanised in the old southern pronunciation the printers were already using.</p>
+      <p>Three consequences, all useful. First, the collision with Toa Keng disappears — no two houses now share a syllable, which matters in a city that abbreviates everything. Second, the school's ideology is finally embedded in its name, which is a mistake it made deliberately and now cannot escape: a house named Renewal cannot decline a reform without appearing to betray itself, and Atlas IV's charge that Lam Keng fossilised its love of change becomes a charge readable off the signboard.</p>
+      <p>Third, and best: the district refused. The printery streets are still Lam Keng, because the neighbourhood was named before the school and saw no reason to follow it. Anyone over sixty, every taxi driver, and all four rival houses still say <em>Lam Keng</em> when they mean the school. The Institute finds this unbearable, since being addressed by a superseded name is a daily practical refutation of its entire epistemology.</p>
+      <p>The rude name is <em>the Bowl</em> — the bathing bowl of the inscription. Toa Keng cherishes it, because <span class="sc">君子不器</span>: the cultivated person is not a vessel. Two centuries of insult are compressed into one syllable and a classical citation, which is exactly how this city fights.</p>
+      <div class="verdict">A school called Daily Renewal, universally addressed by the name it abolished, nicknamed after a container by rivals who think it is one.</div>
+      <span class="keep changed">Renamed · district name retained</span>
+    </div>
+    <aside class="namebox">
+      <div class="row"><div class="k">Gazette</div><div class="v">Jit Sin Institute <span class="sc">日新書院</span></div></div>
+      <div class="row"><div class="k">Mouth</div><div class="v">Lam Keng — still, obstinately</div></div>
+      <div class="row"><div class="k">Rude</div><div class="v rude">The Bowl <span class="sc">盤</span></div></div>
+      <div class="row"><div class="k">Etymology</div><div class="v" style="font-size:15px"><span class="sc">日新</span>, daily renewal, from the washing-bowl inscription of King Tang</div></div>
+      <div class="row"><div class="k">Papers</div><div class="v" style="font-size:15px">South Wind → No Wind → <em>Weather Report</em>; banned eleven times</div></div>
+      <div class="row"><div class="k">District</div><div class="v" style="font-size:15px">Lam Keng — printeries, studios, cinemas; declared dead since 1917</div></div>
+    </aside>
+  </article>
+
+  <article class="entry">
+    <div>
+      <div class="no">Entry 05 · singular · etymology added</div>
+      <h3>The House of Nine Rain</h3>
+      <div class="call">Formerly <em>Nine Rains</em>, which read as weather; the singular reads as a date</div>
+      <p class="was">The House of Nine Rains</p>
+      <p><em>Nine Rain</em> is not a description of a climate. It is a day: a calendrical name in the system carried east across the Pacific by the scholarly lineage that founded the house, in which persons and institutions take the sign of the day on which they begin. Nine Rain is a founding date wearing the costume of a poem, which is why it survived translation better than anything else about the house.</p>
+      <p>The plural made it atmospheric. The singular makes it administrative, and therefore real: the house has a birthday, it is written in a calendar most of the city cannot read, and every anniversary requires a conversion argument between two systems of time that do not commensurate.</p>
+      <p>The mouth name is <em>Rumah Hujan</em>, rain house, which is a mistranslation the house stopped correcting around 1890. Chinese usage settled on <span class="sc">九雨</span>, which repeats the same error in a second language. The rude name is <em>the Gauge</em>, after the rain gauges bolted to every wall of the water district, and after the house's habit of measuring things other people consider unmeasurable.</p>
+      <div class="verdict">The most fantastical name in the atlas becomes the most bureaucratic: a day-sign, mistranslated twice, still on the letterhead.</div>
+      <span class="keep changed">Singular · etymology added</span>
+    </div>
+    <aside class="namebox">
+      <div class="row"><div class="k">Gazette</div><div class="v">The House of Nine Rain</div></div>
+      <div class="row"><div class="k">Mouth</div><div class="v">Rumah Hujan · <span class="sc">九雨</span> · “Nine Rain”</div></div>
+      <div class="row"><div class="k">Rude</div><div class="v rude">The Gauge</div></div>
+      <div class="row"><div class="k">Etymology</div><div class="v" style="font-size:15px">A calendrical day-name of the founding lineage; the house takes the sign of the day it opened</div></div>
+    </aside>
+  </article>
+
+  <article class="entry">
+    <div>
+      <div class="no">Entry 06 · renamed · “House” withdrawn</div>
+      <h3>The Sané-Kora Institute</h3>
+      <div class="call">Formerly <em>Kora House</em>; the house objected to the noun on doctrinal grounds</div>
+      <p class="was">Kora House</p>
+      <p>The objection is precise. A house has walls, and an institution whose archive is carried in people cannot be named after a container it might lose. Every fire, seizure and eviction in the school's history has been an argument against the word. It calls itself an institute, meaning a practice rather than a premises, and it is named for the instrument and for the founding family together — <em>Sané</em> for the lineage that arrived with the repertoire, <em>Kora</em> for the twenty-one strings that carry it.</p>
+      <p>The city says <em>Kora</em> and always will. Students say <em>the Room</em>, after the acoustic examination chamber where the three-examiner oral is held: one gives testimony, one contradicts it, and the third asks what neither of them said. To have been in the Room is the whole of the school's claim on a person.</p>
+      <p>Other houses use <em>the Room</em> as a sneer, meaning a school that would rather listen than decide. The Institute has never rebutted this, on the grounds that a rebuttal would concede the premise.</p>
+      <div class="verdict">A school that refuses the word “house” because it has been evicted enough times to take nouns seriously.</div>
+      <span class="keep changed">Renamed · lineage restored</span>
+    </div>
+    <aside class="namebox">
+      <div class="row"><div class="k">Gazette</div><div class="v">The Sané-Kora Institute</div></div>
+      <div class="row"><div class="k">Mouth</div><div class="v">Kora</div></div>
+      <div class="row"><div class="k">Rude</div><div class="v rude">The Room</div></div>
+      <div class="row"><div class="k">Etymology</div><div class="v" style="font-size:15px">The founding family and the twenty-one-string harp; no premises named, deliberately</div></div>
+    </aside>
+  </article>
+
+  <article class="entry">
+    <div>
+      <div class="no">Entry 07 · unchanged · joke made explicit</div>
+      <h3>The Sund Commons</h3>
+      <div class="call">The northern cooperativists named their house with the city's own word</div>
+      <p><em>Sund</em> is a strait. The founders, arriving from cooperativist states in the north, named their house after the body of water it stood beside — in their own language, which produced the same word the city uses for itself. The Straits has therefore contained, since 1871, a private institution called The Straits.</p>
+      <p>The city has never decided whether this was the most arrogant act in its history or merely the most literal-minded, and the ambiguity is now a permanent feature of the joke. Sund maintains it was a translation, not a claim. Nobody believes this, including Sund.</p>
+      <p>The rude name is <em>the Laundry</em>, after the communal washhouses that turned a workers' district into the most desirable cooperative neighbourhood in the city. Sund students use it themselves, which has drained it of insult and annoys everybody.</p>
+      <div class="verdict">Retained — the coincidence in the name is worth more than any correction.</div>
+      <span class="keep">Retained · reading added</span>
+    </div>
+    <aside class="namebox">
+      <div class="row"><div class="k">Gazette</div><div class="v">The Sund Commons</div></div>
+      <div class="row"><div class="k">Mouth</div><div class="v">Sund · “the Commons”</div></div>
+      <div class="row"><div class="k">Rude</div><div class="v rude">The Laundry</div></div>
+      <div class="row"><div class="k">Etymology</div><div class="v" style="font-size:15px">Northern <em>sund</em>, a strait — the same word as the city, in another mouth</div></div>
+    </aside>
+  </article>
+</section>
+
+<section class="band">
+  <div class="band-inner">
+    <div class="eyebrow">Part II · the unlisted</div>
+    <h2>The register is longer than the atlas.</h2>
+    <p>Seven is a number the schools chose for themselves. A naming register cannot honour it, because registers include whatever has a name — including a timetable, a body of pilots, and the institution that quietly trains most of the city's engineers.</p>
+  </div>
+</section>
+
+<section class="minor" id="minor">
+  <div class="mgrid">
+    <div class="mcell">
+      <div class="k">Not an institution · a timetable</div>
+      <h4>Sekolah Petang</h4>
+      <p>The shift schools have no gazette name because a shift is not a body corporate. They are recorded as “afternoon usage” of buildings belonging to other houses. Mouth name: <em>petang</em>, the afternoon. Rude name, used by morning students and adopted by afternoon ones: <em>the Second Bell</em> — now the title of the yearbook.</p>
+    </div>
+    <div class="mcell">
+      <div class="k">Not registrable · no premises</div>
+      <h4>Rumah Arus</h4>
+      <p>House of Currents. Cannot be registered, since registration requires an address, and its curriculum is a set of routes. It appears in statute as <em>an unincorporated body of pilots</em>, a phrase drafted in 1884 by a clerk who wanted the problem to go away. Its members call themselves route-keepers. Nobody has a rude name for them, which is itself a form of respect.</p>
+    </div>
+    <div class="mcell">
+      <div class="k">Nobody writes atlases about it</div>
+      <h4>The Ferry Trades Institute</h4>
+      <p>Jalan Basah. Founded 1921 to train pump-men, welders and boat engineers; now educates roughly two-fifths of the city's working engineers, including most of the people who will actually build whatever the Great Schools decide about water. Mouth name: <em>Basah</em>, meaning wet. It has no doctrine, no crest worth reproducing, and a hundred per cent employment.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rules" id="laws">
+  <div class="credit">Part III · six rules for naming anything else in this world</div>
+  <div class="rule"><div class="n">1</div><div><h4>Name it after the ground, not the idea</h4><p>Drains, hills, wet roads, quays, day-signs, cloth. If a name states a philosophy, it must have been chosen by the institution itself in a fit of self-belief — and the city must be shown refusing to use it.</p></div></div>
+  <div class="rule"><div class="n">2</div><div><h4>No two houses share a syllable</h4><p>Cities abbreviate. Two names that collide under abbreviation would have been separated by usage within a generation, so they must already be separate on the page.</p></div></div>
+  <div class="rule"><div class="n">3</div><div><h4>Every grand name has a mundane shadow</h4><p>The Drain, the Bowl, the Bolt, the Gauge, the Room, the Laundry, the Garden. Affection here is expressed by refusing grandeur, and a house without a rude name is a house nobody loves.</p></div></div>
+  <div class="rule"><div class="n">4</div><div><h4>Let one name be wrong on the record</h4><p>A registrar's error, uncorrected for two centuries, does more for verisimilitude than any amount of invented history. Balai Pusaka's envelopes are the model.</p></div></div>
+  <div class="rule"><div class="n">5</div><div><h4>Translate badly, at least once</h4><p>Rumah Hujan and <span class="sc">九雨</span> are the same mistake in two languages, and the house stopped correcting either. Worlds that translate perfectly have only one language in them.</p></div></div>
+  <div class="rule"><div class="n">6</div><div><h4>Keep the old name alive in a place-name</h4><p>Institutions rename themselves; districts do not. Lam Keng the neighbourhood outliving Lam Keng the college is the cheapest and most convincing kind of historical depth available.</p></div></div>
+</section>
+
+<footer>
+  Field Atlas V · The Register of Names<br>
+  Companion to The Great Schools · Errata · The Material World · City, Time &amp; Lives<br>
+  Revisions this volume: Al-Merikani · Balai Pusaka · Jit Sin <span class="sc">日新書院</span> · Nine Rain · Sané-Kora
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Seven Schools, One Singapore — Cantons Without Borders</title>
+<meta name="description" content="A speculative response to Tay Kheng Soon's cantonal decentralisation: four historically rooted Singaporean school systems plus three rotating foreign pedagogical laboratories." />
+<style>
+  :root{
+    --ink:#172126;
+    --muted:#5f6b6d;
+    --paper:#f4efe5;
+    --paper2:#fbf8f1;
+    --line:#d7cebf;
+    --root:#8b3a2f;
+    --guest:#1e6d68;
+    --federal:#243c5a;
+    --gold:#b98a3d;
+    --shadow:0 12px 34px rgba(23,33,38,.10);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 5%, rgba(185,138,61,.09), transparent 28rem),
+      radial-gradient(circle at 90% 16%, rgba(30,109,104,.07), transparent 26rem),
+      var(--paper);
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    line-height:1.62;
+  }
+  a{color:#155c70;text-underline-offset:3px}
+  .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+  .wrap{width:min(1160px, calc(100% - 34px)); margin:auto}
+  header{
+    min-height:92vh;
+    display:grid;
+    align-items:center;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  header:before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(115deg, transparent 0 55%, rgba(139,58,47,.05) 55% 56%, transparent 56%),
+      linear-gradient(65deg, transparent 0 67%, rgba(30,109,104,.05) 67% 68%, transparent 68%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    font:700 .78rem/1.2 ui-sans-serif, system-ui, sans-serif;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--root);
+  }
+  h1{
+    font-size:clamp(3rem, 8.8vw, 8rem);
+    line-height:.91; letter-spacing:-.055em;
+    margin:.25rem 0 1.1rem;
+    font-weight:650;
+  }
+  .hero-sub{
+    max-width:820px;
+    font-size:clamp(1.25rem,2.5vw,2rem);
+    line-height:1.28;
+    color:#344246;
+  }
+  .hero-note{
+    margin-top:2rem;
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:1px; background:var(--line); border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .hero-note > div{background:rgba(251,248,241,.85); padding:1.15rem}
+  .hero-note b{display:block; font:700 .8rem ui-sans-serif,system-ui,sans-serif; text-transform:uppercase; letter-spacing:.09em; margin-bottom:.3rem}
+  main section{padding:6rem 0; border-bottom:1px solid var(--line)}
+  .section-head{
+    display:grid; grid-template-columns:190px 1fr; gap:2rem; align-items:start; margin-bottom:3rem
+  }
+  .section-no{
+    font:700 .78rem ui-sans-serif,system-ui,sans-serif; color:var(--muted);
+    letter-spacing:.12em; text-transform:uppercase; padding-top:.6rem
+  }
+  h2{
+    font-size:clamp(2.25rem,5vw,4.6rem); line-height:1; margin:0; letter-spacing:-.04em; font-weight:630
+  }
+  h3{font-size:1.55rem; line-height:1.18; margin:.2rem 0 .8rem}
+  p{margin:.65rem 0 1rem}
+  .lead{font-size:1.35rem; line-height:1.45; max-width:900px}
+  .pull{
+    font-size:clamp(1.8rem,4vw,3.4rem); line-height:1.1; letter-spacing:-.035em;
+    margin:3rem 0; padding:2.2rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)
+  }
+  .pull strong{color:var(--root); font-weight:600}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+  .card{
+    background:rgba(251,248,241,.88); border:1px solid var(--line); border-radius:18px;
+    padding:1.45rem; box-shadow:0 4px 16px rgba(23,33,38,.04)
+  }
+  .card.root{border-top:5px solid var(--root)}
+  .card.guest{border-top:5px solid var(--guest)}
+  .card.federal{border-top:5px solid var(--federal)}
+  .tag{
+    display:inline-block; font:700 .70rem ui-sans-serif,system-ui,sans-serif; text-transform:uppercase;
+    letter-spacing:.1em; padding:.28rem .52rem; border-radius:999px; background:#eee6d8; margin-bottom:.7rem
+  }
+  .tag.root{color:var(--root);background:rgba(139,58,47,.09)}
+  .tag.guest{color:var(--guest);background:rgba(30,109,104,.09)}
+  .small{font-size:.93rem;color:var(--muted)}
+  .warning{
+    border-left:5px solid var(--root); background:rgba(139,58,47,.06);
+    padding:1.1rem 1.3rem; margin:1.6rem 0; border-radius:0 12px 12px 0
+  }
+  .idea{
+    border-left:5px solid var(--guest); background:rgba(30,109,104,.06);
+    padding:1.1rem 1.3rem; margin:1.6rem 0; border-radius:0 12px 12px 0
+  }
+  .diagram{
+    background:#1c252a; color:#f5f1e8; border-radius:24px; padding:1rem;
+    box-shadow:var(--shadow); margin:2rem 0 0
+  }
+  .diagram svg{width:100%;height:auto;display:block}
+  .legend{display:flex;gap:1rem;flex-wrap:wrap;padding:.7rem .5rem .15rem;font:600 .78rem ui-sans-serif,system-ui,sans-serif}
+  .dot{width:.7rem;height:.7rem;border-radius:50%;display:inline-block;margin-right:.35rem}
+  .rootdot{background:#d87867}.guestdot{background:#56b5aa}.feddot{background:#7ca3d1}
+  .number-strip{
+    display:grid;grid-template-columns:1.2fr 1fr 1fr; gap:1px; background:var(--line);
+    border:1px solid var(--line); margin:2rem 0; border-radius:18px; overflow:hidden
+  }
+  .number-strip > div{background:var(--paper2);padding:1.5rem}
+  .big-num{font-size:clamp(2.4rem,5vw,4.7rem);line-height:1;letter-spacing:-.05em}
+  .bar{
+    height:18px;background:#e5ddcf;border-radius:999px;overflow:hidden;display:flex;margin:1rem 0
+  }
+  .bar .r{width:71.52%;background:var(--root)} .bar .g{width:28.48%;background:var(--guest)}
+  table{width:100%;border-collapse:collapse;background:rgba(251,248,241,.72);font-size:.96rem}
+  th,td{padding:.85rem .9rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+  th{font:700 .78rem ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:#4e595b}
+  tr:last-child td{border-bottom:0}
+  .constitution{
+    display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem
+  }
+  .constitution ol{margin:.5rem 0 0;padding-left:1.25rem}
+  .constitution li{margin:.6rem 0}
+  .rule{
+    font-size:1.2rem; font-weight:600; padding:1rem 1.1rem; border:1px solid var(--line); border-radius:13px; background:var(--paper2); margin:.75rem 0
+  }
+  .timeline{position:relative;margin:2.2rem 0 0;padding-left:1.7rem}
+  .timeline:before{content:"";position:absolute;left:.38rem;top:.4rem;bottom:.4rem;width:1px;background:var(--line)}
+  .t{position:relative;margin:0 0 1.45rem;padding-left:1rem}
+  .t:before{content:"";position:absolute;left:-1.43rem;top:.42rem;width:.72rem;height:.72rem;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--paper)}
+  .t b{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem}
+  .sources{font-size:.9rem}
+  .sources li{margin:.7rem 0}
+  footer{padding:4rem 0 6rem}
+  .last{
+    font-size:clamp(2rem,5vw,4.8rem);line-height:1.02;letter-spacing:-.045em;max-width:980px
+  }
+  .stamp{margin-top:3rem;font:600 .75rem ui-sans-serif,system-ui,sans-serif;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  @media(max-width:800px){
+    header{min-height:auto;padding:7rem 0 5rem}
+    .hero-note,.grid2,.grid3,.constitution,.number-strip{grid-template-columns:1fr}
+    .section-head{grid-template-columns:1fr;gap:.5rem}
+    main section{padding:4rem 0}
+    .big-num{font-size:3.2rem}
+    table{font-size:.88rem}
+    th,td{padding:.68rem .55rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">A speculative constitutional sketch for Singapore education</div>
+    <h1>Seven Schools,<br>One Singapore.</h1>
+    <div class="hero-sub">What if Tay Kheng Soon’s cantonal argument were applied not to territory, but to education — with <b>four permanent schools carrying Singapore’s historical memory</b>, and <b>three rotating foreign schools deliberately importing difference</b>?</div>
+    <div class="hero-note">
+      <div><b>4 Roots</b>Historical Singaporean lineages. Permanent. Public. Open to everyone.</div>
+      <div><b>3 Guests</b>Foreign pedagogical constitutions. Temporary charters. Here to disturb the system.</div>
+      <div><b>1 Commons</b>A thin federal MOE protecting rights, mobility, equity and a shared Singapore core.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">01 · The provocation</div>
+      <h2>Tay’s idea is more radical than decentralisation.</h2>
+    </div>
+    <p class="lead">In a 2017 CNA interview, architect Tay Kheng Soon proposed dividing Singapore into five governments along the logic of Swiss cantons: five HDBs, five planning authorities — and explicitly, <b>five MOEs</b>. His argument was that competing systems could generate ideas that a single centralised system suppresses.</p>
+    <p>What I find productive here is not the literal number five, nor every causal claim Tay used in that interview. It is the institutional proposition underneath it:</p>
+    <div class="pull"><strong>Monopoly of administration can become monopoly of imagination.</strong><br>Plural governance creates places where alternative answers are allowed to survive long enough to prove themselves.</div>
+    <p>Switzerland provides the obvious governmental precedent. Responsibility for education there rests principally with its 26 cantons, while national and intercantonal bodies coordinate the things that must travel across boundaries: qualifications, structures and shared objectives.</p>
+    <p>But Singapore presents a problem Switzerland does not. We are tiny, intensely connected and residential geography is economically consequential. If Bedok had one MOE, Jurong another, and Bukit Timah a third, educational difference could quickly become <i>land-value difference</i>. Parents would buy their way into a canton. Housing would sort pedagogy by class. Ethnic and socioeconomic composition could harden geographically.</p>
+
+    <div class="idea"><b>So I would mutate Tay’s canton.</b><br>Make the cantons <i>non-territorial</i>. All seven School systems operate across the island. A child in Tampines can belong to the same educational federation as a child in Queenstown. The jurisdiction travels through institutions and membership, not postcode.</div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 1100 620" role="img" aria-label="Seven overlapping educational cantons around one federal commons">
+        <defs>
+          <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-opacity=".25"/></filter>
+        </defs>
+        <g opacity=".28" stroke="#d8d0c2" fill="none">
+          <path d="M110 330 C230 80, 870 60, 990 310 C1040 430, 830 560, 540 545 C270 558, 45 470, 110 330Z"/>
+          <path d="M130 355 C270 130, 825 105, 955 325 C1010 420, 790 520, 535 505 C300 520, 95 450, 130 355Z"/>
+        </g>
+
+        <g stroke="#6f7c82" stroke-width="2" opacity=".7">
+          <line x1="550" y1="310" x2="240" y2="145"/><line x1="550" y1="310" x2="490" y2="105"/>
+          <line x1="550" y1="310" x2="775" y2="140"/><line x1="550" y1="310" x2="885" y2="315"/>
+          <line x1="550" y1="310" x2="790" y2="475"/><line x1="550" y1="310" x2="500" y2="515"/>
+          <line x1="550" y1="310" x2="210" y2="430"/>
+        </g>
+
+        <g filter="url(#shadow)">
+          <circle cx="550" cy="310" r="104" fill="#294968"/>
+          <text x="550" y="292" text-anchor="middle" fill="#fff" font-family="system-ui" font-weight="700" font-size="25">FEDERAL</text>
+          <text x="550" y="326" text-anchor="middle" fill="#fff" font-family="system-ui" font-weight="700" font-size="25">COMMONS</text>
+          <text x="550" y="358" text-anchor="middle" fill="#bcd2e8" font-family="system-ui" font-size="15">rights · funding · mobility</text>
+        </g>
+
+        <g filter="url(#shadow)" font-family="system-ui">
+          <circle cx="240" cy="145" r="78" fill="#9b4b3f"/><text x="240" y="138" text-anchor="middle" fill="#fff" font-weight="700" font-size="19">CHINESE</text><text x="240" y="163" text-anchor="middle" fill="#f7ddd8" font-size="14">华校 · Nanyang</text>
+          <circle cx="490" cy="105" r="78" fill="#9b4b3f"/><text x="490" y="98" text-anchor="middle" fill="#fff" font-weight="700" font-size="19">MALAY</text><text x="490" y="123" text-anchor="middle" fill="#f7ddd8" font-size="14">Sekolah Melayu</text>
+          <circle cx="775" cy="140" r="78" fill="#9b4b3f"/><text x="775" y="133" text-anchor="middle" fill="#fff" font-weight="700" font-size="19">TAMIL</text><text x="775" y="158" text-anchor="middle" fill="#f7ddd8" font-size="14">தமிழ்ப்பள்ளி</text>
+          <circle cx="885" cy="315" r="78" fill="#9b4b3f"/><text x="885" y="308" text-anchor="middle" fill="#fff" font-weight="700" font-size="19">STRAITS</text><text x="885" y="333" text-anchor="middle" fill="#f7ddd8" font-size="14">English-medium</text>
+
+          <circle cx="790" cy="475" r="78" fill="#2d827b"/><text x="790" y="468" text-anchor="middle" fill="#fff" font-weight="700" font-size="19">WORLD</text><text x="790" y="493" text-anchor="middle" fill="#d4f0ec" font-size="14">UWC / IB</text>
+          <circle cx="500" cy="515" r="78" fill="#2d827b"/><text x="500" y="508" text-anchor="middle" fill="#fff" font-weight="700" font-size="19">AMERICAN</text><text x="500" y="533" text-anchor="middle" fill="#d4f0ec" font-size="14">choice · civic life</text>
+          <circle cx="210" cy="430" r="78" fill="#2d827b"/><text x="210" y="423" text-anchor="middle" fill="#fff" font-weight="700" font-size="19">DUAL</text><text x="210" y="448" text-anchor="middle" fill="#d4f0ec" font-size="14">Swiss–German</text>
+        </g>
+      </svg>
+      <div class="legend">
+        <span><i class="dot rootdot"></i>Permanent historical roots</span>
+        <span><i class="dot guestdot"></i>Rotating foreign guests</span>
+        <span><i class="dot feddot"></i>Shared federal commons</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">02 · The historical turn</div>
+      <h2>The four local Schools already existed — before Singapore unified them.</h2>
+    </div>
+
+    <p class="lead">This is the part that changes my answer to your first question most. I would no longer invent four local philosophies from scratch. Singapore itself supplies the genealogy.</p>
+
+    <p>Before the modern unified system, Singapore contained four broad language streams: <b>Chinese, Malay, Tamil and English</b>. They were not merely translations of one curriculum. They had different founders, funding arrangements, cultural centres of gravity, relations to religion and empire, notions of citizenship and routes into work.</p>
+
+    <p>In 1959, the emerging national system explicitly committed itself to equal treatment of the four streams. Over subsequent decades, practical demand for English, nation-building imperatives and the reforms associated with the 1978 Goh Report progressively unified the system. From 1984, official school directories no longer classified schools by language medium; Chinese-medium schooling was fully phased out by the late 1980s.</p>
+
+    <div class="pull">Singapore’s twentieth-century achievement was to move from <strong>plural systems → a national system.</strong><br><br>The twenty-first-century question might be whether a mature national system can now recover <strong>plurality without losing the nation.</strong></div>
+
+    <div class="warning"><b>Important:</b> I am not proposing the resurrection of ethnic schooling. The historical streams are an archive, not an admissions rule. No Chinese child is assigned to the Chinese School; no Malay child to the Malay School; no Tamil child to the Tamil School; no English-speaking elite to the Straits School. <b>Heritage is a public inheritance, not racial property.</b></div>
+
+    <div class="grid2">
+      <article class="card root">
+        <span class="tag root">Root I · permanent</span>
+        <h3>Chinese School · 华校<br><span class="small">The Nanyang lineage</span></h3>
+        <p>Historically, many Chinese schools were built by merchants, clan associations, civic organisations and missionaries rather than simply delivered by the colonial state. They transmitted language and culture, but also became institutions of community self-organisation.</p>
+        <p><b>Modern constitution:</b> bilingual scholarship; classical and modern Chinese intellectual traditions; mathematics and science; commerce; making; civic association; diaspora and Southeast Asian Chinese history; argument across Chinese and English sources.</p>
+        <p class="small"><b>What it must resist:</b> becoming “PRC school in Singapore”, examination nostalgia, or an SAP system enlarged into an ethnic prestige track. Its subject is <i>Nanyang</i>: Chinese civilisation refracted through Singapore and Southeast Asia.</p>
+      </article>
+
+      <article class="card root">
+        <span class="tag root">Root II · permanent</span>
+        <h3>Malay School · Sekolah Melayu<br><span class="small">The Nusantara lineage</span></h3>
+        <p>Early Malay learning ranged from informal village and religious settings to formal Malay schools established in places including Telok Blangah and Kampong Glam. MOE’s heritage material records curricula that included religious learning, crafts and gardening — education embedded in everyday community life.</p>
+        <p><b>Modern constitution:</b> Malay as national and regional language; the maritime world; ecology; archipelagic history; oral traditions; adab and ethics as objects of serious study; craft; food systems; neighbourhood institutions; ASEAN as lived geography rather than a chapter in social studies.</p>
+        <p class="small"><b>What it must resist:</b> reducing “Malay” to ethnicity or Islam alone. It is an archipelagic Singaporean school open to secular and religious inquiry, and to every child.</p>
+      </article>
+
+      <article class="card root">
+        <span class="tag root">Root III · permanent</span>
+        <h3>Tamil School · தமிழ்ப்பள்ளி<br><span class="small">The Coromandel–Straits lineage</span></h3>
+        <p>Tamil-language education in Singapore can be traced to the nineteenth century; Anglo-Tamil schools appeared in the 1870s. The historical system was much smaller and more fragile than the Chinese stream — MOE records few early Tamil schools, often operating with a single teacher and facing shortages of books and qualified staff.</p>
+        <p><b>Modern constitution:</b> Tamil language and literary culture; South Indian and Southeast Asian histories; rhetoric, poetry and public speech; trade and migration networks; mathematics and computation; performance; multilingualism; the Indian Ocean as a connective space.</p>
+        <p class="small"><b>What it must resist:</b> being treated as a demographic concession. Precisely because the historical institution was smaller, equal constitutional status now says that educational memory is not allocated by population share.</p>
+      </article>
+
+      <article class="card root">
+        <span class="tag root">Root IV · permanent</span>
+        <h3>Straits School<br><span class="small">English-medium, mission & civic lineage</span></h3>
+        <p>English-medium schooling grew through colonial institutions and mission schools. It became the route through which many Singaporeans entered the civil service, professions and global Anglophone world — and eventually became the common medium through which the national system was unified.</p>
+        <p><b>Modern constitution:</b> English as bridge language; liberal and scientific traditions; debate; law; public administration; world literature; mission-school traditions of service without compulsory belief; Peranakan and Eurasian histories; the port-city habit of translation.</p>
+        <p class="small"><b>What it must resist:</b> assuming that because English became the common medium, its worldview is neutral. It too is a historical tradition — powerful, useful and incomplete.</p>
+      </article>
+    </div>
+
+    <p style="margin-top:2rem"><b>This asymmetry matters.</b> Before World War II, MOE’s heritage account records roughly 38,000 students in Chinese schools, 5,800 in Malay schools and about 1,000 in Tamil schools. The four Schools therefore should not pretend they were historically equal in scale. Their equality in the new constitution would be <i>normative</i>: an assertion that Singapore chooses to preserve multiple lineages even where market demand or historical demography did not.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">03 · The vitality layer</div>
+      <h2>The other three should not have roots. They should have visas.</h2>
+    </div>
+    <p class="lead">This is the part of your 4+3 proposition that I like most. I would make the three foreign Schools constitutionally <b>temporary</b>.</p>
+    <p>They are not permanent fifth, sixth and seventh tribes. They are <b>guest operating systems</b>: invited because a healthy educational ecology requires exposure to coherent ways of doing things that Singapore did not generate internally.</p>
+
+    <div class="pull">Four Schools protect <strong>memory.</strong><br>Three Schools manufacture <strong>mutation.</strong></div>
+
+    <div class="grid3">
+      <article class="card guest">
+        <span class="tag guest">Guest A · 15-year charter</span>
+        <h3>World School<br><span class="small">UWC / IB / intentional internationalism</span></h3>
+        <p>This one already has unusually deep Singaporean precedent. Singapore International School opened in 1971 and became UWC South East Asia in 1975. Its useful difference is not “international curriculum” as luxury branding; it is the deliberate construction of a multinational student body around service, peace, responsibility and global interdependence.</p>
+        <p><b>Its experiment:</b> What happens if national education deliberately includes a school whose primary social unit is not the nation?</p>
+      </article>
+
+      <article class="card guest">
+        <span class="tag guest">Guest B · 15-year charter</span>
+        <h3>American School<br><span class="small">choice, breadth & civic association</span></h3>
+        <p>Singapore American School has existed here since 1956, before independence. The pedagogical import worth testing is not “America” in the abstract, but a particular institutional grammar: broad electives, extracurricular societies, athletics and arts, student choice, school spirit, flexible pathways and the school as a miniature civic society.</p>
+        <p><b>Its experiment:</b> What capacities appear when adolescents have more legitimate ways to become excellent than the academic ladder?</p>
+      </article>
+
+      <article class="card guest">
+        <span class="tag guest">Guest C · 15-year charter</span>
+        <h3>Dual School<br><span class="small">Swiss–German apprenticeship & craft parity</span></h3>
+        <p>This is a deliberate nod back to Tay’s Swiss reference. Its deepest foreign import is the refusal to treat vocational formation as the route for those who did not succeed academically. Companies, workshops, technical institutes and schools jointly educate.</p>
+        <p><b>Its experiment:</b> What changes when mastery of a machine, kitchen, construction system, care practice or precision craft carries institutional dignity comparable to an academic distinction?</p>
+      </article>
+    </div>
+
+    <div class="idea"><b>The rotating-seat rule:</b> every 15 years, each Guest School must re-apply for its constitutional charter. Singapore can retain it, substantially rewrite it, or replace it with another coherent foreign model — Japanese lesson study, Italian Reggio Emilia, Danish folk-school traditions, Montessori, a future African or Latin American model we have not yet learned to see. <b>The system institutionalises its own capacity to be surprised.</b></div>
+
+    <p>The Guest Schools would have one further obligation: all curriculum, research, failures, teacher-learning and longitudinal results generated with public money become part of a national educational commons. Their job is not to protect proprietary advantage. Their job is to infect the other six with useful ideas.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">04 · Scale</div>
+      <h2>Not seven equal giants. Four roots should outweigh three experiments.</h2>
+    </div>
+
+    <p class="lead">Singapore’s latest published school-level total in the government dataset is about <b>419,453 students in 2025</b>. Equal division would give roughly 59,922 learners per School. I now think equal division is conceptually wrong.</p>
+
+    <div class="number-strip">
+      <div><div class="small mono">TOTAL SCHOOL-LEVEL LEARNERS · 2025</div><div class="big-num">419,453</div></div>
+      <div><div class="small mono">4 ROOT SCHOOLS</div><div class="big-num">≈75k</div><div class="small">each · ~300,000 total</div></div>
+      <div><div class="small mono">3 GUEST SCHOOLS</div><div class="big-num">≈39.8k</div><div class="small">each · ~119,453 total</div></div>
+    </div>
+
+    <div class="bar" aria-label="About 71.5 percent root schools and 28.5 percent guest schools"><div class="r"></div><div class="g"></div></div>
+    <p class="small mono">MEMORY 71.5% &nbsp;&nbsp;|&nbsp;&nbsp; MUTATION 28.5%</p>
+
+    <p>This is not an ethnic quota and need not be a rigid annual formula. I would treat it as a capacity architecture: roughly <b>70–80 thousand places per Root School</b> and <b>30–45 thousand per Guest School</b>.</p>
+
+    <p>Nor does a 75,000-person School mean a 75,000-person campus. The existing school estate remains distributed. Each “School” is a federation of many campuses, houses and specialist sites across Singapore. The institutional scale is large; the relational scale stays small.</p>
+
+    <table>
+      <thead><tr><th>Layer</th><th>Approximate scale</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td>School / Canton</td><td>40,000–80,000</td><td>Own ministry, teacher service, curriculum constitution, research and assessment philosophy.</td></tr>
+        <tr><td>College / district network</td><td>5,000–10,000</td><td>Shares expensive labs, studios, sports, arts, special-needs services and specialist teachers.</td></tr>
+        <tr><td>Campus / House</td><td>400–1,500</td><td>The place a child recognises as “my school”.</td></tr>
+        <tr><td>Learning community</td><td>80–120</td><td>Stable cohort of adults and peers across several years.</td></tr>
+        <tr><td>Tutorial</td><td>18–25</td><td>Relational unit. No child should experience the federation as a bureaucracy.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">05 · Seven MOEs</div>
+      <h2>The central MOE becomes constitutional, not imperial.</h2>
+    </div>
+
+    <p class="lead">This is where I would preserve Tay’s provocation most literally. Each School needs enough sovereignty to produce genuinely different consequences. Otherwise we merely get seven branding departments administering the same syllabus.</p>
+
+    <div class="constitution">
+      <div class="card federal">
+        <span class="tag">The Federal Education Commons</span>
+        <h3>What the central state controls</h3>
+        <ol>
+          <li>Universal public funding and equalisation.</li>
+          <li>Child protection, inclusion and special-needs rights.</li>
+          <li>A common Singapore civic minimum.</li>
+          <li>Minimum literacy, numeracy, scientific and digital competencies.</li>
+          <li>Recognition and portability of qualifications.</li>
+          <li>Transport access and cross-School mobility.</li>
+          <li>National data, independent inspection and longitudinal evaluation.</li>
+          <li>Anti-segregation rules and admissions fairness.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <span class="tag">The Seven Ministries</span>
+        <h3>What they are free to change</h3>
+        <ol>
+          <li>Curricular sequence and interpretation.</li>
+          <li>Pedagogy and classroom organisation.</li>
+          <li>Teacher recruitment, formation and career structure.</li>
+          <li>Assessment formats and graduation portfolios.</li>
+          <li>School calendars and rhythms.</li>
+          <li>Partnerships with communities, firms and universities.</li>
+          <li>Architecture and use of public learning spaces.</li>
+          <li>The definition of excellence beyond the federal minimum.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="pull"><strong>Competition of constitutions, not competition of children.</strong></div>
+
+    <p>That is a crucial distinction from contemporary school competition. The unit being tested is not whether Child A can outperform Child B on one examination. It is whether a coherent educational system — its teacher culture, timetable, epistemology, institutions and assessment — produces different kinds of flourishing over ten, twenty or thirty years.</p>
+
+    <p>Each Ministry should therefore publish a different theory of education before it publishes its curriculum. What does it believe childhood is? What is knowledge? What is a teacher? What is adulthood for? What does a successful 25-year-old look like? What does it refuse to optimise?</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">06 · Mixing rules</div>
+      <h2>Pluralism only works if the Schools cannot seal themselves off.</h2>
+    </div>
+    <p class="lead">This is where history supplies the warning. A system organised around distinct traditions can become a system of parallel societies. The design therefore needs active circulation.</p>
+
+    <div class="rule">01 · No admissions by ethnicity, religion or parental wealth.</div>
+    <div class="rule">02 · No tuition differential between the seven public systems.</div>
+    <div class="rule">03 · No academic selection before the end of lower secondary education.</div>
+    <div class="rule">04 · Every School must maintain socioeconomic and demographic diversity bands.</div>
+    <div class="rule">05 · By age 16, every student must have completed substantial learning in at least two other Schools.</div>
+    <div class="rule">06 · At least 10% of teachers rotate, second or co-teach across School systems during each five-year period.</div>
+    <div class="rule">07 · National qualifications must be portable, but the route to them need not be standardised.</div>
+    <div class="rule">08 · Guest Schools may not become fee-paying prestige enclaves. Their foreignness is pedagogical, not socioeconomic.</div>
+
+    <p>There is international support for taking this safeguard seriously. The Netherlands demonstrates that public funding can coexist with schools organised around distinct religious, ideological or pedagogical principles. But OECD work on school choice also warns that selective admissions and significant extra fees can intensify social segregation. In other words: <b>plural provision is possible, but equity has to be designed rather than assumed.</b></p>
+
+    <div class="idea"><b>One especially useful rule:</b> a child has a <i>home School</i>, not a permanent School identity. The system should make sentences like this normal: “I grew up in the Tamil School, did a year in the Dual School, took my history studio through the Malay School, and completed my capstone jointly with the Straits and World Schools.”</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">07 · Why now?</div>
+      <h2>Singapore used centralisation to solve one historical problem. It may now be producing another.</h2>
+    </div>
+
+    <p class="lead">The post-independence state had powerful reasons to standardise education: universal access, nation-building, bilingualism, industrial manpower needs, common credentials and social integration. The unified system was not an administrative accident. It was an extraordinary technology for building a country.</p>
+
+    <p>But successful institutional solutions create their own shadows. Once one system becomes excellent, every reform is asked to fit inside its grammar. Innovation becomes a pilot programme, then a committee, then an approved variation of the centre. Difference exists, but frequently as an exception granted by the same authority whose assumptions it might need to challenge.</p>
+
+    <p>That is where Tay’s argument feels unexpectedly current. His concern was not simply local democracy. It was the conditions under which <i>human capabilities can emerge</i>. He explicitly connected schools to the civic and cultural “nervous system” of settlements, and argued that decentralised education authorities could compete to discover better systems.</p>
+
+    <div class="pull">Perhaps the next frontier is not <strong>more innovation inside one education system.</strong><br><br>It is the protected coexistence of <strong>several education systems inside one republic.</strong></div>
+
+    <p>AI makes the question sharper. When information retrieval, explanation, drafting and routine cognitive production become cheap, the system cannot justify itself merely as a high-efficiency distributor of codified knowledge. The scarce goods move elsewhere: judgment, embodied skill, interpretation, responsibility, social trust, intellectual courage, cultural depth and the ability to inhabit more than one way of knowing.</p>
+
+    <p>A seven-School system does not claim to know in advance which educational philosophy will best cultivate those capacities. It does something more interesting:</p>
+
+    <p><b>It makes uncertainty constitutional.</b></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">08 · Precedents</div>
+      <h2>None of the pieces is unprecedented. The combination is.</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="t"><b>19th–20th c. Singapore · parallel educational systems</b><br>English, Chinese, Malay and Tamil streams developed under different state, mission and community arrangements. Singapore has already lived with educational plurality — and also knows its integrative difficulties.</div>
+      <div class="t"><b>1959 onward · equal treatment, then national consolidation</b><br>The self-governing state initially affirmed equal treatment of the four streams while pursuing a common nation-building agenda. By the 1980s, English-medium schooling had become the common national system.</div>
+      <div class="t"><b>Switzerland · cantonal responsibility</b><br>The 26 cantons retain primary responsibility for schooling while coordinating qualifications and common requirements through federal and intercantonal arrangements. This is Tay’s explicit governmental analogy.</div>
+      <div class="t"><b>Netherlands · publicly funded philosophical diversity</b><br>The constitution protects freedom to establish schools around religious, ideological or educational beliefs, with equal public funding subject to statutory requirements. It demonstrates a state can fund difference without operating every school identically.</div>
+      <div class="t"><b>Singapore international schools · long-running imported laboratories</b><br>SAS dates to 1956; Singapore International School/UWCSEA to 1971; GESS’s lineage to 1971. Singapore already hosts foreign educational systems beside the national one — but mostly for populations outside the mainstream public system.</div>
+      <div class="t"><b>The proposed leap · make the experiment public</b><br>Instead of foreign pedagogies sitting beside Singapore education as private alternatives, bring a small number inside the public constitutional ecology, accessible to Singaporean children and accountable to the whole system.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">09 · What I think</div>
+      <h2>The 4 + 3 structure is much stronger than my first seven.</h2>
+    </div>
+
+    <p class="lead">My first answer made the seven Schools seven abstract epistemologies: Observation, Making, Meaning, Relations, Care, Governance, Possibility. I still like those as learning lenses. But I no longer think they should be the constitutional basis of the Schools.</p>
+
+    <p>Your addition introduces something the abstract version lacked: <b>time.</b></p>
+
+    <p>The four historical Schools are not theories somebody invented in a ministry workshop. They are residues of how Singapore actually became Singapore. They contain unresolved inheritances — colonialism, language, religion, migration, trade, class, community self-help, assimilation, cosmopolitanism. Precisely because they are messy, they have cultural depth.</p>
+
+    <p>The three Guest Schools perform the opposite function. They have no claim to ancestral legitimacy. Their legitimacy comes from difference, evidence and their capacity to produce useful disturbance.</p>
+
+    <div class="grid2">
+      <div class="card root">
+        <span class="tag root">The four roots ask</span>
+        <h3>What have we inherited that the unified system made difficult to see?</h3>
+        <p>They deepen memory. They stop “Singapore education” from becoming synonymous with the particular system that happened to win the twentieth-century consolidation.</p>
+      </div>
+      <div class="card guest">
+        <span class="tag guest">The three guests ask</span>
+        <h3>What are we currently unable to imagine from inside ourselves?</h3>
+        <p>They introduce foreign assumptions deliberately enough that they cannot be domesticated into a one-year pilot before anyone has learned from them.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem">There is also something wonderfully Singaporean about this structure. We are not a civilisation that survived by purity. We are a port. We have always metabolised the foreign. The question is whether the educational system can do that <i>consciously</i>: retain deep local memory while maintaining ports through which pedagogical difference continuously enters.</p>
+
+    <div class="pull">Not seven tribes.<br>Not seven rankings.<br>Not seven postcode systems.<br><br><strong>Four roots. Three open ports. One commons.</strong></div>
+
+    <p>And I think the most important institutional sentence may be this:</p>
+    <p class="lead"><b>The central MOE’s job is no longer to know the best way to educate Singapore.</b><br>Its job is to make sure Singapore can safely sustain several serious attempts at finding out.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap sources">
+    <div class="section-head">
+      <div class="section-no">Sources · starting points</div>
+      <h2>Historical and institutional anchors</h2>
+    </div>
+    <ol>
+      <li><b>Tay Kheng Soon, decentralisation and “five MOEs”.</b> CNA, “5 governments, 5 HDBs, 5 MOEs: Tay Kheng Soon on decentralisation for creativity,” 13 May 2017. <a href="https://www.channelnewsasia.com/singapore/5-governments-5-hdbs-5-moes-tay-kheng-soon-decentralisation-creativity-1015311">CNA</a>.</li>
+      <li><b>Singapore’s four historical education streams and their later unification.</b> National Library Board, “An Overview of Singapore’s Education System from 1819 to the 1970s.” <a href="https://biblioasia.nlb.gov.sg/all-sections/vol-5-issue2-jul-2009-singapore-education-system-overview/">BiblioAsia</a>.</li>
+      <li><b>Early English, Malay, Chinese and Tamil schooling.</b> MOE Heritage Centre, “Learning in the 19th and Early 20th Century.” <a href="https://moehc.moe.edu.sg/explore/learning-in-the-19th-and-early-20th-century/">MOE Heritage Centre</a>.</li>
+      <li><b>Chinese-medium community schooling and transition to the unified system.</b> Singapore Chinese Cultural Centre, Culturepaedia, “The evolution of Singapore’s Chinese-medium school system.” <a href="https://culturepaedia.singaporeccc.org.sg/language-education/the-evolution-of-singapores-chinese-medium-school-system/">Culturepaedia</a>.</li>
+      <li><b>Tamil education and Coromandel–Straits history.</b> National Heritage Board / Indian Heritage Centre, “From the Coromandel Coast to the Straits: Revisiting Our Tamil Heritage.” <a href="https://www.roots.gov.sg/stories-landing/stories/From-the-Coromandel-Coast-to-the-Straits">Roots</a>.</li>
+      <li><b>Current student scale.</b> Singapore Department of Statistics / data.gov.sg, “Number of Students by School Level, Planning Region and Sex, Annual”; 2025 total: 419,453. <a href="https://data.gov.sg/datasets/d_e5048faf590692d3a804c51235a72f4f/view">data.gov.sg</a>.</li>
+      <li><b>Swiss educational federalism.</b> Swiss Conference of Cantonal Ministers of Education, “General information.” <a href="https://edk.ch/en/education-system-ch/general-information">EDK</a>.</li>
+      <li><b>Dutch freedom of education and equal public funding.</b> Government of the Netherlands, “Public-authority and private schools.” <a href="https://www.government.nl/themes/education/freedom-of-education/public-authority-and-private-schools">Government.nl</a>.</li>
+      <li><b>Equity risks in school choice.</b> OECD, “Regulating Publicly Funded Private Schools: A Literature Review on Equity and Effectiveness.” <a href="https://www.oecd.org/en/publications/regulating-publicly-funded-private-schools_5jln6jcg80r4-en.html">OECD</a>.</li>
+      <li><b>UWCSEA as an international educational experiment embedded in Singapore since 1971.</b> <a href="https://www.uwcsea.edu.sg/about">UWCSEA</a>.</li>
+      <li><b>Singapore American School, founded 1956.</b> <a href="https://www.sas.edu.sg/about-us/the-sas-story">SAS</a>.</li>
+      <li><b>German European School Singapore, lineage dating to 1971.</b> <a href="https://www.gess.edu.sg/">GESS</a>.</li>
+    </ol>
+    <p class="small">Method note: this is a speculative institutional model, not an empirical policy recommendation. It adopts Tay Kheng Soon’s decentralisation argument as a design provocation; it does not rely on or endorse every scientific or political claim made in the 2017 interview.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="last">Singapore once needed a single education system to become <i>one people</i>.<br><br>Perhaps the harder maturity test is whether <b>one people can now sustain many systems.</b></div>
+    <div class="stamp">Seven Schools / Cantons Without Borders · speculative draft · 1 September 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

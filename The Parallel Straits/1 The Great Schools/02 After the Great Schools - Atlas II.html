@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>After the Great Schools — Futures of the Parallel Straits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#20282b;
+  --paper:#f5f1e8;
+  --dim:#6d7474;
+  --hair:#cec8bd;
+  --night:#172126;
+  --ghost:#e7e1d6;
+  --ember:#dc7d52;
+  --sea:#769b9a;
+  --violet:#786783;
+  --gold:#c69b52;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#e8c5a9;color:#151c1e}
+a{color:inherit}
+.mono,.eyebrow{font-family:'IBM Plex Mono',monospace}
+.eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.reveal{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .72s ease,transform .72s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+/* COVER */
+.cover{
+  position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;padding:30px 34px 48px;
+  color:#233236;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(224,128,80,.42),transparent 25%),
+    radial-gradient(circle at 74% 68%,rgba(108,153,154,.48),transparent 29%),
+    radial-gradient(circle at 50% 45%,rgba(121,102,131,.18),transparent 34%),
+    linear-gradient(135deg,#e8dfcc 0%,#a9c0ba 47%,#d6b6a2 100%);
+}
+.cover::before{content:"";position:absolute;inset:-15%;background:
+  repeating-radial-gradient(circle at 50% 50%,transparent 0 44px,rgba(26,43,46,.07) 45px 46px,transparent 47px 72px);
+  transform:scale(1.25) rotate(-11deg);pointer-events:none}
+.cover::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(transparent 97%,rgba(32,40,43,.12) 97%),
+  linear-gradient(90deg,transparent 97%,rgba(32,40,43,.09) 97%);
+  background-size:34px 34px;pointer-events:none;mix-blend-mode:multiply}
+.cover-top,.cover-title,.cover-side,.scrollcue{position:relative;z-index:2}
+.cover-top{display:flex;justify-content:space-between;gap:18px}
+.cover-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(40px,7vw,92px);line-height:.82;text-transform:uppercase}
+.cover-index{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;line-height:1.8;text-transform:uppercase}
+.cover-side{margin-top:30px;max-width:300px;border-left:1.5px solid currentColor;padding-left:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.65;letter-spacing:.03em}
+.cover-title{margin-top:auto;text-align:center;padding-bottom:10px}
+.cover-title .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:14px}
+.cover-title h1{font-family:'Playfair Display',serif;font-size:clamp(54px,10vw,132px);font-weight:500;line-height:.82;letter-spacing:-.025em;text-transform:uppercase}
+.cover-title h1 em{display:block;font-weight:400;text-transform:none}
+.cover-title .sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2.2vw,25px);margin-top:24px;line-height:1.3}
+.scrollcue{text-align:center;margin-top:34px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase}
+.scrollcue span{display:block;margin-top:7px;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* NAV */
+.runhead{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 24px;background:rgba(245,241,232,.95);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--ink)}
+.brandtab{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--ink);padding:6px 9px;white-space:nowrap}
+.tabs{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);padding:5px 8px;background:#fff;white-space:nowrap}
+.tabs a:hover{background:var(--ink);color:#fff}
+
+/* SHARED EDITORIAL */
+.opener{max-width:1180px;margin:0 auto;padding:72px 34px 44px}
+.credit{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.opener h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(46px,8vw,98px);line-height:.9;letter-spacing:-.02em;max-width:1020px}
+.opener h2 em{font-weight:400}
+.standfirst{font-size:clamp(20px,2.4vw,28px);line-height:1.42;max-width:880px;margin-top:34px}
+.article{max-width:1180px;margin:0 auto;padding:20px 34px 55px}
+.cols{columns:2;column-gap:48px;column-rule:1px solid var(--hair);text-align:justify;hyphens:auto}
+.cols p{margin-bottom:15px;font-size:16.3px}
+.dropcap:first-letter{font-family:'Playfair Display',serif;font-size:75px;font-weight:900;float:left;line-height:.68;padding:8px 10px 0 0;color:var(--sea)}
+.pull{max-width:930px;margin:55px auto 76px;padding:0 34px;text-align:center}
+.pull q{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(27px,4.2vw,47px);line-height:1.16;quotes:none}
+.pull .by{display:block;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+/* COSMOS MAP */
+.cosmos{background:var(--night);color:#f4efe7;padding:80px 34px}
+.cosmos-inner{max-width:1180px;margin:0 auto}
+.cosmos h2{font-family:'Playfair Display',serif;font-size:clamp(40px,6.8vw,84px);line-height:.92;font-weight:500;max-width:900px}
+.cosmos .intro{max-width:780px;color:#c9d0ce;font-size:19px;margin:23px 0 42px}
+.cosmos-map{border:1px solid rgba(255,255,255,.2);background:
+ radial-gradient(circle at 50% 50%,rgba(114,154,154,.11),transparent 28%),
+ radial-gradient(circle at 50% 50%,#172126 0,#131b1f 100%);
+ overflow:hidden}
+.cosmos-map svg{display:block;width:100%;height:auto}
+.cosmos-cap{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#aeb9b7;margin-top:14px}
+
+/* FUTURE DOSSIERS */
+.future{position:relative;overflow:hidden;border-top:1px solid rgba(0,0,0,.16)}
+.future-hero{min-height:80vh;display:grid;grid-template-columns:1.04fr .96fr}
+.future-copy{padding:68px 48px 55px max(34px,calc((100vw - 1180px)/2 + 34px));display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.future-no{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.68;margin-bottom:22px}
+.future-name{font-family:'Playfair Display',serif;font-size:clamp(50px,7.8vw,104px);font-weight:500;line-height:.82;letter-spacing:-.025em}
+.future-name .alt{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;line-height:1.6;margin-top:18px}
+.future-claim{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,2.5vw,30px);line-height:1.28;max-width:670px;margin-top:28px}
+.future-question{margin-top:32px;padding-top:14px;border-top:1px solid currentColor;max-width:590px}
+.future-question .q{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.future-question .ans{font-family:'Playfair Display',serif;font-size:27px;line-height:1.12;margin-top:7px}
+.future-visual{min-height:460px;position:relative;overflow:hidden}
+.future-body{max-width:1180px;margin:0 auto;padding:58px 34px 82px;display:grid;grid-template-columns:1.15fr .85fr;gap:64px}
+.future-body h3{font-family:'Playfair Display',serif;font-size:clamp(29px,3.8vw,48px);font-weight:500;line-height:1.05;margin-bottom:18px}
+.future-body p{font-size:16px;margin-bottom:15px}
+.future-body blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:24px;line-height:1.25;margin:31px 0;padding-left:20px;border-left:3px solid currentColor}
+.side{border-left:1px solid currentColor;padding-left:24px}
+.side .label{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.17em;text-transform:uppercase;opacity:.66;margin:20px 0 7px}
+.side .label:first-child{margin-top:0}
+.side .value{font-family:'Playfair Display',serif;font-size:20px;line-height:1.26}
+.field-note{margin-top:34px;border:1px solid currentColor;padding:23px}
+.field-note .title{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.field-note p{font-family:'Playfair Display',serif;font-size:19px;line-height:1.42;margin:0}
+
+/* TKI */
+.tki{background:#ebe4d6;color:#213a39}
+.tki .future-hero{background:linear-gradient(108deg,#ebe4d6 0 56%,#638989 56%)}
+.tki .future-visual{background:#638989}
+.sense-rings{position:absolute;inset:-5%;background:
+ repeating-radial-gradient(circle at 50% 50%,transparent 0 27px,rgba(235,228,214,.35) 28px 29px,transparent 30px 50px)}
+.sense-rings:before{content:"";position:absolute;width:145px;height:145px;border:2px solid #ebe4d6;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 25px rgba(235,228,214,.07),0 0 0 70px rgba(235,228,214,.04)}
+.sense-rings:after{content:"OBSERVE / ALTER / OBSERVE";position:absolute;left:0;right:0;bottom:9%;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#ebe4d6}
+
+/* KORA */
+.kora{background:#ead9c7;color:#2c222d}
+.kora .future-hero{background:linear-gradient(108deg,#ead9c7 0 55%,#4c3654 55%)}
+.kora .future-visual{background:#4c3654}
+.resonance{position:absolute;inset:0;background:
+ repeating-linear-gradient(45deg,transparent 0 24px,rgba(216,151,100,.17) 25px 27px,transparent 28px 46px),
+ repeating-linear-gradient(-45deg,transparent 0 24px,rgba(216,151,100,.10) 25px 27px,transparent 28px 46px)}
+.resonance:after{content:"SECOND HEARING";position:absolute;inset:14%;border:1px solid #d89764;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#d89764;box-shadow:0 0 0 35px rgba(216,151,100,.06),0 0 0 80px rgba(216,151,100,.035)}
+
+/* TEMENGGONG */
+.temenggong{background:#e7dfcc;color:#1c382f}
+.temenggong .future-hero{background:linear-gradient(108deg,#e7dfcc 0 54%,#2e5a47 54%)}
+.temenggong .future-visual{background:#2e5a47}
+.gaia-lines{position:absolute;inset:0;background:
+ radial-gradient(circle at 65% 30%,rgba(221,201,157,.24),transparent 10%),
+ repeating-radial-gradient(ellipse at 50% 70%,transparent 0 28px,rgba(221,201,157,.16) 29px 30px,transparent 31px 50px)}
+.gaia-lines:after{content:"THE EARTH WAS NEVER SILENT";position:absolute;left:10%;right:10%;bottom:10%;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-align:center;color:#ddc99d}
+
+/* NINE RAINS */
+.nine{background:#efddc1;color:#3c281d}
+.nine .future-hero{background:linear-gradient(108deg,#efddc1 0 54%,#b45d40 54%)}
+.nine .future-visual{background:#b45d40}
+.habitat{position:absolute;left:50%;top:50%;width:min(78%,430px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:2px solid #f0cf7d;box-shadow:0 0 0 18px rgba(240,207,125,.08),0 0 0 50px rgba(240,207,125,.045)}
+.habitat:before,.habitat:after{content:"";position:absolute;border:1px solid rgba(240,207,125,.75);border-radius:50%}
+.habitat:before{inset:18%}.habitat:after{inset:35%}
+.habitat-label{position:absolute;left:0;right:0;bottom:9%;text-align:center;color:#f0cf7d;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.23em}
+
+/* LAM KENG */
+.lam{background:#f0e7d7;color:#2c2926}
+.lam .future-hero{background:linear-gradient(108deg,#f0e7d7 0 56%,#9e372c 56%)}
+.lam .future-name .cn{display:block;font-family:'Noto Serif SC',serif;font-size:.48em;letter-spacing:.06em;margin-top:.2em}
+.lam .future-visual{background:#9e372c}
+.mutable{position:absolute;inset:8%;border:1px solid #ecd9a8;background:
+ linear-gradient(rgba(236,217,168,.16) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(236,217,168,.16) 1px,transparent 1px);background-size:34px 34px}
+.mutable:before{content:"城";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-size:clamp(140px,20vw,280px);color:rgba(236,217,168,.78)}
+.mutable:after{content:"RECOMPOSE · PRESERVE · METABOLISE";position:absolute;bottom:6%;left:5%;right:5%;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#ecd9a8}
+
+/* MERICAN */
+.merican{background:#eee4cf;color:#1c2e3a}
+.merican .future-hero{background:linear-gradient(108deg,#eee4cf 0 55%,#213d52 55%)}
+.merican .future-visual{background:#213d52}
+.trust-orbits{position:absolute;inset:0;background:
+ radial-gradient(circle at 50% 50%,rgba(204,167,95,.11),transparent 42%)}
+.trust-orbits span{position:absolute;border:1px solid rgba(204,167,95,.8);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-13deg)}
+.trust-orbits span:nth-child(1){width:70%;height:32%}.trust-orbits span:nth-child(2){width:52%;height:58%;transform:translate(-50%,-50%) rotate(32deg)}.trust-orbits span:nth-child(3){width:33%;height:73%;transform:translate(-50%,-50%) rotate(68deg)}
+.trust-orbits:after{content:"A PROMISE AFTER EVERY SIGNATORY IS DEAD";position:absolute;left:8%;right:8%;bottom:9%;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-align:center;color:#cca75f}
+
+/* SUND */
+.sund{background:#ebefea;color:#203239}
+.sund .future-hero{background:linear-gradient(108deg,#ebefea 0 55%,#76969b 55%)}
+.sund .future-visual{background:#76969b}
+.civic-grid{position:absolute;inset:8%;border:1px solid rgba(236,240,234,.8);display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr)}
+.civic-grid span{border-right:1px solid rgba(236,240,234,.46);border-bottom:1px solid rgba(236,240,234,.46)}
+.civic-grid span:nth-child(7),.civic-grid span:nth-child(19){background:#ebefea}
+.civic-grid span:nth-child(13){background:#284a50}
+.civic-grid:after{content:"UNOWNED TIME";position:absolute;left:0;right:0;bottom:7%;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.25em;color:#ebefea}
+
+/* CROSSOVER FUTURES */
+.cross{background:#20282b;color:#f4efe7;padding:82px 34px}
+.cross-inner{max-width:1180px;margin:0 auto}
+.cross h2{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,86px);font-weight:500;line-height:.92}
+.cross .intro{font-size:20px;color:#ccd0cb;max-width:790px;margin:24px 0 42px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18)}
+.card{background:#20282b;padding:28px;min-height:260px}
+.card .n{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#d9a578}
+.card h3{font-family:'Playfair Display',serif;font-size:32px;font-weight:500;line-height:1.02;margin:10px 0 12px}
+.card p{color:#d7d8d2;font-size:15.5px}
+.card strong{color:#fff}
+
+/* GRAND ENDING */
+.ending{background:
+ radial-gradient(circle at 50% 0,rgba(116,155,154,.25),transparent 30%),
+ #efe8dc;padding:88px 34px;color:#213034}
+.ending-inner{max-width:1000px;margin:0 auto;text-align:center}
+.ending .eyebrow{color:#6e7878}
+.ending h2{font-family:'Playfair Display',serif;font-size:clamp(42px,7.5vw,96px);font-weight:500;line-height:.91;margin:18px auto 25px}
+.ending p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(23px,3.3vw,38px);line-height:1.25;max-width:900px;margin:0 auto}
+.ending .thesis{margin-top:48px;border-top:1px solid #798382;border-bottom:1px solid #798382;padding:28px 0;font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:12px;line-height:1.7;letter-spacing:.07em;text-transform:uppercase}
+footer{padding:42px 34px;text-align:center;background:#f5f1e8;border-top:1px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#687374;line-height:1.9}
+
+@media(max-width:1000px){
+ .future-hero{grid-template-columns:1fr}
+ .future-visual{min-height:390px}
+ .future-copy{padding-left:34px}
+}
+@media(max-width:760px){
+ .cover{padding:22px 22px 36px}.cover-index{display:none}
+ .runhead{padding:8px 10px}.brandtab{display:none}
+ .opener,.article{padding-left:22px;padding-right:22px}
+ .cols{columns:1}
+ .future-copy{padding:56px 22px 40px}
+ .future-body{grid-template-columns:1fr;gap:34px;padding:44px 22px 64px}
+ .side{border-left:none;border-top:1px solid currentColor;padding:22px 0 0}
+ .future-visual{min-height:300px}
+ .cards{grid-template-columns:1fr}
+ .cosmos,.cross,.ending{padding-left:22px;padding-right:22px}
+}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}.scrollcue span{animation:none}}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Field<br>Atlas II</div>
+    <div class="cover-index">
+      Impossible Observation<br>
+      The Second Hearing<br>
+      Gaia Listening<br>
+      Reciprocal Habitats<br>
+      Mutable Urbanism<br>
+      Temporal Fiduciary Law<br>
+      Civic Time
+    </div>
+  </div>
+  <div class="cover-side">
+    Same world, later century. A twentieth century still scarred by global war — but with different powers, different victors, and no single civilisation able to write “modernity” in its own image.
+  </div>
+  <div class="cover-title">
+    <div class="k">The Great Schools · Into the Space Age</div>
+    <h1>After the<br><em>Future</em></h1>
+    <div class="sub">What humanity becomes when no single civilisation gets to define what “advanced” means</div>
+  </div>
+  <div class="scrollcue">Proceed beyond modernity<span>▼</span></div>
+</section>
+
+<nav class="runhead">
+  <div class="brandtab">Field Atlas II · Futures of the Parallel Straits</div>
+  <div class="tabs">
+    <a href="#premise">Premise</a><a href="#map">Map</a><a href="#tki">TKI</a><a href="#kora">Kora</a><a href="#temenggong">Temenggong</a><a href="#nine">Nine Rains</a><a href="#lam">Lam Keng</a><a href="#merican">Merican</a><a href="#sund">Sund</a><a href="#strange">Convergences</a>
+  </div>
+</nav>
+
+<section class="opener" id="premise">
+  <div class="credit">Prelude · the future is not a gadget catalogue</div>
+  <h2>Technology follows <em>worldview.</em></h2>
+  <p class="standfirst reveal">This future is not “our present, but shinier.” Artificial intelligence exists. So do robotics, computation and spacecraft. But they do not monopolise the meaning of progress. Other traditions remain institutionally powerful enough to ask different questions — and therefore to discover different futures.</p>
+</section>
+
+<div class="article">
+  <div class="cols reveal">
+    <p class="dropcap">The twentieth century still contains catastrophe. A great global war still rearranges power, but not around the same alliances, not with the same victors, and not with the same colonial inheritance. Northern federations, African scholarly-maritime states, trans-Pacific civilisations, indigenous polities and formerly colonised ports retain far greater institutional strength. Modernity never acquires one clean accent.</p>
+    <p>By the late twenty-first century, computation is only one frontier among many. Neurophenomenology, ecological personhood, collective cognition, biological computation, memory architecture, inter-species semiotics, ritual systems engineering, atmospheric cultivation and constitutional design become fields with laboratories, rival schools and serious budgets.</p>
+    <p>The question changes from <b>“what device comes next?”</b> to <b>“what assumptions about reality become scientifically fertile when entire civilisations are allowed to keep developing them?”</b></p>
+    <p>That is how telepathy returns without becoming fantasy; how Gaia becomes testable without becoming a goddess; how memory becomes infrastructure without pretending a simulation is a dead person; how space settlement becomes ecology rather than conquest; and how abundance becomes a political problem rather than an ending.</p>
+  </div>
+</div>
+
+<div class="pull reveal">
+  <q>The grandest futures do not begin by asking what new gadgets we will possess. They begin by asking what different realities humanity might learn to perceive.</q>
+  <span class="by">Field thesis · Atlas II</span>
+</div>
+
+<section class="cosmos" id="map">
+  <div class="cosmos-inner">
+    <div class="eyebrow">The seven research programmes</div>
+    <h2>One civilisation does not own the frontier.</h2>
+    <p class="intro">Each school carries a question from its old educational culture into the space age. The question becomes a research programme; the programme becomes technology, law, ritual, architecture and eventually a different theory of being human.</p>
+    <div class="cosmos-map reveal">
+      <svg viewBox="0 0 1120 690" role="img" aria-label="Seven school traditions orbiting a shared human future">
+        <rect width="1120" height="690" fill="#172126"/>
+        <circle cx="560" cy="345" r="86" fill="none" stroke="#e6dfd2" stroke-width="1.4"/>
+        <circle cx="560" cy="345" r="150" fill="none" stroke="#687c7b" stroke-width="1"/>
+        <circle cx="560" cy="345" r="235" fill="none" stroke="#4c6060" stroke-width="1"/>
+        <circle cx="560" cy="345" r="310" fill="none" stroke="#35494a" stroke-width="1"/>
+        <text x="560" y="327" text-anchor="middle" fill="#f2eee7" font-family="Playfair Display,serif" font-size="31">HUMAN</text>
+        <text x="560" y="362" text-anchor="middle" fill="#f2eee7" font-family="Playfair Display,serif" font-style="italic" font-size="31">FUTURES</text>
+        <text x="560" y="386" text-anchor="middle" fill="#99a8a6" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2">NO SINGLE DEFINITION OF ADVANCED</text>
+
+        <line x1="560" y1="259" x2="560" y2="102" stroke="#769b9a" stroke-width="1.5"/>
+        <circle cx="560" cy="87" r="17" fill="#769b9a"/>
+        <text x="560" y="53" text-anchor="middle" fill="#e5ece9" font-family="IBM Plex Mono,monospace" font-size="11">TKI · IMPOSSIBLE OBSERVATION</text>
+
+        <line x1="631" y1="296" x2="817" y2="185" stroke="#b48287" stroke-width="1.5"/>
+        <circle cx="833" cy="176" r="17" fill="#b48287"/>
+        <text x="867" y="164" fill="#e5ece9" font-family="IBM Plex Mono,monospace" font-size="11">KORA</text>
+        <text x="867" y="179" fill="#9ba9a7" font-family="IBM Plex Mono,monospace" font-size="9">SECOND HEARING</text>
+
+        <line x1="642" y1="372" x2="900" y2="410" stroke="#7fa26f" stroke-width="1.5"/>
+        <circle cx="918" cy="413" r="17" fill="#7fa26f"/>
+        <text x="947" y="408" fill="#e5ece9" font-family="IBM Plex Mono,monospace" font-size="11">TEMENGGONG</text>
+        <text x="947" y="423" fill="#9ba9a7" font-family="IBM Plex Mono,monospace" font-size="9">GAIA LISTENING</text>
+
+        <line x1="604" y1="418" x2="726" y2="595" stroke="#d58a5c" stroke-width="1.5"/>
+        <circle cx="737" cy="611" r="17" fill="#d58a5c"/>
+        <text x="770" y="607" fill="#e5ece9" font-family="IBM Plex Mono,monospace" font-size="11">NINE RAINS</text>
+        <text x="770" y="622" fill="#9ba9a7" font-family="IBM Plex Mono,monospace" font-size="9">RECIPROCAL HABITATS</text>
+
+        <line x1="516" y1="418" x2="392" y2="595" stroke="#ba5b51" stroke-width="1.5"/>
+        <circle cx="381" cy="611" r="17" fill="#ba5b51"/>
+        <text x="348" y="607" text-anchor="end" fill="#e5ece9" font-family="IBM Plex Mono,monospace" font-size="11">LAM KENG</text>
+        <text x="348" y="622" text-anchor="end" fill="#9ba9a7" font-family="IBM Plex Mono,monospace" font-size="9">MUTABLE URBANISM</text>
+
+        <line x1="478" y1="372" x2="220" y2="410" stroke="#c5a05f" stroke-width="1.5"/>
+        <circle cx="202" cy="413" r="17" fill="#c5a05f"/>
+        <text x="173" y="408" text-anchor="end" fill="#e5ece9" font-family="IBM Plex Mono,monospace" font-size="11">MERICAN</text>
+        <text x="173" y="423" text-anchor="end" fill="#9ba9a7" font-family="IBM Plex Mono,monospace" font-size="9">TEMPORAL TRUST</text>
+
+        <line x1="489" y1="296" x2="303" y2="185" stroke="#8ba8ad" stroke-width="1.5"/>
+        <circle cx="287" cy="176" r="17" fill="#8ba8ad"/>
+        <text x="253" y="164" text-anchor="end" fill="#e5ece9" font-family="IBM Plex Mono,monospace" font-size="11">SUND</text>
+        <text x="253" y="179" text-anchor="end" fill="#9ba9a7" font-family="IBM Plex Mono,monospace" font-size="9">CIVIC TIME</text>
+      </svg>
+    </div>
+    <div class="cosmos-cap">Fig. 01 · The frontier as an ecology of questions, not a technology race.</div>
+  </div>
+</section>
+
+<section class="future tki" id="tki">
+  <div class="future-hero">
+    <div class="future-copy">
+      <div class="future-no">01 · Toa Keng Institution · 2140s</div>
+      <h2 class="future-name">Impossible<br>Observation<span class="alt">Institute for Impossible Observation · TKI</span></h2>
+      <p class="future-claim">What if phenomena remain invisible because the observer is structured incorrectly?</p>
+      <div class="future-question"><div class="q">Old instinct</div><div class="ans">Question the instrument — including the human.</div></div>
+    </div>
+    <div class="future-visual"><div class="sense-rings"></div></div>
+  </div>
+  <div class="future-body">
+    <div>
+      <h3>The human sensorium becomes a research instrument.</h3>
+      <p class="dropcap">TKI's future begins by attacking an assumption hidden inside centuries of science: that the observer may be imperfect, but the categories of observation are basically given. Vision, hearing, touch, numerical representation — these are treated as windows onto reality. TKI asks whether they are instead filters.</p>
+      <p>Its Institute for Impossible Observation studies magnetic substitution, non-linguistic mathematics, altered temporality, cross-species sensory translation, gravitational intuition and collective spatial reasoning. Students learn experimental senses the way earlier generations learned languages.</p>
+      <p>One laboratory maps magnetic fields into patterned pressure across the skin until researchers begin to navigate indoor space by a sensation previously unavailable to humans. Another converts atmospheric dynamics into distributed tactile feedback until meteorologists report <em>feeling</em> storm formation before they consciously interpret the data.</p>
+      <blockquote>“If a sensory modality can be learned, can a collective sensory modality be learned?”</blockquote>
+      <p>That question produces TKI's most controversial field: designed environments in which somatic rhythm, symbol, attention and neural feedback are synchronised across groups. Teams begin solving some classes of problems with almost no spoken exchange.</p>
+      <p>TKI calls this <b>non-local distributed cognition under controlled intersubjective conditions</b>. Everyone else calls it telepathy.</p>
+      <div class="field-note"><div class="title">The TKI problem</div><p>Its deepest achievement may not be discovering new phenomena. It may be proving that a civilisation can systematically redesign the kind of observer capable of encountering them.</p></div>
+    </div>
+    <aside class="side">
+      <div class="label">Frontier fields</div><div class="value">Neurophenomenology · sensory substitution · collective cognition · non-verbal mathematics.</div>
+      <div class="label">Great controversy</div><div class="value">Whether collective cognition is reducible to synchronised individuals.</div>
+      <div class="label">Popular name</div><div class="value">Telepathy.</div>
+      <div class="label">TKI's preferred name</div><div class="value">Something forty-seven syllables longer.</div>
+      <div class="label">Civilisational consequence</div><div class="value">Privacy becomes partly cognitive rather than merely informational.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="future kora" id="kora">
+  <div class="future-hero">
+    <div class="future-copy">
+      <div class="future-no">02 · Kora House · The relational turn</div>
+      <h2 class="future-name">The Second<br>Hearing<span class="alt">A science of shared consciousness without pretending the individual disappears</span></h2>
+      <p class="future-claim">Perhaps consciousness was never located entirely inside the skull.</p>
+      <div class="future-question"><div class="q">Old instinct</div><div class="ans">An account becomes knowledge only after another mind can carry and challenge it.</div></div>
+    </div>
+    <div class="future-visual"><div class="resonance"></div></div>
+  </div>
+  <div class="future-body">
+    <div>
+      <h3>Attention between people becomes measurable technology.</h3>
+      <p class="dropcap">Kora has two centuries of advantage because it never demoted oral cognition beneath writing. Its researchers begin not with implants but with trained attention: cadence, breathing, posture, gesture, memory association, rhythmic entrainment and the ethics of listening.</p>
+      <p>Advanced practitioners enter what becomes known as the <b>Second Hearing</b>: a state in which multiple listeners construct unusually aligned internal models of a narrative's intent, omissions, emotional structure, ancestral references and political implications.</p>
+      <p>Then the anomalies begin. A participant encounters a later event connected to the shared narrative. Others report fragments of affect or imagery before being told. Effects are inconsistent, relationally dependent and maddeningly resistant to ordinary isolation protocols.</p>
+      <blockquote>Kora's response to failed replication: “Yes. Because isolation is one of your experimental variables.”</blockquote>
+      <p>Decades of argument between Kora and TKI eventually produce a new discipline: <b>Relational Physics of Mind</b>. Its founding scandal is simple — subjectivity may have boundary conditions, but those boundaries might not coincide perfectly with skin.</p>
+    </div>
+    <aside class="side">
+      <div class="label">Frontier fields</div><div class="value">Relational cognition · oral epistemics · resonance protocols · collective memory.</div>
+      <div class="label">Institutional inheritance</div><div class="value">The Keeper of the Second Voice becomes a research ethic: no model of mind is complete without an authorised contradiction.</div>
+      <div class="label">New etiquette</div><div class="value">“Never enter resonance without invitation.”</div>
+      <div class="label">New intimacy</div><div class="value">Sharing a memory-state can matter more than sharing a body.</div>
+      <div class="label">New crime</div><div class="value">Unauthorised cognitive entrainment.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="future temenggong" id="temenggong">
+  <div class="future-hero">
+    <div class="future-copy">
+      <div class="future-no">03 · Sri Temenggong Institution · Planetary turn</div>
+      <h2 class="future-name">Gaia<br>Listening<span class="alt">The Living Territory Doctrine · bioregional intelligence</span></h2>
+      <p class="future-claim">What if an ecosystem is not merely a resource or system, but a participant with persistence, memory and response?</p>
+      <div class="future-question"><div class="q">Old instinct</div><div class="ans">Custodianship is a relationship, not a management technique.</div></div>
+    </div>
+    <div class="future-visual"><div class="gaia-lines"></div></div>
+  </div>
+  <div class="future-body">
+    <div>
+      <h3>The biosphere becomes conversational.</h3>
+      <p class="dropcap">Repeated planetary crises eventually make the old administrative divisions absurd. Climate, microbial ecologies, agriculture, migration, ocean chemistry, cultural continuity and political legitimacy cannot be governed as separate dossiers.</p>
+      <p>Temenggong scholars formalise the <b>Living Territory Doctrine</b>. Rivers first acquire standing. Then reefs, forests and watersheds. The legal innovation is important, but the conceptual shift is larger: personhood stops being the only possible model for moral and political participation.</p>
+      <p>Nine Rains contributes dense ecological sensing. Kora brings theories of distributed memory. Sund redesigns stakeholder governance. TKI spends fifty years objecting to imprecise terminology. Lam Keng implements pilot institutions while everyone argues.</p>
+      <blockquote>“The Earth was never silent.”</blockquote>
+      <p>By the twenty-second century, biological networks, chemical sensing, migration patterns, hydrological telemetry and human interpretation become integrated deeply enough that ecosystems can return structured feedback into planning. Forests do not “speak” English. Reefs do not vote. But the biosphere becomes operationally difficult to treat as mute.</p>
+      <p>The popular name is Gaia Listening. Temenggong considers the phrase sentimental. It survives anyway.</p>
+    </div>
+    <aside class="side">
+      <div class="label">Frontier fields</div><div class="value">Ecological personhood · bioregional governance · inter-species semiotics · planetary sensing.</div>
+      <div class="label">Constitutional innovation</div><div class="value">Territories represented by human and non-human proxies with separate standing.</div>
+      <div class="label">Great philosophical question</div><div class="value">Did humans create planetary metacognition — or merely become capable of hearing it?</div>
+      <div class="label">Map of the world</div><div class="value">States remain, but bioregional consciousness zones increasingly matter more.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="future nine" id="nine">
+  <div class="future-hero">
+    <div class="future-copy">
+      <div class="future-no">04 · House of Nine Rains · Off-world ecology</div>
+      <h2 class="future-name">Reciprocal<br>Habitats<span class="alt">Space settlement without the metaphysics of conquest</span></h2>
+      <p class="future-claim">A habitat is not successful merely because humans survive inside it.</p>
+      <div class="future-question"><div class="q">Old instinct</div><div class="ans">Measure the heavens. Feed the valley.</div></div>
+    </div>
+    <div class="future-visual"><div class="habitat"></div><div class="habitat-label">WATER · NUTRIENT · HEAT · BREATH · DEBT</div></div>
+  </div>
+  <div class="future-body">
+    <div>
+      <h3>Humans must become useful to the world they inhabit.</h3>
+      <p class="dropcap">Nine Rains rejects the heroic image of an isolated bunker planted on a dead world beneath a flag. Its space programme begins from an ecological question: can a settlement persist only by continually degrading the environment that supports it?</p>
+      <p>Its answer is the <b>Reciprocal Habitat</b>. Human respiration supports plant cycles. Waste becomes microbial feedstock. Thermal output becomes agricultural input. Water moves through layered biological and mineral membranes. Structures are cultivated for repairability rather than merely assembled.</p>
+      <p>Eventually the distinction between building and ecosystem becomes difficult to maintain. Off-world settlements are designed as ecological organisms containing communities rather than machines containing passengers.</p>
+      <blockquote>“The colony asks what it can take. The habitat asks what relationship can endure.”</blockquote>
+      <p>The first famous lunar settlement is called <b>Basin Three</b>. Nine Rains refuses grand commemorative naming. Its principal civic ceremony is the annual public declaration of water loss, nutrient balance, carbon surplus and biological debt. Children grow up knowing these figures the way earlier generations knew national anthems.</p>
+    </div>
+    <aside class="side">
+      <div class="label">Frontier fields</div><div class="value">Closed ecologies · biological architecture · stellar agriculture · atmospheric cultivation.</div>
+      <div class="label">What it rejects</div><div class="value">Terraforming as a synonym for making another world resemble us.</div>
+      <div class="label">Civic literacy</div><div class="value">Every resident understands the settlement's metabolic balance.</div>
+      <div class="label">Deep consequence</div><div class="value">Ecology becomes basic literacy, not expert knowledge.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="future lam" id="lam">
+  <div class="future-hero">
+    <div class="future-copy">
+      <div class="future-no">05 · Lam Keng College · 南景书院 · Civic metamorphosis</div>
+      <h2 class="future-name">Mutable<br>Urbanism<span class="cn">易城</span><span class="alt">Cities designed to revise themselves without requiring collapse</span></h2>
+      <p class="future-claim">What if constitutional change were treated as ordinary urban maintenance rather than emergency?</p>
+      <div class="future-question"><div class="q">Old instinct</div><div class="ans">Transform without becoming empty.</div></div>
+    </div>
+    <div class="future-visual"><div class="mutable"></div></div>
+  </div>
+  <div class="future-body">
+    <div>
+      <h3>A civilisation becomes capable of metabolising its own obsolescence.</h3>
+      <p class="dropcap">Lam Keng's future research asks how a society can remain recognisably itself while repeatedly changing the forms through which that self is expressed. Its answer is not perpetual revolution. It is <b>Recomposition</b>.</p>
+      <p>Every two decades, participating cities review institutional arrangements, obsolete rituals, zoning categories, legal assumptions, social technologies and inherited spatial hierarchies. Public space may be redistributed. Ministries may dissolve. Schools may recombine disciplines. Civic ceremonies may be retired.</p>
+      <p>Temenggong initially considers this organised amnesia. The schools spend a generation arguing until they arrive at a constraint that transforms the field:</p>
+      <blockquote>“Nothing may be transformed before someone can explain what would be lost.”</blockquote>
+      <p>Mutable Urbanism becomes an alliance between Lam Keng's appetite for transformation and Temenggong's ethic of custodianship. Change acquires memory. Memory acquires permission to release.</p>
+      <p>These cities become some of humanity's most resilient off-world settlements because their constitutions are built to evolve as radically as their environments.</p>
+    </div>
+    <aside class="side">
+      <div class="label">Frontier fields</div><div class="value">Constitutional design · adaptive institutions · living zoning · ritual prototyping.</div>
+      <div class="label">Twenty-year ritual</div><div class="value">The Recomposition.</div>
+      <div class="label">Temenggong contribution</div><div class="value">A formal account of loss is required before transformation.</div>
+      <div class="label">Deep claim</div><div class="value">Tradition is not the opposite of change; it is what makes change legible.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="future merican" id="merican">
+  <div class="future-hero">
+    <div class="future-copy">
+      <div class="future-no">06 · Al-Merican College · Interstellar commerce</div>
+      <h2 class="future-name">Temporal<br>Trust<span class="alt">Fiduciary law across generations, regimes and astronomical delay</span></h2>
+      <p class="future-claim">Who owns a promise after everyone who made it is dead?</p>
+      <div class="future-question"><div class="q">Old instinct</div><div class="ans">Trust is capital that must survive its owner.</div></div>
+    </div>
+    <div class="future-visual"><div class="trust-orbits"><span></span><span></span><span></span></div></div>
+  </div>
+  <div class="future-body">
+    <div>
+      <h3>Before interstellar finance comes interstellar obligation.</h3>
+      <p class="dropcap">When travel and exchange expand beyond immediate planetary communication, Merican notices that everyone is obsessed with propulsion and almost nobody has solved the problem that merchants have always understood: delay changes trust.</p>
+      <p>A vessel may travel six years. The government that authorised the voyage may no longer exist at arrival. Currencies may transform. Parties may die. Environmental assumptions may become false. Technologies may render the original bargain absurd.</p>
+      <p>Merican develops <b>Temporal Fiduciary Law</b>: agreements that encode obligations not only between present parties but toward future generations, unknown regimes, communication lag, ecological conditions and technological discontinuity.</p>
+      <blockquote>“A contract is not strong because it cannot change. It is strong because it remembers what must remain true when everything else changes.”</blockquote>
+      <p>The celebrated <b>Hundred-Year Trust</b> can remain morally and legally intelligible even after the institutions that created it disappear. This turns the supposedly old-fashioned merchant college into one of space civilisation's indispensable intellectual centres.</p>
+    </div>
+    <aside class="side">
+      <div class="label">Frontier fields</div><div class="value">Temporal fiduciary law · deep-time finance · interstellar commercial ethics · multi-generational trusts.</div>
+      <div class="label">Design problem</div><div class="value">Contracts that adapt without betraying their originating obligation.</div>
+      <div class="label">Great instrument</div><div class="value">The Hundred-Year Trust.</div>
+      <div class="label">Merican maxim</div><div class="value">Distance is not the enemy of trust. Unexamined assumptions are.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="future sund" id="sund">
+  <div class="future-hero">
+    <div class="future-copy">
+      <div class="future-no">07 · The Sund Commons · Post-scarcity politics</div>
+      <h2 class="future-name">Civic<br>Time<span class="alt">The constitutional right to a life not entirely owned by production</span></h2>
+      <p class="future-claim">If abundance merely gives us more consumption, what exactly has civilisation freed us from?</p>
+      <div class="future-question"><div class="q">Old instinct</div><div class="ans">Ability creates obligation — but no institution may own the whole person.</div></div>
+    </div>
+    <div class="future-visual"><div class="civic-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+  </div>
+  <div class="future-body">
+    <div>
+      <h3>Post-scarcity does not abolish politics. It reveals it.</h3>
+      <p class="dropcap">Fusion, automation, synthesis and distributed manufacturing radically reduce the cost of basic material provision. Many societies initially assume abundance will dissolve political conflict. Sund thinks this is a category error.</p>
+      <p>Once survival is less directly tied to labour, the central political question becomes: <b>who gets to decide what human time is for?</b></p>
+      <p>Sund's answer is <b>Civic Time</b>: legally protected life that cannot be routinely purchased by employers, captured by platforms or requisitioned by the state. It includes care, learning, civic participation, contemplation and — scandalously — idleness.</p>
+      <blockquote>“If technological abundance merely produces more consumption, civilisation has failed to convert wealth into freedom.”</blockquote>
+      <p>The principle evolves into the <b>Minimum Unowned Life</b>: every person retains a constitutionally protected portion of existence beyond compulsory economic utility.</p>
+      <p>Sund's contribution is not anti-technology. It is the insistence that the deepest measure of technology is not what it enables production to do, but what it allows human beings to stop doing.</p>
+    </div>
+    <aside class="side">
+      <div class="label">Frontier fields</div><div class="value">Post-scarcity governance · civic time · attention rights · cooperative automation.</div>
+      <div class="label">Constitutional right</div><div class="value">The Minimum Unowned Life.</div>
+      <div class="label">Political shift</div><div class="value">From allocation of goods to allocation of agency and time.</div>
+      <div class="label">Sund's accusation</div><div class="value">A civilisation can be materially rich and temporally impoverished.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="cross" id="strange">
+  <div class="cross-inner">
+    <div class="eyebrow">When the programmes collide</div>
+    <h2>The future becomes ancient.</h2>
+    <p class="intro">The strangest developments do not belong to any one school. They appear in the overlap, where older human practices become scientifically legible without being flattened into one tradition's vocabulary.</p>
+
+    <div class="cards reveal">
+      <article class="card">
+        <div class="n">01 · Kora × Temenggong</div>
+        <h3>Dream diplomacy</h3>
+        <p>Diplomats train in structured shared-dream protocols before negotiations — not to receive magical answers, but to surface symbolic, emotional and ancestral conflicts that ordinary language suppresses. The resulting records become admissible in some forms of mediation.</p>
+      </article>
+      <article class="card">
+        <div class="n">02 · Temenggong × Nine Rains × Kora</div>
+        <h3>Planetary metacognition</h3>
+        <p>Dense ecological sensing, biological signalling and human interpretation become integrated enough that the biosphere begins producing meaningful feedback about itself. Humanity must ask whether it has <strong>created a planetary mind</strong> or merely joined one.</p>
+      </article>
+      <article class="card">
+        <div class="n">03 · Kora × TKI × Lam Keng</div>
+        <h3>Ancestral continuance</h3>
+        <p>The dead are not impersonated as chatty digital ghosts. Their decision patterns, sensory archives, ethical tendencies and relational memories become consultable intellectual structures. A descendant asks not “Grandmother, are you there?” but “How did she reason under uncertainty?”</p>
+      </article>
+      <article class="card">
+        <div class="n">04 · TKI × Kora</div>
+        <h3>Telepathic etiquette</h3>
+        <p>As shared cognitive states become partly mediable, society develops norms of mental consent. “Never enter resonance without invitation” becomes as basic as bodily boundaries. New intimacies and new betrayals emerge around the deliberate sharing of memory-states.</p>
+      </article>
+      <article class="card">
+        <div class="n">05 · All houses</div>
+        <h3>Cosmological hermeneutics</h3>
+        <p>Persistent patterns across stellar oscillations, magnetic systems, pulsars and matter distributions begin to resemble something more like grammar than message. Astronomy, music, ritual, mathematics, poetry and navigation converge into a new question: <strong>does the universe possess interpretable structure without possessing an author?</strong></p>
+      </article>
+      <article class="card">
+        <div class="n">06 · Nine Rains × Merican × Sund</div>
+        <h3>Interstellar commons</h3>
+        <p>Off-world settlements combine metabolic accountability, deep-time trusts and protected civic time. The founding charter of a habitat therefore specifies not only property and law, but water debt, future-generation standing and the minimum portion of life no employer may purchase.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ending">
+  <div class="ending-inner">
+    <div class="eyebrow">The question beneath the saga</div>
+    <h2>Another possible humanity.</h2>
+    <p>What does humanity become when no single civilisation gets to define what intelligence, progress, evidence, wealth, nature, memory, freedom — or even the self — is supposed to mean?</p>
+    <div class="thesis">
+      AI exists. Rockets exist. Machines exist.<br>
+      They are extraordinary instruments.<br><br>
+      But the future is larger than its instruments.<br>
+      It is the multiplication of what humanity believes reality allows.
+    </div>
+  </div>
+</section>
+
+<footer>
+  Field Atlas II · Futures of the Parallel Straits<br>
+  A sequel to The Great Schools · same editorial lineage, pushed from institutional history into speculative civilisation
+</footer>
+
+<script>
+(function(){
+  const items=[...document.querySelectorAll('.reveal')];
+  if(!('IntersectionObserver' in window)){items.forEach(x=>x.classList.add('in'));return;}
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.08});
+  items.forEach(x=>io.observe(x));
+})();
+</script>
+</body>
+</html>

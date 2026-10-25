@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10121b">
+<title>The Great Schools Magical Atlas · Volume III</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>
+:root{
+ --night:#10121b;--paper:#efe9df;--paper2:#e5dacd;--ink:#24252d;--soft:#615f68;--faint:#8c8891;
+ --line:rgba(36,37,45,.14);--gold:#b79154;--goldp:#ead6ad;--violet:#786a98;
+ --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Songti SC","STSong",serif;
+ --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans CJK SC",sans-serif;
+ --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box} html{overflow-x:hidden;scroll-behavior:smooth;background:var(--night)}
+body{margin:0;overflow-x:hidden;font-family:var(--serif);font-size:18px;line-height:1.72;color:var(--ink);background:linear-gradient(180deg,var(--night) 0 760px,var(--paper) 760px 100%)}
+@supports(overflow:clip){html,body{overflow-x:clip}}
+.wrap{width:min(calc(100% - 48px),1240px);margin:0 auto}.mini{font:700 .62rem/1.4 var(--sans);letter-spacing:.13em;text-transform:uppercase}
+.hero{min-height:760px;color:#f7f1e8;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:70px;align-items:center;padding:80px 0;position:relative}
+.hero:before{content:"";position:absolute;inset:0 -12vw;pointer-events:none;background:radial-gradient(circle at 72% 40%,rgba(183,145,84,.17),transparent 18rem),radial-gradient(circle at 73% 41%,rgba(120,106,152,.14),transparent 33rem)}
+.hero-copy,.hero-art{position:relative;z-index:1}.eyebrow{color:var(--goldp);margin-bottom:26px}h1{margin:0;font-weight:400;font-size:clamp(4rem,8vw,8.2rem);line-height:.92;letter-spacing:-.045em}
+h1 span{display:block;font-family:"Songti SC","STSong",serif;font-size:.42em;letter-spacing:.01em;margin-bottom:18px;color:#efe1cc}h1 em{font-weight:400;color:var(--goldp)}
+.deck{font-size:clamp(1.18rem,2vw,1.56rem);line-height:1.54;color:rgba(247,241,232,.77);max-width:740px;margin-top:28px}.hero-quote{margin-top:38px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);color:rgba(247,241,232,.6);max-width:680px}
+.hero-art svg{display:block;width:min(100%,500px);margin:auto;filter:drop-shadow(0 20px 50px rgba(0,0,0,.18))}
+.paper{background:radial-gradient(circle at 10% 4%,rgba(255,255,255,.5),transparent 28rem),linear-gradient(135deg,var(--paper),#f7f2e8 48%,var(--paper2));padding-bottom:100px}
+.running{position:sticky;top:0;z-index:9;background:rgba(239,233,223,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.running .wrap{display:flex;justify-content:space-between;padding:11px 0;color:var(--faint)}
+section{padding:92px 0;border-bottom:1px solid var(--line)}.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.36fr);gap:55px;align-items:end;margin-bottom:42px}
+.kicker{color:var(--violet);margin-bottom:14px}h2{font-weight:400;margin:0;font-size:clamp(2.6rem,5.6vw,5.3rem);line-height:1.01;letter-spacing:-.035em}.side-note{border-top:2px solid var(--gold);padding-top:14px;color:var(--faint);font-size:.82rem;line-height:1.6}
+.lede{font-size:clamp(1.3rem,2.3vw,1.8rem);max-width:900px;color:#393740}.logic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:35px 0}.logic div{padding:22px 18px;background:rgba(255,255,255,.4);border:1px solid var(--line)}.logic b{display:block;font:700 .63rem/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}.logic strong{display:block;font-size:1.14rem;font-weight:500}.muted{color:var(--soft)}
+.plate{margin:40px 0;padding:32px;background:rgba(255,255,255,.45);border:1px solid var(--line);position:relative}.plate:before,.plate:after{content:"";position:absolute;width:18px;height:18px;border-color:var(--gold)}.plate:before{left:-1px;top:-1px;border-left:2px solid;border-top:2px solid}.plate:after{right:-1px;bottom:-1px;border-right:2px solid;border-bottom:2px solid}.tex{text-align:center;font:500 1.08rem/1.6 var(--mono);overflow-x:auto}.tex .katex-display{overflow-x:auto;overflow-y:hidden}
+.school-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}.school-card{background:rgba(255,255,255,.42);border:1px solid var(--line);padding:18px 15px;min-width:0;border-top:3px solid var(--accent)}.school-head-mini{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:12px}.school-head-mini .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}.school-head-mini b{font:700 .72rem/1.3 var(--sans)}.school-head-mini small{color:var(--accent);font:600 .57rem/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase}.school-card p{margin:0;color:var(--soft);font-size:.8rem;line-height:1.56}
+.evolution{margin-top:14px;padding:20px 24px;border-left:4px solid var(--gold);background:rgba(183,145,84,.07)}.evolution span{font:750 .59rem/1.4 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--gold)}.evolution p{margin:7px 0 0;color:var(--soft)}
+.index{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:30px}.index a{text-decoration:none;padding:14px;background:rgba(255,255,255,.38);border:1px solid var(--line);font:700 .68rem/1.35 var(--sans);color:var(--ink)}.index a:hover{border-color:var(--gold)}
+.novel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.novel-card{padding:25px;background:rgba(255,255,255,.4);border:1px solid var(--line);border-top:3px solid var(--violet)}.novel-card .mini{color:var(--violet);margin-bottom:9px}.novel-card h3{font-size:1.25rem;margin:0 0 8px}.novel-card p{margin:0;color:var(--soft);font-size:.86rem}
+.closing{padding:110px 0 120px}.closing q{display:block;max-width:1030px;font-size:clamp(2.2rem,5vw,5.2rem);line-height:1.17;letter-spacing:-.025em}.closing q:before,.closing q:after{color:var(--gold)}.closing p{max-width:760px;color:var(--soft);margin-top:30px}footer{padding:30px 0 60px;border-top:1px solid var(--line);color:var(--faint)}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:1100px){.school-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){body{background:linear-gradient(180deg,var(--night) 0 960px,var(--paper) 960px 100%)}.hero,.section-head{grid-template-columns:1fr}.logic{grid-template-columns:repeat(2,minmax(0,1fr))}.index{grid-template-columns:repeat(3,minmax(0,1fr))}.novel-grid{grid-template-columns:1fr}}
+@media(max-width:620px){body{font-size:17px}.wrap{width:min(calc(100% - 26px),1240px)}.hero{padding:58px 0 62px;gap:36px}h1{font-size:clamp(3.6rem,18vw,6rem)}section{padding:72px 0}.logic,.school-grid,.index{grid-template-columns:1fr}.running .right{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow mini">THE PARALLEL STRAITS · MAGICAL ATLAS · VOLUME III</div>
+    <h1><span>大魔法图谱</span>The Great Schools <em>Magical Atlas</em></h1>
+    <p class="deck">Fourteen familiar fantasy power-classes passed through seven incompatible-but-functional civilisational grammars — plus the powers that only appear once those grammars are allowed to evolve beyond the inherited superhero catalogue.</p>
+    <p class="hero-quote">The test is simple: <strong>Can they do it? How do they think they do it? What does centuries of institutional specialisation turn it into?</strong></p>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 520 520" role="img" aria-label="Seven schools orbiting a common magical effect">
+      <circle cx="260" cy="260" r="190" fill="none" stroke="#ead6ad" stroke-opacity=".32"/>
+      <circle cx="260" cy="260" r="125" fill="none" stroke="#786a98" stroke-opacity=".35" stroke-dasharray="4 10"/>
+      <g stroke="#f3e7d3" stroke-opacity=".18">
+        <line x1="260" y1="260" x2="260" y2="60"/><line x1="260" y1="260" x2="416" y2="135"/>
+        <line x1="260" y1="260" x2="455" y2="305"/><line x1="260" y1="260" x2="347" y2="440"/>
+        <line x1="260" y1="260" x2="173" y2="440"/><line x1="260" y1="260" x2="65" y2="305"/>
+        <line x1="260" y1="260" x2="104" y2="135"/>
+      </g>
+      <g fill="#ead6ad"><circle cx="260" cy="60" r="7"/><circle cx="416" cy="135" r="7"/><circle cx="455" cy="305" r="7"/><circle cx="347" cy="440" r="7"/><circle cx="173" cy="440" r="7"/><circle cx="65" cy="305" r="7"/><circle cx="104" cy="135" r="7"/></g>
+      <circle cx="260" cy="260" r="58" fill="#10121b" stroke="#ead6ad" stroke-opacity=".65"/>
+      <text x="260" y="252" text-anchor="middle" fill="#f7f1e8" font-size="19" font-family="serif">SAME</text>
+      <text x="260" y="278" text-anchor="middle" fill="#f7f1e8" font-size="19" font-family="serif">POWER</text>
+      <text x="260" y="305" text-anchor="middle" fill="#9e94aa" font-size="9" letter-spacing="2" font-family="sans-serif">SEVEN CAUSAL GRAMMARS</text>
+    </svg>
+  </div>
+</header>
+</div>
+
+<main class="paper">
+<div class="running"><div class="wrap mini"><span><strong>Great Schools Magical Atlas</strong> · Volume III</span><span class="right">manifestation → mechanism → evolution</span></div></div>
+<div class="wrap">
+
+<section>
+  <div class="section-head">
+    <div><div class="kicker mini">§0 · HOW TO READ THE ATLAS</div><h2>Do not ask “who owns <em>telepathy</em>?”</h2></div>
+    <aside class="side-note">Every School can, in principle, reach most domains. The question is which path feels native, what resistance costs it carries, and what centuries of institutional research have made unusually sophisticated.</aside>
+  </div>
+  <p class="lede">A classic fantasy power is only the <strong>manifest layer</strong>. The deeper comparison is between causal architectures.</p>
+  <div class="logic">
+    <div><b>01</b><strong>Manifestation</strong><span class="muted">What happened?</span></div>
+    <div><b>02</b><strong>Relation touched</strong><span class="muted">What changed beneath it?</span></div>
+    <div><b>03</b><strong>School grammar</strong><span class="muted">How is that change conceptualised?</span></div>
+    <div><b>04</b><strong>Evolved form</strong><span class="muted">What does specialisation invent?</span></div>
+  </div>
+  <div class="plate"><div class="tex" data-tex="\boxed{\text{same power}}\;\not\Rightarrow\;\boxed{\text{same magic}}">same power ⇏ same magic</div></div>
+  <nav class="index"><a href="#fire">Fire &amp; Lightning</a><a href="#telekinesis">Telekinesis, Flight &amp; Force</a><a href="#healing">Healing, Disease &amp; Regeneration</a><a href="#ecology">Plants, Animals &amp; Ecological Magic</a><a href="#telepathy">Telepathy, Emotion &amp; Dream</a><a href="#illusion">Illusion, Invisibility &amp; Glamour</a><a href="#divination">Clairvoyance, Detection &amp; Divination</a><a href="#teleport">Teleportation, Portals &amp; Distance</a><a href="#shape">Shapeshifting, Body &amp; Form</a><a href="#spirit">Spirits, Summoning &amp; Ancestors</a><a href="#wards">Wards, Binding &amp; Countermagic</a><a href="#weather">Weather, Water &amp; Atmosphere</a><a href="#time">Probability, Timing &amp; Time</a><a href="#memory">Memory, Identity &amp; Erasure</a><a href="#resurrection">Death, Resurrection &amp; Persistence</a></nav>
+</section>
+
+
+<section class="power" id="fire">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 01 · Force · Matter</div><h2>Fire &amp; Lightning</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> fireballs, lightning, heat, light, explosive force<br><br><b>Operations:</b> Create · Transform · Move</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Reframes where heat or charge is considered concentrated. A flame may appear to jump because the reference relation between source and target is rewritten.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Fire is permitted under conditions. Seals specify what may burn, for how long, and what must remain untouched.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Calls remembered fire: kiln heat from old workshops, lightning from storm-scarred trees, hearth-heat from ancestral homes.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>The virtuoso tradition. Converts chemical, kinetic, electrical and thermal relations through low-resistance chains.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Never creates fire in isolation. Heat is exchanged across a wider cycle; every blaze has a cooling elsewhere or a future debt.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Uses fire as identity and testimony: a flame may reveal what an object has survived, or burn only what belongs to a named history.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Distributed ignition and shielding. A group can carry heat-load collectively, making civic-scale furnaces and protective firebreaks possible.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Lam Keng develops Cascade Fire: a spell that never &#x27;creates fire&#x27; but composes six lawful transitions so quickly that observers experience a fireball.</p></div>
+</section>
+
+<section class="power" id="telekinesis">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 02 · Force · Space · Matter</div><h2>Telekinesis, Flight &amp; Force</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> levitation, flight, force pushes, barriers, moving objects<br><br><b>Operations:</b> Move · Bind · Exchange</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Changes positional reference. The object is not pushed; its relation to here/there or up/down is locally redescribed.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Binds motion to permission: remain, approach, do not cross. Their force-fields behave like laws rather than walls.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Restores an object&#x27;s relation to a place it knows. Stones return to old walls; boats pull toward remembered docks.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Directly engineers force, inertia and momentum. Most outsiders call this the cleanest telekinesis.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Moves by exchanging load with a larger system. A boulder rises because weight is redistributed into ground, water, wind or time.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Invokes historical role. A bell swings because it is remembered as ringing; a sword returns to the hand that defined it.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Splits work across participants. Hundreds can lift a structure that no individual could move without fatal resistance.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Sund develops Civic Lift: buildings, bridges and ships can be moved by coordinated neighbourhood-scale casting.</p></div>
+</section>
+
+<section class="power" id="healing">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 03 · Life · Identity · Pattern</div><h2>Healing, Disease &amp; Regeneration</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> wound healing, disease cure, regeneration, vitality<br><br><b>Operations:</b> Restore · Transform · Bind</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Diagnoses competing descriptions of the body and finds the one in which recovery is still reachable. Exceptional at ambiguous illness.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Healing as covenant: body, healer and patient enter explicit obligations. Powerful but ethically formalised.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Restores belonging between body, self, kin and place. Strongest where illness is entangled with displacement or broken relation.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Bio-magical engineering: tissue repair, metabolic control, prosthetic integration, accelerated regeneration.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Treats illness as system imbalance. Healing one body may require changing diet, water, ecology, labour rhythm or season.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Repairs identity and memory after trauma, possession, magical erasure or personality fracture.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Distributes repair burden through a care network. Group healing can stabilise many people at once but exposes hidden inequalities of care.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Temenggong develops Return-to-Place Medicine; Kora develops Name-Stitching for damaged identity; Sund develops Ward Healing for entire districts.</p></div>
+</section>
+
+<section class="power" id="ecology">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 04 · Life · Pattern · Space</div><h2>Plants, Animals &amp; Ecological Magic</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> plant growth, animal speech, vines, swarms, ecological control<br><br><b>Operations:</b> Perceive · Restore · Exchange</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Perceives species through multiple ecological frames; can temporarily translate sensory worlds between human and non-human actors.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Creates protected ecological covenants: grazing rights, no-kill zones, migration corridors and species-specific sanctuary.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>The great communion tradition. Reads old forest relations, animal routes, soil memory and ancestral cultivation.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Recomposes growth programs, plant morphology and living materials; produces engineered magical crops and bio-structures.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Supreme at ecosystems. Works through trophic networks, rainfall, seed cycles, pollination and feedback over seasons.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Hears ecological absence: the bird no longer present, the missing insect rhythm, the silence where a species used to answer.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Commons-based stewardship magic. Shared maintenance creates resilient gardens, fisheries and urban ecologies.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Nine Rains develops Succession Casting: a spell whose intended result appears over decades through carefully staged ecological transitions.</p></div>
+</section>
+
+<section class="power" id="telepathy">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 05 · Mind · Information · Identity</div><h2>Telepathy, Emotion &amp; Dream</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> mind-reading, empathy, emotion control, dreamwalking<br><br><b>Operations:</b> Perceive · Exchange · Bind</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Overlaps viewpoints. Telepathy is temporary parallax between observers, not extracting a hidden text from another mind.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Mind-contact requires terms. Consent, witness and boundary are formalised; coercive enchantment is treated as a severe breach.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Reads mind through relation to place, kin, ritual and memory. Dreams often appear as landscapes rather than speech.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Maps attention, emotion and cognitive signal as manipulable systems. Powerful, precise, and ethically controversial.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Treats emotion as a group feedback system. Can modulate panic, trust or collective attention through environmental conditions.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Master tradition. Polyphonic telepathy preserves several voices without forcing agreement; memory and identity remain distinct channels.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Builds temporary cognitive commons: shared situational awareness, distributed attention and group decision support.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Kora develops Polyphony: simultaneous multi-mind perception without synthesis. Sund develops Shared Attention for rescue, war and civic coordination.</p></div>
+</section>
+
+<section class="power" id="illusion">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 06 · Information · Mind · Space</div><h2>Illusion, Invisibility &amp; Glamour</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> invisibility, disguise, sensory illusion, hallucination<br><br><b>Operations:</b> Transform · Perceive · Sever</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Allows two descriptions of the same scene to coexist. Their illusions are strongest when both readings are locally defensible.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Controls who has permission to perceive what. Invisibility becomes access control rather than optical trickery.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Concealment through belonging: the hidden thing is made to count as part of the place, like a stone among stones.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Engineers light, sound and sensory signal directly. Produces spectacular, reproducible projection systems.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Changes expectation through context: weather, scent, movement, timing and attention conspire to make something effectively unseen.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Edits narrative salience. An object can remain visible yet become difficult to remember as important.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Collective anonymity. Groups can obscure individual identity while preserving coordinated action.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Kora develops Narrative Blindness: the target is perceived but fails to enter the observer&#x27;s meaningful account of events.</p></div>
+</section>
+
+<section class="power" id="divination">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 07 · Information · Pattern · Space</div><h2>Clairvoyance, Detection &amp; Divination</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> remote viewing, magic detection, prophecy, sensing danger<br><br><b>Operations:</b> Perceive · Exchange</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Triangulation masters. Infers unknown states from differences among partial observations.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Reads commitments, permissions and breaches. Excellent at detecting hidden contracts, curses and broken oaths.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Reads traces in place, object and lineage. A site can reveal what has repeatedly happened there.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Instrumental divination: arrays, detectors, calibrated crystals and machine-assisted magical sensing.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Forecasts trajectories rather than fixed futures. Best at weather, ecology, social cycles and threshold events.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Detects missing information and contradictory accounts. Exceptional at erased history and concealed identity.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Distributed sensing: many weak observations combine into highly reliable collective situational awareness.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>TKI develops Unknown-Variable Sight: seeing not the answer, but the structure of what information is missing.</p></div>
+</section>
+
+<section class="power" id="teleport">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 08 · Space · Law · Pattern</div><h2>Teleportation, Portals &amp; Distance</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> teleportation, portals, folding space, pocket realms<br><br><b>Operations:</b> Move · Bind · Transform</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Changes adjacency: two places become validly next to each other within a chosen frame.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Travels along trusted routes. Old exchange corridors become low-resistance spatial contracts.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Uses remembered routes: pilgrimage paths, river crossings, footpaths, animal trails and ancestral roads.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Engineers spatial topology directly; strongest at constructed gates, fixed portals and transport infrastructure.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Moves through seasonal and network alignment. A route may exist only under the right celestial, ecological or calendrical conditions.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Travels through named relation: the room where she waited, the field where the treaty was sung. Identity anchors destination.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Creates shared passage: communities can hold a corridor open through continuous collective maintenance.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Al-Merican develops Route Sovereignty: the oldest ports become magically closer to one another than their geographic distance suggests.</p></div>
+</section>
+
+<section class="power" id="shape">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 09 · Life · Matter · Identity</div><h2>Shapeshifting, Body &amp; Form</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> shapeshifting, size change, body modification, disguise<br><br><b>Operations:</b> Transform · Restore · Bind</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Shifts which bodily description is privileged: age, role, gendered presentation, animal analogy, social face.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Form changes are bound by declared identity clauses. Excellent at controlled transformation without loss of self.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Transforms toward remembered kinship with animal, ancestor or landscape form; highly relational and ritualised.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Most technically advanced morphology: muscle, bone, skin, organ, scale and material integration.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Changes body in relation to environment: lungs for altitude, skin for drought, metabolism for season.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Protects continuity of name and memory through transformation. Can identify a shapeshifter despite perfect physical disguise.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Group-form magic: temporary distributed bodies, shared sensory organs and collective locomotion.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Sund develops Plural Body: a coordinated group functions briefly as one distributed organism without erasing individual identity.</p></div>
+</section>
+
+<section class="power" id="spirit">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 10 · Identity · Law · Information</div><h2>Spirits, Summoning &amp; Ancestors</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> summoning, banishing, ghosts, ancestor contact, possession<br><br><b>Operations:</b> Bind · Perceive · Exchange</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Treats spirits as persistent relational models whose status depends on viewpoint and evidence. Skilled at distinguishing entity, echo and projection.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Master of invitation, boundary and dismissal. Summoning is governed by terms, names, witnesses and permitted scope.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Relates spirits to place, graves, heirlooms, waterways and custodianship. Strong where memory and location are dense.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Builds containers and interfaces for spirit-like persistence; controversial experiments blur spirit, construct and copied personality.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Treats ancestral presence as part of ecological and temporal cycles; contact is seasonal and reciprocal.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Master of lineage and remembered identity. Can call an account without claiming that the account is literally the whole person.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Collective remembrance can sustain civic ancestors, institutional personae and shared protective identities.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Kora develops Witness-Summoning: reconstructing the perspective of a dead or absent person from relational traces without claiming full resurrection.</p></div>
+</section>
+
+<section class="power" id="wards">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 11 · Law · Space · Information</div><h2>Wards, Binding &amp; Countermagic</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> magic shields, anti-magic, seals, prisons, dispelling<br><br><b>Operations:</b> Bind · Sever · Exchange</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Destabilises hostile magic by exposing contradictions in its causal description.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Supreme ward tradition: permissions, exclusions, conditions, witnesses, thresholds, expiry and jurisdiction.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>A ward becomes strong when it is embedded in a maintained place: gate, grove, shrine, house, shoreline.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Countermagic as reverse engineering. Identify operator sequence, then interrupt the weakest dependency.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Does not block; redirects. Dangerous magic is absorbed, dispersed or returned into larger cycles.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Attacks identity of the spell: who authored it, what story sustains it, what name keeps it coherent.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Collective shielding. A ward can be distributed across a population so no single breach collapses the whole field.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>TKI develops Contradiction Countermagic: hostile spells fail because their hidden assumptions are made mutually incompatible.</p></div>
+</section>
+
+<section class="power" id="weather">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 12 · Force · Life · Pattern</div><h2>Weather, Water &amp; Atmosphere</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> rain, storms, wind, fog, drought, temperature<br><br><b>Operations:</b> Exchange · Transform · Restore</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Perceives competing atmospheric models and exploits threshold uncertainty: small reframings at unstable moments produce large changes.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Weather rites are covenants with territory, season and use; rain may be granted under conditions rather than summoned.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Calls weather remembered by place: monsoon routes, sea breezes, storm scars, river fog.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Directly engineers pressure, heat and charge. Can make spectacular local weather, at high resistance cost.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Supreme tradition. Works with water cycles, cloud nucleation, soil, plants, season and long-range feedback.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Reads weather as historical voice: droughts and storms leave cultural memory that can become part of prediction and ritual.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Civic climate maintenance: heat relief, flood defence and wind management through shared infrastructure.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Nine Rains develops Weather Debt Accounting: every forced atmospheric change is logged against a regional future balance.</p></div>
+</section>
+
+<section class="power" id="time">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 13 · Pattern · Information · Law</div><h2>Probability, Timing &amp; Time</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> luck, precognition, slowing, haste, time loops<br><br><b>Operations:</b> Perceive · Transform · Bind</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Sees branching descriptions of possible near-futures and chooses a frame with favourable constraints.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Binds deadlines, durations and expiry. Exceptional at until, not before, for seven days, once only.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Uses historical recurrence: festivals, tides, migrations, generational cycles, remembered timings.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Manipulates rates and clocks locally; can accelerate processes but pays steep resistance for deep temporal distortion.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Masters timing rather than time. The right action at the right threshold can resemble probability control.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Reads narrative inevitability and repetition: what history is trying to make happen again.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Synchronises groups. Shared tempo can make coordinated action appear impossibly fast or improbably fortunate.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Nine Rains develops Threshold Luck: not changing probability directly, but waiting until a system is one perturbation away from the desired outcome.</p></div>
+</section>
+
+<section class="power" id="memory">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 14 · Mind · Identity · Information</div><h2>Memory, Identity &amp; Erasure</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> memory reading, forgetting, identity alteration, psychometry<br><br><b>Operations:</b> Perceive · Restore · Sever</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Compares multiple self-descriptions and can reveal where identity changes across contexts.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Treats identity as witnessed continuity. Names, records and vows anchor a person against erasure.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Memory distributed across place and object can restore personal recollection.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Can edit memory precisely, but technical success does not answer the ethical question of who remains afterward.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Memory is cyclical and environmental: habit, season, place and community can reconstitute what an individual lost.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Supreme tradition. Reads missing voices, repairs narrative continuity and distinguishes memory from identity.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>Externalises memory into community practice. A person may forget, while the group continues to carry the pattern.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>Kora develops Absence Forensics: detecting the contour of something erased by the distortions its absence leaves behind.</p></div>
+</section>
+
+<section class="power" id="resurrection">
+  <div class="section-head">
+    <div><div class="kicker mini">POWER 15 · Life · Identity · Pattern · Law</div><h2>Death, Resurrection &amp; Persistence</h2></div>
+    <aside class="side-note"><b>Classical repertoire:</b> resurrection, undeath, life extension, soul return<br><br><b>Operations:</b> Restore · Bind · Exchange</aside>
+  </div>
+  <div class="school-grid"><article class="school-card" style="--accent:#6f819a"><div class="school-head-mini"><span class="dot"></span><b>TKI</b><small>Parallax</small></div><p>Asks which description of the person remains recoverable. Philosophically powerful, practically cautious.</p></article>
+<article class="school-card" style="--accent:#9c6b50"><div class="school-head-mini"><span class="dot"></span><b>Al-Merican</b><small>Amanah</small></div><p>Requires explicit terms of return: whose identity, what obligations survive, who witnesses continuity.</p></article>
+<article class="school-card" style="--accent:#657d68"><div class="school-head-mini"><span class="dot"></span><b>Temenggong</b><small>Communion</small></div><p>Strongest where body, grave, kin, objects and place preserve dense relational continuity.</p></article>
+<article class="school-card" style="--accent:#9a5f56"><div class="school-head-mini"><span class="dot"></span><b>Lam Keng</b><small>Recomposition</small></div><p>Can rebuild body and neural pattern, but cannot by engineering alone settle whether the restored person is the same person.</p></article>
+<article class="school-card" style="--accent:#607e87"><div class="school-head-mini"><span class="dot"></span><b>Nine Rains</b><small>Reciprocity</small></div><p>Rejects isolated resurrection as ecologically impossible; any return requires exchange with wider cycles of life and death.</p></article>
+<article class="school-card" style="--accent:#806d92"><div class="school-head-mini"><span class="dot"></span><b>Kora</b><small>Third Voice</small></div><p>Can reconstruct voice, identity and memory traces with unmatched subtlety, yet is strict about the difference between witness and person.</p></article>
+<article class="school-card" style="--accent:#8a7f5c"><div class="school-head-mini"><span class="dot"></span><b>Sund</b><small>Commons</small></div><p>A community may collectively sustain fragments of a person long after death; resurrection becomes a question of distributed continuity.</p></article></div>
+  <div class="evolution"><span>EVOLVED FORM</span><p>The Schools disagree whether true resurrection is possible at all. Their disagreement becomes one of the great philosophical and legal crises of the world.</p></div>
+</section>
+
+
+<section id="newpowers">
+  <div class="section-head">
+    <div><div class="kicker mini">§15 · BEYOND THE INHERITED CATALOGUE</div><h2>Powers the old rulebooks <em>never needed names for</em></h2></div>
+    <aside class="side-note">This is where the Parallel Straits becomes its own magical world. These powers arise from epistemology first, spectacle second.</aside>
+  </div>
+  <div class="novel-grid"><article class="novel-card"><div class="mini">Kora</div><h3>Historical Absence Detection</h3><p>Sense the shape of an erased person or event through contradictions left in memory, language and space.</p></article><article class="novel-card"><div class="mini">TKI</div><h3>Cross-Paradigm Spell Translation</h3><p>Translate a spell from one magical grammar into another without preserving its original metaphysics.</p></article><article class="novel-card"><div class="mini">Al-Merican</div><h3>Resistance Underwriting</h3><p>Distribute backlash across contracts, reserves, institutions and consenting participants.</p></article><article class="novel-card"><div class="mini">Temenggong</div><h3>Place-Memory Restoration</h3><p>Temporarily restore an old shoreline, route, forest, building relation or territorial pattern.</p></article><article class="novel-card"><div class="mini">Lam Keng</div><h3>Executable Spell Infrastructure</h3><p>Turn a cognitively maintained spell into repeatable notation, device and civic infrastructure.</p></article><article class="novel-card"><div class="mini">Nine Rains</div><h3>Threshold Luck</h3><p>Achieve improbable outcomes by acting only when a system is one perturbation away from transition.</p></article><article class="novel-card"><div class="mini">Sund</div><h3>Quorum Casting</h3><p>Make the relationship among participants itself the magical operator.</p></article><article class="novel-card"><div class="mini">Kora</div><h3>Narrative Blindness</h3><p>Make something remain perceptible yet fail to become salient enough to enter memory or account.</p></article><article class="novel-card"><div class="mini">Al-Merican</div><h3>Route Sovereignty</h3><p>Make historically linked ports or institutions magically nearer than unconnected geography.</p></article><article class="novel-card"><div class="mini">TKI</div><h3>Unknown-Variable Sight</h3><p>Perceive the structure of missing information without directly perceiving the missing answer.</p></article><article class="novel-card"><div class="mini">Sund</div><h3>Plural Body</h3><p>Allow a group to function as one distributed organism without erasing individual selves.</p></article><article class="novel-card"><div class="mini">Nine Rains</div><h3>Succession Casting</h3><p>Cast spells whose result emerges through a planned sequence of ecological transitions over years.</p></article></div>
+</section>
+
+<section id="closing" class="closing">
+  <div class="mini" style="color:var(--gold);margin-bottom:26px">✦ VOLUME III · WORKING CANON ✦</div>
+  <q>A mature magical civilisation is not the one with the largest spell list. It is the one that has learned to see relationships the others did not know were there.</q>
+  <p>The next layer is no longer taxonomy. It is history: which discoveries were made first, which Schools stole from one another, which spells caused wars, which magical industries built the Parallel Straits, and what kinds of practitioners emerge when a student crosses grammars instead of remaining inside one.</p>
+</section>
+
+<footer><div class="footer-row mini"><span>Waterloo × Sunrise Harbour editorial grammar · comparative magical field atlas</span><span>Volume III · 14 power classes · 7 causal grammars</span></div></footer>
+</div>
+</main>
+<script>
+function typeset(root){
+ if(!window.katex) return false;
+ (root||document).querySelectorAll('.tex[data-tex]').forEach(function(el){
+  if(el.dataset.typeset==='1') return;
+  try{katex.render(el.dataset.tex,el,{displayMode:true,throwOnError:false,strict:'ignore',output:'html'});el.dataset.typeset='1';}catch(e){}
+ });
+ return true;
+}
+(function w(n){if(typeset(document)||n>40)return;setTimeout(function(){w(n+1)},150)})(0);
+</script>
+</body></html>

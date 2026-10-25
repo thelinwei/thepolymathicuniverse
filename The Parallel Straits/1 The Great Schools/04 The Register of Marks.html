@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>The Register of Marks — Great Schools of the Straits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#212a2c; --paper:#f7f4ed; --dim:#5f6a6c; --hair:#d3ccbe;
+  --cream:#efe9dc; --red:#a8382c; --sea:#668b8c; --sun:#e48354; --brass:#9b7b3f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#e8c6a6}
+.mono,.eyebrow{font-family:'IBM Plex Mono',monospace}
+.eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.reveal{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+.cover{min-height:96vh;position:relative;display:flex;flex-direction:column;overflow:hidden;padding:30px 34px 44px;color:#232c2e;
+  background:radial-gradient(circle at 20% 20%,rgba(228,131,84,.26),transparent 26%),
+             radial-gradient(circle at 80% 74%,rgba(102,139,140,.30),transparent 30%),
+             linear-gradient(126deg,#eae3d2 0%,#c6cdc6 48%,#d8bda9 100%)}
+.cover:after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;
+  background:repeating-linear-gradient(0deg,transparent 0 31px,rgba(33,42,44,.055) 31px 32px),
+             repeating-linear-gradient(90deg,transparent 0 31px,rgba(33,42,44,.04) 31px 32px)}
+.cover-top,.cover-title,.cover-note{position:relative;z-index:2}
+.cover-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.cover-logo{font-family:'Playfair Display',serif;font-size:clamp(36px,6.6vw,86px);font-weight:900;line-height:.84;text-transform:uppercase}
+.cover-index{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.85;letter-spacing:.14em;text-transform:uppercase}
+.cover-note{margin-top:26px;max-width:270px;border-left:1.5px solid currentColor;padding-left:13px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.6}
+.cover-title{margin-top:auto;text-align:center;padding:26px 0 6px}
+.cover-kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;margin-bottom:13px}
+.cover-title h1{font-family:'Playfair Display',serif;font-size:clamp(46px,9.4vw,124px);font-weight:500;line-height:.84;letter-spacing:-.025em;text-transform:uppercase}
+.cover-title h1 em{display:block;font-weight:400;text-transform:none;font-style:italic}
+.cover-title .sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2.1vw,24px);margin-top:20px}
+.covermarks{position:relative;z-index:2;display:flex;gap:20px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.covermarks svg{width:40px;height:44px;color:#2c3739}
+
+.runhead{position:sticky;top:0;z-index:70;background:rgba(247,244,237,.96);backdrop-filter:blur(10px);
+  border-bottom:1.5px solid var(--ink);padding:11px 25px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.runhead .tabs{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none}
+.runhead .tabs::-webkit-scrollbar{display:none}
+.runhead a{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);padding:5px 8px;white-space:nowrap;background:#fff}
+.runhead a:hover{background:var(--ink);color:#fff}
+.brandtab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;background:var(--ink);color:#fff;padding:6px 9px;white-space:nowrap}
+
+.opener{max-width:1180px;margin:0 auto;padding:70px 34px 40px}
+.opener .credit{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.opener h2{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,90px);line-height:.94;font-weight:500;letter-spacing:-.02em;max-width:950px}
+.opener h2 em{font-weight:400;font-style:italic}
+.standfirst{font-size:clamp(19px,2.3vw,26px);line-height:1.42;max-width:850px;margin-top:30px}
+.article{max-width:1180px;margin:0 auto;padding:18px 34px 40px}
+.cols{columns:2;column-gap:48px;column-rule:1px solid var(--hair);text-align:justify;hyphens:auto}
+.cols p{margin:0 0 15px;font-size:16.3px}
+.cols p:first-child{text-align:left}
+.dropcap:first-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:74px;float:left;line-height:.7;padding:8px 10px 0 0;color:var(--sea)}
+.marg{font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.5;color:var(--red);border-left:1.5px solid var(--red);padding-left:11px;margin:18px 0}
+
+/* plate grid */
+.plate{max-width:1180px;margin:0 auto;padding:26px 34px 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.mark{background:#fbf9f3;padding:26px 24px 28px;display:flex;flex-direction:column}
+.mark.wide{grid-column:1/-1;display:grid;grid-template-columns:210px 1fr;gap:34px;align-items:start}
+.mark .fig{display:flex;align-items:center;justify-content:center;padding:8px 0 18px}
+.mark .fig svg{width:100%;max-width:172px;height:auto;color:var(--ink)}
+.mark.wide .fig{padding:0}
+.mark .no{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+.mark h3{font-family:'Playfair Display',serif;font-size:27px;font-weight:500;line-height:1.05;margin-bottom:6px}
+.mark .format{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.mark p{font-size:15.3px;margin-bottom:11px}
+.mark .blazon{font-family:'IBM Plex Mono',monospace;font-size:12.2px;line-height:1.62;background:var(--cream);border-left:2px solid var(--sea);padding:12px 14px;margin:4px 0 13px}
+.mark .cannot{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);border-top:1px solid var(--hair);padding-top:11px;margin-top:auto}
+
+/* legibility test */
+.test{background:var(--ink);color:#f1ece0;padding:78px 34px 84px}
+.test .wrap{max-width:1180px;margin:0 auto}
+.test .eyebrow{color:#a8bfbd}
+.test h2{font-family:'Playfair Display',serif;font-size:clamp(34px,5.8vw,72px);font-weight:500;line-height:.96;margin:14px 0 18px;letter-spacing:-.02em}
+.test .lede{max-width:780px;font-size:18px;margin-bottom:44px;color:#f1ece0}
+.strip{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-end;border-top:1px solid #3d4749;border-bottom:1px solid #3d4749;padding:28px 0}
+.chip{text-align:center;width:78px}
+.chip svg{width:34px;height:38px;color:#f1ece0}
+.chip span{display:block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#b9c6c5;margin-top:9px;line-height:1.4}
+.verdicts{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
+.verdicts div{font-size:15.4px;color:#f1ece0}
+.verdicts b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#e0b8ad;margin-bottom:8px}
+
+.coda{background:linear-gradient(158deg,#eae3d2 0%,#cbc7b6 58%,#d3b6a4 100%);padding:88px 34px 96px;position:relative;overflow:hidden}
+.coda:after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;background:repeating-linear-gradient(0deg,transparent 0 31px,rgba(33,42,44,.05) 31px 32px)}
+.coda .wrap{max-width:880px;margin:0 auto;position:relative;z-index:2}
+.coda .eyebrow{color:#7d3c33}
+.coda h2{font-family:'Playfair Display',serif;font-size:clamp(34px,6vw,76px);font-weight:500;line-height:.96;margin:14px 0 24px;letter-spacing:-.02em;text-align:center}
+.coda h2 em{font-style:italic;font-weight:400}
+.coda p{font-size:18.5px;margin-bottom:16px}
+.coda .final{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(21px,3vw,32px);line-height:1.3;text-align:center;margin-top:30px}
+.colophon{border-top:1.5px solid var(--ink);padding:32px 34px;max-width:1180px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.9;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+
+@media(max-width:1000px){.plate{grid-template-columns:repeat(2,1fr)}.verdicts{grid-template-columns:1fr}}
+@media(max-width:760px){
+  body{font-size:16.5px}
+  .cover{padding:22px 22px 34px}.cover-index{display:none}
+  .runhead{padding:8px 10px}.brandtab{display:none}
+  .opener,.article{padding-left:22px;padding-right:22px}
+  .cols{columns:1}
+  .plate{grid-template-columns:1fr;padding:22px 22px 34px}
+  .mark.wide{grid-template-columns:1fr;gap:18px}
+  .test,.coda{padding-left:22px;padding-right:22px}
+  .colophon{padding:26px 22px}
+}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ SYMBOL LIBRARY: every mark drawn once, in currentColor, used at any size ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+
+  <!-- 01 TKI — SHIELD -->
+  <symbol id="m-tki" viewBox="0 0 200 220">
+    <g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+      <path d="M24 20 H176 V116 C176 164 142 194 100 206 C58 194 24 164 24 116 Z"/>
+      <path d="M26 130 q19 -13 38 0 t38 0 t38 0 t36 0" stroke-width="4.5"/>
+      <g stroke-width="3">
+        <path d="M62 126 a38 38 0 0 1 76 0"/>
+        <path d="M100 62 v18 M69 74 l11 13 M131 74 l-11 13 M46 104 h16 M154 104 h-16 M55 84 l12 10 M145 84 l-12 10"/>
+      </g>
+      <g stroke-width="2.6" stroke-linecap="round">
+        <path d="M34 146 h30 M78 146 h44 M136 146 h30"/>
+        <path d="M44 160 h34 M92 160 h30 M132 160 h26"/>
+        <path d="M58 174 h30 M102 174 h36"/>
+      </g>
+    </g>
+  </symbol>
+
+  <!-- 02 MERICAN — SEAL (double impression) -->
+  <symbol id="m-merican" viewBox="0 0 200 220">
+    <g fill="none" stroke="currentColor">
+      <circle cx="100" cy="110" r="88" stroke-width="3.5"/>
+      <circle cx="103" cy="113" r="88" stroke-width="1.1" opacity=".5"/>
+      <circle cx="100" cy="110" r="74" stroke-width="1.6"/>
+      <g stroke-width="2.4">
+        <path d="M100 36 v9 M158 52 l-6 6 M42 52 l6 6 M26 110 h9 M164 110 h-9 M42 168 l6 -6 M158 168 l-6 -6 M100 184 v-9"/>
+      </g>
+      <g stroke-width="3" stroke-linecap="round">
+        <path d="M100 40 V70 M85 55 H115 M89 44 L111 66 M111 44 L89 66"/>
+      </g>
+      <g stroke-width="3.8" stroke-linejoin="round">
+        <path d="M100 78 V142 L58 142 Z"/>
+        <path d="M100 94 L136 142 H100"/>
+      </g>
+      <path d="M50 156 q12 -9 25 0 t25 0 t25 0 t25 0" stroke-width="3"/>
+      <g stroke-width="3" stroke-linecap="round">
+        <path d="M76 166 L62 190 M76 166 L90 190"/>
+      </g>
+      <circle cx="76" cy="166" r="3.4" stroke-width="2.4"/>
+    </g>
+  </symbol>
+
+  <!-- 03 TEMENGGONG — TUMPAL -->
+  <symbol id="m-temenggong" viewBox="0 0 200 220">
+    <g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+      <path d="M100 14 L188 202 H12 Z"/>
+      <path d="M100 42 L166 190 H34 Z" stroke-width="1.3"/>
+    </g>
+    <path d="M107 50 A16 16 0 1 0 107 76" fill="none" stroke="currentColor" stroke-width="5.6" stroke-linecap="round"/>
+    <g fill="none" stroke="currentColor" stroke-linecap="round">
+      <path d="M84 106 H116" stroke-width="4.6"/>
+      <path d="M100 96 v10" stroke-width="4.6"/>
+      <path d="M100 106 q11 13 0 26 q-11 13 0 26 q11 12 0 22" stroke-width="5"/>
+      <g stroke-width="3.2">
+        <path d="M100 180 v8"/>
+        <path d="M100 188 q-26 2 -40 15"/>
+        <path d="M100 188 q26 2 40 15"/>
+        <path d="M100 188 q-10 6 -13 16"/>
+        <path d="M100 188 q10 6 13 16"/>
+      </g>
+      <g stroke-width="2.2">
+        <path d="M74 196 q-8 2 -12 8 M126 196 q8 2 12 8"/>
+      </g>
+    </g>
+  </symbol>
+
+  <!-- 04 LAM KENG — CHOP (with the deliberate chip) -->
+  <symbol id="m-lamkeng" viewBox="0 0 200 220">
+    <g fill="none" stroke="currentColor">
+      <path d="M22 26 H178 V138 L138 194 H22 Z" stroke-width="6.5" stroke-linejoin="miter"/>
+      <path d="M178 138 V194 H138" stroke-width="1.5" stroke-dasharray="4 5"/>
+      <g stroke-width="5.2" stroke-linecap="round">
+        <path d="M44 74 C70 86 90 100 100 118 C110 100 130 86 156 74"/>
+        <path d="M100 118 L88 148 M100 118 L112 148 M100 118 v22"/>
+      </g>
+      <text x="52" y="180" text-anchor="middle" font-family="'Noto Serif SC',serif" font-size="27" fill="currentColor" stroke="none">南</text>
+      <text x="90" y="180" text-anchor="middle" font-family="'Noto Serif SC',serif" font-size="27" fill="currentColor" stroke="none">景</text>
+    </g>
+  </symbol>
+
+  <!-- 05 NINE RAINS — TEXTILE BAND + KHIPU -->
+  <symbol id="m-ninerains" viewBox="0 0 200 220">
+    <g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="miter">
+      <path d="M16 60 H48 V44 H80 V28 H120 V44 H152 V60 H184 V156 H16 Z"/>
+      <g stroke-width="3.2" stroke-linecap="round">
+        <path d="M46 118 L74 88 L100 104 L126 88 L154 118"/>
+        <path d="M100 104 v22"/>
+        <path d="M62 76 l12 12 M138 76 l-12 12"/>
+      </g>
+      <path d="M40 138 q15 -16 30 0 t30 0 t30 0 t30 0" stroke-width="2.8"/>
+      <path d="M16 168 H184" stroke-width="3.2"/>
+      <g stroke-width="2.4">
+        <path d="M44 168 v34 M72 168 v26 M100 168 v40 M128 168 v22 M156 168 v32"/>
+      </g>
+      <g stroke-width="2.4" fill="none">
+        <circle cx="44" cy="184" r="4"/><circle cx="44" cy="198" r="4"/>
+        <circle cx="72" cy="186" r="4"/>
+        <circle cx="100" cy="180" r="4"/><circle cx="100" cy="192" r="4"/><circle cx="100" cy="204" r="4"/>
+        <circle cx="128" cy="182" r="4"/>
+        <circle cx="156" cy="188" r="4"/><circle cx="156" cy="200" r="4"/>
+      </g>
+    </g>
+  </symbol>
+
+  <!-- 06 KORA — SEAT WITH TWO EARS -->
+  <symbol id="m-kora" viewBox="0 0 200 220">
+    <g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linejoin="round">
+      <path d="M46 88 q54 -26 108 0 v18 q-54 -22 -108 0 Z"/>
+      <path d="M46 56 q-28 6 -28 32 q0 28 28 34" stroke-width="4"/>
+      <path d="M154 56 q28 6 28 32 q0 28 -28 34" stroke-width="4"/>
+      <path d="M34 74 q-11 14 0 30" stroke-width="2.4"/>
+      <path d="M166 74 q11 14 0 30" stroke-width="2.4"/>
+      <path d="M78 110 h44 v50 H78 Z"/>
+      <path d="M44 178 h112 v20 H44 Z"/>
+      <g stroke-width="2.4" stroke-linecap="round">
+        <path d="M88 120 v32 M100 118 v36 M112 120 v32"/>
+      </g>
+    </g>
+  </symbol>
+
+  <!-- 07 SUND — THE THREE-WAY LAP (gapped weave, no knockouts) -->
+  <symbol id="m-sund" viewBox="0 0 200 220">
+    <g fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round">
+      <path d="M26 149 H135.2"/>
+      <path d="M165.2 149 H176"/>
+      <path d="M36.8 171.5 L42.3 162"/>
+      <path d="M57.3 136 L113 39.5"/>
+      <path d="M163.2 171.5 L107.5 75"/>
+      <path d="M92.5 49 L87 39.5"/>
+    </g>
+    <g fill="none" stroke="currentColor" stroke-width="2.4">
+      <path d="M22 196 H178"/>
+    </g>
+  </symbol>
+
+  <!-- 08 SEKOLAH PETANG — SERIAL STAMP -->
+  <symbol id="m-petang" viewBox="0 0 200 220">
+    <g transform="rotate(-1.8 100 110)">
+      <rect x="20" y="34" width="160" height="152" fill="none" stroke="currentColor" stroke-width="7"/>
+      <rect x="34" y="48" width="132" height="124" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="100" y="76" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="3" fill="currentColor">SEK. PETANG</text>
+      <text x="100" y="148" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="74" fill="currentColor">04</text>
+      <text x="100" y="167" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2.4" fill="currentColor">0730 / 1300</text>
+    </g>
+    <g fill="currentColor" opacity=".75">
+      <circle cx="176" cy="46" r="3.4"/><circle cx="27" cy="178" r="2.6"/><circle cx="184" cy="170" r="2.2"/>
+    </g>
+  </symbol>
+
+  <!-- 09 RUMAH ARUS — STICK CHART, STRUCK OFF -->
+  <symbol id="m-arus" viewBox="0 0 200 220">
+    <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-dasharray="9 6" stroke-linecap="round">
+      <path d="M22 44 Q100 96 178 44"/>
+      <path d="M22 178 Q100 122 178 178"/>
+      <path d="M34 26 Q64 110 34 196"/>
+      <path d="M166 26 Q136 110 166 196"/>
+      <path d="M22 110 H178"/>
+      <path d="M62 30 Q104 110 62 192"/>
+      <path d="M138 30 Q96 110 138 192"/>
+    </g>
+    <g fill="none" stroke="currentColor" stroke-width="3">
+      <circle cx="100" cy="110" r="7"/>
+      <circle cx="52" cy="70" r="5.2"/>
+      <circle cx="148" cy="70" r="5.2"/>
+      <circle cx="52" cy="150" r="5.2"/>
+      <circle cx="148" cy="150" r="5.2"/>
+    </g>
+    <g transform="rotate(-9 100 128)">
+      <rect x="14" y="108" width="172" height="40" fill="none" stroke="var(--red)" stroke-width="3.4"/>
+      <text x="100" y="135" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="19" letter-spacing="2" fill="var(--red)">FIELD 4(B)</text>
+    </g>
+  </symbol>
+
+  </defs>
+</svg>
+
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Field<br>Marks</div>
+    <div class="cover-index">
+      Shield · Seal · Tumpal<br>
+      Chop · Band · Seat<br>
+      Lap · Stamp · Chart<br>
+      Nine marks · one misreading
+    </div>
+  </div>
+  <div class="cover-note">
+    A heraldic register for institutions that mostly do not practise heraldry. Drawn to be cut in brass, printed in one colour, and still legible at twelve millimetres.
+  </div>
+  <div class="cover-title">
+    <div class="cover-kicker">The Register of Marks · Parallel Straits</div>
+    <h1>Nine<br><em>Marks</em></h1>
+    <div class="sub">Only one of these is a coat of arms. The city reads all nine as if they were.</div>
+  </div>
+  <div class="covermarks" aria-hidden="true">
+    <svg><use href="#m-tki"/></svg>
+    <svg><use href="#m-merican"/></svg>
+    <svg><use href="#m-temenggong"/></svg>
+    <svg><use href="#m-lamkeng"/></svg>
+    <svg><use href="#m-ninerains"/></svg>
+    <svg><use href="#m-kora"/></svg>
+    <svg><use href="#m-sund"/></svg>
+    <svg><use href="#m-petang"/></svg>
+    <svg><use href="#m-arus"/></svg>
+  </div>
+</section>
+
+<nav class="runhead">
+  <div class="brandtab">Marks · Parallel Straits</div>
+  <div class="tabs">
+    <a href="#thesis">The rule</a>
+    <a href="#plate">The plate</a>
+    <a href="#test">12 mm test</a>
+    <a href="#coda">Coda</a>
+  </div>
+</nav>
+
+<header class="opener reveal" id="thesis">
+  <div class="credit">Design note · the format is the argument</div>
+  <h2>A crest is a European sentence. <em>Eight of these houses speak something else.</em></h2>
+  <p class="standfirst">So the rule for this plate is simple and it does all the work: <strong>each mark takes the format its own tradition uses for authority</strong> — not a shield with local motifs poured into it. The shape of the mark is the epistemology. The contents are secondary.</p>
+</header>
+
+<div class="article reveal">
+  <div class="cols">
+    <p class="dropcap">The lazy version of this job is nine shields. Divide the field, add a keris here, a swallow there, a condor for the trans-Pacific house, and letter a motto on a ribbon underneath. It would look coherent, it would print well, and it would be a lie — because the shield is not a neutral container. It is the visual grammar of hereditary land held by force, and only one house in this city comes from that grammar.</p>
+    <p>Work the other way instead. Ask what object each tradition already uses to mean <em>this is binding</em>. TKI: a shield, because it is a colonial foundation and should not be flattered out of it. Merican: a seal, because a merchant house's authority is an impression pressed into a document. Temenggong: a tumpal, the upward triangle of the textile border, because the mark belongs to cloth and ceremony before it belongs to a gate. Lam Keng: a square chop, because a southern Chinese institution signs by carving. Nine Rains: a woven band with a knotted record hanging from it, because the record <em>is</em> the mark. Kora: a seat, because authority is who is permitted to sit and be answered.</p>
+    <p>Then the three that break the set, which is where the plate earns its keep. Sund refuses insignia, so its mark is not an emblem but an assembly diagram — three timbers cross-lapped, none of which stands alone. Sekolah Petang was never granted a mark, so its mark is what it actually had: a serial number in a rubber stamp, slightly crooked, ink-blotted. And Rumah Arus cannot have a crest at all, because its knowledge was a route; so its mark is a navigation chart with a registry stamp struck across it.</p>
+    <div class="marg">Constraint held throughout: one colour, no gradients, no fills that carry meaning, legible at 12 mm. A mark that needs two colours to be understood is a logo, not a mark.</div>
+    <p>One consequence is worth stating before the plate. Rendered together, the nine do not harmonise, and they should not. Anyone who wants the set to look like a set is asking for the atlas's original error in graphic form: the belief that seven incompatible theories of knowledge can share one visual system without one of them supplying it.</p>
+  </div>
+</div>
+
+<!-- ============ PLATE ============ -->
+<section class="plate" id="plate">
+
+  <article class="mark reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="Toa Keng Institution mark: a shield with a wavy band low across it, a rising sun above, hatched mud below"><use href="#m-tki"/></svg></div>
+    <div class="no">01 · Toa Keng Institution · 1821</div>
+    <h3>The Shield</h3>
+    <div class="format">Format · European heraldry, unapologetically</div>
+    <div class="blazon">Argent, a fess wavy sable in base; issuant therefrom a sun in splendour; the base hatched of mud. Motto: <em>Ex Limo, Lumen</em>.</div>
+    <p>The only genuine coat of arms in the city, and the plate leaves it a coat of arms rather than dressing it in local motif. Its honesty is the wavy band, which is the drain, placed low and crossing the full width so it cannot be read as decoration.</p>
+    <p>The sun rises <em>from</em> the ditch, not above it in a separate compartment — the one compositional decision the school's own committee fought for three years. Below the band, hatching: the convention for mud, and also the convention for something a herald would rather not name.</p>
+    <div class="cannot">Cannot say · that it also drafted the language the ninth mark was struck off with</div>
+  </article>
+
+  <article class="mark reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="Al-Merican College mark: a circular seal with a dhow sail, a star, a wave and dividers, printed as a double impression"><use href="#m-merican"/></svg></div>
+    <div class="no">02 · Al-Merican College · 1834</div>
+    <h3>The Seal</h3>
+    <div class="format">Format · mercantile impression, struck twice</div>
+    <div class="blazon">Within a milled roundel: a lateen sail of two courses; a star of eight rays in chief; a wave in base; dividers open, sinister.</div>
+    <p>A merchant house's authority is not carried on a shield into a field. It is pressed into wax at the bottom of a page. So this is a stamp, and the outer ring is deliberately printed twice, offset three units — the ghost impression of a seal used ten thousand times on real contracts.</p>
+    <p>The sail is drawn as two courses meeting at a single point, which is the house's whole doctrine: several routes, one promise. The dividers sit low and off-centre, because measurement serves the obligation rather than the reverse.</p>
+    <div class="cannot">Cannot say · what the ships carried</div>
+  </article>
+
+  <article class="mark reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="Sri Temenggong Institution mark: an upward triangle containing a crescent, a downward keris and a root system"><use href="#m-temenggong"/></svg></div>
+    <div class="no">03 · Sri Temenggong Institution</div>
+    <h3>The Tumpal</h3>
+    <div class="format">Format · textile border motif, not a gate device</div>
+    <div class="blazon">A tumpal, apex to heaven; in chief a crescent doubled; palewise a keris inverted; in base a root system of nine radicles.</div>
+    <p>The tumpal is the triangular border of woven cloth, and choosing it over a shield is the point: this house's authority precedes and outlives the building it currently occupies. Cloth travels. A gate does not.</p>
+    <p>The keris points down — power restrained into responsibility — and its blade is drawn with the wave of the true forged blade rather than a straight dagger. Beneath it the roots take up a third of the field, more space than the crescent, because <em>roots uphold the sky</em> is a load-bearing statement about structure and should be drawn as load.</p>
+    <div class="cannot">Cannot say · who was moved off the roots</div>
+  </article>
+
+  <article class="mark reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="Lam Keng College mark: a square carved chop with a swallow, the characters 南 and 景, and one corner deliberately chipped away"><use href="#m-lamkeng"/></svg></div>
+    <div class="no">04 · Lam Keng College · 南景书院 · 1847</div>
+    <h3>The Chop</h3>
+    <div class="format">Format · carved square seal, corner chipped</div>
+    <div class="blazon">A square chop; within, a swallow volant, wings recovered; the characters 南 and 景 opposed; the lower dexter corner broken away.</div>
+    <p>A school that signs by carving gets a carved mark. The square is heavy-stroked because a chop is cut, not drawn, and the swallow is rendered in three strokes that could plausibly be made by a blade — leave, return, leave again.</p>
+    <p>The chipped corner is the important decision. Twice this college destroyed a generation of its own records while clearing space, and the chip is drawn as a real break with a dotted ghost of the missing stone. The school approved it; a chop that has been used for two centuries and shows no damage is a forgery.</p>
+    <div class="cannot">Cannot say · what was in the minutes that were burned</div>
+  </article>
+
+  <article class="mark reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="House of Nine Rains mark: a stepped woven band containing a condor and serpent above water, with five knotted cords hanging below"><use href="#m-ninerains"/></svg></div>
+    <div class="no">05 · The House of Nine Rains</div>
+    <h3>The Band</h3>
+    <div class="format">Format · woven band with a hanging record</div>
+    <div class="blazon">A band stepped in three terraces; within, a condor displayed interlocked with a serpent; water in base. Pendant: five cords, knotted 2·1·3·1·2.</div>
+    <p>The house holds that a record can be a physical object rather than a page, so the mark does not merely depict the doctrine — it contains a reading. Five cords hang below the band, knotted, and the knots are the current cohort's water figures. The mark is therefore <em>out of date every year</em>, and is recut every year.</p>
+    <p>The stepped top edge is the terrace, and the condor's wings are drawn as the same steps, so sky and earth share one geometry with neither above the other.</p>
+    <div class="cannot">Cannot say · who ties the cords</div>
+  </article>
+
+  <article class="mark reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="Kora House mark: a ceremonial stool with two ears at the sides of the seat and strings beneath"><use href="#m-kora"/></svg></div>
+    <div class="no">06 · Kora House</div>
+    <h3>The Seat</h3>
+    <div class="format">Format · a stool, which is an office</div>
+    <div class="blazon">A ceremonial seat, curved of plate; two ears affronté; the column strung with three courses; the base plate uninscribed.</div>
+    <p>Authority here is a seat: who may sit, who must answer. The ears are drawn as part of the seat rather than applied to it, because listening is the office, not a virtue the office-holder brings.</p>
+    <p>The base plate is left blank in every casting. No name has ever been cut into it, which is either the House's finest tradition or the neatest way ever devised of keeping the second voice unattributed. The plate declines to decide and draws the blank at full size.</p>
+    <div class="cannot">Cannot say · who appoints the ears</div>
+  </article>
+
+  <article class="mark reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="Sund Commons mark: three timbers cross-lapped into a triangle, drawn as an assembly diagram"><use href="#m-sund"/></svg></div>
+    <div class="no">07 · The Sund Commons</div>
+    <h3>The Lap</h3>
+    <div class="format">Format · joinery detail · not an emblem</div>
+    <div class="blazon">Three members of equal section, cross-lapped at three points, standing. No field, no charge, no motto. A single datum line in base.</div>
+    <p>Sund will not carry insignia, and pretending otherwise would falsify the house. So its mark is a working drawing: three identical timbers, each lapped over one neighbour and under the other, forming a structure with no keystone and no member that could be called principal.</p>
+    <p>Remove any one and the drawing is three sticks. That is the entire statement, it takes no motto, and it is the only mark on this plate that a reader can test by covering part of it with a thumb.</p>
+    <div class="cannot">Cannot say · that the joint is expensive to maintain</div>
+  </article>
+
+  <article class="mark reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="Sekolah Petang mark: a crooked rubber stamp box reading SEK. PETANG, the numeral 04, and the times 0730 and 1300"><use href="#m-petang"/></svg></div>
+    <div class="no">Entry 00 · Sekolah Petang · No. 4</div>
+    <h3>The Stamp</h3>
+    <div class="format">Format · rubber serial stamp · never granted a mark</div>
+    <div class="blazon">A box, set crooked; legend SEK. PETANG; the numeral 04 broken by a stencil bridge; in base the two sessions, 0730 / 1300. Ink blotted at three points.</div>
+    <p>No commission ever designed a mark for the shift schools, so inventing an elegant one would be a fabrication. This is what they actually had: the school's identity was a number in a rubber stamp on the top-right of a form, and there were two hundred and forty of them.</p>
+    <p>Everything here is a real property of the object. It prints crooked because it was applied by hand at speed. The numeral is bridged because the stencil had to survive being cut by a clerk. The blots are where the pad was over-inked. It is the least dignified mark on the plate and it stamped more documents than the other eight combined.</p>
+    <div class="cannot">Cannot say · anything about the pedagogy, because nobody was ever asked to draw it</div>
+  </article>
+
+  <article class="mark wide reveal">
+    <div class="fig"><svg viewBox="0 0 200 220" role="img" aria-label="Rumah Arus mark: a stick chart of curved battens and shell nodes, drawn in dashed line, with a red registry stamp reading FIELD 4(B) struck across it"><use href="#m-arus"/></svg></div>
+    <div>
+      <div class="no">Entry — · Rumah Arus · deregistered</div>
+      <h3>The Chart</h3>
+      <div class="format">Format · navigation chart · a mark that cannot be a mark</div>
+      <div class="blazon">Battens of swell and current, seven, crossing; nodes of shell, five, at the intersections; all drawn broken. Overstruck: a registry stamp, FIELD 4(B).</div>
+      <p>This is the design problem the plate exists to expose. A crest is a fixed object identifying a fixed body, and Rumah Arus was a set of routes held by moving people. Any crest for it would be a category error, so the mark is a stick chart — battens for swell and current, shell nodes for the islands — which is the tradition's own instrument and is not an emblem at all. It does not identify the house. It teaches a passage. Nobody outside the tradition can read it, which is also true and is left uncorrected.</p>
+      <p>Every line is drawn broken. Not for style: eleven passages survive in full and somewhere between forty and three hundred are gone, so a continuous line would overstate the holdings. Then the stamp — <em>Field 4(b), permanent premises</em> — set at an angle across the middle of the chart, in the one other colour this plate permits, because the deregistration is now the most legible thing about the school and pretending otherwise would be sentimental.</p>
+      <p>The plate's honest admission: this is a mark <em>about</em> Rumah Arus, made by people who can read heraldry. The house would not have made it, would not have needed it, and had no word for it.</p>
+      <div class="cannot">Cannot say · the passages · which is the entire loss</div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============ 12MM TEST ============ -->
+<section class="test" id="test">
+  <div class="wrap">
+    <div class="eyebrow reveal">The only test that matters</div>
+    <h2 class="reveal">Twelve millimetres, one colour, cut in brass.</h2>
+    <p class="lede reveal">A mark lives on a blazer pocket, a stamped envelope, a bicycle plate, a hospital form. Here are all nine at the size they will actually be seen at, most of the time, by people who never attended any of them. Three of them win at this size and the winners are not the ones with the budget.</p>
+    <div class="strip reveal" aria-hidden="true">
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-tki"/></svg><span>TKI</span></div>
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-merican"/></svg><span>Merican</span></div>
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-temenggong"/></svg><span>Temenggong</span></div>
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-lamkeng"/></svg><span>Lam Keng</span></div>
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-ninerains"/></svg><span>Nine Rains</span></div>
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-kora"/></svg><span>Kora</span></div>
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-sund"/></svg><span>Sund</span></div>
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-petang"/></svg><span>Petang 04</span></div>
+      <div class="chip"><svg viewBox="0 0 200 220"><use href="#m-arus"/></svg><span>Arus</span></div>
+    </div>
+    <div class="verdicts">
+      <div class="reveal"><b>Wins at 12 mm</b>Sund's lap, Temenggong's tumpal, Kora's seat. All three are single silhouettes with one internal event. Sund wins hardest, which is a joke the school would enjoy: the house that refuses insignia has the best insignia in the city.</div>
+      <div class="reveal"><b>Fails at 12 mm</b>Merican's seal collapses into a grey disc, and Nine Rains' knotted cords become fuzz — both because they encode information rather than identity. Their marks are documents. Documents do not shrink.</div>
+      <div class="reveal"><b>Wins for the wrong reason</b>Petang 04. A crooked box with a two-digit numeral is perfectly legible at any size, because it was designed by a stationery supplier for exactly this purpose. The city's most recognisable school mark is a serial number, and nobody framed one.</div>
+    </div>
+  </div>
+</section>
+
+<section class="coda" id="coda">
+  <div class="wrap">
+    <div class="eyebrow reveal">Design coda</div>
+    <h2 class="reveal">Nine marks that <em>refuse to be a set.</em></h2>
+    <p class="reveal">If a client asked for these nine as a unified identity system, the correct answer would be no. Harmonising them means choosing one visual grammar and translating the other eight into it, and every available grammar belongs to somebody. Make them all shields and the city is a colony. Make them all seals and it is a market. Make them all textile borders and it is a heritage campaign.</p>
+    <p class="reveal">What can be unified is the <em>discipline</em>: one colour, no gradient, no fill that carries meaning, legible at twelve millimetres, and every mark drawn in the object its own tradition uses to mean <em>binding</em>. That is a system with no centre — which is the only kind this city can honestly have.</p>
+    <p class="reveal">Two of the nine are not marks at all, and were included anyway. A rubber stamp and a broken chart. They are the two that a heraldic register would normally exclude on the grounds that there is nothing to draw, and they carry the plate.</p>
+    <p class="final reveal">A crest tells you who a school thinks it is.<br>The format tells you where it thinks authority comes from.<br>The format is the harder thing to fake.</p>
+  </div>
+</section>
+
+<div class="colophon">
+  The Register of Marks · nine institutions · nine formats · one prohibited harmonisation<br>
+  Drawn as SVG symbols in currentColor · single-colour, gradient-free, tested at 34 px<br>
+  Companion to Atlas I, Atlas II and the Errata · shield · seal · tumpal · chop · band · seat · lap · stamp · chart
+</div>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

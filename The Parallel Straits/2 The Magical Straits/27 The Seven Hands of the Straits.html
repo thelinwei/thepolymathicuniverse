@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Seven Hands of the Straits — a field atlas of the houses' craft</title>
+<style>
+:root{
+  --paper:#e8ebe6; --leaf:#f3f5f1; --ink:#1c2630; --ink2:#34424e; --rule:#9aa6a8; --sea:#2f5d6b;
+  --toa:#2e6f6c; --mer:#2f3f7a; --pus:#2f5a33; --lan:#a3271c; --rain:#a4552a; --kora:#5a2a4f; --sund:#3e5a6e;
+  --pet:#6b4f8a; --arus:#1f6f8b;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141a1f; --leaf:#1b232a; --ink:#e9ece6; --ink2:#c9d0cf; --rule:#566269; --sea:#8fc0cc;
+    --toa:#7fc3bf; --mer:#9eaaf0; --pus:#8fc796; --lan:#f08a7e; --rain:#e7a57c; --kora:#d69ac7; --sund:#9fbdd3;
+    --pet:#c3a8e6; --arus:#7fcbe6;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141a1f; --leaf:#1b232a; --ink:#e9ece6; --ink2:#c9d0cf; --rule:#566269; --sea:#8fc0cc;
+  --toa:#7fc3bf; --mer:#9eaaf0; --pus:#8fc796; --lan:#f08a7e; --rain:#e7a57c; --kora:#d69ac7; --sund:#9fbdd3;
+  --pet:#c3a8e6; --arus:#7fcbe6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--paper);color:var(--ink);font-family:"Times New Roman",Tinos,Times,"Liberation Serif",serif;font-size:19px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
+.sc{font-variant:small-caps;letter-spacing:.04em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.col{max-width:66ch}
+p+p{margin-top:.9em}
+h1,h2,h3,h4{font-weight:400;line-height:1.08}
+em{font-style:italic}
+
+/* cover */
+.cover{padding:clamp(40px,8vw,90px) 0 clamp(30px,6vw,60px);border-bottom:1px solid var(--rule)}
+.cover .issuer{font-size:15px;color:var(--ink2)}
+.cover h1{font-size:clamp(3rem,11vw,7.6rem);letter-spacing:-.02em;margin:.2em 0 .15em;font-style:italic}
+.cover h1 span{display:block;font-style:normal}
+.cover .deck{font-size:clamp(1.15rem,2.6vw,1.45rem);max-width:40ch;color:var(--ink2)}
+.strait{width:100%;height:auto;display:block;margin:clamp(24px,5vw,48px) 0 8px}
+.strait-cap{font-size:15px;color:var(--ink2);max-width:70ch}
+
+/* index */
+nav.index{border-bottom:1px solid var(--rule);padding:18px 0}
+nav.index ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:17px}
+nav.index a{text-decoration:none;border-bottom:1px solid transparent}
+nav.index a:hover{border-bottom-color:currentColor}
+
+section{padding:clamp(48px,8vw,96px) 0;border-bottom:1px solid var(--rule)}
+.part{font-size:16px;color:var(--ink2);margin-bottom:10px}
+section>.wrap>h2{font-size:clamp(2.2rem,6vw,3.8rem);margin-bottom:.45em;max-width:18ch}
+.lede{font-size:1.18em;color:var(--ink)}
+
+.scroll{overflow-x:auto;margin:28px 0}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:16.5px;line-height:1.4}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-top:1px solid var(--rule)}
+th{font-weight:400;font-variant:small-caps;letter-spacing:.04em;color:var(--ink2);border-top:2px solid var(--ink)}
+td b{font-weight:700}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:1px}
+
+/* house chapters */
+.house{display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:clamp(16px,4vw,48px);padding:clamp(40px,6vw,64px) 0;border-top:1px solid var(--rule)}
+.house:first-of-type{border-top:0}
+.house aside{position:relative}
+.house aside svg{width:100%;max-width:190px;height:auto;display:block;color:var(--c)}
+.house .native{font-size:15px;color:var(--ink2);margin-top:12px;line-height:1.45}
+.house h3{font-size:clamp(2rem,5vw,3rem);color:var(--c)}
+.house .motto{font-style:italic;color:var(--ink2);margin:.2em 0 1em}
+.house h4{font-size:1.05em;font-variant:small-caps;letter-spacing:.05em;margin:1.4em 0 .35em;color:var(--c)}
+.ranks{display:flex;flex-wrap:wrap;gap:0;margin:.6em 0 0;border-left:3px solid var(--c)}
+.ranks div{padding:4px 14px;font-size:16px;line-height:1.35;flex:1 1 150px}
+.ranks b{display:block;font-weight:700}
+dl.arts{margin-top:.4em}
+dl.arts dt{font-weight:700;margin-top:.8em}
+dl.arts dd{margin-left:0}
+.forbid{margin-top:1.4em;padding:14px 18px;background:var(--leaf);border-left:3px solid var(--c)}
+.forbid b{font-variant:small-caps;letter-spacing:.05em;font-weight:400;color:var(--c);display:block;font-size:1.02em}
+@media (max-width:720px){.house{grid-template-columns:1fr}.house aside svg{max-width:120px}}
+
+.minor{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,44px);margin-top:36px}
+.minor div{border-top:3px solid var(--c);padding-top:12px}
+.minor h4{font-size:1.5rem;color:var(--c);margin-bottom:.3em}
+@media (max-width:720px){.minor{grid-template-columns:1fr}}
+
+/* infrastructure */
+.places{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:30px 44px;margin-top:34px}
+.place{border-top:3px solid var(--c);padding-top:12px}
+.place h4{font-size:1.45rem;color:var(--c);margin-bottom:.35em}
+.place p{font-size:17.5px}
+.place p b{font-variant:small-caps;letter-spacing:.04em;font-weight:400;color:var(--ink2)}
+.harbour{margin-top:48px;padding:clamp(20px,4vw,40px);background:var(--leaf)}
+.harbour h3{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:.5em}
+.harbour ol{margin:.8em 0 0 1.3em}
+.harbour li{margin-top:.55em}
+.harbour li b{color:var(--c)}
+
+/* duel */
+.match{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:10px 30px;padding:16px 0;border-top:1px solid var(--rule)}
+.match .vs{font-size:1.3rem;line-height:1.25}
+.match .vs i{color:var(--ink2);font-size:.8em}
+@media (max-width:720px){.match{grid-template-columns:1fr}}
+.events{margin-top:30px}
+.events p{margin-top:.8em}
+
+/* chapter */
+.chapter{background:var(--leaf)}
+.chapter .col{margin:0 auto;max-width:62ch}
+.chapter h2{text-align:left}
+.chapter .title-block{max-width:62ch;margin:0 auto 2em}
+.chapter .title-block h2{font-size:clamp(2.4rem,7vw,4.4rem);font-style:italic}
+.chapter .title-block p{color:var(--ink2)}
+.chapter p{text-indent:1.4em;margin-top:0}
+.chapter p.first{text-indent:0}
+.chapter p.first::first-letter{float:left;font-size:4.2em;line-height:.82;padding:.05em .08em 0 0;color:var(--rain)}
+.chapter .break{text-align:center;margin:1.6em 0;color:var(--ink2);text-indent:0;letter-spacing:.6em}
+.chapter .knot{text-indent:0;margin:1.2em 0;padding-left:1.4em;border-left:3px solid var(--rain);font-style:italic}
+
+footer{padding:40px 0 60px;font-size:15.5px;color:var(--ink2)}
+.theme-toggle{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));font:inherit;font-size:15px;background:var(--leaf);color:var(--ink);border:1px solid var(--rule);border-radius:20px;padding:6px 14px;cursor:pointer}
+@media (prefers-reduced-motion:no-preference){ .strait .flow{stroke-dasharray:6 10;animation:drift 9s linear infinite} @keyframes drift{to{stroke-dashoffset:-160}} }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <p class="issuer">A field atlas of the Parallel Straits · the craft volume</p>
+    <h1>The Seven Hands <span>of the Straits</span></h1>
+    <p class="deck">How the houses lean on the world: their practices, their powers, what they build into the city, and what happens when two of them disagree on the same night.</p>
+    <svg class="strait" viewBox="0 0 1000 220" role="img" aria-label="Seven coloured flows crossing a band of sea, braiding where they meet">
+      <rect x="0" y="80" width="1000" height="60" fill="var(--sea)" opacity=".16"/>
+      <line x1="0" y1="80" x2="1000" y2="80" stroke="var(--sea)" stroke-width="1"/>
+      <line x1="0" y1="140" x2="1000" y2="140" stroke="var(--sea)" stroke-width="1"/>
+      <g fill="none" stroke-width="3" stroke-linecap="round">
+        <path class="flow" stroke="var(--toa)"  d="M0,20 C200,20 300,110 500,110 S800,200 1000,200"/>
+        <path class="flow" stroke="var(--mer)"  d="M0,50 C220,50 330,120 520,100 S820,30 1000,40"/>
+        <path class="flow" stroke="var(--pus)"  d="M0,200 C180,200 320,100 480,100 S780,180 1000,170"/>
+        <path class="flow" stroke="var(--lan)"  d="M0,170 C240,170 320,95 500,120 S760,20 1000,15"/>
+        <path class="flow" stroke="var(--rain)" d="M0,110 C150,60 330,160 500,95 S840,120 1000,90"/>
+        <path class="flow" stroke="var(--kora)" d="M0,140 C200,190 340,80 510,115 S800,90 1000,130"/>
+        <path class="flow" stroke="var(--sund)" d="M0,80 C230,30 300,140 490,105 S830,160 1000,110"/>
+      </g>
+    </svg>
+    <p class="strait-cap">Seven flows cross the same water. Where they braid, over the strait, is where the city happens.</p>
+  </div>
+</header>
+
+<nav class="index" aria-label="Contents">
+  <div class="wrap"><ul>
+    <li><a href="#law">The common law</a></li>
+    <li><a href="#houses">The seven practices</a></li>
+    <li><a href="#city">Craft in the city</a></li>
+    <li><a href="#contest">Duels and games</a></li>
+    <li><a href="#chapter">The King Tide</a></li>
+  </ul></div>
+</nav>
+
+<main>
+<section id="law">
+  <div class="wrap">
+    <p class="part">Before the houses</p>
+    <h2>What every child in the Straits is taught first</h2>
+    <div class="col">
+      <p class="lede">There are two ways to describe any moment. In the manifest, the rain falls and the wall holds. Beneath it, in the axiomatic, the rain is a relation between cloud and ground, and the wall is a relation between stone and weight. The craft is the art of leaning on those relations until they give a little.</p>
+      <p>The world always leans back. It has no will and bears no grudge; it simply returns to how it was, and whoever held a relation out of true feels that return in the body: heat in the fingers, ringing ears, a distance that will not settle. The city calls this <em>the account</em>. Every house was founded by people who had to live with it, and each one inherited a different way of paying.</p>
+      <p>That is why the seven houses do not measure strength the same way. Ask a Nine Rain weaver how powerful someone is and she will count strands. Ask a Sund joiner and he will count hands. The unit tells you what a house thinks power is for.</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>House</th><th>Root tradition</th><th>The craft</th><th>Power is counted in</th><th>Where the account lands</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sw" style="background:var(--toa)"></span><b>Toa Keng</b></td><td>Colonial Enlightenment, Hokkien port</td><td>The Survey</td><td>Decimal places</td><td>On the caster, recorded to the gram</td></tr>
+          <tr><td><span class="sw" style="background:var(--mer)"></span><b>Al-Merikani</b></td><td>Indian Ocean Muslim merchants</td><td>The Lining</td><td>Keepings held in trust</td><td>On whoever breaks the trust</td></tr>
+          <tr><td><span class="sw" style="background:var(--pus)"></span><b>Balai Pusaka</b></td><td>Malay court of the Temenggong</td><td>The Rooting</td><td>Generations on the ground</td><td>Into the ground, through the feet</td></tr>
+          <tr><td><span class="sw" style="background:var(--lan)"></span><b>Lan Fong</b></td><td>Hakka kongsi of West Borneo</td><td>The Setting</td><td>Characters one can set</td><td>Shared by shareholders, pro rata</td></tr>
+          <tr><td><span class="sw" style="background:var(--rain)"></span><b>Nine Rain</b></td><td>The Andes, with a Mesoamerican graft</td><td>The Weave</td><td>Strands held at once</td><td>Deferred to the right day</td></tr>
+          <tr><td><span class="sw" style="background:var(--kora)"></span><b>Sané-Kora</b></td><td>Mande griots of Senegambia</td><td>The Jeliya</td><td>Voices held at once</td><td>On whoever answers</td></tr>
+          <tr><td><span class="sw" style="background:var(--sund)"></span><b>Sund</b></td><td>The Nordic north</td><td>The Joining</td><td>Hands joined</td><td>Spread across the ring</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section id="houses">
+  <div class="wrap">
+    <p class="part">Part one</p>
+    <h2>The seven practices</h2>
+    <div class="col"><p class="lede">Each house has a stance, an instrument, a ladder of rank, a handful of signature arts, a way the account shows up on the body, and one thing it teaches its students never to do.</p></div>
+
+    <!-- NINE RAIN -->
+    <article class="house" id="rain" style="--c:var(--rain)">
+      <aside>
+        <svg viewBox="0 0 120 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+          <path d="M10 10 H110"/>
+          <path d="M22 10 V130"/><path d="M40 10 V130"/><path d="M58 10 V130"/><path d="M76 10 V130"/><path d="M94 10 V130"/>
+          <circle cx="22" cy="44" r="4" fill="currentColor"/><circle cx="40" cy="70" r="4" fill="currentColor"/><circle cx="40" cy="80" r="4" fill="currentColor"/>
+          <circle cx="58" cy="36" r="4" fill="currentColor"/><circle cx="76" cy="96" r="4" fill="currentColor"/><circle cx="94" cy="58" r="4" fill="currentColor"/><circle cx="94" cy="68" r="4" fill="currentColor"/><circle cx="94" cy="78" r="4" fill="currentColor"/>
+        </svg>
+        <p class="native">Native terms: <em>awana</em>, weaving; <em>khipu</em>, the knotted cord; the day-sign, grafted on by galleon.</p>
+      </aside>
+      <div class="col">
+        <h3>Nine Rain · the Weave</h3>
+        <p class="motto">Measure the heavens. Feed the valley.</p>
+        <p>A Nine Rain weaver raises both arms, fingers spread like the heddles of a backstrap loom, and pulls threads out of the weather. Rain becomes cord in her hands. So does heat rising off a road, the pull of a river, the damp inside a wall. She knots them in the air, in the same patterns worked into the band at her shoulder, and the knots hold.</p>
+        <p>The house descends from Andean terrace-farmers who understood a mountainside as a single machine for moving water, and from Mesoamerican calendar-keepers whose day-signs came west on the galleons and married in. The Andean half gave the weave. The Mesoamerican half gave the timing: casting is cheapest on your own day-sign, and ruinous against it.</p>
+        <h4>Rank, by strands held at once</h4>
+        <div class="ranks">
+          <div><b>One strand</b>A first-year can hold a single thread of rain for a minute.</div>
+          <div><b>Three to five</b>Seniors, who can braid heat and water together.</div>
+          <div><b>Nine</b>The title the house is named for. There are four living.</div>
+        </div>
+        <h4>Signature arts</h4>
+        <dl class="arts">
+          <dt>The terrace weave</dt><dd>Water stepped down through open air in stages, so a cloudburst waters a whole slope without scouring it. The city's hillside gardens are kept this way.</dd>
+          <dt>Knot-forward</dt><dd>A knot tied today lets rain fall tomorrow on a chosen valley. Untying a storm a strand at a time is the same art in reverse, and slower.</dd>
+          <dt>The cooling warp</dt><dd>Rising heat is combed into a lattice over a street at two in the afternoon, and the shade it throws is sold by the hour. This is where the city's cooling rights come from.</dd>
+          <dt>Soil-hunger</dt><dd>Weavers feel dry ground the way you feel your own thirst. Senior weavers cannot sleep during a drought.</dd>
+        </dl>
+        <h4>How the account shows</h4>
+        <p>Cracked knuckles, a thirst no drink reaches, and an ache on the day-sign opposite your own. Every casting must be knotted into your cord that night; an unknotted casting is unpaid, and still dangerous.</p>
+        <div class="forbid"><b>Never</b>Cast against the calendar, and never leave a snarl. A tangled knot rains for forty days somewhere nobody chose. The house keeps a stretch of cord from 1917 in a sealed room for this reason.</div>
+      </div>
+    </article>
+
+    <!-- SUND -->
+    <article class="house" id="sund" style="--c:var(--sund)">
+      <aside>
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <rect x="14" y="48" width="92" height="22"/>
+          <rect x="49" y="10" width="22" height="100"/>
+          <path d="M20 22 L100 98" stroke-width="10" stroke-linecap="square"/>
+          <path d="M20 22 L100 98" stroke="var(--paper)" stroke-width="5"/>
+        </svg>
+        <p class="native">Native terms: <em>dugnad</em>, the shared work; <em>ting</em>, the assembly; <em>galdr</em>, the sung charm; <em>sløjd</em>, learning by making.</p>
+      </aside>
+      <div class="col">
+        <h3>Sund · the Joining</h3>
+        <p class="motto">Ingen står alene. No one stands alone.</p>
+        <p>In the Straits this motto is plain physics. A Sund caster working alone is weaker than a child from a shift school. Put forty of them in a ring, forearms clasped, stamping in time and singing the old work-songs under their breath, and they can lift a building.</p>
+        <p>The house came south with shipwrights and cooperative founders from the Nordic coasts, people who built boats by overlapping planks so no single board carried the sea. Its name is simply their word for a strait. Its question, <em>who carries the cost?</em>, is the question every other house would rather not be asked.</p>
+        <h4>Rank, by hands joined</h4>
+        <div class="ranks">
+          <div><b>The bench</b>One maker. Can mend a hinge and not much else.</div>
+          <div><b>The lag</b>A working team of six to twelve. Moves a roof.</div>
+          <div><b>The ting</b>A full assembly, sometimes a whole street. Holds a seawall.</div>
+        </div>
+        <h4>Signature arts</h4>
+        <dl class="arts">
+          <dt>Load-sharing</dt><dd>The weight on a failing wall, a fevered body or a sinking boat is taken off it and spread across the ring. Each member feels their share in the shoulders.</dd>
+          <dt>Clinker wards</dt><dd>Shields raised as overlapping strakes of light, each edge lapped over the next, so a blow that lands on one is carried by all.</dd>
+          <dt>Rune-cut beams</dt><dd>A casting carved into timber and left there. It wakes when the beam is strained, sometimes a century after the carver died.</dd>
+          <dt>Knock-down</dt><dd>Anything Sund has joined can be taken apart cleanly in minutes. Students learn to undo before they learn to make, and a first-year cannot join a ring until she has taken apart a whole chair.</dd>
+        </dl>
+        <h4>How the account shows</h4>
+        <p>Bruises on the shoulders of everyone in the ring, all the same size. Old Sund families can tell who worked the 1962 floods from the matching marks on their grandparents.</p>
+        <div class="forbid"><b>Never</b>Glue a joint. An irreversible fusion is the house's one true crime, and one exists somewhere in the city. Nobody at Sund will say where.</div>
+      </div>
+    </article>
+
+    <!-- TOA KENG -->
+    <article class="house" id="toa" style="--c:var(--toa)">
+      <aside>
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M10 30 H110 M10 50 H110 M10 70 H110 M30 10 V110 M50 10 V110 M70 10 V110 M90 10 V110" stroke-width="1" opacity=".55"/>
+          <path d="M10 92 Q25 84 40 92 T70 92 T100 92 T120 92" stroke-width="2.6"/>
+          <path d="M40 90 A20 20 0 0 1 80 90" stroke-width="2.6"/>
+          <path d="M60 64 V52 M42 70 L34 62 M78 70 L86 62" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+        <p class="native">Native terms: <em>the Survey</em>, the benchmark, the chalk line, the Proposition.</p>
+      </aside>
+      <div class="col">
+        <h3>Toa Keng · the Survey</h3>
+        <p class="motto">Ex limo, lumen. Out of the mud, light.</p>
+        <p>A Toa Keng surveyor carries a brass rule and a spool of chalk line. She snaps the line in the air and it stays there, a faint white stroke hanging over the street. Inside the lines she draws, things become exactly what they measure. Nothing more and nothing less.</p>
+        <p>The house was founded in 1821 in the colonial manner, with Latin, heraldry and a tie nobody can defend in this heat. What it kept from the Enlightenment is the belief that light is a kind of force. What it learned from the ditch it was built beside is that light has to come up out of something dirty.</p>
+        <h4>Rank, by decimal places</h4>
+        <div class="ranks">
+          <div><b>Units</b>Can hold a room level to the nearest centimetre.</div>
+          <div><b>Hundredths</b>Can fix a bridge's sway to a hair.</div>
+          <div><b>Fellow of the Fourth Place</b>Can hold a tide to a line. Seven in the city.</div>
+        </div>
+        <h4>Signature arts</h4>
+        <dl class="arts">
+          <dt>The grid</dt><dd>A coordinate lattice laid over a space. Fire cannot cross a drawn line; floodwater stops at the mark to the millimetre.</dd>
+          <dt>Illumination</dt><dd>A wall made translucent so its stress lines glow. Engineers pay for this before any repair.</dd>
+          <dt>The Proposition</dt><dd>A statement spoken inside a Toa Keng hall is forced to show whether it is true. A lie casts a visible shadow on the floor behind the speaker.</dd>
+          <dt>Arrest</dt><dd>A falling or flying thing pinned at an exact coordinate and held there. It is the house's only combat art, and its most feared.</dd>
+          <dt>Dispelling</dt><dd>Toa Keng's secret strength is that it sides with the world. Helping a rewritten relation snap back costs almost nothing, so the house supplies the city's inspectors.</dd>
+        </dl>
+        <h4>How the account shows</h4>
+        <p>Cold. Numb fingertips, a taste of brass, eyes too bright for a day afterwards. Every load is logged in the house register to the gram, and the register is never closed.</p>
+        <div class="forbid"><b>Never</b>Redefine the unit. Changing what a gallon is, when you cannot change the water, is how the 1931 municipal gallon shrank during the shortage. And never measure a living thing too hard. The brass orchid in the Hall of Standards was a flower once.</div>
+      </div>
+    </article>
+
+    <!-- AL-MERIKANI -->
+    <article class="house" id="mer" style="--c:var(--mer)">
+      <aside>
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <rect x="30" y="30" width="60" height="60"/>
+          <rect x="30" y="30" width="60" height="60" transform="rotate(45 60 60)"/>
+          <circle cx="60" cy="60" r="12"/>
+          <circle cx="60" cy="60" r="48" stroke-width="1.2" opacity=".6"/>
+        </svg>
+        <p class="native">Native terms: <em>amanah</em>, a trust held for another; <em>girih</em>, the knotted star pattern; <em>musim</em>, the trading monsoon.</p>
+      </aside>
+      <div class="col">
+        <h3>Al-Merikani · the Lining</h3>
+        <p class="motto">Fides · Ratio · Amanah</p>
+        <p>You will not see a Merikani trustee cast. The outside of their clothes is plain; the good cloth faces inward, and so does the craft. Star geometry is woven into the linings, and the patterns wake only when something is placed in the wearer's keeping. A trustee lays a hand flat over the heart, over the lining, and the thing entrusted becomes untouchable.</p>
+        <p>The house grew from Tamil Muslim merchant families and the Hadhrami traders who sailed alongside them, people who crossed an ocean on the strength of promises made to strangers. They learned that a promise is a relation like any other, and that a strong enough one bends the wind.</p>
+        <h4>Rank, by keepings held</h4>
+        <div class="ranks">
+          <div><b>A single keeping</b>A letter, a key, a child walked home.</div>
+          <div><b>A house's keeping</b>A family's gold and papers, held across a lifetime.</div>
+          <div><b>A port's keeping</b>Trusted by thousands. Can turn a monsoon.</div>
+        </div>
+        <h4>Signature arts</h4>
+        <dl class="arts">
+          <dt>The sealed keeping</dt><dd>A box, a letter or a door that no one but its rightful receiver can open, even with an axe or a fire.</dd>
+          <dt>Wind-turning</dt><dd>The trading monsoon bent a few degrees so a dhow finds its route. Older trustees can hold a calm around a single ship in a storm.</dd>
+          <dt>Attar binding</dt><dd>A drop of scent pressed onto an agreement. When the agreement is broken, the smell of oud rises from the breaker and does not wash off for a year.</dd>
+          <dt>The double seal</dt><dd>A palm pressed to a door, a blade or a person leaves a two-part impression, and the thing sealed will not act against the pact.</dd>
+        </dl>
+        <h4>How the account shows</h4>
+        <p>The lining warms against the skin while a keeping is held, and stays warm for years. Trustees are known for never feeling cold. When a trust is broken, the lining's pattern unravels and burns.</p>
+        <div class="forbid"><b>Never</b>Seal someone who cannot consent. The house has a blank ledger for the unborn, and the temptation to bind heirs to a promise their grandparents made is the oldest scandal in the waqf courts.</div>
+      </div>
+    </article>
+
+    <!-- BALAI PUSAKA -->
+    <article class="house" id="pus" style="--c:var(--pus)">
+      <aside>
+        <svg viewBox="0 0 120 130" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+          <path d="M8 62 H112"/>
+          <path d="M60 8 V104"/><path d="M54 104 L60 118 L66 104"/>
+          <path d="M60 30 C40 20 26 30 18 44 M60 30 C80 20 94 30 102 44 M60 44 C44 38 34 44 28 54 M60 44 C76 38 86 44 92 54"/>
+          <path d="M60 62 C54 80 40 88 24 92 M60 62 C66 80 80 88 96 92 M60 70 C58 90 48 104 36 112 M60 70 C62 90 72 104 84 112"/>
+        </svg>
+        <p class="native">Native terms: <em>semangat</em>, the life in things; <em>tuah</em>, the luck in an heirloom; <em>kuda-kuda</em>, the rooted stance.</p>
+      </aside>
+      <div class="col">
+        <h3>Balai Pusaka · the Rooting</h3>
+        <p class="motto">Akar menjunjung langit. The roots hold up the sky.</p>
+        <p>Shoes come off first. The casting stance is the silat <em>kuda-kuda</em>, low and wide and barefoot, and strength comes up through the soles of the feet from ground the caster's family has kept. A Balai Pusaka elder standing on her own land is the hardest thing in the Straits to move.</p>
+        <p>The house carries the Malay court of the Temenggong: custodianship over conquest, the keris worn point-down to show force turned into duty, cloth that travels because gates do not. Its magic is slow, patient and local. It is also the only craft in the city that grows stronger the longer it stays.</p>
+        <h4>Rank, by generations on the ground</h4>
+        <div class="ranks">
+          <div><b>A first root</b>Your own lifetime on this ground.</div>
+          <div><b>Three roots</b>Your grandparents' ground. Can raise a mangrove bank.</div>
+          <div><b>Seven roots</b>A line that has held one place for two centuries. Can hold up a hillside.</div>
+        </div>
+        <h4>Signature arts</h4>
+        <dl class="arts">
+          <dt>Root-braiding</dt><dd>Mangrove and banyan roots braided on command to hold an embankment, a riverbank or a collapsing house.</dd>
+          <dt>The pinned keris</dt><dd>A keris driven point-down into the earth fixes a place. Nothing can be taken from it, and nobody can be moved off it, until the blade is drawn.</dd>
+          <dt>Tied kain</dt><dd>Cloth knotted in the right way becomes armour. Every student learns the tie in their first week, and it is never taught again.</dd>
+          <dt>Calling the semangat</dt><dd>A healer calls back the life in rice, in a house or in a person, with a verse of two lines. The second line must name what was lost.</dd>
+        </dl>
+        <h4>How the account shows</h4>
+        <p>Heaviness in the legs, and aching feet. Load flows down into the ground, which is why the house can carry so much at home. Taken away from their own ground, a Balai Pusaka master is only a quiet person without shoes.</p>
+        <div class="forbid"><b>Never</b>Uproot another family's ground, and never sell <em>kebal</em>. Invulnerability, the art of rewriting blade against skin, was sold to the secret societies during the riots. The house still denies it.</div>
+      </div>
+    </article>
+
+    <!-- LAN FONG -->
+    <article class="house" id="lan" style="--c:var(--lan)">
+      <aside>
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <path d="M14 14 H106 V106 H24 L14 96 Z"/>
+          <path d="M14 60 H106 M60 14 V106 M14 14 L106 106 M106 14 L14 106" stroke-width="1" opacity=".5"/>
+          <path d="M34 78 C48 60 62 58 70 44 C74 38 82 36 90 40 C82 42 78 48 80 54 C70 56 60 66 34 78 Z" fill="currentColor" stroke="none"/>
+        </svg>
+        <p class="native">Native terms: 朱书, cinnabar writing; 排字, setting type; 寻脉, following the vein; 燕行, the swallow's walk.</p>
+      </aside>
+      <div class="col">
+        <h3>Lan Fong · the Setting</h3>
+        <p class="motto">通古今，达中外</p>
+        <p>A Lan Fong caster writes in the air with a brush dipped in cinnabar, and the strokes become real. One stroke cuts. A character holds. Write 火 and something burns. The masters work at a deeper level, the one the kongsi learned in its press: they take an object apart into its characters, rearrange them like type in a forme, and set it again as something else.</p>
+        <p>The house came from Hakka gold-miners who ran a company-republic in Borneo for a hundred and seven years, and arrived in the Straits in 1885 with a printing press and a sixteen-page annal. Mining taught them where the veins run. The press taught them that anything set once can be set again.</p>
+        <h4>Rank, by characters one can set</h4>
+        <div class="ranks">
+          <div><b>识百</b>A hundred characters. Can write a lamp alight.</div>
+          <div><b>识千</b>A thousand. Can recompose a broken hinge.</div>
+          <div><b>识万</b>Ten thousand. Composes whole paragraphs, which are compound spells.</div>
+        </div>
+        <h4>Signature arts</h4>
+        <dl class="arts">
+          <dt>Cinnabar writing</dt><dd>Living characters written in the air. Street vendors buy a stroke of 凉 on a hot afternoon.</dd>
+          <dt>Recomposition</dt><dd>Matter taken apart into its characters and set again: scrap into a lintel, rust into iron, a cracked slab into a whole one. Every recomposition must be approved by shareholder ballot, and the load is split by holding.</dd>
+          <dt>Following the vein</dt><dd>Sensing gold, water and structural faults underground. The city's foundation engineers are mostly Lan Fong.</dd>
+          <dt>The swallow's walk</dt><dd>Being briefly in two places, while belonging to both. Leave without severing belonging, the swallow on the crest says.</dd>
+          <dt>Unwriting</dt><dd>Taking a thing's characters away. It is how the minutes burned, twice.</dd>
+        </dl>
+        <h4>How the account shows</h4>
+        <p>Red ink stains that spread up the fingers and do not wash off, and a strange price: overuse erases characters from your memory. Old masters sometimes cannot read their own names.</p>
+        <div class="forbid"><b>Never</b>Set a character that is in no dictionary. Whatever it makes should not exist. One slug of such a character sits in the Press Hall, in a case nobody opens.</div>
+      </div>
+    </article>
+
+    <!-- SANE-KORA -->
+    <article class="house" id="kora" style="--c:var(--kora)">
+      <aside>
+        <svg viewBox="0 0 120 140" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <circle cx="60" cy="96" r="34"/>
+          <path d="M60 8 V130" stroke-width="3"/>
+          <path d="M48 20 L52 96 M44 30 L50 96 M40 40 L48 96 M72 20 L68 96 M76 30 L70 96 M80 40 L72 96" stroke-width="1.1"/>
+          <path d="M50 96 H70" stroke-width="5"/>
+        </svg>
+        <p class="native">Native terms: <em>jeliya</em>, the griot's art; <em>nyama</em>, the force released by speech and deed; <em>fasa</em>, the praise-song.</p>
+      </aside>
+      <div class="col">
+        <h3>Sané-Kora · the Jeliya</h3>
+        <p class="motto">No throne hears itself clearly.</p>
+        <p>A Kora caster plays reality on the twenty-one strings of the kora, and every string is tuned to a relation: grief, oath, memory, the distance between two people, the trust between a ruler and the ruled. The craft is sound, all the way down. A master can make a crowd calm, a liar falter, or the dead become audible.</p>
+        <p>The house descends from the jeli lineages of the Mande world, who were trained from birth to handle <em>nyama</em>, the dangerous force every spoken word and every deed sets loose. So the tradition already had a theory of the account before the Straits gave it a name. Words are powerful, and someone has to carry what they release.</p>
+        <h4>Rank, by voices held at once</h4>
+        <div class="ranks">
+          <div><b>One voice</b>Can steady a frightened person with a single line.</div>
+          <div><b>Three voices</b>Testimony, contradiction and question, the three parts of the oral.</div>
+          <div><b>The full chorus</b>Holds a whole room's voices at once. Can make an epic replay in the air.</div>
+        </div>
+        <h4>Signature arts</h4>
+        <dl class="arts">
+          <dt>Fasa</dt><dd>A praise-song naming someone's lineage makes their ancestors audible around them. It steadies the hand, and it binds the one praised to live up to it.</dd>
+          <dt>The Second Voice</dt><dd>A counter-melody that cancels another caster's work, the way two waves cancel. It is the most elegant dispel in the city.</dd>
+          <dt>Resonance</dt><dd>A true pitch shatters a lie as surely as it shatters a glass.</dd>
+          <dt>The seat</dt><dd>A master seated in the Room hears what has been left unsaid.</dd>
+        </dl>
+        <h4>How the account shows</h4>
+        <p>Ringing ears, a hoarse throat, and over a lifetime, lost hearing. A voice cast carelessly leaves raw nyama in the room, which others feel as dread.</p>
+        <div class="forbid"><b>Never</b>Record. A voice cut off from its singer leaks nyama with no one to carry it. Half the city's speech machines were trained on the house's archive, which means there is loose nyama in every machine voice in the Straits.</div>
+      </div>
+    </article>
+
+    <div class="minor">
+      <div style="--c:var(--pet)">
+        <h4>Sekolah Petang · the stencil</h4>
+        <p>Small castings, mimeographed in purple duplicator ink and copied at a cent a sheet: cool a bowl, mend a strap, keep a lamp lit through the night shift. Weak, and nearly universal. Petang's stencils are the magic the city actually runs on, and no house will admit to having learned from them.</p>
+      </div>
+      <div style="--c:var(--arus)">
+        <h4>Rumah Arus · the drift</h4>
+        <p>Arus never holds a relation at all. Its pilots read currents, tide and wind, then ride what is already moving, with almost no account to pay. That is also why the school was struck off: a casting with no address cannot be licensed, and nobody can be blamed for it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="city">
+  <div class="wrap">
+    <p class="part">Part two</p>
+    <h2>The craft in the city</h2>
+    <div class="col"><p class="lede">A casting fades when no one holds it. So each house found a way to make its buildings do the holding, and the Straits became a city whose walls, roofs and quays are quietly casting all the time.</p></div>
+
+    <div class="places">
+      <div class="place" style="--c:var(--rain)">
+        <h4>Nine Rain</h4>
+        <p><b>Dwelling</b> The roof is a loom. Gutters run as warp threads, and every house in the water district has a weft beam under the eaves where the family knots the day's rain.</p>
+        <p><b>Hall</b> The Roof, a stepped terrace of catchment basins open to the sky, where the Rain Loom has knotted every day since the 1870s.</p>
+        <p><b>Street</b> Cooling warps strung across the lanes at noon, bought by the hour. You can tell a rich street by how cool it is at two o'clock.</p>
+      </div>
+      <div class="place" style="--c:var(--sund)">
+        <h4>Sund</h4>
+        <p><b>Dwelling</b> Houses built without nails, with a rune-cut ridge beam that wakes if the house is strained. Every house can be taken down and moved in a day.</p>
+        <p><b>Hall</b> The ting-hall, demounted and rebuilt somewhere new every ten years by whichever ring wins the right. It has stood in eleven places.</p>
+        <p><b>Street</b> Lapped footbridges whose planks share each walker's weight, so they never creak. A Sund bridge that creaks is a bridge someone should report.</p>
+      </div>
+      <div class="place" style="--c:var(--toa)">
+        <h4>Toa Keng</h4>
+        <p><b>Dwelling</b> Terraces with a brass benchmark bolt set in every doorstep. The bolt holds the house level to the millimetre; land subsidence stops at the threshold.</p>
+        <p><b>Hall</b> The Great Hall, where a lie casts a shadow. Weddings, contracts and cabinet swearings-in are held there for exactly that reason.</p>
+        <p><b>Street</b> Chalk grid-lines on the pavements of the old town, faint and permanent. Fires in the Toa Keng district stop at the kerb.</p>
+      </div>
+      <div class="place" style="--c:var(--mer)">
+        <h4>Al-Merikani</h4>
+        <p><b>Dwelling</b> Plain walls outside, a courtyard inside, and a strongroom lined with girih tiles that repair themselves when cracked. What is kept there cannot be taken.</p>
+        <p><b>Hall</b> The scent rooms, where agreements are sealed in attar and witnesses sit until the last promise is logged.</p>
+        <p><b>Street</b> Wind-vanes on the godown roofs that do not show the wind; they choose it. The whole merchant quarter has its own breeze.</p>
+      </div>
+      <div class="place" style="--c:var(--pus)">
+        <h4>Balai Pusaka</h4>
+        <p><b>Dwelling</b> Houses on posts rooted into the ground by the family that raised them. The steps where you leave your shoes are also the casting threshold.</p>
+        <p><b>Hall</b> The Balai Lama, where the floor is bare earth under the timber, so the elders stand on the ground while they teach.</p>
+        <p><b>Street</b> Keris pinned point-down beneath the corner posts of old kampung lanes. Developers have spent a century trying to buy lanes that cannot legally or physically be moved.</p>
+      </div>
+      <div class="place" style="--c:var(--lan)">
+        <h4>Lan Fong</h4>
+        <p><b>Dwelling</b> Shophouses whose signboards are wards. A shop sign set by a master in cinnabar guards the family above it for as long as the characters stay legible.</p>
+        <p><b>Hall</b> The Press Hall, 日新堂, where the presses run at night and the ballot urns stand by the door.</p>
+        <p><b>Street</b> Lam Keng's lanes, recomposed each night by the projections. A lane can be a market at nine and a courtyard at midnight.</p>
+      </div>
+      <div class="place" style="--c:var(--kora)">
+        <h4>Sané-Kora</h4>
+        <p><b>Dwelling</b> Every house has a listening room, small and wood-lined, where family disputes are heard by someone who is not family.</p>
+        <p><b>Hall</b> The Room, an acoustic chamber counted in seats rather than square metres, where the three-examiner oral is sung.</p>
+        <p><b>Street</b> Whispering galleries built into the market arcades. Speak into one and a person at the far end hears you clearly, and nobody in between does.</p>
+      </div>
+    </div>
+
+    <div class="harbour">
+      <h3>The harbour, as a ship arrives at night</h3>
+      <p>The port is the one place in the Straits where all seven crafts work on the same object at once. Follow a container ship in from the roads.</p>
+      <ol>
+        <li style="--c:var(--mer)"><b>Al-Merikani</b> vanes on the outer mole turn the wind a few degrees so she rides in on the tide instead of fighting it. Her cargo manifest is already sealed; no customs officer can open a box that its owner has not released.</li>
+        <li style="--c:var(--arus)"><b>Rumah Arus</b> pilots, unlicensed and unlisted, meet her at the bar in small boats and read the current for the captain. Officially, this does not happen.</li>
+        <li style="--c:var(--toa)"><b>Toa Keng</b> tide-lines hold the dredged channel at its charted depth to the centimetre, so a ship drawing fifteen metres can pass with a hand's width to spare.</li>
+        <li style="--c:var(--pus)"><b>Balai Pusaka</b> mangrove breakwaters, rooted by the same families for two hundred years, take the swell out of the inner harbour.</li>
+        <li style="--c:var(--sund)"><b>Sund</b> quays are built of lapped timber that spreads the shock of berthing across the whole wharf, so ships can come in faster than anywhere else in Asia.</li>
+        <li style="--c:var(--lan)"><b>Lan Fong</b> crane-masters write 起 in cinnabar on each container, and it lifts. Cranes here are mostly for show.</li>
+        <li style="--c:var(--rain)"><b>Nine Rain</b> cooling warps hang over the godowns, where rice, rubber and medicine are stored. The warehouses stay at twenty-two degrees without a single machine.</li>
+        <li style="--c:var(--kora)"><b>Sané-Kora</b> harbour-singers stand on the signal towers. Their voices carry across the roads to the pilots on the bridge, clear through any storm, and only to the ears they are meant for.</li>
+        <li style="--c:var(--pet)"><b>Sekolah Petang</b> stencils, purple and slightly crooked, are painted on every crate by the night shift: keep dry, keep whole, keep cool. They are the cheapest castings in the port, and most of the cargo arrives safely because of them.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="contest">
+  <div class="wrap">
+    <p class="part">Part three</p>
+    <h2>How they duel, and how they play</h2>
+    <div class="col">
+      <p class="lede">A formal duel in the Straits is called a <em>crossing</em>. Two casters stand on the Esplanade steps, each tries to make one relation true, and the first to drop the account, or say <em>stop</em>, loses. Nobody is supposed to be hurt. Everybody is sore afterwards.</p>
+      <p>Because each house measures power differently, the matches are lopsided in interesting ways. Every student can recite the famous pairings.</p>
+    </div>
+    <div style="margin-top:26px">
+      <div class="match"><div class="vs">Toa Keng <i>against</i> Nine Rain</div><div>The grid against the weave. Chalk lines slice through loose strands, but a weaver who waits for her day-sign can make it rain so hard the lines wash away. Won by whoever chose the date.</div></div>
+      <div class="match"><div class="vs">Sané-Kora <i>against</i> Toa Keng</div><div>The Proposition against the Second Voice. A surveyor's statement is either true or false; a singer only has to make it uncertain. Kora wins more often than the Board likes.</div></div>
+      <div class="match"><div class="vs">Lan Fong <i>against</i> Al-Merikani</div><div>The editor against the seal. A Lan Fong master can recompose almost anything, except a thing someone holds in trust. Merikani wins every crossing, and loses every argument about it afterwards.</div></div>
+      <div class="match"><div class="vs">Sund <i>against</i> anyone</div><div>A single Sund caster loses to anybody. Sund does not fight crossings alone; it brings a ring, and the rules say it may not. So Sund wins the long games and loses every duel, and considers this the correct result.</div></div>
+      <div class="match"><div class="vs">Balai Pusaka <i>at home or away</i></div><div>On her own ground, a Balai Pusaka elder cannot be moved; nobody has won a crossing against one on kampung soil. Away from it, she is ordinary. Challenges are therefore always about where the crossing is held.</div></div>
+      <div class="match"><div class="vs">Rumah Arus <i>against</i> anyone</div><div>Arus does not accept crossings. Its pilots simply leave with the tide, and the challenger is left alone on the steps. This is technically a forfeit and practically a win.</div></div>
+    </div>
+    <div class="col events">
+      <h3 style="font-size:1.7rem;margin-top:1.4em">The Regatta of Seven Hands</h3>
+      <p>Once a year, at the turn of the monsoon, the houses compete on the harbour. The <em>tide carry</em> has each house move a barge of fresh water from the outer roads to the basin using only its craft; Nine Rain always leads early and Sund always finishes. The <em>night press</em> has Lan Fong recompose a street while Toa Keng inspectors try to catch a single character out of place. The <em>silent round</em> is Kora's, and it is the only event in which the crowd is forbidden to cheer.</p>
+      <p>The final event is not a race. All seven houses build one structure together, over one night, and it is taken down at dawn. The city argues about who carried the most. That argument is the real prize.</p>
+    </div>
+  </div>
+</section>
+<section id="chapter" class="chapter">
+  <div class="wrap">
+    <div class="title-block">
+      <p class="part">Part four · an illustrative chapter</p>
+      <h2>The King Tide</h2>
+      <p>Basin Seven, the night of the highest tide in thirty years, with a monsoon squall sitting on top of it.</p>
+    </div>
+    <div class="col">
+      <p class="first">At fourteen minutes past two, the rain over Basin Seven stopped falling and did not stop raining. It hung. From the top of the Mole you could see it clearly under the floodlights: a grey curtain the width of the reservoir, every drop drawn out into a thread, and all the threads gathered at one end into the raised hands of a man in an undyed cotton jacket standing on the weir.</p>
+      <p>Elias Tan held three strands. He had held three strands for eleven minutes, which was about nine minutes longer than a man of his rank should, and his knuckles had started to split. Below him the basin was low and brown after four months of drought. On the other side of the Mole, the sea was higher than anyone living had seen it, and still coming in.</p>
+      <p>Opposite him, on the Authority's inspection platform, Dr Alden Goh of Toa Keng had snapped a chalk line across the whole basin at the level marked on Josefina Bautista's model, and was holding it. The line hung in the air a metre above the waterline like a white thread pulled taut. Nothing could rise above it. Not the basin, and not the rain Elias was trying to put into it.</p>
+      <p>That was the crossing. Nobody had called it one; it had simply become one sometime after two o'clock, when Elias had said the basin needed every drop of this storm and Goh had said the wall could not take one more centimetre of head with the tide pressing on the other side. Both of them were right. That was what made it a crossing and not an argument.</p>
+      <p>"Hold the line," said Josefina, from the platform. She had the best numbers in the city, and she was holding the tablet that showed them. "The model has the wall failing at the east pier if the basin rises. Alden, hold it."</p>
+      <p>"The basin is dying," Elias said, without turning round. "You can hold the sea out and still lose the water."</p>
+      <p class="break">· · ·</p>
+      <p>The boat came in on the seaward side without lights. Nobody on the Mole saw it until a woman climbed the rungs of the old sluice ladder, wet to the waist, and stood on the wall between the sea and the basin as if the wall were a floor.</p>
+      <p>Roro Lestari did not introduce herself. She did not have to; half the Authority's engineers had been quietly asking her about the basin's currents for ten years, and none of them had ever put her name in a report.</p>
+      <p>"It isn't the east pier," she said. "The water's moving wrong at the old sluice. There's a hole behind the gate. It's been there since before your model."</p>
+      <p>Josefina looked at the tablet. The tablet disagreed. Josefina looked at the water at the foot of the old sluice, where the sea had started to turn in a slow circle that did not appear on any chart, and for the first time that night she did not say anything.</p>
+      <p>The crack opened at 2:31 with a sound like a knuckle.</p>
+      <p class="break">· · ·</p>
+      <p>What ended the crossing was a sound nobody else heard. Amadou Sane had come up the Mole steps with his kora on his back and his shoes in his hand. He could no longer hear the top two registers of his own instrument, so he had learned to play through his feet, standing barefoot on stone and listening to what came back through his bones. He sat down on the wall between the two casters, set the kora upright, and played the Second Voice.</p>
+      <p>It was the most elegant dispel in the city and he played it badly, because he could not hear it. It did not matter. Goh's chalk line dissolved like breath on glass. Elias's three strands went slack. For one long second the storm fell as ordinary rain, the basin rose a hand's width, and the whole Mole groaned along its length.</p>
+      <p>"Now you're both holding nothing," Amadou said, in the voice of a man who could not tell how loud he was. "Good. Start again. Together."</p>
+      <p class="break">· · ·</p>
+      <p>Sol Soren-Iyer brought the ring. It had started as the twelve-person lag from the Sund yard on Kallang Road, and by the time it reached the Mole it was two hundred and twelve people: the lag, the night shift from the bus depot, most of the hawker centre at Basin Road, and a line of students from the shift school in their white shirts who had been doing homework in the depot canteen. Ha Kim-lian still had her apron on. Someone had put a Sund work-song on a phone speaker so the newcomers could learn the rhythm.</p>
+      <p>They clasped forearms along the full length of the wall, stamped in time, and the ring took the weight of the sea.</p>
+      <p>Kim-lian said afterwards that it felt like carrying a sack of rice on one shoulder for three hours without being allowed to put it down. So did everyone else. That was the point.</p>
+      <p>At the foot of the embankment, where the Mole met the old mangrove bank, Mak Siti Rohana had taken off her slippers. Her grandfather's grandfather had rooted that bank. She stood in the mud in the low wide stance she had learned at six, and under the black water the roots began to braid, pulling in against the toe of the wall like fingers closing. On her own ground she could not be moved. For the next three hours, neither could the Mole.</p>
+      <p class="break">· · ·</p>
+      <p>The hole behind the old sluice was the size of a car. Lin Yanshi of Lan Fong could see its outline in cinnabar before she was halfway along the wall: every broken character in the concrete, loose, trying to wash out to sea.</p>
+      <p>A recomposition this size needed a shareholder vote. It was 2:48 in the morning. She put the company's night line on speaker and held the phone up to the wind.</p>
+      <p>"Motion to recompose the old sluice at Basin Seven, at the company's shared account," she said. "It is going to hurt. I am asking you to carry it with me."</p>
+      <p>Fifty-eight voted aye. Three voted no, on the record, because somebody always must. Then sixty-one shareholders across the Straits, in bed, in taxis, on the night shift, felt the same dull ache arrive in their hands at the same moment, and Lin Yanshi began to set the wall again, character by character, in lines of red light that sank into the grey.</p>
+      <p>Zubaidah Marikar reached the sluice gate while Lin was still working. The gate had been sealed once before, in the last century, in a dispute between two families whose well lay behind it. Both seals were still on the iron, faded, one over the other. Zubaidah laid her palm over the two old impressions, and pressed a third beside them, in trust for the city until the tide turned. The gate would not open now for the sea, or for anyone. The lining of her jacket went warm against her ribs and stayed warm for a month.</p>
+      <p class="break">· · ·</p>
+      <p>That left the rain, still falling, and the two men who had been fighting over it.</p>
+      <p>"How much can the wall take," Elias said. "With the ring holding it."</p>
+      <p>Goh looked along the length of the Mole, at two hundred and twelve people stamping in the dark, at the roots and the red light and the sealed gate. He snapped a new chalk line, higher this time. "Forty-one centimetres," he said. "Point six. Not a millimetre more."</p>
+      <p>"Then measure it for me," said Elias, and raised his hands.</p>
+      <p>He could not hold the storm alone, and he did not try. He took one strand at a time and laid it down into the basin in steps, the way his house has watered mountainsides for five hundred years, and Goh counted each one against the line in a clear flat voice the whole wall could hear. Thirty-eight. Thirty-nine point two. Forty. At each count the ring felt the load shift on their shoulders, and took it. At forty-one point six Elias closed his hands, and the rest of the storm went out to sea.</p>
+      <p>The tide turned at 5:09. Nobody on the Mole noticed until the children from the shift school pointed at the water and started cheering. They had spent the night stencilling purple cantrips onto sandbags, <em>keep whole, keep dry</em>, and they were convinced, not entirely wrongly, that this was what had done it.</p>
+      <p class="break">· · ·</p>
+      <p>Roro Lestari's boat was gone before dawn. Nobody could thank her, and nobody could blame her, which was how she preferred it.</p>
+      <p>The account came due over the following week, as it always does. Everyone in the ring had the same bruise on the same shoulder, the size of a hand. Amadou lost another tone at the top of his hearing. Mak Siti Rohana slept for two days. Lin Yanshi discovered, trying to sign the minutes, that she could no longer write the character for <em>sea</em>, and had to ask her granddaughter to show her.</p>
+      <p>Josefina Bautista filed her report. Under <em>cause of failure</em> she wrote <em>model incorrect</em>, crossed out <em>incorrect</em>, and wrote <em>incomplete</em>. It was the most honest line in the Authority's records that year, and three people framed it.</p>
+      <p>That night, in his house under the eaves, Elias Tan knotted the storm into his cord. It took him an hour. The knots were uneven and fat and ugly, nothing like the tidy knots he had tied nine years ago, which everyone at the Rain Loom now suspected had been tied too neatly to be true.</p>
+      <p class="knot">Eleven knots, uneven. The house kept them. By a vote of the whole Roof, they hang at eye level in the Loom, and they are the only stretch of cord in a hundred and fifty years that every house in the city agrees is real.</p>
+      <p>And the next morning, at the hawker centre on Basin Road, the city began to argue about who had carried the most.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>The Seven Hands of the Straits. A craft volume for the Parallel Straits, following the Register of Names, the Ensemble and Basin Seven. Linwei's world.</p>
+  </div>
+</footer>
+
+<button class="theme-toggle" type="button" id="themeBtn" aria-label="Switch colour theme">Dark</button>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn'), key='seven-hands-theme';
+  function dark(){var t=root.getAttribute('data-theme'); if(t) return t==='dark'; return window.matchMedia('(prefers-color-scheme: dark)').matches;}
+  function label(){btn.textContent=dark()?'Light':'Dark';}
+  try{var s=localStorage.getItem(key); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=dark()?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem(key,n);}catch(e){} label();});
+})();
+</script>
+</body>
+</html>

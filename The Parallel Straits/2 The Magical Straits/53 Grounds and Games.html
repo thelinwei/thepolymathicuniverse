@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grounds and Games · 根与会</title>
+<style>
+:root{
+  --paper:#F6F6F2; --ink:#1E2129; --soft:#4A4F5C; --rule:#C4C7CC; --acc:#8A2F4B; --panel:#ECEDE8; --gold:#8C6A1C;
+  --tk:#2B4A78; --am:#1F6F5C; --bp:#8C6A1C; --lf:#9B2C2C; --nr:#6A3E83; --sk:#B0601A; --su:#5F8497;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --acc:#E58CA8; --panel:#20232B; --gold:#D9B45A;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}}
+:root[data-theme="dark"]{
+  --paper:#17191F; --ink:#ECEAE4; --soft:#C9CBD1; --rule:#454A55; --acc:#E58CA8; --panel:#20232B; --gold:#D9B45A;
+  --tk:#7EA2DA; --am:#5FC3A6; --bp:#D9B45A; --lf:#E07A7A; --nr:#B58BD0; --sk:#E3A060; --su:#9CC0D2;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Times New Roman",Times,"Songti SC","Noto Serif SC","SimSun",serif;
+  font-size:19px;line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding-left:22px;padding-right:22px}
+.wide{max-width:1080px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{padding-top:64px;padding-bottom:28px}
+.series{font-style:italic;color:var(--soft);margin:0 0 18px;font-size:17px}
+h1{font-weight:400;font-size:clamp(46px,9.5vw,90px);line-height:.95;letter-spacing:-.02em;margin:0}
+h1 .zh{display:block;font-size:.5em;letter-spacing:.3em;margin-top:14px;color:var(--acc)}
+.deck{font-size:22px;line-height:1.45;margin:28px 0 0;max-width:34em}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px}
+nav.toc a{color:var(--acc);text-decoration:none;border-bottom:1px solid currentColor}
+.part{font-variant:small-caps;letter-spacing:.08em;color:var(--acc);font-size:19px;margin:0 0 6px}
+h2{font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.08;margin:0 0 18px;letter-spacing:-.01em}
+h3{font-weight:400;font-size:23px;margin:0 0 6px}
+section{padding-top:50px;padding-bottom:50px;border-top:1px solid var(--rule)}
+.partbreak{padding-top:80px;padding-bottom:26px;border-top:3px double var(--ink)}
+.partbreak h2{font-size:clamp(40px,8vw,62px)}
+p{margin:0 0 14px}
+.lede{font-size:21px}
+.pull{font-size:23px;line-height:1.4;margin:24px 0;padding-left:20px;border-left:3px solid var(--acc)}
+.panel{background:var(--panel);padding:20px 22px;margin:20px 0}
+.panel p:last-child{margin:0}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+table{border-collapse:collapse;font-size:16px;width:100%}
+th,td{padding:9px 8px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+th{font-weight:400;font-style:italic}
+table.grid{min-width:1060px;font-size:15px}
+table.grid td:first-child{white-space:nowrap}
+table.grid td.gr{background:var(--panel);font-weight:700}
+.defs td:first-child{font-style:italic;white-space:nowrap;color:var(--soft)}
+.ground{padding-top:40px;padding-bottom:40px;border-top:1px solid var(--rule)}
+.ground h3{color:var(--c);font-size:26px}
+.ground .gd{font-variant:small-caps;letter-spacing:.05em;color:var(--c);margin:0 0 12px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 16px;align-items:center}
+.stack span{border:1.5px solid var(--c);padding:3px 9px;font-size:16px}
+.stack span:first-child{background:var(--c);color:var(--paper)}
+.stack i{color:var(--soft);font-size:15px}
+.limit{padding-left:16px;border-left:3px solid var(--c)}
+.limit::before{content:"The limit PE teaches. ";font-variant:small-caps;letter-spacing:.04em;color:var(--c)}
+.class{margin-top:10px}
+.class::before{content:"In the classroom. ";font-variant:small-caps;letter-spacing:.04em;color:var(--c)}
+.rules{counter-reset:r;list-style:none;padding:0;margin:0}
+.rules li{counter-increment:r;padding-top:14px;padding-bottom:14px 46px;position:relative;border-top:1px solid var(--rule)}
+.rules li::before{content:counter(r);position:absolute;left:0;top:10px;font-size:30px;color:var(--acc)}
+.rules b{display:block;font-size:20px;font-weight:400}
+.league{padding-top:44px;padding-bottom:10px;border-top:3px double var(--ink)}
+.league .zhl{color:var(--acc);font-size:26px;margin-left:10px}
+.event{padding-top:22px;padding-bottom:22px;border-top:1px solid var(--rule)}
+.event h3{font-size:24px}
+.event .ev-zh{color:var(--acc);margin-left:8px}
+.event dl{display:grid;grid-template-columns:7.4em 1fr;gap:8px 16px;margin:10px 0 0}
+.event dt{font-style:italic;color:var(--acc)}
+.event dd{margin:0}
+@media (max-width:560px){.event dl{grid-template-columns:1fr;gap:2px}.event dd{margin-bottom:10px}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:20px 0}
+@media (max-width:620px){.grid2{grid-template-columns:1fr}}
+.grid2>div{border-top:2px solid var(--ink);padding-top:10px}
+.grid2 b{display:block;font-size:20px;font-weight:400;margin-bottom:4px}
+.medal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.medal div{border-top:3px solid var(--c);padding-top:6px;font-size:16px}
+.medal b{display:block;color:var(--c);font-weight:400;font-size:18px}
+footer{padding-top:40px;padding-bottom:80px;color:var(--soft);font-style:italic;font-size:16px;border-top:1px solid var(--rule)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+.event{background:var(--panel);padding:20px 20px 16px;margin:18px 0;border-top:3px solid var(--acc)}
+.league>.event:first-of-type{margin-top:20px}
+.league h2{margin-bottom:8px}
+.ground{padding-top:36px;padding-bottom:36px}
+.rules li{padding-left:48px}
+.medal{gap:16px}
+.wide>.inner{padding-left:0;padding-right:0;max-width:676px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <p class="series">The Great Schools of the Straits · on what lies beneath each curriculum, and how the houses compete</p>
+  <h1>Grounds and Games<span class="zh">根与会</span></h1>
+  <p class="deck">Every curriculum rests on one discipline it treats as the ground of all the others. Change the ground and every subject above it changes meaning. Then, once every seven years, the houses meet to test whose ground holds.</p>
+  <nav class="toc">
+    <a href="#stack">Your stack</a><a href="#grounds">Seven grounds</a><a href="#matrix">The full matrix</a><a href="#design">Design, the unowned</a><a href="#games">The Concord Games</a><a href="#charter">The charter</a><a href="#body">Body</a><a href="#making">Making</a><a href="#axiom">Axiom</a><a href="#crown">The crown event</a><a href="#scandal">Scandals</a><a href="#seven">The seventh team</a>
+  </nav>
+</header>
+
+<!-- ============ PART ONE ============ -->
+<section class="wrap partbreak" id="stack">
+  <p class="part">Part one</p>
+  <h2>Grounds</h2>
+</section>
+
+<section class="wrap" style="border-top:none;padding-top:0">
+  <p class="lede">Your seven definitions, read together, describe a building.</p>
+  <div class="tbl"><table class="defs">
+    <tr><td>PE</td><td>Limits: body and mind in coordination, alone and together</td></tr>
+    <tr><td>Mathematics</td><td>Axioms: abstract relation beyond the physical</td></tr>
+    <tr><td>Biology</td><td>Living forms, and beneath them, chemistry</td></tr>
+    <tr><td>Chemistry</td><td>Substrates and their transformation</td></tr>
+    <tr><td>Physics</td><td>The scaffold of laws beneath chemistry and biology</td></tr>
+    <tr><td>The arts</td><td>External representations of what is deeply personal, beyond cognition</td></tr>
+    <tr><td>Design</td><td>The mediation of everything in between, for better outcomes for all</td></tr>
+  </table></div>
+  <p>Physics sits at the bottom holding up chemistry, which holds up biology. Mathematics floats free above, the arts stand to one side, PE stays with the body, and design moves through the gaps doing repair. It is a beautiful account, and it is one particular account: the modern reductive stack, with physics as the ground.</p>
+  <p class="pull">In the Straits, that stack belongs to Toa Keng. It is also the stack of the Settled, the world where one account won. Readers of the novel will recognise it as their own school timetable, which is exactly why it can be made strange.</p>
+  <p>Each house has a different ground. Put a different discipline at the bottom and every subject above it changes meaning: physics becomes chemistry’s slowest reactions, or the universe’s ledger, or what things say when struck. Your list also has a gap that one house would notice immediately. There is no discipline of place.</p>
+</section>
+
+<section class="wrap" id="grounds">
+  <p class="part">Seven grounds</p>
+  <h2>What each house stands on</h2>
+  <p>The first term in each stack is the ground; the rest follow in the order the house believes they rest on one another.</p>
+
+  <div class="ground" style="--c:var(--tk)">
+    <h3>Toa Keng</h3>
+    <p class="gd">Ground: Physics, as frames and invariants</p>
+    <div class="stack"><span>Physics</span><span>Mathematics</span><span>Chemistry</span><span>Biology</span><span>PE</span><span>Arts</span><span>Design</span></div>
+    <p>Your stack, with one change of emphasis. Physics is the study of what stays the same when every frame changes. Everything else is that question asked at a smaller or warmer scale.</p>
+    <p class="limit">Knowing where your body is from outside it. The limit is the edge of your own vantage.</p>
+    <p class="class">Children measure their own reach and pulse in the first week, as instruments. Art class is perspective drawing. Biology treats every organism as an observer with its own frame.</p>
+  </div>
+
+  <div class="ground" style="--c:var(--am)">
+    <h3>Al-Merikani</h3>
+    <p class="gd">Ground: Mathematics, as axioms held in trust</p>
+    <div class="stack"><span>Mathematics</span><span>Physics</span><span>Chemistry</span><span>Biology</span><span>PE</span><span>Design</span><span>Arts</span></div>
+    <p>An axiom is a statement everyone agrees to hold without proof. That makes it a trust. Mathematics is the house’s ground because it is the purest case of shared keeping: a whole civilisation standing on promises nobody can verify.</p>
+    <p class="limit">The body is an entrusted instrument. Limits are set by oath, and a training covenant can be broken.</p>
+    <p class="class">Axioms are introduced as vows, with the class agreeing to hold them. Chemistry begins with the bond: two atoms sharing what neither owns. Conservation laws are taught as the universe keeping its books.</p>
+  </div>
+
+  <div class="ground" style="--c:var(--bp)">
+    <h3>Balai Pusaka</h3>
+    <p class="gd">Ground: Geography, the discipline of place</p>
+    <div class="stack"><span>Geography</span><span>Biology</span><span>Chemistry</span><span>Physics</span><span>PE</span><span>Arts</span><span>Mathematics</span></div>
+    <p>The discipline missing from the list. For Balai Pusaka every law is local weather: physics is what this slope, this tide and this flood do; chemistry is this soil and this salt. Mathematics sits at the top, the most portable and therefore the most suspect.</p>
+    <p class="limit">The terrain sets the body’s limit. Walking the bounds teaches you what the ground will let you do.</p>
+    <p class="class">Measurement uses the place’s own units: paces, fathoms, harvests. The species of one place are studied together as one body.</p>
+  </div>
+
+  <div class="ground" style="--c:var(--lf)">
+    <h3>Lan Fong</h3>
+    <p class="gd">Ground: Chemistry, as transformation</p>
+    <div class="stack"><span>Chemistry</span><span>Physics</span><span>Biology</span><span>Arts</span><span>PE</span><span>Mathematics</span><span>Design</span></div>
+    <p>Everything is a reaction at some speed. Physics is chemistry’s slowest reactions; biology is chemistry that remembers its own recipe; art is the transformation of the maker by the making.</p>
+    <p class="limit">Refining: the body cultivated through stages. The limit is the next stage you have not reached.</p>
+    <p class="class">Every science class is held at a stove. Mathematics is taught as combinatorics, the grammar of how many things can be made from these parts.</p>
+  </div>
+
+  <div class="ground" style="--c:var(--nr)">
+    <h3>Nine Rain</h3>
+    <p class="gd">Ground: Biology, as life returning across generations</p>
+    <div class="stack"><span>Biology</span><span>Chemistry</span><span>Physics</span><span>Mathematics</span><span>PE</span><span>Arts</span><span>Design</span></div>
+    <p>Life is the model of return: seasons, heredity, succession. Chemistry is metabolism, the body’s ledger of exchange. Physics is the study of the returns of non-living things: orbits, tides, weather.</p>
+    <p class="limit">Breath and recovery. The limit is how fast you return to yourself.</p>
+    <p class="class">Mathematics begins with cycles and periods. Every biology lesson traces an organism across three generations.</p>
+  </div>
+
+  <div class="ground" style="--c:var(--sk)">
+    <h3>Sané-Kora</h3>
+    <p class="gd">Ground: the Arts, as witness</p>
+    <div class="stack"><span>Arts</span><span>Mathematics</span><span>Physics</span><span>Biology</span><span>Chemistry</span><span>PE</span><span>Design</span></div>
+    <p>Your definition of the arts, as what reaches beyond cognition, is the ground here. Every science is a genre of witness. Physics is acoustics: what things say when struck. Mathematics is rhythm, rest and zero.</p>
+    <p class="limit">Dance. The limit is the silence between beats.</p>
+    <p class="class">Biology asks what each species cannot say. Chemistry is taught through the tuning of bells and drums, where a change in the metal changes the voice.</p>
+  </div>
+
+  <div class="ground" style="--c:var(--su)">
+    <h3>Sund</h3>
+    <p class="gd">Ground: PE, as coordination of many bodies</p>
+    <div class="stack"><span>PE</span><span>Biology</span><span>Mathematics</span><span>Physics</span><span>Chemistry</span><span>Arts</span><span>Design</span></div>
+    <p>Your definition of PE ends with “collectively”. Sund begins there. The crew is the unit of the body, and every other discipline studies how many parts move as one.</p>
+    <p class="limit">What the crew can carry that no one could carry alone.</p>
+    <p class="class">Biology is colonies, flocks and mycelia. Physics is load paths through a structure. Chemistry starts with catalysis, reactions that need a partner.</p>
+  </div>
+</section>
+
+<section class="wide" id="matrix">
+  <div class="wrap inner">
+    <p class="part">The full matrix</p>
+    <h2>Seven disciplines, seven meanings</h2>
+    <p>Each house’s reading of every discipline. The shaded cell is the house’s ground. Scroll sideways on a phone.</p>
+  </div>
+  <div class="tbl"><table class="grid">
+    <thead><tr><th></th><th>PE</th><th>Mathematics</th><th>Biology</th><th>Chemistry</th><th>Physics</th><th>Arts</th><th>Design</th></tr></thead>
+    <tbody>
+    <tr><td style="color:var(--tk)">Toa Keng</td><td>Knowing your body from outside it</td><td>The language of moving between frames</td><td>Organisms as instruments with a vantage</td><td>One event seen at many scales</td><td class="gr">What stays the same when every frame changes</td><td>Perspective: the portrait of a standpoint</td><td>Choosing the frame others will stand in</td></tr>
+    <tr><td style="color:var(--am)">Al-Merikani</td><td>The body as an entrusted instrument</td><td class="gr">Axioms as promises everyone keeps</td><td>Symbiosis and mutual enablement</td><td>The bond: sharing what neither owns</td><td>Conservation as the universe’s ledger</td><td>Seals, signatures, vows</td><td>The covenant that makes two parties able</td></tr>
+    <tr><td style="color:var(--bp)">Balai Pusaka</td><td>Walking the bounds</td><td>Counting in the place’s own units</td><td>The species of one place as one body</td><td>This soil, this water, this salt</td><td>Laws as local weather</td><td>The place’s self-portraits: pantun, keris, cloth</td><td>Building with permission</td></tr>
+    <tr><td style="color:var(--lf)">Lan Fong</td><td>Refining the body in stages</td><td>The grammar of recombination</td><td>Chemistry that remembers its recipe</td><td class="gr">Transformation itself</td><td>Chemistry’s slowest reactions</td><td>The maker transformed by making</td><td>Recomposing what already exists</td></tr>
+    <tr><td style="color:var(--nr)">Nine Rain</td><td>Breath and recovery</td><td>Cycles, periods, recurrence</td><td class="gr">Heredity, season, succession</td><td>Metabolism: the body’s ledger</td><td>The returns of non-living things</td><td>Weaving, song cycles, harvest rites</td><td>Designing for the return</td></tr>
+    <tr><td style="color:var(--sk)">Sané-Kora</td><td>Dance, and the silence between beats</td><td>Rhythm, rest and zero</td><td>What each species cannot say</td><td>How a changed material changes its voice</td><td>Acoustics: what things say when struck</td><td class="gr">Witness beyond cognition</td><td>Making room for who is missing</td></tr>
+    <tr><td style="color:var(--su)">Sund</td><td class="gr">The crew as the unit of the body</td><td>Fair division, graphs, flows</td><td>Colonies, flocks, mycelia</td><td>Catalysis: reactions that need a partner</td><td>Load paths through a structure</td><td>The choir, the saga told in turns</td><td>Maintenance: who keeps it working</td></tr>
+    </tbody>
+  </table></div>
+  <div class="wrap inner">
+    <p>Read the table by row for a house’s worldview. Read it by column for one discipline broken into seven: “Chemistry” means the bond, the soil, transformation itself, metabolism, a bell’s changed voice and catalysis. A student who learns chemistry in all seven classrooms knows something no single house can teach.</p>
+  </div>
+</section>
+
+<section class="wrap" id="design">
+  <p class="part">The unowned discipline</p>
+  <h2>Design</h2>
+  <p>Look at the last column. No house puts design at its ground, and five houses put it at the very top of their stack, as the thing everything else eventually serves. Your own definition explains why: design is the mediation of everything in between, for better outcomes for all. That is the Straits’ native law, the capacity to keep unlike systems open to one another. It belongs to the harbour, and no single ship can own it.</p>
+  <p>So the Concordat reserves it. Design is the one subject no house may teach in its own schools. It is taught only in crossing hours, in studios run by the Concordat, and every design review is held with seven chairs, one for a critic from each house. A project passes when it survives all seven questions: from where, on whose behalf, where it belongs, what else it could become, what returns, who is missing, and who will carry it.</p>
+  <div class="panel"><p>The seven-chair crit is the Concordat in miniature. Students who are good at it are good at the Hinge. It is also where the misfits first recognise one another: each of them is the student who keeps answering the critic from a different house.</p></div>
+</section>
+
+<!-- ============ PART TWO ============ -->
+<section class="wrap partbreak" id="games">
+  <p class="part">Part two</p>
+  <h2>The Concord Games</h2>
+  <p class="zhsub" style="font-size:26px;color:var(--acc);margin:0">会通</p>
+</section>
+
+<section class="wrap" style="border-top:none;padding-top:0">
+  <p class="lede">Once every seven years, on the anniversary of the Sevenfold Harbour, the houses meet in open competition. The Games began as a truce, like the one that let Greek cities send athletes to Olympia through wartime, and they still open with one: for the seven days of the Games, no house may act against another.</p>
+  <p>There are three leagues, echoing the three games of the Mongolian Naadam: Body, Making and Axiom. Each has events with strict parameters. The strictness is the point. When the rules are fixed and identical for all, the only thing that varies is the ground each house stands on.</p>
+</section>
+
+<section class="wrap" id="charter">
+  <h2>The charter</h2>
+  <ol class="rules">
+    <li><b>The load budget</b>Every competitor receives a fixed allowance of load for each event, recorded by Concordat clerks. Casting beyond it disqualifies. The budget is small on purpose: the Games reward understanding over force.</li>
+    <li><b>The clean bill</b>Whatever load a competitor incurs, they must bear themselves. Exporting load to anyone else, anywhere, is the gravest offence in the Games.</li>
+    <li><b>No home ground</b>No event is held on a site where one house’s grammar comes easily. Venues are chosen by lot from neutral ground, and the harbour itself is the only permanent venue.</li>
+    <li><b>Mixed judging</b>Every event is judged by three houses, never including the favourite’s. Each judge scores by their own house’s question, and the three scores are published separately.</li>
+    <li><b>The crossing member</b>Every team event requires one member from another house. The rule was meant as a gesture. It has decided more finals than any other.</li>
+    <li><b>The Grey and the Clear</b>No practice of either pole may be used in competition. Dissolving a rival’s work and forcing a rival into one’s own frame are equally banned.</li>
+  </ol>
+</section>
+
+<section class="wrap league" id="body">
+  <h2>Body<span class="zhl">身</span></h2>
+  <p>Limits, coordination, the body alone and in crews.</p>
+
+  <div class="event"><h3>The Carry<span class="ev-zh">负</span></h3>
+    <dl><dt>Parameters</dt><dd>Seven bearers carry one granite block across the harbour bridge. The block may not touch the ground. Load budget: almost none.</dd>
+    <dt>Favourite</dt><dd>Sund, nearly always.</dd>
+    <dt>How houses play</dt><dd>Sund crews move as one body, breathing together. Nine Rain teams time their steps to the tide’s swell under the bridge. Toa Keng once won by recalculating the block’s centre of mass from seven frames at once.</dd>
+    <dt>Famous moment</dt><dd>A Lan Fong team recomposed the block into a long stretcher shape mid-bridge. The rule now reads that the block’s form must be unchanged.</dd></dl></div>
+
+  <div class="event"><h3>The Stillness<span class="ev-zh">定</span></h3>
+    <dl><dt>Parameters</dt><dd>Competitors sit in a tidal pool as the tide rises. The last to move wins. No casting permitted.</dd>
+    <dt>Favourite</dt><dd>Balai Pusaka.</dd>
+    <dt>How houses play</dt><dd>Balai Pusaka athletes ask the pool’s permission and seem to become part of it. Sané-Kora athletes listen to the water and move only in its silences, which the judges cannot see.</dd>
+    <dt>Famous moment</dt><dd>A Balai Pusaka elder once sat through two full tides. Crabs had moved into her lap.</dd></dl></div>
+
+  <div class="event"><h3>The Long Breath<span class="ev-zh">息</span></h3>
+    <dl><dt>Parameters</dt><dd>A free dive into the channel, retrieving tokens from marked depths on a single breath.</dd>
+    <dt>Favourite</dt><dd>Nine Rain.</dd>
+    <dt>How houses play</dt><dd>Nine Rain divers treat the breath as a return and descend only as far as they can come back from. Al-Merikani divers go in pairs, each holding the other’s life in trust.</dd></dl></div>
+
+  <div class="event"><h3>The Dragon Boats<span class="ev-zh">龙舟</span></h3>
+    <dl><dt>Parameters</dt><dd>Mixed crews of twenty-two paddlers, one drummer and one steerer race the length of the harbour. Every boat must carry at least one paddler from every house.</dd>
+    <dt>Favourite</dt><dd>Whichever crew can make seven rhythms into one.</dd>
+    <dt>How houses play</dt><dd>The drummer is almost always Sané-Kora. The steerer is often Toa Keng. The winners are the crews whose Sund paddlers stop trying to lead.</dd>
+    <dt>Famous moment</dt><dd>The Games’ most-loved event, and the only one where houses cheer for mixed boats. The dragon’s head on each boat is a compression of the monsoon, and old sailors still say the harbour watches.</dd></dl></div>
+</section>
+
+<section class="wrap league" id="making">
+  <h2>Making<span class="zhl">造</span></h2>
+  <p>Invention under constraint. Every competitor receives identical materials, identical time, and the same load budget.</p>
+
+  <div class="event"><h3>The Bowl<span class="ev-zh">器</span></h3>
+    <dl><dt>Parameters</dt><dd>One kilogram of clay, one hour, one kiln. Make a vessel that holds water. Judged by three houses’ questions.</dd>
+    <dt>Favourite</dt><dd>Lan Fong.</dd>
+    <dt>How houses play</dt><dd>Lan Fong throws, cuts and rejoins until the bowl carries every earlier form inside it. Balai Pusaka digs a pinch of harbour mud into the clay so the bowl belongs somewhere.</dd>
+    <dt>Famous moment</dt><dd>A Sané-Kora potter won with a bowl whose walls were barely there, quoting the Daodejing to the judges: the use of a vessel is in its emptiness. The Lan Fong team appealed and lost.</dd></dl></div>
+
+  <div class="event"><h3>The Bridge of Lent Materials<span class="ev-zh">借桥</span></h3>
+    <dl><dt>Parameters</dt><dd>Span a twelve-metre channel strong enough for all seven judges to cross together. Every material must be lent by another house and returned intact within a day.</dd>
+    <dt>Favourite</dt><dd>Al-Merikani, who treat every borrowed plank as a trust.</dd>
+    <dt>How houses play</dt><dd>Sund teams design for demounting first and crossing second. Toa Keng teams calculate loads from each judge’s standpoint.</dd>
+    <dt>Famous moment</dt><dd>A bridge collapsed after the judges crossed and before the materials were returned. The team was disqualified for breach of trust, though the bridge had technically succeeded.</dd></dl></div>
+
+  <div class="event"><h3>The Unfinished<span class="ev-zh">未竟</span></h3>
+    <dl><dt>Parameters</dt><dd>Make an object that improves by being used. It is judged seven years later, at the next Games.</dd>
+    <dt>Favourite</dt><dd>Nine Rain.</dd>
+    <dt>How houses play</dt><dd>Entries have included a path that becomes more comfortable as it wears and a tool whose handle learns its owner’s grip.</dd>
+    <dt>Famous moment</dt><dd>One winner was judged posthumously. Her grandchildren accepted the medal.</dd></dl></div>
+</section>
+
+<section class="wrap league" id="axiom">
+  <h2>Axiom<span class="zhl">理</span></h2>
+  <p>Contests of relation and law. The Games’ oldest league, descended from the Straits’ examination halls.</p>
+
+  <div class="event"><h3>The Frames<span class="ev-zh">观</span></h3>
+    <dl><dt>Parameters</dt><dd>One statement is posted at dawn. Competitors have until dusk to show it true from as many frames as possible, and must state where each proof stops holding.</dd>
+    <dt>Favourite</dt><dd>Toa Keng.</dd>
+    <dt>Famous moment</dt><dd>The one year Toa Keng lost, the winner found a frame from which the statement was true that no Toa Keng examiner had ever stood in: a child’s height.</dd></dl></div>
+
+  <div class="event"><h3>The Ledger<span class="ev-zh">账</span></h3>
+    <dl><dt>Parameters</dt><dd>Competitors are given the real accounts of one kampong, with a shifting set of axioms about what counts as owed, and must settle the books fairly.</dd>
+    <dt>Judged by</dt><dd>The villagers, whose verdict overrides the judges.</dd>
+    <dt>Favourite</dt><dd>Al-Merikani, though the villagers often prefer Sund.</dd></dl></div>
+
+  <div class="event"><h3>The Second Song<span class="ev-zh">续歌</span></h3>
+    <dl><dt>Parameters</dt><dd>Tell the history of the previous Games, including everything the official record omits.</dd>
+    <dt>Judged by</dt><dd>People the official record left out: the groundskeepers, the cooks, the clerks.</dd>
+    <dt>Favourite</dt><dd>Sané-Kora. It is the event the Games’ organisers most dislike, and the only one they cannot cancel.</dd></dl></div>
+</section>
+
+<section class="wrap league" id="crown">
+  <h2>The crown event<span class="zhl">通</span></h2>
+  <div class="event" style="border-top:none"><h3>The Translation</h3>
+    <dl><dt>Parameters</dt><dd>Pairs from two different houses stand at a Seam to an adjacent world. Each receives that world’s law. Together they must hold one relation that works under both the Straits’ law and the foreign one. The relation must stand for 384 seconds, one full reading of the changes.</dd>
+    <dt>Judged by</dt><dd>A registrar of the Straits and a representative of the adjacent world, who must agree.</dd>
+    <dt>Favourite</dt><dd>None. No pair has won it twice.</dd>
+    <dt>Why it is the crown</dt><dd>It is the only event in which design is the whole of the discipline: mediation between laws, for an outcome both worlds can live with. The winners receive no medal. Their names are carved on the harbour wall, beside the Concordat.</dd></dl></div>
+
+  <h3 style="margin-top:30px">The closing</h3>
+  <p>On the last evening, every competitor from every house builds one structure together on the harbour, from the day’s leftover materials. It is not scored. It is taken down at dawn. It is the part of the Games that spectators remember longest.</p>
+</section>
+
+<section class="wrap" id="medals">
+  <h2>What winners receive</h2>
+  <p>The Games medal is a seven-sided token. Each judging house adds its own face, so no two medals are alike.</p>
+  <div class="medal">
+    <div style="--c:var(--tk)"><b>Toa Keng</b>A lens ground to the winner’s height</div>
+    <div style="--c:var(--am)"><b>Al-Merikani</b>A seal, countersigned by the defeated</div>
+    <div style="--c:var(--bp)"><b>Balai Pusaka</b>A pinch of the venue’s soil</div>
+    <div style="--c:var(--lf)"><b>Lan Fong</b>One metal letter from the founding type</div>
+    <div style="--c:var(--nr)"><b>Nine Rain</b>A seed, to be planted and judged in seven years</div>
+    <div style="--c:var(--sk)"><b>Sané-Kora</b>A verse naming who helped the winner</div>
+    <div style="--c:var(--su)"><b>Sund</b>Nothing for the individual; a share for the crew</div>
+  </div>
+</section>
+
+<section class="wrap" id="scandal">
+  <h2>Scandals</h2>
+  <div class="grid2">
+    <div><b>Load doping</b>The Games’ oldest scandal and its worst. An athlete casts far beyond the budget and quietly exports the load. The clerks’ books balance. Somewhere in the lower estates, a burden roll grows. The last great case was traced to Basin Seven, and the families there have never received a medal’s worth of anything.</div>
+    <div><b>The single score</b>Every generation someone proposes one universal scoring system for all events, so results can be compared across houses. It is always defeated. Its proposers are always sincere, and always Clear in everything but name.</div>
+    <div><b>The favoured venue</b>A drawn lot that happened to fall on a Balai Pusaka keeping-ground. The house withdrew from every event held there. Its elders said the place would not let them compete on it fairly.</div>
+    <div><b>The crossing member</b>A dominant team recruited its crossing member and then had them sit out every race. The rule was amended: the crossing member must be the steerer, the drummer, or the one who finishes.</div>
+  </div>
+</section>
+
+<section class="wrap" id="seven">
+  <p class="part">The novel</p>
+  <h2>The seventh team</h2>
+  <p>Deep in the charter, from the first Games, is a clause nobody has used in forty years. A team with no home house may enter if all its members were forwarded to the Concordat registry as unclassifiable. The team must be seven.</p>
+  <p>The misfits enter under that clause. They have no colours, so they compete in grey, which half the crowd reads as an insult and the other half as a threat. They are terrible at the Carry, because nobody leads. They are thrown out of the Bowl for making a vessel that holds water only when all three judges look at it at once. They come last in the Ledger, and the villagers vote for them anyway.</p>
+  <p>They have entered for one reason. The Translation is held at a Seam, the only lawful chance in seven years to stand at one openly. And the Survivor, from the last seven, has told them that the Seam chosen this year is the one beneath Exit H.</p>
+  <p>At the dragon boats, the Sund boy notices the load clerks’ books balancing too well. His mother’s cough has been worse all week.</p>
+</section>
+
+<footer class="wrap">Companion to How the Seven Teach and the Resonance Atlas. Static page: all content is in this file and every link works without scripts.</footer>
+</body>
+</html>

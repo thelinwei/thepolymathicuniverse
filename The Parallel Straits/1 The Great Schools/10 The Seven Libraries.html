@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Seven Libraries — Epistemic Architectures of the Great Schools</title>
+<style>
+:root{
+  --bg:#0c0d0f;
+  --paper:#14161a;
+  --paper2:#101216;
+  --text:#f1efe8;
+  --muted:#b9b6ae;
+  --line:#2b2f36;
+  --soft:#1b1f25;
+  --accent:#d7c7a1;
+  --accent2:#8fa9a3;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#0b0c0e 0%,#101216 40%,#0b0c0e 100%);
+  color:var(--text);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.65;
+}
+a{color:inherit}
+.wrapper{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+.hero{
+  min-height:86vh;
+  display:flex;
+  align-items:flex-end;
+  padding:84px 0 64px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 72% 28%, rgba(143,169,163,.12), transparent 34%),
+    radial-gradient(circle at 18% 18%, rgba(215,199,161,.10), transparent 30%);
+}
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:.74rem;
+  color:var(--accent);
+  margin-bottom:18px;
+}
+h1{
+  font-family:Georgia, "Times New Roman", serif;
+  font-size:clamp(3.1rem,8vw,7.4rem);
+  line-height:.92;
+  font-weight:500;
+  margin:0 0 28px;
+  max-width:980px;
+}
+.hero p{
+  max-width:760px;
+  font-size:clamp(1.05rem,2vw,1.3rem);
+  color:#d2cfc8;
+  margin:0;
+}
+.meta{
+  display:flex;flex-wrap:wrap;gap:10px 22px;
+  margin-top:34px;color:var(--muted);font-size:.9rem
+}
+.toc{
+  padding:30px 0 34px;
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(14px);
+  background:rgba(12,13,15,.87);
+}
+.toc-inner{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.toc a{
+  text-decoration:none;
+  font-size:.86rem;color:#d9d6ce
+}
+.toc a:hover{color:white}
+main{padding:68px 0 110px}
+section{scroll-margin-top:90px}
+.intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);
+  gap:38px;
+  margin-bottom:78px;
+}
+.panel{
+  background:linear-gradient(180deg,var(--paper),var(--paper2));
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:28px;
+}
+.big-idea{
+  font-family:Georgia, "Times New Roman", serif;
+  font-size:clamp(1.7rem,3vw,2.6rem);
+  line-height:1.2;
+  margin:0 0 18px
+}
+.eq{
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  font-size:1rem;
+  padding:15px 17px;
+  border-left:3px solid var(--accent);
+  background:#0d0f12;
+  color:#e8e3d7;
+  margin:18px 0;
+  overflow-wrap:anywhere;
+}
+.stage-list{display:grid;gap:12px;margin-top:16px}
+.stage{
+  padding:13px 15px;
+  background:var(--soft);
+  border-radius:12px;
+}
+.stage b{color:var(--accent)}
+.school{
+  margin:0 0 88px;
+  padding-top:6px;
+}
+.school-head{
+  display:grid;
+  grid-template-columns:130px minmax(0,1fr);
+  gap:24px;
+  align-items:start;
+  border-top:1px solid var(--line);
+  padding-top:32px;
+  margin-bottom:26px;
+}
+.num{
+  font-family:Georgia,serif;
+  font-size:4.6rem;
+  line-height:.9;
+  color:#5f646d;
+}
+.school h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2rem,4.5vw,4.2rem);
+  font-weight:500;
+  line-height:1;
+  margin:0 0 12px
+}
+.school .question{
+  color:var(--accent);
+  font-size:1.12rem;
+  margin:0;
+}
+.three{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin:24px 0 20px;
+}
+.level{
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#121419;
+  padding:22px;
+}
+.level h3{
+  margin:0 0 10px;
+  font-size:.82rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--accent2)
+}
+.level p{margin:0;color:#d6d3cc}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.tag{
+  border:1px solid #353a43;
+  border-radius:999px;
+  padding:6px 9px;
+  font-size:.78rem;
+  color:#cbc8c0;
+  background:#0f1115;
+}
+.library{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:16px;
+}
+.library .panel{height:100%}
+.library h3{
+  font-family:Georgia,serif;
+  font-size:1.5rem;
+  margin:0 0 8px
+}
+.shelves{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-top:15px;
+}
+.shelf{
+  padding:10px 12px;border:1px solid var(--line);
+  border-radius:10px;background:#0f1115;color:#dedbd4;
+}
+.example{
+  margin-top:22px;
+  padding:22px 24px;
+  border-radius:15px;
+  border:1px dashed #454b55;
+  background:rgba(255,255,255,.02)
+}
+.example strong{color:var(--accent)}
+.compare{
+  margin-top:78px;
+  border-top:1px solid var(--line);
+  padding-top:42px;
+}
+.compare h2,.buildings h2,.closing h2{
+  font-family:Georgia,serif;
+  font-size:clamp(2.1rem,4vw,3.8rem);
+  font-weight:500;
+  margin:0 0 14px
+}
+.matrix{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:24px;
+}
+.row{
+  display:grid;grid-template-columns:150px minmax(0,1fr);
+  gap:16px;
+  padding:18px;border:1px solid var(--line);border-radius:12px;background:#111318
+}
+.row b{color:var(--accent)}
+.buildings{margin-top:78px}
+.building-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px
+}
+.building{
+  padding:18px 20px;border-left:3px solid #454b55;background:#121419;border-radius:0 10px 10px 0
+}
+.building b{color:#eee9dd}
+.first-questions{
+  margin:28px 0 0;
+  display:grid;gap:8px
+}
+.fq{
+  display:grid;grid-template-columns:140px minmax(0,1fr);
+  gap:16px;padding:14px 16px;border-bottom:1px solid var(--line)
+}
+.fq b{color:var(--accent)}
+.closing{
+  margin-top:88px;
+  padding:42px 0 12px;
+  border-top:1px solid var(--line)
+}
+.closing blockquote{
+  font-family:Georgia,serif;
+  font-size:clamp(1.7rem,3.5vw,3rem);
+  line-height:1.28;
+  margin:28px 0 0;
+  color:#f4efe4;
+}
+footer{
+  border-top:1px solid var(--line);
+  padding:28px 0 48px;
+  color:#858b94;
+  font-size:.85rem
+}
+.small{font-size:.9rem;color:var(--muted)}
+@media(max-width:900px){
+  .intro,.library{grid-template-columns:1fr}
+  .three{grid-template-columns:1fr}
+  .school-head{grid-template-columns:76px 1fr}
+  .num{font-size:3.2rem}
+}
+@media(max-width:680px){
+  .wrapper{width:min(100% - 24px,var(--max))}
+  .hero{min-height:74vh;padding-top:58px}
+  .toc{position:static}
+  .matrix,.building-grid,.shelves{grid-template-columns:1fr}
+  .row,.fq{grid-template-columns:1fr;gap:4px}
+  .school-head{grid-template-columns:1fr;gap:8px}
+  .num{font-size:2rem}
+  .panel{padding:20px}
+}
+@media print{
+  body{background:white;color:#111}
+  .toc{display:none}
+  .hero{min-height:auto;background:none}
+  .panel,.level,.row,.building,.shelf{background:white;color:#111}
+  .question,.kicker,.tag,.small,.meta{color:#444}
+  .school{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrapper">
+    <div class="kicker">The Parallel Straits · Educational Cosmologies</div>
+    <h1>The Seven Libraries</h1>
+    <p>
+      If disciplines are merely inherited ways of cutting reality into pieces, then each Great School can build a different intellectual world.
+      Children do not simply learn different subjects. They learn different answers to a prior question:
+      <em>what shape must knowledge take before it can be known?</em>
+    </p>
+    <div class="meta">
+      <span>Primary → partitions reality</span>
+      <span>Secondary → crosses and complicates partitions</span>
+      <span>Tertiary → produces knowledge within or against them</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrapper toc-inner">
+    <a href="#premise">Premise</a>
+    <a href="#tki">TKI</a>
+    <a href="#amanah">Amanah</a>
+    <a href="#temenggong">Sri Temenggong</a>
+    <a href="#lamkeng">Lam Keng</a>
+    <a href="#ninerains">Nine Rains</a>
+    <a href="#kora">Kora</a>
+    <a href="#sund">Sund</a>
+    <a href="#comparison">One subject, seven minds</a>
+    <a href="#architecture">Buildings</a>
+  </div>
+</nav>
+
+<main class="wrapper">
+  <section id="premise" class="intro">
+    <div>
+      <div class="kicker">Foundational premise</div>
+      <p class="big-idea">
+        The Schools should not merely teach different things. They should partition reality differently.
+      </p>
+      <p>
+        Contemporary education commonly treats physics, history, economics, psychology, literature, mathematics and the arts as though these were natural categories.
+        But they are also institutional cuts: inherited ways of deciding what belongs together and what should be separated.
+      </p>
+      <p>
+        In the Seven Schools, those cuts diverge. A bridge, illness, poem, spell, war or bowl of rice may not belong to the same “subject” in any two Schools.
+        Their graduates therefore do not merely possess different bodies of knowledge; they develop different reflexes for knowing.
+      </p>
+      <div class="eq">Knowledge = f(knower, known, relation)</div>
+    </div>
+    <div class="panel">
+      <div class="kicker">Educational progression</div>
+      <div class="stage-list">
+        <div class="stage"><b>Primary</b><br/>Learn the civilization’s basic partitions of reality.</div>
+        <div class="stage"><b>Secondary</b><br/>Learn to test, cross, complicate, combine and challenge those partitions.</div>
+        <div class="stage"><b>Tertiary</b><br/>Create knowledge, professions and institutions using — or deliberately breaking — the inherited system.</div>
+      </div>
+      <p class="small" style="margin-top:18px">
+        The library is therefore never just storage. It is the physical diagram of each School’s epistemology.
+      </p>
+    </div>
+  </section>
+
+  <section id="tki" class="school">
+    <div class="school-head">
+      <div class="num">01</div>
+      <div>
+        <h2>TKI — The School of Frames</h2>
+        <p class="question">From where are you looking?</p>
+      </div>
+    </div>
+    <div class="three">
+      <article class="level">
+        <h3>Primary</h3>
+        <p>Children learn that every statement contains an observer. Knowledge begins with position.</p>
+        <div class="tags">
+          <span class="tag">Me</span><span class="tag">Us</span><span class="tag">Them</span><span class="tag">Others</span>
+          <span class="tag">Making Frames</span><span class="tag">Changing Seats</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Secondary</h3>
+        <p>The four positions become questions about evidence, scale, translation, boundaries and blind spots.</p>
+        <div class="tags">
+          <span class="tag">Observer & Evidence</span><span class="tag">Who Is “We”?</span><span class="tag">Translation</span>
+          <span class="tag">Models of Reality</span><span class="tag">False Categories</span><span class="tag">Boundary Studies</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Tertiary</h3>
+        <p>Faculties form around situated knowledge, collective worlds, comparative frames and exterior systems — plus the prestigious practice of reframing.</p>
+        <div class="tags">
+          <span class="tag">Situated Knowledge</span><span class="tag">Collective Worlds</span><span class="tag">Comparative Frames</span>
+          <span class="tag">Exterior Systems</span><span class="tag">Institute of Reframing</span>
+        </div>
+      </article>
+    </div>
+    <div class="library">
+      <div class="panel">
+        <h3>Library of Frames</h3>
+        <p>The library is radial or cross-shaped. Its four great wings are not departments but positions.</p>
+        <div class="shelves">
+          <div class="shelf">ME</div><div class="shelf">US</div>
+          <div class="shelf">THEM</div><div class="shelf">OTHERS</div>
+          <div class="shelf">BETWEEN</div><div class="shelf">THE UNPLACED</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>How a lesson works</h3>
+        <p>A class studies rain. One student places it under <strong>Me</strong> because it changes bodily sensation; another under <strong>Us</strong> because rain structures the city; another under <strong>Them</strong> because cultures name monsoon seasons differently; another under <strong>Others</strong> because of atmospheric physics.</p>
+        <p>The answer is not the shelf. The answer is the movement between shelves.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="amanah" class="school">
+    <div class="school-head">
+      <div class="num">02</div>
+      <div>
+        <h2>Amanah — The School of Custody</h2>
+        <p class="question">How did this knowledge reach you, and what responsibility came with it?</p>
+      </div>
+    </div>
+    <div class="three">
+      <article class="level">
+        <h3>Primary</h3>
+        <p>Children learn to distinguish observation, testimony, inference and uncertainty.</p>
+        <div class="tags">
+          <span class="tag">Receiving</span><span class="tag">Witnessing</span><span class="tag">Remembering</span>
+          <span class="tag">Keeping</span><span class="tag">Passing On</span><span class="tag">Promises</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Secondary</h3>
+        <p>Knowledge acquires provenance, competency requirements, danger levels and obligations.</p>
+        <div class="tags">
+          <span class="tag">Evidence & Testimony</span><span class="tag">Chains of Transmission</span>
+          <span class="tag">Authority & Competence</span><span class="tag">Dangerous Knowledge</span>
+          <span class="tag">Stewardship</span><span class="tag">Forgery & Error</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Tertiary</h3>
+        <p>Professional education is not merely graduation but entrustment.</p>
+        <div class="tags">
+          <span class="tag">Witness & Evidence</span><span class="tag">Custodial Sciences</span>
+          <span class="tag">Transmission</span><span class="tag">Covenant</span><span class="tag">Restricted Arts</span>
+        </div>
+      </article>
+    </div>
+    <div class="library">
+      <div class="panel">
+        <h3>House of Transmission</h3>
+        <p>Part archive, court, monastery and laboratory. Texts are classified by provenance and the reliability of their transmission.</p>
+        <div class="shelves">
+          <div class="shelf">Observed</div><div class="shelf">Inherited</div>
+          <div class="shelf">Verified</div><div class="shelf">Disputed</div>
+          <div class="shelf">Restricted</div><div class="shelf">Broken Lineage</div>
+          <div class="shelf">Anonymous</div><div class="shelf">Recovered</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Bibliographic obsession</h3>
+        <p>Every work carries a visible chain of custody: author, teacher, archive, revision, reader. Some texts require competency before access. A damaged provenance chain is displayed, never quietly erased.</p>
+        <div class="eq">Author → Teacher → Archive → Revision → Reader</div>
+        <p>Their most unsettling category may be: <em>We know this, but no longer know why we trusted it.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="temenggong" class="school">
+    <div class="school-head">
+      <div class="num">03</div>
+      <div>
+        <h2>Sri Temenggong — The School of Continuity</h2>
+        <p class="question">What relationships allow this knowledge to remain alive?</p>
+      </div>
+    </div>
+    <div class="three">
+      <article class="level">
+        <h3>Primary</h3>
+        <p>Learning begins with concrete systems-in-place rather than detached disciplines.</p>
+        <div class="tags">
+          <span class="tag">Home</span><span class="tag">Water</span><span class="tag">Food</span><span class="tag">Weather</span>
+          <span class="tag">Kin</span><span class="tag">Neighbourhood</span><span class="tag">Living Things</span><span class="tag">Stories of Place</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Secondary</h3>
+        <p>Students follow long continuities — ecological, social, infrastructural, ancestral — across years.</p>
+        <div class="tags">
+          <span class="tag">Watersheds</span><span class="tag">Food Systems</span><span class="tag">Settlements</span>
+          <span class="tag">Forests</span><span class="tag">Lineages</span><span class="tag">Seasonal Time</span>
+          <span class="tag">Migration</span><span class="tag">Rupture</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Tertiary</h3>
+        <p>Expertise attaches to places, systems and continuities rather than generic academic departments.</p>
+        <div class="tags">
+          <span class="tag">River Systems</span><span class="tag">Maritime Continuity</span>
+          <span class="tag">Settlement</span><span class="tag">Food & Soil</span><span class="tag">Lineage & Migration</span>
+        </div>
+      </article>
+    </div>
+    <div class="library">
+      <div class="panel">
+        <h3>Living Archive</h3>
+        <p>The library may reproduce the territory itself. Collections are organized geographically, seasonally, genealogically and ecologically.</p>
+        <div class="shelves">
+          <div class="shelf">Place</div><div class="shelf">Lineage</div>
+          <div class="shelf">Season</div><div class="shelf">Practice</div>
+          <div class="shelf">Rupture</div><div class="shelf">Continuance</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>The place-archive</h3>
+        <p>One estuary keeps its maps, songs, treaties, soil samples, oral histories, biological records, family photographs and weather logs together. From outside this appears “interdisciplinary.” To Sri Temenggong, separating them would be the intellectual error.</p>
+        <p>An academic might be <em>Professor of the Northern Mangrove Belt</em>, not Professor of Ecology.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lamkeng" class="school">
+    <div class="school-head">
+      <div class="num">04</div>
+      <div>
+        <h2>Lam Keng — The School of Transformation</h2>
+        <p class="question">What can this become?</p>
+      </div>
+    </div>
+    <div class="three">
+      <article class="level">
+        <h3>Primary</h3>
+        <p>Children learn verbs before disciplines: reality is encountered through operations.</p>
+        <div class="tags">
+          <span class="tag">Mix</span><span class="tag">Separate</span><span class="tag">Heat</span><span class="tag">Cool</span>
+          <span class="tag">Fold</span><span class="tag">Stretch</span><span class="tag">Repeat</span><span class="tag">Join</span><span class="tag">Break</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Secondary</h3>
+        <p>Families of transformations replace subjects.</p>
+        <div class="tags">
+          <span class="tag">Replication</span><span class="tag">Translation</span><span class="tag">Amplification</span>
+          <span class="tag">Stabilisation</span><span class="tag">Compression</span><span class="tag">Reversal</span>
+          <span class="tag">Composition</span><span class="tag">Dissolution</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Tertiary</h3>
+        <p>Research asks whether operations generalize across materials, organisms, language, institutions and magic.</p>
+        <div class="tags">
+          <span class="tag">Transformation</span><span class="tag">Replication</span><span class="tag">Composition</span>
+          <span class="tag">Stabilisation</span><span class="tag">Translation</span><span class="tag">Emergent Operations</span>
+        </div>
+      </article>
+    </div>
+    <div class="library">
+      <div class="panel">
+        <h3>Repository of Operations</h3>
+        <p>You do not search for nouns. You search for the transformation.</p>
+        <div class="shelves">
+          <div class="shelf">JOIN</div><div class="shelf">SPLIT</div>
+          <div class="shelf">REPEAT</div><div class="shelf">CONVERT</div>
+          <div class="shelf">STABILISE</div><div class="shelf">AMPLIFY</div>
+          <div class="shelf">COMPRESS</div><div class="shelf">DISSOLVE</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Search by operation</h3>
+        <p>Search “load redistribution” and receive bridge trusses, tree branches, bone structures, bureaucracies, neural networks and magical force lattices.</p>
+        <div class="eq">X → operation → X′</div>
+        <p>The library is half archive, half workshop. Every theoretical collection has somewhere nearby to perform the operation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ninerains" class="school">
+    <div class="school-head">
+      <div class="num">05</div>
+      <div>
+        <h2>Nine Rains — The School of Flows</h2>
+        <p class="question">Where does it come from, where does it go, and what returns?</p>
+      </div>
+    </div>
+    <div class="three">
+      <article class="level">
+        <h3>Primary</h3>
+        <p>Children trace ordinary things backward to sources and forward to consequences.</p>
+        <div class="tags">
+          <span class="tag">Water</span><span class="tag">Food</span><span class="tag">Breath</span><span class="tag">Energy</span>
+          <span class="tag">Waste</span><span class="tag">Giving & Receiving</span><span class="tag">Cycles</span><span class="tag">Waiting</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Secondary</h3>
+        <p>Finance, metabolism, ecology and infrastructure become variations of circulation.</p>
+        <div class="tags">
+          <span class="tag">Flows</span><span class="tag">Stores</span><span class="tag">Bottlenecks</span>
+          <span class="tag">Leaks</span><span class="tag">Feedback</span><span class="tag">Debt</span>
+          <span class="tag">Accumulation</span><span class="tag">Return</span><span class="tag">Thresholds</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Tertiary</h3>
+        <p>Universities organize by scale and circuit rather than conventional field.</p>
+        <div class="tags">
+          <span class="tag">Body Systems</span><span class="tag">Household Systems</span><span class="tag">Urban Metabolism</span>
+          <span class="tag">Ecological Circulation</span><span class="tag">Economic Flows</span><span class="tag">Planetary Cycles</span>
+        </div>
+      </article>
+    </div>
+    <div class="library">
+      <div class="panel">
+        <h3>Map of Flows</h3>
+        <p>Collections are organized through relations rather than fixed shelf adjacency.</p>
+        <div class="shelves">
+          <div class="shelf">Feeds</div><div class="shelf">Depends Upon</div>
+          <div class="shelf">Flows Into</div><div class="shelf">Accumulates Within</div>
+          <div class="shelf">Returns Through</div><div class="shelf">Leaks From</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>The governing equation</h3>
+        <div class="eq">Input − Output = Accumulation</div>
+        <p>The catalogue looks less like Dewey Decimal and more like a subway diagram. A work about water can be linked simultaneously to agriculture, public finance, disease, ritual, labour and climate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kora" class="school">
+    <div class="school-head">
+      <div class="num">06</div>
+      <div>
+        <h2>Kora — The School of Many Accounts</h2>
+        <p class="question">Who says so?</p>
+      </div>
+    </div>
+    <div class="three">
+      <article class="level">
+        <h3>Primary</h3>
+        <p>Children discover that sincere accounts can differ — and that difference is itself information.</p>
+        <div class="tags">
+          <span class="tag">My Story</span><span class="tag">Your Story</span><span class="tag">What We Saw</span>
+          <span class="tag">What We Heard</span><span class="tag">What Is Missing</span><span class="tag">Same Event, Different Account</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Secondary</h3>
+        <p>Science, history, law and journalism meet through their structures of claim-making.</p>
+        <div class="tags">
+          <span class="tag">Claim</span><span class="tag">Witness</span><span class="tag">Record</span>
+          <span class="tag">Counterrecord</span><span class="tag">Interpretation</span><span class="tag">Silence</span>
+          <span class="tag">Reconstruction</span><span class="tag">Uncertainty</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Tertiary</h3>
+        <p>Intellectual prestige can come from demonstrating that a synthesis is not justified.</p>
+        <div class="tags">
+          <span class="tag">Claims</span><span class="tag">Traces</span><span class="tag">Archives</span>
+          <span class="tag">Interpretation</span><span class="tag">Missing Knowledge</span><span class="tag">Irreconcilable Accounts</span>
+        </div>
+      </article>
+    </div>
+    <div class="library">
+      <div class="panel">
+        <h3>Archive of Accounts</h3>
+        <p>Books do not stand alone. They exist in constellations around events, claims and absences.</p>
+        <div class="shelves">
+          <div class="shelf">Claim</div><div class="shelf">Witness</div>
+          <div class="shelf">Counterclaim</div><div class="shelf">Trace</div>
+          <div class="shelf">Silence</div><div class="shelf">Recovery</div>
+          <div class="shelf">Unresolved</div><div class="shelf">Forgery</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Absence is catalogued</h3>
+        <p>Search a battle and receive official reports, soldiers’ letters, enemy accounts, songs, archaeological surveys, later textbooks, disputed photographs, known forgeries and missing archives.</p>
+        <p>Some shelves are deliberately empty. Silence has an accession number.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sund" class="school">
+    <div class="school-head">
+      <div class="num">07</div>
+      <div>
+        <h2>Sund — The School of the Commons</h2>
+        <p class="question">What must we collectively know how to do?</p>
+      </div>
+    </div>
+    <div class="three">
+      <article class="level">
+        <h3>Primary</h3>
+        <p>Literacy, mathematics and making arise through real collective tasks.</p>
+        <div class="tags">
+          <span class="tag">Feed</span><span class="tag">Shelter</span><span class="tag">Care</span>
+          <span class="tag">Repair</span><span class="tag">Move</span><span class="tag">Share</span>
+          <span class="tag">Count</span><span class="tag">Decide Together</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Secondary</h3>
+        <p>Students learn the integrated systems societies require to remain functional.</p>
+        <div class="tags">
+          <span class="tag">Provision</span><span class="tag">Maintenance</span><span class="tag">Infrastructure</span>
+          <span class="tag">Coordination</span><span class="tag">Accessibility</span><span class="tag">Care</span>
+          <span class="tag">Allocation</span><span class="tag">Repair</span><span class="tag">Succession</span>
+        </div>
+      </article>
+      <article class="level">
+        <h3>Tertiary</h3>
+        <p>Faculties correspond to societal capacities rather than professions in isolation.</p>
+        <div class="tags">
+          <span class="tag">Food</span><span class="tag">Shelter</span><span class="tag">Mobility</span><span class="tag">Public Health</span>
+          <span class="tag">Communication</span><span class="tag">Maintenance</span><span class="tag">Governance</span><span class="tag">Resilience</span>
+        </div>
+      </article>
+    </div>
+    <div class="library">
+      <div class="panel">
+        <h3>Commons of Capability</h3>
+        <p>The catalogue is organized around problems societies must continuously solve.</p>
+        <div class="shelves">
+          <div class="shelf">Water</div><div class="shelf">Food</div>
+          <div class="shelf">Shelter</div><div class="shelf">Mobility</div>
+          <div class="shelf">Health</div><div class="shelf">Communication</div>
+          <div class="shelf">Repair</div><div class="shelf">Succession</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Capability, not prestige</h3>
+        <p>A water collection contains fluid mechanics, pipes, water law, sanitation history, river ecology, public finance and maintenance manuals.</p>
+        <p>Every work is annotated with two civic questions: <em>Who needs to know this?</em> and <em>What capability disappears if this knowledge is lost?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparison" class="compare">
+    <div class="kicker">Comparative lens</div>
+    <h2>One subject, seven minds</h2>
+    <p>Take mathematics. Our world treats it as a discipline. Each School instead absorbs it into a different theory of knowing.</p>
+    <div class="matrix">
+      <div class="row"><b>TKI</b><span>Mathematics belongs largely to Others, while its models reveal the framing assumptions of the observer.</span></div>
+      <div class="row"><b>Amanah</b><span>Mathematics is prized because proof preserves explicit chains of justification.</span></div>
+      <div class="row"><b>Sri Temenggong</b><span>Mathematics appears through seasons, structures, land, cycles and recurrent patterns.</span></div>
+      <div class="row"><b>Lam Keng</b><span>Mathematics is a language of operators, transformations and compositional rules.</span></div>
+      <div class="row"><b>Nine Rains</b><span>Mathematics describes rates, accumulation, feedback, equilibrium and flow.</span></div>
+      <div class="row"><b>Kora</b><span>Mathematics is a highly constrained form of claim-making in which every inferential move may be inspected.</span></div>
+      <div class="row"><b>Sund</b><span>Mathematics enables collective measurement, allocation, coordination, building and maintenance.</span></div>
+    </div>
+  </section>
+
+  <section id="architecture" class="buildings">
+    <div class="kicker">Built pedagogy</div>
+    <h2>The school building teaches too</h2>
+    <p>The educational cosmology becomes spatial. Architecture is not a neutral container for learning; it rehearses the epistemology every day.</p>
+    <div class="building-grid">
+      <div class="building"><b>TKI</b> — rooms with multiple entrances, shifting viewpoints and movable boundaries.</div>
+      <div class="building"><b>Amanah</b> — archive, laboratory and court fused together; every object has provenance.</div>
+      <div class="building"><b>Sri Temenggong</b> — school as garden, river edge, workshop, neighbourhood and seasonal field station.</div>
+      <div class="building"><b>Lam Keng</b> — giant atelier; theory constantly adjacent to fabrication and experimentation.</div>
+      <div class="building"><b>Nine Rains</b> — exposed pipes, ventilation, water and energy systems so that circulation is visible.</div>
+      <div class="building"><b>Kora</b> — archives, testimony rooms, recording studios and contested displays.</div>
+      <div class="building"><b>Sund</b> — civic workshop: kitchen, clinic, fabrication room, repair depot and assembly hall.</div>
+    </div>
+
+    <div class="panel" style="margin-top:28px">
+      <div class="kicker">The reflex each graduate carries</div>
+      <div class="first-questions">
+        <div class="fq"><b>TKI</b><span>From where are we looking?</span></div>
+        <div class="fq"><b>Amanah</b><span>Why should this be trusted?</span></div>
+        <div class="fq"><b>Sri Temenggong</b><span>What relationships sustain it?</span></div>
+        <div class="fq"><b>Lam Keng</b><span>What transformation is occurring?</span></div>
+        <div class="fq"><b>Nine Rains</b><span>What flows through it?</span></div>
+        <div class="fq"><b>Kora</b><span>Whose account is this?</span></div>
+        <div class="fq"><b>Sund</b><span>What must we be able to do?</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="kicker">The deeper consequence</div>
+    <h2>Minds shelved differently since childhood</h2>
+    <p>
+      When the seven Schools finally meet, they are not simply interdisciplinary. They are encountering people whose minds have been organized differently from the beginning.
+      Transfer between Schools is therefore cognitively destabilizing: the learner discovers that familiar shelves do not exist everywhere.
+    </p>
+    <blockquote>
+      The Schools are not alternative pedagogies applied to the same disciplinary universe.
+      They are alternative ways of producing the disciplinary universe itself.
+    </blockquote>
+  </section>
+</main>
+
+<footer>
+  <div class="wrapper">
+    The Seven Libraries · Great Schools Field Atlas · Working worldbuilding document
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Houses of Keeping — Field Atlas VIII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#E3E8DB; --paper:#EEF1E8; --ink:#1D2925; --muted:#56655E; --rule:#B7C1B1;
+  --indigo:#2E3A6B; --turmeric:#B97F0C; --brine:#2F6F68; --sea:#C9D8D2; --land:#D6DCCB;
+  --tki:#2E3A6B; --mer:#3B6A3A; --bal:#7A2640; --lan:#A3301C; --nine:#3C6687; --kora:#8F6317; --sund:#6B4A2A; --pet:#574689; --arus:#2F6F68; --civ:#4A4A4A;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --cond:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121816; --paper:#1A221F; --ink:#E2E8DD; --muted:#9AA8A0; --rule:#34413B;
+    --indigo:#A9B6EE; --turmeric:#E5B54A; --brine:#78BDB3; --sea:#1C2B29; --land:#222C27;
+    --tki:#A9B6EE; --mer:#9AC98F; --bal:#E28AA6; --lan:#F0876E; --nine:#8FBDE0; --kora:#E4B25A; --sund:#D3A874; --pet:#B7A6EE; --arus:#78BDB3; --civ:#BDBDBD;
+  }
+}
+:root[data-theme="dark"]{
+    --ground:#121816; --paper:#1A221F; --ink:#E2E8DD; --muted:#9AA8A0; --rule:#34413B;
+    --indigo:#A9B6EE; --turmeric:#E5B54A; --brine:#78BDB3; --sea:#1C2B29; --land:#222C27;
+    --tki:#A9B6EE; --mer:#9AC98F; --bal:#E28AA6; --lan:#F0876E; --nine:#8FBDE0; --kora:#E4B25A; --sund:#D3A874; --pet:#B7A6EE; --arus:#78BDB3; --civ:#BDBDBD;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:1.125rem;line-height:1.62;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--turmeric);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+p{margin:0 0 1em}
+h1,h2,h3,h4{font-weight:500;margin:0}
+.cond{font-family:var(--cond)}
+
+/* ---------- Ticket hero ---------- */
+.hero{padding:clamp(28px,6vw,72px) 0 20px}
+.ticket{position:relative;display:grid;grid-template-columns:1fr auto;background:var(--paper);border-radius:6px;overflow:hidden;box-shadow:0 1px 0 var(--rule),0 18px 40px -28px rgba(20,40,30,.45)}
+.ticket-main{padding:clamp(22px,4vw,48px);border-right:2px dashed var(--rule)}
+.issuer{font-family:var(--cond);font-size:1rem;letter-spacing:.02em;color:var(--muted);margin-bottom:clamp(20px,4vw,40px);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hero h1{font-family:var(--cond);font-weight:600;font-size:clamp(3.2rem,11vw,8.6rem);line-height:.86;letter-spacing:-.01em}
+.hero h1 span{display:block}
+.hero .sub{font-size:clamp(1.15rem,2.4vw,1.5rem);font-style:italic;max-width:34ch;margin:22px 0 0;color:var(--ink)}
+.admits{margin-top:clamp(24px,4vw,40px);display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--cond);font-size:1.05rem;color:var(--muted)}
+.admits b{color:var(--ink);font-weight:600}
+.stub{width:clamp(120px,18vw,210px);padding:clamp(18px,3vw,30px) clamp(14px,2vw,24px);display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center}
+.stub-title{font-family:var(--cond);font-size:.95rem;color:var(--muted);text-align:center;line-height:1.2}
+.holes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hole{width:clamp(28px,4vw,40px);height:clamp(28px,4vw,40px);border-radius:50%;border:1.5px solid var(--c);background:transparent;cursor:pointer;font-family:var(--cond);font-size:.8rem;color:var(--c);padding:0;display:grid;place-items:center;transition:background .2s}
+.hole[aria-pressed="true"]{background:var(--c);color:var(--paper)}
+.stub-note{font-size:.8rem;color:var(--muted);text-align:center;line-height:1.3;font-style:italic}
+.ticket::before,.ticket::after{content:"";position:absolute;right:calc(clamp(120px,18vw,210px) - 11px);width:22px;height:22px;border-radius:50%;background:var(--ground)}
+.ticket::before{top:-11px}.ticket::after{bottom:-11px}
+@media (max-width:640px){
+  .ticket{grid-template-columns:1fr}
+  .ticket-main{border-right:0;border-bottom:2px dashed var(--rule)}
+  .stub{width:auto;flex-direction:row;flex-wrap:wrap}
+  .holes{grid-template-columns:repeat(9,1fr);gap:6px}
+  .hole{width:30px;height:30px}
+  .ticket::before,.ticket::after{display:none}
+}
+
+/* ---------- Prose sections ---------- */
+section{padding:clamp(40px,7vw,90px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(16px,4vw,56px);align-items:baseline;margin-bottom:clamp(20px,3vw,36px)}
+.sec-head .kicker{font-family:var(--cond);font-size:1.15rem;color:var(--muted)}
+.sec-head h2{font-family:var(--cond);font-weight:600;font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:.95}
+.body{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(16px,4vw,56px)}
+.body .col{max-width:66ch}
+.lead{font-size:clamp(1.25rem,2.2vw,1.45rem);line-height:1.5}
+@media (max-width:820px){.sec-head,.body{grid-template-columns:1fr}.sec-head .kicker{order:-1}.body .aside-empty{display:none}}
+
+.laws{counter-reset:law;margin:1.4em 0 0;padding:0;list-style:none}
+.laws li{counter-increment:law;display:grid;grid-template-columns:3.2rem 1fr;gap:10px;padding:18px 0;border-top:1px solid var(--rule)}
+.laws li::before{content:counter(law);font-family:var(--cond);font-size:2.4rem;line-height:1;color:var(--turmeric);font-weight:600}
+.laws h3{font-family:var(--cond);font-size:1.45rem;font-weight:600;margin-bottom:4px}
+
+/* ---------- Map ---------- */
+.map-card{background:var(--paper);border-radius:6px;padding:clamp(12px,2vw,24px);overflow-x:auto}
+.map-card svg{display:block;min-width:640px;width:100%;height:auto}
+.map-land{fill:var(--land)} .map-sea{fill:var(--sea)} .map-line{stroke:var(--rule);fill:none}
+.map-label{font-family:var(--cond);font-size:13px;fill:var(--ink)}
+.map-small{font-family:var(--serif);font-style:italic;font-size:11px;fill:var(--muted)}
+.map-site{cursor:pointer}
+.map-site rect,.map-site circle,.map-site path{transition:opacity .2s}
+.map-site:hover rect,.map-site:hover circle,.map-site:focus rect{opacity:.75}
+.map-caption{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:14px;font-family:var(--cond);font-size:1rem;color:var(--muted)}
+.map-caption a{text-decoration:none}
+.map-caption a:hover{color:var(--ink)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-right:6px;vertical-align:0}
+
+/* ---------- Register table ---------- */
+.table-wrap{overflow-x:auto;background:var(--paper);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:1rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--cond);font-weight:600;font-size:1.05rem;color:var(--muted)}
+td:first-child{font-family:var(--cond);font-size:1.15rem;font-weight:600;color:var(--c);white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* ---------- Wings (museums) ---------- */
+.wing{--c:var(--ink);border-top:6px solid var(--c);padding-top:clamp(28px,5vw,56px)}
+.wing + .wing{margin-top:clamp(50px,8vw,100px)}
+.wing-head{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(16px,4vw,56px);margin-bottom:clamp(20px,3vw,34px)}
+.route{font-family:var(--cond);color:var(--c);font-size:1.15rem;font-weight:600}
+.route small{display:block;color:var(--muted);font-weight:500;font-size:1rem}
+.wing h2{font-family:var(--cond);font-weight:600;font-size:clamp(2.6rem,7vw,5.2rem);line-height:.9;color:var(--c)}
+.wing .gazette{font-style:italic;font-size:clamp(1.1rem,2vw,1.3rem);margin-top:10px;max-width:46ch}
+.wing-body{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(16px,4vw,56px)}
+.plate{align-self:start;position:sticky;top:18px;font-size:.98rem;line-height:1.45}
+.plate dl{margin:0}
+.plate dt{font-family:var(--cond);font-size:.98rem;color:var(--muted);margin-top:14px}
+.plate dt:first-child{margin-top:0}
+.plate dd{margin:2px 0 0}
+.plate .names dd span{display:block}
+.plate .names dd em{color:var(--muted);font-size:.9rem}
+.text{max-width:66ch}
+.text h3{font-family:var(--cond);font-weight:600;font-size:1.65rem;margin:1.6em 0 .4em;color:var(--ink)}
+.text h3:first-child{margin-top:0}
+@media (max-width:820px){.wing-head,.wing-body{grid-template-columns:1fr}.plate{position:static;border-left:3px solid var(--c);padding-left:14px}}
+
+/* museum wall label */
+.label-card{background:var(--paper);border-left:4px solid var(--c);padding:22px 24px 20px;margin:1.4em 0 1.6em;border-radius:0 6px 6px 0}
+.label-card .acc{font-family:var(--cond);color:var(--muted);font-size:1rem}
+.label-card h4{font-family:var(--cond);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.2rem);line-height:1;margin:6px 0 4px;color:var(--c)}
+.label-card .medium{font-style:italic;color:var(--muted);margin-bottom:12px;font-size:1rem}
+.label-card p:last-child{margin-bottom:0}
+
+.galleries{list-style:none;padding:0;margin:.4em 0 1.2em}
+.galleries li{padding:12px 0;border-top:1px solid var(--rule)}
+.galleries li:last-child{border-bottom:1px solid var(--rule)}
+.galleries b{font-family:var(--cond);font-weight:600;font-size:1.25rem;display:block;line-height:1.2}
+
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:1.2em 0}
+.pair > div{background:var(--paper);padding:18px 20px;border-radius:6px}
+.pair h4{font-family:var(--cond);font-weight:600;font-size:1.25rem;color:var(--c);margin-bottom:6px}
+.pair p{font-size:1rem;margin:0}
+@media (max-width:620px){.pair{grid-template-columns:1fr}}
+
+.charge{border:1.5px solid var(--c);border-radius:6px;padding:16px 20px;margin:1.4em 0}
+.charge h4{font-family:var(--cond);font-weight:600;font-size:1.25rem;margin-bottom:4px}
+.charge p{margin:0;font-size:1.02rem}
+.hook{font-style:italic;color:var(--muted);border-left:2px solid var(--turmeric);padding-left:14px;margin-top:1.4em}
+.hook b{font-style:normal;font-family:var(--cond);font-weight:600;color:var(--ink);font-size:1.08rem}
+
+/* ---------- Flow ledger ---------- */
+.flow-card{background:var(--paper);border-radius:6px;padding:clamp(14px,2vw,26px);overflow-x:auto}
+.flow-card svg{display:block;min-width:660px;width:100%;height:auto}
+.flow-l{font-family:var(--cond);font-size:15px;fill:var(--ink)}
+.flow-s{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--muted)}
+
+/* ---------- Calendar ---------- */
+.cal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.cal > div{background:var(--paper);padding:18px 20px}
+.cal .when{font-family:var(--cond);color:var(--c);font-weight:600;font-size:1.05rem}
+.cal h4{font-family:var(--cond);font-weight:600;font-size:1.45rem;margin:2px 0 6px}
+.cal p{font-size:.98rem;margin:0}
+
+/* ---------- Civic proposal ---------- */
+.proposal{background:var(--ink);color:var(--ground);border-radius:6px;padding:clamp(26px,5vw,56px)}
+.proposal h2{font-family:var(--cond);font-weight:600;font-size:clamp(2.2rem,6vw,4.2rem);line-height:.92;margin-bottom:18px}
+.proposal .col{max-width:66ch}
+.annexes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:26px}
+.annexes div{border-top:1px solid color-mix(in oklab,var(--ground) 35%,transparent);padding-top:10px;font-size:.98rem}
+.annexes b{font-family:var(--cond);font-weight:600;font-size:1.15rem;display:block}
+
+.rules{columns:2 300px;column-gap:48px;padding:0;margin:0;list-style:none}
+.rules li{break-inside:avoid;padding:12px 0;border-top:1px solid var(--rule)}
+
+footer{padding:40px 0 70px;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--rule);padding-top:22px}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO: the joint admission pass ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="ticket">
+      <div class="ticket-main">
+        <div class="issuer"><span>Field Atlas VIII of the Parallel Straits</span><span>Issued by the Museums Concord, 1958 ordinance</span></div>
+        <h1><span>Houses</span><span>of Keeping</span></h1>
+        <p class="sub">A visitor’s guide to the nine museums of the Straits, the fortunes that built them, and what those fortunes needed to hide.</p>
+        <div class="admits"><span>Admits <b>one visitor</b></span><span>Valid <b>until the water levy changes</b></span><span>Not valid <b>on the day of the first storm</b></span></div>
+      </div>
+      <div class="stub" aria-label="Punch card">
+        <div class="stub-title">Punch a hole at each house you visit</div>
+        <div class="holes" id="holes"></div>
+        <div class="stub-note">Remembered on this device</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ ESSAY ============ -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head"><div class="kicker">Before you walk</div><h2>Why the museums here are so big</h2></div>
+    <div class="body">
+      <div class="aside-empty"></div>
+      <div class="col">
+        <p class="lead">Visitors assume the Straits builds huge museums because it has a great deal of past. The truth is almost the reverse. A museum’s floor area in this city tracks the unease of its money, not the size of its collection.</p>
+        <p>The seven houses spent a century and a half arguing about what knowledge is. When the new fortunes arrived with water trusts, rain futures, orbital claims and voice royalties, each one discovered it needed a theory of knowledge to make itself look like something other than luck. Buying a professorship was too small. Buying a whole school was illegal. Buying a museum was just right, because a museum could turn a way of making money into a way of knowing.</p>
+        <p>Three facts of civic law shaped everything that followed. Anyone writing about the city should keep them in view, because every scandal in this guide flows through one of them.</p>
+        <ol class="laws">
+          <li><div><h3>The Cross-Endowment Rule, 1958</h3><p>No museum may take more than a third of its endowment from its own house’s alumni. The ordinance followed the Calibration Affair, when Toa Keng graduates bought the Hall of Standards outright and quietly retired every weight that contradicted their examiners. Since then, fortunes have had to fund the houses that <em>disagree</em> with them. So patronage in the Straits is achar: it was never pure, and by law it can’t be.</p></div></li>
+          <li><div><h3>The Roof Credit, after Basin Seven</h3><p>Following the freshwater crisis, any roof draining into a registered catchment earns water credits in proportion to its area. Museums are the only buildings allowed to be enormous, single-storey and mostly empty, so they became the city’s most valuable roofs. A patron who funds forty thousand square metres of gallery also owns forty thousand square metres of rain. This is why the museums had to be big.</p></div></li>
+          <li><div><h3>The Errata Clause</h3><p>Every registered museum must permanently display one object it cannot explain. The clause was written by Kora House’s Second Voice as a joke in 1961 and passed unanimously because no one read it. Each house’s choice tells you more about it than its whole permanent collection.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAP ============ -->
+<section id="map" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="kicker">The museum quarter</div><h2>Where they stand, drawn by the size of their roofs</h2></div>
+    <div class="map-card">
+      <svg viewBox="0 0 900 560" role="img" aria-label="Map of the museum quarter with nine museums placed along the river and coast">
+        <rect class="map-sea" x="0" y="0" width="900" height="560"/>
+        <path class="map-land" d="M0 0 H900 V300 C840 320 800 360 760 350 C700 336 690 400 620 410 C560 420 520 380 470 400 C420 420 400 470 330 470 C260 470 230 430 170 440 C110 450 60 500 0 490 Z"/>
+        <!-- river -->
+        <path d="M470 0 C470 60 520 90 500 150 C480 210 420 230 440 300 C455 350 470 380 470 400" stroke="var(--sea)" stroke-width="22" fill="none" stroke-linecap="round"/>
+        <!-- basin seven -->
+        <ellipse cx="200" cy="120" rx="120" ry="70" fill="var(--sea)" stroke="var(--rule)" stroke-dasharray="4 4"/>
+        <text class="map-small" x="200" y="116" text-anchor="middle">Basin Seven</text>
+        <text class="map-small" x="200" y="132" text-anchor="middle">drained, disputed</text>
+        <!-- reclaimed coast -->
+        <path d="M620 410 C660 440 700 470 780 470 L900 470 V560 H560 Z" fill="var(--land)" opacity=".55"/>
+        <text class="map-small" x="760" y="520" text-anchor="middle">reclaimed coast, mangrove holdings</text>
+        <text class="map-small" x="300" y="520" text-anchor="middle">the Straits</text>
+        <text class="map-small" x="505" y="40">river</text>
+        <!-- districts -->
+        <text class="map-small" x="610" y="80">Upper Esplanade</text>
+        <text class="map-small" x="560" y="250">Lam Keng district</text>
+        <text class="map-small" x="80" y="300">shift-school districts</text>
+
+        <!-- TKI 41k -->
+        <a href="#tki" class="map-site"><rect x="640" y="95" width="120" height="70" fill="var(--tki)"/><text class="map-label" x="700" y="186" text-anchor="middle">Hall of Standards</text></a>
+        <!-- Merikani 58k -->
+        <a href="#mer" class="map-site"><rect x="340" y="150" width="96" height="104" fill="var(--mer)"/><text class="map-label" x="388" y="273" text-anchor="middle">The Waqf</text></a>
+        <!-- Balai stilts over mangrove -->
+        <a href="#bal" class="map-site"><rect x="690" y="428" width="150" height="16" fill="var(--bal)"/><text class="map-label" x="765" y="420" text-anchor="middle">The Balai</text></a>
+        <!-- Lan Fong -->
+        <a href="#lan" class="map-site"><rect x="560" y="265" width="92" height="64" fill="var(--lan)"/><text class="map-label" x="606" y="348" text-anchor="middle">Press Hall</text></a>
+        <!-- Nine Rain huge roof -->
+        <a href="#nine" class="map-site"><path d="M40 190 L300 190 L300 262 L40 262 Z" fill="var(--nine)" opacity=".85"/><g stroke="var(--paper)" stroke-width="1" opacity=".6"><line x1="60" y1="190" x2="60" y2="262"/><line x1="90" y1="190" x2="90" y2="262"/><line x1="120" y1="190" x2="120" y2="262"/><line x1="150" y1="190" x2="150" y2="262"/><line x1="180" y1="190" x2="180" y2="262"/><line x1="210" y1="190" x2="210" y2="262"/><line x1="240" y1="190" x2="240" y2="262"/><line x1="270" y1="190" x2="270" y2="262"/></g><text class="map-label" x="170" y="281" text-anchor="middle">The Roof</text></a>
+        <!-- Kora seats circle -->
+        <a href="#kora" class="map-site"><circle cx="780" cy="260" r="44" fill="var(--kora)"/><circle cx="780" cy="260" r="20" fill="var(--paper)" opacity=".35"/><text class="map-label" x="780" y="322" text-anchor="middle">The Room</text></a>
+        <!-- Sund grid -->
+        <a href="#sund" class="map-site"><g fill="var(--sund)"><rect x="330" y="340" width="26" height="26"/><rect x="360" y="340" width="26" height="26"/><rect x="390" y="340" width="26" height="26"/><rect x="330" y="370" width="26" height="26"/><rect x="360" y="370" width="26" height="26"/></g><text class="map-label" x="372" y="416" text-anchor="middle">The Demountable</text></a>
+        <!-- Petang depot -->
+        <a href="#pet" class="map-site"><rect x="90" y="330" width="34" height="22" fill="var(--pet)"/><text class="map-label" x="107" y="370" text-anchor="middle">Depot 4</text></a>
+        <!-- Arus boat, dashed route -->
+        <a href="#arus" class="map-site"><path d="M150 470 C300 500 480 440 640 500 C720 530 820 520 880 540" fill="none" stroke="var(--arus)" stroke-width="2.5" stroke-dasharray="7 6"/><circle cx="480" cy="462" r="7" fill="var(--arus)"/><text class="map-label" x="480" y="492" text-anchor="middle">Arus IV, somewhere</text></a>
+        <!-- Civic proposal -->
+        <a href="#civic" class="map-site"><rect x="120" y="70" width="160" height="100" fill="none" stroke="var(--civ)" stroke-width="2" stroke-dasharray="3 5"/><text class="map-small" x="200" y="62" text-anchor="middle">proposed Basin Seven Museum</text></a>
+      </svg>
+      <div class="map-caption" id="mapkey"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="register" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="kicker">The register of size</div><h2>Roofs, rules and money at a glance</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>House</th><th>Mouth name</th><th>Roof, m²</th><th>Principal fortune</th><th>Collecting rule</th><th>Object it cannot explain</th></tr></thead>
+        <tbody>
+          <tr style="--c:var(--tki)"><td>Toa Keng</td><td>The Standard</td><td class="num">41,000</td><td>Risk pricing and assessment</td><td>Only things used to measure other things</td><td>A brass weight heavier than itself</td></tr>
+          <tr style="--c:var(--mer)"><td>Al-Merikani</td><td>The Waqf</td><td class="num">58,000, growing</td><td>Perpetual water trusts</td><td>Nothing given may ever leave</td><td>A deed for a well no one can find</td></tr>
+          <tr style="--c:var(--bal)"><td>Balai Pusaka</td><td>The Balai</td><td class="num">22,000 + 140 ha mud</td><td>Blue carbon</td><td>An heirloom kept from use is dead</td><td>A cloth that has never been worn</td></tr>
+          <tr style="--c:var(--lan)"><td>Lan Fong</td><td>The Press Hall</td><td class="num">33,000</td><td>Seabed and orbital mining</td><td>Every acquisition by shareholder ballot</td><td>A type slug for a character in no dictionary</td></tr>
+          <tr style="--c:var(--nine)"><td>Nine Rain</td><td>The Roof</td><td class="num">96,000</td><td>Rain futures and cooling rights</td><td>Keep only what the weather can reach</td><td>Nine days of knots with no rain behind them</td></tr>
+          <tr style="--c:var(--kora)"><td>Sané-Kora</td><td>The Room</td><td class="num">11,400 seats</td><td>Voice royalties</td><td>Keep nothing that cannot be answered</td><td>A recording that answers first</td></tr>
+          <tr style="--c:var(--sund)"><td>Sund</td><td>The Demountable</td><td class="num">27,000</td><td>Material passports</td><td>It must come apart without glue</td><td>A joint no one can open</td></tr>
+          <tr style="--c:var(--pet)"><td>Sekolah Petang</td><td>Depot 4</td><td class="num">1,900</td><td>One cent a copy</td><td>Take a copy home</td><td>An original</td></tr>
+          <tr style="--c:var(--arus)"><td>Rumah Arus</td><td>Arus IV</td><td class="num">Tide-dependent</td><td>None permitted</td><td>Carry it or lose it</td><td>An address</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE WINGS ============ -->
+<section id="wings" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="kicker">The walking route</div><h2>Nine houses, from the Esplanade to the water</h2></div>
+    <div class="body" style="margin-bottom:clamp(30px,5vw,60px)"><div class="aside-empty"></div><div class="col"><p>The order below is the route the Concord recommends: start with the city’s idea of a standard, walk downhill through its arguments about inheritance, and end at the one museum that refuses to stay in one place. It takes two days on foot. Most visitors do it in four, because the Waqf cannot be seen quickly and the Roof cannot be seen dry.</p></div></div>
+
+    <!-- ===== I TOA KENG ===== -->
+    <article class="wing" id="tki" style="--c:var(--tki)">
+      <div class="wing-head">
+        <div class="route">Stop I<small>Upper Esplanade, the old assay office</small></div>
+        <div><h2>The Hall of Standards</h2><p class="gazette">Where the city keeps its rulers, and where the rulers keep the city.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>Toa Keng Institution Hall of Standards <em>gazette</em></span><span>The Standard <em>mouth</em></span><span>The Ruler <em>rude, for both meanings</em></span></dd></div>
+          <dt>Founded</dt><dd>1921; refounded 1958 after the Calibration Affair</dd>
+          <dt>Roof</dt><dd>41,000 m², neoclassical, one dome of perfectly surveyed copper</dd>
+          <dt>Principal fortune</dt><dd>Risk-pricing houses, former examiners turned actuaries, flood and heat insurers</dd>
+          <dt>Cross-endowed by</dt><dd>Rain and cooling traders, who need certified instruments</dd>
+          <dt>Dress at openings</dt><dd>Undyed grey. Nothing with a pattern that could be mistaken for a scale.</dd>
+        </dl></aside>
+        <div class="text">
+          <h3>What the building believes</h3>
+          <p>Toa Keng teaches that knowledge is what survives being checked by a stranger. Its museum follows that belief to the letter: an object is admitted only if it was once used to measure something else. There are no paintings in the Hall of Standards, but there are four hundred thermometers, the complete run of examination timers since 1889, a hawker’s thumb-worn balance, and the brass pendulum that set municipal time until someone discovered it had been running eleven seconds slow for thirty years. The pendulum is displayed still running slow, because correcting it would erase its evidence.</p>
+          <p>The building is the most orderly interior in the Straits. Corridors are exact multiples of the old municipal fathom. Benches are placed so that any two visitors sit at a distance the 1921 ordinance defined as “civil.” Guards carry pocket levels instead of radios.</p>
+
+          <div class="label-card">
+            <div class="acc">Accession TKI.M.1931.004, Gallery of Measures</div>
+            <h4>The Imperial Yard and the 1931 Gallon</h4>
+            <div class="medium">Bronze, brass, municipal seal wax, one unsigned memorandum</div>
+            <p>Every official measure of length, weight and volume the Straits has ever used, laid end to end along a 90-metre table under the dome. At its midpoint stands the municipal gallon of 1931, cast during the first water shortage. It holds 3.9 per cent less than the gallon it replaced. Nobody announced the change. For eleven years, rationed households received less water than the law said they did, and every official report recorded that rations had been met.</p>
+            <p>The case has the best lighting in the building and no label. The Hall’s position is that the object explains itself. Visitors who stand long enough usually agree.</p>
+          </div>
+
+          <h3>Other galleries</h3>
+          <ul class="galleries">
+            <li><b>The Marking Room</b>Every examination script ever awarded a perfect score: eleven in all, framed in identical grey. A twelfth frame hangs empty. The script was revoked in 1977, and the Hall has never said why.</li>
+            <li><b>Weights of the Port</b>Brass weights confiscated from market traders for being dishonest, arranged by how dishonest. The gallery turns into an argument halfway along, when the confiscated weights start to match the city’s own.</li>
+            <li><b>The Hall of Curves</b>Bronze reliefs of the grading curves used by the Board, cast one per decade. Watch the curve flatten where the shift schools were first allowed to sit the common examination.</li>
+          </ul>
+
+          <div class="pair">
+            <div><h4>The patrons</h4><p>They are hard to see, and that is the point. Donor plaques list gifts to the cent, never by name, so the wall reads like a ledger: “$4,812,006.40, in memory of accuracy.” Insiders can identify every family by the cents.</p></div>
+            <div><h4>The gala</h4><p>The Calibration Dinner, held at the March equinox. Guests are weighed on the 1921 platform scale as they arrive, and the total is read aloud at dessert. No one has ever explained what the number is for, and no one has ever skipped the scale.</p></div>
+          </div>
+
+          <div class="charge"><h4>The charge against it</h4><p>The Board’s scoring rubric, the document that decides which children in the city become which kinds of adults, is kept in this building. It is sealed in the basement strongroom and has never been displayed. A museum dedicated to the idea that everything should be checked by strangers holds the one measure no stranger may check.</p></div>
+
+          <p class="hook"><b>For the novel:</b> Elias Tan spent his twenties as a volunteer calibrator here. He learned that the Hall had known about the 1931 gallon for decades before it went on display. Everything he did to his own data nine years ago he learned was survivable in this building.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== II AL-MERIKANI ===== -->
+    <article class="wing" id="mer" style="--c:var(--mer)">
+      <div class="wing-head">
+        <div class="route">Stop II<small>Riverside, below the old mosque steps</small></div>
+        <div><h2>The Waqf of Unfinished Things</h2><p class="gazette">A museum that is legally unable to give anything back.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>The Merican Waqf Museum of Instruments and Deeds <em>gazette</em></span><span>The Waqf <em>mouth</em></span><span>The Vault That Can’t Say No <em>rude</em></span></dd></div>
+          <dt>Founded</dt><dd>Endowment 1897; building 1968; the open stores keep extending</dd>
+          <dt>Roof</dt><dd>58,000 m² and growing by about 400 m² a year</dd>
+          <dt>Principal fortune</dt><dd>Perpetual water trusts, basin-rights families, the city’s sukuk desks</dd>
+          <dt>Cross-endowed by</dt><dd>Material-passport registries, who pay rent to store beams in the open vaults</dd>
+          <dt>Dress at openings</dt><dd>Pressed white, with the family’s trust seal worn as a ring</dd>
+        </dl></aside>
+        <div class="text">
+          <h3>What the building believes</h3>
+          <p>Al-Merikani teaches knowledge as trust law: an obligation carried forward by people who did not choose it. Its museum is a waqf, a perpetual endowment. What is given cannot be sold, returned or destroyed. So the Waqf cannot deaccession. It cannot even refuse a gift once the donor has read the declaration aloud on the steps. After a century of this, seventy per cent of the building is storage, and the storage is open to visitors. You walk through aisles of ship’s compasses, prayer mats, broken ledgers, three complete kitchens and a diesel engine, all catalogued with the same care.</p>
+          <p>Curators here are called trustees and do not think of themselves as collectors. Their job is to carry what they were handed, argue about what it obliges them to do, and hand it on heavier.</p>
+
+          <div class="label-card">
+            <div class="acc">Accession AM.W.1826.001, the Court Gallery</div>
+            <h4>The Double Deed</h4>
+            <div class="medium">Paper, two seals, 200 years of marginalia, one working courtroom</div>
+            <p>A single title to a single well, sealed by two families in 1826. Each family believes the other seal was added later. The well stood in what is now Basin Seven. The deed is displayed in a glass courtroom at the centre of the museum, because the lawsuit over it has never been settled. Every Thursday afternoon, the case is argued in public by the eighth generation of lawyers. Visitors may sit in the gallery. School groups are brought to watch the procedure, not the outcome.</p>
+            <p>Since the basin was drained, the well has become worth more than the museum.</p>
+          </div>
+
+          <h3>Other galleries</h3>
+          <ul class="galleries">
+            <li><b>The Hall of Retracted Gifts</b>Objects whose donors tried to take them back. Each is shown with the donor’s letter of retraction and the trustees’ reply, which is always the same sentence.</li>
+            <li><b>The Compass Room</b>Two hundred qibla compasses from ships that called at the port. Every one points in a slightly different direction, and the room is arranged so that you can stand where all of them are wrong together.</li>
+            <li><b>The Kitchen of Record</b>An endowed free kitchen that has run inside the museum since 1911. Its recipe ledgers are exhibits. So is lunch.</li>
+          </ul>
+
+          <div class="pair">
+            <div><h4>The patrons</h4><p>The water-trust families, whose fortunes quadrupled after Basin Seven. They don’t describe themselves as rich. They say they are “burdened with a large obligation,” and they mean it, which makes them hard to argue with.</p></div>
+            <div><h4>The gala</h4><p>There is no gala, only the Reading. On the first Thursday of the year, every active deed in the collection is read aloud in full. It takes nine hours. Patrons attend all of it. Leaving early is remembered for generations.</p></div>
+          </div>
+
+          <div class="charge"><h4>The charge against it</h4><p>The trusts that paid for the new courtroom profited directly from the basin’s collapse. The Waqf cannot refuse their gifts, and it cannot sell them. It must now display, forever, the money that dried up the very well its central exhibit is about.</p></div>
+
+          <p class="hook"><b>For the novel:</b> Josefina Aurelio Bautista holds the Water Authority’s registry copy of the deed. It carries a third seal that neither family knows about. If it enters the Thursday court, the case ends, and so does the museum’s reason to have a centre.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== III BALAI PUSAKA ===== -->
+    <article class="wing" id="bal" style="--c:var(--bal)">
+      <div class="wing-head">
+        <div class="route">Stop III<small>On stilts over the Balai’s own mangrove</small></div>
+        <div><h2>The House That Lends to Bodies</h2><p class="gazette">The collection is almost never at home. Tonight it is at a wedding.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>Balai Pusaka Temenggong, the House of Inheritance <em>gazette</em></span><span>The Balai <em>mouth</em></span><span>The Empty Cases <em>rude</em></span></dd></div>
+          <dt>Founded</dt><dd>1908; moved onto the mangrove boardwalks in 2044</dd>
+          <dt>Roof</dt><dd>22,000 m² of raised timber pavilion, plus 140 hectares of mangrove that counts as collection</dd>
+          <dt>Principal fortune</dt><dd>Blue-carbon dynasties along the reclaimed coast</dd>
+          <dt>Cross-endowed by</dt><dd>Voice-royalty funds, which pay for the oral provenance of every cloth</dd>
+          <dt>Dress at openings</dt><dd>The collection itself, borrowed and returned in public</dd>
+        </dl></aside>
+        <div class="text">
+          <h3>What the building believes</h3>
+          <p>Balai Pusaka teaches that inheritance is a practice rather than a possession. A pusaka, an heirloom, is alive only while it is being used. So the Balai lends. Its songket, keris, wedding thrones, betel sets and dance crowns are out on bodies and in houses for about three hundred days a year. What visitors see most days is a long pavilion of glass cases, each with a handwritten card saying where the piece is tonight and who is wearing it.</p>
+          <p>At first this feels like a disappointment. After an hour it becomes the most moving room in the city. You are reading a live map of every wedding, funeral and circumcision feast happening in the Straits.</p>
+
+          <div class="label-card">
+            <div class="acc">Accession BP.K.1843.017, currently on loan</div>
+            <h4>Kain Pulang, the Returning Cloth</h4>
+            <div class="medium">Silk songket with gold supplementary weft, woven around 1843; selvedge embroidered with its own lending record</div>
+            <p>This cloth has been worn at 2,310 recorded weddings. Every family that borrows it adds a stitch to the selvedge in its own colour. The record now runs the full length of both edges and has begun to cross the body of the cloth. Conservators estimate it can survive about forty more weddings. The Balai has decided to keep lending it anyway. When it wears out, the embroidered record will be what is inherited.</p>
+            <p>Queue for Kain Pulang: eleven years.</p>
+          </div>
+
+          <h3>Other galleries</h3>
+          <ul class="galleries">
+            <li><b>The Mud Gallery</b>Core samples from the Balai’s mangrove, each registered as pusaka. The carbon credits they generate are the museum’s endowment. The same sample is both an heirloom and a financial instrument, and the label lists both values.</li>
+            <li><b>Borrowers’ Portraits</b>Photographs sent back by families, the only part of the collection that grows while the objects are away.</li>
+            <li><b>The Room of Repairs</b>Weavers mend returned pieces in public. The Balai considers a repair to be a second authorship and credits it on the label.</li>
+          </ul>
+
+          <div class="pair">
+            <div><h4>The patrons</h4><p>Blue-carbon families, whose money is literally mud that holds carbon. They own some of the oldest mangroves in the region, and they talk about them the way older families talked about land titles.</p></div>
+            <div><h4>The gala</h4><p>The Night of Return, at the close of wedding season. Everything comes home at once. Patrons arrive wearing borrowed pieces, and at midnight they take them off, on stage, one by one, and hand them back. It is the only night the cases are full.</p></div>
+          </div>
+
+          <div class="charge"><h4>The charge against it</h4><p>Carbon families fund the lending queue, and patrons’ weddings keep jumping it. An ordinary family waits eleven years for the Returning Cloth. A blue-carbon daughter waited eleven days. Inheritance was supposed to be shared. It is increasingly rented.</p></div>
+
+          <p class="hook"><b>For the novel:</b> Roro Lestari is the Balai’s courier. Her route-keeping is how the collection moves through the city at night, and she knows which weddings were real and which were staged to launder a queue position. A cloth that does not come back is the kind of disappearance only she would notice.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== IV LAN FONG ===== -->
+    <article class="wing" id="lan" style="--c:var(--lan)">
+      <div class="wing-head">
+        <div class="route">Stop IV<small>Lam Keng district, above the working presses</small></div>
+        <div><h2>The Company’s Press Hall</h2><p class="gazette">A mining company that became a school, a school that became a museum, and a museum that is back in mining.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>Lan Fong Kongsi Free School Press Hall and Museum of the Company 兰芳公司 <em>gazette</em></span><span>The Press Hall <em>mouth</em></span><span>The AGM <em>rude</em></span></dd></div>
+          <dt>Founded</dt><dd>School fund 1889; Press Hall 1935; the Far Wing is under construction</dd>
+          <dt>Roof</dt><dd>33,000 m², over presses that still print daily</dd>
+          <dt>Principal fortune</dt><dd>Shareholder dividends from Lan Fong Deep & Far: seabed nodule leases, then orbital regolith claims</dd>
+          <dt>Cross-endowed by</dt><dd>Risk-pricing houses, who insure the launches</dd>
+          <dt>Dress at openings</dt><dd>Share numbers stitched inside the collar. Visible only when someone bows.</dd>
+        </dl></aside>
+        <div class="text">
+          <h3>What the building believes</h3>
+          <p>Lan Fong teaches knowledge as partnership between unlike parties under a written charter. The house arrived in 1885 as refugees carrying a press and a sixteen-page annal. It survives legally as the school fund of a dissolved company, so its alumni vote as shareholders. The museum inherited the rule. Nothing enters the collection without a ballot. Every ballot is recorded, and the objects that lose are shown too.</p>
+          <p>The Press Hall smells of ink. The ground floor is a working printery, which produces <em>Weather Report</em>, the house’s ballot papers, and most of the city’s examination stationery under contract, which the Company does not like to mention. The masthead inscription 日新 runs across the assembly hall, the name the shareholders voted down in 1904.</p>
+          <p>Then there is the Far Wing. In the space-age decades, the Company’s descendants moved the dividend fund from seabed nodules into orbital regolith claims. The mine moved up. The new wing, now under construction, will display the first return sample in a Bornean gold pan from 1790. The Company regards this as continuity. Everyone else regards it as a very long joke.</p>
+
+          <div class="label-card">
+            <div class="acc">Accession LF.K.1904.061, the Hall of 日新堂</div>
+            <h4>The Empty Annal Case and the Urn of 1904</h4>
+            <div class="medium">Vitrine, empty; ceramic ballot urn; 105 bamboo tallies, 61 against and 44 for</div>
+            <p>The founding document of the house, 《兰芳公司历代年册》, is not here. It survives only because a colonial translator obtained it from the Company’s last headman the year after the Company was dissolved, so it belongs to the archive of the power that ended it. That archive lends it back once every twenty-five years. Each loan is negotiated like a treaty and ends in an argument about whether it should go home at all.</p>
+            <p>Beside the empty case stands the urn from the 1904 vote on renaming the school. The tallies are still inside. The Company keeps its defeat next to its missing origin, and calls that its history.</p>
+          </div>
+
+          <h3>Other galleries</h3>
+          <ul class="galleries">
+            <li><b>The Rejected Acquisitions</b>The best gallery in the building. Every object the shareholders voted not to acquire, borrowed back and shown with the vote count. A few have lost three times. Several are now worth more than the museum.</li>
+            <li><b>The Type Cases of 1885</b>The refugee press’s original type. Characters that were lost at sea were replaced with slugs carved by hand. One slug prints a character that appears in no dictionary, and it is the Press Hall’s object it cannot explain.</li>
+            <li><b>The Treaty Room</b>Copies of the agreements the kongsi signed with a Malay sultan, Dayak neighbours, the Qing and the Dutch, each in its own language, displayed with no single authoritative translation.</li>
+          </ul>
+
+          <div class="pair">
+            <div><h4>The patrons</h4><p>The shareholders: 4,100 of them, from hawkers to launch magnates, all with exactly one vote. The richest hate this and cannot change it without a ballot they would lose.</p></div>
+            <div><h4>The gala</h4><p>The AGM Dinner, on the Company’s founding day. Acquisitions are voted on between courses, by dropping chopsticks into urns. The cold dish is served only once the last result is announced, so contested votes produce very hungry shareholders.</p></div>
+          </div>
+
+          <div class="charge"><h4>The charge against it</h4><p>The Company sells itself as the first charter between unlike parties, but its shareholders have voted down every acquisition from the Dayak partners it claims as its co-founders. Four times. The Treaty Room displays the agreements. The Rejected Acquisitions room displays what happened to the other signatories’ objects.</p></div>
+
+          <p class="hook"><b>For the novel:</b> Lin Yanshi is the architect of the Far Wing. It sits on reclaimed land whose drainage feeds Basin Seven’s catchment. <em>Weather Report</em>, printed on the floor below her drawings, is about to publish the ballot count that decided the site.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== V NINE RAIN ===== -->
+    <article class="wing" id="nine" style="--c:var(--nine)">
+      <div class="wing-head">
+        <div class="route">Stop V<small>The western flats, beside the old catchment</small></div>
+        <div><h2>The Roof</h2><p class="gazette">Ninety-six thousand square metres of shade, sold back to the city by the hour.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>The Nine Rains Observatory and Loom Museum <em>gazette</em></span><span>The Roof <em>mouth</em></span><span>The Leak <em>rude</em></span></dd></div>
+          <dt>Founded</dt><dd>Loom begun 1871; museum 1930; the great roof completed after Basin Seven</dd>
+          <dt>Roof</dt><dd>96,000 m², the largest in the Straits, perforated so that one-ninth of the rain falls through</dd>
+          <dt>Principal fortune</dt><dd>Rain-futures desks, cooling-rights brokers, cloud-seeding syndicates</dd>
+          <dt>Cross-endowed by</dt><dd>Lan Fong’s launch fund and blue-carbon families, both of whom need the rain record</dd>
+          <dt>Dress at openings</dt><dd>Quick-dry linen and very expensive boots. Umbrellas are a status symbol and are never opened indoors, even though it rains indoors.</dd>
+        </dl></aside>
+        <div class="text">
+          <h3>What the building believes</h3>
+          <p>Nine Rain teaches knowledge as sustained attention to what cannot be controlled. Its museum refuses conservation against weather. Objects are kept only while the weather can reach them, and their decay is recorded as data. The galleries sit under a single perforated roof, and one-ninth of every storm falls straight through onto the exhibits. In the monsoon the lower halls flood on purpose. Visitors are issued boots.</p>
+          <p>Because of the roof credit, this is the most valuable building in the city. The traders who paid for it own the rain it catches, and they sell the shade beneath it to neighbouring districts by the hour.</p>
+
+          <div class="label-card">
+            <div class="acc">Accession NR.L.1871–, still being made</div>
+            <h4>The Rain Loom</h4>
+            <div class="medium">Hand-knotted cotton and pandanus cord, 3.4 kilometres and lengthening</div>
+            <p>Every day’s rainfall in the Straits since 1871, knotted into a single continuous cord by the house’s apprentices. Knot type records amount; spacing records duration; colour records who took the reading. The cord winds through the entire museum on bronze hooks, so walking the building means walking a century and a half of rain. Apprentices tie the current day at the loom’s end each evening at six, in public.</p>
+            <p>About two-thirds of the way along, for nine consecutive years, the knots become suspiciously even. Apprentices call that stretch “the calm.” The museum lists nine specific days within it as the object it cannot explain.</p>
+          </div>
+
+          <h3>Other galleries</h3>
+          <ul class="galleries">
+            <li><b>The Hall of Wrong Forecasts</b>Every official forecast that failed badly, displayed beside the weather that actually came. It is the most visited gallery during election years.</li>
+            <li><b>The Shade Exchange</b>A working trading floor inside the museum. Cooling rights and rain futures change hands under glass, visible from the public gallery. The patrons are literally on display.</li>
+            <li><b>The Cord Makers’ Bench</b>Apprentices practise knots for six years before they are allowed to touch the loom. Their practice cords, full of mistakes, hang here and are considered the more honest record.</li>
+          </ul>
+
+          <div class="pair">
+            <div><h4>The patrons</h4><p>Traders who price uncertainty for a living. They are superstitious, precise and very young. Many of them carry antique rain-prophet umbrellas from the house’s shops, worth more than a car.</p></div>
+            <div><h4>The gala</h4><p>The First Storm, held on the night the northeast monsoon breaks. The date is unknown until forty-eight hours before. Invitations go out when the house’s observers call it, which the city calls “the invitation comes by cloud.” Futures traders bet on the date for months.</p></div>
+          </div>
+
+          <div class="charge"><h4>The charge against it</h4><p>The roof’s shade is sold back to the shift-school districts on its western edge, which are the hottest neighbourhoods in the Straits. Children study under the shade of a museum their parents cannot afford, at a price set on a trading floor they can see through the glass.</p></div>
+
+          <p class="hook"><b>For the novel:</b> The calm is Elias Tan’s nine years. The loom apprentices copied his published figures instead of reading the gauges. Sol Soren-Iyer’s basin model disagrees with the loom by precisely the amount of the calm, which is how he discovers the fraud before anyone at an institution does.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== VI SANÉ-KORA ===== -->
+    <article class="wing" id="kora" style="--c:var(--kora)">
+      <div class="wing-head">
+        <div class="route">Stop VI<small>The eastern ridge, an amphitheatre cut into laterite</small></div>
+        <div><h2>The Room of the Second Voice</h2><p class="gazette">A museum with no objects, measured in seats.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>Kora House of the Second Voice <em>gazette</em></span><span>The Room <em>mouth</em></span><span>The Echo <em>rude</em>, or, from Toa Keng students, The Karaoke</span></dd></div>
+          <dt>Founded</dt><dd>1954; rebuilt with the settlement fund</dd>
+          <dt>Size</dt><dd>11,400 seats across forty listening rooms around a Great Room of 3,000. The house has never published its floor area on principle.</dd>
+          <dt>Principal fortune</dt><dd>The voice-royalty settlement from speech models trained on the house’s oral archive</dd>
+          <dt>Cross-endowed by</dt><dd>Assessment firms, who pay to certify interpreters here</dd>
+          <dt>Dress at openings</dt><dd>Nothing that makes noise. Bracelets are checked at the door like coats.</dd>
+        </dl></aside>
+        <div class="text">
+          <h3>What the building believes</h3>
+          <p>Sané-Kora teaches that knowledge lives between a voice and the one who answers it. Its museum keeps nothing that cannot be answered. Instead of objects there are keepers, people who hold a song, a genealogy, a testimony or a legal history in memory and perform it on request. Each keeper has a seat number. The catalogue lists people, and each entry gives the times they sit.</p>
+          <p>The house’s oral archive was scraped without consent to train half the city’s speech models. The settlement that followed was the largest in the Straits, and the house used it to build the Room. So the city’s machines speak with Kora voices, and the Room is where the voices go to be answered by people.</p>
+
+          <div class="label-card">
+            <div class="acc">Accession SK.V.1954.009, Listening Room Nine</div>
+            <h4>The Recording That Waits</h4>
+            <div class="medium">Wax cylinder, transferred to tape, disc and file; a playback system built to the house’s rule</div>
+            <p>A praise song recorded in 1954. It is set up to play only if someone in the room answers the first phrase with the correct response, sung live. Get it wrong and the recording stops. It has been played through to the end fully once since 1998. Visitors are welcome to try. Most can’t. Keepers who can often don’t, because the house believes a song answered too often stops being a question.</p>
+            <p>The house’s object it cannot explain is a second recording made on the same day, in which the singer appears to answer a phrase before it is sung.</p>
+          </div>
+
+          <h3>Other galleries</h3>
+          <ul class="galleries">
+            <li><b>The Settlement Wall</b>The name of every voice found in the training data, carved in laterite. Voices whose owners were paid are carved plain. Voices of the dead, who could not be paid, are read aloud every Friday. The reading currently takes four hours.</li>
+            <li><b>The Hall of Mistranslations</b>Famous misunderstandings between the city’s languages, performed by pairs of interpreters who act out both the intended meaning and the one that arrived.</li>
+            <li><b>The Kora of Twenty-One Strings</b>An instrument displayed with one string that has never been tuned. The house will not say which.</li>
+          </ul>
+
+          <div class="pair">
+            <div><h4>The patrons</h4><p>Voice-model magnates and translation houses. They made their fortunes from speech and are among the most talkative people in the city, which makes their gala excruciating for them.</p></div>
+            <div><h4>The gala</h4><p>The Listening Dinner. Patrons eat in silence for the whole evening while keepers perform. Anyone who speaks is gently walked out. Invitations are fought over, and every year a famous executive is walked out before the soup.</p></div>
+          </div>
+
+          <div class="charge"><h4>The charge against it</h4><p>By accepting the settlement, the house put a price on its voices. Every one of them now has a royalty rate. The Room was built to prove that voices cannot be owned, using the money from agreeing that they could be licensed.</p></div>
+
+          <p class="hook"><b>For the novel:</b> Amadou Sane is the keeper of Listening Room Nine, and he is going deaf. He can still sing the answer that unlocks the recording. He can no longer hear whether he got it right. He has stopped trying in public and has not told anyone why.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== VII SUND ===== -->
+    <article class="wing" id="sund" style="--c:var(--sund)">
+      <div class="wing-head">
+        <div class="route">Stop VII<small>Lower riverbank, its third site so far</small></div>
+        <div><h2>The Demountable</h2><p class="gazette">A museum you could take home in a lorry, and which has twice been taken somewhere else.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>Sund Joinery Works and Demountable Museum <em>gazette</em></span><span>The Demountable <em>mouth</em></span><span>The Flatpack <em>rude</em></span></dd></div>
+          <dt>Founded</dt><dd>1949; moved in 1974 and again after the basin crisis</dd>
+          <dt>Roof</dt><dd>27,000 m² on a timber grid bolted, not glued. It can be dismantled in 41 days.</dd>
+          <dt>Principal fortune</dt><dd>Material-passport registries, reclaimed-timber exchanges, demolition-rights firms</dd>
+          <dt>Cross-endowed by</dt><dd>The water trusts, through the Reassembly Competition</dd>
+          <dt>Dress at openings</dt><dd>A carpenter’s pencil worn as a pin. Patrons compete over pencils made from famous beams.</dd>
+        </dl></aside>
+        <div class="text">
+          <h3>What the building believes</h3>
+          <p>Sund teaches that you understand a thing when you can take it apart and put it back. The museum’s rule is strict: every object must be able to come apart without damage, and most are shown in pieces. Chairs lie open like diagrams. A ferry hull hangs as a cloud of planks. The building obeys the same rule. It has been moved twice, and every piece of it carries a passport listing its previous lives.</p>
+          <p>For the new passport economy, in which every beam and bolt in the city has a registered history and a resale value, Sund is the scripture. Its patrons trade in the future lives of buildings that have not been demolished yet.</p>
+
+          <div class="label-card">
+            <div class="acc">Accession SU.J.1962.088, the Great Floor</div>
+            <h4>Shophouse No. 88</h4>
+            <div class="medium">Chengal and meranti, clay tile, iron fittings; dismantled 1962, reassembled nine times since</div>
+            <p>A two-storey shophouse taken down in 1962 when its street was cleared. Sund bought every piece. Once a decade, the museum runs a competition to reassemble it using every original piece and nothing else. It has been a shophouse three times, a school twice, a clinic, a bridge, a stage, and currently a house turned inside out, with the façade facing the courtyard.</p>
+            <p>The next reassembly starts next year. The competition sponsor is a water trust, and the winning design will be built on a site the trust has not yet named.</p>
+          </div>
+
+          <h3>Other galleries</h3>
+          <ul class="galleries">
+            <li><b>The Lap Library</b>Ten thousand joints, each cut once in timber, labelled and filed. Carpenters come here the way lawyers go to case law.</li>
+            <li><b>The Passport Hall</b>Beams from demolished buildings with their full histories on display. Visitors are routinely surprised to find a piece of their grandparents’ house.</li>
+            <li><b>The Glue Room</b>The only room of failures: objects that could not come apart. Among them is the joint the museum cannot explain, a lap nobody can open and nobody can see how anyone closed.</li>
+          </ul>
+
+          <div class="pair">
+            <div><h4>The patrons</h4><p>Passport registrars and timber traders, practical and argumentative, who treat every building in the city as a future inventory. They are the only patrons who will fix a broken bench during their own gala.</p></div>
+            <div><h4>The gala</h4><p>The Raising. Every patron helps lift a beam into place for the season’s new exhibit. Donation size decides where on the beam you stand, and the largest donors stand at the heavy end.</p></div>
+          </div>
+
+          <div class="charge"><h4>The charge against it</h4><p>The Reassembly Competition has become land clearance by other means. Water trusts sponsor it, buy the sites where the winning designs are built, and then find the neighbouring streets conveniently condemned. A museum founded to prove that buildings can be moved is being used to move people.</p></div>
+
+          <p class="hook"><b>For the novel:</b> The unnamed site for next year’s reassembly is on the edge of Basin Seven. Whoever wins the competition decides whether Shophouse No. 88 becomes a dam, a school, or the first building of the civic museum.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== VIII SEKOLAH PETANG ===== -->
+    <article class="wing" id="pet" style="--c:var(--pet)">
+      <div class="wing-head">
+        <div class="route">Stop VIII<small>Bus Depot 4, the shift-school districts</small></div>
+        <div><h2>The Stencil Archive</h2><p class="gazette">No patrons, no gala, open at four in the morning.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>Sekolah Petang Stencil and Duplicate Archive <em>gazette</em></span><span>Depot 4 <em>mouth</em></span><span>The Copy Shop <em>rude, and accepted</em></span></dd></div>
+          <dt>Founded</dt><dd>1952, in a disused bus depot, never moved</dd>
+          <dt>Roof</dt><dd>1,900 m². It earns almost no roof credit, which is the only reason no one has tried to buy it.</dd>
+          <dt>Funding</dt><dd>One cent per copy, paid into a tin</dd>
+          <dt>Hours</dt><dd>4 a.m. to 8 a.m. and 1 p.m. to 3 p.m., between shifts</dd>
+        </dl></aside>
+        <div class="text">
+          <p>The shift schools educate ninety-four per cent of the city’s children, and the official atlases forgot them. Their museum is the reverse of every other on this route. It has no originals. It keeps stencils, the waxed sheets from which the shift schools duplicated every worksheet, exam and notice for seventy years, and its only rule is that visitors must take a copy home. The duplicators run all day. The archive’s most important object is the one that has been copied the most.</p>
+
+          <div class="label-card">
+            <div class="acc">Accession SP.S.1961.004, no case</div>
+            <h4>Stencil 04</h4>
+            <div class="medium">Wax stencil sheet, worn to lace; ink; a crooked rubber stamp</div>
+            <p>A single-page arithmetic worksheet, copied an estimated nine million times. The original stencil has worn through into a lace of holes, and it still prints, badly. Nobody knows who cut it. It hangs unglazed on a nail, beside the duplicator. Visitors are allowed to print one copy. The ink comes out faint and the numbers are hard to read, and nearly everyone in the city over forty can still do the sums from memory.</p>
+          </div>
+
+          <p>The archive’s object it cannot explain is an original. Someone left an unduplicated drawing in the tin in 1988. It has never been copied, and no one at Depot 4 will say whether that is out of respect or out of principle.</p>
+
+          <div class="charge"><h4>What it says about the others</h4><p>Every museum above is defined by what its fortune needed to hide. Depot 4 has nothing to hide and nothing to protect, which is why its forms became the city’s actual culture while the grand houses guarded theirs into near-invisibility. Ha Kim-lian learned to read here at five in the morning. She still pays her cent.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== IX RUMAH ARUS ===== -->
+    <article class="wing" id="arus" style="--c:var(--arus)">
+      <div class="wing-head">
+        <div class="route">Stop IX<small>Wherever the tide table says</small></div>
+        <div><h2>The Museum of Arrival</h2><p class="gazette">Deregistered for lacking a permanent address, and still open.</p></div>
+      </div>
+      <div class="wing-body">
+        <aside class="plate"><dl>
+          <div class="names"><dt>Names</dt><dd><span>None on the gazette since deregistration <em>gazette</em></span><span>Arus IV <em>mouth, after the boat</em></span><span>The Drift <em>rude</em></span></dd></div>
+          <dt>Founded</dt><dd>No one can agree. The house says it was already moving when the city arrived.</dd>
+          <dt>Roof</dt><dd>A 19-metre boat, plus whatever the water uncovers</dd>
+          <dt>Funding</dt><dd>It cannot legally receive donations. Patrons give by carrying.</dd>
+          <dt>Ticket</dt><dd>A tide table. Exhibits exist only at the water levels printed on it.</dd>
+        </dl></aside>
+        <div class="text">
+          <p>Rumah Arus taught navigation, and the city removed it from the register because a school with no address could not be inspected. Its museum sails. The boat carries a small collection of charts and instruments, but most of the exhibits are places: a stone that shows only at the lowest spring tide, a wreck visible for two hours a month, a sandbar where the house’s founders are said to have landed. The tide table is the ticket, and if you misread it, you miss the museum.</p>
+          <p>Patrons cannot give money, so they give by carrying. A patron takes an object on a journey the house specifies and brings it back with a written record. Several of the city’s richest people have spent a week on a ferry with a broken compass in their luggage, and have described it as the most important thing they have ever funded.</p>
+
+          <div class="label-card">
+            <div class="acc">No accession number; the house was deregistered before numbering</div>
+            <h4>The Broken Stick Chart</h4>
+            <div class="medium">Rattan, shell, cord; overstamped FIELD 4(B) in municipal ink</div>
+            <p>A navigational chart of swells and currents, snapped in half in the year of deregistration. One half is on the boat. The other is held by the Water Authority as evidence in the registration hearing. When the two halves are shown on the same day at the same tide, the route they describe runs directly through Basin Seven, which is not supposed to have been connected to the sea.</p>
+          </div>
+
+          <p class="hook"><b>For the novel:</b> The broken chart is why Roro Lestari’s old routes and Sol’s basin model agree about something every institution says is impossible. Arus IV is the only museum in the city that can go to the basin by water.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PATRONAGE FLOW ============ -->
+<section id="flows">
+  <div class="wrap">
+    <div class="sec-head"><div class="kicker">The ledger of patronage</div><h2>Who funds whom, by law and by appetite</h2></div>
+    <div class="body" style="margin-bottom:24px"><div class="aside-empty"></div><div class="col"><p>Because of the Cross-Endowment Rule, no fortune can simply fund its own house. Every economy has to find a museum whose argument it needs. Thick lines are principal endowments; thin lines are the crossings, which is where the city’s gossip, lawsuits and marriages happen.</p></div></div>
+    <div class="flow-card">
+      <svg viewBox="0 0 900 500" role="img" aria-label="Diagram of which future economies fund which museums">
+        <g id="flowlines" fill="none" stroke-linecap="round"></g>
+        <g id="flowlabels"></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALENDAR ============ -->
+<section id="calendar" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="kicker">The patrons’ year</div><h2>A social season set by weather and law</h2></div>
+    <div class="cal">
+      <div style="--c:var(--mer)"><div class="when">First Thursday of the year</div><h4>The Reading</h4><p>Nine hours of deeds read aloud at the Waqf. The season’s first gossip is who left at hour six.</p></div>
+      <div style="--c:var(--tki)"><div class="when">March equinox</div><h4>The Calibration Dinner</h4><p>Guests weighed on arrival. The total is read at dessert. Marriages have been arranged by the number.</p></div>
+      <div style="--c:var(--lan)"><div class="when">The Company’s founding day</div><h4>The AGM Dinner</h4><p>Acquisitions voted between courses. Hunger rises with controversy.</p></div>
+      <div style="--c:var(--kora)"><div class="when">Mid-year, dry season</div><h4>The Listening Dinner</h4><p>An evening without speech. The year’s most coveted invitation, and the most humiliating exit.</p></div>
+      <div style="--c:var(--sund)"><div class="when">After the southwest winds</div><h4>The Raising</h4><p>Everyone lifts a beam. Donors at the heavy end. Minor injuries are considered good luck.</p></div>
+      <div style="--c:var(--bal)"><div class="when">Close of wedding season</div><h4>The Night of Return</h4><p>The collection comes home on the bodies of its borrowers and is handed back at midnight.</p></div>
+      <div style="--c:var(--nine)"><div class="when">Unknown until 48 hours before</div><h4>The First Storm</h4><p>The monsoon breaks and the Roof throws its gala. The invitation comes by cloud.</p></div>
+      <div style="--c:var(--pet)"><div class="when">Every day, 4 a.m.</div><h4>Depot 4 opens</h4><p>No season, no invitation. One cent a copy.</p></div>
+      <div style="--c:var(--arus)"><div class="when">Lowest spring tide</div><h4>The Landing Stone</h4><p>Arus IV anchors over the only exhibit that shows twice a year. Patrons who carried something bring it back.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIVIC PROPOSAL ============ -->
+<section id="civic">
+  <div class="wrap">
+    <div class="proposal">
+      <h2>The tenth museum that no one wants</h2>
+      <div class="col">
+        <p>The Water Authority has proposed a civic Basin Seven Museum of Water on the drained basin floor: 120,000 m² of roof, larger than all the others, draining straight back into the catchment it memorialises. By roof credit alone it would make the Authority the richest patron in the Straits overnight. Its chief sponsor is the Registrar, Josefina Aurelio Bautista.</p>
+        <p>The houses are unanimous in opposing it and cannot agree on why. The strongest objection comes from the shift-school districts and the hawkers’ association, argued by Ha Kim-lian as lay assessor: a museum declares that something is over. Build a museum of the basin, and the crisis becomes heritage before anyone has been held responsible for it. Each house has filed its own dissent.</p>
+      </div>
+      <div class="annexes">
+        <div><b>Toa Keng</b>It cannot be a museum until the measurements of the crisis have been independently checked, and they haven’t been.</div>
+        <div><b>Al-Merikani</b>The basin floor is subject to the Double Deed. Building on it prejudices a case that is still being heard.</div>
+        <div><b>Balai Pusaka</b>Water is inherited, not exhibited. Lend it or leave it.</div>
+        <div><b>Lan Fong</b>Demands a shareholder-style vote of every household in the catchment. The Authority has declined, which the Company considers its argument won.</div>
+        <div><b>Nine Rain</b>The rain record needed to describe the crisis contains nine years it can no longer vouch for.</div>
+        <div><b>Sané-Kora</b>Nobody has asked the people who lived by the basin what they would answer.</div>
+        <div><b>Sund</b>Will support it only if the building can be taken down once the basin is refilled.</div>
+        <div><b>Depot 4</b>Offers to print the museum instead, one cent a copy.</div>
+        <div><b>Arus IV</b>Filed no dissent. Anchored over the site at high tide and waited.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISITOR RULES & HOOKS ============ -->
+<section id="rules" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="kicker">Conditions of admission</div><h2>What visitors are told, and what the novel should ask</h2></div>
+    <ul class="rules">
+      <li>Your pass is valid at all nine houses. It is not accepted at the proposed tenth, and never will be at the ninth, which has no gate.</li>
+      <li>At the Waqf, anything you set down and describe aloud as a gift becomes the museum’s property. Visitors lose an average of six umbrellas a week.</li>
+      <li>At the Roof, you are responsible for your own shoes.</li>
+      <li>At the Room, you may try once to answer the Recording That Waits. Keepers ask that you do not try twice.</li>
+      <li>At the Press Hall, you may not vote, but you may watch. It is recommended to eat first.</li>
+      <li>At Depot 4, take a copy. It is not optional.</li>
+      <li><b>Open question:</b> which patron is secretly funding the house they most publicly oppose, and what do they need its argument for?</li>
+      <li><b>Open question:</b> when the annal comes back on loan, does the Company return it? The date should fall inside the novel.</li>
+      <li><b>Open question:</b> who stitched the missing wedding into Kain Pulang’s selvedge, for a marriage that never took place?</li>
+      <li><b>Open question:</b> if Shophouse No. 88 is rebuilt on the basin’s edge, what should it become, and who gets to decide by taking it apart?</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span>Field Atlas VIII of the Parallel Straits: Houses of Keeping</span><span>Follows Atlas VII, Basin Seven. The mixture was never pure.</span></div>
+</footer>
+
+<script>
+(function(){
+  var houses=[
+    ["tki","Hall of Standards","--tki"],["mer","The Waqf","--mer"],["bal","The Balai","--bal"],
+    ["lan","Press Hall","--lan"],["nine","The Roof","--nine"],["kora","The Room","--kora"],
+    ["sund","The Demountable","--sund"],["pet","Depot 4","--pet"],["arus","Arus IV","--arus"]
+  ];
+  var roman=["I","II","III","IV","V","VI","VII","VIII","IX"];
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem("atlas8-punched")||"{}")||{};}catch(e){saved={};}
+  var holes=document.getElementById("holes"), key=document.getElementById("mapkey");
+  houses.forEach(function(h,i){
+    var b=document.createElement("button");
+    b.className="hole"; b.textContent=roman[i];
+    b.style.setProperty("--c","var("+h[2]+")");
+    b.setAttribute("aria-pressed",saved[h[0]]?"true":"false");
+    b.setAttribute("aria-label","Mark "+h[1]+" as visited");
+    b.addEventListener("click",function(){
+      var on=b.getAttribute("aria-pressed")!=="true";
+      b.setAttribute("aria-pressed",on?"true":"false");
+      saved[h[0]]=on;
+      try{localStorage.setItem("atlas8-punched",JSON.stringify(saved));}catch(e){}
+    });
+    holes.appendChild(b);
+    var a=document.createElement("a");
+    a.href="#"+h[0];
+    a.innerHTML='<span class="sw" style="--c:var('+h[2]+')"></span>'+roman[i]+" "+h[1];
+    key.appendChild(a);
+  });
+
+  // patronage flows
+  var ns="http://www.w3.org/2000/svg";
+  var fortunes=["Risk pricing and assessment","Perpetual water trusts","Blue carbon","Seabed and orbital mining","Rain futures and cooling","Voice royalties","Material passports","Shift wages, one cent a copy"];
+  var museums=[["Hall of Standards","--tki"],["The Waqf","--mer"],["The Balai","--bal"],["Press Hall","--lan"],["The Roof","--nine"],["The Room","--kora"],["The Demountable","--sund"],["Depot 4","--pet"]];
+  var flows=[
+    [0,0,14],[0,5,3],[0,3,3],
+    [1,1,14],[1,6,5],
+    [2,2,14],[2,4,3],
+    [3,3,14],[3,4,5],
+    [4,4,14],[4,0,3],
+    [5,5,14],[5,2,3],
+    [6,6,14],[6,1,3],
+    [7,7,8]
+  ];
+  var lg=document.getElementById("flowlines"), tg=document.getElementById("flowlabels");
+  var y=function(i){return 40+i*58;};
+  var x1=300,x2=600;
+  flows.forEach(function(f){
+    var p=document.createElementNS(ns,"path");
+    var a=y(f[0]), b=y(f[1]);
+    p.setAttribute("d","M"+x1+" "+a+" C"+(x1+150)+" "+a+" "+(x2-150)+" "+b+" "+x2+" "+b);
+    p.setAttribute("stroke","var("+museums[f[1]][1]+")");
+    p.setAttribute("stroke-width",f[2]);
+    p.setAttribute("opacity",f[2]>10?"0.85":"0.6");
+    if(f[2]<10)p.setAttribute("stroke-dasharray","6 5");
+    lg.appendChild(p);
+  });
+  fortunes.forEach(function(t,i){
+    var e=document.createElementNS(ns,"text");
+    e.setAttribute("class","flow-l"); e.setAttribute("x",x1-14); e.setAttribute("y",y(i)+5); e.setAttribute("text-anchor","end");
+    e.textContent=t; tg.appendChild(e);
+  });
+  museums.forEach(function(m,i){
+    var e=document.createElementNS(ns,"text");
+    e.setAttribute("class","flow-l"); e.setAttribute("x",x2+14); e.setAttribute("y",y(i)+5);
+    e.style.fill="var("+m[1]+")"; e.style.fontWeight="600";
+    e.textContent=m[0]; tg.appendChild(e);
+  });
+  var n1=document.createElementNS(ns,"text");n1.setAttribute("class","flow-s");n1.setAttribute("x",x1-14);n1.setAttribute("y",16);n1.setAttribute("text-anchor","end");n1.textContent="fortunes";tg.appendChild(n1);
+  var n2=document.createElementNS(ns,"text");n2.setAttribute("class","flow-s");n2.setAttribute("x",x2+14);n2.setAttribute("y",16);n2.textContent="museums (Arus IV may not receive money)";tg.appendChild(n2);
+})();
+</script>
+</body>
+</html>

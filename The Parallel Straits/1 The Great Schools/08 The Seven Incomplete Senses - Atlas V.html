@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>The Seven Incomplete Senses — Field Atlas V</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#20282c; --paper:#f3eee4; --dim:#687274; --hair:#d0c8bb;
+  --sea:#6f9492; --ember:#d57b50; --gold:#bd9857; --forest:#315847;
+  --red:#a13b31; --plum:#654d69; --nord:#809fa3; --night:#171f24;
+  --violet:#765f88; --void:#27334a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.56;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#e3c0a2;color:#171f21}
+a{color:inherit}
+.mono,.eyebrow{font-family:'IBM Plex Mono',monospace}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.reveal{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+/* COVER */
+.cover{
+ min-height:100vh;position:relative;display:flex;flex-direction:column;overflow:hidden;
+ padding:30px 34px 48px;color:#e9ebe7;
+ background:
+  radial-gradient(circle at 18% 22%,rgba(213,123,80,.25),transparent 22%),
+  radial-gradient(circle at 78% 68%,rgba(111,148,146,.22),transparent 28%),
+  radial-gradient(circle at 50% 42%,rgba(118,95,136,.18),transparent 26%),
+  linear-gradient(145deg,#171f24 0%,#243138 48%,#202735 100%);
+}
+.cover:before{content:"";position:absolute;inset:-10%;background:
+ repeating-radial-gradient(circle at 50% 50%,transparent 0 37px,rgba(255,255,255,.045) 38px 39px,transparent 40px 67px);
+ transform:rotate(-8deg) scale(1.15)}
+.cover:after{content:"";position:absolute;inset:0;background:
+ radial-gradient(circle at 50% 46%,transparent 0 34%,rgba(0,0,0,.42) 100%);pointer-events:none}
+.cover-top,.cover-title,.cover-side,.scrollcue{position:relative;z-index:2}
+.cover-top{display:flex;justify-content:space-between;gap:20px}
+.cover-logo{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,94px);font-weight:900;line-height:.82;text-transform:uppercase}
+.cover-index{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.82;letter-spacing:.12em;text-transform:uppercase;color:#bcc7c6}
+.cover-side{margin-top:30px;max-width:330px;border-left:1.5px solid #a9b7b5;padding-left:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.66;color:#c4cfcc}
+.cover-title{margin-top:auto;text-align:center;padding-bottom:8px}
+.cover-kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;margin-bottom:13px;color:#c3cecb}
+.cover-title h1{font-family:'Playfair Display',serif;font-size:clamp(52px,10vw,132px);font-weight:500;line-height:.82;letter-spacing:-.025em;text-transform:uppercase}
+.cover-title h1 em{display:block;font-weight:400;text-transform:none;color:#d8a981}
+.cover-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2.1vw,24px);margin-top:22px;line-height:1.34;color:#d6dcda}
+.scrollcue{text-align:center;margin-top:34px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#aab8b6}
+.scrollcue span{display:block;margin-top:7px;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* NAV */
+.runhead{position:sticky;top:0;z-index:80;background:rgba(243,238,228,.96);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--ink);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brandtab{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:#fff;padding:6px 9px;white-space:nowrap}
+.tabs{display:flex;gap:5px;overflow:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);background:#fff;padding:5px 8px;white-space:nowrap}
+.tabs a:hover{background:var(--ink);color:#fff}
+
+/* editorial */
+.opener{max-width:1180px;margin:0 auto;padding:72px 34px 42px}
+.credit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.opener h2{font-family:'Playfair Display',serif;font-size:clamp(46px,8vw,98px);line-height:.9;font-weight:500;letter-spacing:-.02em;max-width:990px}
+.opener h2 em{font-weight:400}
+.standfirst{font-size:clamp(20px,2.4vw,27px);line-height:1.42;max-width:900px;margin-top:32px}
+.article{max-width:1180px;margin:0 auto;padding:20px 34px 55px}
+.cols{columns:2;column-gap:48px;column-rule:1px solid var(--hair);text-align:justify;hyphens:auto}
+.cols p{font-size:16.2px;margin-bottom:15px}
+.dropcap:first-letter{font-family:'Playfair Display',serif;font-size:74px;font-weight:900;float:left;line-height:.68;padding:8px 10px 0 0;color:var(--sea)}
+.pull{max-width:930px;margin:54px auto 75px;padding:0 34px;text-align:center}
+.pull q{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(27px,4.2vw,46px);line-height:1.17;quotes:none}
+.pull .by{display:block;margin-top:17px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.band{padding:78px 34px;background:var(--night);color:#f4efe7}
+.band-inner{max-width:1180px;margin:0 auto}.band .eyebrow{color:#d5a077}
+.band h2{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,86px);font-weight:500;line-height:.92;max-width:980px}
+.band p{max-width:820px;color:#cbd1ce;font-size:19px;margin-top:22px}
+
+/* POWER DOSSIERS */
+.power{position:relative;overflow:hidden;border-top:1px solid rgba(0,0,0,.15)}
+.power-hero{min-height:76vh;display:grid;grid-template-columns:1.05fr .95fr}
+.power-copy{padding:66px 48px 52px max(34px,calc((100vw - 1180px)/2 + 34px));display:flex;flex-direction:column;justify-content:center}
+.power-no{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.68;margin-bottom:20px}
+.power-name{font-family:'Playfair Display',serif;font-size:clamp(50px,7.7vw,104px);font-weight:500;line-height:.82;letter-spacing:-.025em}
+.power-name .alt{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;line-height:1.6;margin-top:18px}
+.power-claim{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,2.45vw,29px);line-height:1.28;max-width:660px;margin-top:27px}
+.power-tag{margin-top:30px;border-top:1px solid currentColor;padding-top:13px;max-width:580px}
+.power-tag .label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;opacity:.65}
+.power-tag .value{font-family:'Playfair Display',serif;font-size:28px;line-height:1.1;margin-top:6px}
+.power-visual{position:relative;min-height:420px;overflow:hidden}
+.power-body{max-width:1180px;margin:0 auto;padding:56px 34px 78px;display:grid;grid-template-columns:1.15fr .85fr;gap:62px}
+.power-body h3{font-family:'Playfair Display',serif;font-size:clamp(29px,3.8vw,48px);font-weight:500;line-height:1.05;margin-bottom:18px}
+.power-body p{font-size:16px;margin-bottom:15px}
+.power-body blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:24px;line-height:1.25;margin:31px 0;padding-left:20px;border-left:3px solid currentColor}
+.side{border-left:1px solid currentColor;padding-left:24px}
+.side .label{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.16em;text-transform:uppercase;opacity:.65;margin:19px 0 6px}
+.side .label:first-child{margin-top:0}
+.side .value{font-family:'Playfair Display',serif;font-size:19.5px;line-height:1.26}
+.cost{margin-top:28px;border:1px solid currentColor;padding:22px}
+.cost .title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.cost p{font-family:'Playfair Display',serif;font-size:19px;line-height:1.38;margin:0}
+
+/* each */
+.elias{background:#e8e3d6;color:#213b3a}
+.elias .power-hero{background:linear-gradient(108deg,#e8e3d6 0 56%,#658b8b 56%)}
+.elias .power-visual{background:#658b8b}
+.parallax{position:absolute;inset:-4%;background:repeating-radial-gradient(circle at 50% 50%,transparent 0 25px,rgba(235,228,214,.34) 26px 27px,transparent 28px 45px)}
+.parallax:after{content:"PARALLAX";position:absolute;inset:18%;display:flex;align-items:center;justify-content:center;border:1px solid #eee7da;border-radius:50%;font-family:'IBM Plex Mono',monospace;letter-spacing:.22em;color:#eee7da}
+
+.yanshi{background:#efe5d7;color:#292625}
+.yanshi .power-hero{background:linear-gradient(108deg,#efe5d7 0 56%,#9d3b32 56%)}
+.yanshi .power-visual{background:#9d3b32}
+.recompose{position:absolute;inset:8%;border:1px solid #ecd7a9;background:linear-gradient(rgba(236,215,169,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(236,215,169,.15) 1px,transparent 1px);background-size:34px 34px}
+.recompose:before{content:"易";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-size:clamp(150px,20vw,280px);color:rgba(236,215,169,.75)}
+.recompose:after{content:"NO RETURN IS PERFECT";position:absolute;left:0;right:0;bottom:7%;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:#ecd7a9}
+
+.nur{background:#e7dfcc;color:#1f392f}
+.nur .power-hero{background:linear-gradient(108deg,#e7dfcc 0 54%,#315a48 54%)}
+.nur .power-visual{background:#315a48}
+.binding{position:absolute;inset:0;background:repeating-radial-gradient(ellipse at 50% 62%,transparent 0 27px,rgba(221,201,157,.16) 28px 29px,transparent 30px 49px)}
+.binding:after{content:"WE";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(120px,20vw,260px);font-style:italic;color:rgba(221,201,157,.78)}
+
+.samira{background:#eee4cf;color:#1d2f3a}
+.samira .power-hero{background:linear-gradient(108deg,#eee4cf 0 55%,#203d51 55%)}
+.samira .power-visual{background:#203d51}
+.covenant{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(197,159,91,.09),transparent 40%)}
+.covenant span{position:absolute;border:1px solid rgba(197,159,91,.8);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.covenant span:nth-child(1){width:70%;height:30%;transform:translate(-50%,-50%) rotate(-13deg)}
+.covenant span:nth-child(2){width:48%;height:66%;transform:translate(-50%,-50%) rotate(35deg)}
+.covenant span:nth-child(3){width:28%;height:78%;transform:translate(-50%,-50%) rotate(70deg)}
+.covenant:after{content:"AMANAH";position:absolute;left:0;right:0;bottom:8%;text-align:center;color:#c59f5b;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em}
+
+.amadou{background:#ead8c5;color:#2d222e}
+.amadou .power-hero{background:linear-gradient(108deg,#ead8c5 0 55%,#4b3652 55%)}
+.amadou .power-visual{background:#4b3652}
+.thirdvoice{position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 22px,rgba(211,145,96,.15) 23px 25px,transparent 26px 44px),repeating-linear-gradient(-45deg,transparent 0 22px,rgba(211,145,96,.09) 23px 25px,transparent 26px 44px)}
+.thirdvoice:before,.thirdvoice:after{content:"";position:absolute;border:2px solid #d39160;border-radius:50%;top:50%;transform:translateY(-50%)}
+.thirdvoice:before{width:38%;height:38%;left:13%}.thirdvoice:after{width:38%;height:38%;right:13%}
+.thirdlabel{position:absolute;left:0;right:0;top:46%;text-align:center;color:#ead8c5;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em}
+
+.mayu{background:#efddc1;color:#3c281d}
+.mayu .power-hero{background:linear-gradient(108deg,#efddc1 0 54%,#b55e42 54%)}
+.mayu .power-visual{background:#b55e42}
+.habitat{position:absolute;left:50%;top:50%;width:min(76%,410px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:2px solid #f0cf7d;box-shadow:0 0 0 18px rgba(240,207,125,.08),0 0 0 50px rgba(240,207,125,.04)}
+.habitat:before,.habitat:after{content:"";position:absolute;border:1px solid rgba(240,207,125,.75);border-radius:50%}
+.habitat:before{inset:18%}.habitat:after{inset:35%}
+.habitat-label{position:absolute;left:0;right:0;bottom:8%;text-align:center;color:#f0cf7d;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.23em}
+
+.erik{background:#ebefea;color:#203239}
+.erik .power-hero{background:linear-gradient(108deg,#ebefea 0 55%,#78969c 55%)}
+.erik .power-visual{background:#78969c}
+.commons{position:absolute;inset:8%;border:1px solid rgba(235,239,234,.8);display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr)}
+.commons span{border-right:1px solid rgba(235,239,234,.42);border-bottom:1px solid rgba(235,239,234,.42)}
+.commons span:nth-child(7),.commons span:nth-child(19){background:#ebefea}.commons span:nth-child(13){background:#294b50}
+.commons:after{content:"NO OWNER";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#ebefea}
+
+/* HYBRID LINEAGES */
+.hybrids{background:#1b2328;color:#f3efe8;padding:82px 34px}
+.hybrid-inner{max-width:1180px;margin:0 auto}
+.hybrids h2{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,86px);font-weight:500;line-height:.92}
+.hybrids .intro{max-width:830px;color:#ccd1ce;font-size:20px;margin:24px 0 42px}
+.hybrid-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.17)}
+.hybrid{background:#1b2328;padding:28px;min-height:285px}
+.hybrid .n{font-family:'IBM Plex Mono',monospace;font-size:9.3px;letter-spacing:.16em;text-transform:uppercase;color:#d69e75}
+.hybrid h3{font-family:'Playfair Display',serif;font-size:32px;font-weight:500;margin:10px 0 12px}
+.hybrid p{font-size:15.5px;color:#d8d9d4;margin-bottom:10px}
+.hybrid .question{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;line-height:1.25;color:#fff;margin-top:14px}
+
+/* LAW */
+.law{padding:82px 34px;background:#efe8dc}
+.law-inner{max-width:1180px;margin:0 auto}
+.law h2{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,86px);font-weight:500;line-height:.92}
+.law .intro{font-size:20px;max-width:810px;margin:24px 0 42px}
+.law-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#bbb5ab;border:1px solid #bbb5ab}
+.law-card{background:#faf6ed;padding:26px;min-height:235px}
+.law-card .type{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+.law-card h3{font-family:'Playfair Display',serif;font-size:29px;font-weight:500;margin:10px 0 11px}
+.law-card p{font-size:15.3px}
+
+/* PATTERN FINALE */
+.pattern{padding:90px 34px;background:
+ radial-gradient(circle at 50% 0,rgba(118,95,136,.25),transparent 28%),
+ radial-gradient(circle at 50% 100%,rgba(111,148,146,.2),transparent 30%),
+ #efe7db}
+.pattern-inner{max-width:1040px;margin:0 auto;text-align:center}
+.pattern h2{font-family:'Playfair Display',serif;font-size:clamp(46px,8vw,100px);font-weight:500;line-height:.9;margin:18px auto 26px}
+.pattern .intro{font-family:'Playfair Display',serif;font-size:clamp(23px,3.3vw,38px);font-style:italic;line-height:1.25;max-width:900px;margin:0 auto}
+.senses{max-width:950px;margin:52px auto 0;display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#b8b1a7;border:1px solid #b8b1a7}
+.sense{background:#f7f2e9;padding:18px 10px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.sense .school{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.sense b{font-family:'Playfair Display',serif;font-size:18px;font-weight:500}
+.sense span{font-size:11.5px;color:#505b5d}
+.big-reveal{margin:58px auto 0;border-top:1px solid #77817f;border-bottom:1px solid #77817f;padding:34px 0}
+.big-reveal p{font-family:'Playfair Display',serif;font-size:clamp(29px,4.4vw,52px);font-style:italic;line-height:1.17}
+.big-reveal .last{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-top:20px}
+
+footer{padding:42px 34px;text-align:center;border-top:1px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);line-height:1.9}
+
+@media(max-width:1000px){
+ .power-hero{grid-template-columns:1fr}.power-visual{min-height:350px}.power-copy{padding-left:34px}
+ .senses{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+ .cover{padding:22px 22px 36px}.cover-index{display:none}.runhead{padding:8px 10px}.brandtab{display:none}
+ .opener,.article,.band,.hybrids,.law,.pattern{padding-left:22px;padding-right:22px}.cols{columns:1}
+ .power-copy{padding:56px 22px 40px}.power-body{grid-template-columns:1fr;gap:34px;padding:44px 22px 64px}
+ .side{border-left:none;border-top:1px solid currentColor;padding:22px 0 0}
+ .hybrid-grid,.law-grid{grid-template-columns:1fr}.senses{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}.scrollcue span{animation:none}}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Field<br>Atlas V</div>
+    <div class="cover-index">
+      Parallax<br>
+      Recomposition<br>
+      Territorial Communion<br>
+      Amanah<br>
+      The Third Voice<br>
+      Reciprocity<br>
+      Commons Field
+    </div>
+  </div>
+  <div class="cover-side">
+    The schools have now produced humans whose bodies, minds and obligations exceed ordinary categories. Their powers are not decorations. They are epistemologies made flesh — and each one creates a new law, a new danger, a new kind of intimacy.
+  </div>
+  <div class="cover-title">
+    <div class="cover-kicker">The Great Schools · Mythic Human Divergence</div>
+    <h1>Seven<br><em>Incomplete Senses</em></h1>
+    <div class="cover-sub">When civilisation stops merely teaching different ways of knowing — and begins growing bodies capable of them</div>
+  </div>
+  <div class="scrollcue">Enter the divergence<span>▼</span></div>
+</section>
+
+<nav class="runhead">
+  <div class="brandtab">Field Atlas V · Seven Incomplete Senses</div>
+  <div class="tabs">
+    <a href="#premise">Premise</a><a href="#elias">Elias</a><a href="#yanshi">Yanshi</a><a href="#nur">Nur</a><a href="#samira">Samira</a><a href="#amadou">Amadou</a><a href="#mayu">Mayu</a><a href="#erik">Erik</a><a href="#hybrids">Hybrids</a><a href="#law">Law</a><a href="#pattern">Pattern</a>
+  </div>
+</nav>
+
+<section class="opener" id="premise">
+  <div class="credit">Prelude · powers as epistemology</div>
+  <h2>Not superheroes. <em>Different kinds of human.</em></h2>
+  <p class="standfirst reveal">The cast’s powers are not rewards, weapons or cosmetic upgrades. They are the logical extremes of the intellectual traditions that formed them. Every power makes something newly perceivable — and every power destabilises the boundary between ability, identity, duty and personhood.</p>
+</section>
+
+<div class="article">
+  <div class="cols reveal">
+    <p class="dropcap">A civilisation that treats observation as contingent eventually redesigns perception. A school obsessed with transformation eventually makes the body mutable. A custodial tradition binds a person to territory. A merchant culture discovers promises with persistence. An oral civilisation learns to hear memory in relationships. An ecological house produces people who are themselves habitat nodes. A commons tradition eventually makes ownership locally optional.</p>
+    <p>The sources of these abilities remain deliberately plural. Some are genetically engineered. Some emerge from symbiotic biology. Some require neural training. Some are infrastructural. Some look metaphysical. Some may involve dark-energy exposure or unknown cosmological conditions. The world refuses to collapse all extraordinary phenomena into a single explanatory technology.</p>
+    <p>That ambiguity is essential. A power that can be completely understood becomes engineering. A power that cannot be investigated becomes hand-waving. This world lives in the fertile middle: repeatable enough to produce institutions, strange enough to keep reopening ontology.</p>
+    <p>And the strongest characters are not those who perfectly embody their traditions. They are those whose abilities force their traditions into contradiction.</p>
+  </div>
+</div>
+
+<div class="pull reveal">
+  <q>Their powers do not make them stronger than ordinary humans. They make them stranger kinds of human.</q>
+  <span class="by">Atlas V · character principle</span>
+</div>
+
+<section class="power elias" id="elias">
+  <div class="power-hero">
+    <div class="power-copy">
+      <div class="power-no">01 · Elias Tan · TKI</div>
+      <h2 class="power-name">The Observer<br>Who Cannot Stay Singular<span class="alt">Polyperceptual Subject E-17 · “Many-Eyed”</span></h2>
+      <p class="power-claim">He can hold multiple incompatible perceptual models without collapsing them into one reality.</p>
+      <div class="power-tag"><div class="label">Signature ability</div><div class="value">Parallax</div></div>
+    </div>
+    <div class="power-visual"><div class="parallax"></div></div>
+  </div>
+  <div class="power-body">
+    <div>
+      <h3>The observer becomes the experimental variable.</h3>
+      <p class="dropcap">Elias is the product of neuroplastic training, synthetic neural lattices, engineered glial structures and resonance conditioning. He perceives visual space, magnetic gradients, electromagnetic noise, social attention fields, emotional resonance and probabilistic motion simultaneously.</p>
+      <p>Ordinary cognition resolves competing models into a single usable world. Elias can resist that collapse. He can see what someone is, what they are preparing to do, how nearby minds expect them to behave and which invisible infrastructures are structuring the space around them.</p>
+      <blockquote>“It only appears impossible because you’re standing in the wrong reality.”</blockquote>
+      <p>In dangerous situations, Parallax can resemble precognition. But Elias does not see “the future.” He sees multiple present structures whose interaction makes some futures more available than others.</p>
+      <div class="cost"><div class="title">The cost</div><p>He does not always know which perception belongs to reality — or whether several contradictory perceptions may all be true at different ontological levels.</p></div>
+    </div>
+    <aside class="side">
+      <div class="label">Can perceive</div><div class="value">Magnetism · intent vectors · attention fields · hidden systems · relational expectation.</div>
+      <div class="label">Looks like</div><div class="value">Telepathy, precognition, impossible spatial awareness.</div>
+      <div class="label">Actually is</div><div class="value">A refusal to privilege one observational frame too early.</div>
+      <div class="label">Contradiction</div><div class="value">The man with the most perceptions trusts perception least.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="power yanshi" id="yanshi">
+  <div class="power-hero">
+    <div class="power-copy">
+      <div class="power-no">02 · Lin Yanshi 林衍时 · Lam Keng</div>
+      <h2 class="power-name">The Woman Who<br>Can Rewrite Form<span class="alt">Adaptive morphologist · architect of living systems</span></h2>
+      <p class="power-claim">Her body remains biologically revisable — but every transformation leaves a residue.</p>
+      <div class="power-tag"><div class="label">Signature ability</div><div class="value">Recomposition</div></div>
+    </div>
+    <div class="power-visual"><div class="recompose"></div></div>
+  </div>
+  <div class="power-body">
+    <div>
+      <h3>Transformation becomes biological memory.</h3>
+      <p class="dropcap">Yanshi’s engineered regulatory systems keep adult tissues unusually plastic. She can redistribute bone density, alter pigmentation and thermal behaviour, restructure musculature, adapt her visual spectrum, change respiratory capacity and gradually refit herself for unfamiliar gravity or atmosphere.</p>
+      <p>She is not a shapeshifter. Recomposition is slow, deliberate and costly. More importantly, no body-state is fully reversible. Past transformations remain as biological palimpsest: a silver line beneath the skin, altered hand proportions, a voice that sometimes slips into an abandoned respiratory configuration.</p>
+      <blockquote>Change is possible. Return is an approximation.</blockquote>
+      <p>Over time, Yanshi learns to sense analogous instability in architecture, institutions and living systems. She becomes able to intuit how complex forms may be reconfigured without collapse.</p>
+      <div class="cost"><div class="title">The cost</div><p>Her body remembers every previous self. Transformation does not erase history; it accumulates it.</p></div>
+    </div>
+    <aside class="side">
+      <div class="label">Can alter</div><div class="value">Body architecture · metabolism · thermal regulation · perception · structural systems.</div>
+      <div class="label">Cannot do</div><div class="value">Return perfectly to an earlier self.</div>
+      <div class="label">Contradiction</div><div class="value">She was trained to transform everything and begins wondering what should remain unchanged.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="power nur" id="nur">
+  <div class="power-hero">
+    <div class="power-copy">
+      <div class="power-no">03 · Nur Iskandar · Temenggong</div>
+      <h2 class="power-name">The Custodian<br>Bound to Place<span class="alt">Legal custodian · ecological covenant bearer</span></h2>
+      <p class="power-claim">When he represents a territory, the territory becomes capable of injuring him back.</p>
+      <div class="power-tag"><div class="label">Signature ability</div><div class="value">Territorial Communion</div></div>
+    </div>
+    <div class="power-visual"><div class="binding"></div></div>
+  </div>
+  <div class="power-body">
+    <div>
+      <h3>Representation becomes reciprocal.</h3>
+      <p class="dropcap">Through ritual training, neural symbiosis, microbiome engineering and mechanisms nobody fully understands, Nur undergoes Binding with the territory he legally represents. Soil stress, poisoned water, forest disease, microbial collapse and mass animal displacement enter his body as sensation.</p>
+      <p>A damaged watershed may produce fever. A blocked river can manifest as breathlessness. Burned forest can leave phantom pain. The legal fiction that a custodian “speaks for” a place becomes biologically uncomfortable, because the speaker can no longer remain insulated from what happens to the represented.</p>
+      <p>Within deeply bound territory, Nur can sometimes influence ecological response: roots stabilise disturbed soil, migration patterns alter, microbial systems shift, water redistributes. He does not command.</p>
+      <blockquote>He requests. Sometimes the territory answers.</blockquote>
+      <div class="cost"><div class="title">The cost</div><p>After years of Binding, Nur increasingly refers to the watershed as “we.” Nobody knows whether this is metaphor, devotion — or a literal shift in personhood.</p></div>
+    </div>
+    <aside class="side">
+      <div class="label">Feels</div><div class="value">Water stress · soil damage · absence of species · ecological poisoning.</div>
+      <div class="label">Can influence</div><div class="value">Distributed ecological response inside bound territory.</div>
+      <div class="label">Contradiction</div><div class="value">Custodianship preserves the land by gradually destabilising the custodian’s singular self.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="power samira" id="samira">
+  <div class="power-hero">
+    <div class="power-copy">
+      <div class="power-no">04 · Samira Bharucha al-Haddad · Merican</div>
+      <h2 class="power-name">The Keeper<br>of Promises<span class="alt">Temporal fiduciary · covenant architect</span></h2>
+      <p class="power-claim">Some promises acquire persistence beyond the lives of those who made them.</p>
+      <div class="power-tag"><div class="label">Signature ability</div><div class="value">Amanah</div></div>
+    </div>
+    <div class="power-visual"><div class="covenant"><span></span><span></span><span></span></div></div>
+  </div>
+  <div class="power-body">
+    <div>
+      <h3>Trust acquires field strength.</h3>
+      <p class="dropcap">Merican researchers discover that sufficiently consequential vows — repeated across generations and embedded simultaneously in ritual, memory, law, architecture and economic behaviour — can behave like temporal attractors. They call these Covenant Fields.</p>
+      <p>Samira sees them almost as threads or architectures. Weak obligations fade. Ancient ones can fill entire rooms. She can trace inheritance, strengthen commitments, transfer responsibility and perform the feared act of Release: dissolving a covenant that no longer deserves continuation.</p>
+      <blockquote>Some promises deserve to die.</blockquote>
+      <p>Amanah is therefore not “truth magic.” It is a power over durable obligation — and over the moral sediment that promises accumulate through time.</p>
+      <div class="cost"><div class="title">The cost</div><p>Every covenant touched can touch her back. Shame, longing, grief and expectation from long-dead signatories can become part of her own emotional weather.</p></div>
+    </div>
+    <aside class="side">
+      <div class="label">Can perceive</div><div class="value">Broken vows · inherited debts · durable obligations · covenant density.</div>
+      <div class="label">Most sacred act</div><div class="value">Release.</div>
+      <div class="label">Contradiction</div><div class="value">Raised to protect trust; uniquely capable of ending it.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="power amadou" id="amadou">
+  <div class="power-hero">
+    <div class="power-copy">
+      <div class="power-no">05 · Amadou Sane · Kora</div>
+      <h2 class="power-name">The Man Who Hears<br>the Dead Between Voices<span class="alt">Second Hearer · memory advocate · relational medium</span></h2>
+      <p class="power-claim">Places, objects, rituals and relationships may carry memory that belongs to no surviving individual.</p>
+      <div class="power-tag"><div class="label">Signature ability</div><div class="value">The Third Voice</div></div>
+    </div>
+    <div class="power-visual"><div class="thirdvoice"></div><div class="thirdlabel">SPEAKER · SECOND VOICE · RELATION</div></div>
+  </div>
+  <div class="power-body">
+    <div>
+      <h3>Memory persists in relation.</h3>
+      <p class="dropcap">Kora’s oral sciences, neurobiology, acoustic resonance and ancestral archives converge into Memory Echo research. Certain places, objects and repeated practices retain structures of grief, expectation, fear and belonging that can be perceived by gifted Hearers.</p>
+      <p>Amadou enters these echoes and reconstructs fragments of experience. A courthouse remembers argument. A necklace carries generations of mourning. A public square contains the residue of protest. A song performed for four centuries becomes dense with accumulated emotional architecture.</p>
+      <p>Then he discovers something beyond speaker and contradiction:</p>
+      <blockquote>The Third Voice — what the relationship itself remembers.</blockquote>
+      <p>A marriage. A city. An institution. A species. A planet.</p>
+      <div class="cost"><div class="title">The cost</div><p>Memory does not respect ownership. Amadou increasingly carries emotions whose origin he cannot identify. “I don’t know whose grief this is.”</p></div>
+    </div>
+    <aside class="side">
+      <div class="label">Can hear</div><div class="value">Memory echoes · relational residue · unsaid history · distributed grief.</div>
+      <div class="label">Not exactly</div><div class="value">Ghosts.</div>
+      <div class="label">Contradiction</div><div class="value">The greatest memory advocate in the world can no longer be certain which memories are his.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="power mayu" id="mayu">
+  <div class="power-hero">
+    <div class="power-copy">
+      <div class="power-no">06 · Mayu Quispe · Nine Rains</div>
+      <h2 class="power-name">The<br>Habitat-Born<span class="alt">Off-world ecological symbiont · living infrastructure node</span></h2>
+      <p class="power-claim">Her body is not merely adapted to the habitat. It is one of the habitat’s operating systems.</p>
+      <div class="power-tag"><div class="label">Signature ability</div><div class="value">Reciprocity</div></div>
+    </div>
+    <div class="power-visual"><div class="habitat"></div><div class="habitat-label">BODY · WATER · MICROBE · STRUCTURE · BREATH</div></div>
+  </div>
+  <div class="power-body">
+    <div>
+      <h3>The line between citizen and life-support system dissolves.</h3>
+      <p class="dropcap">Mayu was born off-world after generations of ecological engineering. Her body contains modified microbial communities, radiation repair mechanisms, altered oxygen efficiency, reinforced bone systems, electrochemical symbionts and living interfaces with the habitat’s distributed biological control network.</p>
+      <p>She senses temperature gradients, water pressure, nutrient stress and structural strain. By touching living surfaces she can stimulate membranes, reroute water, grow fungal reinforcement and rebalance metabolic loops.</p>
+      <p>In emergency states, she can transfer part of her own metabolic reserve into habitat recovery.</p>
+      <blockquote>“The habitat needs you.” Is that love — or exploitation?</blockquote>
+      <div class="cost"><div class="title">The cost</div><p>The more indispensable Mayu becomes to the habitat, the harder it becomes to insist that she is a person rather than infrastructure.</p></div>
+    </div>
+    <aside class="side">
+      <div class="label">Can sense</div><div class="value">Habitat metabolism · water stress · nutrient imbalance · structural biology.</div>
+      <div class="label">Can do</div><div class="value">Grow · seal · reroute · stabilise · sacrifice.</div>
+      <div class="label">Contradiction</div><div class="value">A civilisation built on reciprocity may be asking one person to reciprocate too much.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="power erik" id="erik">
+  <div class="power-hero">
+    <div class="power-copy">
+      <div class="power-no">07 · Erik Soren · Sund</div>
+      <h2 class="power-name">The Man Who Can<br>Stop Ownership<span class="alt">Experimental civic neuro-field · non-appropriation bearer</span></h2>
+      <p class="power-claim">Within his field, systems built around possession and command begin to lose their authority.</p>
+      <div class="power-tag"><div class="label">Signature ability</div><div class="value">Commons Field</div></div>
+    </div>
+    <div class="power-visual"><div class="commons"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+  </div>
+  <div class="power-body">
+    <div>
+      <h3>What happens when nobody owns the situation?</h3>
+      <p class="dropcap">Sund’s distributed computation, legal encoding, cognitive consensus systems and neuromorphic infrastructure eventually produce temporary non-appropriation zones. Erik carries an experimental biological version.</p>
+      <p>Inside his Commons Field, smart weapons can forget their authorised owner. Locks may default open. proprietary systems lose exclusive permissions. coercive contract clauses suspend. Socially conditioned obedience can weaken.</p>
+      <p>The effect can feel liberating because people become newly conscious of hierarchy that previously operated automatically.</p>
+      <blockquote>But a hospital, spacecraft or family sometimes needs somebody to be responsible.</blockquote>
+      <div class="cost"><div class="title">The cost</div><p>Erik can suspend ownership and command more easily than he can replace them with legitimate coordination.</p></div>
+    </div>
+    <aside class="side">
+      <div class="label">Disrupts</div><div class="value">Property permissions · coercive systems · linked weaponry · conditioned obedience.</div>
+      <div class="label">Cannot guarantee</div><div class="value">What cooperative order emerges afterward.</div>
+      <div class="label">Contradiction</div><div class="value">The power to free a situation can also make it impossible to govern.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="hybrids" id="hybrids">
+  <div class="hybrid-inner">
+    <div class="eyebrow">Beyond the seven schools</div>
+    <h2>Some powers belong to history itself.</h2>
+    <p class="intro">Centuries of cross-pollination, off-world exposure and uncontrolled emergence create lineages nobody can comfortably attribute to one institution.</p>
+    <div class="hybrid-grid reveal">
+      <article class="hybrid"><div class="n">01 · Deep-space anomaly</div><h3>The Darkborn</h3><p>Travellers exposed to vacuum-energy and gravitational experiments return with unstable mass, dream-sharing across distance, memories that precede events and microscopic distortions around emotional stress.</p><p>Nine Rains calls them Void-touched. TKI issues a much longer technical label.</p><div class="question">Mutation, contamination, or contact with a layer of physics human beings were never built to inhabit?</div></article>
+      <article class="hybrid"><div class="n">02 · Gaia emergence</div><h3>The Gaia-Bonded</h3><p>Children born inside long-established Gaia Listening ecologies show seasonal immune changes, sensitivity to water chemistry and anomalous synchrony with animal populations.</p><div class="question">“Perhaps the territory learned how to speak through a person.”</div></article>
+      <article class="hybrid"><div class="n">03 · Anti-archive anomaly</div><h3>The Unwritten</h3><p>Some people resist cognitive recording itself. Scans fail to stabilise. Memories of them blur. Witnesses remember an encounter but not a recoverable identity.</p><p>They become spies, saints, criminals, monastics and philosophical nightmares.</p><div class="question">What is personhood in a civilisation that cannot reliably archive you?</div></article>
+      <article class="hybrid"><div class="n">04 · Relational permeability</div><h3>The Mirrors</h3><p>After prolonged contact with another person, Mirrors unconsciously acquire aspects of gesture, speech, affective rhythm and sometimes memory tendency.</p><div class="question">Are they exceptional imitators — or people whose identity boundaries are genuinely porous?</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="law" id="law">
+  <div class="law-inner">
+    <div class="eyebrow">When powers become ordinary enough for bureaucracy</div>
+    <h2>Superhuman ability produces paperwork.</h2>
+    <p class="intro">The decisive sign that the extraordinary has become real is not the battle scene. It is the emergence of law, insurance, medicine, etiquette, religion, sports, dating norms and administrative forms around it.</p>
+    <div class="law-grid reveal">
+      <article class="law-card"><div class="type">Cognitive consent</div><h3>Resonance assault</h3><p>Entering or manipulating another person’s shared cognitive state without permission becomes a distinct offence. Consent law now includes mental co-presence.</p></article>
+      <article class="law-card"><div class="type">Territorial personhood</div><h3>Ecological bodily harm</h3><p>Destroying a bound territory may legally constitute injury to its custodian — while injuring the custodian may impair the ecosystem they carry.</p></article>
+      <article class="law-card"><div class="type">Merican courts</div><h3>Covenant bankruptcy</h3><p>People overwhelmed by inherited vows may petition for ceremonial and legal Release, raising the question of whether obligation can become pathological.</p></article>
+      <article class="law-card"><div class="type">Kora medicine</div><h3>Memory contamination</h3><p>Specialists diagnose emotional and mnemonic material that may not originate in the patient, without assuming such material is false or delusional.</p></article>
+      <article class="law-card"><div class="type">Lam Keng identity</div><h3>Morphological passports</h3><p>Biometric identity becomes unreliable when bodies can change. Legal identity shifts toward continuity of memory, covenant and authenticated self-declaration.</p></article>
+      <article class="law-card"><div class="type">Sund regulation</div><h3>Commons restrictions</h3><p>Activating a non-appropriation field inside critical infrastructure may be prohibited even when the field itself is considered a protected civic technology.</p></article>
+      <article class="law-card"><div class="type">Nine Rains personhood</div><h3>Habitat refusal</h3><p>If a living habitat exhibits cognition through people like Mayu, can it refuse passengers, reject expansion or demand compensation?</p></article>
+      <article class="law-card"><div class="type">Everyday life</div><h3>Dating, sport, insurance</h3><p>People disclose resonance sensitivity before intimacy. Competitive leagues regulate perceptual augmentation. Insurers distinguish voluntary from inherited covenant exposure.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="pattern" id="pattern">
+  <div class="pattern-inner">
+    <div class="eyebrow">The mythic turn</div>
+    <h2>The Pattern recognises them.</h2>
+    <p class="intro">The planetary Pattern does not grant the seven their powers. It behaves as though their powers are interfaces already compatible with something larger.</p>
+
+    <div class="senses reveal">
+      <div class="sense"><span class="school">TKI</span><b>Parallax</b><span>Sees the same geometry from incompatible perceptual frames.</span></div>
+      <div class="sense"><span class="school">Lam Keng</span><b>Recomposition</b><span>Finds living systems reorganising toward the Pattern.</span></div>
+      <div class="sense"><span class="school">Temenggong</span><b>Communion</b><span>Feels disconnected ecosystems answer together.</span></div>
+      <div class="sense"><span class="school">Merican</span><b>Amanah</b><span>Ancient covenants begin resonating with it.</span></div>
+      <div class="sense"><span class="school">Kora</span><b>Third Voice</b><span>Hears a memory with no identifiable speaker.</span></div>
+      <div class="sense"><span class="school">Nine Rains</span><b>Reciprocity</b><span>Off-world habitats respond despite never touching Earth.</span></div>
+      <div class="sense"><span class="school">Sund</span><b>Commons</b><span>Observer and observed briefly lose their boundary.</span></div>
+    </div>
+
+    <div class="big-reveal reveal">
+      <p>Maybe these powers are not mutations.<br>Maybe humanity has been unknowingly developing different organs for perceiving the same larger reality.</p>
+      <div class="last">Seven schools · seven incomplete senses · one phenomenon large enough to require all of them</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Field Atlas V · The Seven Incomplete Senses<br>
+  Companion to The Great Schools · Future Atlas · Material World · City, Time & Lives
+</footer>
+
+<script>
+(function(){
+  const items=[...document.querySelectorAll('.reveal')];
+  if(!('IntersectionObserver' in window)){items.forEach(x=>x.classList.add('in'));return;}
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.08});
+  items.forEach(x=>io.observe(x));
+})();
+</script>
+</body>
+</html>

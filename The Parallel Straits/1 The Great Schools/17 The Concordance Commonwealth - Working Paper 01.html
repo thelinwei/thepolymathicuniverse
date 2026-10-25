@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>The Concordance Commonwealth — Working Paper 01</title>
+<meta name="description" content="Intellectual lineage, formal model, spatial framework and research agenda for a polycentric educational commonwealth in Singapore.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root{
+  --ink:#1e292d;--paper:#f6f2e9;--paper2:#ece6da;--dim:#5f6a6c;--hair:#cfc7ba;
+  --teal:#426f70;--teal2:#dce9e5;--rust:#b85f3d;--gold:#a27e32;--forest:#345744;
+  --red:#a23c34;--blue:#416b8c;--purple:#6a5676;--night:#1d272b;--white:#fffefa;
+  --hist:#416b8c;--theory:#345744;--synth:#b85f3d;--formal:#6a5676;--conj:#a27e32;--fiction:#777;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-underline-offset:3px;text-decoration-thickness:1px}
+.progress{position:fixed;z-index:150;top:0;left:0;width:0;height:3px;background:var(--rust)}
+.runhead{position:sticky;top:0;z-index:120;background:rgba(246,242,233,.95);backdrop-filter:blur(12px);border-bottom:1.5px solid var(--ink);padding:10px 23px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:white;padding:6px 8px;white-space:nowrap}
+.nav{display:flex;gap:6px;overflow:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{font-family:'IBM Plex Mono',monospace;font-size:8.3px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hair);padding:5px 8px;background:white;color:var(--ink);white-space:nowrap}.nav a:hover{background:var(--ink);color:white}
+.cover{border-bottom:1.5px solid var(--ink);padding:clamp(65px,10vw,135px) 34px 72px;position:relative;overflow:hidden}
+.cover:after{content:"4 + 3 + U";position:absolute;font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(110px,22vw,340px);letter-spacing:-.08em;color:rgba(66,111,112,.07);right:-2vw;bottom:-8vw;white-space:nowrap;pointer-events:none}
+.cover-inner{max-width:1180px;margin:auto;position:relative;z-index:2}.kicker,.eyebrow,.tag,.caption{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.cover h1{font-family:'Playfair Display',serif;font-size:clamp(62px,10vw,136px);letter-spacing:-.055em;line-height:.8;margin:22px 0 35px;max-width:1000px}.cover h1 em{display:block;font-weight:600;color:var(--teal)}
+.subtitle{font-family:'Playfair Display',serif;font-size:clamp(22px,2.7vw,34px);line-height:1.25;max-width:870px;color:var(--dim);margin:0 0 45px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);max-width:1000px}.meta div{padding:14px;border-right:1px solid var(--ink)}.meta div:last-child{border:0}.meta strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:4px}
+.wrap{max-width:1160px;margin:0 auto;padding:78px 34px}.wrap.narrow{max-width:920px}.wrap.wide{max-width:1320px}
+h2{font-family:'Playfair Display',serif;font-size:clamp(42px,5.8vw,73px);line-height:.98;letter-spacing:-.035em;margin:0 0 32px}
+h3{font-family:'Playfair Display',serif;font-size:clamp(25px,3vw,36px);line-height:1.1;margin:40px 0 13px}
+h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);margin:26px 0 10px}
+p{margin:0 0 1.05em}.lead{font-family:'Playfair Display',serif;font-size:clamp(22px,2.4vw,32px);line-height:1.3;color:var(--dim);margin-bottom:34px}
+.abstract{display:grid;grid-template-columns:180px 1fr;gap:36px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:31px 0}.abstract .label{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust)}.abstract p{font-size:19px;margin:0}
+.band{background:var(--night);color:#eee9df;padding:80px 34px}.band .inner{max-width:1160px;margin:auto}.band h2{color:white}.band .lead{color:#c8c2b8}.band a{color:#a8d1ca}
+.status-legend{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin:38px 0}.status{border:1px solid currentColor;padding:15px 12px;background:white}.status i{display:block;width:28px;height:5px;margin-bottom:12px}.status b{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}.status span{display:block;font-size:13px;color:var(--dim);line-height:1.35}.status.hist{color:var(--hist)}.status.hist i{background:var(--hist)}.status.theory{color:var(--theory)}.status.theory i{background:var(--theory)}.status.synth{color:var(--synth)}.status.synth i{background:var(--synth)}.status.formal{color:var(--formal)}.status.formal i{background:var(--formal)}.status.conj{color:var(--conj)}.status.conj i{background:var(--conj)}.status.fiction{color:var(--fiction)}.status.fiction i{background:var(--fiction)}
+.callout{border-left:5px solid var(--rust);background:white;padding:22px 25px;margin:31px 0}.callout .tag{color:var(--rust);margin-bottom:8px}.callout p:last-child{margin-bottom:0}.callout.warn{border-color:var(--gold)}.callout.warn .tag{color:var(--gold)}.callout.teal{border-color:var(--teal)}.callout.teal .tag{color:var(--teal)}
+.lineage{margin:40px 0}.branch{display:grid;grid-template-columns:180px 1fr;gap:30px;border-top:1px solid var(--hair);padding:25px 0}.branch:last-child{border-bottom:1px solid var(--hair)}.branch .origin{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding-top:6px}.branch h3{font-size:27px;margin:0 0 8px}.branch p:last-child{margin-bottom:0}.branch .move{color:var(--rust);font-style:italic}
+.table-scroll{overflow:auto;margin:34px 0}.table{width:100%;border-collapse:collapse;min-width:760px;background:white;font-size:15.5px}.table th,.table td{border:1px solid var(--ink);padding:13px 14px;text-align:left;vertical-align:top}.table th{font-family:'IBM Plex Mono',monospace;font-size:8.6px;letter-spacing:.1em;text-transform:uppercase;background:var(--night);color:white}.table td:first-child{font-weight:600}.table .synthrow td{background:#f9ece6}
+.math{border:1.5px solid var(--ink);background:var(--white);padding:27px 30px;margin:28px 0;text-align:center;overflow:auto}.math .katex-display{margin:.4em 0}.math .explain{font-family:'IBM Plex Mono',monospace;font-size:8.8px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);margin-top:17px}.math.soft{border-color:var(--hair);background:rgba(255,255,255,.55)}
+.defs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:35px 0}.def{border:1px solid var(--ink);background:white;padding:21px}.def .symbol{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:var(--teal);line-height:1}.def h3{font-size:23px;margin:9px 0}.def p{font-size:15px;margin-bottom:0}
+.proposition{border-top:2px solid var(--purple);border-bottom:2px solid var(--purple);padding:25px 0;margin:38px 0}.proposition .tag{color:var(--purple)}.proposition h3{margin:8px 0 13px}.proposition p:last-child{margin-bottom:0}
+.diagram{border:1.5px solid var(--ink);background:#ece6da;padding:20px;margin:36px 0}.diagram svg{width:100%;height:auto;display:block}.d-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700}.d-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase}.d-note{font-family:'Source Serif 4',serif;font-size:12px;font-style:italic}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:35px 0}.pillar{background:white;border:1px solid var(--ink);border-top:7px solid var(--teal);padding:19px;min-height:190px}.pillar:nth-child(2){border-top-color:var(--rust)}.pillar:nth-child(3){border-top-color:var(--purple)}.pillar:nth-child(4){border-top-color:var(--gold)}.pillar .no{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim)}.pillar h3{font-size:24px;margin:12px 0 9px}.pillar p{font-size:14.5px;margin:0}
+.risk{display:grid;grid-template-columns:58px 1fr 1fr;gap:0;border-top:1px solid var(--hair);padding:18px 0}.risk:last-child{border-bottom:1px solid var(--hair)}.risk .n{font-family:'Playfair Display',serif;font-size:34px;color:var(--red);font-weight:900}.risk h3{font-size:21px;margin:0 20px 6px 0}.risk p{font-size:15px;margin:0}.risk .test{border-left:1px solid var(--hair);padding-left:20px}
+.roadmap{counter-reset:phase;margin:38px 0}.phase{counter-increment:phase;display:grid;grid-template-columns:120px 1fr;gap:28px;border-top:1px solid var(--hair);padding:25px 0}.phase:last-child{border-bottom:1px solid var(--hair)}.phase .p:before{content:"Phase " counter(phase);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--rust)}.phase h3{font-size:27px;margin:0 0 8px}
+.references{font-size:14.5px}.references ol{padding-left:22px}.references li{margin-bottom:12px}.references .type{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.end{background:var(--teal);color:white;padding:88px 34px}.end .inner{max-width:960px;margin:auto}.end h2{font-size:clamp(52px,8vw,100px)}.end p{font-size:20px}.end .math{color:var(--ink)}
+footer{border-top:1.5px solid var(--ink);padding:34px;display:flex;justify-content:space-between;gap:20px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+@media(max-width:900px){.meta{grid-template-columns:1fr 1fr}.meta div:nth-child(2){border-right:0}.meta div:nth-child(-n+2){border-bottom:1px solid var(--ink)}.status-legend{grid-template-columns:repeat(3,1fr)}.branch{grid-template-columns:1fr;gap:8px}.defs{grid-template-columns:1fr}.pillars{grid-template-columns:1fr 1fr}.risk{grid-template-columns:50px 1fr}.risk .test{grid-column:2;border-left:0;border-top:1px solid var(--hair);margin-top:10px;padding:10px 0 0}.phase{grid-template-columns:1fr;gap:8px}}
+@media(max-width:560px){body{font-size:16.5px}.runhead{padding:8px 11px}.brand{display:none}.cover{padding:65px 22px}.cover h1{font-size:62px}.wrap,.band,.end{padding:62px 22px}.abstract{grid-template-columns:1fr;gap:8px}.status-legend{grid-template-columns:1fr 1fr}.pillars{grid-template-columns:1fr}.meta{grid-template-columns:1fr}.meta div{border-right:0;border-bottom:1px solid var(--ink)!important}.meta div:last-child{border:0!important}.math{padding:21px 12px}.risk{grid-template-columns:1fr}.risk .test{grid-column:1}.risk h3{margin-right:0}footer{flex-direction:column}}
+@media print{.runhead,.progress{display:none}.cover{padding-top:60px}.wrap,.band{break-inside:auto}.math,.callout,.branch,.def,.proposition,.risk{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="runhead">
+  <div class="brand">Working Paper 01</div>
+  <nav class="nav" aria-label="Section navigation"><a href="#abstract">Abstract</a><a href="#status">Status</a><a href="#lineage">Lineage</a><a href="#system">System</a><a href="#concordance">Concordance</a><a href="#interval">Interval</a><a href="#clear">Clear</a><a href="#space">Space</a><a href="#evaluate">Evaluation</a><a href="#risks">Risks</a><a href="#agenda">Agenda</a></nav>
+</header>
+
+<main>
+<section class="cover">
+  <div class="cover-inner">
+    <div class="kicker">A speculative institutional design for Singapore</div>
+    <h1>The Concordance<em>Commonwealth</em></h1>
+    <p class="subtitle">Intellectual lineage, formal model, spatial architecture and research agenda for four historical educational roots, three revisable ports, five territorial cantons, one thin commons and a protected outside.</p>
+    <div class="meta">
+      <div><strong>Document</strong>Working Paper 01</div><div><strong>Status</strong>Exploratory · not policy advice</div><div><strong>Authors</strong>Lin Wei × ChatGPT</div><div><strong>Date</strong>1 September 2026</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap narrow" id="abstract">
+  <div class="abstract">
+    <div class="label">Abstract</div>
+    <p>This paper formalises a speculative alternative to Singapore’s unitary school governance: four educational polities rooted in the island’s historical Chinese-, Malay-, Tamil- and English-medium lineages; three time-limited foreign or experimental “Ports”; five territorial cantons; and a thin federal Commons that guarantees rights, equity, portability and the continued possibility of disagreement. The model’s distinctive claim is not merely polycentric provision. It introduces <em>Concordance</em>—joint action without compulsory commensuration—and a protected <em>Interval</em>: time, space and practice that educational institutions may not fully capture. A \(5\times7\) crossing structure prevents educational worldviews from acquiring exclusive territories. The paper distinguishes historical evidence, established theory, project synthesis, formal definitions, design conjecture and fictional stress tests; proposes mathematical representations; identifies failure modes; and outlines a staged research programme. It does not claim that seven ministries are presently desirable or feasible. It asks what institutional variety Singapore would need if long-term adaptability, epistemic plurality and life beyond schooling were treated as constitutional goods rather than optional enrichment.</p>
+  </div>
+</section>
+
+<section class="wrap" id="status">
+  <div class="eyebrow">0 · epistemic hygiene</div>
+  <h2>Not every beautiful sentence is already a finding.</h2>
+  <p class="lead">The model becomes academically usable only when its kinds of claim remain visibly distinct.</p>
+  <div class="status-legend">
+    <div class="status hist"><i></i><b>Historical</b><span>Documented Singapore institutions, policies, places or events.</span></div>
+    <div class="status theory"><i></i><b>Established theory</b><span>Published concepts used as intellectual resources.</span></div>
+    <div class="status synth"><i></i><b>Project synthesis</b><span>A new combination developed in this conversation.</span></div>
+    <div class="status formal"><i></i><b>Formal definition</b><span>New notation that clarifies the proposal; not empirical law.</span></div>
+    <div class="status conj"><i></i><b>Design conjecture</b><span>A proposition requiring evidence, simulation or pilot testing.</span></div>
+    <div class="status fiction"><i></i><b>Fictional test</b><span>Worldbuilding cases used to expose costs and contradictions.</span></div>
+  </div>
+  <div class="callout warn">
+    <div class="tag">Scope warning</div>
+    <p>The terms <em>Root</em>, <em>Port</em>, <em>Commons</em>, <em>Interval</em>, <em>Concordance</em> and <em>Clear</em> are project constructs. Their value lies in how precisely they help generate and test hypotheses—not in sounding inevitable. The four historical language streams are a documented substrate; transforming them into contemporary educational constitutions is a speculative design move, not historical restoration.</p>
+  </div>
+</section>
+
+<section class="band" id="question">
+  <div class="inner">
+    <div class="eyebrow">1 · research problem</div>
+    <h2>How much difference can a small state constitutionally maintain?</h2>
+    <p class="lead">And how can it maintain that difference without converting it into race, class, postcode, brand prestige or administrative chaos?</p>
+    <p>The standard policy question asks which educational intervention works best. This project asks a prior systems question: under uncertain futures and plural values, should the state preserve several institutional capacities to decide what “works” means?</p>
+    <p>That question produces five linked design problems:</p>
+    <div class="pillars">
+      <div class="pillar"><div class="no">A · VARIETY</div><h3>Difference with teeth</h3><p>Multiple systems must have enough autonomy to make consequentially different decisions—not merely different school cultures.</p></div>
+      <div class="pillar"><div class="no">B · EQUITY</div><h3>No enclave privilege</h3><p>Mobility, funding and admissions must prevent institutional plurality from hardening into inherited advantage.</p></div>
+      <div class="pillar"><div class="no">C · ACTION</div><h3>Decision without unity</h3><p>The systems must still act together under deadlines, emergencies and shared infrastructure.</p></div>
+      <div class="pillar"><div class="no">D · LIMIT</div><h3>Life beyond capture</h3><p>The entire society must not become educational territory merely because learning can happen everywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="lineage">
+  <div class="eyebrow">2 · intellectual lineage</div>
+  <h2>A confluence, not an invented genealogy.</h2>
+  <p class="lead">The project does not descend neatly from one tradition. It sits where Singapore history, Chinese relational thought, polycentric governance, pluralist politics, cybernetics, ecology, critical pedagogy and design for the pluriverse begin to interfere with one another.</p>
+
+  <div class="lineage">
+    <article class="branch">
+      <div class="origin">Singapore · historical</div>
+      <div><h3>Four language streams as institutional memory</h3><p>Singapore formerly contained English-, Chinese-, Malay- and Tamil-medium schools with differing sponsors, curricula, social bases and political histories. English became the common first-language medium across schools by 1987. The proposal retrieves the historical fact of institutional plurality without proposing ethnic re-segregation. <span class="move">Project move: ancestry belongs to institutions, not pupils.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Tay Kheng Soon · Singapore</div>
+      <div><h3>Competing ministries and the school in civic life</h3><p>Tay’s canton thought experiment proposed several governments, HDBs and MOEs whose competition might generate innovation. His “Super School” work argued for integrating learning environments with community space. <span class="move">Project move: separate territorial cantons from non-territorial educational polities, then cross them.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Chinese thought · resonance</div>
+      <div><h3><span lang="zh">和而不同</span>, <span lang="zh">中和</span>, <span lang="zh">君子不器</span></h3><p><span lang="zh">和而不同</span> offers the concise possibility of harmony without sameness. The <em>Zhongyong</em> distinguishes <span lang="zh">中</span> and <span lang="zh">和</span> as relational achievement rather than a bland average. <span lang="zh">君子不器</span> resists reducing cultivated persons to single-use vessels. <span class="move">Project move: these are resonances and provocations, not claims that classical texts contain the proposed constitution.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Dewey · Tay · pedagogy</div>
+      <div><h3>Learning embedded in social life</h3><p>Dewey’s school-as-community and Tay’s civic “nervous system” both oppose the isolated school parcel. <span class="move">Project move: “learning in the thickness of life,” while rejecting the totalising slogan that the entire city is a school.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Illich · institutional critique</div>
+      <div><h3>Learning beyond schooling</h3><p>Illich’s critique of institutionalised education and proposal for learning webs help reveal the danger that every human capacity becomes a credentialled service. <span class="move">Project move: a constitutional Minimum Unschoolable Life, protected even inside a society rich in learning.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Ostrom · governance</div>
+      <div><h3>Polycentric authority at multiple scales</h3><p>Ostrom’s work challenges the assumption that complex commons require either one central authority or privatisation. Polycentric units can exercise substantial independence while nesting coordination. <span class="move">Project move: five territorial authorities, seven educational authorities and a limited federal layer with explicit domains.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Berlin · Mouffe · politics</div>
+      <div><h3>Incommensurable values and legitimate conflict</h3><p>Berlin’s value pluralism rejects the assumption that all genuine values fit one hierarchy; Mouffe’s agonistic politics rejects consensus as the erasure of conflict. <span class="move">Project move: Concordance, where a common act and its unreconciled dissents occupy the same legal instrument.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Escobar · Glissant</div>
+      <div><h3>Pluriverse, relation and opacity</h3><p>Escobar foregrounds relational world-making and autonomous, place-based design; Glissant defends relation without the demand for complete transparency. <span class="move">Project move: the Interval protects difference from compulsory translation and capture.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Scott · legibility</div>
+      <div><h3>What administration destroys by seeing</h3><p>Scott shows how standardisation and administrative legibility can erase practical knowledge and complex local interdependencies. <span class="move">Project move: Rumah Arus’s routes become the canonical stress test—saving the basin requires making knowledge legible, which also makes it expropriable.</span></p></div>
+    </article>
+    <article class="branch">
+      <div class="origin">Ashby · Holling · systems</div>
+      <div><h3>Requisite variety and resilience</h3><p>Ashby relates regulatory capacity to the variety of disturbances; Holling separates persistence under change from narrow equilibrium stability. <span class="move">Project move: institutional redundancy is treated as costly adaptive capacity, not automatically as waste or virtue.</span></p></div>
+    </article>
+  </div>
+  <div class="callout teal">
+    <div class="tag">Central synthesis</div>
+    <p>No cited thinker supplies the whole architecture. The distinctive contribution is the combination: historically rooted and rotating educational polities; cross-cutting territorial membership; dissent-preserving joint action; and a positive quantity of life with no educational owner.</p>
+  </div>
+</section>
+
+<section class="wrap" id="system">
+  <div class="eyebrow">3 · system definition</div>
+  <h2>Two maps, one island, thirty-five crossings.</h2>
+  <p class="lead">The core anti-segregation move is to stop educational sovereignty and territorial sovereignty from sharing the same boundaries.</p>
+
+  <div class="defs">
+    <div class="def"><div class="symbol">T</div><h3>Territorial cantons</h3><p>\(T=\{t_1,\ldots,t_m\}\), provisionally \(m=5\). Responsible for place: planning, housing, public realm, local services and infrastructure.</p></div>
+    <div class="def"><div class="symbol">S</div><h3>Educational polities</h3><p>\(S=R\cup P\), where \(R\) contains four historically rooted systems and \(P\) three revisable Ports. Responsible for pedagogy, staffing and institutional practice.</p></div>
+    <div class="def"><div class="symbol">F</div><h3>Federal Commons</h3><p>A thin common layer for rights, equity, safety, minimum civic foundations, portability, translation, shared data constraints and emergency coordination.</p></div>
+    <div class="def"><div class="symbol">U</div><h3>Protected Interval</h3><p>A nonempty domain of time, space and practice where no educational polity may impose compulsory capture, even though ordinary law and safeguarding continue to apply.</p></div>
+  </div>
+
+  <h3>3.1 The crossing graph</h3>
+  <p>Represent the institutional field as a bipartite graph \(G=(T\cup S,E)\). The strong version requires every educational polity to maintain a meaningful presence in every territorial canton:</p>
+  <div class="math">$$E=T\times S,\qquad |E|=|T||S|=5\times7=35$$<div class="explain">Each edge is a Canton College network, not necessarily one building.</div></div>
+  <p>The complete bipartite graph (K_{5,7}) is a design ideal, not a demand for identical replication. Edge weights (w_{ij}) may represent learners, staff, facilities, course-hours or public investment. A weak or nominal edge does not count as a substantive crossing.</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 1000 540" role="img" aria-label="Bipartite crossing of five territorial cantons and seven educational systems">
+      <g stroke="#9aacaa" stroke-width="1.3" opacity=".66">
+        <path d="M220 75L780 45M220 75L780 120M220 75L780 195M220 75L780 270M220 75L780 345M220 75L780 420M220 75L780 495"/>
+        <path d="M220 170L780 45M220 170L780 120M220 170L780 195M220 170L780 270M220 170L780 345M220 170L780 420M220 170L780 495"/>
+        <path d="M220 265L780 45M220 265L780 120M220 265L780 195M220 265L780 270M220 265L780 345M220 265L780 420M220 265L780 495"/>
+        <path d="M220 360L780 45M220 360L780 120M220 360L780 195M220 360L780 270M220 360L780 345M220 360L780 420M220 360L780 495"/>
+        <path d="M220 455L780 45M220 455L780 120M220 455L780 195M220 455L780 270M220 455L780 345M220 455L780 420M220 455L780 495"/>
+      </g>
+      <g fill="#345744"><circle cx="220" cy="75" r="28"/><circle cx="220" cy="170" r="28"/><circle cx="220" cy="265" r="28"/><circle cx="220" cy="360" r="28"/><circle cx="220" cy="455" r="28"/></g>
+      <g fill="#426f70"><circle cx="780" cy="45" r="23"/><circle cx="780" cy="120" r="23"/><circle cx="780" cy="195" r="23"/><circle cx="780" cy="270" r="23"/></g>
+      <g fill="#b85f3d"><circle cx="780" cy="345" r="23"/><circle cx="780" cy="420" r="23"/><circle cx="780" cy="495" r="23"/></g>
+      <g class="d-label" text-anchor="end"><text x="175" y="79">WEST</text><text x="175" y="174">NORTH</text><text x="175" y="269">NORTH-EAST</text><text x="175" y="364">EAST</text><text x="175" y="459">CENTRAL–SOUTH</text></g>
+      <g class="d-label"><text x="825" y="49">ROOT 1</text><text x="825" y="124">ROOT 2</text><text x="825" y="199">ROOT 3</text><text x="825" y="274">ROOT 4</text><text x="825" y="349">PORT 1</text><text x="825" y="424">PORT 2</text><text x="825" y="499">PORT 3</text></g>
+      <text class="d-title" x="500" y="260" text-anchor="middle">35 crossings</text><text class="d-note" x="500" y="282" text-anchor="middle">No place owns a worldview. No worldview owns a place.</text>
+    </svg>
+  </div>
+
+  <h3>3.2 Allocation and cross-cutting exposure</h3>
+  <p>Let \(x_{ij}\) be the number of learners belonging to educational polity \(s_i\) while residing in territorial canton \(t_j\). The matrix must satisfy both territorial and system totals:</p>
+  <div class="math">$$\sum_{i=1}^{n}x_{ij}=N_j,\qquad \sum_{j=1}^{m}x_{ij}=M_i,\qquad x_{ij}\ge0$$<div class="explain">\(N_j\): learners resident in canton \(j\). \(M_i\): total membership of system \(i\).</div></div>
+  <p>Presence alone is insufficient. For each canton, define the system share (p_{ij}=x_{ij}/N_j), Shannon entropy (H_j), and the effective number of represented systems (D_j):</p>
+  <div class="math">$$H_j=-\sum_{i=1}^{n}p_{ij}\ln p_{ij},\qquad D_j=e^{H_j}$$<div class="explain">If all seven are equally present, \(D_j=7\). This is a diagnostic, not a moral target.</div></div>
+  <p>A normalised islandwide crossing index can be written:</p>
+  <div class="math soft">$$X=\frac{1}{m}\sum_{j=1}^{m}\frac{H_j}{\ln n},\qquad 0\le X\le1$$</div>
+  <p>High (X) does not prove equity. A system can be demographically present yet socioeconomically segregated. If (Q) denotes income, class or another protected social dimension, mutual information (I(S;Q)) provides one warning signal: strong predictability of School from class indicates that plurality is becoming stratification. It should be interpreted with direct distributional and qualitative evidence, not used alone.</p>
+  <div class="proposition">
+    <div class="tag">Design proposition P1 · conjectural</div>
+    <h3>Cross-cutting membership reduces territorial essentialisation only if mobility is substantively affordable.</h3>
+    <p>The graph does not solve sorting by itself. Admissions, transport, housing, fees, language support and prestige must be designed so that \(E=T\times S\) describes lived access rather than marks on a governance chart.</p>
+  </div>
+
+  <h3>3.3 Roots and Ports operate at different temporal speeds</h3>
+  <p>The Roots are slow variables: historically sedimented institutions with long memory, internal dispute and a presumption of continuity. Ports are fast variables: experimental systems with fixed review horizons, no claim to permanence and an obligation to introduce genuinely distinct practice.</p>
+  <div class="math">$$\tau_R \gg \tau_P,\qquad P_k(t+\Delta)\in\{\text{renew},\text{mutate},\text{replace},\text{close}\}$$<div class="explain">A 15-year Port charter is a design conjecture, not a derived optimum.</div></div>
+  <p>Review should test institutional contribution, equity and distinct method—not cultural authenticity. “Remain foreign” cannot become a demand that people perform exotic difference for the host.</p>
+</section>
+
+<section class="band" id="concordance">
+  <div class="inner">
+    <div class="eyebrow">4 · formalising concordance</div>
+    <h2>Joint action without a master metric.</h2>
+    <p class="lead">Concordance is not a softer word for consensus. It is a decision architecture for cases where the participants may not share a complete ordering of outcomes.</p>
+
+    <h3>4.1 Preference without compulsory commensuration</h3>
+    <p>Let \(A\) be the set of possible joint actions and \(i\in\{1,\ldots,n\}\) the participating polities or affected publics. Each actor has a preference relation \(\succeq_i\) over at least some actions. The relations may be incomplete; not every loss can be translated into a common cardinal utility.</p>
+    <div class="math">$$A_F=A_{\mathrm{physical}}\cap A_{\mathrm{rights}}\cap A_{\mathrm{budget}}\cap A_{\mathrm{deadline}}$$<div class="explain">Only physically possible, lawful, funded and timely actions enter the feasible set.</div></div>
+    <p>A decision procedure \(\Pi\) selects an executable action \(a^*\in A_F\). For every party \(i\), a dissent record \(d_i(a^*)\) preserves the reasons, losses, conditions or refusals that the operative decision does not resolve. Let \(\rho\) specify review, expiry and reopening rules.</p>
+    <div class="math">$$\boxed{\mathcal{C}=\left(a^*,\Pi,D(a^*),\rho\right)},\qquad D(a^*)=(d_1,\ldots,d_n)$$<div class="explain">A concordance is an act, a legitimate procedure, preserved dissent and revisability.</div></div>
+
+    <h3>4.2 Minimal conditions</h3>
+    <div class="table-scroll"><table class="table">
+      <thead><tr><th>Condition</th><th>Requirement</th><th>What it prevents</th></tr></thead>
+      <tbody>
+        <tr><td>Executability</td><td>\(a^*\in A_F\) and can be implemented under the real deadline.</td><td>Pluralism becoming endless discussion.</td></tr>
+        <tr><td>Procedural legitimacy</td><td>\(\Pi\) is authorised, contestable and includes affected non-institutional publics.</td><td>The strongest School defining the meeting.</td></tr>
+        <tr><td>Non-forced scalarisation</td><td>No common utility function is presumed where values are incommensurable.</td><td>The Clear hiding political choices inside weights.</td></tr>
+        <tr><td>Preserved dissent</td><td>(D(a^*)) remains attached to the operative act.</td><td>Action being misrecorded as agreement.</td></tr>
+        <tr><td>Revisability</td><td>\(\rho\) defines review, sunset, new evidence and emergency reopening.</td><td>A compromised decision becoming sacred.</td></tr>
+        <tr><td>Rights floor</td><td>No dissent can authorise abandonment of baseline rights or safeguarding.</td><td>Pluralism becoming a defence of harm.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Consensus is a possible special case where relevant dissents disappear. It is neither required nor structurally preferred:</p>
+    <div class="math">$$\text{Consensus}\subseteq\text{Concordance},\qquad \text{Concordance}\not\Rightarrow\text{agreement}$$</div>
+
+    <h3>4.3 Optional decision aid: minimax regret</h3>
+    <p>Where parties can responsibly express comparable, locally normalised losses, a minimax-regret calculation may help expose who is being asked to absorb the largest sacrifice:</p>
+    <div class="math">$$a^{\dagger}=\arg\min_{a\in A_F}\max_i\left[\max_{b\in A_F}u_i(b)-u_i(a)\right]$$<div class="explain">This can inform \(\Pi\); it does not define Concordance and cannot represent every value.</div></div>
+    <p>The fictional Basin Seven Instrument is a stress test: it adopts a mixed solution under a deadline while annexing each unresolved refusal. The fiction demonstrates the form; it does not empirically validate the institution.</p>
+  </div>
+</section>
+
+<section class="wrap" id="interval">
+  <div class="eyebrow">5 · formalising the interval</div>
+  <h2>The protected outside is not the empty set.</h2>
+  <p class="lead">Earlier shorthand wrote \(\varnothing\neq0\). The intuition was right; the mathematics was not yet precise.</p>
+  <p>Let \(L\) denote the relevant domain of childhood time, civic space and social practice. Let \(E\subset L\) be subject to compulsory educational programming or capture, and \(U\subset L\) be protected from such claims.</p>
+  <div class="math">$$U\neq\varnothing,\qquad \mu(U)\ge u_{\min}>0,\qquad \operatorname{owner}_{\mathrm{edu}}(U)=\varnothing$$<div class="explain">The Interval has positive measure. What is absent is educational ownership—not care, law or relationship.</div></div>
+  <p>The formal notation matters. If (U) were literally empty, the Interval would be rhetoric. If (U) were wholly ungoverned, it could become a refuge for neglect or harm. Its special status is narrower: no School may compel it to justify itself as learning.</p>
+  <div class="math soft">$$\forall s\in S:\quad \operatorname{capture}_s(U)=0,\qquad U\subseteq L_{\mathrm{safeguarded}}$$</div>
+  <p>Possible manifestations include unprogrammed portions of the day; civic spaces without compulsory educational analytics; family and community practices that may decline credentialling; land reserved without predetermined institutional use; and the right to participate in ordinary life without converting the experience into evidence.</p>
+  <div class="callout warn">
+    <div class="tag">The measurement paradox</div>
+    <p>A constitutional minimum normally requires measurement. But measuring the Minimum Unschoolable Life can make it a managed entitlement, then a performance indicator, then a ceiling. Evaluation must therefore prefer boundary audits—checking whether institutions crossed prohibited lines—over scoring the quality of the unprogrammed life itself.</p>
+  </div>
+  <div class="proposition">
+    <div class="tag">Design proposition P2 · conjectural</div>
+    <h3>A system needs an uncaptured outside in order to receive correction it did not generate.</h3>
+    <p>This proposition connects Glissant’s opacity, Scott’s critique of legibility, Illich’s deschooling and the fictional knowledge of Ha Kim-lian and Roro. It remains a normative and empirical question: what kinds and quantities of outside-ness improve autonomy, critique and resilience, and under what safeguards?</p>
+  </div>
+</section>
+
+<section class="wrap" id="clear">
+  <div class="eyebrow">6 · the clear as optimisation regime</div>
+  <h2>It can prove that it is better.</h2>
+  <p class="lead">The strongest antagonist to plural institutions is not authoritarian stupidity. It is a high-performing model with a comprehensible objective.</p>
+  <p>A unified planner might optimise a scalar objective over measurable outcomes (y_k(a)):</p>
+  <div class="math">$$a_{\mathrm{Clear}}=\arg\max_{a\in A_F}J(a),\qquad J(a)=\sum_{k=1}^{K}\alpha_k y_k(a)-\lambda c(a)$$<div class="explain">Achievement, wellbeing, equity, efficiency and cost become one weighted score.</div></div>
+  <p>Nothing in this form is intrinsically wrong. Public decisions routinely require explicit priorities. The danger begins when (J) is mistaken for the whole public good, its weights become invisible, omitted values cannot file dissent, and short-run predictive accuracy becomes authority over long-run institutional extinction.</p>
+
+  <h3>6.1 Institutional diversity as option coverage</h3>
+  <p>Let \(\Omega\) be a set of plausible future disturbances and \(V_s(\omega)\) the response capacity retained by educational polity \(s\) under disturbance \(\omega\). One simple coverage measure is:</p>
+  <div class="math">$$\operatorname{Cov}(S)=\sum_{\omega\in\Omega}p(\omega)\,\mathbf{1}\!\left[\exists s\in S:V_s(\omega)\ge\tau\right]$$<div class="explain">Does the portfolio retain at least one adequate response across plausible futures?</div></div>
+  <p>This formalises the option-value intuition, not a guarantee. Several systems may share the same blind spot. Variety can be cosmetic. A badly governed portfolio can preserve seven versions of the same model.</p>
+
+  <h3>6.2 Diversity diagnostics</h3>
+  <p>If (q_s) is the share of institutional capacity held by system (s), portfolio entropy and its effective number are:</p>
+  <div class="math">$$H(S)=-\sum_s q_s\ln q_s,\qquad N_{\mathrm{eff}}=e^{H(S)}$$</div>
+  <p>Again, maximising entropy is not the objective. The relevant variety is functional: different error structures, evidence standards, pedagogic methods, time horizons and relationships to community. Two equally funded systems with identical models add little requisite variety.</p>
+  <div class="proposition">
+    <div class="tag">Design proposition P3 · testable</div>
+    <h3>The value of maintained variation increases with model uncertainty and irreversible institutional loss.</h3>
+    <p>Where future environments are predictable and institutional forms easily recreated, central optimisation may dominate. Where uncertainty is high and lost lineages cannot be cheaply rebuilt, redundancy may have greater option value. The project must specify those conditions rather than declaring plurality universally superior.</p>
+  </div>
+</section>
+
+<section class="band" id="space">
+  <div class="inner">
+    <div class="eyebrow">7 · spatial architecture</div>
+    <h2>Many centres, one Confluence, no educational reservation.</h2>
+    <p class="lead">The physical system follows a developmental radius and a constitutional distinction between sediment, crossing, experiment and unassigned ground.</p>
+
+    <h3>7.1 Educational radius by age</h3>
+    <p>Let (r(a)) be the expected geographic radius of a learner’s ordinary educational activity at age (a). The conjecture is monotonic expansion, subject to strict travel-burden and accessibility constraints:</p>
+    <div class="math">$$\frac{dr}{da}\ge0,\qquad \operatorname{travel}(a,q)\le B_a\quad\forall q$$<div class="explain">Older learners encounter more of the island; no group \(q\) should bear punitive travel to make the diagram work.</div></div>
+    <p>Neighbourhood Houses remain important, especially in primary years. Secondary learners move through Canton Colleges and Field Stations. Older learners acquire islandwide civic literacy. The model expands geography without abolishing local belonging.</p>
+
+    <h3>7.2 Five physical types</h3>
+    <div class="table-scroll"><table class="table">
+      <thead><tr><th>Type</th><th>Spatial logic</th><th>Institutional logic</th><th>Primary risk</th></tr></thead>
+      <tbody>
+        <tr><td>Mother House</td><td>Historical site or layered urban fabric</td><td>Memory, archive, ceremony, internal dispute</td><td>Prestige capture and heritage essentialism</td></tr>
+        <tr><td>Canton College</td><td>Distributed through a civic centre</td><td>One School × one territorial canton</td><td>Becoming a disguised megacampus</td></tr>
+        <tr><td>Neighbourhood House</td><td>Close to homes and ordinary services</td><td>Daily intimacy and younger learners</td><td>Isolation from the wider network</td></tr>
+        <tr><td>Field Station</td><td>Work, ecology, health, culture, port, court</td><td>Learning beside real practices</td><td>Colonising the host as “curriculum”</td></tr>
+        <tr><td>Port School</td><td>Thresholds and revisable future districts</td><td>Time-limited external experiment</td><td>Innovation theatre or elite enclave</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>7.3 The Confluence</h3>
+    <p>A federal learning commons in the Bras Basah–Civic District is plausible because the area already contains deep layers of educational, civic and cultural history. It is not the eighth School. It holds shared archives, assembly, translation, teacher parliament, credential portability, residence and public debate.</p>
+    <p>At its centre lies (U_C), an open unprogrammed court:</p>
+    <div class="math">$$U_C\subset U,\qquad \mu(U_C)>0,\qquad \forall s\in S:\operatorname{control}_s(U_C)=0$$<div class="explain">Seven entrances; no principal entrance; no permanent programme at the centre.</div></div>
+
+    <h3>7.4 Future land as constitutional slack</h3>
+    <p>For newly created territory, use a disjoint allocation:</p>
+    <div class="math">$$L_{\mathrm{new}}=L_{\mathrm{needed}}\,\dot\cup\,L_{\mathrm{ecological}}\,\dot\cup\,L_{\mathrm{unassigned}},\qquad \mu(L_{\mathrm{unassigned}})>0$$<div class="explain">Unassigned does not mean abandoned; it means future generations retain programming authority.</div></div>
+    <p>The Greater Southern Waterfront can test mixing and shared infrastructure; Paya Lebar Air Base can test the \(5\times7\) crossing logic in a new town; Long Island can test revisable Port architectures inside a real water and climate system. These are design conjectures, not claims about adopted URA plans. Some offshore landscapes should remain outside institutional possession altogether.</p>
+  </div>
+</section>
+
+<section class="wrap" id="governance">
+  <div class="eyebrow">8 · constitutional allocation</div>
+  <h2>A thin centre still needs strong muscles.</h2>
+  <p class="lead">“Thin” describes the range of doctrine it controls—not weakness in rights, finance, anti-segregation or emergency capacity.</p>
+  <div class="table-scroll"><table class="table">
+    <thead><tr><th>Domain</th><th>Territorial canton (T)</th><th>Educational polity (S)</th><th>Federal Commons (F)</th><th>Interval (U)</th></tr></thead>
+    <tbody>
+      <tr><td>Land and planning</td><td>Primary authority</td><td>Tenant / partner / network user</td><td>National safeguards and shared sites</td><td>Protect non-programmed quotas</td></tr>
+      <tr><td>Pedagogy and staffing</td><td>Contextual partnership</td><td>Primary authority</td><td>Rights, safety, portability, baseline civic floor</td><td>No compulsory capture</td></tr>
+      <tr><td>Admissions and finance</td><td>Local access input</td><td>Choice within constraints</td><td>Equalisation, anti-sorting, common funding floor</td><td>Not applicable</td></tr>
+      <tr><td>Evidence and data</td><td>Place data</td><td>Plural methods</td><td>Interoperability minimum and privacy maximum</td><td>Protected non-data domain</td></tr>
+      <tr><td>Emergency</td><td>Local execution</td><td>Institutional response</td><td>Temporary coordination with sunset and review</td><td>Only necessary, proportionate intrusion</td></tr>
+      <tr><td>Dissent</td><td>Territorial annex</td><td>Educational annex</td><td>Preserve and publish</td><td>Right not to translate fully</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout">
+    <div class="tag">Negative constitutional duty</div>
+    <p>The Commons must prevent the Seven from colonising the whole learning landscape. It therefore enforces not only a minimum educational entitlement but also a boundary beyond which educational institutions cannot compel legibility, optimisation or credentialling.</p>
+  </div>
+</section>
+
+<section class="wrap" id="evaluate">
+  <div class="eyebrow">9 · evaluation framework</div>
+  <h2>What would count as evidence against the idea?</h2>
+  <p class="lead">A serious proposal must make room for its own failure.</p>
+  <div class="table-scroll"><table class="table">
+    <thead><tr><th>Construct</th><th>Possible indicator</th><th>Interpretive caution</th></tr></thead>
+    <tbody>
+      <tr><td>Substantive plurality</td><td>Functional divergence in curriculum, assessment, staffing, decision rules and error patterns</td><td>Surface variety and branding do not count</td></tr>
+      <tr><td>Territorial crossing</td><td>(X), effective number (D_j), facility and course-hour distribution</td><td>Presence can coexist with class segregation</td></tr>
+      <tr><td>Equity</td><td>Outcome and opportunity gaps; fee, travel and admissions burdens; (I(S;Q))</td><td>Equality of average scores is not equality of capability</td></tr>
+      <tr><td>Mobility</td><td>Successful transfers, credit portability, language support, time to transition</td><td>High transfer rates may indicate instability rather than freedom</td></tr>
+      <tr><td>Concordance</td><td>Decision completion, implementation, dissent retention, reopening under new evidence</td><td>Fast decisions may hide domination; abundant dissents may be ceremonial</td></tr>
+      <tr><td>Interval integrity</td><td>Boundary violations, compulsory data capture, credential encroachment, qualitative autonomy reports</td><td>Do not score the “quality” of unowned life into a new rubric</td></tr>
+      <tr><td>Resilience</td><td>Scenario coverage, recovery time, preserved alternative methods, option recreation cost</td><td>Diversity is not resilience unless differences matter under disturbance</td></tr>
+      <tr><td>Administrative burden</td><td>Cost, duplication, staff time, navigation difficulty, compliance load</td><td>Inefficiency is neither automatically waste nor automatically adaptive</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Provisional hypotheses</h3>
+  <div class="proposition"><div class="tag">H1 · plurality</div><p>When educational polities retain genuine decision autonomy and cross every territorial canton, institutional variation increases without equivalent growth in postcode-based epistemic sorting.</p></div>
+  <div class="proposition"><div class="tag">H2 · resilience</div><p>Under high model uncertainty, a functionally diverse portfolio preserves more adequate response options across shocks than a single optimised system at comparable baseline resource levels.</p></div>
+  <div class="proposition"><div class="tag">H3 · concordance</div><p>Dissent-preserving instruments improve revision quality and institutional trust relative to decisions that record compromise as consensus, though they may reduce perceived decisiveness.</p></div>
+  <div class="proposition"><div class="tag">H4 · interval</div><p>Protected non-capture supports autonomy and external correction, but only when access to unprogrammed time and space is equitably distributed rather than privately purchased by the affluent.</p></div>
+</section>
+
+<section class="band" id="risks">
+  <div class="inner">
+    <div class="eyebrow">10 · failure modes</div>
+    <h2>The model’s enemies are not all called the Clear.</h2>
+    <p class="lead">Most are ordinary consequences of institutional difference in a land-scarce, status-conscious city.</p>
+    <div class="risk"><div class="n">01</div><div><h3>Plurality becomes class sorting</h3><p>Families convert educational difference into a status market; prestige and housing follow.</p></div><div class="test"><p><strong>Test:</strong> socioeconomic mutual information, travel burden, admissions advantage, housing price effects.</p></div></div>
+    <div class="risk"><div class="n">02</div><div><h3>Roots become ethnic museums</h3><p>Institutional ancestry hardens into racial expectation and authenticity policing.</p></div><div class="test"><p><strong>Guardrail:</strong> universal enrolment, internal historical conflict, no ethnic ownership, language support across origins.</p></div></div>
+    <div class="risk"><div class="n">03</div><div><h3>Ports become elite imports</h3><p>Foreignness is sold as premium distinction rather than used as public experimentation.</p></div><div class="test"><p><strong>Guardrail:</strong> common funding rules, public admissions, finite charters, explicit diffusion and failure review.</p></div></div>
+    <div class="risk"><div class="n">04</div><div><h3>The Interval becomes affluent leisure</h3><p>The privileged buy unstructured time while others receive surveillance and remedial optimisation.</p></div><div class="test"><p><strong>Guardrail:</strong> equitable time and space floors; audit capture boundaries by class and disability.</p></div></div>
+    <div class="risk"><div class="n">05</div><div><h3>Dissent annexes become theatre</h3><p>Institutions file objections, gain moral cleanliness and continue unchanged.</p></div><div class="test"><p><strong>Guardrail:</strong> annex-triggered review duties, public response, later outcome tracking.</p></div></div>
+    <div class="risk"><div class="n">06</div><div><h3>The Confluence becomes a temple</h3><p>A neutral commons acquires monumental prestige and quietly recentralises authority.</p></div><div class="test"><p><strong>Guardrail:</strong> distributed federal functions, rotating assemblies, constitutional non-ownership of the centre.</p></div></div>
+    <div class="risk"><div class="n">07</div><div><h3>Administrative navigation harms children</h3><p>Adults enjoy the elegance of polycentricity; learners carry transfers, timetables and incompatible credentials.</p></div><div class="test"><p><strong>Guardrail:</strong> one learner-facing interface, portability guarantees, developmental radius, navigation advocates.</p></div></div>
+    <div class="risk"><div class="n">08</div><div><h3>Emergency recentralisation never ends</h3><p>A crisis gives the Commons temporary power that becomes permanent.</p></div><div class="test"><p><strong>Guardrail:</strong> automatic sunset, independent review, dissent preservation, restoration of devolved powers.</p></div></div>
+  </div>
+</section>
+
+<section class="wrap" id="agenda">
+  <div class="eyebrow">11 · research agenda</div>
+  <h2>Do not begin by creating seven MOEs.</h2>
+  <p class="lead">Begin by testing whether the architecture produces anything beyond more expensive administration and prettier institutions.</p>
+  <div class="roadmap">
+    <article class="phase"><div class="p"></div><div><h3>Historical and conceptual reconstruction</h3><p>Map the actual institutional differences among Singapore’s former language streams without romanticising them. Trace governance, curriculum, social access, gender, funding, politics and reasons for convergence. Conduct close conceptual work on <span lang="zh">和而不同</span>, Concordance, opacity and the limit of schooling.</p></div></article>
+    <article class="phase"><div class="p"></div><div><h3>Formal and computational sandbox</h3><p>Build a multi-layer network model of households, housing, transport, school choice, prestige, language and finance. Test when the \(5\times7\) structure cross-cuts identity and when it amplifies sorting. Model shocks under monocentric and polycentric governance with matched budgets.</p></div></article>
+    <article class="phase"><div class="p"></div><div><h3>Institutional protocol pilots</h3><p>Pilot Concordance without creating new ministries: cross-institutional decisions that end in common operative clauses plus protected dissent annexes and scheduled reopening. Compare trust, implementation and learning against conventional consensus reporting.</p></div></article>
+    <article class="phase"><div class="p"></div><div><h3>Spatial prototype</h3><p>Use one existing town centre to test shared civic-learning facilities after hours, distributed School presence and age-scaled mobility. Audit whether ordinary partners remain ordinary rather than becoming unpaid “learning resources.”</p></div></article>
+    <article class="phase"><div class="p"></div><div><h3>Interval experiment</h3><p>Define a narrow, rights-compatible zone of non-capture—for example, limits on compulsory portfolio evidence, behavioural analytics or programming of specified public time. Evaluate boundary violations and autonomy qualitatively; do not optimise the Interval itself.</p></div></article>
+    <article class="phase"><div class="p"></div><div><h3>Constitutional scenario comparison</h3><p>Only after evidence from the earlier phases: compare unitary, devolved, networked and fully polycentric models. Include administrative cost, equity, crisis response, institutional option value and the political legitimacy of maintained disagreement.</p></div></article>
+  </div>
+  <div class="callout teal">
+    <div class="tag">Most useful near-term artefact</div>
+    <p>A simulation and governance protocol—not a masterplan. The project’s first empirical contribution could be a transparent model showing the conditions under which cross-cutting educational autonomy reduces or worsens sorting, paired with a real-world test of dissent-preserving joint decisions.</p>
+  </div>
+</section>
+
+<section class="wrap references" id="references">
+  <div class="eyebrow">References · selected lineage and factual ground</div>
+  <h2>Sources</h2>
+  <ol>
+    <li><span class="type">Singapore history</span> National Library Board. <a href="https://www.nlb.gov.sg/main/article-detail?cmsuuid=715bc06a-0ed3-4fb3-b363-268c87b394ac">“Vernacular education.”</a> Historical overview of Chinese-, Malay- and Tamil-medium schooling and the transition to English as first-language medium.</li>
+    <li><span class="type">Singapore history</span> National Library Board, BiblioAsia. <a href="https://biblioasia.nlb.gov.sg/all-sections/vol-5-issue2-jul-2009-singapore-education-system-overview/">“An Overview of Singapore’s Education System from 1819.”</a></li>
+    <li><span class="type">Singapore proposition</span> Channel NewsAsia. <a href="https://www.channelnewsasia.com/singapore/5-governments-5-hdbs-5-moes-tay-kheng-soon-decentralisation-creativity-1015311">“5 governments, 5 HDBs, 5 MOEs: Tay Kheng Soon on decentralisation for creativity.”</a></li>
+    <li><span class="type">Singapore proposition</span> Lee Kuan Yew School of Public Policy. <a href="https://lkyspp.nus.edu.sg/news-events/events/details/forum-on-educating-singapore-s-next-generations-towards-the-super-school-concept">“Forum on Educating Singapore’s Next Generations: Towards the Super School Concept.”</a></li>
+    <li><span class="type">Historical place</span> Roots.sg. <a href="https://www.roots.gov.sg/collection-landing/listing/1046090">“Raffles Institution, Bras Basah Road.”</a> See also the former <a href="https://www.roots.gov.sg/collection-landing/listing/1193647">St Joseph’s Institution</a>.</li>
+    <li><span class="type">Chinese primary text</span> <em>Analects</em> 13.23, <span lang="zh">君子和而不同</span>; 2.12, <span lang="zh">君子不器</span>. Chinese Text Project, <a href="https://ctext.org/analects">Analects</a>.</li>
+    <li><span class="type">Chinese primary text</span> <em>Liji</em>, “Zhong Yong.” Chinese Text Project. <a href="https://ctext.org/liji/zhong-yong"><span lang="zh">喜怒哀樂之未發，謂之中；發而皆中節，謂之和</span>.</a></li>
+    <li><span class="type">Education</span> Dewey, John. <a href="https://www.gutenberg.org/files/53910/53910-h/53910-h.htm"><em>The School and Society</em></a>. 1899.</li>
+    <li><span class="type">Education critique</span> Illich, Ivan. <em>Deschooling Society</em>. 1971. See the overview by <a href="https://infed.org/dir/welcome/ivan-illich-deschooling-conviviality-and-lifelong-learning/">infed.org</a>.</li>
+    <li><span class="type">Governance</span> Ostrom, Elinor. <a href="https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/">“Beyond Markets and States: Polycentric Governance of Complex Economic Systems.”</a> Nobel Prize Lecture, 2009.</li>
+    <li><span class="type">Political philosophy</span> Berlin, Isaiah. <a href="https://academic.oup.com/book/7968/chapter/153281672">“Two Concepts of Liberty.”</a> 1958; Oxford Academic edition.</li>
+    <li><span class="type">Political theory</span> Mouffe, Chantal. <a href="https://quod.lib.umich.edu/p/pc/12322227.0009.011/--democratic-politics-and-conflict-an-agonistic-approach?rgn=main;view=fulltext">“Democratic Politics and Conflict: An Agonistic Approach.”</a></li>
+    <li><span class="type">Policy process</span> Lindblom, Charles E. <a href="https://www.jstor.org/stable/973677">“The Science of ‘Muddling Through.’”</a> <em>Public Administration Review</em> 19(2), 1959, 79–88.</li>
+    <li><span class="type">Design theory</span> Escobar, Arturo. <a href="https://www.dukeupress.edu/designs-for-the-pluriverse"><em>Designs for the Pluriverse: Radical Interdependence, Autonomy, and the Making of Worlds</em></a>. Duke University Press, 2018.</li>
+    <li><span class="type">Relation and opacity</span> Glissant, Édouard. <a href="https://press.umich.edu/Books/P/Poetics-of-Relation"><em>Poetics of Relation</em></a>. Trans. Betsy Wing. University of Michigan Press.</li>
+    <li><span class="type">Legibility</span> Scott, James C. <a href="https://politicalscience.yale.edu/publications/seeing-state-how-certain-schemes-improve-human-condition-have-failed"><em>Seeing Like a State</em></a>. Yale University Press, 1998.</li>
+    <li><span class="type">Cybernetics</span> Ashby, W. Ross. <a href="https://pespmc1.vub.ac.be/ASHBBOOK.html"><em>An Introduction to Cybernetics</em></a>. Chapman &amp; Hall, 1956.</li>
+    <li><span class="type">Ecology</span> Holling, C. S. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev.es.04.110173.000245">“Resilience and Stability of Ecological Systems.”</a> <em>Annual Review of Ecology and Systematics</em> 4, 1973, 1–23.</li>
+    <li><span class="type">Information theory</span> Shannon, Claude E. “A Mathematical Theory of Communication.” <em>Bell System Technical Journal</em> 27, 1948. Entropy is used here as a distribution diagnostic, not a normative theory of educational diversity.</li>
+    <li><span class="type">Singapore planning</span> Urban Redevelopment Authority. <a href="https://www.ura.gov.sg/land-planning/master-plan/master-plan-2025/regional-plans/central-region/vibrant-city-living-for-all/">Greater Southern Waterfront</a>; <a href="https://www.ura.gov.sg/land-planning/master-plan/master-plan-2025/regional-plans/east/paya-lebar-air-base/">Paya Lebar Air Base</a>; <a href="https://www.ura.gov.sg/land-planning/planning-strategies/urban-resilience/long-island/">Long Island</a>; <a href="https://www.ura.gov.sg/land-planning/master-plan/master-plan-2025/regional-plans/north/sembawang-shipyard/">Sembawang Shipyard</a>. Current planning facts are factual ground; the educational uses proposed in this paper are conjectural.</li>
+    <li><span class="type">Project archive</span> <em>The Register of Names — Field Atlas V</em>; <em>The Ensemble — Field Atlas VI</em>; <em>Basin Seven — Field Atlas VII</em>; <em>The Straits Record — Case File 001</em>; and <em>The Empty Space Is Load-Bearing — Field Atlas VIII</em>.</li>
+  </ol>
+</section>
+
+<section class="end">
+  <div class="inner">
+    <div class="eyebrow">Conclusion · provisional theorem of the project</div>
+    <h2>Plurality needs architecture, cost and a limit.</h2>
+    <p>Difference without architecture becomes branding. Architecture without equity becomes enclosure. Equity without maintained variation can become a perfectly fair route into one model. Variation without common action becomes paralysis. Common action without preserved dissent becomes false consensus. And a society where every experience is absorbed as education loses the outside from which education can be corrected.</p>
+    <div class="math">$$\boxed{\mathfrak{L}=\left(T\times(R\cup P)\right)\oplus F\oplus U}$$<div class="explain">A living educational commonwealth: crossings of place and School, a federal Commons, and a protected Interval.</div></div>
+    <p>The formula is not a solution. It is a compact research programme. Its worth will depend on whether it can survive history, simulation, cost, children, politics, ordinary life—and the people who refuse to fit inside it.</p>
+  </div>
+</section>
+</main>
+
+<footer><span>The Concordance Commonwealth · Working Paper 01</span><span>Lin Wei × ChatGPT · 1 September 2026</span></footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+<script>
+const bar=document.getElementById('progress');
+function progress(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max?100*h.scrollTop/max:0)+'%'}
+document.addEventListener('scroll',progress,{passive:true});progress();
+</script>
+</body>
+</html>
