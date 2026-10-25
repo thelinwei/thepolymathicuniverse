@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seven Wardrobes of the Straits</title>
+<style>
+:root{
+  --paper:#E8EAE6; --sheet:#F3F4F1; --ink:#22262B; --soft:#4A4F55; --chalk:#2F6FB0; --rule:#B9BDB8;
+  --tki:#8A6A43; --mer:#2E3F7A; --tem:#11674F; --lan:#A8352A; --nine:#5F6B3A; --kora:#6B2F52; --sund:#2F6268; --gold:#B58A2B;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#191B1D; --sheet:#202326; --ink:#E6E7E3; --soft:#C3C6C1; --chalk:#7FB0E3; --rule:#3A3E42;
+    --tki:#C9A273; --mer:#8EA0E0; --tem:#5FC3A2; --lan:#E07A6C; --nine:#AFC07A; --kora:#D38DB7; --sund:#7EC1C8; --gold:#E0B95A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#191B1D; --sheet:#202326; --ink:#E6E7E3; --soft:#C3C6C1; --chalk:#7FB0E3; --rule:#3A3E42;
+  --tki:#C9A273; --mer:#8EA0E0; --tem:#5FC3A2; --lan:#E07A6C; --nine:#AFC07A; --kora:#D38DB7; --sund:#7EC1C8; --gold:#E0B95A;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Times New Roman",Times,"Liberation Serif",serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+a{color:var(--chalk)}
+.sc{font-variant-caps:all-small-caps;letter-spacing:.06em}
+header.hero{padding:56px 0 24px}
+.hero .kicker{font-style:italic;color:var(--soft);margin:0 0 10px}
+.hero h1{font-weight:400;font-size:clamp(46px,9vw,112px);line-height:.92;margin:0;letter-spacing:-.01em}
+.hero h1 em{display:block}
+.hero .deck{max-width:640px;font-size:21px;margin:26px 0 0}
+.hats{margin:40px 0 8px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:10px 0;overflow-x:auto}
+.hats svg{display:block;min-width:820px;width:100%;height:auto}
+.hats p{font-size:15px;color:var(--soft);font-style:italic;margin:4px 0 0}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:36px 0 20px}
+.intro p{margin:0 0 14px}
+.intro h2{font-weight:400;font-style:italic;font-size:28px;margin:0 0 10px}
+.method{background:var(--sheet);padding:22px 24px;border-left:3px solid var(--chalk)}
+.method ol{margin:6px 0 0;padding-left:22px}
+.method li{margin:0 0 8px}
+section.school{--acc:var(--ink);border-top:1px solid var(--ink);padding:40px 0 48px}
+.school .head{display:grid;grid-template-columns:auto 1fr;gap:6px 24px;align-items:baseline;margin-bottom:26px}
+.school .head .num{font-size:64px;line-height:1;color:var(--acc);font-style:italic}
+.school .head h2{font-weight:400;font-size:clamp(32px,5vw,50px);line-height:1.05;margin:0}
+.school .head .idea{grid-column:2;margin:0;color:var(--soft);font-style:italic;font-size:20px}
+.body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+.plate{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);align-self:start;background:var(--sheet);padding:14px}
+.plate svg{width:100%;height:auto;display:block}
+.plate .cap{font-size:15px;font-style:italic;color:var(--soft);margin:8px 2px 0}
+.recipe{margin:0 0 22px;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.recipe li{padding:7px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:16px}
+.recipe li span:last-child{font-style:italic;color:var(--soft);text-align:right;flex-shrink:0;max-width:45%}
+.gesture{font-size:23px;line-height:1.38;margin:0 0 24px;padding-left:16px;border-left:3px solid var(--acc)}
+.gesture b{font-weight:400;font-style:italic;color:var(--acc)}
+dl.ward{margin:0;display:grid;grid-template-columns:8.5em 1fr;gap:10px 18px}
+dl.ward dt{color:var(--acc);font-variant-caps:all-small-caps;letter-spacing:.06em;font-size:19px;padding-top:1px}
+dl.ward dd{margin:0}
+.story{margin:22px 0 0;background:var(--sheet);padding:16px 18px}
+.story p{margin:0}
+.story .sc{color:var(--acc)}
+details{margin:18px 0 0;border-top:1px dashed var(--rule);padding-top:10px}
+summary{cursor:pointer;font-style:italic;color:var(--chalk)}
+summary:focus-visible,a:focus-visible{outline:2px solid var(--chalk);outline-offset:3px}
+details p{font-size:16px;line-height:1.5;margin:10px 0 0;background:var(--sheet);padding:12px 14px}
+.tki{--acc:var(--tki)} .mer{--acc:var(--mer)} .tem{--acc:var(--tem)} .lan{--acc:var(--lan)} .nine{--acc:var(--nine)} .kora{--acc:var(--kora)} .sund{--acc:var(--sund)}
+.closing{border-top:2px solid var(--ink);padding:40px 0 70px}
+.closing h2{font-weight:400;font-style:italic;font-size:34px;margin:0 0 16px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:17px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule)}
+th{font-weight:400;font-variant-caps:all-small-caps;letter-spacing:.06em;color:var(--soft);border-bottom:1px solid var(--ink)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:30px}
+.cols p{margin:0 0 12px}
+footer{font-size:15px;color:var(--soft);font-style:italic;padding:0 0 40px}
+/* svg ink */
+.ln{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.thin{fill:none;stroke:var(--ink);stroke-width:.9}
+.ch{fill:none;stroke:var(--chalk);stroke-width:1.4;stroke-dasharray:5 4}
+.chs{fill:none;stroke:var(--chalk);stroke-width:1.4}
+.chf{fill:var(--chalk)}
+.af{fill:var(--acc)} .as{fill:none;stroke:var(--acc);stroke-width:1.6}
+.pf{fill:var(--sheet)} .inkf{fill:var(--ink)}
+.gf{fill:var(--gold)}
+svg text{font-family:"Times New Roman",Times,serif;fill:var(--ink);font-size:13px}
+svg text.c{fill:var(--chalk);font-style:italic}
+svg text.lab{font-style:italic;font-size:15px}
+@media (max-width:820px){
+  body{font-size:18px}
+  .intro,.body,.cols{grid-template-columns:1fr;gap:24px}
+  .plate{position:static}
+  dl.ward{grid-template-columns:1fr;gap:2px}
+  dl.ward dd{margin-bottom:10px}
+  .school .head .num{font-size:46px}
+}
+@media print{.plate{position:static} details{display:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="hero">
+  <p class="kicker">The Polymathic Universe · The Parallel Straits · Dress</p>
+  <h1>Seven Wardrobes<em>of the Straits</em></h1>
+  <p class="deck">Each school dresses in three or four borrowings that never met in history. They are chosen for what they do to a body, then set to work arguing for the school’s idea of knowledge. One gesture survives every garment in the family, from the head’s ceremonial coat to a junior’s sports kit.</p>
+
+  <div class="hats" role="img" aria-label="Seven headpieces in a row: half-boater, counting cap, tanjak, ring hat, eaves hat with rain chain, soft roll, workcap">
+  <svg viewBox="0 60 1400 168">
+    <!-- 1 TKI half-boater -->
+    <g transform="translate(0,0)">
+      <rect class="pf" x="62" y="112" width="76" height="38"/>
+      <path class="ln" d="M62,150 V114 Q100,106 138,114 V150"/>
+      <rect x="62" y="134" width="76" height="9" style="fill:var(--tki)"/>
+      <path class="ln" d="M138,150 H184 Q186,155 180,156 H100"/>
+      <path class="ch" d="M100,153 H18"/>
+      <text class="lab" x="100" y="196" text-anchor="middle">half-boater</text>
+      <text x="100" y="214" text-anchor="middle">Toa Keng</text>
+    </g>
+    <!-- 2 Merican counting cap -->
+    <g>
+      <path class="pf" d="M258,154 V124 Q300,114 342,124 V154 Z"/>
+      <path class="ln" d="M258,154 V124 Q300,114 342,124 V154 Z"/>
+      <rect x="258" y="143" width="84" height="11" style="fill:var(--mer)"/>
+      <rect class="ch" x="288" y="124" width="22" height="14"/>
+      <text class="c" x="320" y="108">seal inside</text>
+      <text class="lab" x="300" y="196" text-anchor="middle">counting cap</text>
+      <text x="300" y="214" text-anchor="middle">Al-Merican</text>
+    </g>
+    <!-- 3 Temenggong tanjak -->
+    <g>
+      <path class="pf" d="M450,156 Q500,164 550,156 L540,138 L516,124 L512,84 L496,96 L476,134 Z"/>
+      <path class="ln" d="M450,156 Q500,164 550,156 L540,138 L516,124 L512,84 L496,96 L476,134 Z"/>
+      <path class="thin" d="M476,134 Q506,128 540,138 M496,96 L506,128 M512,84 L516,124"/>
+      <path d="M454,150 Q500,158 546,150 L548,156 Q500,164 452,156 Z" style="fill:var(--tem)"/>
+      <path d="M512,84 L516,124 L506,128 Z" style="fill:var(--gold)"/>
+      <text class="lab" x="500" y="196" text-anchor="middle">tanjak</text>
+      <text x="500" y="214" text-anchor="middle">Sri Temenggong</text>
+    </g>
+    <!-- 4 Lan Fong ring hat -->
+    <g>
+      <ellipse class="pf" cx="700" cy="134" rx="88" ry="13"/>
+      <ellipse class="ln" cx="700" cy="134" rx="88" ry="13"/>
+      <ellipse class="thin" cx="700" cy="132" rx="30" ry="5"/>
+      <path class="thin" d="M682,129 Q700,112 718,129"/>
+      <g style="stroke-width:3">
+        <path d="M616,140 V170 M626,143 V172 M636,145 V174 M646,146 V175 M656,147 V176 M666,148 V177 M676,148 V177 M686,148 V177 M696,148 V178 M706,148 V178 M716,148 V177 M726,148 V177 M736,147 V176 M746,146 V176 M756,145 V175 M766,143 V173 M776,141 V171 M784,138 V168" style="stroke:var(--lan)"/>
+        <path d="M631,144 V173 M661,148 V176 M691,148 V177 M721,148 V177 M751,146 V175" style="stroke:var(--gold)"/>
+      </g>
+      <text class="c" x="700" y="102" text-anchor="middle">open crown</text>
+      <text class="lab" x="700" y="200" text-anchor="middle">ring hat</text>
+      <text x="700" y="218" text-anchor="middle">Lan Fong</text>
+    </g>
+    <!-- 5 Nine Rains eaves hat -->
+    <g>
+      <path class="pf" d="M818,146 Q900,82 982,146 Z"/>
+      <path class="ln" d="M812,148 Q900,80 988,148"/>
+      <path class="ln" d="M808,146 Q812,154 820,151 L980,151 Q988,154 992,146"/>
+      <path class="thin" d="M900,84 L860,146 M900,84 L900,148 M900,84 L940,146"/>
+      <path d="M812,149 H988" style="stroke:var(--nine);stroke-width:3;fill:none"/>
+      <g class="thin">
+        <ellipse cx="984" cy="160" rx="4" ry="5"/><ellipse cx="984" cy="172" rx="4" ry="5"/><ellipse cx="984" cy="184" rx="4" ry="5"/><ellipse cx="984" cy="196" rx="4" ry="5"/>
+      </g>
+      <path class="chf" d="M984,206 q3,6 0,8 q-3,-2 0,-8z"/>
+      <text class="lab" x="900" y="196" text-anchor="middle">eaves hat</text>
+      <text x="900" y="214" text-anchor="middle">Nine Rains</text>
+    </g>
+    <!-- 6 Kora roll -->
+    <g>
+      <path class="pf" d="M1062,152 Q1100,138 1140,152 L1140,140 Q1100,126 1062,140 Z"/>
+      <path class="ln" d="M1062,152 Q1100,138 1140,152 L1140,140 Q1100,126 1062,140 Z"/>
+      <path class="pf" d="M1070,140 Q1060,100 1084,82 Q1106,74 1110,96 Q1104,118 1112,134"/>
+      <path class="ln" d="M1070,140 Q1060,100 1084,82 Q1106,74 1110,96 Q1104,118 1112,134"/>
+      <path class="thin" d="M1076,128 Q1080,104 1096,90"/>
+      <path d="M1062,147 Q1100,133 1140,147" style="stroke:var(--kora);stroke-width:4;fill:none"/>
+      <path class="ch" d="M1144,156 q10,6 0,16"/>
+      <text class="c" x="1150" y="176">ear clear</text>
+      <text class="lab" x="1100" y="196" text-anchor="middle">soft roll</text>
+      <text x="1100" y="214" text-anchor="middle">Kora</text>
+    </g>
+    <!-- 7 Sund cap -->
+    <g>
+      <path class="pf" d="M1258,150 Q1260,110 1300,108 Q1340,110 1342,150 Z"/>
+      <path class="ln" d="M1258,150 Q1260,110 1300,108 Q1340,110 1342,150 Z"/>
+      <path class="thin" d="M1300,108 Q1288,126 1284,150 M1300,108 Q1314,126 1318,150"/>
+      <path class="ln" d="M1342,150 Q1368,150 1378,158 Q1350,160 1336,154"/>
+      <rect x="1258" y="144" width="84" height="6" style="fill:var(--sund)"/>
+      <text class="lab" x="1300" y="196" text-anchor="middle">workcap</text>
+      <text x="1300" y="214" text-anchor="middle">Sund Commons</text>
+    </g>
+  </svg>
+  <p>Seven heads, read left to right. The hat is the fastest way to tell the schools apart across a crowded quay, so each one carries the school’s argument in miniature.</p>
+  </div>
+</header>
+
+<div class="intro">
+  <div>
+    <h2>The brief, as I read it</h2>
+    <p>Familiar forms, unfamiliar company. A samurai shoulder on an Edwardian surveyor. A Byzantine emperor’s jewelled band over a bullfighter’s jacket. A Swedish boat blanket worn as a cape at the most formal gathering of the year. Each pairing should feel slightly wrong for a second, then inevitable once you know what the school believes.</p>
+    <p>The test for every borrowing is a job. It has to make the body do something the school cares about: choose a side, hold something back, depend on someone else, carry its own history, record weather, keep silent, belong to everyone.</p>
+  </div>
+  <div class="method">
+    <p class="sc" style="margin:0">How each school is built</p>
+    <ol>
+      <li><b>The recipe</b> — the borrowings, with where they come from.</li>
+      <li><b>The gesture</b> — the one move that survives every garment, at every scale.</li>
+      <li><b>The wardrobe</b> — head of school, assembly, everyday, sport, and how a junior differs from a senior. Each school solves seniority its own way.</li>
+      <li><b>A custom</b> — one ritual the clothes make possible, for the novel to use.</li>
+    </ol>
+    <p style="margin:12px 0 0;font-size:16px">Earlier decisions carry forward: TKI’s silt sash, Merican’s inward lining, Temenggong’s kain, the cohort date, the Nine Rains record band, Kora’s silence and free colour, Sund’s wearer tab. Your selected references are assigned to schools at the end.</p>
+  </div>
+</div>
+
+<!-- ============ 1 TKI ============ -->
+<section class="school tki" id="tki">
+  <div class="head">
+    <span class="num">i</span>
+    <h2>Toa Keng Institution</h2>
+    <p class="idea">Parallax — every frame shows something and hides something.</p>
+  </div>
+  <div class="body">
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 320 420" role="img" aria-label="Coat front with two closing lines four centimetres apart and a stiffened wing on one shoulder">
+        <path class="pf" d="M135,52 L70,80 L66,160 L58,380 L262,380 L254,160 L250,80 L185,52 Q160,66 135,52Z"/>
+        <path class="ln" d="M135,52 L70,80 L66,160 L58,380 L262,380 L254,160 L250,80 L185,52 Q160,66 135,52Z"/>
+        <path class="ln" d="M135,52 L150,130 L170,150 M185,52 L178,122"/>
+        <path class="pf" d="M250,80 L300,58 L306,98 L256,114 Z"/>
+        <path class="ln" d="M250,80 L300,58 L306,98 L256,114 Z"/>
+        <path class="thin" d="M262,76 L268,108 M274,71 L280,104 M286,65 L292,101"/>
+        <path d="M78,96 L92,90 L246,330 L232,338 Z" style="fill:var(--tki)"/>
+        <path class="ln" d="M168,150 V380"/>
+        <path class="ch" d="M184,140 V380"/>
+        <circle class="inkf" cx="168" cy="190" r="5"/><circle class="inkf" cx="168" cy="230" r="5"/>
+        <circle class="chs" cx="184" cy="270" r="5"/><circle class="chs" cx="184" cy="310" r="5"/>
+        <path class="chs" d="M168,398 H184 M168,393 V403 M184,393 V403"/>
+        <text class="c" x="190" y="412">4 cm</text>
+        <text class="c" x="192" y="372">close right</text>
+        <text x="96" y="214">close left</text>
+        <text class="c" x="200" y="34">one wing,</text>
+        <text class="c" x="200" y="47">closing side only</text>
+        <text x="84" y="356" style="fill:var(--ink)">silt sash</text>
+      </svg>
+      <p class="cap">The double placket. Two closing lines, two buttons on each. The tie hangs from whichever side you closed.</p>
+    </figure>
+    <div>
+      <ul class="recipe">
+        <li><span>Surveyor’s frock coat, calf-length, tropical worsted</span><span>London, 1900s</span></li>
+        <li><span>Kamishimo shoulder wing, stiffened</span><span>Edo Japan</span></li>
+        <li><span>Fencing jacket’s off-centre closure</span><span>European salle, 19th c.</span></li>
+        <li><span>White canvas spats over black oxfords</span><span>Edwardian street</span></li>
+        <li><span>A boater with half its brim cut away</span><span>Thames regatta, halved</span></li>
+      </ul>
+      <p class="gesture"><b>Choose your frame every morning, in public.</b> Every TKI garment has two closing lines four centimetres apart. Close on the left and the whole front falls one way; close on the right and the silhouette shifts. The disputed tie hangs from the side you chose, so a hall of students reads like a room of positions.</p>
+      <dl class="ward">
+        <dt>Head of school</dt><dd>Charcoal frock coat to the calf. One stiffened kamishimo wing rises from the closing shoulder like a hand raised in debate — your articulated charcoal reference, its plates reread as the wing. Silt sash across the body, a brass surveyor’s loupe on a chain at the waist. White spats. On Founding Day the head closes on the opposite side from last year.</dd>
+        <dt>Assembly</dt><dd>Hip-length charcoal jacket with the double placket and a soft cloth wing stitched flat at the shoulder seam. Tie on the closing side. This is where your pale diagonal coat lands: its long closure line is the TKI placket already.</dd>
+        <dt>Everyday</dt><dd>White short-sleeved shirt with the offset placket; tailored shorts or trousers; a narrow silt strip at the waist. In the heat the shirt goes and an open waistcoat stays, its two edges stitched with the two placket lines.</dd>
+        <dt>Sport</dt><dd>Épée. The fencing jacket already closes off-centre, which makes TKI’s sports kit the one historically correct thing it wears, and the school is insufferable about it. Sleeveless jacket, close breeches, the red-and-black diagonal suit as the competition cut.</dd>
+        <dt>Junior · senior</dt><dd>Shorts until the third year, trousers after. TKI is the only school that kept the old colonial rule, and it debates abolishing it every year without result. The debate is the point.</dd>
+        <dt>Head and feet</dt><dd>The half-boater: straw, its brim removed over one eye, the measuring eye. Canvas spats on formal days; plain oxfords otherwise.</dd>
+      </dl>
+      <div class="story"><p><span class="sc">Custom</span> — At the start of a formal disputation the chair calls “frame”. Every student re-buttons to the side they will argue. Changing sides mid-debate means re-buttoning in front of everyone, slowly, and it is considered the most honourable thing a TKI student can do.</p></div>
+      <details><summary>Rendering prompt</summary>
+        <p>Full-body fashion concept, adult head of school, plain studio ground. Calf-length charcoal tropical-worsted frock coat with two parallel button stands four centimetres apart, closed on the right; a single stiffened, slightly layered shoulder wing rising from the right shoulder only, like a Japanese kamishimo; narrow ochre silt-dyed sash diagonally across the chest; brass loupe on a chain at the waist; white canvas spats over black oxfords; straw boater with the brim cut away on the left side. Sharp, tailored, faintly theatrical. Front, side and back views.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 MERICAN ============ -->
+<section class="school mer" id="merican">
+  <div class="head">
+    <span class="num">ii</span>
+    <h2>Al-Merican College</h2>
+    <p class="idea">Amanah — what is entrusted is carried inside.</p>
+  </div>
+  <div class="body">
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 320 420" role="img" aria-label="A coat front edge folded back to reveal a patterned lining, closed with a brass trade weight">
+        <defs>
+          <pattern id="lin" width="14" height="14" patternUnits="userSpaceOnUse">
+            <rect width="14" height="14" style="fill:var(--sheet)"/>
+            <path d="M7,1 L13,7 L7,13 L1,7Z" style="fill:none;stroke:var(--gold);stroke-width:1.2"/>
+            <circle cx="7" cy="7" r="1.6" style="fill:var(--mer)"/>
+          </pattern>
+        </defs>
+        <path class="pf" d="M60,40 L176,40 L176,390 L52,390 Z"/>
+        <path class="ln" d="M60,40 L176,40 L176,390 L52,390 Z"/>
+        <path class="thin" d="M82,40 V390 M104,40 V390 M126,40 V390 M148,40 V390" style="stroke:var(--mer);stroke-dasharray:1 5"/>
+        <path d="M176,40 L236,58 L236,372 L176,390 Z" fill="url(#lin)"/>
+        <path class="ln" d="M176,40 L236,58 L236,372 L176,390 Z"/>
+        <path class="ch" d="M176,40 L118,58 L118,372 L176,390"/>
+        <path class="chs" d="M150,214 Q176,196 204,214"/><path class="chf" d="M204,214 l-8,-1 l4,-7z"/>
+        <path class="ln" d="M176,190 Q200,186 214,196"/>
+        <path class="gf" d="M214,190 L228,190 L234,202 L228,214 L214,214 L208,202 Z"/>
+        <path class="ln" d="M214,190 L228,190 L234,202 L228,214 L214,214 L208,202 Z"/>
+        <text class="c" x="60" y="410">flat: we are talking</text>
+        <text x="184" y="410" style="font-style:italic">turned: I am bound</text>
+        <text class="c" x="244" y="206">brass weight</text>
+        <text class="c" x="244" y="222">toggle</text>
+      </svg>
+      <p class="cap">The turned edge. A hand’s width of front folds back to show the lining. Flat means conversation; turned means a promise is in force.</p>
+    </figure>
+    <div>
+      <ul class="recipe">
+        <li><span>The bisht, floor-length, edging moved inside</span><span>Gulf and Hadhramaut</span></li>
+        <li><span>Haura — luxury hidden in a plain kimono’s lining</span><span>Edo, under sumptuary law</span></li>
+        <li><span>Chalk stripe</span><span>City of London banking</span></li>
+        <li><span>Brass trade weights as toggles</span><span>The dhow merchant’s scale</span></li>
+        <li><span>Babouche worn with the heel folded down</span><span>Maghreb</span></li>
+      </ul>
+      <p class="gesture"><b>A promise you can see, if you know where to look.</b> One front edge of every Merican garment folds back a hand’s width to show the lining. Flat, the cloth says <i>we are talking</i>. Turned, it says <i>I am bound by what I have said</i>. Merchants on the quay read each other’s edges before they read each other’s faces.</p>
+      <dl class="ward">
+        <dt>Head of school</dt><dd>Your white spiral reference becomes Merican’s: tonal ivory, the spiral’s fold reread as the turned edge sweeping into the sleeve, the astrolabe kept at the hip. Over it at public signings, a floor-length indigo bisht in faint chalk stripe, its gold edging sewn to the inside. From across a room it is almost severe. During the signing the head turns both edges, the whole lining appears for the length of a signature, then closes.</dd>
+        <dt>Assembly</dt><dd>Knee-length collarless indigo coat, one brass weight at the throat, the turned edge pressed flat. The inner facing is plain cloth until it is given.</dd>
+        <dt>Everyday</dt><dd>Ivory tunic to mid-thigh over indigo trousers, sleeves rolled, the weight toggle at the collar. In the heat: bare torso, a single shoulder strap, a small ledger pouch at the hip, the heirloom strip facing inward at the waistband.</dd>
+        <dt>Sport</dt><dd>Rowing. Rolled breeches, bare torso. The oar blades are painted with the college’s lining pattern — the only place it is ever shown openly, and only while moving away from shore.</dd>
+        <dt>Junior · senior</dt><dd>Invisible to outsiders. At a student’s first real contract — an apprenticeship, a first trade — family or sponsor sews a strip of heirloom cloth into the facing. Juniors have empty linings. You cannot tell who is senior unless they choose to turn an edge.</dd>
+        <dt>Head and feet</dt><dd>The counting cap: low, brimless, felt, with a banker’s grosgrain band; the student’s seal rides in an inner pocket. Babouche with crushed heels, so you can step out of them at the threshold of a room where something will be agreed.</dd>
+      </dl>
+      <div class="story"><p><span class="sc">Custom</span> — Breaking a promise is never announced. The person simply stops turning their edge in your presence. Half the college’s gossip is about who has stopped turning for whom.</p></div>
+      <details><summary>Rendering prompt</summary>
+        <p>Full-body fashion concept, adult head of college, studio ground. Floor-length deep indigo cloak cut like an Arabian bisht, with a faint chalk stripe; the right front edge folded back a hand’s width to reveal a dense gold-and-indigo brocade lining; underneath, a tonal ivory long coat whose diagonal fold sweeps into one sleeve; small brass astrolabe at the hip; a single hexagonal brass trade weight used as a toggle at the throat; low brimless felt cap with a grosgrain band; leather babouche slippers with the heels folded flat. Calm, expensive, restrained. Front and three-quarter view.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 TEMENGGONG ============ -->
+<section class="school tem" id="temenggong">
+  <div class="head">
+    <span class="num">iii</span>
+    <h2>Sri Temenggong Institution</h2>
+    <p class="idea">Communion — you are dressed by the people you belong to.</p>
+  </div>
+  <div class="body">
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 320 420" role="img" aria-label="Back view of a waist wrap with a knot placed beyond the wearer's own reach">
+        <path class="pf" d="M110,40 Q160,30 210,40 L222,190 L98,190 Z"/>
+        <path class="ln" d="M110,40 Q160,30 210,40 L222,190 L98,190 Z"/>
+        <path class="thin" d="M160,40 V190"/>
+        <path class="pf" d="M88,190 L232,190 L246,340 L74,340 Z"/>
+        <path class="ln" d="M88,190 L232,190 L246,340 L74,340 Z"/>
+        <path d="M78,316 L242,316 L246,340 L74,340Z" style="fill:var(--tem)"/>
+        <path d="M84,316 L96,292 L108,316 Z M108,316 L120,292 L132,316 Z M132,316 L144,292 L156,316 Z M156,316 L168,292 L180,316 Z M180,316 L192,292 L204,316 Z M204,316 L216,292 L228,316 Z" style="fill:var(--gold)"/>
+        <path class="ln" d="M84,316 L96,292 L108,316 L120,292 L132,316 L144,292 L156,316 L168,292 L180,316 L192,292 L204,316 L216,292 L228,316"/>
+        <path class="as" d="M160,196 q-22,-14 -26,4 q4,16 26,4 q22,12 26,-4 q-4,-18 -26,-4z" style="stroke-width:2.4"/>
+        <path class="as" d="M154,210 L146,248 M166,210 L176,250" style="stroke-width:2.4"/>
+        <path class="ch" d="M98,110 Q40,160 92,212"/>
+        <text class="c" x="20" y="104">wearer’s reach</text>
+        <text class="c" x="20" y="118">ends here</text>
+        <path class="chs" d="M28,230 Q80,240 128,206"/><path class="chf" d="M128,206 l-9,1 l5,-8z"/>
+        <path class="chs" d="M292,230 Q240,240 192,206"/><path class="chf" d="M192,206 l4,8 l5,-8z"/>
+        <text class="c" x="10" y="250">a partner’s hands</text>
+        <text class="c" x="222" y="250">a partner’s hands</text>
+        <text x="118" y="374" style="font-style:italic">tumpal border: responsibility, not rank</text>
+      </svg>
+      <p class="cap">The knot tied by another. The samping’s back knot sits exactly where the wearer cannot reach.</p>
+    </figure>
+    <div>
+      <ul class="recipe">
+        <li><span>Kain samping with tumpal border</span><span>Malay court</span></li>
+        <li><span>The tanjak and its named folds</span><span>Malay court</span></li>
+        <li><span>The loros — a jewelled band wound round the body</span><span>Byzantine emperor</span></li>
+        <li><span>Chaquetilla — short, stiff, shoulder-built jacket</span><span>Spanish bullring</span></li>
+        <li><span>Bare feet on a temple floor; terompah clogs outside</span><span>Archipelago</span></li>
+      </ul>
+      <p class="gesture"><b>No one dresses alone.</b> The samping’s knot sits at the small of the back, beyond the wearer’s own reach. Every Temenggong morning begins in pairs, and who ties whose knot is the first social fact of the day.</p>
+      <dl class="ward">
+        <dt>Head of school</dt><dd>An emerald songket band wound like a loros: over one shoulder, across the chest, round the back and down to the hem, its tumpal border at the end. Beneath it a short stiff jacket cut like a torero’s, ending at the lowest rib, gold only on the shoulders. Ankle-length kain. The tanjak in the highest fold.</dd>
+        <dt>Assembly</dt><dd>Short black chaquetilla over a white baju, knee-length samping knotted by a partner. Shoulder cloth folded over the forearm.</dd>
+        <dt>Everyday</dt><dd>Bare chest or a sleeveless baju; the samping over divided shorts; the shoulder cloth on one shoulder or tucked into the wrap. The knot rule holds even here.</dd>
+        <dt>Sport</dt><dd>Silat. The samping is rolled high into a compact hip wrap — your blue wrap reference with its taped wrists and shins — and in competition the knot is tied by the opponent. Untying it is a scoring move.</dd>
+        <dt>Junior · senior</dt><dd>The tanjak fold. Court folds already carry names — one real tanjak is called <i>Dendam Tak Sudah</i>, grudge unfinished. Temenggong keeps the naming habit and names its folds after obligations. A junior learns one fold; each year adds one. A senior’s head can be read by anyone who knows the sequence.</dd>
+        <dt>Feet</dt><dd>Wooden terompah outside, loud on stone and meant to be heard arriving. Barefoot inside the Balai Lama.</dd>
+      </dl>
+      <div class="story"><p><span class="sc">Custom</span> — At the Balai Lama the head of school enters last, carrying the shoes of the newest student. Being chosen to have your shoes carried is terrifying, and every first-year secretly wants it.</p></div>
+      <details><summary>Rendering prompt</summary>
+        <p>Full-body fashion concept, adult head of school, studio ground. Very short stiff black jacket in the cut of a Spanish torero’s chaquetilla, gold embroidery only on the shoulders, ending at the lowest rib; an emerald songket band wound around the body like a Byzantine loros, over one shoulder, across the chest and falling to the hem, ending in a gold triangular tumpal border; ankle-length kain; a tall folded tanjak headcloth with one sharp peak; barefoot on a polished timber floor, wooden clogs set beside. Regal, architectural, warm. Front and back views showing the waist knot at the small of the back.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 LAN FONG ============ -->
+<section class="school lan" id="lanfong">
+  <div class="head">
+    <span class="num">iv</span>
+    <h2>Lan Fong 兰芳</h2>
+    <p class="idea">Recomposition — the inheritance is up for election. <span style="font-size:16px">(Lam Keng 南景 in the dress notebooks.)</span></p>
+  </div>
+  <div class="body">
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 320 420" role="img" aria-label="A crossed-collar coat made of ten panels, each labelled with the year a student committee designed it">
+        <path class="pf" d="M130,40 L60,70 L48,390 L272,390 L260,70 L190,40 Z"/>
+        <path class="ln" d="M130,40 L60,70 L48,390 L272,390 L260,70 L190,40 Z"/>
+        <path class="ln" d="M130,40 L226,170 M190,40 L150,96"/>
+        <g style="fill:none;stroke:var(--lan);stroke-width:2.2">
+          <path d="M60,70 L100,150 L54,200"/>
+          <path d="M100,150 L170,170 L160,250 L52,270"/>
+          <path d="M226,170 L264,150"/>
+          <path d="M170,170 L226,170 L240,260 L160,250"/>
+          <path d="M240,260 L268,300"/>
+          <path d="M160,250 L130,330 L50,320"/>
+          <path d="M130,330 L210,320 L240,260"/>
+          <path d="M130,330 L120,390 M210,320 L220,390"/>
+        </g>
+        <g style="font-size:12px">
+          <text x="100" y="112">1846</text><text x="198" y="74">1866</text><text x="212" y="120">1886</text>
+          <text x="68" y="236">1906</text><text x="186" y="216">1926</text><text x="238" y="204" style="font-size:11px">1946</text>
+          <text x="68" y="304">1966</text><text x="176" y="294">1986</text><text x="64" y="370">2006</text>
+        </g>
+        <rect x="150" y="346" width="50" height="22" style="fill:var(--lan)"/>
+        <text x="175" y="361" text-anchor="middle" style="fill:var(--sheet)">2026</text>
+        <path class="ln" d="M226,350 H256"/>
+        <text class="c" x="226" y="370">ballot slot</text>
+        <text class="c" x="20" y="410">red seam tape: every join stays visible</text>
+      </svg>
+      <p class="cap">The Archive Coat. One panel from each of the nine past uniforms, plus this cohort’s, joined in open red tape.</p>
+    </figure>
+    <div>
+      <ul class="recipe">
+        <li><span>Liangmao 凉帽 — flat ring hat, open crown, cloth fringe</span><span>Hakka women’s fieldwear</span></li>
+        <li><span>Crossed collar, 交领</span><span>Ming scholar’s robe</span></li>
+        <li><span>Oilcloth miner’s apron</span><span>Borneo gold kongsi</span></li>
+        <li><span>Deep turned-back naval cuffs</span><span>VOC officer — the old enemy’s, worn as a joke</span></li>
+        <li><span>A slot pocket for ballots</span><span>Every kongsi meeting</span></li>
+      </ul>
+      <p class="gesture"><b>A parliament of cuts.</b> Every Lan Fong garment is built from panels that button or tape together. Every twenty years an elected student committee designs one new panel; the rest stay. The uniform is never designed whole, by anyone.</p>
+      <dl class="ward">
+        <dt>Head of school</dt><dd>The Archive Coat: long, crossed at the collar, assembled from one panel of each past uniform, every seam bound in open red tape. Your silver crossing reference sits underneath as the fitted core — the wuxia cross becomes the 交领 that holds the archive together. Huge VOC cuffs. For the oath, the miner’s oilcloth apron goes on over everything. The ring hat fringed in all ten cohort colours.</dd>
+        <dt>Assembly</dt><dd>A short crossed-collar coat. The current cohort’s panel sits over the heart; the date on the cuff, as before. On the left, a slot pocket.</dd>
+        <dt>Everyday</dt><dd>A single panel worn as a vest over a bare torso — literally one piece of the uniform — with wide trousers cut for a low stance, or shorts.</dd>
+        <dt>Sport</dt><dd>Lion dance, in its competition form. Bare chest, wide-legged shorts, a sash in kongsi colours knotted at the hip. The lion head itself is rebuilt by each cohort from the last one’s frame.</dd>
+        <dt>Junior · senior</dt><dd>Juniors wear only the current panel. Seniors earn the right to add one inherited panel of their choosing — they pick an ancestor, and have to defend the choice to the committee.</dd>
+        <dt>Head and feet</dt><dd>The ring hat: open at the crown so the head is never fully covered by the institution. Cloth shoes on a thick rubber miner’s sole.</dd>
+      </dl>
+      <div class="story"><p><span class="sc">Custom</span> — The ballot slot is for dissent. After any vote, members of the losing side fold their position onto a slip and carry it in the slot until the next vote. You can always see who lost; you can never read why without asking.</p></div>
+      <details><summary>Rendering prompt</summary>
+        <p>Full-body fashion concept, adult head of school, studio ground. Long Chinese crossed-collar coat built from ten visibly different fabric panels from different eras — silk, canvas, wool, printed cotton — every seam bound in bright red tape; very deep turned-back cuffs in the style of an 18th-century Dutch naval coat; a fitted silver crossed-collar layer underneath; black oilcloth miner’s apron over the front; wide flat Hakka ring hat with an open crown and a fringe of coloured cloth strips; cloth shoes with thick rubber soles. Intellectual, patched, proud. Front and back views.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 NINE RAINS ============ -->
+<section class="school nine" id="nine-rains">
+  <div class="head">
+    <span class="num">v</span>
+    <h2>House of Nine Rains</h2>
+    <p class="idea">Reciprocity — take only what you can account for.</p>
+  </div>
+  <div class="body">
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 320 420" role="img" aria-label="A wide hat with a gutter rim and a rain chain at the back, above a record band of nine strips with one being replaced">
+        <path class="pf" d="M40,150 Q160,30 280,150 Z"/>
+        <path class="ln" d="M30,152 Q160,26 290,152"/>
+        <path class="ln" d="M24,148 Q26,162 40,160 H280 Q294,162 296,148"/>
+        <path d="M30,155 H290" style="stroke:var(--nine);stroke-width:4;fill:none"/>
+        <path class="thin" d="M160,32 L80,150 M160,32 L120,152 M160,32 L160,154 M160,32 L200,152 M160,32 L240,150"/>
+        <g class="thin"><ellipse cx="286" cy="176" rx="6" ry="7"/><ellipse cx="286" cy="194" rx="6" ry="7"/><ellipse cx="286" cy="212" rx="6" ry="7"/><ellipse cx="286" cy="230" rx="6" ry="7"/><ellipse cx="286" cy="248" rx="6" ry="7"/></g>
+        <path class="chf" d="M286,262 q4,8 0,11 q-4,-3 0,-11z M280,282 q4,8 0,11 q-4,-3 0,-11z"/>
+        <path class="chs" d="M60,159 Q150,166 278,160"/><path class="chf" d="M278,160 l-8,-4 l0,8z"/>
+        <text class="c" x="70" y="182">gutter rim runs to the back</text>
+        <text class="c" x="196" y="300">rain chain</text>
+        <g transform="translate(26,330)">
+          <rect x="0" y="0" width="22" height="34" style="fill:var(--nine)"/><rect x="26" y="0" width="22" height="34" style="fill:var(--nine)"/><rect x="52" y="0" width="22" height="34" style="fill:var(--nine)"/><rect x="78" y="0" width="22" height="34" style="fill:var(--nine)"/><rect x="104" y="0" width="22" height="34" style="fill:var(--nine)"/><rect x="130" y="0" width="22" height="34" style="fill:var(--nine)"/><rect x="156" y="0" width="22" height="34" style="fill:var(--nine)"/><rect x="182" y="0" width="22" height="34" style="fill:var(--nine)"/>
+          <rect class="ch" x="208" y="0" width="22" height="34"/>
+          <path class="thin" d="M3,8 h16 M3,17 h16 M3,26 h16 M29,8 h16 M29,17 h16 M55,12 h16 M55,22 h16 M81,8 h16 M81,26 h16 M107,17 h16 M133,8 h16 M133,17 h16 M133,26 h16 M159,12 h16 M185,8 h16 M185,22 h16" style="stroke:var(--sheet)"/>
+          <text class="c" x="120" y="-10">this season, being woven ↘</text>
+          <text x="0" y="58" style="font-style:italic">record band: nine strips, the oldest cut away each year</text>
+        </g>
+      </svg>
+      <p class="cap">The eaves hat and the record band. In rain a Nine Rains student is followed by a small stream.</p>
+    </figure>
+    <div>
+      <ul class="recipe">
+        <li><span>Mino — the straw raincoat of tiered strands</span><span>Rural Japan</span></li>
+        <li><span>Gut-skin parka — translucent, seams that swell shut</span><span>Aleut and Iñupiat</span></li>
+        <li><span>Kusari-doi rain chain</span><span>Japanese eaves</span></li>
+        <li><span>Tall wooden pattens for flooded ground</span><span>From chopine to geta</span></li>
+        <li><span>Sashiko and contrasting repair</span><span>Japanese and every farm household</span></li>
+      </ul>
+      <p class="gesture"><b>Never larger than one year.</b> Every garment carries strips — a woven band, a tier of fringe, a hat’s edge — and each strip is a season. When a new one is woven, the oldest is cut away and returned to the farm or village that grew the fibre. The uniform cannot accumulate.</p>
+      <dl class="ward">
+        <dt>Head of school</dt><dd>Undyed heavy cotton robe, dense with repairs. Over it a mantle of oiled silk, thin enough that rain can be watched running down it — gut-skin logic in a tropical cloth. Over the shoulders, a mino of nine tiers, each woven by a different partner village. The eaves hat with its rain chain.</dd>
+        <dt>Assembly</dt><dd>Knee-length undyed coat with the record band at the shoulder, repairs in contrasting thread. A coat with no repairs is considered slightly suspicious.</dd>
+        <dt>Everyday</dt><dd>Bare chest, the record band worn alone across one shoulder, undyed knee wrap or work shorts. Your green-and-white diagonal wrap lands here as the everyday lower garment.</dd>
+        <dt>Sport</dt><dd>Free-diving. Nothing that records is allowed in the water; the band stays on shore. Water is the one place a Nine Rains student is unaccounted for.</dd>
+        <dt>Junior · senior</dt><dd>Juniors may repair only their own clothes. Seniors repair other people’s — reciprocity made literal — and a senior’s stitches show up all over the house.</dd>
+        <dt>Head and feet</dt><dd>The eaves hat: a gutter rim that carries rain round to a chain at the back. Tall two-toothed wooden pattens for flooded paths; barefoot in water.</dd>
+      </dl>
+      <div class="story"><p><span class="sc">Custom</span> — Cutting away the oldest strip is done by the person who wove it, if they are still alive. Some strips travel a long way to be cut.</p></div>
+      <details><summary>Rendering prompt</summary>
+        <p>Full-body fashion concept, adult head of house, studio ground. Undyed heavy cotton robe covered in visible contrasting sashiko repairs; over it a thin translucent oiled-silk mantle with water beading on it; over the shoulders a short layered straw-and-fibre cape like a Japanese mino, in nine tiers of slightly different weaves; a woven record band across one shoulder; a wide shallow ribbed hat with a gutter rim and a metal rain chain hanging at the back; tall two-toothed wooden pattens. Earthy, humble, quietly ceremonial. Front and side views, light rain.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 KORA ============ -->
+<section class="school kora" id="kora">
+  <div class="head">
+    <span class="num">vi</span>
+    <h2>Kora House</h2>
+    <p class="idea">The third voice — speaking for neither side.</p>
+  </div>
+  <div class="body">
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 320 420" role="img" aria-label="Head and shoulders with a soft collar shown lowered and raised over the mouth, ears left clear">
+        <path class="pf" d="M160,60 Q206,60 208,116 Q206,170 160,178 Q114,170 112,116 Q114,60 160,60Z"/>
+        <path class="ln" d="M160,60 Q206,60 208,116 Q206,170 160,178 Q114,170 112,116 Q114,60 160,60Z"/>
+        <path d="M112,96 Q160,52 208,96 L210,82 Q160,36 110,82Z" style="fill:var(--kora)"/>
+        <path class="ln" d="M112,124 q-12,4 -2,22 M208,124 q12,4 2,22"/>
+        <path class="thin" d="M148,152 H172"/>
+        <path class="pf" d="M60,330 L84,230 Q120,196 160,214 Q200,196 236,230 L260,330 Z"/>
+        <path class="ln" d="M60,330 L84,230 Q120,196 160,214 Q200,196 236,230 L260,330"/>
+        <path d="M84,230 Q120,196 160,214 Q200,196 236,230 L226,256 Q160,226 94,256Z" style="fill:var(--kora)"/>
+        <path class="ln" d="M84,230 L236,330 M236,230 L84,330" style="stroke:var(--kora);stroke-width:5"/>
+        <g style="stroke:var(--gold);stroke-width:1">
+          <path d="M98,262 L220,330"/><path d="M102,256 L224,322"/><path d="M106,250 L228,314"/>
+        </g>
+        <path class="ch" d="M100,232 Q104,150 130,138 Q160,132 190,138 Q216,150 220,232"/>
+        <path class="ch" d="M130,138 Q160,146 190,138"/>
+        <text class="c" x="214" y="160">raised: the</text>
+        <text class="c" x="214" y="174">face withdraws,</text>
+        <text class="c" x="214" y="188">the words stay</text>
+        <text class="c" x="18" y="126">ears</text><text class="c" x="18" y="140">always clear</text>
+        <text x="64" y="356" style="font-style:italic">the crossing, kept from the wrapped plum</text>
+        <text x="64" y="374" style="font-style:italic">twenty-one gold warp threads in the border</text>
+      </svg>
+      <p class="cap">The raised veil. The wrap continues into a soft collar that lifts over the mouth when a Kora mediator speaks for neither party.</p>
+    </figure>
+    <div>
+      <ul class="recipe">
+        <li><span>Your wrapped plum ensemble, kept whole</span><span>The Kora notebook</span></li>
+        <li><span>Tagelmust — veil-turban raised over the mouth</span><span>Tuareg</span></li>
+        <li><span>The kora’s twenty-one strings, as warp threads</span><span>Mande griots</span></li>
+        <li><span>Pressed felt, which cannot rustle</span><span>Steppe felt-makers</span></li>
+        <li><span>Split-toe tabi on silent soles</span><span>Noh stage</span></li>
+      </ul>
+      <p class="gesture"><b>Let the words stand without a face.</b> The shoulder crossing you chose rises into a soft collar that can lift over the mouth. When a Kora mediator speaks for neither side, the veil goes up: the face withdraws so the words arrive on their own. The ears are never covered. A listener’s anatomy stays open.</p>
+      <dl class="ward">
+        <dt>Head of school</dt><dd>The wrapped plum stands as you selected it — the crossing, the woven borders, the headband with visible curls. Two additions: the crossing continues up into a felt collar that can lift over the mouth, and the border is woven with twenty-one gold warp threads. Each head re-weaves one thread in their tenure; the border is “tuned” over generations.</dd>
+        <dt>Assembly</dt><dd>The fixed diagonal crossing and vertical pleats from your pale wrap reference, with a soft cowl at the neck stitched down for juniors.</dd>
+        <dt>Everyday</dt><dd>One shoulder wrapped, the other bare. Divided pleated lower garment. Colour is free, as it always was; only sound is regulated.</dd>
+        <dt>Sport</dt><dd>Breath and balance. Bare torso, a secure diagonal waist facing, felt-gripped bare feet. The athletic version of the crossing is a single soft band from shoulder to hip.</dd>
+        <dt>Junior · senior</dt><dd>The collar. Juniors’ cowls are sewn down. When a student first mediates a real dispute, the stitches are cut in front of both parties. After that the veil can rise.</dd>
+        <dt>Head and feet</dt><dd>The soft roll: a wrap that rises beside the head and leaves both ears clear. Split-toe felt-soled tabi, so the foot grips the floor without a sound.</dd>
+      </dl>
+      <div class="story"><p><span class="sc">Custom</span> — In a Kora room a raised veil cannot be interrupted. Lowering it early, before the sentence ends, is how a mediator admits they have started to take a side.</p></div>
+      <details><summary>Rendering prompt</summary>
+        <p>Same adult head of school and wrapped plum ensemble as the existing Kora reference — mulberry and aubergine layers, broad shoulder crossing, woven ivory borders, wrapped headband with visible curls. Add: the shoulder crossing continuing upward into a soft felt collar raised over the mouth and lower face, ears fully uncovered; a fine border of gold warp threads along the main wrap; split-toe soft felt tabi. Quiet, enveloping, watchful. Front and profile views, collar shown lowered and raised.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 SUND ============ -->
+<section class="school sund" id="sund">
+  <div class="head">
+    <span class="num">vii</span>
+    <h2>The Sund Commons</h2>
+    <p class="idea">Shared maintenance — nothing here is yours, and all of it is.</p>
+  </div>
+  <div class="body">
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 320 420" role="img" aria-label="A folded hem with a stack of linen tabs naming previous wearers, and a ring-pin brooch">
+        <rect class="pf" x="30" y="60" width="260" height="120"/>
+        <path class="ln" d="M30,60 H290 M30,180 H290"/>
+        <path class="ln" d="M30,140 H290" style="stroke-dasharray:3 4"/>
+        <path d="M30,172 H290" style="stroke:var(--sund);stroke-width:6;fill:none"/>
+        <path d="M30,163 H290" style="stroke:var(--gold);stroke-width:3;fill:none"/>
+        <text class="c" x="34" y="132">deep hem, let out and taken in</text>
+        <g>
+          <path class="pf" d="M50,60 V30 H82 V60"/><path class="ln" d="M50,60 V30 H82 V60"/>
+          <path class="pf" d="M88,60 V24 H120 V60"/><path class="ln" d="M88,60 V24 H120 V60"/>
+          <path class="pf" d="M126,60 V34 H158 V60"/><path class="ln" d="M126,60 V34 H158 V60"/>
+          <path class="pf" d="M164,60 V20 H196 V60"/><path class="ln" d="M164,60 V20 H196 V60"/>
+          <path class="pf" d="M202,60 V30 H234 V60"/><path class="ln" d="M202,60 V30 H234 V60"/>
+          <path class="ch" d="M240,60 V26 H272 V60"/>
+          <text x="54" y="48" style="font-size:11px">A.N.</text><text x="54" y="58" style="font-size:9px">’91</text>
+          <text x="92" y="42" style="font-size:11px">R.K.</text><text x="92" y="54" style="font-size:9px">’98</text>
+          <text x="130" y="50" style="font-size:11px">S.L.</text><text x="130" y="58" style="font-size:9px">’04</text>
+          <text x="168" y="38" style="font-size:11px">M.H.</text><text x="168" y="50" style="font-size:9px">’13</text>
+          <text x="206" y="48" style="font-size:11px">T.O.</text><text x="206" y="58" style="font-size:9px">’19</text>
+          <text class="c" x="246" y="46" style="font-size:11px">you</text>
+        </g>
+        <text x="30" y="204" style="font-style:italic">every wearer adds a tab; the garment knows its people</text>
+        <g transform="translate(160,300)">
+          <path class="as" d="M-48,0 A48,48 0 1,1 -30,37" style="stroke-width:6"/>
+          <circle class="af" cx="-48" cy="0" r="7"/><circle class="af" cx="-30" cy="37" r="7"/>
+          <path class="ln" d="M-70,-36 L60,52" style="stroke-width:3"/>
+        </g>
+        <text class="c" x="216" y="390">ring-pin, from</text>
+        <text class="c" x="216" y="404">a strip of the stock</text>
+      </svg>
+      <p class="cap">The stock. Garments come from a common store, and the hem holds a ledger of linen tabs — one for each previous wearer.</p>
+    </figure>
+    <div>
+      <ul class="recipe">
+        <li><span>Standing collar and bright hem bands</span><span>Sámi gákti</span></li>
+        <li><span>The boilersuit, top half dropped and knotted</span><span>Shipyard and engine room</span></li>
+        <li><span>Rya — long-pile blanket once used as boat bedding</span><span>Swedish coast</span></li>
+        <li><span>Penannular ring-pin</span><span>Norse and Irish</span></li>
+        <li><span>Glíma belts round waist and thighs</span><span>Icelandic wrestling</span></li>
+      </ul>
+      <p class="gesture"><b>You wear the people before you against your skin.</b> Nothing is owned. Every garment comes from the common stock, and its hem carries a stack of linen tabs, one per previous wearer. When a garment is retired, its tabs are unpicked and sewn into the new one.</p>
+      <dl class="ward">
+        <dt>Head of school</dt><dd>Sund has no couture, and this is its couture. At the gathering of the seven heads, the head of Sund arrives in the oldest boilersuit in stock — dozens of tabs, patched at every stress point — and over it the rya: a long-pile cape that was the commons’ boat blanket, closed with an iron ring-pin. Everyone else is in silk. Sund comes in a blanket that a hundred people have slept under.</dd>
+        <dt>Assembly</dt><dd>Linen boilersuit with a low standing collar and gákti-style bands at collar and hem. Each band colour belongs to a workshop, never a family.</dd>
+        <dt>Everyday</dt><dd>The top half dropped, sleeves knotted at the waist, bare torso. Or the waist apron over work shorts. The knotted sleeves are the Sund silhouette from a distance.</dd>
+        <dt>Sport</dt><dd>Glíma-style wrestling. The apron straps become the belt-and-thigh harness you grip your opponent by. Strength-and-carry relays with the stock’s own crates.</dd>
+        <dt>Junior · senior</dt><dd>Inverted. Juniors are issued the oldest garments in the stock; seniors get the newest, because a senior’s tab will be the first in it. The new arrive dressed in history; the departing leave it something to begin with.</dd>
+        <dt>Head and feet</dt><dd>The three-panel workcap; for ceremony, the same cap washed and pressed, turned to show its repairs. Open leather sandals with replaceable soles, resoled in the commons workshop.</dd>
+      </dl>
+      <div class="story"><p><span class="sc">Custom</span> — When someone from Sund dies, the stock is searched for every garment carrying their tab. For one day, everyone wearing one walks with the sleeves tied at the front instead of the back.</p></div>
+      <details><summary>Rendering prompt</summary>
+        <p>Full-body fashion concept, adult head of commons, studio ground. Worn pale linen boilersuit with a low standing collar and bright yellow, red and teal bands at collar and hem in the manner of Sámi dress, patched at the knees and elbows, a row of small linen name tabs visible at the turned-up hem; over it a long, heavy, shaggy-pile rya cape in faded ochres and greys, fastened at the shoulder with a large iron penannular ring-pin; soft three-panel workcap with a short brim; open leather sandals. Humble, warm, unexpectedly grand. Front and back views.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <h2>Where your references land</h2>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>Reference</th><th>School</th><th>What it becomes</th></tr></thead>
+    <tbody>
+      <tr><td>Articulated charcoal</td><td>Toa Keng</td><td>The plated shoulder reread as a kamishimo wing; the low closure becomes the double placket.</td></tr>
+      <tr><td>White spiral with astrolabe</td><td>Al-Merican</td><td>Tonal restraint outside; the spiral fold becomes the turned edge. The astrolabe stays.</td></tr>
+      <tr><td>Silver crossing</td><td>Lan Fong</td><td>The fitted core under the Archive Coat; the wuxia cross becomes the 交领.</td></tr>
+      <tr><td>Layered burgundy wrap</td><td>Kora</td><td>Kept whole; the crossing rises into the veil-collar.</td></tr>
+      <tr><td>Pale pleated wrap</td><td>Kora</td><td>Student assembly.</td></tr>
+      <tr><td>Pale diagonal coat</td><td>Toa Keng</td><td>Student assembly; its closure line already is the placket.</td></tr>
+      <tr><td>Blue athletic wrap</td><td>Sri Temenggong</td><td>Silat competition wrap, knot tied by the opponent.</td></tr>
+      <tr><td>Green-and-white diagonal wrap</td><td>Nine Rains</td><td>Everyday lower garment.</td></tr>
+      <tr><td>Red-and-black diagonal suit</td><td>Toa Keng</td><td>Épée competition cut.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="cols">
+    <div>
+      <p><b>What changed from the notebooks.</b> Each school now has one gesture doing the work that crests and colours did before: a placket, an edge, a knot, a panel, a strip, a veil, a tab. They are all ways the body is <i>handled</i> — buttoned, turned, tied, elected, cut, lifted, inherited — so every school’s identity is something a wearer does, daily, in front of others. That gives the novel scenes for free.</p>
+      <p>Seniority is solved seven ways instead of one: trousers, a hidden lining, a hat fold, an inherited panel, the right to mend others, a cut stitch, and an inversion.</p>
+    </div>
+    <div>
+      <p><b>Where I’d push next.</b> The gathering of the seven heads wants its own plate — silk, songket, felt, oiled silk and one boat blanket in a single row. Then the in-between garments: a TKI student who transfers to Lan Fong and has to choose which side to close an elected panel on.</p>
+      <p>The names Temenggong gives its tanjak folds, and the Kora border’s twenty-one threads, are both small enough to write as lists — and long enough to carry a history of the schools in miniature.</p>
+    </div>
+  </div>
+</section>
+
+<footer>The Polymathic Universe · The Parallel Straits · Seven Wardrobes, drawn with Claude, 25 October 2026. Drawings are construction diagrams; the rendering prompts carry each look into an image model.</footer>
+</div>
+</body>
+</html>
