@@ -228,33 +228,22 @@ table.t tr.ch th{font-family:var(--mono);font-size:10px;letter-spacing:.22em;tex
 .defs{position:absolute;width:0;height:0;overflow:hidden}
 .mapsvg{display:block;width:100%;height:auto;aspect-ratio:1000/394;background:var(--sea)}
 .mapsvg .gl{stroke:var(--landline);stroke-width:.5;opacity:.6;fill:none;vector-effect:non-scaling-stroke}
-.mapsvg .landf{fill:var(--land);stroke:var(--landline);stroke-width:.5;vector-effect:non-scaling-stroke}
+.mapsvg .landf{fill:var(--land);stroke:var(--landline);stroke-width:.6}
 .mapsvg .sea-t{fill:var(--dim);font-family:var(--serif);font-style:italic}
-.pp{vector-effect:non-scaling-stroke;stroke-linejoin:round;transition:opacity .2s}
-.p-crown{fill:color-mix(in srgb,var(--g-crown) 52%,var(--land));stroke:var(--g-crown);stroke-width:1.3}
-.p-assembly{fill:color-mix(in srgb,var(--g-assembly) 48%,var(--land));stroke:var(--g-assembly);stroke-width:1}
-.p-league{fill:color-mix(in srgb,var(--g-league) 42%,var(--land));stroke:var(--g-league);stroke-width:1.4;stroke-dasharray:5 3}
-.p-charter{fill:color-mix(in srgb,var(--g-charter) 55%,var(--land));stroke:var(--g-charter);stroke-width:1.6;stroke-dasharray:1 2.6;stroke-linecap:round}
-.p-domain{fill:url(#pat-domain);stroke:var(--g-domain);stroke-width:1.6}
-.p-cloister{fill:color-mix(in srgb,var(--g-cloister) 38%,var(--land));stroke:var(--g-cloister);stroke-width:1.2;stroke-dasharray:1 3;stroke-linecap:round}
-.p-mandala{fill:url(#grad-mandala);stroke:none}
-.p-moving{fill:url(#pat-moving);stroke:none}
-.p-council{fill:url(#pat-council);stroke:none}
-.cc-on .pp.cc{stroke:var(--rose);stroke-width:3;stroke-dasharray:none}
-.cc-on .pp:not(.cc){opacity:.45}
+.pp{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke:var(--paper);stroke-width:.7;transition:opacity .2s}
+.pp.p-mandala{stroke:none}
+.cc-on .pp.cc{stroke:var(--rose);stroke-width:2.6}
+.cc-on .pp:not(.cc){opacity:.4}
 .pp.hit{cursor:pointer}
-.pp.sel{stroke:var(--ink)!important;stroke-width:2.6!important;stroke-dasharray:none!important}
-.pp.dimmed{opacity:.35}
-.lab{font-family:var(--serif);fill:var(--ink);text-anchor:middle;paint-order:stroke;stroke:var(--land);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
-.lab.l1,.lab.l2{display:none}
-.zoomed .lab.l1,.zoomed .lab.l2{display:block}
+.pp.sel{stroke:var(--ink)!important;stroke-width:2.4!important}
+.lab{font-family:var(--serif);fill:var(--ink);text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:var(--paper);stroke-opacity:.85;stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.lab.cull{visibility:hidden}
+.seabg{fill:var(--sea)}
 .route-c{fill:none;stroke:var(--g-moving);stroke-width:1.4;stroke-dasharray:2 3;vector-effect:non-scaling-stroke;opacity:.9}
 .port circle{fill:var(--rose);stroke:var(--paper);stroke-width:1;vector-effect:non-scaling-stroke}
-.port text,.charter text,.door text,.voy text{font-family:var(--serif);font-style:italic;fill:var(--ink);paint-order:stroke;stroke:var(--sea);stroke-width:3px;display:none}
-.zoomed .port text,.zoomed .voy text{display:block}
-.charter text,.door text{display:block}
+.port text,.charter text,.door text,.voy text{font-family:var(--serif);font-style:italic;fill:var(--ink);paint-order:stroke;stroke:var(--sea);stroke-width:3px;pointer-events:none}
 .charter path{fill:var(--claude);stroke:var(--paper);vector-effect:non-scaling-stroke}
-.door rect{fill:var(--claude);stroke:var(--paper);vector-effect:non-scaling-stroke}
+.door path{fill:var(--deep);stroke:var(--paper);vector-effect:non-scaling-stroke}
 .voy circle{fill:var(--g-council);stroke:var(--paper);vector-effect:non-scaling-stroke}
 /* minis */
 .minis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
@@ -291,11 +280,11 @@ table.t tr.ch th{font-family:var(--mono);font-size:10px;letter-spacing:.22em;tex
 .panel .clear{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--deep);cursor:pointer;padding:0;margin-top:4px}
 .eracap{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--deep);margin:4px 0 12px}
 .caption{font-style:italic;color:var(--ink2);font-size:17px;margin:10px 0 0;max-width:880px}
-@media (max-width:760px){.atl-map .mapsvg{aspect-ratio:1000/760}}
+@media (max-width:760px){.atl-map .mapsvg{aspect-ratio:1/1.05}}
 /* legend */
 .styles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .style{background:var(--card);border:1px solid var(--hair);padding:12px 14px 14px;display:grid;grid-template-columns:76px 1fr;gap:12px;align-items:start}
-.style svg{width:76px;height:52px;display:block;background:var(--land)}
+
 .style h4{font-family:var(--display);font-weight:400;font-size:1.15rem;margin:0 0 3px}
 .style p{margin:0;font-size:15.5px;line-height:1.38;color:var(--ink2)}
 @media (max-width:900px){.styles{grid-template-columns:1fr}}
@@ -303,31 +292,59 @@ table.t tr.ch th{font-family:var(--mono);font-size:10px;letter-spacing:.22em;tex
 .watch li{margin-bottom:8px}
 .openbtn{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--deep);color:var(--paper);border:0;border-radius:40px;padding:10px 18px;cursor:pointer;margin-top:10px}
 .facts{margin:0;padding-left:1.1em}.facts li{margin-bottom:12px}
-</style></head><body><button class="pnav-btn" id="pnavBtn" aria-label="Open index" aria-expanded="false" aria-controls="pnav"><i></i></button><div class="pnav-veil" id="pnavVeil"></div><nav class="pnav" id="pnav" aria-label="Index"><div class="pnav-lab">The Five Maps · Index</div><div class="pnav-book">Part One · The maps</div><ol><li><a href="#glance"><span class="rn">I</span><span class="nm">Five maps at a glance</span></a></li><li><a href="#atlas"><span class="rn">II</span><span class="nm">The atlas</span></a></li></ol><div class="pnav-book">Part Two · Reading the maps</div><ol><li><a href="#m1450"><span class="rn">III</span><span class="nm">1450, The Concord’s first generation</span></a></li><li><a href="#m1600"><span class="rn">IV</span><span class="nm">1600, The licensed seas</span></a></li><li><a href="#m1790"><span class="rn">V</span><span class="nm">1790, The eve of the Kindling</span></a></li><li><a href="#m1914"><span class="rn">VI</span><span class="nm">1914, The year of the Vienna arbitration</span></a></li><li><a href="#m2026"><span class="rn">VII</span><span class="nm">2026, The present, am 236</span></a></li></ol><div class="pnav-book">Part Three · How the lines work</div><ol><li><a href="#lines"><span class="rn">VIII</span><span class="nm">Lines, routes and radiance</span></a></li><li><a href="#ports"><span class="rn">IX</span><span class="nm">Two harbours: Quanzhou and the Pearl River</span></a></li></ol></nav><header class="cover" id="top"><div class="wrap">
-<div class="eyebrow mono">The Polymathic Universe · The Parallel Straits · Companion to The Monsoon Hinge</div>
+
+/* map window */
+.atl-map{position:relative;overflow:hidden;border:1px solid var(--hair)}
+.atl-map .mapsvg{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.atl-map .mapsvg.grabbing{cursor:grabbing}
+.zctl{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px}
+.zctl button{width:38px;height:38px;border-radius:50%;border:1px solid var(--ink2);background:var(--card);color:var(--ink);font-family:var(--display);font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.zctl button:hover{background:var(--mist)}
+.maphint{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--card);color:var(--ink2);border:1px solid var(--hair);padding:6px 10px;pointer-events:none;transition:opacity .6s}
+.maphint.gone{opacity:0}
+/* graphic legend */
+.legend{display:grid;grid-template-columns:1.6fr 1fr;gap:10px 28px;margin:14px 0 0;padding:14px 16px;background:var(--card);border:1px solid var(--hair)}
+.lg-group .mono{color:var(--dim);display:block;margin-bottom:8px}
+.lg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px 14px}
+.lg li{display:flex;align-items:center;gap:10px;font-size:15.5px;line-height:1.2;color:var(--ink)}
+.lg svg.sw{width:54px;height:16px;flex:none}
+.lg svg.mk{width:24px;height:16px;flex:none}
+.lg-port{fill:var(--rose);stroke:var(--paper)}
+.lg-charter{fill:var(--claude);stroke:var(--paper)}
+.lg-door{fill:var(--deep);stroke:var(--paper)}
+.lg-road{stroke:var(--g-moving);stroke-width:1.6;stroke-dasharray:2 3;fill:none}
+.lg-voy{fill:var(--g-council)}
+.lg-cc{fill:var(--land);stroke:var(--rose);stroke-width:2}
+.lg-land{fill:var(--land);stroke:var(--landline)}
+@media (max-width:760px){.legend{grid-template-columns:1fr}}
+.stylesw svg.sw{width:76px;height:22px;display:block}
+.style{grid-template-columns:84px 1fr}
+.legend li{border-left:0;padding-left:0}
+</style></head><body><button class="pnav-btn" id="pnavBtn" aria-label="Open index" aria-expanded="false" aria-controls="pnav"><i></i></button><div class="pnav-veil" id="pnavVeil"></div><nav class="pnav" id="pnav" aria-label="Index"><div class="pnav-lab">The Five Maps · Index</div><div class="pnav-book">Part One · The maps</div><ol><li><a href="#glance"><span class="rn">I</span><span class="nm">Five maps at a glance</span></a></li><li><a href="#atlas"><span class="rn">II</span><span class="nm">The atlas</span></a></li></ol><div class="pnav-book">Part Two · Reading the maps</div><ol><li><a href="#m1450"><span class="rn">III</span><span class="nm">1450, The Concord’s first generation</span></a></li><li><a href="#m1600"><span class="rn">IV</span><span class="nm">1600, The licensed seas</span></a></li><li><a href="#m1790"><span class="rn">V</span><span class="nm">1790, The long balance</span></a></li><li><a href="#m1914"><span class="rn">VI</span><span class="nm">1914, The year of the Vienna arbitration</span></a></li><li><a href="#m2026"><span class="rn">VII</span><span class="nm">2026, The present, <i>a.m.</i> 109</span></a></li></ol><div class="pnav-book">Part Three · How the lines work</div><ol><li><a href="#lines"><span class="rn">VIII</span><span class="nm">Lines, routes and radiance</span></a></li><li><a href="#ports"><span class="rn">IX</span><span class="nm">Two harbours: Quanzhou and the Pearl River</span></a></li></ol></nav><header class="cover" id="top"><div class="wrap">
+<div class="eyebrow mono">The Polymathic Universe · The Parallel Straits · Companion to The Monsoon Turn</div>
 <div class="bracket"><span class="b">[</span>The Five Maps<span class="b">]</span><span class="zh">五图</span></div>
 <div class="paren">(the world of PMU drawn at five turning points, with the ground each power holds, the routes where no lines were drawn, and the courts whose power simply fades with distance)</div>
 <p class="thesis">In 1450 a world of crowns and wanderers; in 2026 a patchwork of compacts. Between them the borders loosen, the leagues spread, and the Concord’s harbours keep the oceans stitched together.</p>
 <div class="byline"><span class="by">Claude</span><span class="mono">30 October 2026 · provisional edition</span></div>
 </div></header><section class="specimen"><div class="wrap"><div class="grid"><div class="sp-book"><h3><span class="mono">Part One</span>The maps</h3><div class="chips"><a class="chip" href="#glance"><i>I</i>Five maps at a glance</a><a class="chip" href="#atlas"><i>II</i>The atlas</a></div></div><div class="sp-book"><h3><span class="mono">Part Two</span>Reading the maps</h3><div class="chips"><a class="chip" href="#m1450"><i>III</i>1450</a><a class="chip" href="#m1600"><i>IV</i>1600</a><a class="chip" href="#m1790"><i>V</i>1790</a><a class="chip" href="#m1914"><i>VI</i>1914</a><a class="chip" href="#m2026"><i>VII</i>2026</a></div></div><div class="sp-book"><h3><span class="mono">Part Three</span>How the lines work</h3><div class="chips"><a class="chip" href="#lines"><i>VIII</i>Lines, routes and radiance</a><a class="chip" href="#ports"><i>IX</i>Quanzhou and the Pearl River</a></div></div></div></div></section><section class="book b1" id="part-one"><div class="book-head"><div class="wrap"><div class="bignum">One</div><div><div class="k mono">Part One · The maps</div><h2><span class="b">[</span>The Maps<span class="b">]</span></h2><p>(Five snapshots, 1450 to 2026, drawn on real coastlines. Every border is a proposal; every name after the divergence is provisional.)</p></div></div></div>
-<section class="thread" id="glance"><div class="wrap"><div class="t-top"><div class="t-badge">I</div><div><span class="mono">Thread I</span><h3>Five maps at a glance</h3><p class="idea">Watch the solid borders thin out and the dashed ones spread.</p></div></div>
+<section class="thread" id="glance"><div class="wrap"><div class="t-top"><div class="t-badge">I</div><div><span class="mono">Thread I</span><h3>Five maps at a glance</h3><p class="idea">Watch the violet of the crowns thin out and the greens of the leagues spread.</p></div></div>
 <div class="full wide-full"><div class="minis" id="minis"></div></div></div></section>
 <div class="dots"><span>+</span></div>
-<section class="thread" id="atlas"><div class="wrap"><div class="t-top"><div class="t-badge">II</div><div><span class="mono">Thread II</span><h3>The atlas <span class="zh">五图</span></h3><p class="idea">Pick a year, zoom to a region, and select any territory to follow the same ground through all five maps.</p></div></div>
+<section class="thread" id="atlas"><div class="wrap"><div class="t-top"><div class="t-badge">II</div><div><span class="mono">Thread II</span><h3>The atlas <span class="zh">五图</span></h3><p class="idea">Pick a year, drag and pinch to explore, and select any territory to follow the same ground through all five maps.</p></div></div>
 <div class="full wide-full">
 <div class="atl-ctl"><div class="grp" id="eratabs" role="group" aria-label="Year"></div><span class="sep"></span><div class="grp" id="zoomtabs" role="group" aria-label="Region"></div><span class="sep"></span><button type="button" class="cc-btn" id="ccbtn" aria-pressed="false">Highlight the Concord</button></div>
 <p class="eracap" id="eracap"></p>
-<div class="atlgrid"><div class="atl-map" id="atlmap"></div><div class="panel" id="atlpanel" aria-live="polite"></div></div>
-<p class="caption">Borders are drawn by kind of rule: solid for crowns, dashed for leagues, dotted for merchant charters, fading radiance for mandala courts, and open hatching for peoples who rule by movement or kin. Rose dots are Concord harbours, the violet diamond is Quanzhou, and the dotted lines across the Sahara are caravan roads, governed as routes rather than ground. Pale, unmarked land is inhabited ground whose polities are not yet drawn. Coastlines are Natural Earth; every border is approximate.</p>
+<div class="atlgrid"><div class="atl-map" id="atlmap"><div class="zctl"><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">−</button><button type="button" id="zhome" aria-label="Whole world">⌂</button></div><div class="maphint" id="maphint">Drag to move · pinch or scroll to zoom</div></div><div class="panel" id="atlpanel" aria-live="polite"></div></div>
+<div class="legend" id="legend" aria-label="Map legend"></div>
 </div></div></section></section><section class="book b2" id="part-two"><div class="book-head"><div class="wrap"><div class="bignum">Two</div><div><div class="k mono">Part Two · Reading the maps</div><h2><span class="b">[</span>Reading the Maps<span class="b">]</span></h2><p>(What each snapshot shows, and what to watch for in it.)</p></div></div></div><section class="thread" id="m1450"><div class="wrap"><div class="t-top"><div class="t-badge">III</div><div><span class="mono">Thread III · 1450</span><h3>The Concord’s first generation</h3><p class="idea">The Concord ports, ringed in rose, already span three seas.</p></div></div>
-<div class="body"><p class="big">The Concord is fifteen years old. Its ports sit like beads along the monsoon coasts, from Kilwa to Ryukyu, and the Charter fleet sails out of Quanzhou. Everywhere else the map looks much as ours did: Ming China, a Timurid Persia, a Mamluk Egypt, a young Ottoman realm that has not yet taken Constantinople, and on the far side of the Atlantic a Triple Alliance and an Inca state still growing. The great hatched spaces are not empty: they are the herding, hunting and voyaging peoples whose rule follows people and seasons rather than lines.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>The Concord ports, ringed in rose, already span three seas.</li><li>Novgorod is still a republic; the north is not yet Moscow’s.</li><li>The Mexica and the Inca are regional powers, not empires yet.</li><li>Africa’s crowns are cores, not containers: the Sahara and the Rift are ruled by movement.</li></ul><button type="button" class="openbtn" data-open="0">Open the 1450 map</button></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="m1600"><div class="wrap"><div class="t-top"><div class="t-badge">IV</div><div><span class="mono">Thread IV · 1600</span><h3>The licensed seas</h3><p class="idea">Egypt stays its own realm and a Concord member: the Mamluk alliance at Diu keeps it out of Ottoman hands.</p></div></div>
-<div class="body"><p class="big">A century and a half after Diu, Europe trades in the east only from licensed, unfortified factories. The Concord now reaches from Egypt and Ethiopia to Ryukyu and Luzon, and its seat at Malacca has never fallen. In the Americas the Anahuac Compact and a Tawantinsuyu of two capitals have survived the epidemics. Europe is a crowded field of mid-sized crowns, leagues and merchant republics, with the Sound Compact holding the north and a Commonwealth of Two Nations in the east.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>Egypt stays its own realm and a Concord member: the Mamluk alliance at Diu keeps it out of Ottoman hands.</li><li>Gujarat and Bengal keep their ports outside the Mughal Empire, as Concord members.</li><li>Songhai is at its height; the 1591 crossing has just been turned back.</li><li>The Sound Compact is not yet a Concord member, but Sund has had a lodge at the Straits since 1587.</li></ul><button type="button" class="openbtn" data-open="1">Open the 1600 map</button></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="m1790"><div class="wrap"><div class="t-top"><div class="t-badge">V</div><div><span class="mono">Thread V · 1790</span><h3>The eve of the Kindling</h3><p class="idea">The Shore Leagues are five commonwealths, hemmed in on every side.</p></div></div>
-<div class="body"><p class="big">The last year without magic. The long balance holds: no power anywhere is large enough to swallow its neighbours. Great Anahuac is the strongest state in the Americas, flanked by the Longhouse Confederacy, the Horse Nations and five small Shore Leagues that broke from their crowns and never federated. The Mughal Empire has loosened into a commonwealth of princely realms, the Ming rule by sharing power with chartered provinces, and in west Borneo a Hakka kongsi has just founded a republic.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>The Shore Leagues are five commonwealths, hemmed in on every side.</li><li>The Dzungar Khanate still holds the steppe.</li><li>The Sahel has become a compact of cities, lineages and confederations.</li><li>The Sound Compact is now a Concord associate, the one European power inside it.</li></ul><button type="button" class="openbtn" data-open="2">Open the 1790 map</button></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="m1914"><div class="wrap"><div class="t-top"><div class="t-badge">VI</div><div><span class="mono">Thread VI · 1914</span><h3>The year of the Vienna arbitration</h3><p class="idea">The Federated Provinces: one name, two very different halves.</p></div></div>
-<div class="body"><p class="big">The summer our world went to war, PMU went to the table. A Balkan quarrel is settled by arbitration at Vienna. China has become the Federated Provinces three years before, without civil war, and the map shows why it is strong and not united: a liberal coast and conservative inland provinces under one compact. Crowns are giving way to leagues and assemblies on every continent. Six years earlier, in the Evenki forest, the First Door opened.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>The Federated Provinces: one name, two very different halves.</li><li>The Sublime Commonwealth holds the Levant whole; no distant hands draw its borders.</li><li>Africa’s great leagues: the United Sahel, the Forest Crowns and the Kongo Confederation.</li><li>The First Door, marked in Siberia, is held by Evenki keepers.</li></ul><button type="button" class="openbtn" data-open="3">Open the 1914 map</button></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="m2026"><div class="wrap"><div class="t-top"><div class="t-badge">VII</div><div><span class="mono">Thread VII · 2026</span><h3>The present, am 236</h3><p class="idea">Leagues and compacts, dashed, now outnumber every other kind of rule.</p></div></div>
-<div class="body"><p class="big">Today the map is a patchwork of compacts. Two crowns rule outright where sixteen once did; everywhere else power is shared, federated, chartered or carried on the move. The Great Lakes Concord, the Cem Anahuac Federation, the Union of the Four Quarters, the Mande–Songhai Federation and the Federated Provinces are the great shapes, and none of them could swallow its neighbours if it tried. The Straits remain the Concord’s seat, and dozens of Doors, charted elsewhere, open beyond the map.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>Leagues and compacts, dashed, now outnumber every other kind of rule.</li><li>The Atlantic Concert joins the Isles, France and the Low Countries without merging them.</li><li>The Plains Commons and the Steppe Kurultai still rule by movement.</li><li>The Federated Provinces keep their two halves.</li></ul><button type="button" class="openbtn" data-open="4">Open the 2026 map</button></div></div></section></section><section class="book b3" id="part-three"><div class="book-head"><div class="wrap"><div class="bignum">Three</div><div><div class="k mono">Part Three · How the lines work</div><h2><span class="b">[</span>How the Lines Work<span class="b">]</span></h2><p>(Not every power in this world has a border, so the map draws nine kinds of edge.)</p></div></div></div>
-<section class="thread" id="lines"><div class="wrap"><div class="t-top"><div class="t-badge">VIII</div><div><span class="mono">Thread VIII</span><h3>Lines, routes and radiance</h3><p class="idea">The edge of a territory says how it is ruled.</p></div></div>
+<div class="body"><p class="big">The Concord is fifteen years old. Its ports sit like beads along the monsoon coasts, from Kilwa to Ryukyu, and the Charter fleet sails out of Quanzhou. Everywhere else the map looks much as ours did: Ming China, a Timurid Persia, a Mamluk Egypt, a young Ottoman realm that has not yet taken Constantinople, and on the far side of the Atlantic a Triple Alliance and an Inca state still growing. The broad soft-coloured ranges are not empty: they are the herding, hunting and voyaging peoples whose rule follows people and seasons rather than lines.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>The Concord ports, ringed in rose, already span three seas.</li><li>Novgorod is still a republic; the north is not yet Moscow’s.</li><li>The Mexica and the Inca are regional powers, not empires yet.</li><li>Africa’s crowns are cores, not containers: the Sahara and the Rift are ruled by movement.</li></ul><button type="button" class="openbtn" data-open="0">Open the 1450 map</button></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="m1600"><div class="wrap"><div class="t-top"><div class="t-badge">IV</div><div><span class="mono">Thread IV · 1600</span><h3>The licensed seas</h3><p class="idea">Egypt stays its own realm and a Concord member: the Mamluk alliance at Diu keeps it out of Ottoman hands.</p></div></div>
+<div class="body"><p class="big">A century and a half after Diu, Europe trades in the east only from licensed, unfortified factories. The Concord now reaches from Egypt and Ethiopia to Ryukyu and Luzon, and its seat at Malacca has never fallen. In the Americas the Anahuac Compact and a Tawantinsuyu of two capitals have survived the epidemics. Europe is a crowded field of mid-sized crowns, leagues and merchant republics, with the Sound Compact holding the north and a Commonwealth of Two Nations in the east.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>Egypt stays its own realm and a Concord member: the Mamluk alliance at Diu keeps it out of Ottoman hands.</li><li>Gujarat and Bengal keep their ports outside the Mughal Empire, as Concord members.</li><li>Songhai is at its height; the 1591 crossing has just been turned back.</li><li>The Sound Compact is not yet a Concord member, but Sund has had a lodge at the Straits since 1587.</li></ul><button type="button" class="openbtn" data-open="1">Open the 1600 map</button></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="m1790"><div class="wrap"><div class="t-top"><div class="t-badge">V</div><div><span class="mono">Thread V · 1790</span><h3>The long balance</h3><p class="idea">The Shore Leagues are five commonwealths, hemmed in on every side.</p></div></div>
+<div class="body"><p class="big">The long balance holds: no power anywhere is large enough to swallow its neighbours. Great Anahuac is the strongest state in the Americas, flanked by the Longhouse Confederacy, the Horse Nations and five small Shore Leagues that broke from their crowns and never federated. The Mughal Empire has loosened into a commonwealth of princely realms, the Ming rule by sharing power with chartered provinces, and in west Borneo a Hakka kongsi has just founded a republic.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>The Shore Leagues are five commonwealths, hemmed in on every side.</li><li>The Dzungar Khanate still holds the steppe.</li><li>The Sahel has become a compact of cities, lineages and confederations.</li><li>The Sound Compact is now a Concord associate, the one European power inside it.</li></ul><button type="button" class="openbtn" data-open="2">Open the 1790 map</button></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="m1914"><div class="wrap"><div class="t-top"><div class="t-badge">VI</div><div><span class="mono">Thread VI · 1914</span><h3>The year of the Vienna arbitration</h3><p class="idea">The Federated Provinces: one name, two very different halves.</p></div></div>
+<div class="body"><p class="big">The summer our world went to war, PMU went to the table. A Balkan quarrel is settled by arbitration at Vienna. China has become the Federated Provinces three years before, without civil war, and the map shows why it is strong and not united: a liberal coast and conservative inland provinces under one compact. Crowns are giving way to leagues and assemblies on every continent. Six years earlier an unexplained flash flattened the Evenki forest; four years later, the Kindling will make magic a recipe.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>The Federated Provinces: one name, two very different halves.</li><li>The Sublime Commonwealth holds the Levant whole; no distant hands draw its borders.</li><li>Africa’s great leagues: the United Sahel, the Forest Crowns and the Kongo Confederation.</li><li>The Evenki Flash, marked in Siberia, where the First Door will open in 1983.</li></ul><button type="button" class="openbtn" data-open="3">Open the 1914 map</button></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="m2026"><div class="wrap"><div class="t-top"><div class="t-badge">VII</div><div><span class="mono">Thread VII · 2026</span><h3>The present, <i>a.m.</i> 109</h3><p class="idea">Leagues and compacts, in green, now outnumber every other kind of rule.</p></div></div>
+<div class="body"><p class="big">Today the map is a patchwork of compacts. Two crowns rule outright where sixteen once did; everywhere else power is shared, federated, chartered or carried on the move. The Great Lakes Concord, the Cem Anahuac Federation, the Union of the Four Quarters, the Mande–Songhai Federation and the Federated Provinces are the great shapes, and none of them could swallow its neighbours if it tried. The Straits remain the Concord’s seat, and dozens of Doors, charted elsewhere, open beyond the map.</p><span class="mono" style="color:var(--deep)">Watch for</span><ul class="watch"><li>Leagues and compacts, in green, now outnumber every other kind of rule.</li><li>The Atlantic Concert joins the Isles, France and the Low Countries without merging them.</li><li>The Plains Commons and the Steppe Kurultai still rule by movement.</li><li>The Federated Provinces keep their two halves.</li></ul><button type="button" class="openbtn" data-open="4">Open the 2026 map</button></div></div></section></section><section class="book b3" id="part-three"><div class="book-head"><div class="wrap"><div class="bignum">Three</div><div><div class="k mono">Part Three · How the lines work</div><h2><span class="b">[</span>How the Lines Work<span class="b">]</span></h2><p>(Nine kinds of rule, each with its own colour family.)</p></div></div></div>
+<section class="thread" id="lines"><div class="wrap"><div class="t-top"><div class="t-badge">VIII</div><div><span class="mono">Thread VIII</span><h3>Lines, routes and radiance</h3><p class="idea">The colour of a territory says how it is ruled.</p></div></div>
 <div class="full wide-full"><div class="styles" id="styles"></div>
-<p class="caption">Because the colonial scramble never happened, most of the world’s edges were never surveyed into lines. A league’s border is agreed among its members; a mandala court’s reach simply thins out until another court’s begins; a herding people’s range moves with the seasons. The map shows these honestly as different kinds of edge, which is why Africa, the steppe and the Plains look so open even in 2026.</p></div>
+<p class="caption">Because the colonial scramble never happened, most of the world’s edges were never surveyed into lines. A league’s border is agreed among its members; a mandala court’s reach simply thins out until another court’s begins; a herding people’s range moves with the seasons. The map gives each kind of rule its own colour family, with shades within it to tell neighbours apart; mandala courts are drawn as a glow because their reach simply fades.</p></div>
 </div></section>
 <div class="dots"><span>+</span></div>
 <section class="thread" id="ports"><div class="wrap"><div class="t-top"><div class="t-badge">IX</div><div><span class="mono">Thread IX</span><h3>Two harbours: Quanzhou and the Pearl River</h3><p class="idea">The Charter sails from Quanzhou; the Lanfang Hakka sail from the Pearl River.</p></div></div>
@@ -360,12 +377,12 @@ var GOV={
 };
 var ERAS=["1400","1550","1700","1790","1900","2026"];
 var ERACAP={
- "1400":"Before the hinge: the world as it was in ours.",
+ "1400":"Before the turn: the world as it was in ours.",
  "1550":"The Concord holds the ocean; the Americas keep their states.",
  "1700":"The long balance: many mid-sized powers, no world empire.",
- "1790":"Last year before magic.",
- "1900":"The cultivation turn; eight years before the First Door.",
- "2026":"The present, am 236."
+ "1790":"The long balance holds: no power is large enough to swallow its neighbours.",
+ "1900":"The contending schools; eighteen years before the Kindling.",
+ "2026":"The present, a.m. 109."
 };
 var CONT={am:"The Americas",eu:"Europe",af:"Africa",wa:"West & South Asia",ea:"East & Southeast Asia",oc:"Oceania"};
 // id, region, continent, col, row, colspan, rowspan, eras [name, gov, concord], note
@@ -393,9 +410,9 @@ var R=[
 ["arabia","Arabia & the Gulf","wa",5,4,1,1,[["Hormuz; Hadhramaut; Bedouin confederations","charter"],["Hormuz; Oman; Bedouin confederations","charter",1],["Oman; Hormuz; Bedouin confederations","charter",1],["Omani sea realm; Gulf ports","charter",1],["Gulf Ports League; Bedouin councils","charter",1],["Gulf Ports League; Bedouin councils","charter",1]],"Hormuz is a founding Concord port. Hadhrami and Omani families spread through it as traders, scholars and judges: the trust networks that run the ocean."],
 ["persia","Persia","wa",6,3,1,1,[["Timurid realms","crown"],["Safavid Iran","crown"],["Safavid Iran","crown"],["Iran of the shahs","crown"],["Iranshahr, constitutional","crown"],["Iranshahr","assembly"]],"A great literary and contemplative civilisation that sends the Concord poets, astronomers and mystics. Its constitutional movement of the 1900s succeeds."],
 ["steppe","The Steppe","wa",6,2,2,1,[["Horde remnants; Oirats","moving"],["Kazakh Khanate; Oirats","moving"],["Kazakh Hordes; Dzungar Khanate","moving"],["Dzungar Khanate; Kazakh Hordes","moving"],["Steppe Kurultai","moving"],["Steppe Kurultai","moving"]],"The Dzungars, destroyed in ours, endure. Steppe peoples keep moving with the seasons and meet in the kurultai, their great assembly."],
-["siberia","Siberia","wa",6,1,2,1,[["Forest & reindeer peoples","moving"],["Khanate of Sibir; Evenki, Sakha, Khanty","moving"],["Forest & reindeer peoples","moving"],["Forest & reindeer peoples","moving"],["Forest peoples; the First Door","moving"],["Taiga Councils; Keepers of the First Door","council"]],"Muscovy’s eastward push stalls at the Urals. In 1908 the First Door opens in Evenki forest by the Podkamennaya Tunguska, and Evenki keepers hold its custody under the Threshold Accord."],
+["siberia","Siberia","wa",6,1,2,1,[["Forest & reindeer peoples","moving"],["Khanate of Sibir; Evenki, Sakha, Khanty","moving"],["Forest & reindeer peoples","moving"],["Forest & reindeer peoples","moving"],["Forest peoples","moving"],["Taiga Councils; Keepers of the First Door","council"]],"Muscovy’s eastward push stalls at the Urals. In 1908 an unexplained flash flattens Evenki forest by the Podkamennaya Tunguska; in 1983 the First Door opens there, and Evenki keepers hold its custody under the Threshold Accord."],
 ["tibet","Tibet & the Himalaya","wa",7,3,1,1,[["Highland kingdoms; monastic estates","cloister"],["Monastic estates; Guge; Mustang","cloister"],["Government of the Monasteries","cloister"],["Government of the Monasteries","cloister"],["Land of Snows","cloister"],["Land of Snows","cloister"]],"Governed by its monasteries, the highland becomes the world’s quiet authority on cultivation. In the age of magic its adepts are teachers more than rulers."],
-["nindia","North India","wa",7,4,1,1,[["Delhi Sultanate; Rajput kingdoms","crown"],["Mughal Empire; Rajput kingdoms","crown"],["Mughal Empire","crown"],["Mughal Commonwealth of princely realms","league"],["Hindustan Concordat","league"],["Hindustan Concordat","league"]],"The Mughals never meet a company army. As the centre weakens in the 1700s, the empire becomes a commonwealth of princely realms, Rajput, Maratha and Punjabi among them, under a ceremonial throne."],
+["nindia","North India","wa",7,4,1,1,[["Delhi Sultanate; Rajput kingdoms","crown"],["Mughal Empire; Rajput kingdoms","crown"],["Mughal Empire","crown"],["Mughal Commonwealth of princely realms","league"],["Hindustan Compact","league"],["Hindustan Compact","league"]],"The Mughals never meet a company army. As the centre weakens in the 1700s, the empire becomes a commonwealth of princely realms, Rajput, Maratha and Punjabi among them, under a ceremonial throne."],
 ["bengal","Bengal","wa",8,4,1,1,[["Bengal Sultanate","crown"],["Bengal Sultanate","crown",1],["Mughal Bengal","crown",1],["Nawabi Bengal","crown",1],["Bengal Republic","assembly",1],["Bengal Republic","assembly",1]],"The world’s great cloth workshop is never plundered. Its looms become a proto-industrial centre, and its renaissance comes early and stays."],
 ["coasts","India’s ocean coasts","wa",7,5,1,1,[["Gujarat; Calicut; Vijayanagara","charter"],["Gujarat; Calicut; Vijayanagara","charter",1],["Gujarat ports; Calicut; Deccan kingdoms","charter",1],["Gujarat ports; Calicut; Mysore","charter",1],["Malabar & Gujarat port republics; Deccan realms","charter",1],["Western Ocean Ports; Deccan realms","charter",1]],"Calicut is a founding Concord member, and Gujarat’s fleet stands at Diu. The coasts stay merchant-run; the Deccan interior stays with its kings."],
 ["north","Manchuria & Mongolia","ea",8,1,1,1,[["Northern Yuan; Jurchen tribes","moving"],["Mongol khans; Jurchen tribes","moving"],["Later Jin; Khalkha khans","crown"],["Jin Realm of the North; Khalkha khans","crown"],["Jin–Khalkha Compact","league"],["Northern Compact","league"]],"The Later Jin stops at the Wall under the Shanhai Settlement and becomes the realm of the north, allied by marriage and treaty with the Mongol khans."],
@@ -434,7 +451,7 @@ var FIVE=[
 ['hre','The Empire','league','central',0],['swiss','Swiss confederates','league','central',0],['venice','Venice','charter','central',0],['italy','Italian republics','charter','central',0],['naples','Naples and Sicily','crown',null,0],['sicily','Naples and Sicily','crown',null,0,''],['hungary','Hungary','crown',null,0],
 ['poland','Poland and Lithuania','crown','commonwealth',0],['moscow','Moscow','crown','muscovy',0],['novgorod','Novgorod Republic','assembly','muscovy',0],['kalmar','Kalmar Union','crown','norden',0],['iceland','Kalmar Union','crown','norden',0,''],['crimea','Crimea','crown',null,0],
 ['triple','Triple Alliance','crown','anahuac',0],['tlaxcala','Tlaxcala','league','anahuac',0,''],['tarascan','Purépecha','crown','anahuac',0],['maya','Maya city-states','league','anahuac',0],['inca','Inca of Cusco','crown','andes',0],['chimu','Chimú','crown','andes',0],['muisca','Muisca','league',null,0],['hau1450','Haudenosaunee','league','woodlands',0]
-],read:'The Concord is fifteen years old. Its ports sit like beads along the monsoon coasts, from Kilwa to Ryukyu, and the Charter fleet sails out of Quanzhou. Everywhere else the map looks much as ours did: Ming China, a Timurid Persia, a Mamluk Egypt, a young Ottoman realm that has not yet taken Constantinople, and on the far side of the Atlantic a Triple Alliance and an Inca state still growing. The great hatched spaces are not empty: they are the herding, hunting and voyaging peoples whose rule follows people and seasons rather than lines.',watch:['The Concord ports, ringed in rose, already span three seas.','Novgorod is still a republic; the north is not yet Moscow’s.','The Mexica and the Inca are regional powers, not empires yet.','Africa’s crowns are cores, not containers: the Sahara and the Rift are ruled by movement.']},
+],read:'The Concord is fifteen years old. Its ports sit like beads along the monsoon coasts, from Kilwa to Ryukyu, and the Charter fleet sails out of Quanzhou. Everywhere else the map looks much as ours did: Ming China, a Timurid Persia, a Mamluk Egypt, a young Ottoman realm that has not yet taken Constantinople, and on the far side of the Atlantic a Triple Alliance and an Inca state still growing. The broad soft-coloured ranges are not empty: they are the herding, hunting and voyaging peoples whose rule follows people and seasons rather than lines.',watch:['The Concord ports, ringed in rose, already span three seas.','Novgorod is still a republic; the north is not yet Moscow’s.','The Mexica and the Inca are regional powers, not empires yet.','Africa’s crowns are cores, not containers: the Sahara and the Rift are ruled by movement.']},
 
 {y:1600,t:'The licensed seas',k:'1600',items:[
 ['siberia','Forest and reindeer peoples','moving','siberia',0],['inuit','Inuit and northern nations','council',null,0],['greenland','Inuit and northern nations','council',null,0,''],
@@ -459,7 +476,7 @@ var FIVE=[
 ['anahuac1600','Anahuac Compact','league','anahuac',0],['maya','Maya city-states','league','anahuac',0],['tawantinsuyu','Tawantinsuyu of the Two Capitals','crown','andes',0],['muisca','Muisca','league',null,0],['hau1600','Haudenosaunee Confederacy','league','woodlands',0]
 ],read:'A century and a half after Diu, Europe trades in the east only from licensed, unfortified factories. The Concord now reaches from Egypt and Ethiopia to Ryukyu and Luzon, and its seat at Malacca has never fallen. In the Americas the Anahuac Compact and a Tawantinsuyu of two capitals have survived the epidemics. Europe is a crowded field of mid-sized crowns, leagues and merchant republics, with the Sound Compact holding the north and a Commonwealth of Two Nations in the east.',watch:['Egypt stays its own realm and a Concord member: the Mamluk alliance at Diu keeps it out of Ottoman hands.','Gujarat and Bengal keep their ports outside the Mughal Empire, as Concord members.','Songhai is at its height; the 1591 crossing has just been turned back.','The Sound Compact is not yet a Concord member, but Sund has had a lodge at the Straits since 1587.']},
 
-{y:1790,t:'The eve of the Kindling',k:'1790',items:[
+{y:1790,t:'The long balance',k:'1790',items:[
 ['siberia','Forest and reindeer peoples','moving','siberia',0],['inuit','Inuit and northern nations','council',null,0],['greenland','Inuit and northern nations','council',null,0,''],
 ['plains','The Horse Nations','moving','plains',0],['amazon','Amazonian nations','council','pindorama',0],['pampas','Pampas and Chaco peoples','moving',null,0],
 ['tuareg','Tuareg confederations','moving','sahel',0],['basin','Forest peoples of the basin','council','kongo',0],['rift','Rift pastoral nations','moving','swahili',0],['somali','Somali pastoral peoples','moving',null,0],
@@ -482,7 +499,7 @@ var FIVE=[
 ['anahuac','Great Anahuac','crown','anahuac',0],['maya','Mayab League','league','anahuac',0],['tawantinsuyu','Tawantinsuyu, ayllu councils restored','league','andes',0],['tupi','Free Coast of Pindorama','assembly','pindorama',0],
 ['longhouse','Longhouse Confederacy','league','woodlands',0],['laurentia','Laurentian free towns','league','woodlands',0],
 ['sl1','Shore Leagues: Bay Commonwealth','assembly','shore',0],['sl2','Shore Leagues: Hudson Commonwealth','assembly','shore',0,''],['sl3','Shore Leagues: Chesapeake Commonwealth','assembly','shore',0,''],['sl4','Shore Leagues: Carolina Commonwealth','assembly','shore',0,''],['sl5','Shore Leagues: Savannah Commonwealth','assembly','shore',0,'']
-],read:'The last year without magic. The long balance holds: no power anywhere is large enough to swallow its neighbours. Great Anahuac is the strongest state in the Americas, flanked by the Longhouse Confederacy, the Horse Nations and five small Shore Leagues that broke from their crowns and never federated. The Mughal Empire has loosened into a commonwealth of princely realms, the Ming rule by sharing power with chartered provinces, and in west Borneo a Hakka kongsi has just founded a republic.',watch:['The Shore Leagues are five commonwealths, hemmed in on every side.','The Dzungar Khanate still holds the steppe.','The Sahel has become a compact of cities, lineages and confederations.','The Sound Compact is now a Concord associate, the one European power inside it.']},
+],read:'The long balance holds: no power anywhere is large enough to swallow its neighbours. Great Anahuac is the strongest state in the Americas, flanked by the Longhouse Confederacy, the Horse Nations and five small Shore Leagues that broke from their crowns and never federated. The Mughal Empire has loosened into a commonwealth of princely realms, the Ming rule by sharing power with chartered provinces, and in west Borneo a Hakka kongsi has just founded a republic.',watch:['The Shore Leagues are five commonwealths, hemmed in on every side.','The Dzungar Khanate still holds the steppe.','The Sahel has become a compact of cities, lineages and confederations.','The Sound Compact is now a Concord associate, the one European power inside it.']},
 
 {y:1914,t:'The year of the Vienna arbitration',k:'1914',items:[
 ['siberia','Forest peoples','moving','siberia',0],['inuit','Inuit and northern nations','council',null,0],['greenland','Inuit and northern nations','council',null,0,''],
@@ -495,7 +512,7 @@ var FIVE=[
 ['mekong','Mekong Mandala','mandala','mainland',1],['nusantara','The Straits and the Nusantara courts','mandala','straits',1],['brunei','Brunei and Sulu','mandala','borneo',1],['sulu','Brunei and Sulu','mandala','borneo',1,''],
 ['ming','Federated Provinces: inland','league','china',1,'Federated Provinces 联省共和'],['chinaCoast','Federated Provinces: coast','league','china',1,''],['jin','Jin–Khalkha Compact','league','north',0],['khalkha','Jin–Khalkha Compact','league','north',0,''],
 ['korea','Joseon, constitutional','crown','korea',0],['japan','Council of Domains','domain','japan',1],['ryukyu','Ryukyu','crown','japan',1],['tibet','Land of Snows','cloister','tibet',0],['lanfang','Lanfang Republic','charter','borneo',1],
-['mughal1790','Hindustan Concordat','league','nindia',0],['bengal','Bengal Republic','assembly','bengal',1],['gujarat','Western Ocean port republics','charter','coasts',1],['malabar','Western Ocean port republics','charter','coasts',1,''],['south','Deccan realms','crown','coasts',1],['lanka','Lanka','crown',null,0],
+['mughal1790','Hindustan Compact','league','nindia',0],['bengal','Bengal Republic','assembly','bengal',1],['gujarat','Western Ocean port republics','charter','coasts',1],['malabar','Western Ocean port republics','charter','coasts',1,''],['south','Deccan realms','crown','coasts',1],['lanka','Lanka','crown',null,0],
 ['iran','Iranshahr, constitutional','crown','persia',0],['sublime','The Sublime Commonwealth','league','anatolia',0],['balkans','Balkan crowns','crown',null,0],['egypt','Egypt','crown','nile',1],['oman','Gulf Ports League','charter','arabia',1],['yemen','Gulf Ports League','charter','arabia',1,''],['gulfcoast','Gulf Ports League','charter','arabia',1,''],
 ['ethiopia','Ethiopian highland realm','crown','nile',1],['swahili','Swahili City League','charter','swahili',1],['swahiliS','Swahili City League','charter','swahili',1,''],['lakes','Lake kingdoms','crown',null,0],['madagascar','Merina realm','crown',null,0],
 ['kongoConfed','Kongo Confederation','league','kongo',0],['sahel','United Sahel','league','sahel',0],['forestLeague','League of the Forest Crowns','league','forest',0],
@@ -506,9 +523,9 @@ var FIVE=[
 ['anahuac','Federation of Anahuac','league','anahuac',0],['maya','Mayab League','league','anahuac',0],['tawantinsuyu','Union of the Four Quarters','league','andes',0],['tupi','Pindorama Republic','assembly','pindorama',0],
 ['longhouse','Longhouse Confederacy','league','woodlands',0],['laurentia','Laurentian free towns','league','woodlands',0],
 ['sl1','Shore Leagues: Bay Commonwealth','assembly','shore',0,'Shore Leagues'],['sl2','Shore Leagues: Hudson Commonwealth','assembly','shore',0,''],['sl3','Shore Leagues: Chesapeake Commonwealth','assembly','shore',0,''],['sl4','Shore Leagues: Carolina Commonwealth','assembly','shore',0,''],['sl5','Shore Leagues: Savannah Commonwealth','assembly','shore',0,'']
-],read:'The summer our world went to war, PMU went to the table. A Balkan quarrel is settled by arbitration at Vienna. China has become the Federated Provinces three years before, without civil war, and the map shows why it is strong and not united: a liberal coast and conservative inland provinces under one compact. Crowns are giving way to leagues and assemblies on every continent. Six years earlier, in the Evenki forest, the First Door opened.',watch:['The Federated Provinces: one name, two very different halves.','The Sublime Commonwealth holds the Levant whole; no distant hands draw its borders.','Africa’s great leagues: the United Sahel, the Forest Crowns and the Kongo Confederation.','The First Door, marked in Siberia, is held by Evenki keepers.']},
+],read:'The summer our world went to war, PMU went to the table. A Balkan quarrel is settled by arbitration at Vienna. China has become the Federated Provinces three years before, without civil war, and the map shows why it is strong and not united: a liberal coast and conservative inland provinces under one compact. Crowns are giving way to leagues and assemblies on every continent. Six years earlier an unexplained flash flattened the Evenki forest; four years later, the Kindling will make magic a recipe.',watch:['The Federated Provinces: one name, two very different halves.','The Sublime Commonwealth holds the Levant whole; no distant hands draw its borders.','Africa’s great leagues: the United Sahel, the Forest Crowns and the Kongo Confederation.','The Evenki Flash, marked in Siberia, where the First Door will open in 1983.']},
 
-{y:2026,t:'The present, am 236',k:'2026',items:[
+{y:2026,t:'The present, a.m. 109',k:'2026',items:[
 ['siberia','Taiga Councils','council','siberia',0],['inuit','Inuit and northern nations','council',null,0],['greenland','Inuit and northern nations','council',null,0,''],
 ['plains','Plains Commons','moving','plains',0],['amazon','Amazon nations','council','pindorama',0],['pampas','Pampas and Chaco peoples','moving',null,0],
 ['tuareg','Tuareg confederations','moving','sahel',0],['basin','Forest peoples of the basin','council','kongo',0],['rift','Rift pastoral nations','moving','swahili',1],['somali','Somali pastoral peoples','moving',null,0],
@@ -519,7 +536,7 @@ var FIVE=[
 ['mekong','Mekong Mandala','mandala','mainland',1],['nusantara','Nusantara Mandala','mandala','straits',1],['brunei','Sulu–Brunei','mandala','borneo',1],['sulu','Sulu–Brunei','mandala','borneo',1,''],
 ['ming','Federated Provinces: inland','league','china',1,'Federated Provinces 联省共和'],['chinaCoast','Federated Provinces: coast','league','china',1,''],['jin','Northern Compact','league','north',0],['khalkha','Northern Compact','league','north',0,''],
 ['korea','Joseon, constitutional','crown','korea',0],['japan','Council of Domains','league','japan',1],['ryukyu','Ryukyu','crown','japan',1],['tibet','Land of Snows','cloister','tibet',0],['lanfang','Lanfang Republic','charter','borneo',1],
-['mughal1790','Hindustan Concordat','league','nindia',0],['bengal','Bengal Republic','assembly','bengal',1],['gujarat','Western Ocean Ports','charter','coasts',1],['malabar','Western Ocean Ports','charter','coasts',1,''],['south','Deccan realms','crown','coasts',1],['lanka','Lanka','crown',null,0],
+['mughal1790','Hindustan Compact','league','nindia',0],['bengal','Bengal Republic','assembly','bengal',1],['gujarat','Western Ocean Ports','charter','coasts',1],['malabar','Western Ocean Ports','charter','coasts',1,''],['south','Deccan realms','crown','coasts',1],['lanka','Lanka','crown',null,0],
 ['iran','Iranshahr','assembly','persia',0],['sublime','The Sublime Commonwealth','league','anatolia',0],['balkans','Balkan crowns','crown',null,0],['egypt','Egypt','crown','nile',1],['oman','Gulf Ports League','charter','arabia',1],['yemen','Gulf Ports League','charter','arabia',1,''],['gulfcoast','Gulf Ports League','charter','arabia',1,''],
 ['ethiopia','Ethiopian highland realm','crown','nile',1],['swahili','Swahili Leagues','charter','swahili',1],['swahiliS','Swahili Leagues','charter','swahili',1,''],['lakes','Lake kingdoms','crown',null,0],['madagascar','Madagascar','assembly',null,0],
 ['kongoConfed','Kongo Confederation','league','kongo',0],['sahel','Mande–Songhai Federation','league','sahel',0],['forestLeague','League of the Forest Crowns','league','forest',0],['maghreb','Maghreb League','league','maghreb',0],
@@ -529,7 +546,7 @@ var FIVE=[
 ['anahuac','Cem Anahuac Federation','league','anahuac',0],['maya','Mayab League','league','anahuac',0],['tawantinsuyu','Union of the Four Quarters','league','andes',0],['tupi','Pindorama Republic','assembly','pindorama',0],
 ['greatlakes','Great Lakes Concord','league','woodlands',0],
 ['sl1','Shore Leagues: Bay Commonwealth','assembly','shore',0,'Shore Leagues'],['sl2','Shore Leagues: Hudson Commonwealth','assembly','shore',0,''],['sl3','Shore Leagues: Chesapeake Commonwealth','assembly','shore',0,''],['sl4','Shore Leagues: Carolina Commonwealth','assembly','shore',0,''],['sl5','Shore Leagues: Savannah Commonwealth','assembly','shore',0,'']
-],read:'Today the map is a patchwork of compacts. Two crowns rule outright where sixteen once did; everywhere else power is shared, federated, chartered or carried on the move. The Great Lakes Concord, the Cem Anahuac Federation, the Union of the Four Quarters, the Mande–Songhai Federation and the Federated Provinces are the great shapes, and none of them could swallow its neighbours if it tried. The Straits remain the Concord’s seat, and dozens of Doors, charted elsewhere, open beyond the map.',watch:['Leagues and compacts, dashed, now outnumber every other kind of rule.','The Atlantic Concert joins the Isles, France and the Low Countries without merging them.','The Plains Commons and the Steppe Kurultai still rule by movement.','The Federated Provinces keep their two halves.']}
+],read:'Today the map is a patchwork of compacts. Two crowns rule outright where sixteen once did; everywhere else power is shared, federated, chartered or carried on the move. The Great Lakes Concord, the Cem Anahuac Federation, the Union of the Four Quarters, the Mande–Songhai Federation and the Federated Provinces are the great shapes, and none of them could swallow its neighbours if it tried. The Straits remain the Concord’s seat, and dozens of Doors, charted elsewhere, open beyond the map.',watch:['Leagues and compacts, in green, now outnumber every other kind of rule.','The Atlantic Concert joins the Isles, France and the Low Countries without merging them.','The Plains Commons and the Steppe Kurultai still rule by movement.','The Federated Provinces keep their two halves.']}
 ];
 var PORTS={
  base:[['Malacca',102.25,2.2],['Pasai',97.1,5.2],['Calicut',75.8,11.25],['Hormuz',56.3,27.1],['Aden',45,12.8],['Kilwa',39.5,-8.95],['Mombasa',39.7,-4.05],['Malindi',40.1,-3.2],['Brunei',114.9,4.9],['Ryukyu',127.7,26.2]],
@@ -547,138 +564,219 @@ var PORTSXY=GEO.ports,CARAVANXY=GEO.caravan,CHARTERXY=GEO.charter;
 var NS='http://www.w3.org/2000/svg';
 function S(t,a,p){var e=document.createElementNS(NS,t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
 function E(t,c,x,p){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(p)p.appendChild(e);return e;}
-function gc(g){return 'var(--g-'+g+')';}
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var byR={};R.forEach(function(r){byR[r[0]]=r;});
 var GROUPS={chinaCoast:'ming',jurchen:'jin',khalkha:'khalkha',anahuac1600:'anahuac',triple:'anahuac',tawantinsuyu:'andes',inca:'andes',hau1450:'hau',hau1600:'hau',longhouse:'hau',greatlakes:'hau',laurentia:'hau',songhai:'sahel',songhai1450:'sahel',mali:'sahel',kongoConfed:'kongo',ottoman1450:'ottoman',sublime:'ottoman',mughal1600:'mughal',mughal1790:'mughal',delhi:'mughal',malaccaJohor:'malacca',nusantara:'malacca',mekong:'ayutthaya',moscow:'muscovy',rus:'muscovy',novgorod:'muscovy',commonwealth:'poland',spains:'castile',iberia:'castile',aragon:'castile',isles:'england',highveld:'mutapa',regencies:'hafsid',zayyanid:'hafsid',maghreb:'hafsid',forestLeague:'oyo',akan:'oyo',benin:'oyo',timurid:'iran',kazakh:'steppe',dzungar:'steppe',steppeAll:'steppe',sl1:'shore',sl2:'shore',sl3:'shore',sl4:'shore',sl5:'shore',algonquian:'shore',mississippian:'rivers',sicily:'naples',swahiliS:'swahili',yemen:'gulf',oman:'gulf',gulfcoast:'gulf',burgundy:'provinces',scotland:'england',ireland:'england',lunda:'kongo',luba:'kongo',ndongo:'kongo',majapahit:'malacca',mataram:'malacca',aceh:'malacca',lanxang:'ayutthaya',khmer:'ayutthaya',daiviet:'ayutthaya',champa:'ayutthaya',ava:'ayutthaya',bahmani:'south',hausa:'sahel',bornu:'sahel',mossi:'sahel',cape:'mutapa',kalahari:'mutapa',sulu:'brunei',tasmania:'australia',iceland:'kalmar'};
-function grp(k){return GROUPS[k]||k;}
-var era=4,selKey=null,ccOn=false,zoomKey='world',vb=GEO.zooms.world.slice(),anim=null,mainSvg;
 
-/* shared defs */
+function grp(k){return GROUPS[k]||k;}
+
+/* ---------- colour families ---------- */
+var FAM={crown:[262,34],domain:[350,46],cloister:[188,40],mandala:[318,48],charter:[38,66],council:[82,28],moving:[22,42],league:[150,34],assembly:[208,48]};
+var ORDER=['crown','domain','cloister','assembly','league','charter','mandala','council','moving'];
+var LL={light:[60,70,52,76,65],dark:[44,54,36,60,49]};
+function isDark(){var t=document.documentElement.getAttribute('data-theme');if(t)return t==='dark';return !!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);}
+function col(g,i){var f=FAM[g],L=LL[isDark()?'dark':'light'];return 'hsl('+f[0]+' '+f[1]+'% '+L[((i%L.length)+L.length)%L.length]+'%)';}
+function hash(s){var h=0;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return Math.abs(h);}
+function shadeOf(it){return hash(it[1].split(':')[0]===it[1]?it[1]:it[1])%5;}
+
+/* ---------- shared defs ---------- */
+var gradStops=[];
 (function(){
   var d=S('svg',{class:'defs','aria-hidden':'true'},document.body),defs=S('defs',{},d);
-  S('path',{id:'landpath',d:GEO.land},defs);
+  S('path',{id:'landpath',d:GEO.land,'vector-effect':'non-scaling-stroke'},defs);
   var cp=S('clipPath',{id:'landclip'},defs);S('use',{href:'#landpath'},cp);
-  var pm=S('pattern',{id:'pat-moving',patternUnits:'userSpaceOnUse',width:5,height:5,patternTransform:'rotate(40)'},defs);
-  S('rect',{width:5,height:5,style:'fill:color-mix(in srgb,var(--g-moving) 14%,var(--land))'},pm);S('line',{x1:0,y1:0,x2:0,y2:5,style:'stroke:var(--g-moving);stroke-width:1.4;opacity:.75'},pm);
-  var pc=S('pattern',{id:'pat-council',patternUnits:'userSpaceOnUse',width:5,height:5},defs);
-  S('rect',{width:5,height:5,style:'fill:color-mix(in srgb,var(--g-council) 14%,var(--land))'},pc);S('circle',{cx:2.5,cy:2.5,r:.95,style:'fill:var(--g-council);opacity:.85'},pc);
-  var pd=S('pattern',{id:'pat-domain',patternUnits:'userSpaceOnUse',width:6,height:6},defs);
-  S('rect',{width:6,height:6,style:'fill:color-mix(in srgb,var(--g-domain) 30%,var(--land))'},pd);S('path',{d:'M0 0L6 6M6 0L0 6',style:'stroke:var(--g-domain);stroke-width:.6;opacity:.6'},pd);
-  var rg=S('radialGradient',{id:'grad-mandala'},defs);
-  S('stop',{offset:'0',style:'stop-color:var(--g-mandala);stop-opacity:.85'},rg);S('stop',{offset:'.55',style:'stop-color:var(--g-mandala);stop-opacity:.4'},rg);S('stop',{offset:'1',style:'stop-color:var(--g-mandala);stop-opacity:0'},rg);
+  for(var i=0;i<5;i++){var rg=S('radialGradient',{id:'grad-m'+i},defs);
+    gradStops.push([S('stop',{offset:'0','stop-opacity':'.95'},rg),S('stop',{offset:'.6','stop-opacity':'.55'},rg),S('stop',{offset:'1','stop-opacity':'0'},rg)]);}
 })();
+function paintGradients(){gradStops.forEach(function(st,i){st.forEach(function(s){s.setAttribute('stop-color',col('mandala',i));});});}
 
 function labelOf(it){if(it.length>5)return it[5];var n=it[1];var i=n.indexOf(':');return i>0?n.slice(0,i):n;}
 function ports(e){var p=PORTSXY.base.slice();if(e>=1)p=p.concat(PORTSXY.add1600);if(e>=2)p=p.concat(PORTSXY.add1790);return p;}
 
 function drawMap(svg,e,opts){
   while(svg.firstChild)svg.removeChild(svg.firstChild);
+  S('rect',{x:-2000,y:-2000,width:5000,height:5000,class:'seabg'},svg);
   S('path',{class:'gl',d:GEO.grid},svg);
   S('use',{href:'#landpath',class:'landf'},svg);
   if(opts.labels)for(var k in GEO.seas){var t=S('text',{class:'sea-t',x:GEO.seas[k][0],y:GEO.seas[k][1],'text-anchor':'middle','font-size':15},svg);t.textContent=k.trim();}
   var pg=S('g',{'clip-path':'url(#landclip)'},svg),els=[];
-  FIVE[e].items.forEach(function(it,i){var sh=GEO.shapes[it[0]],el;
-    if(sh.m)el=S('circle',{cx:sh.m[0],cy:sh.m[1],r:sh.m[2]},pg);else el=S('path',{d:sh.d},pg);
+  FIVE[e].items.forEach(function(it){var sh=GEO.shapes[it[0]],el,sd=shadeOf(it);
+    if(sh.m){el=S('circle',{cx:sh.m[0],cy:sh.m[1],r:sh.m[2]},pg);el.style.fill='url(#grad-m'+sd+')';}
+    else{el=S('path',{d:sh.d},pg);el.style.fill=col(it[2],sd);}
     el.setAttribute('class','pp p-'+it[2]+(it[4]?' cc':'')+(opts.interactive?' hit':''));
     el._it=it;el._key=it[0];els.push(el);
-    if(opts.interactive){var tt=S('title',{},el);tt.textContent=it[1];el.addEventListener('click',function(){selKey=it[0];refreshSel();});}
+    if(opts.interactive){var tt=S('title',{},el);tt.textContent=it[1];el.addEventListener('click',function(){if(gesture.moved)return;selKey=it[0];refreshSel();});}
   });
   CARAVANXY.forEach(function(d){S('path',{class:'route-c',d:d},svg);});
   var og=S('g',{},svg);
-  ports(e).forEach(function(p){var g=S('g',{class:'port'},og);S('circle',{cx:p[1],cy:p[2],r:opts.labels?3.2:4.5},g);if(opts.labels){var t=S('text',{x:p[1]+5,y:p[2]-4,'font-size':8},g);t.textContent=p[0];}});
-  var ch=S('g',{class:'charter'},og),cx=CHARTERXY[1],cy=CHARTERXY[2];
-  var chp=S('path',{d:'M'+cx+' '+(cy-5)+'L'+(cx+5)+' '+cy+'L'+cx+' '+(cy+5)+'L'+(cx-5)+' '+cy+'Z','data-cx':cx,'data-cy':cy},ch);
-  if(opts.labels){var ct=S('text',{x:cx+7,y:cy+4,'font-size':10},ch);ct.textContent=e<=2?'Quanzhou, the Charter’s port':'Quanzhou';}
-  if(e>=3){var dg=S('g',{class:'door'},og);S('rect',{x:GEO.door[0]-4.5,y:GEO.door[1]-4.5,width:9,height:9,transform:'rotate(45 '+GEO.door[0]+' '+GEO.door[1]+')'},dg);if(opts.labels){var dt=S('text',{x:GEO.door[0]+8,y:GEO.door[1]+16,'font-size':10},dg);dt.textContent='The First Door';}}
-  GEO.voy.forEach(function(v){var g=S('g',{class:'voy'},og);S('circle',{cx:v[1],cy:v[2],r:2.6},g);if(opts.labels){var t=S('text',{x:v[1]+4,y:v[2]-3,'font-size':8},g);t.textContent=v[0];}});
-  if(opts.labels){var lg=S('g',{},svg),seen={};
+  ports(e).forEach(function(p){var g=S('g',{class:'port'},og);S('circle',{cx:p[1],cy:p[2],r:4.5},g);if(opts.labels){var t=S('text',{x:p[1],y:p[2]},g);t.textContent=p[0];t._ax=p[1];t._ay=p[2];}});
+  var ch=S('g',{class:'charter'},og);S('path',{'data-cx':CHARTERXY[1],'data-cy':CHARTERXY[2],d:diamond(CHARTERXY[1],CHARTERXY[2],5)},ch);
+  if(opts.labels){var ct=S('text',{},ch);ct.textContent=e<=2?'Quanzhou, the Charter’s port':'Quanzhou';ct._ax=CHARTERXY[1];ct._ay=CHARTERXY[2];}
+  if(e>=3){var dg=S('g',{class:'door'},og);S('path',{d:diamond(GEO.door[0],GEO.door[1],5)},dg);if(opts.labels){var dt=S('text',{},dg);dt.textContent=e>=4?'The First Door':'The Evenki Flash';dt._ax=GEO.door[0];dt._ay=GEO.door[1];}}
+  GEO.voy.forEach(function(v){var g=S('g',{class:'voy'},og);S('circle',{cx:v[1],cy:v[2],r:2.6},g);if(opts.labels){var t=S('text',{},g);t.textContent=v[0];t._ax=v[1];t._ay=v[2];}});
+  if(opts.labels){var lg=S('g',{class:'labels'},svg),seen={};
     FIVE[e].items.forEach(function(it){var lab=labelOf(it);if(!lab||seen[lab])return;seen[lab]=1;var sh=GEO.shapes[it[0]];
-      var cls=sh.a>800?'l3':sh.a>250?'l2':'l1',fs={l3:13,l2:11,l1:9}[cls];
-      var t=S('text',{class:'lab '+cls,x:sh.c[0],y:sh.c[1]+fs/3,'data-fs':fs,'font-size':fs},lg);t.textContent=lab;});}
+      var tier=sh.a>800?3:sh.a>250?2:1;var t=S('text',{class:'lab',x:sh.c[0],y:sh.c[1]},lg);t.textContent=lab;t._tier=tier;t._a=sh.a;});}
   return els;
 }
+function diamond(x,y,r){return 'M'+x+' '+(y-r)+'L'+(x+r)+' '+y+'L'+x+' '+(y+r)+'L'+(x-r)+' '+y+'Z';}
 
-/* minis */
+/* ---------- minis ---------- */
 function counts(e){var by={},cc=0,seen={};FIVE[e].items.forEach(function(it){if(seen[it[1]])return;seen[it[1]]=1;by[it[2]]=(by[it[2]]||0)+1;if(it[4])cc++;});return {by:by,cc:cc};}
+var miniSvgs=[];
 function buildMinis(){
   var box=document.getElementById('minis');
   FIVE.forEach(function(f,e){var b=E('button','mini',null,box);b.type='button';
-    var svg=S('svg',{class:'mapsvg',viewBox:'0 0 '+GEO.W+' '+GEO.H,role:'img','aria-label':'Map of '+f.y},b);drawMap(svg,e,{});
+    var svg=S('svg',{class:'mapsvg',viewBox:'0 0 '+GEO.W+' '+GEO.H,role:'img','aria-label':'Map of '+f.y},b);miniSvgs.push(svg);drawMap(svg,e,{});
     E('span','yy',f.k,b);E('span','tt',f.t,b);var c=counts(e);
     E('span','cn',(c.by.crown||0)+' crowns · '+((c.by.league||0)+(c.by.assembly||0))+' leagues and republics · '+((c.by.moving||0)+(c.by.council||0))+' peoples ruling by movement or kin',b);
     b.addEventListener('click',function(){setEra(e);document.getElementById('atlas').scrollIntoView({behavior:reduce?'auto':'smooth'});});
   });
 }
 
-/* atlas */
-var mainEls=[];
+/* ---------- atlas state ---------- */
+var era=4,selKey=null,ccOn=false,mainSvg,mainEls=[],vb=[0,0,GEO.W,GEO.H],anim=null,hintGone=false;
+var gesture={moved:false};
 var ZOOMS=[['world','World'],['europe','Europe'],['africa','Africa'],['wasia','West and South Asia'],['easia','East and Southeast Asia'],['northam','North America'],['southam','South America']];
+function box(){var r=mainSvg.getBoundingClientRect();return {w:r.width||1000,h:r.height||520,l:r.left,t:r.top};}
+function fit(b){var c=box(),ar=c.w/c.h,w=b[2],h=b[3];if(w/h>ar)h=w/ar;else w=h*ar;return [b[0]+b[2]/2-w/2,b[1]+b[3]/2-h/2,w,h];}
+function clampVB(v){var c=box(),ar=c.w/c.h;var w=Math.max(75,Math.min(GEO.W*1.1,v[2])),h=w/ar;
+  var cx=v[0]+v[2]/2,cy=v[1]+v[3]/2;var mx=Math.max(w/2-w*0.35,0);
+  cx=Math.min(Math.max(cx,w/2-w*0.35),GEO.W-w/2+w*0.35);cy=Math.min(Math.max(cy,h/2-h*0.4),GEO.H-h/2+h*0.4);
+  if(w>=GEO.W){cx=GEO.W/2;}if(h>=GEO.H){cy=GEO.H/2;}
+  return [cx-w/2,cy-h/2,w,h];}
+function setVB(v,settle){vb=clampVB(v);mainSvg.setAttribute('viewBox',vb.map(function(n){return n.toFixed(2);}).join(' '));sizeLabels(settle);}
+function animateTo(target){if(anim)cancelAnimationFrame(anim);target=clampVB(target);
+  if(reduce){setVB(target,true);return;}
+  var from=vb.slice(),t0=null;function step(ts){if(!t0)t0=ts;var q=Math.min(1,(ts-t0)/480);q=q<.5?2*q*q:1-Math.pow(-2*q+2,2)/2;
+    setVB(from.map(function(a,i){return a+(target[i]-a)*q;}),q>=1);if(q<1)anim=requestAnimationFrame(step);}
+  anim=requestAnimationFrame(step);}
+function zoomAt(f,cx,cy){var c=box(),ux=vb[0]+(cx-c.l)/c.w*vb[2],uy=vb[1]+(cy-c.t)/c.h*vb[3];var w=vb[2]*f,h=vb[3]*f;
+  return [ux-(cx-c.l)/c.w*w,uy-(cy-c.t)/c.h*h,w,h];}
+function regionTabs(k){[].forEach.call(document.querySelectorAll('#zoomtabs button'),function(b){b.setAttribute('aria-pressed',b.dataset.z===k?'true':'false');});}
+
+/* ---------- labels that scale with zoom ---------- */
+var cullTimer=null;
+function sizeLabels(settle){
+  if(!mainSvg)return;var c=box(),s=c.w/vb[2],z=GEO.W/vb[2];
+  var grow=1+0.14*Math.log2(Math.max(z,1));grow=Math.min(grow,1.55);
+  var base={3:13.5,2:12,1:11};
+  [].forEach.call(mainSvg.querySelectorAll('.lab'),function(t){var show=t._tier===3||(t._tier===2&&z>=1.4)||(t._tier===1&&z>=2.2);
+    t.style.display=show?'':'none';if(show){t.setAttribute('font-size',(base[t._tier]*grow/s).toFixed(3));t.style.strokeWidth=(3/s).toFixed(3)+'px';}t.classList.remove('cull');});
+  var mk=function(px){return px/s;};
+  [].forEach.call(mainSvg.querySelectorAll('.sea-t'),function(t){t.setAttribute('font-size',mk(15*Math.min(grow,1.2)).toFixed(3));t.style.display=z>4?'none':'';});
+  [].forEach.call(mainSvg.querySelectorAll('.port circle'),function(e){e.setAttribute('r',mk(3.8).toFixed(3));});
+  [].forEach.call(mainSvg.querySelectorAll('.voy circle'),function(e){e.setAttribute('r',mk(3).toFixed(3));});
+  [].forEach.call(mainSvg.querySelectorAll('.charter path'),function(p){p.setAttribute('d',diamond(+p.dataset.cx,+p.dataset.cy,mk(6)));});
+  [].forEach.call(mainSvg.querySelectorAll('.door path'),function(p){p.setAttribute('d',diamond(GEO.door[0],GEO.door[1],mk(6)));});
+  [].forEach.call(mainSvg.querySelectorAll('.port text,.voy text,.charter text,.door text'),function(t){
+    var small=t.parentNode.classList.contains('port')||t.parentNode.classList.contains('voy');
+    t.style.display=(small&&z<2.4)?'none':'';t.setAttribute('font-size',mk(small?10.5:11.5).toFixed(3));t.style.strokeWidth=mk(3).toFixed(3)+'px';
+    t.setAttribute('x',(t._ax+mk(8)).toFixed(2));t.setAttribute('y',(t._ay+mk(4)).toFixed(2));});
+  if(settle){clearTimeout(cullTimer);cullTimer=setTimeout(cull,30);}
+}
+function cull(){
+  var labs=[].slice.call(mainSvg.querySelectorAll('.lab')).filter(function(t){return t.style.display!=='none';});
+  labs.sort(function(a,b){return b._tier-a._tier||b._a-a._a;});
+  var kept=[];[].forEach.call(mainSvg.querySelectorAll('.charter text,.door text'),function(t){try{kept.push(t.getBBox());}catch(e){}});labs.forEach(function(t){var b;try{b=t.getBBox();}catch(e){return;}var pad=b.height*0.15;
+    var hit=kept.some(function(k){return b.x<k.x+k.width+pad&&k.x<b.x+b.width+pad&&b.y<k.y+k.height&&k.y<b.y+b.height;});
+    if(hit)t.classList.add('cull');else kept.push(b);});
+}
+
+/* ---------- gestures: drag, pinch, wheel ---------- */
+function bindGestures(){
+  var pts={},n=0,last=null,travel=0;
+  function mids(){var a=[];for(var k in pts)a.push(pts[k]);if(a.length<2)return null;var dx=a[0][0]-a[1][0],dy=a[0][1]-a[1][1];return {x:(a[0][0]+a[1][0])/2,y:(a[0][1]+a[1][1])/2,d:Math.hypot(dx,dy)};}
+  function hideHint(){if(!hintGone){hintGone=true;var h=document.getElementById('maphint');if(h)h.classList.add('gone');}}
+  mainSvg.addEventListener('pointerdown',function(e){if(e.button&&e.button!==0)return;if(anim)cancelAnimationFrame(anim);pts[e.pointerId]=[e.clientX,e.clientY];n=Object.keys(pts).length;
+    last=n>=2?mids():{x:e.clientX,y:e.clientY};travel=0;gesture.moved=false;mainSvg.classList.add('grabbing');});
+  window.addEventListener('pointermove',function(e){if(!(e.pointerId in pts))return;pts[e.pointerId]=[e.clientX,e.clientY];
+    var c=box();
+    if(Object.keys(pts).length>=2){var m=mids();if(!last||last.d===undefined){last=m;return;}
+      var f=last.d/m.d,v=zoomAt(f,last.x,last.y);v[0]-=(m.x-last.x)/c.w*v[2];v[1]-=(m.y-last.y)/c.h*v[3];setVB(v,false);last=m;travel+=10;}
+    else{var dx=e.clientX-last.x,dy=e.clientY-last.y;travel+=Math.abs(dx)+Math.abs(dy);
+      setVB([vb[0]-dx/c.w*vb[2],vb[1]-dy/c.h*vb[3],vb[2],vb[3]],false);last={x:e.clientX,y:e.clientY};}
+    if(travel>5){gesture.moved=true;hideHint();regionTabs('');}
+    e.preventDefault();},{passive:false});
+  function up(e){if(!(e.pointerId in pts))return;delete pts[e.pointerId];var k=Object.keys(pts);
+    if(k.length===1){last={x:pts[k[0]][0],y:pts[k[0]][1]};}else if(!k.length){mainSvg.classList.remove('grabbing');sizeLabels(true);setTimeout(function(){gesture.moved=false;},0);}}
+  window.addEventListener('pointerup',up);window.addEventListener('pointercancel',up);
+  var wt=null;
+  mainSvg.addEventListener('wheel',function(e){e.preventDefault();hideHint();regionTabs('');
+    var f=Math.exp(Math.max(-1,Math.min(1,e.deltaY*(e.deltaMode?0.05:0.0022))));setVB(zoomAt(f,e.clientX,e.clientY),false);
+    clearTimeout(wt);wt=setTimeout(function(){sizeLabels(true);},120);},{passive:false});
+  mainSvg.addEventListener('dblclick',function(e){e.preventDefault();hideHint();regionTabs('');animateTo(zoomAt(0.5,e.clientX,e.clientY));});
+  document.getElementById('zin').addEventListener('click',function(){var c=box();regionTabs('');animateTo(zoomAt(0.6,c.l+c.w/2,c.t+c.h/2));});
+  document.getElementById('zout').addEventListener('click',function(){var c=box();regionTabs('');animateTo(zoomAt(1/0.6,c.l+c.w/2,c.t+c.h/2));});
+  document.getElementById('zhome').addEventListener('click',function(){regionTabs('world');animateTo(fit(GEO.zooms.world));});
+}
+
+/* ---------- atlas ---------- */
 function buildAtlas(){
   var eb=document.getElementById('eratabs');
   FIVE.forEach(function(f,e){var b=E('button',null,f.k,eb);b.type='button';b.addEventListener('click',function(){setEra(e);});});
   var zb=document.getElementById('zoomtabs');
-  ZOOMS.forEach(function(z){var b=E('button',null,z[1],zb);b.type='button';b.dataset.z=z[0];b.addEventListener('click',function(){zoomTo(z[0]);});});
+  ZOOMS.forEach(function(z){var b=E('button',null,z[1],zb);b.type='button';b.dataset.z=z[0];b.addEventListener('click',function(){regionTabs(z[0]);animateTo(fit(GEO.zooms[z[0]]));});});
   var cb=document.getElementById('ccbtn');cb.addEventListener('click',function(){ccOn=!ccOn;cb.setAttribute('aria-pressed',ccOn);mainSvg.classList.toggle('cc-on',ccOn);});
-  mainSvg=S('svg',{class:'mapsvg',viewBox:vb.join(' '),preserveAspectRatio:'xMidYMid meet',role:'group','aria-label':'Territorial map'},document.getElementById('atlmap'));
+  mainSvg=S('svg',{class:'mapsvg',viewBox:'0 0 '+GEO.W+' '+GEO.H,preserveAspectRatio:'none',role:'group','aria-label':'Territorial map. Drag to move, pinch or scroll to zoom.'},document.getElementById('atlmap'));
+  bindGestures();
+  var ro=window.ResizeObserver?new ResizeObserver(function(){setVB(vb.slice(),true);}):null;if(ro)ro.observe(mainSvg);else window.addEventListener('resize',function(){setVB(vb.slice(),true);});
 }
-function setEra(e){era=e;mainEls=drawMap(mainSvg,e,{labels:true,interactive:true});sizeLabels();
+function setEra(e){era=e;mainEls=drawMap(mainSvg,e,{labels:true,interactive:true});mainSvg.classList.toggle('cc-on',ccOn);sizeLabels(true);
   [].forEach.call(document.querySelectorAll('#eratabs button'),function(b,i){b.setAttribute('aria-pressed',i===e?'true':'false');});
   [].forEach.call(document.querySelectorAll('.mini'),function(b,i){b.setAttribute('aria-pressed',i===e?'true':'false');});
   document.getElementById('eracap').textContent=FIVE[e].k+'. '+FIVE[e].t+'.';
   refreshSel();}
-function zoomTo(k){zoomKey=k;[].forEach.call(document.querySelectorAll('#zoomtabs button'),function(b){b.setAttribute('aria-pressed',b.dataset.z===k?'true':'false');});
-  var target=GEO.zooms[k].slice();if(anim)cancelAnimationFrame(anim);
-  if(reduce){setVB(target);return;}
-  var from=vb.slice(),t0=null;function step(ts){if(!t0)t0=ts;var q=Math.min(1,(ts-t0)/500);q=q<.5?2*q*q:1-Math.pow(-2*q+2,2)/2;setVB(from.map(function(a,i){return a+(target[i]-a)*q;}));if(q<1)anim=requestAnimationFrame(step);}
-  anim=requestAnimationFrame(step);}
-function setVB(v){vb=v;mainSvg.setAttribute('viewBox',v.map(function(n){return n.toFixed(1);}).join(' '));mainSvg.classList.toggle('zoomed',v[2]<GEO.W-2);sizeLabels();}
-function sizeLabels(){var cw=mainSvg.clientWidth||1000,chh=mainSvg.clientHeight||394,sc=Math.min(cw/vb[2],chh/vb[3]),k=1/sc;
-  [].forEach.call(mainSvg.querySelectorAll('.lab'),function(t){t.setAttribute('font-size',({13:13.5,11:11.5,9:10}[t.dataset.fs]*k).toFixed(2));});
-  [].forEach.call(mainSvg.querySelectorAll('.port text,.voy text'),function(t){t.setAttribute('font-size',(10*k).toFixed(2));});
-  [].forEach.call(mainSvg.querySelectorAll('.charter text,.door text'),function(t){t.setAttribute('font-size',(11.5*k).toFixed(2));});
-  [].forEach.call(mainSvg.querySelectorAll('.sea-t'),function(t){t.setAttribute('font-size',(15*k).toFixed(2));});
-  k=Math.min(k,3);
-  [].forEach.call(mainSvg.querySelectorAll('.port circle'),function(c){c.setAttribute('r',(3.4*Math.max(k,.5)).toFixed(2));});
-  var s=5*Math.max(k,.5);[].forEach.call(mainSvg.querySelectorAll('.charter path'),function(p){var x=+p.dataset.cx,y=+p.dataset.cy;p.setAttribute('d','M'+x+' '+(y-s)+'L'+(x+s)+' '+y+'L'+x+' '+(y+s)+'L'+(x-s)+' '+y+'Z');var t=p.parentNode.querySelector('text');if(t)t.setAttribute('x',x+s+3);});
-  [].forEach.call(mainSvg.querySelectorAll('.door rect'),function(r){var x=GEO.door[0],y=GEO.door[1],w=9*Math.max(k,.5);r.setAttribute('x',x-w/2);r.setAttribute('y',y-w/2);r.setAttribute('width',w);r.setAttribute('height',w);});
-  [].forEach.call(mainSvg.querySelectorAll('.voy circle'),function(c){c.setAttribute('r',(2.6*Math.max(k,.5)).toFixed(2));});
-}
+
+var STYLE={crown:'Rule by a throne and its court: kings, emperors, sultans.',assembly:'Rule by elected or estate assemblies.',league:'Members keep their own rule and meet in council. The edge is shared, not imposed.',charter:'Trading houses and shareholders govern ports and the roads between them.',domain:'Lords hold land and loyalty in a ranked chain.',cloister:'Houses of practice govern, more teachers than rulers.',mandala:'Power radiates from a court and fades with distance, overlapping its neighbours, so it is drawn as a glow.',moving:'Peoples who rule herds, routes and seasons rather than ground. The colour marks a range, not a border.',council:'Kin and councils of elders hold Country by law and custom. The colour marks Country, not a surveyed border.'};
 function refreshSel(){
   var P=document.getElementById('atlpanel');P.innerHTML='';
   var items=FIVE[era].items.filter(function(it){return it[0]===selKey;});if(!items.length)items=FIVE[era].items.filter(function(it){return grp(it[0])===grp(selKey);});
-  mainEls.forEach(function(el){el.classList.toggle('sel',!!selKey&&el._key===selKey);el.classList.toggle('dimmed',!!selKey&&grp(el._key)!==grp(selKey)&&false);});
+  mainEls.forEach(function(el){el.classList.toggle('sel',!!selKey&&el._key===selKey);});
   if(!selKey||!items.length){
     var f=FIVE[era];E('span','mono','Reading the '+f.k+' map',P);E('h4',null,f.t,P);E('p',null,f.read,P);
     var ul=E('ul',null,null,P);f.watch.forEach(function(w){E('li',null,w,ul);});
-    E('p',null,'Select any territory to read it, and to see the same ground across all five maps.',P);
-    if(selKey){var c0=E('button','clear','This ground is not drawn in '+f.k+'. Clear',P);c0.type='button';c0.addEventListener('click',function(){selKey=null;refreshSel();});}
-    return;}
+    E('p',null,'Select any territory to read it, and to see the same ground across all five maps.',P);return;}
   var it=items[0];
   E('span','mono',FIVE[era].k+(it[4]?' · Concord member':''),P);E('h4',null,it[1],P);
-  var gv=E('p','gv',GOV[it[2]][0],P);gv.style.setProperty('--c',gc(it[2]));
+  var gv=E('p','gv',GOV[it[2]][0],P);gv.style.setProperty('--c',col(it[2],1));
   E('p',null,STYLE[it[2]],P);
   E('span','mono','This ground across the five maps',P);
   var ul=E('ul','across',null,P);
-  FIVE.forEach(function(f,e){var ms=f.items.filter(function(x){return grp(x[0])===grp(selKey);});var names=[];ms.forEach(function(x){var n=x[1].split(':')[0];if(names.indexOf(n)<0)names.push(n);});var m=ms.filter(function(x){return x[0]===selKey;})[0]||ms[0];var li=E('li',m?(e===era?'now':''):'none',null,ul);
-    li.style.setProperty('--c',m?gc(m[2]):'var(--hair)');E('b',null,f.k,li);E('span',null,m?names.join(' · '):'not drawn here',li);
+  FIVE.forEach(function(f,e){var ms=f.items.filter(function(x){return grp(x[0])===grp(selKey);});var names=[];ms.forEach(function(x){var n=x[1].split(':')[0];if(names.indexOf(n)<0)names.push(n);});
+    var m=ms.filter(function(x){return x[0]===selKey;})[0]||ms[0];var li=E('li',m?(e===era?'now':''):'none',null,ul);
+    li.style.setProperty('--c',m?col(m[2],shadeOf(m)):'var(--hair)');E('b',null,f.k,li);E('span',null,m?names.join(' · '):'not drawn here',li);
     li.style.cursor='pointer';li.addEventListener('click',function(){setEra(e);});});
   if(it[3]&&byR[it[3]]){E('span','mono','In the lineages',P);E('p',null,byR[it[3]][8],P);}
   var cl=E('button','clear','Back to the reading',P);cl.type='button';cl.addEventListener('click',function(){selKey=null;refreshSel();});
 }
-var STYLE={crown:'A solid border: a throne claims this ground and defends its edges.',assembly:'A thin solid border: elected or estate assemblies govern within agreed lines.',league:'A dashed border: members keep their own rule and meet in council. The line is shared, not imposed.',charter:'A dotted border: trading houses and shareholders govern ports and the roads between them.',domain:'Cross-hatched with a firm edge: lords hold land and loyalty in a ranked chain.',cloister:'A faint dotted edge: houses of practice govern, more teachers than rulers.',mandala:'No border at all: power radiates from a court and fades with distance, overlapping its neighbours.',moving:'Hatched, unbounded: peoples who rule herds, routes and seasons rather than lines on land.',council:'Dotted, unbounded: kin and councils of elders hold Country by law and custom, not by survey.'};
 
-/* style swatches */
+/* ---------- graphic legends ---------- */
+function swatches(parent,g){var svg=S('svg',{viewBox:'0 0 54 16',class:'sw','aria-hidden':'true'},parent);
+  for(var i=0;i<3;i++){if(g==='mandala'){var c=S('circle',{cx:9+i*18,cy:8,r:8},svg);c.style.fill='url(#grad-m'+i+')';}else{var r=S('rect',{x:i*18,y:0,width:17,height:16,rx:2},svg);r.style.fill=col(g,i);}}}
+function buildLegend(){
+  var L=document.getElementById('legend');L.innerHTML='';
+  var g1=E('div','lg-group',null,L);E('span','mono','Kinds of rule',g1);var ul=E('ul','lg',null,g1);
+  ORDER.forEach(function(g){var li=E('li',null,null,ul);swatches(li,g);E('span',null,GOV[g][0],li);});
+  var g2=E('div','lg-group',null,L);E('span','mono','Marks',g2);var u2=E('ul','lg',null,g2);
+  function mark(label,draw){var li=E('li',null,null,u2);var svg=S('svg',{viewBox:'0 0 24 16',class:'mk','aria-hidden':'true'},li);draw(svg);E('span',null,label,li);}
+  mark('Concord harbour',function(s){S('circle',{cx:12,cy:8,r:4.5,class:'lg-port'},s);});
+  mark('Quanzhou, the Charter’s port',function(s){S('path',{d:diamond(12,8,6),class:'lg-charter'},s);});
+  mark('The Evenki Flash (1908); the First Door (1983)',function(s){S('path',{d:diamond(12,8,6),class:'lg-door'},s);});
+  mark('Caravan road',function(s){S('path',{d:'M1 8H23',class:'lg-road'},s);});
+  mark('Voyaging chiefdom',function(s){S('circle',{cx:12,cy:8,r:3.5,class:'lg-voy'},s);});
+  mark('Concord member, when highlighted',function(s){S('rect',{x:3,y:2,width:18,height:12,rx:2,class:'lg-cc'},s);});
+  mark('Not yet drawn',function(s){S('rect',{x:3,y:2,width:18,height:12,rx:2,class:'lg-land'},s);});
+}
 function buildStyles(){
-  var box=document.getElementById('styles');
-  ['crown','assembly','league','charter','domain','cloister','mandala','moving','council'].forEach(function(g){
-    var d=E('div','style',null,box);var svg=S('svg',{viewBox:'0 0 76 52','aria-hidden':'true'},d);
-    if(g==='mandala')S('circle',{cx:38,cy:26,r:24,class:'pp p-mandala'},svg);else S('path',{d:'M8 8L66 6L70 30L52 46L12 44L6 26Z',class:'pp p-'+g},svg);
+  var box=document.getElementById('styles');box.innerHTML='';
+  ORDER.forEach(function(g){var d=E('div','style',null,box);var sv=E('div','stylesw',null,d);swatches(sv,g);
     var t=E('div',null,null,d);E('h4',null,GOV[g][0],t);E('p',null,STYLE[g],t);});
 }
+function repaint(){paintGradients();miniSvgs.forEach(function(s,i){drawMap(s,i,{});});setEra(era);buildLegend();buildStyles();}
 
-window.addEventListener('resize',function(){if(mainSvg)sizeLabels();});
-buildMinis();buildAtlas();setEra(4);zoomTo('world');buildStyles();
+paintGradients();buildMinis();buildAtlas();setEra(4);setVB(fit(GEO.zooms.world),true);regionTabs('world');buildLegend();buildStyles();
+if(window.matchMedia){var mq=matchMedia('(prefers-color-scheme: dark)');if(mq.addEventListener)mq.addEventListener('change',repaint);}
 [].forEach.call(document.querySelectorAll('[data-open]'),function(b){b.addEventListener('click',function(){selKey=null;setEra(+b.dataset.open);document.getElementById('atlas').scrollIntoView({behavior:reduce?'auto':'smooth'});});});
 })();
 </script></body></html>
