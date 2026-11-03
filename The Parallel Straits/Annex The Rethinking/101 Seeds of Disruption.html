@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seeds of Disruption · 争鸣</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E9ECE6; --ink:#1E2024; --seal:#A3271B; --indigo:#283F6B; --cord:#7E5512; --rule:#B3B8AE; --wash:#DCE1D8;
+  --g:clamp(9rem,44vw,19rem);
+  --spine:1.35rem;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15171A; --ink:#E8E6DF; --seal:#E5664F; --indigo:#A3BAE3; --cord:#D9AA5A; --rule:#3B3F45; --wash:#1F2327;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15171A; --ink:#E8E6DF; --seal:#E5664F; --indigo:#A3BAE3; --cord:#D9AA5A; --rule:#3B3F45; --wash:#1F2327;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*,*::before,*::after{box-sizing:border-box;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Times New Roman",Times,"Noto Serif SC","Songti SC","STSong",serif;
+  font-size:1.14rem; line-height:1.62;
+  -webkit-text-size-adjust:100%;
+}
+.zh{font-family:"Noto Serif SC","Songti SC","STSong","Times New Roman",serif;}
+.page{position:relative; max-width:44rem; margin:0 auto; padding:0 1.25rem 4rem calc(var(--spine) + 1.9rem);}
+.page::before{
+  content:""; position:absolute; left:var(--spine); width:1.5px; background:var(--seal);
+  top:calc(2.5rem + var(--g) * 0.6); bottom:0;
+}
+/* hero */
+.hero{position:relative; padding-top:2.5rem; margin-bottom:3rem;}
+.hero .glyph{
+  font-family:"Noto Serif SC","Songti SC",serif; font-weight:900; font-size:var(--g); line-height:1;
+  margin:0 0 0 -0.04em; color:var(--ink); letter-spacing:-0.02em;
+}
+.hero .snap{
+  position:absolute; height:1.5px; background:var(--seal);
+  top:calc(2.5rem + var(--g) * 0.6); left:calc(-1 * (var(--spine) + 1.9rem) + var(--spine)); right:-1.25rem;
+}
+.hero h1{font-weight:400; font-size:clamp(2.4rem,7vw,3.6rem); line-height:1.05; margin:1.6rem 0 .3rem; letter-spacing:-0.01em;}
+.hero .zhtitle{font-size:clamp(1.5rem,4.5vw,2rem); margin:0 0 1.4rem; font-weight:700;}
+.hero .deck{font-style:italic; font-size:1.25rem; line-height:1.5; max-width:34rem; margin:0;}
+.hero .place{margin-top:1.4rem; font-size:.95rem;}
+/* sections and knots */
+section{position:relative; margin-top:4.5rem;}
+.knot{position:absolute; left:calc(-1.9rem - 5px); top:.55rem; display:flex; flex-direction:column; gap:3px;}
+.knot i{display:block; width:11px; height:7px; border-radius:50%; background:var(--seal);}
+h2{font-weight:400; font-size:clamp(1.9rem,5.4vw,2.6rem); line-height:1.1; margin:0 0 .25rem;}
+h2 .zh{display:block; font-size:.62em; font-weight:700; margin-top:.35rem;}
+.lede{font-style:italic; font-size:1.2rem; margin:.9rem 0 1.6rem;}
+h3{font-weight:700; font-size:1.3rem; margin:2.2rem 0 .4rem; line-height:1.25;}
+h3 .zh{font-weight:700;}
+h4{font-style:italic; font-weight:400; font-size:1.15rem; margin:1.4rem 0 .2rem;}
+p{margin:0 0 1rem;}
+.dates{font-style:italic;}
+.straits{border-left:2px solid var(--indigo); padding:.1rem 0 .1rem .9rem; color:var(--ink); margin:.4rem 0 1.4rem;}
+.straits b{color:var(--indigo); font-weight:700;}
+.quote-zh{font-family:"Noto Serif SC","Songti SC",serif; font-size:1.25rem; margin:.6rem 0 1rem; color:var(--seal);}
+hr.cut{border:0; height:1.5px; background:var(--rule); margin:3rem 0;}
+a{color:var(--indigo); text-underline-offset:.18em;}
+a:focus-visible{outline:2px solid var(--seal); outline-offset:3px;}
+/* glance */
+.glance{background:var(--wash); padding:1.3rem 1.3rem .4rem; margin:0 -0.2rem;}
+.glance p{font-size:1.18rem;}
+/* articles grid */
+.articles{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.2rem 1.4rem; margin:1rem 0 1.6rem; padding:0; list-style:none;}
+.articles li{display:flex; gap:.6rem; align-items:baseline; padding:.35rem 0; border-bottom:1px solid var(--rule);}
+.articles .zh{font-weight:700; font-size:1.15rem; min-width:2.6em;}
+.articles li.fight .zh{color:var(--seal);}
+@media (max-width:30rem){.articles{grid-template-columns:1fr;}}
+/* frictions */
+.friction{margin:0 0 1rem;}
+.friction b{color:var(--seal);}
+/* ranking */
+ol.rank{list-style:none; padding:0; margin:1.2rem 0 2rem; counter-reset:r;}
+ol.rank li{counter-increment:r; display:grid; grid-template-columns:2.2rem 1fr; gap:0 .6rem; padding:.85rem 0; border-bottom:1px solid var(--rule);}
+ol.rank li::before{content:counter(r); font-size:1.5rem; line-height:1.1; color:var(--seal); grid-row:1 / span 3;}
+.rank .name{font-weight:700;}
+.pips{display:inline-flex; gap:3px; margin-left:.5rem; vertical-align:middle;}
+.pips span{width:.75rem; height:.75rem; border:1.5px solid var(--seal);}
+.pips span.on{background:var(--seal);}
+.rank .houses{font-size:.98rem; font-style:italic;}
+.rank .houses b{font-style:normal;}
+.rank .how{margin:.25rem 0 0; font-size:1.05rem;}
+.totals{margin:1rem 0 1.5rem;}
+.bar{display:grid; grid-template-columns:7.5rem 1fr 2.2rem; align-items:center; gap:.6rem; margin:.45rem 0;}
+.bar .track{height:.9rem; background:var(--wash); position:relative;}
+.bar .fill{position:absolute; inset:0 auto 0 0; background:var(--ink);}
+.bar.top .fill{background:var(--seal);}
+.bar .n{text-align:right; font-variant-numeric:tabular-nums;}
+/* chemistry */
+.chem{margin-top:3rem;}
+.formula{font-size:1.05rem; padding:.55rem 0; border-top:1.5px solid var(--ink); border-bottom:1px solid var(--rule); margin:.3rem 0 1rem;}
+.formula .arrow{color:var(--seal);}
+.beat{margin:0 0 .9rem;}
+.beat > b{display:block; font-style:italic; font-weight:400; color:var(--seal);}
+/* ledger */
+.ledger dt{font-weight:700; margin-top:1rem;}
+.ledger dd{margin:.2rem 0 0;}
+.route{margin:2.5rem 0 0; padding:1.1rem 0; border-top:1.5px solid var(--ink); border-bottom:1px solid var(--rule);}
+.route p{margin:.35rem 0;}
+.part{position:relative; margin:6rem 0 0; padding-top:1.5rem; border-top:1.5px solid var(--seal);}
+.part-zh{font-size:clamp(3.5rem,14vw,5.5rem); font-weight:900; line-height:1; margin:0; color:var(--seal);}
+.part-en{font-size:clamp(1.6rem,4.6vw,2.1rem); margin:.6rem 0 .2rem;}
+.part-lede{font-style:italic; margin:0;}
+ul.react{padding-left:1.1rem; margin:.4rem 0 1.4rem;}
+ul.react li{margin:0 0 .6rem; padding-left:.2rem;}
+ul.react li::marker{color:var(--seal);}
+footer{margin-top:4rem; font-style:italic; font-size:.98rem;}
+@media (prefers-reduced-motion:no-preference){
+  .hero .snap{transform-origin:left center; animation:snap 1.1s cubic-bezier(.2,.9,.2,1) .25s both;}
+  @keyframes snap{0%{transform:scaleX(0)}70%{transform:scaleX(1.0) translateY(0)}80%{transform:translateY(-2px)}90%{transform:translateY(1px)}100%{transform:none}}
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+<header class="hero">
+  <p class="glyph" aria-hidden="true">墨</p>
+  <div class="snap" aria-hidden="true"></div>
+  <h1>Seeds of Disruption</h1>
+  <p class="zhtitle zh">争鸣</p>
+  <p class="deck">The world’s contending ages, the lives and ideas they left behind, first reactions for Lan Fang, Nine Rain and Kora, and then the Straits.</p>
+  <p class="place">The Parallel Straits, after The Rethinking</p>
+</header>
+<nav class="route" aria-label="Contents">
+  <p><a href="#part-record">Part one, the record</a>: contending ages, lives, ideas and traditions, and where historians argue. Real history only.</p>
+  <p><a href="#part-react">Part two, first reactions</a>: what struck me for Lan Fang, Nine Rain and Kora.</p>
+  <p><a href="#part-straits">Part three, the Straits</a>: Mozi College, the seeds ranked by impact, six chemistries, and what each lead gives the Straits.</p>
+</nav>
+
+<div class="part" id="part-record">
+  <p class="part-zh zh">史</p>
+  <h2 class="part-en">The record</h2>
+  <p class="part-lede">Real history, without interpretation.</p>
+</div>
+
+<section id="ages" aria-labelledby="ages-h">
+  <span class="knot" aria-hidden="true"><i></i></span>
+  <h2 id="ages-h">The contending ages<span class="zh">百家争鸣之外</span></h2>
+  <p class="lede">Other places and times where many schools of thought rose and argued at once.</p>
+
+  <h3>The Gangetic ferment</h3>
+  <p class="dates">North India, 6th–5th centuries BCE</p>
+  <p>This is the closest twin to <span class="zh">百家</span>, and it ran at the same time. Wandering teachers called śramaṇas, who had left home, argued in public parks and rest-houses across the Ganges plain. One early text counts sixty-two rival views. Another names six famous teachers: an atomist who held that the world was built of seven unchanging bodies, a materialist who said nothing survives death, a fatalist whose followers became the Ājīvikas, a skeptic who refused to commit to any answer, a teacher who denied that deeds carry moral weight, and Mahāvīra, whose tradition still lives. The Buddha argued against all six.</p>
+
+  <h3>The schools named after buildings</h3>
+  <p class="dates">Athens, 4th–3rd centuries BCE</p>
+  <p>Greek schools took their names from places. The Academy was a grove, the Lyceum a gymnasium, the Stoa a painted porch where Zeno taught, and Epicurus’s school was simply the Garden. The Cynics lived in the street. A school was a place you could walk into, and its name was its address.</p>
+
+  <h3>The House of Wisdom</h3>
+  <p class="dates">Abbasid Baghdad, 8th–10th centuries</p>
+  <p>A translation movement carried Greek, Persian and Sanskrit learning into Arabic, and al-Khwarizmi’s work gave the world both <i>algebra</i> and, through his name, <i>algorithm</i>. Rationalist theologians argued that reason could judge scripture, and traditionalists fought back. For fifteen years, from 833 to 848, the state enforced the rationalist position with an inquisition, the mihna, then reversed it.</p>
+
+  <h3>Córdoba and Toledo</h3>
+  <p class="dates">Al-Andalus, 10th–13th centuries</p>
+  <p>Córdoba’s library was said to hold hundreds of thousands of volumes. Ibn Rushd wrote the commentaries on Aristotle that Europe would learn from, Maimonides wrote his <i>Guide for the Perplexed</i>, and Ibn Tufayl wrote <i>Hayy ibn Yaqzan</i>. In Toledo, teams of translators working across Arabic, Hebrew, Castilian and Latin passed this learning north.</p>
+
+  <h3>The House of Worship</h3>
+  <p class="dates">Fatehpur Sikri, from 1575</p>
+  <p>The Mughal emperor Akbar built the Ibadat Khana and invited scholars of every faith in his empire, along with Jesuits from Goa, to debate in front of him on Thursday nights. Out of it came his policy of <i>sulh-i kul</i>, peace with all. His great-grandson Dara Shikoh carried the idea further and was executed for it.</p>
+
+  <h3>Sankore</h3>
+  <p class="dates">Timbuktu, 15th–16th centuries</p>
+  <p>Timbuktu’s scholars wrote and copied manuscripts on astronomy, mathematics, medicine, law and ethics, and family libraries held them for centuries. The learning was organised around teachers and households rather than one institution. It was broken by the Moroccan invasion of 1591. The great scholar Ahmad Baba was taken in chains to Marrakesh, and his library was lost.</p>
+
+  <h3>Texcoco</h3>
+  <p class="dates">Valley of Mexico, 15th century</p>
+  <p>Under the poet-king Nezahualcoyotl, Texcoco was the intellectual capital of the valley. Its <i>tlamatinime</i>, “those who know things”, debated whether anything on earth is real and lasting. Their answer was <i>in xochitl in cuicatl</i>, “flower and song”: art is the only true thing we can make, because everything else passes.</p>
+
+  <h3>The late Ming</h3>
+  <p class="dates">China, 16th–17th centuries</p>
+  <p>A second Chinese ferment. The radical wing of Wang Yangming’s school argued that ordinary people could be sages. <span class="zh">李贽</span> attacked hypocrisy in the classics and died in prison. <span class="zh">徐光启</span> translated Euclid with the Jesuit Matteo Ricci, and <span class="zh">宋应星</span> wrote a maker’s encyclopedia. The Qing conquest and its literary inquisitions closed it.</p>
+
+  <h3>The modern ferments</h3>
+  <p class="dates">Bengal, 19th–20th centuries, and China, 1919</p>
+  <p>In Bengal, Rammohun Roy, Rabindranath Tagore and the physicists Jagadish Chandra Bose and Satyendra Nath Bose (after whom the boson is named) remade art, religion and science in a few generations. Tagore founded his own school, Santiniketan, as an open-air university. In China, the May Fourth movement of 1919 was openly called a new <span class="zh">百家争鸣</span>.</p>
+</section>
+
+<section id="lives" aria-labelledby="lives-h">
+  <span class="knot" aria-hidden="true"><i></i><i></i></span>
+  <h2 id="lives-h">The lives<span class="zh">先行者</span></h2>
+  <p class="lede">People who were ahead of their time and whom the world has underrated or misread, grouped by region.</p>
+
+
+  <h3 id="mohists">China: Mozi and the Mohists</h3>
+
+  <h4 id="mozi-life"><span class="zh">墨子</span> · Mozi</h4>
+  <p class="dates">c. 470–c. 391 BCE</p>
+  <p>Founder of the Mohists, which in the Warring States was one of the two most influential schools alongside the Confucians. He taught <span class="zh">兼爱</span>, care for all people without partiality, and <span class="zh">非攻</span>, opposition to wars of aggression. He also taught frugality, plain burial, opposition to music as a waste of the people’s labour, denial of fate, promotion of the able, and <span class="zh">尚同</span>, conforming upward to the judgement of one’s superiors. His ethics weigh actions by their benefit to the people, so he is often called the first consequentialist.</p>
+  <p>Scholars read his name two ways. <span class="zh">墨</span> may be the carpenter’s ink-line, which would mark him as a craftsman, or the tattoo branded on convicts, which would mark him as low-born or punished.</p>
+  <p>The chapter <span class="zh">《公输》</span> tells how the state of Chu prepared to attack Song with new siege ladders built by Gongshu Ban, the master engineer later honoured as <span class="zh">鲁班</span>. Mozi walked ten days and nights to Chu. In front of the king he and Gongshu Ban fought out the siege on a model, with Mozi’s belt as the city wall and wooden slips as engines. Gongshu Ban attacked nine ways, and Mozi turned back all nine. Chu called off the war. Walking home through Song, Mozi was caught in the rain, and the gatekeepers of the state he had just saved would not let him shelter under their gate.</p>
+  <p>In another chapter, Gongshu Ban carves a wooden magpie that flies for three days, and Mozi tells him a cart’s linchpin is worth more: three inches of wood that carries a loaded cart. Mencius, who attacked the Mohists for loving strangers as they loved their fathers, also said Mozi would wear himself out from crown to heel, <span class="zh">摩顶放踵</span>, if it benefited the world.</p>
+
+  <h4>The Mohist school</h4>
+  <p class="dates">5th–2nd centuries BCE</p>
+  <p>The Mohists were organised as a disciplined order under a leader called the <span class="zh">巨子</span>. They worked as defensive engineers for besieged states. The <i>Lüshi Chunqiu</i> records that when the <span class="zh">巨子</span> <span class="zh">孟胜</span> could not keep his promise to defend a lord’s city, he chose death, and 183 disciples died with him.</p>
+  <p>The later Mohists wrote the <span class="zh">墨经</span>, a set of compressed definitions and propositions. They cover optics, including what may be the earliest written account of the pinhole image and why it is inverted (<span class="zh">景到，在午有端</span>, “the image is inverted because the light crosses at a point”), mechanics and the lever, geometry (<span class="zh">圜，一中同长也</span>, “a circle has one centre and equal lengths”), definitions of duration and extent (<span class="zh">久</span> and <span class="zh">宇</span>), and logic and disputation.</p>
+  <p>The defensive chapters describe walls, gates and counter-tunnelling in detail. Against enemy tunnels, they direct the defenders to sink wells inside the wall down to spring water, lower large pottery jars covered with thin hide into them, and post listeners with sharp ears beside the jars to locate the digging.</p>
+  <p>After the Qin and Han the school disappears from the record. The texts survived in fragments, and Qing scholars such as <span class="zh">孙诒让</span>, whose <span class="zh">《墨子间诂》</span> appeared in 1894, revived them. In the twentieth century <span class="zh">梁启超</span> and <span class="zh">胡适</span> championed Mohist logic and science.</p>
+
+  <h4 id="lanfang">The Lanfang Kongsi</h4>
+  <p class="dates">1777–1884, west Borneo</p>
+  <p>Founded by the Hakka <span class="zh">罗芳伯</span> among Chinese gold-mining communities near Pontianak. Kongsis were sworn associations of miners who shared the yield and ran their own affairs, with elected leaders. They dug channels, built sluices and dammed rivers to wash gold from gravel. Lanfang governed its territory for more than a century until the Dutch dissolved it in 1884, and it is sometimes called the first republic in Asia, a label historians dispute.</p>
+
+  <h3 id="tcm">China: medicine and making</h3>
+
+  <h4><span class="zh">葛洪</span> · Ge Hong</h4>
+  <p class="dates">283–343</p>
+  <p>Alchemist, physician and writer of a pocket handbook of emergency remedies, <span class="zh">《肘后备急方》</span>. One entry says to soak sweet wormwood, <span class="zh">青蒿</span>, in cold water, wring out the juice and drink it for intermittent fevers. In 1971 <span class="zh">屠呦呦</span>’s team, stuck after testing hundreds of remedies, read that line and realised that heat was destroying the active compound. Cold extraction gave them artemisinin, which has saved millions from malaria and won the Nobel Prize in 2015.</p>
+
+  <h4><span class="zh">吴又可</span> · Wu Youke</h4>
+  <p class="dates">1582–1652</p>
+  <p>Writing during the epidemics of the dying Ming, Wu argued in <span class="zh">《温疫论》</span> (1642) that pestilence was caused by neither wind nor cold, but by a distinct <span class="zh">戾气</span>, a pestilent qi, which entered through the mouth and nose and differed from one disease to the next. That is close to germ theory, two centuries before Pasteur.</p>
+
+  <h4><span class="zh">王清任</span> · Wang Qingren</h4>
+  <p class="dates">1768–1831</p>
+  <p>Wang noticed that the classical anatomy diagrams did not match bodies. He studied the corpses of children who had died in an epidemic and been left in shallow graves, and the bodies of executed criminals, for decades, and then published <span class="zh">《医林改错》</span>, <i>Correcting the Errors of the Forest of Medicine</i>. He was attacked for disrespecting the classics and for touching the dead.</p>
+
+  <h4><span class="zh">宋应星</span> · Song Yingxing</h4>
+  <p class="dates">1587–c. 1666</p>
+  <p>A failed examination candidate who turned to how things are made. His <span class="zh">《天工开物》</span> (1637) documents rice-growing, salt, sugar, ceramics, metal-casting, weapons, paper, ink and boats, with illustrations. It was barely reprinted at home after the Qing conquest and survived in reprints abroad until it returned in the twentieth century.</p>
+
+  <h3>The Islamic and Indic worlds</h3>
+
+  <h4 id="jazari">Al-Jazari</h4>
+  <p class="dates">c. 1136–1206</p>
+  <p>Engineer to the Artuqid court at Diyarbakır. His <i>Book of Knowledge of Ingenious Mechanical Devices</i> (1206) describes about fifty machines with construction details: water pumps driven through a crank-like mechanism, segmental gears, water clocks, and a boat of mechanical musicians whose drummer can be reprogrammed by moving pegs on a rotating drum. He wrote so others could build what he built, which was rare for his age.</p>
+
+  <h4 id="madhava">Madhava of Sangamagrama</h4>
+  <p class="dates">c. 1340–1425</p>
+  <p>Founder of the Kerala school of astronomy and mathematics. He found infinite series for pi, sine and cosine, along with error corrections for stopping a series early, about 250 years before the same results appeared in Europe under the names of Gregory, Newton and Leibniz. His students wrote his work in Malayalam and Sanskrit verse.</p>
+
+  <h4 id="khaldun">Ibn Khaldun</h4>
+  <p class="dates">1332–1406</p>
+  <p>In the <i>Muqaddimah</i> (1377) he argued that dynasties rise on <i>asabiyya</i>, the solidarity of a hard-living group, and lose it within three or four generations of comfort. Along the way he wrote early economics (labour as the source of value, and how high taxes shrink the tax base) and a method for doubting historical reports.</p>
+
+  <h4 id="dara">Dara Shikoh</h4>
+  <p class="dates">1615–1659</p>
+  <p>Eldest son of Shah Jahan and heir to the Mughal throne. He had the Upanishads translated into Persian, and that translation later reached Europe in Latin. In <i>Majma-ul-Bahrain</i>, <i>The Mingling of the Two Oceans</i>, he argued that two great traditions of his empire described the same truth in different words. His brother Aurangzeb defeated him, had him tried for heresy and executed him.</p>
+
+  <h4 id="hayy">Ibn Tufayl’s Hayy ibn Yaqzan</h4>
+  <p class="dates">12th century</p>
+  <p>A philosophical novel about a child raised by a gazelle on an uninhabited island, who reasons his way from dissecting his dead mother-deer to an understanding of the cosmos, alone. It reached Europe in Latin in 1671 and is often named among the influences on <i>Robinson Crusoe</i>.</p>
+
+  <h3>The Malay archipelago</h3>
+
+  <h4 id="tantular">Mpu Tantular</h4>
+  <p class="dates">14th century, Majapahit</p>
+  <p>A court poet of Majapahit who wrote the <i>Kakawin Sutasoma</i> in Old Javanese. One line, <i>bhinneka tunggal ika</i>, “different, yet one”, was written to reconcile two of the empire’s faiths. Six hundred years later Indonesia took it as the national motto on its coat of arms.</p>
+
+  <h4 id="rajaali">Raja Ali Haji</h4>
+  <p class="dates">1808–1873, Penyengat, Riau</p>
+  <p>Poet, historian and grammarian of the Riau-Lingga court, a short ferry ride from Singapore. He wrote the <i>Gurindam Dua Belas</i>, a history of the Malay and Bugis courts, and one of the first Malay grammars and dictionaries written by a Malay. The Riau Malay he codified became the basis of standard Malay and of Bahasa Indonesia, now spoken by hundreds of millions.</p>
+
+  <h3>The Americas and the Pacific</h3>
+
+  <h4 id="nezahualcoyotl">Nezahualcoyotl</h4>
+  <p class="dates">1402–1472, Texcoco</p>
+  <p>Exiled prince, poet, lawgiver and engineer. After floods hit Tenochtitlan in 1449, he designed a dike roughly sixteen kilometres long across Lake Texcoco to hold back the salty eastern waters and keep the western lagoon fresh for the city and its chinampas, the farmed islands of the lake. Many poems are attributed to him, on the theme that nothing on earth lasts. After the conquest, the Spanish drained the lakes, and Mexico City is still sinking into the dried lakebed.</p>
+
+  <h4 id="poma">Felipe Guaman Poma de Ayala</h4>
+  <p class="dates">c. 1535–after 1616</p>
+  <p>An Andean noble who spent decades writing a letter to King Philip III of Spain: <i>The First New Chronicle and Good Government</i>, nearly 1,200 pages with almost four hundred drawings, recording Andean history and the abuses of colonial rule, and proposing reforms. It never reached the king. It surfaced in the Royal Library in Copenhagen in 1908.</p>
+
+  <h4 id="tupaia">Tupaia</h4>
+  <p class="dates">c. 1725–1770, Raiatea</p>
+  <p>A navigator and priest who joined Cook’s <i>Endeavour</i> in Tahiti in 1769, guided it through the islands and drew, from memory, a chart of about seventy islands spanning thousands of kilometres of ocean. For two hundred and fifty years European readers found the chart confused. Recent scholarship showed it uses a different logic of bearing, read from each island outward, and that it is accurate in its own terms.</p>
+
+  <h4 id="piailug">Mau Piailug</h4>
+  <p class="dates">1932–2010, Satawal</p>
+  <p>One of the last master navigators trained in the old way. In 1976 he guided the voyaging canoe <i>Hōkūleʻa</i> from Hawaiʻi to Tahiti without instruments, using stars, swells and birds, and then taught Hawaiians the craft their own islands had lost.</p>
+
+  <h3>Africa</h3>
+
+  <h4 id="asmau">Nana Asmaʼu</h4>
+  <p class="dates">1793–1864, Sokoto</p>
+  <p>Scholar and poet, daughter of the founder of the Sokoto Caliphate, fluent in Arabic, Fulfulde, Hausa and Tamachek. She trained women teachers called <i>jajis</i>, who travelled out to rural women and taught them through poems in their own languages, then returned to her with new students. The network, Yan Taru, “those who gather together”, still runs today.</p>
+
+  <h4 id="yacob">Zera Yacob</h4>
+  <p class="dates">1599–1692, Ethiopia</p>
+  <p>Fleeing persecution, he lived for two years in a cave by the Tekezé river and reasoned alone about what could be known. His <i>Hatata</i>, “inquiry” (1667), argues that all people are equal, women and men alike, that slavery is wrong, and that every faith’s claims must be tested by reason. He reached ideas the European Enlightenment is credited with, in the same decades.</p>
+
+  <h4 id="librarians">The Timbuktu librarians</h4>
+  <p class="dates">2012–2013</p>
+  <p>When armed groups occupied Timbuktu, a librarian named Abdel Kader Haidara and his network moved hundreds of thousands of family-held manuscripts out of the city in footlockers and rice sacks, by car, boat and cart, past checkpoints, to safety in Bamako.</p>
+</section>
+
+<section id="seeds" aria-labelledby="seeds-h">
+  <span class="knot" aria-hidden="true"><i></i><i></i><i></i></span>
+  <h2 id="seeds-h">Ideas and traditions<span class="zh">观念与传统</span></h2>
+  <p class="lede">Concepts, records and practices rather than single people.</p>
+
+  <h3>The Andes and Mesoamerica</h3>
+
+  <h4 id="nepantla">Nepantla</h4>
+  <p>A Nahuatl word for being in the middle: between two banks, two worlds, two ways of life. A Dominican friar in the 1500s recorded an elder who, asked why his people now mixed old and new ways, answered that they were still <i>nepantla</i>. The philosopher James Maffie reads Nahua thought as a whole cosmos in motion. Reality is one self-weaving process, its patterns are twisting and weaving, and nepantla is the weaving motion itself, where two strands cross and bind.</p>
+
+  <h4 id="khipu">The khipu that starts to speak</h4>
+  <p>Khipus are Andean records in knotted cords. Most of those that survive encode numbers through the positions of their knots, but colonial writers said some held histories and laws, and no one could read those. In 2017 the anthropologist Sabine Hyland studied two khipus kept by a village in Peru as letters from an eighteenth-century rebellion. Their cords are spun from the fibres of six animals in fourteen colours, and she argued that some of the signs may record syllables.</p>
+
+  <h4 id="archipelago">The vertical archipelago</h4>
+  <p>The anthropologist John Murra showed that Andean communities kept fields at many altitudes at once, from coastal valleys to high pasture, as separate islands of land held by one people, and traded between their own levels instead of on markets.</p>
+
+  <h4 id="rollover">The calendar rollover</h4>
+  <p>The Maya Long Count tracked days in nested cycles. On 21 December 2012 its thirteenth bak’tun ended, which was an odometer turning over, and the wider world misread it as a prophecy of the end of the world.</p>
+
+  <h4 id="codices">The burnt books</h4>
+  <p>In 1562 at Maní, the friar Diego de Landa burnt the Maya books he could gather, along with thousands of images. Only four Maya codices survive anywhere. Landa later wrote the account of Maya writing that, centuries later, helped scholars decipher it.</p>
+
+  <h3>West Africa and South India</h3>
+
+  <h4 id="braid">The binary braid</h4>
+  <p>Ifá, the Yoruba system of divination, has 256 <i>odu</i>, each built from eight marks that are single or double, so 2⁸. Each odu carries a body of verses that a babalawo spends years memorising. The Arab art of sand-reading, <i>ʿilm al-raml</i>, uses sixteen figures of four such marks, 2⁴, and it spread across the Sahara and into Europe as geomancy. In Madagascar, <i>sikidy</i> uses the same sixteen figures laid out with seeds. The <span class="zh">易</span> has 64 hexagrams of six lines, 2⁶. The mathematician Ron Eglash argues that this binary line runs from Africa through medieval geomancy to Leibniz, who also studied the hexagrams.</p>
+
+  <h4 id="drums">The talking drums</h4>
+  <p>Yoruba is a tonal language, and the hourglass dùndún drum can squeeze its pitch up and down to match spoken tones, so drummers send whole sentences: praise names, proverbs and news. Listeners who speak the language hear words.</p>
+
+  <h4 id="charter">The hunters’ charter</h4>
+  <p>The Mande hunters’ brotherhoods, the <i>donso</i>, keep an oral charter said to date from the founding of the Mali Empire. It opens with the claim that every human life is a life, that no life is older or more worthy than another, and it condemns enslavement. A related constitution, the Kurukan Fuga, is said to have been agreed at the empire’s founding in 1236.</p>
+
+  <h4 id="tinai">Tiṇai, the five landscapes</h4>
+  <p>The Tamil Sangam poets, writing in the early centuries CE, wrote love poetry by landscape. Mountains are for lovers’ union, forest for waiting, farmland for quarrels, the seashore for pining, and the wasteland for separation. Each landscape brings its own flowers, birds, gods and hours of the day, so a poem only has to name a plant to tell you how it feels.</p>
+</section>
+
+<section id="ledger" aria-labelledby="ledger-h">
+  <span class="knot" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <h2 id="ledger-h">Where historians argue<span class="zh">争议之处</span></h2>
+  <p class="lede">Where the real record is open or disputed.</p>
+  <dl class="ledger">
+    <dt>Mohists, <span class="zh">侠</span>, brotherhoods and kongsis</dt>
+    <dd>Some scholars trace the wandering <span class="zh">侠</span> to the Mohists, and some trace the Borneo kongsis to sworn-brotherhood traditions such as the <span class="zh">天地会</span>. Both are hypotheses, and no record links the Mohists to Lanfang.</dd>
+    <dt>The wooden bird</dt>
+    <dd>The <i>Mozi</i> credits Gongshu Ban with the flying magpie, and the <i>Han Feizi</i> credits Mozi with a wooden kite that flew for a day.</dd>
+    <dt>Nezahualcoyotl’s poems</dt>
+    <dd>Many were collected and shaped after the conquest, and how many are his own is debated.</dd>
+    <dt>Phonetic khipus</dt>
+    <dd>Hyland’s reading is a proposal, not a decipherment.</dd>
+    <dt>The binary lineage to Leibniz</dt>
+    <dd>Eglash’s argument is suggestive and contested. The shared arithmetic of the figures is not.</dd>
+    <dt>Zera Yacob’s authorship</dt>
+    <dd>An Italian scholar argued in 1920 that the <i>Hatata</i> was forged by an Italian missionary. More recent scholarship defends Zera Yacob as its author.</dd>
+    <dt>The Mande charters</dt>
+    <dd>Both are oral, and both were written down and publicised only in the 1990s and 2000s, so their exact age is argued over.</dd>
+    <dt>Lanfang as a republic</dt>
+    <dd>Late Qing and Republican writers celebrated it as a republic. Historians note that its leadership became hereditary in practice and that it operated within Dutch and Malay sultanate politics.</dd>
+  </dl>
+</section>
+
+<div class="part" id="part-react">
+  <p class="part-zh zh">感</p>
+  <h2 class="part-en">First reactions</h2>
+  <p class="part-lede">Quick and unbuilt.</p>
+</div>
+
+<section id="reactions" aria-labelledby="react-h">
+  <span class="knot" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+  <h2 id="react-h">Three houses<span class="zh">三院初感</span></h2>
+  <p class="lede">What jumped out on first reading, house by house, before any building.</p>
+
+  <h3>Lan Fang</h3>
+  <ul class="react">
+    <li>The Mohists vanish from the record after the Han. Seventeen centuries later, Lanfang appears as a sworn brotherhood of miner-engineers who share the yield. The gap between them is exactly where a hidden line can run.</li>
+    <li><span class="zh">墨</span> is ink, and Lan Fang’s craft is typesetting. The name already lives in the house.</li>
+    <li>Mozi beat <span class="zh">鲁班</span> by defending and never attacking. A college of defenders-for-hire would be a strong, strange presence among the schools.</li>
+    <li>He is no saint. <span class="zh">非乐</span>, <span class="zh">节葬</span> and <span class="zh">尚同</span> are the fights he would bring, and the fights are what make him a character.</li>
+    <li>The rain at the gate of Song is the single most moving detail: the saviour refused shelter by the people he saved.</li>
+    <li>The rebel physicians <span class="zh">葛洪</span>, <span class="zh">吴又可</span> and <span class="zh">王清任</span> belong next door, in the medicine school Lan Fang needs.</li>
+  </ul>
+
+  <h3>Nine Rain</h3>
+  <ul class="react">
+    <li>Nepantla is Nine Rain’s weaving magic as a worldview, and very close to the achar principle.</li>
+    <li>Nezahualcoyotl’s dike, keeping fresh water from salt, is Basin Seven.</li>
+    <li>The khipu that may be starting to speak, Guaman Poma’s letter arriving three centuries late and Landa’s fire together make a house of unread, late and burnt records. That fits a house that reads the dead.</li>
+    <li>Tupaia’s chart is right in a frame the surveyors could not see, which sets Nine Rain against Toa Keng.</li>
+    <li>A calendar turning over and being misread as the end of the world is a gift of a public crisis.</li>
+  </ul>
+
+  <h3>Kora</h3>
+  <ul class="react">
+    <li>Ifá is 2⁸, the <span class="zh">易</span> is 2⁶, and sand-reading and sikidy sit between them. Kora and Lan Fang may be kin by arithmetic.</li>
+    <li>The talking drums turn voice into transmitted data.</li>
+    <li>The hunters’ charter, “every life is a life”, is a commons law from the far side of the world.</li>
+    <li>Nana Asmaʼu’s Yan Taru is a school with no building, which questions what a great school is.</li>
+    <li>The Timbuktu librarians are a heist already written.</li>
+    <li>Tiṇai, where the landscape sets the feeling, could be Kora’s grammar of story.</li>
+  </ul>
+</section>
+
+<div class="part" id="part-straits">
+  <p class="part-zh zh">演</p>
+  <h2 class="part-en">The Straits</h2>
+  <p class="part-lede">From here on, everything is speculative.</p>
+</div>
+
+<section id="mozi" aria-labelledby="mozi-h">
+  <span class="knot" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  <h2 id="mozi-h">Mozi College<span class="zh">墨子学院</span></h2>
+  <p class="lede">The oldest yard in Lan Fang, and the college the kongsi was built around.</p>
+
+  <p>Mozi College stands at the centre of Lan Fang. The kongsi’s oath hall was built facing its yard, and every Lan Fang student, whatever they study, swears the founding oath under its eaves. The college teaches the Canon, the Defence and the Workshop. The city calls its students <span class="zh">黑袖</span>, the Black Sleeves, because ink-line work leaves a stain on the cuff that never washes out.</p>
+
+  <h3>The line south</h3>
+  <p>The Mohists never vanished. After the Han they stopped writing their name down. Their discipline lived on in the wandering <span class="zh">侠</span>, then in sworn brotherhoods with oaths, passwords and blood, then among the Hakka miners who carried it across the sea to the gold fields of west Borneo. The miners were hydraulic engineers before they were anything else: they cut channels, ran sluices and dammed rivers to wash gold from gravel.</p>
+  <p>When the Lanfang kongsi was founded in 1777, three of its articles were Mohist in all but name: share the yield, defend the weaker claim, bury the dead plainly. When the kongsi fell in 1884, its carpenters came to the Straits carrying a <span class="zh">墨斗</span>, the carpenter’s ink-reel that snaps a straight black line onto timber. The college holds that the reel’s line has never been cut since the state of Song. It sits in the oath hall as <span class="zh">祖斗</span>, the Ancestral Reel.</p>
+  <p>The name holds both readings scholars give it. <span class="zh">墨</span> is the carpenter’s ink-line, which marks Mozi as a craftsman, and <span class="zh">墨</span> is the tattoo once branded on convicts, which marks him as an outsider. The college keeps both.</p>
+
+  <h3>The three schools</h3>
+
+  <h4><span class="zh">经</span> · The Canon</h4>
+  <p>The sciences of the <span class="zh">墨经</span>, taught the way the Mohists wrote them: as short definitions a student can carry in the head.</p>
+  <p><b><span class="zh">光室</span>, the Dark Room.</b> A sealed chamber with a pinhole in one wall. The street outside appears upside down on the far wall. The first lesson of the college is written above the door:</p>
+  <p class="quote-zh">景到，在午有端</p>
+  <p>The image turns over because the light crosses at a point. Mohists recorded this more than two thousand years ago, among the earliest written accounts of the camera obscura anywhere.</p>
+  <p><b><span class="zh">衡堂</span>, Balance Hall.</b> Levers, steelyards and scales, and the Canon’s reasoning about why a weight set close to the pivot can balance a lighter one set far away.</p>
+  <p><b><span class="zh">圜庭</span>, the Circle Court.</b> Geometry built from definitions. A circle is <span class="zh">一中同长</span>: one centre, equal lengths. A point is <span class="zh">端</span>, the part with nothing before it.</p>
+  <p><b><span class="zh">久宇</span>, Duration and Extent.</b> The Canon defines duration as what spans different times and extent as what spans different places. Students here build clocks and maps and argue about how the two connect.</p>
+  <p><b><span class="zh">辩场</span>, the Debating Floor.</b> Mohist logic: naming, classing, inference by analogy, and how to tell a valid comparison from a false one. Lan Fang’s typesetters come here to learn why a sentence holds.</p>
+
+  <h4><span class="zh">守</span> · The Defence</h4>
+  <p>The Defence builds walls, gates, wells and counter-tunnels, and nothing that attacks. Its engineers hire out to whoever is besieged and never to the besieger.</p>
+  <p>The founding lesson is the chapter <span class="zh">《公输》</span>. Gongshu Ban, the greatest engineer of his age (honoured later as <span class="zh">鲁班</span>), set nine engines of attack against a tabletop city, and Mozi turned back all nine. He did it to stop a war before it started, and it worked.</p>
+  <p>The Defence’s most famous technique comes from the Mohist chapter on tunnels. Wells are sunk just inside the wall, deep enough to reach spring water. Large pottery jars are lowered into them and sealed with thin hide, and a listener with sharp ears lies beside each jar to hear the enemy digging. Every Defence student serves a year as a listener.</p>
+
+  <h4><span class="zh">工</span> · The Workshop</h4>
+  <p>Making for use. The Workshop’s rule comes from an old quarrel. Gongshu Ban carved a wooden magpie that flew for three days, and Mozi told him that a cart’s linchpin was worth more: three inches of carved wood that carries a loaded cart.</p>
+  <p>Every year the Workshop holds the Magpie and Linchpin. Students enter either a marvel or a humble useful thing, and by rule the linchpin wins. Every year someone argues the rule should fall. That argument is the real exam.</p>
+
+  <h3>The ten articles</h3>
+  <p>Seven of the ten sit easily in Lan Fang. The three in red start fights with the neighbours.</p>
+  <ul class="articles">
+    <li><span class="zh">兼爱</span> Care without borders</li>
+    <li><span class="zh">非攻</span> No war of attack</li>
+    <li><span class="zh">尚贤</span> Raise the able</li>
+    <li><span class="zh">尚同</span> Agree upward</li>
+    <li><span class="zh">节用</span> Spend little</li>
+    <li class="fight"><span class="zh">节葬</span> Bury plainly</li>
+    <li><span class="zh">天志</span> The sky keeps account</li>
+    <li><span class="zh">明鬼</span> The dead are watching</li>
+    <li class="fight"><span class="zh">非乐</span> No music</li>
+    <li class="fight"><span class="zh">非命</span> No fate</li>
+  </ul>
+
+  <h3>Where the college rubs</h3>
+  <p class="friction"><b>With Kora, over <span class="zh">非乐</span>.</b> Mozi opposed music as a waste of the people’s labour. Kora’s whole power is song. The two houses share a ferry landing and have never shared a table.</p>
+  <p class="friction"><b>With Nine Rain, over <span class="zh">节葬</span>.</b> Mozi wanted the dead buried quickly and cheaply so the living could eat. Nine Rain keeps the dead and reads them before they go into the ground.</p>
+  <p class="friction"><b>With every oracle keeper, over <span class="zh">非命</span>.</b> Mohists deny fate: effort decides, not destiny. That sets them against Kora’s casters, Al-Merikani’s sand-readers and Lan Fang’s own <span class="zh">易</span> readers across the yard.</p>
+  <p class="friction"><b>With Sund, and with Lan Fang itself, over <span class="zh">尚同</span>.</b> Agreeing upward to the 巨子 cuts against Sund’s open assembly and against Lan Fang’s brotherhood of sworn equals. It lives as a quarrel inside the oath hall rather than a subject on the timetable. Lan Fang teaches no governance.</p>
+  <p class="friction"><b>Inside the kongsi, over <span class="zh">兼爱</span>.</b> Care for a stranger’s family as your own, says the article. The dialect clans who pay the college’s bills prefer their own.</p>
+  <p class="friction"><b>With Toa Keng, the oldest rivalry.</b> Toa Keng’s survey engineers build what attacks. In the city’s engineering lore, Toa Keng plays Gongshu Ban, and the Black Sleeves play Mozi.</p>
+
+  <h3>Rites</h3>
+  <p><b>The Rain at the Gate.</b> After Mozi saved the state of Song, he walked home through it in the rain, and Song’s gatekeepers would not let him shelter under their gate. In their final term, students defend a stranger’s cause. Then they walk home through the first monsoon rain without seeking shelter. Nobody thanks them, and that is the lesson.</p>
+  <p><b>The Reel passes by a kept promise.</b> The college’s head, the <span class="zh">巨子</span>, is chosen by the oath kept at greatest cost. In the oath hall hang 183 strips of undyed cloth, one for each disciple who died beside the 巨子 <span class="zh">孟胜</span> rather than let him break his word to a lord. It is the college’s darkest pride. Every year a student asks whether it was faith or waste, and every year the hall lets the question stand.</p>
+  <p><b>Worn heels.</b> Mencius, who attacked the Mohists for loving strangers as they loved their fathers, also said Mozi would wear himself out from crown to heel, <span class="zh">摩顶放踵</span>, if it benefited the world. The college took the line as its motto. Students wear straw sandals in the Workshop until the heels go through, then nail them to the gate.</p>
+
+  <h3>The neighbour across the wall</h3>
+  <p><span class="zh">杏林院</span>, the Apricot Grove, Lan Fang’s college of medicine, shares Mozi College’s east wall. Its patron lineage is a line of rebels: <span class="zh">葛洪</span>’s cold-steeped herb, <span class="zh">吴又可</span>’s pestilent qi and <span class="zh">王清任</span>’s corrected anatomy (all three are in <a href="#lives">The lives</a>). The Black Sleeves build the Grove’s stills, scales and listening tubes, and the physicians keep the Black Sleeves alive through the siege years.</p>
+
+  <h3>In the magical Straits</h3>
+  <p>Mohist casting is the snapped line. A caster pulls a relation taut between two fixed points and lets it go. For as long as the ink holds, that relation stays straight against World Resistance. The load comes due as stain: a Black Sleeve’s hands darken with every line held, and the oldest casters have hands like lacquer.</p>
+</section>
+
+<section id="rank" aria-labelledby="rank-h">
+  <span class="knot" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  <h2 id="rank-h">Ranked by impact<span class="zh">冲击之序</span></h2>
+  <p class="lede">Each school takes in a seed through its own function, so the same seed lands differently in each house.</p>
+
+  <p><b>Toa Keng</b> measures. Seeds that out-measure it, such as Tupaia and Madhava, wound its pride. <b>Al-Merikani</b> keeps covenant across the seas, so it takes in reconcilers and engineers. <b>Sri Temenggong</b> holds land and water in custody, so the dike and the old Javanese reconcilers go straight to its heart. <b>Lan Fang</b> recomposes: type, medicine, and now Mozi College. <b>Nine Rain</b> weaves reciprocity and reads the dead. <b>Kora</b> carries voice and nyama. <b>Sund</b> holds the commons. As the most modern school it receives the fewest seeds, and those it does receive arrive as shocks from outside.</p>
+  <p>Impact runs from five, a seed that changes what a school is, through three, a seed that gives a school a new faculty, rite or rival, to one, a seed that adds colour. Houses in bold are struck hardest.</p>
+
+  <ol class="rank">
+    <li><span><a class="name" href="#mozi">Mozi College and the Mohist line</a><span class="pips" role="img" aria-label="Impact 5 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span></span>
+      <span class="houses"><b>Lan Fang</b>, Kora, Nine Rain, Toa Keng, Sund</span>
+      <p class="how">Builds a whole college, and its ten articles pick fights with four houses at once.</p></li>
+    <li><span><a class="name" href="#nezahualcoyotl">Nezahualcoyotl’s dike</a><span class="pips" role="img" aria-label="Impact 5 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span></span>
+      <span class="houses"><b>Nine Rain</b>, <b>Sri Temenggong</b>, Toa Keng, Lan Fang</span>
+      <p class="how">Puts the craft of fresh and salt water at the centre of Basin Seven, and gives Nine Rain and Sri Temenggong the same embankment to fight over.</p></li>
+    <li><span><a class="name" href="#asmau">Yan Taru, the school that walks</a><span class="pips" role="img" aria-label="Impact 4 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span></span>
+      <span class="houses"><b>Kora</b>, Sri Temenggong, Al-Merikani, Sund</span>
+      <p class="how">A school with no building, run by women teaching in verse, which questions what all seven great schools assume a school is.</p></li>
+    <li><span><a class="name" href="#braid">The binary braid: Ifá, sand-reading, sikidy, 易</a><span class="pips" role="img" aria-label="Impact 4 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span></span>
+      <span class="houses"><b>Kora</b>, <b>Lan Fang</b>, Al-Merikani, Sri Temenggong</span>
+      <p class="how">Ties four oracle traditions into one lattice at different resolutions, by an older route than any founder knew.</p></li>
+    <li><span><a class="name" href="#poma">The late letters and the burnt books</a><span class="pips" role="img" aria-label="Impact 4 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span></span>
+      <span class="houses"><b>Nine Rain</b>, <b>Kora</b>, Al-Merikani, Toa Keng</span>
+      <p class="how">Gives Nine Rain records to read, Kora archives to smuggle, and Toa Keng’s colonial archive its sin.</p></li>
+    <li><span><a class="name" href="#nepantla">Nepantla</a><span class="pips" role="img" aria-label="Impact 4 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span></span>
+      <span class="houses"><b>Nine Rain</b>, Sri Temenggong, Kora, Al-Merikani</span>
+      <p class="how">Turns the achar principle into a metaphysics: no fixed things, only weaving, and the city living in the middle.</p></li>
+    <li><span><a class="name" href="#tupaia">Tupaia’s chart</a><span class="pips" role="img" aria-label="Impact 4 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span></span>
+      <span class="houses"><b>Nine Rain</b>, <b>Toa Keng</b>, Sri Temenggong</span>
+      <p class="how">Sets wayfinding against survey. Toa Keng’s claim to measure the sea is wounded at the root.</p></li>
+    <li><span><a class="name" href="#tcm">The Apricot Grove rebels: 葛洪, 吴又可, 王清任</a><span class="pips" role="img" aria-label="Impact 3 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span></span>
+      <span class="houses"><b>Lan Fang</b>, Nine Rain, Sri Temenggong</span>
+      <p class="how">Gives Lan Fang’s college of medicine a lineage of heretics who were right.</p></li>
+    <li><span><a class="name" href="#tantular">Mpu Tantular’s “different, yet one”</a><span class="pips" role="img" aria-label="Impact 3 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span></span>
+      <span class="houses"><b>Sri Temenggong</b>, Al-Merikani</span>
+      <p class="how">Roots Sri Temenggong in the Nusantara archipelago instead of Arabia, and makes it the oldest keeper of the achar idea.</p></li>
+    <li><span><a class="name" href="#dara">Dara Shikoh and the meeting of two oceans</a><span class="pips" role="img" aria-label="Impact 3 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span></span>
+      <span class="houses"><b>Al-Merikani</b>, Sri Temenggong</span>
+      <p class="how">Gives Al-Merikani its Mughal room, and a warning about what happens to reconcilers.</p></li>
+    <li><span><a class="name" href="#jazari">Al-Jazari’s machines</a><span class="pips" role="img" aria-label="Impact 3 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span></span>
+      <span class="houses"><b>Al-Merikani</b>, Lan Fang, Toa Keng</span>
+      <p class="how">Gives Al-Merikani an engineering wing, and Mozi College a rival workshop across the city.</p></li>
+    <li><span><a class="name" href="#khaldun">Ibn Khaldun’s cycle</a><span class="pips" role="img" aria-label="Impact 3 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span></span>
+      <span class="houses"><b>Sund</b>, Lan Fang, Toa Keng, Al-Merikani</span>
+      <p class="how">Predicts that every school’s founding solidarity will rot within four generations, and the schools start counting.</p></li>
+    <li><span><a class="name" href="#yacob">Zera Yacob in the cave</a><span class="pips" role="img" aria-label="Impact 3 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span></span>
+      <span class="houses">Kora, Sund, Toa Keng</span>
+      <p class="how">The one who reasoned his way to equality alone, outside every institution. A standing challenge to all seven schools.</p></li>
+    <li><span><a class="name" href="#rajaali">Raja Ali Haji’s grammar</a><span class="pips" role="img" aria-label="Impact 2 of 5"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span></span>
+      <span class="houses"><b>Sri Temenggong</b>, Toa Keng</span>
+      <p class="how">Gives Sri Temenggong the power that standardises the city’s language, a power Toa Keng assumed was its own.</p></li>
+    <li><span><a class="name" href="#madhava">Madhava’s infinite series</a><span class="pips" role="img" aria-label="Impact 2 of 5"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span></span>
+      <span class="houses"><b>Al-Merikani</b>, Toa Keng</span>
+      <p class="how">Lets Al-Merikani out-calculate Toa Keng by two and a half centuries.</p></li>
+    <li><span><a class="name" href="#rollover">The calendar rollover</a><span class="pips" role="img" aria-label="Impact 2 of 5"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span></span>
+      <span class="houses"><b>Nine Rain</b>, Toa Keng</span>
+      <p class="how">An odometer turning over, which the city misreads as the end of the world.</p></li>
+    <li><span><a class="name" href="#tinai">Tiṇai, the five landscapes</a><span class="pips" role="img" aria-label="Impact 2 of 5"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span></span>
+      <span class="houses"><b>Kora</b>, Sri Temenggong</span>
+      <p class="how">Gives Kora a grammar in which every story’s landscape sets its feeling.</p></li>
+    <li><span><a class="name" href="#charter">The hunters’ charter</a><span class="pips" role="img" aria-label="Impact 2 of 5"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span></span>
+      <span class="houses"><b>Kora</b>, Sund</span>
+      <p class="how">“Every life is a life”: a commons law older than Sund’s, from the far side of the world.</p></li>
+    <li><span><a class="name" href="#drums">The talking drums</a><span class="pips" role="img" aria-label="Impact 2 of 5"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span></span>
+      <span class="houses"><b>Kora</b>, Lan Fang</span>
+      <p class="how">Voice turned into transmitted data. Lan Fang’s typesetters recognise an encoding.</p></li>
+    <li><span><a class="name" href="#archipelago">The vertical archipelago</a><span class="pips" role="img" aria-label="Impact 2 of 5"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span></span>
+      <span class="houses"><b>Nine Rain</b>, Sri Temenggong</span>
+      <p class="how">An archipelago on land, which mirrors the Straits back to themselves.</p></li>
+    <li><span><a class="name" href="#piailug">Mau Piailug’s revival</a><span class="pips" role="img" aria-label="Impact 1 of 5"><span class="on"></span><span></span><span></span><span></span><span></span></span></span>
+      <span class="houses">Nine Rain, Sri Temenggong</span>
+      <p class="how">A lost craft taught back by one old man. A model for how a school might be saved.</p></li>
+    <li><span><a class="name" href="#hayy">Hayy ibn Yaqzan</a><span class="pips" role="img" aria-label="Impact 1 of 5"><span class="on"></span><span></span><span></span><span></span><span></span></span></span>
+      <span class="houses">Al-Merikani</span>
+      <p class="how">The island boy who reasons alone. Colour for Al-Merikani’s library, and a fate for one exile.</p></li>
+  </ol>
+
+  <h3>Where the seeds land</h3>
+  <p>Each house’s total is every seed’s impact multiplied by how hard it strikes that house.</p>
+  <div class="totals">
+    <div class="bar top"><span>Nine Rain</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="n">51</span></div>
+    <div class="bar top"><span>Kora</span><span class="track"><span class="fill" style="width:94.1%"></span></span><span class="n">48</span></div>
+    <div class="bar"><span>Sri Temenggong</span><span class="track"><span class="fill" style="width:92.2%"></span></span><span class="n">47</span></div>
+    <div class="bar"><span>Al-Merikani</span><span class="track"><span class="fill" style="width:76.5%"></span></span><span class="n">39</span></div>
+    <div class="bar"><span>Toa Keng</span><span class="track"><span class="fill" style="width:72.5%"></span></span><span class="n">37</span></div>
+    <div class="bar"><span>Lan Fang</span><span class="track"><span class="fill" style="width:72.5%"></span></span><span class="n">37</span></div>
+    <div class="bar"><span>Sund</span><span class="track"><span class="fill" style="width:39.2%"></span></span><span class="n">20</span></div>
+  </div>
+  <p>Nine Rain and Kora receive the most, which grounds the two far houses that felt least certain. Sri Temenggong is close behind, and its seeds come through water, land and the archipelago rather than through Arabia, which is the turn it needed.</p>
+  <p>Lan Fang’s number understates it. It receives one seed at full weight, and that seed builds a college.</p>
+  <p>Sund receives least, and that is the hard finding. Either Sund gets its own sweep before the novel, through Sámi, Mongolian and Norse lives the world has overlooked, or it stays the city’s clean modern foil. That role is worth choosing on purpose rather than by default.</p>
+</section>
+
+<section id="chemistry" aria-labelledby="chem-h">
+  <span class="knot" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  <h2 id="chem-h">Chemistries<span class="zh">化合</span></h2>
+  <p class="lede">Six places where the seeds catch fire together, each one a story that could carry chapters.</p>
+
+  <article class="chem" id="jars">
+    <h3>The Listening Jars</h3>
+    <p class="formula">Mozi’s tunnel jars + a Kora jeli + Basin Seven <span class="arrow">→</span> a city that can hear itself being drained</p>
+    <p class="beat"><b>The spark</b>In a dry year, the Defence sinks its listening jars along the Basin Seven embankment and hears digging that no survey shows. The Black Sleeves have the jars, but they are trained to hear tunnels, not water. The best ears in the city belong to Kora.</p>
+    <p class="beat"><b>How it grows</b>A Defence listener has to take a Kora jeli down into the wells. <span class="zh">非乐</span> forbids music, and she points out that it never forbade listening. Together they learn the sound of water being stolen: someone is drawing the basin down from below. She starts singing what she hears so he can remember it, and he lets her. Word gets back to the oath hall.</p>
+    <p class="beat"><b>What it opens</b>Mozi College’s quarrel with music becomes the novel’s quietest relationship, and the first crack in one of the ten articles. The jars grow into a listening network under the whole city. Whoever holds the network holds the basin, and three schools want it.</p>
+  </article>
+
+  <article class="chem" id="dike">
+    <h3>The Dike at the Gate</h3>
+    <p class="formula">The Defence + Nezahualcoyotl’s dike + nepantla <span class="arrow">→</span> two ways of protecting water on one embankment</p>
+    <p class="beat"><b>The spark</b>Seawater is pushing into Basin Seven. Mozi College does what it always does and walls the weaker side. Nine Rain keeps the old dike-builder’s craft, which was the art of knowing when waters stay apart and when they may mix. Nine Rain says some salt must be let in, because the brackish middle is where the city actually lives.</p>
+    <p class="beat"><b>How it grows</b>The Black Sleeves hold the line by day and Nine Rain opens the sluices by night. Sri Temenggong, custodian of land and water, is asked to rule between them. Toa Keng offers to survey the basin and settle it, and both houses refuse, because Toa Keng is Gongshu Ban again.</p>
+    <p class="beat"><b>What it opens</b>The book’s central image: a dike that is half wall and half weave. The Rain at the Gate returns at the climax, when whoever saves the basin is refused shelter by the district they saved.</p>
+  </article>
+
+  <article class="chem" id="sixteen">
+    <h3>The Sixteen</h3>
+    <p class="formula">Ifá’s 256 + sand-reading’s 16 + sikidy’s 16 + the 易’s 64 + <span class="zh">非命</span> <span class="arrow">→</span> four oracles proved kin by the school that despises oracles</p>
+    <p class="beat"><b>The spark</b>A Canon student who is sworn to <span class="zh">非命</span> and contemptuous of every oracle in the city gets a dull exercise: classify each divination system by its figures. She collects Kora’s 256 odu, Al-Merikani’s sixteen sand-figures, the sixteen of sikidy kept by Sri Temenggong’s Malagasy families, and Lan Fang’s 64 hexagrams. She finds one lattice at four resolutions, all built from the same doubled lines.</p>
+    <p class="beat"><b>How it grows</b>The houses that keep oracles are alarmed, because the one house that despises them has proved they share a root. In the Workshop she builds a cam-driven machine in Al-Jazari’s manner that casts all four at once. It enters the Magpie and Linchpin, and nobody can agree which it is.</p>
+    <p class="beat"><b>What it opens</b>A route between four houses older than any founder knew. In the magical Straits, the machine is a casting engine no house can own. The question it leaves her with is whether the oracles agree because of fate or because of arithmetic.</p>
+  </article>
+
+  <article class="chem" id="letters">
+    <h3>The Late Letters</h3>
+    <p class="formula">Guaman Poma’s undelivered letter + the Timbuktu librarians + a half-readable khipu <span class="arrow">→</span> an archive heist</p>
+    <p class="beat"><b>The spark</b>A letter addressed to the city’s founders, written two centuries ago and never delivered, turns up in a foreign archive. Nine Rain is asked to read it.</p>
+    <p class="beat"><b>How it grows</b>Someone wants the archive burnt before it can be read, the way a friar once burnt the Maya books. Kora’s smugglers move the boxes the way the Timbuktu librarians did, in rice sacks through checkpoints. Inside the letter is a khipu, and Nine Rain can read only half of it.</p>
+    <p class="beat"><b>What it opens</b>A story engine that runs on half-read records, with each part of the book deciphering a little more of the cord. It also gives Toa Keng’s colonial archive its sin, because Toa Keng held the letter all along.</p>
+  </article>
+
+  <article class="chem" id="oceans">
+    <h3>The Mingling of Two Oceans</h3>
+    <p class="formula">Dara Shikoh + Mpu Tantular + Raja Ali Haji + Hayy ibn Yaqzan <span class="arrow">→</span> the achar principle tested as politics</p>
+    <p class="beat"><b>The spark</b>The Straits sit where two oceans meet. An Al-Merikani scholar writes a book showing that two of the city’s great traditions say the same thing in different words, and names it after the meeting of the two seas.</p>
+    <p class="beat"><b>How it grows</b>Sri Temenggong answers that it has been saying “different, yet one” for six hundred years, and claims the idea first. The book is praised, then banned, and the scholar is exiled, the way Dara was executed. Meanwhile a Sri Temenggong grammarian in Raja Ali Haji’s line quietly standardises the language both traditions argue in, and wins without ever entering the quarrel.</p>
+    <p class="beat"><b>What it opens</b>The city loves reconciliation until someone writes it down. The exile is sent to an island and, like Hayy, reasons alone. That is the hermit’s arc, and it may be the novel’s spine.</p>
+  </article>
+
+  <article class="chem" id="plague">
+    <h3>The Plague Funeral</h3>
+    <p class="formula"><span class="zh">吴又可</span>’s pestilent qi + <span class="zh">节葬</span> + Nine Rain’s dead + Kora’s naming <span class="arrow">→</span> three schools forced to change their oldest rites in one season</p>
+    <p class="beat"><b>The spark</b>Fever in Basin Seven. The Apricot Grove, in <span class="zh">吴又可</span>’s line, says the sickness enters by the mouth and nose and rides the water.</p>
+    <p class="beat"><b>How it grows</b>Mozi College demands quick, plain burial. Nine Rain refuses to bury anyone before reading them, as it always has. Kora’s jeli sing every name so none is lost. Then the Grove proves the sickness is spreading through the very wells the Defence dug for its listening jars.</p>
+    <p class="beat"><b>What it opens</b>Nine Rain learns to read the dead faster. Mozi College learns that plain burial can be cruelty. The Grove gets its founding plague, and the Black Sleeves carry a debt to a house they despised.</p>
+  </article>
+</section>
+
+<section id="readings" aria-labelledby="read-h">
+  <span class="knot" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  <h2 id="read-h">What each lead gives the Straits<span class="zh">各得其用</span></h2>
+  <p class="lede">The interpretive notes for every lead in the record, gathered in one place.</p>
+  <h3>The contending ages</h3>
+  <dl class="ledger">
+    <dt>The Gangetic ferment</dt>
+    <dd>the debate held in a public park instead of a hall. The schools could share a ground where any student may challenge any teacher.</dd>
+    <dt>The schools named after buildings</dt>
+    <dd>a precedent for second names. A school can be renamed after the building or ground where its best teaching actually happens.</dd>
+    <dt>The House of Wisdom</dt>
+    <dd>the danger of a city choosing an official philosophy. The mihna is a ready-made crisis for any school that wins too much.</dd>
+    <dt>Córdoba and Toledo</dt>
+    <dd>the translator as hero. Al-Merikani’s Andalusi stranger can be a translation bureau where three languages argue over one sentence.</dd>
+    <dt>The House of Worship</dt>
+    <dd>Al-Merikani’s Mughal room is a debating chamber, and the Thursday night debate can become a city institution.</dd>
+    <dt>Sankore</dt>
+    <dd>a model of knowledge held in family houses rather than great schools, and the shape of Kora’s archive.</dd>
+    <dt>Texcoco</dt>
+    <dd>a philosophy of impermanence that Kora and Nine Rain would both recognise, and that Mozi College would call a waste of labour.</dd>
+    <dt>The late Ming</dt>
+    <dd>Lan Fang’s founders were heirs of a ferment that was cut short. That gives the kongsi a lost golden age to mourn and to argue about.</dd>
+    <dt>The modern ferments</dt>
+    <dd>proof that a hundred-schools moment can happen in a colonial port within living memory. The Straits’ own ferment could be happening now, in the novel’s present.</dd>
+  </dl>
+  <h3>The lives</h3>
+  <dl class="ledger">
+    <dt><span class="zh">葛洪</span> · Ge Hong</dt>
+    <dd>the Grove’s founding text is a pocket handbook. Its students are taught to read old remedies for the one word everyone else skipped.</dd>
+    <dt><span class="zh">吴又可</span> · Wu Youke</dt>
+    <dd>the Grove’s epidemiologists, and the voice that says the sickness is in the water.</dd>
+    <dt><span class="zh">王清任</span> · Wang Qingren</dt>
+    <dd>the Grove’s iconoclast, and a point of contact with Nine Rain, the house that reads the dead.</dd>
+    <dt><span class="zh">宋应星</span> · Song Yingxing</dt>
+    <dd>the Workshop’s textbook, and proof that the Mohist spirit resurfaces whenever someone writes down how things are actually made.</dd>
+    <dt>Al-Jazari</dt>
+    <dd>Al-Merikani’s engineering wing, and the rival workshop to Mozi College. His musicians would be an affront to <span class="zh">非乐</span> and a delight to Kora.</dd>
+    <dt>Madhava of Sangamagrama</dt>
+    <dd>Al-Merikani’s Tamil and Indic graft can out-calculate Toa Keng by two and a half centuries, with mathematics carried in verse.</dd>
+    <dt>Ibn Khaldun</dt>
+    <dd>a clock ticking under every school. Lan Fang’s brotherhood and Sund’s commons are both on their third generation.</dd>
+    <dt>Dara Shikoh</dt>
+    <dd>the title alone belongs to a city where two oceans meet. He is the patron of reconcilers, and their warning.</dd>
+    <dt>Ibn Tufayl’s Hayy ibn Yaqzan</dt>
+    <dd>a book every school reads differently, and the fate of one exile.</dd>
+    <dt>Mpu Tantular</dt>
+    <dd>the achar principle six centuries early, from the Nusantara archipelago itself. Sri Temenggong becomes its oldest keeper without leaning on Arabia.</dd>
+    <dt>Raja Ali Haji</dt>
+    <dd>Sri Temenggong holds the grammar of the city, a quiet power that outranks any survey.</dd>
+    <dt>Nezahualcoyotl</dt>
+    <dd>Nine Rain’s water craft and the hinge of Basin Seven. See <a href="#dike">the Dike at the Gate</a>.</dd>
+    <dt>Felipe Guaman Poma de Ayala</dt>
+    <dd>a letter delivered three hundred years late, to the house that reads the dead. See <a href="#letters">the Late Letters</a>.</dd>
+    <dt>Tupaia</dt>
+    <dd>a map that is right in a frame the surveyors could not see. Nine Rain’s Polynesian graft against Toa Keng’s survey.</dd>
+    <dt>Mau Piailug</dt>
+    <dd>how a dying school is saved, by one teacher crossing over to another people.</dd>
+    <dt>Nana Asmaʼu</dt>
+    <dd>a school with no building, carried in verse. Kora’s hidden wing, and a challenge to the idea of a great school.</dd>
+    <dt>Zera Yacob</dt>
+    <dd>the one who learned outside every school. Kora’s stranger, and the patron of anyone who leaves.</dd>
+    <dt>The Timbuktu librarians</dt>
+    <dd>Kora’s smugglers, and the method for <a href="#letters">the Late Letters</a>.</dd>
+  </dl>
+  <h3>Ideas and traditions</h3>
+  <dl class="ledger">
+    <dt>Nepantla</dt>
+    <dd>Nine Rain’s magic already weaves, and nepantla gives it a metaphysics. There are no fixed things, only weaving, and the brackish middle is where the city actually lives. It is the achar principle stated as a cosmology.</dd>
+    <dt>The khipu that starts to speak</dt>
+    <dd>Nine Rain’s sacred text is undeciphered. The event is someone half-reading it, and finding that it says something the house did not want read.</dd>
+    <dt>The vertical archipelago</dt>
+    <dd>an archipelago on land. Nine Rain sees the Straits as a vertical archipelago turned on its side, and runs its reciprocity, <i>ayni</i>, across districts the way the Andes ran it across altitudes.</dd>
+    <dt>The calendar rollover</dt>
+    <dd>Nine Rain’s calendar turns over in the novel’s present, and the city panics. Nine Rain is the only house calm about it, and that calm is read as a threat.</dd>
+    <dt>The burnt books</dt>
+    <dd>Nine Rain’s memory of a library burnt by the man who would later explain it. It is the threat behind <a href="#letters">the Late Letters</a>.</dd>
+    <dt>The binary braid</dt>
+    <dd>four houses hold the same lattice at different resolutions. See <a href="#sixteen">the Sixteen</a>.</dd>
+    <dt>The talking drums</dt>
+    <dd>voice turned into transmitted data. Lan Fang’s typesetters recognise an encoding, and Mozi College recognises a signal network.</dd>
+    <dt>The hunters’ charter</dt>
+    <dd>a commons law older than Sund’s, from the far side of the world.</dd>
+    <dt>Tiṇai, the five landscapes</dt>
+    <dd>Kora’s grammar of story, where the place is the feeling. Sri Temenggong, keeper of land, hears in it a map.</dd>
+  </dl>
+</section>
+
+<footer>
+  <p>The Parallel Straits, after The Rethinking. Written with Claude, 29 October 2026.</p>
+</footer>
+
+</main>
+</body>
+</html>
