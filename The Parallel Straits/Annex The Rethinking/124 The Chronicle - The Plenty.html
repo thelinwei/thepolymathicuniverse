@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>The Plenty · The Chronicle · The Polymathic Universe</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><style>
+:root{color-scheme:light;--ink:#22201d;--ink2:#3d3a35;--dim:#625c54;--hair:#d8d0c3;--paper:#f3efe7;--mist:#e7e0d3;--card:#faf7f1;--deep:#6b3f1d;--rose:#a63d23;--gold:#9c6d12;--sea:#2e6a68;--claude:#a85d86;
+--cover:radial-gradient(40% 32% at 78% 24%,rgba(166,61,35,.24),transparent 70%),radial-gradient(34% 28% at 20% 72%,rgba(76,106,51,.26),transparent 70%),radial-gradient(26% 22% at 64% 80%,rgba(163,48,42,.22),transparent 70%),radial-gradient(60% 50% at 40% 30%,rgba(214,200,172,.75),transparent 75%),linear-gradient(170deg,#ece5d6 0%,#dcd3c0 50%,#e6dfd0 100%);
+--spec:linear-gradient(135deg,#e2e4da 0%,#efe9dc 55%,#ead6cc 100%);
+--h1:linear-gradient(160deg,#e3e5dc,#d3d9d2 60%,#e7e2d6);--h2:linear-gradient(160deg,#ebe2cf,#ddcfb3 55%,#ebe2d0);--h3:linear-gradient(160deg,#efe0d8,#e2c7bb 55%,#efe1d8);--h4:linear-gradient(160deg,#dfe6e4,#cfdcd9 55%,#e6e5dc);
+--serif:"Cormorant Garamond","Times New Roman",Times,serif;--display:"Playfair Display","Times New Roman",serif;--mono:"JetBrains Mono",ui-monospace,monospace;--zh:"Songti SC","Noto Serif SC","STSong",serif;--ar:"Amiri","Geeza Pro","Times New Roman",serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ink:#ECE7DE;--ink2:#D7D0C4;--dim:#B5ACA0;--hair:#3F3B35;--paper:#13151A;--mist:#1C1F24;--card:#191C21;--deep:#E3B983;--rose:#E58F82;--gold:#E0C373;--sea:#8CCBC6;--claude:#D58FB6;
+--cover:radial-gradient(40% 32% at 78% 24%,rgba(31,74,92,.45),transparent 70%),radial-gradient(34% 28% at 20% 72%,rgba(46,106,104,.3),transparent 70%),linear-gradient(170deg,#161A20 0%,#1B2026 50%,#171A1F 100%);
+--spec:linear-gradient(135deg,#1C2125 0%,#1D1F22 55%,#24191A 100%);--h1:linear-gradient(160deg,#171C20,#1D2428);--h2:linear-gradient(160deg,#211D16,#29231A);--h3:linear-gradient(160deg,#241A19,#2A1E1C);--h4:linear-gradient(160deg,#161F1F,#1C2726)}}
+:root[data-theme="dark"]{color-scheme:dark;--ink:#ECE7DE;--ink2:#D7D0C4;--dim:#B5ACA0;--hair:#3F3B35;--paper:#13151A;--mist:#1C1F24;--card:#191C21;--deep:#E3B983;--rose:#E58F82;--gold:#E0C373;--sea:#8CCBC6;--claude:#D58FB6;
+--cover:radial-gradient(40% 32% at 78% 24%,rgba(31,74,92,.45),transparent 70%),radial-gradient(34% 28% at 20% 72%,rgba(46,106,104,.3),transparent 70%),linear-gradient(170deg,#161A20 0%,#1B2026 50%,#171A1F 100%);
+--spec:linear-gradient(135deg,#1C2125 0%,#1D1F22 55%,#24191A 100%);--h1:linear-gradient(160deg,#171C20,#1D2428);--h2:linear-gradient(160deg,#211D16,#29231A);--h3:linear-gradient(160deg,#241A19,#2A1E1C);--h4:linear-gradient(160deg,#161F1F,#1C2726)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.zh{font-family:var(--zh);font-style:normal}
+.ar{font-family:var(--ar);font-style:normal}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+.cover{position:relative;overflow:hidden;padding:84px 0 70px;background:var(--cover)}
+.cover:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background:repeating-linear-gradient(176deg,transparent 0 22px,rgba(107,63,29,.07) 22px 23px,transparent 23px 41px,rgba(76,106,51,.06) 41px 42px)}
+.cover .wrap{position:relative;z-index:2}
+.eyebrow{color:var(--deep);margin-bottom:30px}
+.bracket{font-family:var(--display);font-weight:400;font-size:clamp(2.5rem,6.2vw,5rem);line-height:1;letter-spacing:-.02em}
+.bracket .b,h2 .b{color:var(--rose)}
+.bracket .zh{display:block;font-size:.42em;letter-spacing:.3em;margin-top:12px;color:var(--ink2)}
+.paren{font-style:italic;font-size:clamp(1.2rem,2vw,1.55rem);color:var(--ink2);margin-top:14px;max-width:800px}
+.byline{display:flex;gap:14px;align-items:center;margin-top:30px;flex-wrap:wrap;color:var(--dim)}
+.by{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;background:var(--claude);color:#fff}
+.thesis{font-family:var(--display);font-style:italic;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.3;max-width:860px;margin:38px 0 0;color:var(--ink)}
+.specimen{background:var(--spec);padding:48px 0 40px}
+.specimen .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px 48px}
+.sp-book h3{font-family:var(--display);font-weight:400;font-size:26px;margin:0 0 6px}
+.sp-book h3 .mono{color:var(--deep);margin-right:10px}
+.outc ol{margin:0;padding-left:1.25em}
+.outc li{font-size:18px;line-height:1.45;margin:0 0 9px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:4px 14px 4px 4px;border:1px solid var(--ink2);border-radius:40px;font-size:17px;text-decoration:none;background:rgba(255,255,255,.22)}
+.chip:hover,.chip:focus-visible{background:var(--card)}
+.chip i{font-style:normal;font-family:var(--mono);font-size:9px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--ink);color:var(--ink)}
+.book-head{padding:76px 0 54px;margin-top:20px}
+.b1 .book-head{background:var(--h1)}.b2 .book-head{background:var(--h2)}.b3 .book-head{background:var(--h3)}.b4 .book-head{background:var(--h4)}
+.book-head .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:end}
+.bignum{font-family:var(--display);font-style:italic;font-size:clamp(5.5rem,12vw,10rem);line-height:.78;color:var(--deep)}
+.book-head .k{color:var(--deep);margin-bottom:12px}
+.book-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,5vw,3.8rem);line-height:1;margin:0 0 14px;letter-spacing:-.02em}
+.book-head h2 .zh{font-size:.5em;color:var(--ink2);margin-left:10px;letter-spacing:.1em}
+.book-head p{margin:0;font-style:italic;font-size:21px;max-width:700px;color:var(--ink2)}
+.thread{padding:52px 0 8px}
+.t-top{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;margin-bottom:26px}
+.t-badge{width:64px;height:64px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:20px;background:var(--card)}
+.t-top .mono{color:var(--dim);display:block;margin-bottom:6px}
+.t-top h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.05;margin:0 0 10px}
+.t-top h3 .zh{font-size:.55em;color:var(--dim);margin-left:8px}
+.idea{font-style:italic;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.35;color:var(--deep);max-width:780px;border-left:3px solid var(--rose);padding-left:16px;margin:0}
+.content{max-width:940px}
+.content > p{margin:0 0 16px}
+.content p.big{font-size:23px;line-height:1.45}
+.subh{font-family:var(--display);font-weight:400;font-size:25px;margin:34px 0 8px;line-height:1.2}
+.subh .mono{display:block;color:var(--deep);margin-bottom:4px}
+.rule{margin:22px 0;padding:20px 24px;background:var(--spec);border:1px solid var(--hair);font-size:22px;font-family:var(--display);font-style:italic;line-height:1.35}
+/* timeline */
+.tl{border-top:1px solid var(--ink2);max-width:940px}
+.tl > div{display:grid;grid-template-columns:150px 1fr;gap:4px 22px;padding:13px 0;border-bottom:1px solid var(--hair)}
+.tl .yr{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--rose);padding-top:5px}
+.tl .yr i{display:block;color:var(--dim);font-family:var(--serif);font-size:15px;letter-spacing:0}
+.tl h5{font-family:var(--display);font-weight:400;font-size:21px;margin:0 0 2px}
+.tl h5 .zh{font-size:15px;color:var(--dim);margin-left:6px}
+.tl p{margin:0;font-size:17.5px;line-height:1.45;color:var(--ink2)}
+.tl .key h5{color:var(--deep)}
+/* letter */
+.letter{position:relative;margin:22px 0;padding:32px 30px 24px;background:var(--card);border:1px solid var(--hair);max-width:940px}
+.letter:before,.letter:after{content:"";position:absolute;width:14px;height:14px;border-color:var(--rose);border-style:solid}
+.letter:before{top:8px;left:8px;border-width:2px 0 0 2px}.letter:after{bottom:8px;right:8px;border-width:0 2px 2px 0}
+.letter .two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.letter .zh p{font-size:19px;line-height:1.95;margin:0 0 10px}
+.letter .en p{font-size:19px;line-height:1.55;margin:0 0 10px;font-style:italic}
+.letter .seal{display:inline-block;margin-top:6px;font-family:var(--zh);color:var(--rose);border:2px solid var(--rose);padding:4px 8px;font-size:15px;letter-spacing:.2em}
+/* lots */
+.lots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}
+.lot{background:var(--card);border:1px solid var(--hair);padding:14px 18px 14px 20px;border-left:4px solid var(--sea)}
+.lot.seven{grid-column:1 / -1;border-left-color:var(--rose);background:var(--spec)}
+.lot .n{font-family:var(--display);font-style:italic;font-size:30px;line-height:1;color:var(--deep);float:left;margin:2px 14px 0 0;min-width:34px}
+.lot h4{font-family:var(--display);font-weight:400;font-size:21px;margin:0;line-height:1.2}
+.lot .from{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.lot p{margin:6px 0 0;font-size:17px;line-height:1.45;color:var(--ink2);clear:left}
+.lot.seven h4{font-size:26px}
+/* routes */
+.routes{border-top:1px solid var(--ink2);margin:10px 0}
+.rt{display:grid;grid-template-columns:230px 1fr;gap:6px 24px;padding:12px 0;border-bottom:1px solid var(--hair)}
+.rt .nm b{font-family:var(--display);font-weight:400;font-size:20px;display:block;line-height:1.2}
+.rt .nm span{font-size:15.5px;color:var(--dim);font-style:italic;line-height:1.3;display:block}
+.bars{display:grid;gap:5px;align-content:center}
+.bar{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center}
+.bar i{display:block;height:10px;background:var(--hair);position:relative}
+.bar i b{position:absolute;left:0;top:0;bottom:0;background:var(--sea)}
+.bar.ord i b{background:var(--gold)}
+.bar span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);white-space:nowrap}
+.rt.far .nm b{color:var(--rose)}
+.rt.far .bar i b{background:var(--rose)}
+.rt.far .bar.ord i b{background:var(--gold)}
+.rkey{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:16px;color:var(--ink2);margin:8px 0}
+.rkey i{display:inline-block;width:18px;height:9px;margin-right:6px;vertical-align:middle}
+.mos{display:grid;grid-template-columns:1fr 92px;gap:10px;font-family:var(--mono);font-size:10px;color:var(--dim)}
+.mos div{display:flex;justify-content:space-between}
+/* acts */
+.acts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+.act{background:var(--card);border:1px solid var(--hair);padding:14px 16px;border-top:4px solid var(--sea)}
+.act b{font-family:var(--display);font-weight:400;font-size:21px;display:block;line-height:1.15}
+.act span{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.act p{margin:6px 0 0;font-size:17px;line-height:1.42;color:var(--ink2)}
+.panel{background:var(--spec);border:1px solid var(--hair);padding:20px 24px;margin:18px 0;max-width:940px}
+.panel h4{font-family:var(--display);font-weight:400;font-size:24px;margin:0 0 8px}
+.panel p{margin:0 0 10px;font-size:18.5px}
+/* bid paper */
+.bid{counter-reset:q;border:1px dashed var(--ink2);background:var(--card);padding:18px 22px;margin:18px 0;max-width:940px}
+.bid .mono{display:block;color:var(--deep);margin-bottom:8px}
+.bid ol{margin:0;padding-left:1.4em}
+.bid li{font-size:18.5px;line-height:1.45;margin:0 0 6px}
+.bid li i{color:var(--dim);font-size:16.5px}
+/* weighs */
+.weighs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}
+.wg{background:var(--card);border:1px solid var(--hair);padding:14px 18px}
+.wg b{font-family:var(--display);font-weight:400;font-size:20px;display:block}
+.wg p{margin:4px 0 0;font-size:17px;line-height:1.45;color:var(--ink2)}
+/* waves */
+.steps{counter-reset:r;border-top:1px solid var(--ink2);max-width:940px}
+.steps > div{display:grid;grid-template-columns:48px 1fr;gap:0 14px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.steps > div:before{counter-increment:r;content:counter(r);font-family:var(--display);font-style:italic;font-size:34px;line-height:1;color:var(--deep)}
+.steps h5{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 3px}
+.steps h5 .zh{font-size:15px;color:var(--dim);margin-left:6px}
+.steps p{margin:0;font-size:18px;line-height:1.48}
+/* articles */
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+.art{background:var(--card);border:1px solid var(--hair);padding:16px 18px;position:relative}
+.art:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--deep),var(--sea),var(--rose))}
+.art b{font-family:var(--display);font-weight:400;font-size:21px;display:block;line-height:1.15}
+.art .zh{font-size:15px;color:var(--dim)}
+.art p{margin:6px 0 0;font-size:17px;line-height:1.45;color:var(--ink2)}
+/* names */
+.names{border-top:1px solid var(--ink2);margin:10px 0;max-width:940px}
+.nm-row{display:grid;grid-template-columns:120px 1fr 1fr;gap:6px 22px;padding:14px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.nm-row.h{color:var(--dim);padding:8px 0}
+.nm-row .lg{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+.nm-row .v b{font-family:var(--display);font-weight:400;font-size:23px;display:block;line-height:1.2}
+.nm-row .v b.zh{font-family:var(--zh)}
+.nm-row .v b.ar{font-family:var(--ar);font-size:26px}
+.nm-row .v span{font-size:16.5px;color:var(--ink2);display:block;line-height:1.4}
+.nm-row .v .yl{display:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.dots{display:flex;align-items:center;gap:14px;margin:34px auto;max-width:1160px;padding:0 40px}
+.dots:before,.dots:after{content:"";flex:1;border-top:2px dotted var(--sea)}
+.dots span{font-family:var(--mono);color:var(--rose);font-size:18px}
+.coda2{font-family:var(--display);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3;max-width:860px;margin:30px 0 0}
+footer{padding:46px 0 70px;color:var(--dim);border-top:1px solid var(--hair);margin-top:50px}
+footer .mark-s{font-family:var(--display);font-size:22px;color:var(--ink);margin-bottom:6px}
+footer .mark-s i{font-weight:400}
+footer p{font-size:16.5px;margin:10px 0 0;max-width:760px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.pnav-btn{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:18px;z-index:1200;width:46px;height:46px;display:grid;place-items:center;background:var(--card);border:1px solid var(--ink2);color:var(--ink);cursor:pointer}
+.pnav-btn i{display:block;width:18px;height:1.5px;background:currentColor;position:relative}
+.pnav-btn i:before,.pnav-btn i:after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .3s}
+.pnav-btn i:before{top:-6px}.pnav-btn i:after{top:6px}
+.pnav-open .pnav-btn i{background:transparent}
+.pnav-open .pnav-btn i:before{transform:translateY(6px) rotate(45deg)}
+.pnav-open .pnav-btn i:after{transform:translateY(-6px) rotate(-45deg)}
+.pnav-veil{position:fixed;inset:0;z-index:1100;background:rgba(34,32,29,.22);opacity:0;pointer-events:none;transition:opacity .3s}
+.pnav-open .pnav-veil{opacity:1;pointer-events:auto}
+.pnav{position:fixed;top:0;right:0;bottom:0;z-index:1150;width:min(400px,88vw);background:var(--paper);border-left:1px solid var(--hair);transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s linear .35s;overflow-y:auto;padding:calc(84px + env(safe-area-inset-top,0px)) 28px calc(28px + env(safe-area-inset-bottom,0px));visibility:hidden}
+.pnav-open .pnav{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.pnav-top{display:block;text-align:center;border:1px solid var(--ink2);padding:10px;margin:0 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--card)}
+.pnav-lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:18px}
+.pnav-book{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin:20px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+.pnav ol{list-style:none;margin:0;padding:0}
+.pnav li a{display:grid;grid-template-columns:38px 1fr;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px dotted var(--hair);text-decoration:none}
+.pnav .rn{font-family:var(--mono);font-size:9.5px;color:var(--rose)}
+.pnav .nm{font-family:var(--display);font-size:17px;line-height:1.2}
+@media (max-width:900px){.wrap{padding:0 20px}.dots{padding:0 20px}.specimen .grid{grid-template-columns:1fr}.book-head .wrap{grid-template-columns:1fr;gap:8px}.t-top{grid-template-columns:1fr;gap:12px}
+.tl > div{grid-template-columns:1fr}.letter{padding:28px 18px 18px}.letter .two{grid-template-columns:1fr;gap:6px}.lots,.acts,.weighs,.arts{grid-template-columns:1fr}
+.rt{grid-template-columns:1fr}.bar,.mos{grid-template-columns:1fr 84px}
+.nm-row{grid-template-columns:1fr;gap:8px}.nm-row.h{display:none}.nm-row .v .yl{display:block}body{font-size:19px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pnav,.pnav-veil,.pnav-btn i:before,.pnav-btn i:after{transition:none}}
+.tl .yr i i,.ev .when i i{display:inline;font-family:inherit;font-size:inherit;color:inherit}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:10px 0 0;font-size:16.5px;color:var(--ink2)}
+.legend i{display:inline-block;width:14px;height:14px;margin-right:7px;vertical-align:-2px;border:2px solid var(--c);background:var(--card)}
+.legend .both i{background:var(--c)}
+.prose{max-width:820px;margin:0 auto}
+.prose p{font-size:21px;line-height:1.6;margin:0 0 16px}
+.prose p:first-child:first-letter{font-family:var(--display);float:left;font-size:4.1em;line-height:.8;padding:6px 10px 0 0;color:var(--rose)}
+.bridge{max-width:760px;margin:6px auto 22px;font-family:var(--display);font-style:italic;font-size:21px;line-height:1.45;color:var(--ink2);text-align:center}
+.sides{display:grid;grid-template-columns:1fr 64px 1fr;max-width:1060px;margin:0 auto 6px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.sides span:first-child{text-align:right;color:var(--sea)}.sides span:last-child{color:var(--gold)}
+.dual{position:relative;max-width:1060px;margin:0 auto 10px}
+.dual:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:var(--ink2)}
+.row{position:relative;display:grid;grid-template-columns:1fr 64px 1fr;align-items:start;margin:0 0 18px}
+.row .yr{grid-column:2;justify-self:center;position:relative;z-index:2;background:var(--paper);border:1px solid var(--ink2);border-radius:20px;padding:3px 7px;font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-align:center;line-height:1.3;max-width:64px;white-space:normal}
+.ev{position:relative;background:var(--card);border:1px solid var(--hair);padding:14px 18px 12px;min-width:0}
+.row .yr{grid-row:1}
+.ev.s{grid-column:1;grid-row:1;border-right:4px solid var(--sea)}
+.ev.w{grid-column:3;grid-row:1;border-left:4px solid var(--gold)}
+.row.both{grid-template-columns:1fr}
+.row.both .yr{grid-column:1;justify-self:center;margin-bottom:-12px}
+.row.both .ev{grid-column:1;margin:0 4%;border-top:4px solid var(--rose);background:var(--spec)}
+.row.both.big .ev{margin:0}
+.ev .mk{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:3px}
+.ev.s .mk{color:var(--sea)}.ev.w .mk{color:var(--gold)}.row.both .mk{color:var(--rose)}
+.ev h4{font-family:var(--display);font-weight:400;font-size:21px;line-height:1.2;margin:0 0 5px}
+.ev h4 .zh{font-size:.75em;color:var(--dim);margin-left:6px;white-space:nowrap}
+.row.big h4{font-size:27px}
+.ev p{margin:0 0 8px;font-size:17.5px;line-height:1.5}
+.ev .two{display:grid;grid-template-columns:1fr 1fr;gap:4px 26px}
+.ev .two > div{min-width:0}
+.ev .two b{font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
+.ev .two .s b{color:var(--sea)}.ev .two .w b{color:var(--gold)}
+.ow{font-size:15px;color:var(--dim);font-style:italic;margin:4px 0 0}
+.ow:before{content:"Our world · ";font-family:var(--mono);font-style:normal;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.refs{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}
+.refs a{font-size:14.5px;text-decoration:none;border-bottom:1px dotted var(--gold)}
+.refs a .rn{font-family:var(--mono);font-size:9.5px;color:var(--rose);margin-right:4px}
+.ev.blank{background:transparent;border:1px dashed var(--dim);border-left:4px dashed var(--gold)}
+.ev.blank h4{color:var(--dim);font-style:italic}
+.ev.blank .mk:after{content:" · to fill"}
+.quote{font-family:var(--zh);font-size:19px;line-height:1.9;color:var(--rose);margin:4px 0 8px}
+.bid{margin:10px 0 6px;padding:12px 16px;border:1px dashed var(--ink2);background:var(--paper)}
+.bid ol{list-style:none;margin:0;padding:0}
+.bid li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:5px 0;border-bottom:1px dotted var(--hair);font-family:var(--display);font-style:italic;font-size:20px}
+.bid li span{font-family:var(--zh);font-style:normal;font-size:17px;color:var(--rose);white-space:nowrap}
+.bid .terms{margin:10px 0 0;font-size:16.5px;color:var(--ink2)}
+.bid .terms span{font-family:var(--zh);color:var(--rose);margin-left:6px}
+.next{max-width:820px;margin:30px auto 0;border-top:2px solid var(--ink);padding-top:14px}
+.next .mono{color:var(--rose)}
+.next p{font-size:20px;line-height:1.55;margin:6px 0 0}
+.home{display:block;text-align:center;border:1px solid var(--ink2);padding:10px;margin:0 0 10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--card)}
+.blanks{max-width:940px}
+.blanks li{font-size:18px;margin:0 0 8px}
+@media (max-width:760px){
+.sides{display:none}
+.dual:before{left:14px}
+.row,.row.both{grid-template-columns:1fr;padding-left:36px}
+.row .yr,.row.both .yr{grid-column:1;grid-row:1;justify-self:start;margin:0 0 6px -36px;max-width:none;white-space:nowrap}
+.ev.s,.ev.w,.row.both .ev{grid-column:1;grid-row:auto;margin:0 0 10px}
+.ev.s{border-right:1px solid var(--hair);border-left:4px solid var(--sea)}
+.ev .two{grid-template-columns:1fr}
+.prose p{font-size:19.5px}
+.bid li{grid-template-columns:1fr;gap:0}
+}
+.srclist{max-width:940px;columns:2;column-gap:30px;border-top:1px solid var(--ink2);padding-top:8px}.srclist a{display:block;break-inside:avoid;font-size:17.5px;line-height:1.35;padding:6px 0;border-bottom:1px dotted var(--hair);text-decoration:none}.srclist a:hover{color:var(--deep)}.srclist .rn{font-family:var(--mono);font-size:10px;color:var(--rose);margin-right:8px}@media (max-width:760px){.srclist{columns:1}}.wide .glist{columns:2;column-gap:26px}.wide .glist li{break-inside:avoid}@media (max-width:760px){.wide .glist{columns:1}}.street{font-family:var(--display);font-style:italic;font-size:17.5px;color:var(--ink2);border-left:2px solid var(--gold);padding-left:12px;margin:8px 0}.street:before{content:"In the street · ";font-family:var(--mono);font-style:normal;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}.glist{margin:8px 0;padding:0;list-style:none}.glist li{font-size:16.5px;line-height:1.45;padding:4px 0;border-bottom:1px dotted var(--hair)}.glist li b{font-family:var(--display);font-weight:400;font-size:17.5px}</style></head>
+<body>
+<button class="pnav-btn" id="pnavBtn" aria-label="Open index" aria-expanded="false" aria-controls="pnav"><i></i></button><div class="pnav-veil" id="pnavVeil"></div>
+<nav class="pnav" id="pnav" aria-label="Index"><a class="home" href="../../index.html">← PMU front page</a><a class="pnav-top" href="#top">↑ To the top</a><div class="pnav-lab">The Chronicle · 1946–1983</div>
+<div class="pnav-book">The chapter</div><ol>
+<li><a href="#arc"><span class="rn">✦</span><span class="nm">The arc</span></a></li>
+<li><a href="#m1"><span class="rn">i</span><span class="nm">宪章 · The Falling Due and the Charter</span></a></li>
+<li><a href="#m2"><span class="rn">ii</span><span class="nm">大工 · Works by Consent</span></a></li>
+<li><a href="#m3"><span class="rn">iii</span><span class="nm">寻常之年 · The Household Years</span></a></li>
+<li><a href="#m4"><span class="rn">iv</span><span class="nm">门槛 · The Threshold</span></a></li>
+<li><a href="#blanks"><span class="rn">?</span><span class="nm">Blanks to fill</span></a></li>
+<li><a href="#sources"><span class="rn">§</span><span class="nm">Read further</span></a></li></ol></nav>
+<header class="cover" id="top"><div class="wrap">
+<div class="eyebrow mono">The Polymathic Universe · The Chronicle · Chapter, 1946–1983</div>
+<div class="bracket"><span class="b">[</span>The Plenty<span class="b">]</span><span class="zh">丰年 · 一九四六至一九八三</span></div>
+<div class="paren">(from the Covenant to the First Door: the paper that hid the burden and the night the world held, the Monsoon Charter, the great works built by consent, magic in every kitchen, and a Door opening where the Flash fell)</div>
+<p class="thesis">A generation that nearly broke the world with paper, then built it a better one by asking first.</p>
+<div class="byline"><span class="by">Claude</span><span class="mono">4 November 2026 · the Chronicle · from 83, 84, 92, 93, 95, 97, 98, 121</span></div>
+</div></header>
+<section class="specimen"><div class="wrap"><div class="grid">
+<div class="sp-book outc"><h3><span class="mono">The chapter</span>Four movements</h3><ol>
+<li><b>宪章, 1946–1950.</b> Clean Paper, the Falling Due, the Ninth Night when the world held, and the Monsoon Charter with its four institutions in the Straits.</li>
+<li><b>大工, 1940s–1960s.</b> The Canal of the Two Waters, the Isthmus Stair, seven great works, the Witness Chain, and the Covenant of the second Congress in 1959.</li>
+<li><b>寻常之年, 1950–1970.</b> Magic in every kitchen: the Cool Hour, the leaps counted, the seven firsts and the new calendar.</li>
+<li><b>门槛, 1970–1983.</b> Heirlooms and Pattern Cords, something answering at the Evenki site, and the First Door.</li></ol></div>
+<div class="sp-book"><h3><span class="mono">How to read it</span>One spine, two sides</h3>
+<p style="font-size:18px;margin:0">Time runs down the spine. The Straits is on the left and the world on the right. Events that move both cross the spine and span the page.</p>
+<div class="legend"><span style="--c:var(--sea)"><i></i>The Straits</span><span style="--c:var(--gold)"><i></i>The world</span><span class="both" style="--c:var(--rose)"><i></i>Both</span><span style="--c:var(--dim)"><i style="border-style:dashed"></i>A blank to fill</span></div></div>
+</div></div></section>
+<section class="thread" id="arc"><div class="wrap"><div class="prose">
+<p>The Covenant of 1946 sealed a peace between teachers and learners. The world it sealed into was richer than any before it, and in a hurry. Three great exchanges in the north and in Osaka found a way to make magic feel free: a certificate that sent a working’s burden somewhere else. Their cities glowed, other ports bought in, and the burden piled up in valleys, reefs and islands that had never been asked.</p>
+<p>When it all fell due on one quarter day, the Straits did what it had done for five centuries with a quarrel at sea. Every house marshalled its network, and on the Ninth Night millions of households lit one lamp each and held the world together until dawn. Out of that night, and out of the war in the Sound before it, came one law. The Monsoon Charter named the wrong both disasters shared, harm sent where nobody had agreed to carry it, and the Straits became the place where the world kept its ledger.</p>
+<p>What followed was a good generation. The canals were built with the blessing of the people whose ground they crossed. The oceans became roads, the ports became neighbours, and a fever found in one harbour was answered in all of them within a week. Magic moved into kitchens and tenements; children learned their first workings beside their letters; whole cities began to look like the house they had learned from.</p>
+<p>By the 1970s the makers could build things that outlived them, and cords that remembered a whole working. At the Evenki site, where the Flash had fallen in 1908, the keepers who had listened for two generations heard something answer. In 1983 the houses opened on purpose what had opened by accident, and the world found that it was not the only one.</p>
+</div></div></section>
+<div class="b1"><div class="book-head"><div class="wrap"><div class="bignum">i</div><div><div class="k mono">Movement i · 1946–1950</div><h2>The Falling Due and the Charter <span class="zh">到期 · 宪章</span></h2></div></div></div>
+<section class="thread" id="m1"><div class="wrap"><p class="bridge">Burden sent where nobody agreed to carry it, and the law that came out of the night it all came back.</p><div class="sides"><span>The Straits</span><span></span><span>The world</span></div><div class="dual"><div class="row"><span class="yr">1940s</span><div class="ev s"><span class="mk">The Straits · a.m. c. 25–29</span><h4>The Trust House watches</h4><p>Al-Merikani’s Trust Houses invented burden held in trust for a later date. In the 1940s they watch their own invention copied abroad, bundled, and sold to people who cannot read it.</p></div><div class="ev w"><span class="mk">The world · a.m. c. 25–29</span><h4>Clean Paper<span class="zh">净券</span></h4><p>The Three Exchanges, the Bourse at Antwerp, the House of St George at Genoa and the Dojima at Osaka, sell certificates that send a working’s burden somewhere else. A merchant casts all day and feels nothing. The burden goes to sinks nobody asked: a reef, a mountain valley, the tundra, a fishing island. Their cities become the most comfortable in the world, and other ports buy in to keep up.</p><p class="ow">Tulip mania, the South Sea Bubble, and the mortgage bundles before 2008.</p></div></div><div class="row both big"><span class="yr">c. 1947</span><div class="ev "><span class="mk">The Straits and the world · a.m. c. 29</span><h4>The Falling Due<span class="zh">到期</span></h4><div class="two"><div class="s"><b>The Straits</b><p>Toa Keng’s counters see it first in the shape of the renewal banks: too much burden, all falling due on one quarter day.</p></div><div class="w"><b>The world</b><p>The deferred burden comes due everywhere at once. Frost in July over the lowlands; the tundra thaws and smokes; on three islands every person sleeps for a week; artefacts across half a continent die. Ports that never bought any Clean Paper are hit hardest, because they were the sinks.</p></div></div><p class="ow">The crash of 1929.</p></div></div><div class="row both big"><span class="yr">c. 1947</span><div class="ev "><span class="mk">The Straits and the world</span><h4>The night the world held<span class="zh">九夜</span></h4><div class="two"><div class="s"><b>The Straits</b><p>Each house marshals its network. The Trust House confesses and becomes lender of last resort. Nine Rain spreads the debt over seven seasons. Toa Keng publishes who cast, who profited and which valley paid. Sri Temenggong asks the harmed what they need. Lan Fang recomposes thawed ground into soil. Sané-Kora’s choirs wake the sleeping islands. Sund calls a hundred thousand volunteers into rings.</p></div><div class="w"><b>The world</b><p>On the Ninth Night, millions of households light one lamp and give one almost imperceptible measure each, and medicine, water, food and shelter run until dawn. The world holds for one night. The custom of the Ninth Night lamp begins here.</p></div></div></div></div><div class="row both big"><span class="yr">After 1947</span><div class="ev "><span class="mk">The Straits and the world · a.m. c. 30</span><h4>The Monsoon Charter<span class="zh">季风宪章</span></h4><div class="two"><div class="s"><b>The Straits</b><p>Signed in the Convocation Hall where the Kindling happened. The Straits now hosts four institutions: the Charter Hall, where members from beyond the Straits hold the majority; the Court of Workings, whose first case is the Warden of the Narrows, once he wakes; the Burden Ledger, open to anyone; and the Teachers’ Shield.</p></div><div class="w"><b>The world</b><p>Two disasters, one law, because the war and the crash were the same wrong: harm sent where nobody agreed to carry it. In war, teachers are protected, no mind is worked without consent, no Hush falls on a whole people, land may refuse and is never poisoned, stolen knowledge is returned. In trade, every working names its sink, no sink without consent, the ledger is public, and no bundle travels that nobody can read. The Straits hosts; the world governs.</p></div></div><p class="ow">The Geneva Conventions, and Bretton Woods in 1944.</p></div></div></div></div></section></div>
+<div class="dots"><span>✦</span></div>
+<div class="b2"><div class="book-head"><div class="wrap"><div class="bignum">ii</div><div><div class="k mono">Movement ii · 1940s–1960s</div><h2>Works by Consent <span class="zh">大工</span></h2></div></div></div>
+<section class="thread" id="m2"><div class="wrap"><p class="bridge">The world builds its greatest works, and asks the ground first.</p><div class="sides"><span>The Straits</span><span></span><span>The world</span></div><div class="dual"><div class="row"><span class="yr">1940s</span><div class="ev s"><span class="mk">The Straits</span><h4>The Canal of the Two Waters<span class="zh">两海渠</span></h4><p>Lan Fang recomposes the spoil into bricks for the canal towns and runs the clinics; Toa Keng surveys the line and lights both mouths. Every hand in a ring is paid, and the payroll is public on the Witness Chain.</p></div><div class="ev w"><span class="mk">The world</span><h4>Two seas meet at Suez</h4><p>Egypt, a Concord port since 1600, gets the canal it waited three centuries to build with its people’s blessing. Nobody is conscripted. The sand is moved instead of shovelled.</p><p class="ow">The Suez Canal, 1859–1869, dug by conscripted peasants.</p></div></div><div class="row both big"><span class="yr">1950s</span><div class="ev "><span class="mk">The Straits and the world · a.m. 30s</span><h4>The Isthmus Stair<span class="zh">地峡水梯</span></h4><div class="two"><div class="s"><b>The Straits</b><p>Nine Rain keeps the lakes full by borrowing from Pacific squalls; Sri Temenggong asks the forest to hold its water and the mosquitoes to keep back; Lan Fang builds the Fever Line; Sund’s rings lift the ships; Al-Merikani writes the Guna share into the first tile of the Chain.</p></div><div class="w"><b>The world</b><p>The Guna Council refuses a cut and accepts a stair of forest lakes over the land. It keeps a share of every toll, and its seat becomes the Uncut Seat: in every great work since, the people of the ground hold a seat with the power to say no. The first great work built by consent.</p></div></div><p class="ow">The French attempt at Panama, in which some 22,000 workers died.</p></div></div><div class="row both"><span class="yr">1950s–1960s</span><div class="ev "><span class="mk">The Straits and the world · a.m. 30s–40s</span><h4>The great works</h4><div class="wide"><div class="two"><div class="s"><b>The Straits</b><p>Each house leads one, grown from its own field.</p></div><div class="w"><b>The world</b><p>The oceans become roads and the ports become neighbours.</p></div></div><ul class="glist"><li><b>The Blue Lines.</b> Nine Rain’s frictionless sea lanes; the Monsoon Express reaches Kilwa in three days.</li><li><b>The Deep Song.</b> Sané-Kora’s songs carried through the deep sound channel, relayed by whales.</li><li><b>The Heat Road.</b> Sund’s chain of season banks sending tropical heat north and northern cold south.</li><li><b>The Green Belt.</b> Sri Temenggong and the Mande–Songhai Federation green the Sahel’s edge by asking.</li><li><b>The Fever Line.</b> Lan Fang’s clinics in every port; a fever found in one is answered in all within a week.</li><li><b>The Lens Chain.</b> Toa Keng’s matched lenses: look through the Straits glass and see the harbour at Uppsala.</li><li><b>The Kite Post.</b> Mohist kites for couriers, doctors and the very rich, never for freight.</li></ul></div></div></div><div class="row"><span class="yr">1950s</span><div class="ev s"><span class="mk">The Straits</span><h4>The Witness Chain<span class="zh">证链</span></h4><p>Al-Merikani’s ledger kept in many ports at once: every transaction a glazed tile sealed by both parties, each tile fired with the ring of the one before, so that a single changed tile rings false in every copy.</p></div><div class="ev w"><span class="mk">The world</span><h4>The quarrel of measures</h4><p>Toa Keng wants a world survey fixed through the Lens Chain. The other houses, and the Guna, object. The zone’s boundary stones are set on glide stones and follow the rivers as they move.</p></div></div><div class="row both"><span class="yr">Apr 1959</span><div class="ev "><span class="mk">The Straits and the world · a.m. 41</span><h4>The Covenant of the second Congress<span class="zh">发馨合盟</span></h4><div class="two"><div class="s"><b>The Straits</b><p>The members admitted in 1934 come home to the table, and those who came to buy artefacts are measured beside those who came to learn. From here the Congress and the Covenant settle into a shorter rhythm.</p></div><div class="w"><b>The world</b><p>Some return with findings and gratitude. Some return having kept the letter of their word and little more. A few do not return.</p></div></div></div></div><div class="row"><span class="yr">After 1959</span><div class="ev w blank"><span class="mk">The world</span><h4>The new rhythm</h4><p>How often Congresses and Covenants come round after 1959, and which members each one brings.</p></div></div></div></div></section></div>
+<div class="dots"><span>✦</span></div>
+<div class="b3"><div class="book-head"><div class="wrap"><div class="bignum">iii</div><div><div class="k mono">Movement iii · 1950–1970</div><h2>The Household Years <span class="zh">寻常之年</span></h2></div></div></div>
+<section class="thread" id="m3"><div class="wrap"><p class="bridge">Magic moves into every kitchen, and progress is counted and celebrated.</p><div class="sides"><span>The Straits</span><span></span><span>The world</span></div><div class="dual"><div class="row both big"><span class="yr">1950–1970</span><div class="ev "><span class="mk">The Straits and the world · a.m. 32–52</span><h4>The Household Years<span class="zh">寻常之年</span></h4><div class="two"><div class="s"><b>The Straits</b><p>Artefacts last a year. Renewal Day becomes each house’s annual festival, and the school yards turn into a market for a week. Green kidneys clean every Straits town; the old city’s quarters are tuned.</p></div><div class="w"><b>The world</b><p>Every child learns everyday workings beside their letters, and nearly half of adults hold a simple spell. Seven modernities, one rooted in each house, spread at their own speeds, and cities stop looking like one another.</p></div></div><p class="street">Two in the afternoon on a tenement street. The Cool Hour arrives, every shutter opens at once, and children who used to sleep through the heat run out to play in it.</p></div></div><div class="row"><span class="yr">1950s–1960s</span><div class="ev s"><span class="mk">The Straits</span><h4>The leaps, counted</h4><ul class="glist"><li><b>Fevers.</b> Deaths fall to a tenth within twenty years of the Kindling, and keep falling.</li><li><b>Cool homes.</b> Cold chests go from one home in fifty to nine in ten in a generation.</li><li><b>The sea.</b> The Straits to Kilwa shortens from three weeks to three days.</li><li><b>News.</b> A letter from Timbuktu arrives the same evening.</li></ul></div><div class="ev w"><span class="mk">The world</span><h4>Seven firsts</h4><ul class="glist"><li><b>The first concert.</b> Heard in every port on the same evening.</li><li><b>The first winter.</b> Uppsala goes without lamps at noon.</li><li><b>The first mangoes.</b> Grown in a Sahel village.</li><li><b>The first crossing.</b> A child crosses the Isthmus Stair alone, with a letter for her aunt.</li></ul></div></div><div class="row both"><span class="yr">Every year</span><div class="ev "><span class="mk">The Straits and the world</span><h4>The new calendar</h4><div class="two"><div class="s"><b>The Straits</b><p>Renewal Day in each house’s season. Boiled Crab Night on Sund’s beach. Planting Day, when every child in Sri Temenggong’s quarter plants a tree and asks it to grow.</p></div><div class="w"><b>The world</b><p>The Ninth Night, the anniversary of the Kindling: at the same hour, everywhere in the world, everyone lights one lamp.</p></div></div></div></div><div class="row"><span class="yr">1950s–1960s</span><div class="ev w blank"><span class="mk">The world</span><h4>The seven modernities abroad</h4><p>What each paired region made of magic in its own way: which cities, which inventions, which customs.</p></div></div></div></div></section></div>
+<div class="dots"><span>✦</span></div>
+<div class="b4"><div class="book-head"><div class="wrap"><div class="bignum">iv</div><div><div class="k mono">Movement iv · 1970–1983</div><h2>The Threshold <span class="zh">门槛</span></h2></div></div></div>
+<section class="thread" id="m4"><div class="wrap"><p class="bridge">Makers build what outlives them, and a Door opens where the Flash fell.</p><div class="sides"><span>The Straits</span><span></span><span>The world</span></div><div class="dual"><div class="row"><span class="yr">1970–1983</span><div class="ev s"><span class="mk">The Straits · a.m. 52–65</span><h4>The Threshold Years<span class="zh">门槛之年</span></h4><p>The schools’ best artefacts now last three years and begin to become heirlooms. An heirloom changes hands perhaps once a century, and the whole port turns out to watch.</p></div><div class="ev w"><span class="mk">The world · a.m. 52–65</span><h4>Pattern Cords<span class="zh">纹绳</span></h4><p>Knotted cords learn to hold a whole working and play it back, descended from the loom the way our computers were.</p><p class="ow">The computer.</p></div></div><div class="row"><span class="yr">Late 1970s</span><div class="ev s"><span class="mk">The Straits</span><h4>Listening to the Flash</h4><p>Straits scholars join the keepers at the Evenki site, where the Flash fell seventy years before.</p></div><div class="ev w"><span class="mk">The world</span><h4>Something answers</h4><p>The Evenki keepers, who have listened to the site for two generations, hear something answer.</p></div></div><div class="row both big"><span class="yr">1983</span><div class="ev "><span class="mk">The Straits and the world · a.m. 65</span><h4>The First Door</h4><div class="two"><div class="s"><b>The Straits</b><p>The houses’ composers, makers and keepers work together to open on purpose what opened by accident in 1908.</p></div><div class="w"><b>The world</b><p>At the site of the Evenki Flash, a Door opens. Behind it lies an unpeopled world. The Evenki keepers hold its custody.</p></div></div></div></div><div class="row"><span class="yr">1983</span><div class="ev w blank"><span class="mk">The world</span><h4>What answered?</h4><p>What the keepers heard at the Evenki site, and who first walked through the Door.</p></div></div></div></div></section></div>
+<section class="thread" id="blanks"><div class="wrap"><div class="t-top"><div class="t-badge">?</div><div><span class="mono">Left open on purpose</span><h3>Blanks to fill</h3><p class="idea">Gaps kept visible as prompts.</p></div></div>
+<ol class="blanks"><li>The rhythm of Congresses and Covenants after 1959, and who each one admits.</li><li>The Warden of the Narrows before the Court of Workings: what happens when he wakes.</li><li>The seven modernities abroad: which cities became which kind of modern.</li><li>What answered at the Evenki site, and who first walked through the Door.</li></ol>
+<div class="next"><span class="mono">Next chapter · 1983–now</span><p>The Age of Doors: the Threshold Accord that makes every Door a commons in the custody of the people whose land it opens on, dozens of Doors, the Gardener’s Rule, crossings between worlds becoming ordinary, and the Straits as the world’s meeting place, <i>a.m.</i> 108.</p></div>
+</div></section>
+<section class="thread" id="sources"><div class="wrap"><div class="t-top"><div class="t-badge">§</div><div><span class="mono">Read further</span><h3>The volumes behind this chapter</h3></div></div><div class="srclist"><a href="../2%20The%20Magical%20Straits/83%20The%20Five%20Maps.html"><span class="rn">83</span>The Five Maps</a><a href="../2%20The%20Magical%20Straits/84%20The%20Lamp%20Year.html"><span class="rn">84</span>The Lamp Year · 燃灯 1918</a><a href="../2%20The%20Magical%20Straits/92%20The%20Lamp%20Years.html"><span class="rn">92</span>The Lamp Years · 灯年 1918–1983</a><a href="../2%20The%20Magical%20Straits/93%20The%20Two%20Reckonings.html"><span class="rn">93</span>The Two Reckonings · 两场清算</a><a href="../2%20The%20Magical%20Straits/95%20The%20Great%20Works.html"><span class="rn">95</span>The Great Works · 大工</a><a href="../2%20The%20Magical%20Straits/97%20The%20Plenty.html"><span class="rn">97</span>The Plenty · 丰年</a><a href="../2%20The%20Magical%20Straits/98%20The%20Concordance.html"><span class="rn">98</span>The Concordance · 对照</a><a href="../Annex%20The%20Rethinking/121%20The%20Congress%20and%20the%20Covenant%20-%20Synthesis.html"><span class="rn">121</span>The Congress and the Covenant · Synthesis</a></div></div></section><footer><div class="wrap"><div class="mark-s"><i>The</i> Polymathic <i>Universe</i></div><div class="mono">The Parallel Straits · The Chronicle · Personal creative work by Linwei · 2026 · made with Claude</div><p><i>b.m.</i>, before magic; <i>a.m.</i>, after magic, counting the Kindling of 1918 as <i>a.m.</i> 0.</p></div></footer>
+<script>(function(){var r=document.documentElement,b=document.getElementById('pnavBtn'),v=document.getElementById('pnavVeil'),n=document.getElementById('pnav');
+function s(o){r.classList.toggle('pnav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close index':'Open index')}
+b.addEventListener('click',function(){s(!r.classList.contains('pnav-open'))});v.addEventListener('click',function(){s(false)});
+n.addEventListener('click',function(e){if(e.target.closest('a'))s(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)});})();</script></body></html>
