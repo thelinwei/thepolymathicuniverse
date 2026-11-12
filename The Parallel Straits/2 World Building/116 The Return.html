@@ -1,0 +1,575 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>The Return · The Polymathic Universe</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><style>
+:root{color-scheme:light;--ink:#2b1f15;--ink2:#4a3727;--dim:#6b5845;--hair:#dccfbc;--paper:#f5efe3;--mist:#ebe1cf;--card:#fbf7ef;--deep:#6b3f1d;--rose:#a63d23;--gold:#9c6d12;--pandan:#4c6a33;--claude:#a85d86;
+--cover:radial-gradient(36% 30% at 80% 24%,rgba(166,61,35,.28),transparent 70%),radial-gradient(34% 28% at 18% 74%,rgba(76,106,51,.30),transparent 70%),radial-gradient(30% 24% at 62% 84%,rgba(206,152,40,.40),transparent 70%),radial-gradient(60% 50% at 40% 30%,rgba(222,196,150,.7),transparent 75%),linear-gradient(170deg,#efe4cf 0%,#e3cfac 50%,#e9dcc5 100%);
+--spec:linear-gradient(135deg,#efdfb4 0%,#f3e8d2 55%,#ecd2c2 100%);
+--h1:linear-gradient(160deg,#ede1c9,#dfc9a5 60%,#ece1cc);--h2:linear-gradient(160deg,#e4e6cf,#d3dbb9 55%,#ebe3cc);--h3:linear-gradient(160deg,#f3e2d2,#e5c4ad 55%,#f1e1d2);--h4:linear-gradient(160deg,#ebe3d3,#dccdb5 55%,#ece3d6);
+--serif:"Cormorant Garamond","Times New Roman",Times,serif;--display:"Playfair Display","Times New Roman",serif;--mono:"JetBrains Mono",ui-monospace,monospace;--zh:"Songti SC","Noto Serif SC","STSong",serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ink:#EFE6D8;--ink2:#DDCFBC;--dim:#BEAC95;--hair:#4A3C2E;--paper:#17110C;--mist:#221911;--card:#1E1710;--deep:#E3B983;--rose:#E79A7B;--gold:#E3C26E;--pandan:#A9C98C;--claude:#D58FB6;
+--cover:radial-gradient(36% 30% at 80% 24%,rgba(166,61,35,.24),transparent 70%),radial-gradient(34% 28% at 18% 74%,rgba(76,106,51,.24),transparent 70%),linear-gradient(170deg,#1F1710 0%,#281C12 50%,#201A12 100%);
+--spec:linear-gradient(135deg,#2B2315 0%,#272015 55%,#2E1E17 100%);--h1:linear-gradient(160deg,#211911,#2B2016);--h2:linear-gradient(160deg,#1C1F14,#24261A);--h3:linear-gradient(160deg,#2B1E16,#2D2018);--h4:linear-gradient(160deg,#1F1A14,#27201A)}}
+:root[data-theme="dark"]{color-scheme:dark;--ink:#EFE6D8;--ink2:#DDCFBC;--dim:#BEAC95;--hair:#4A3C2E;--paper:#17110C;--mist:#221911;--card:#1E1710;--deep:#E3B983;--rose:#E79A7B;--gold:#E3C26E;--pandan:#A9C98C;--claude:#D58FB6;
+--cover:radial-gradient(36% 30% at 80% 24%,rgba(166,61,35,.24),transparent 70%),radial-gradient(34% 28% at 18% 74%,rgba(76,106,51,.24),transparent 70%),linear-gradient(170deg,#1F1710 0%,#281C12 50%,#201A12 100%);
+--spec:linear-gradient(135deg,#2B2315 0%,#272015 55%,#2E1E17 100%);--h1:linear-gradient(160deg,#211911,#2B2016);--h2:linear-gradient(160deg,#1C1F14,#24261A);--h3:linear-gradient(160deg,#2B1E16,#2D2018);--h4:linear-gradient(160deg,#1F1A14,#27201A)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.zh{font-family:var(--zh);font-style:normal}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+.cover{position:relative;overflow:hidden;padding:84px 0 70px;background:var(--cover)}
+.cover:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background:repeating-linear-gradient(176deg,transparent 0 22px,rgba(107,63,29,.07) 22px 23px,transparent 23px 41px,rgba(76,106,51,.06) 41px 42px)}
+.cover .wrap{position:relative;z-index:2}
+.eyebrow{color:var(--deep);margin-bottom:30px}
+.bracket{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:1;letter-spacing:-.02em}
+.bracket .b,h2 .b{color:var(--rose)}
+.bracket .zh{display:block;font-size:.42em;letter-spacing:.3em;margin-top:12px;color:var(--ink2)}
+.paren{font-style:italic;font-size:clamp(1.2rem,2vw,1.55rem);color:var(--ink2);margin-top:14px;max-width:780px}
+.byline{display:flex;gap:14px;align-items:center;margin-top:30px;flex-wrap:wrap;color:var(--dim)}
+.by{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;background:var(--claude);color:#fff}
+.thesis{font-family:var(--display);font-style:italic;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.3;max-width:860px;margin:38px 0 0;color:var(--ink)}
+.specimen{background:var(--spec);padding:48px 0 40px}
+.specimen .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px 48px}
+.sp-book h3{font-family:var(--display);font-weight:400;font-size:26px;margin:0 0 6px}
+.sp-book h3 .mono{color:var(--deep);margin-right:10px}
+.outc ol{margin:0;padding-left:1.25em}
+.outc li{font-size:18px;line-height:1.45;margin:0 0 9px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:4px 14px 4px 4px;border:1px solid var(--ink2);border-radius:40px;font-size:17px;text-decoration:none;background:rgba(255,255,255,.25)}
+.chip:hover,.chip:focus-visible{background:var(--card)}
+.chip i{font-style:normal;font-family:var(--mono);font-size:9px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--ink);color:var(--ink)}
+.book-head{padding:76px 0 54px;margin-top:20px}
+.b1 .book-head{background:var(--h1)}.b2 .book-head{background:var(--h2)}.b3 .book-head{background:var(--h3)}.b4 .book-head{background:var(--h4)}
+.book-head .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:end}
+.bignum{font-family:var(--display);font-style:italic;font-size:clamp(5.5rem,12vw,10rem);line-height:.78;color:var(--deep)}
+.book-head .k{color:var(--deep);margin-bottom:12px}
+.book-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,5vw,3.8rem);line-height:1;margin:0 0 14px;letter-spacing:-.02em}
+.book-head h2 .zh{font-size:.5em;color:var(--ink2);margin-left:10px;letter-spacing:.1em}
+.book-head p{margin:0;font-style:italic;font-size:21px;max-width:680px;color:var(--ink2)}
+.thread{padding:52px 0 8px}
+.t-top{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;margin-bottom:26px}
+.t-badge{width:64px;height:64px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:20px;background:var(--card)}
+.t-top .mono{color:var(--dim);display:block;margin-bottom:6px}
+.t-top h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.05;margin:0 0 10px}
+.t-top h3 .zh{font-size:.55em;color:var(--dim);margin-left:8px}
+.idea{font-style:italic;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.35;color:var(--deep);max-width:780px;border-left:3px solid var(--rose);padding-left:16px;margin:0}
+.content{max-width:940px}
+.content > p{margin:0 0 16px}
+.content p.big{font-size:23px;line-height:1.45}
+.subh{font-family:var(--display);font-weight:400;font-size:25px;margin:34px 0 8px;line-height:1.2}
+.subh .mono{display:block;color:var(--deep);margin-bottom:4px}
+.rule{margin:22px 0;padding:20px 24px;background:var(--spec);border:1px solid var(--hair);font-size:22px;font-family:var(--display);font-style:italic;line-height:1.35}
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0 8px}
+.role{background:var(--card);border:1px solid var(--hair);padding:14px 16px;border-top:4px solid var(--c)}
+.role b{font-family:var(--display);font-weight:400;font-size:23px;display:block;line-height:1.1}
+.role .zh{font-size:15px;color:var(--dim)}
+.role p{margin:6px 0 0;font-size:17px;line-height:1.4;color:var(--ink2)}
+.r-ground{--c:var(--pandan)}.r-hand{--c:var(--gold)}.r-table{--c:var(--rose)}.r-measure{--c:var(--dim)}
+/* jar shelf */
+.shelf{border-top:1px solid var(--ink2);margin:10px 0 6px}
+.jar{display:grid;grid-template-columns:200px 120px 1fr 1fr;gap:6px 22px;padding:14px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.jar .who b{font-family:var(--display);font-weight:400;font-size:21px;display:block;line-height:1.15}
+.jar .who span{font-size:16px;color:var(--dim);font-style:italic}
+.jar .rl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.jar p{margin:0;font-size:17.5px;line-height:1.45}
+.jar .back{color:var(--ink2)}
+.jar .back:before{content:"returned · ";font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.jar.house .who b{color:var(--deep)}
+.shelf-h{display:grid;grid-template-columns:200px 120px 1fr 1fr;gap:22px;padding:8px 0;color:var(--dim)}
+/* years */
+.years{display:grid;grid-template-columns:repeat(13,1fr);gap:6px;margin:18px 0 6px;max-width:640px}
+.years span{aspect-ratio:1;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--mono);font-size:9px;color:var(--ink2)}
+.years span.s{background:var(--pandan);border-color:var(--pandan);color:var(--paper)}
+.years span.c{background:var(--gold);border-color:var(--gold);color:var(--paper)}
+.years span.r{background:var(--rose);border-color:var(--rose);color:var(--paper)}
+.ykey{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:16px;color:var(--ink2);margin-bottom:10px}
+.ykey i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:middle;border:1px solid var(--gold)}
+.ykey .s{background:var(--pandan);border-color:var(--pandan)}.ykey .c{background:var(--gold)}.ykey .r{background:var(--rose);border-color:var(--rose)}
+/* sequence */
+.steps{counter-reset:r;border-top:1px solid var(--ink2)}
+.steps > div{display:grid;grid-template-columns:48px 1fr;gap:0 14px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.steps > div:before{counter-increment:r;content:counter(r);font-family:var(--display);font-style:italic;font-size:34px;line-height:1;color:var(--deep)}
+.steps h5{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 3px}
+.steps h5 .zh{font-size:15px;color:var(--dim);margin-left:6px}
+.steps p{margin:0;font-size:18px;line-height:1.48}
+/* five parts */
+.parts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:12px 0}
+.part{position:relative;background:var(--card);border:1px solid var(--hair);padding:18px 20px 16px 24px}
+.part:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--pandan),var(--gold),var(--rose))}
+.part h4{font-family:var(--display);font-weight:400;font-size:1.4rem;line-height:1.15;margin:0 0 2px}
+.part .zh{font-size:15px;color:var(--dim)}
+.part p{margin:8px 0 0;font-size:17.5px;line-height:1.45;color:var(--ink2)}
+/* story */
+.story p{font-size:20px}
+.story p:first-of-type:first-letter{font-family:var(--display);float:left;font-size:4.2em;line-height:.8;padding:6px 10px 0 0;color:var(--rose)}
+/* memoranda */
+.memo{border:1px dashed var(--ink2);background:var(--card);padding:18px 22px;margin:26px 0}
+.memo .mono{color:var(--deep);display:block;margin-bottom:10px}
+.memo dl{margin:0}
+.memo dt{font-family:var(--display);font-size:19px;margin-top:10px}
+.memo dt small{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim);margin-left:6px}
+.memo dd{margin:2px 0 0;font-size:17.5px;line-height:1.45;color:var(--ink2)}
+.words{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.words div{border:1px solid var(--hair);padding:10px 14px;background:var(--card)}
+.words b{font-family:var(--display);font-weight:400;font-size:21px;display:block}
+.words span{font-size:16.5px;color:var(--ink2)}
+/* tables */
+.tables{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:12px 0}
+.tbl{background:var(--card);border:1px solid var(--hair);padding:20px 22px}
+.tbl h4{font-family:var(--display);font-weight:400;font-size:1.55rem;margin:0}
+.tbl h4 .zh{font-size:.6em;color:var(--dim);margin-left:6px}
+.tbl .when{font-style:italic;color:var(--deep);margin:4px 0 10px;font-size:18px}
+.tbl p{margin:0 0 10px;font-size:17.5px;line-height:1.48}
+/* palates */
+.palates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.pal{background:var(--card);border:1px solid var(--hair);padding:20px 22px}
+.pal.wide{grid-column:1 / -1}
+.pal h4{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0;line-height:1.1}
+.pal .lean{font-style:italic;color:var(--rose);font-size:18.5px;margin:4px 0 10px}
+.pal p{margin:0 0 9px;font-size:17.5px;line-height:1.48}
+.pal p b{font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);margin-right:6px}
+/* precedent cards */
+.pcards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:10px 0 8px}
+.pc{position:relative;background:var(--card);border:1px solid var(--hair);padding:20px 22px 16px 26px;min-width:0}
+.pc:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--pandan),var(--gold),var(--rose))}
+.pc .tp{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.pc h4{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.15;margin:6px 0 4px}
+.pc h4 .zh{font-size:.75em}
+.pc .hook{font-family:var(--display);font-style:italic;font-size:19px;line-height:1.3;color:var(--rose);margin:0 0 10px}
+.pc p{margin:0 0 10px;font-size:17.5px;line-height:1.5}
+.pc details{margin-top:2px}
+.pc summary{cursor:pointer;list-style:none;display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border:1px solid var(--ink2);color:var(--ink)}
+.pc summary::-webkit-details-marker{display:none}
+.pc summary:after{content:" +"}
+.pc details[open] summary:after{content:" −"}
+.pc details[open] summary{margin-bottom:12px;background:var(--ink);color:var(--paper)}
+.pc .react{font-style:italic;color:var(--pandan);border-left:2px solid var(--pandan);padding-left:12px}
+.pc .go{border-top:1px dotted var(--dim);margin-top:12px;padding-top:10px}
+.pc .go span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:4px}
+.pc .go a{display:block;font-size:17px;line-height:1.4;padding:3px 0;text-decoration-color:var(--gold);text-underline-offset:3px}
+.dots{display:flex;align-items:center;gap:14px;margin:34px auto;max-width:1160px;padding:0 40px}
+.dots:before,.dots:after{content:"";flex:1;border-top:2px dotted var(--gold)}
+.dots span{font-family:var(--mono);color:var(--rose);font-size:18px}
+.coda2{font-family:var(--display);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3;max-width:860px;margin:34px 0 0}
+footer{padding:46px 0 70px;color:var(--dim);border-top:1px solid var(--hair);margin-top:50px}
+footer .mark-s{font-family:var(--display);font-size:22px;color:var(--ink);margin-bottom:6px}
+footer .mark-s i{font-weight:400}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.pnav-btn{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:18px;z-index:1200;width:46px;height:46px;display:grid;place-items:center;background:var(--card);border:1px solid var(--ink2);color:var(--ink);cursor:pointer}
+.pnav-btn i{display:block;width:18px;height:1.5px;background:currentColor;position:relative}
+.pnav-btn i:before,.pnav-btn i:after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .3s}
+.pnav-btn i:before{top:-6px}.pnav-btn i:after{top:6px}
+.pnav-open .pnav-btn i{background:transparent}
+.pnav-open .pnav-btn i:before{transform:translateY(6px) rotate(45deg)}
+.pnav-open .pnav-btn i:after{transform:translateY(-6px) rotate(-45deg)}
+.pnav-veil{position:fixed;inset:0;z-index:1100;background:rgba(43,31,21,.22);opacity:0;pointer-events:none;transition:opacity .3s}
+.pnav-open .pnav-veil{opacity:1;pointer-events:auto}
+.pnav{position:fixed;top:0;right:0;bottom:0;z-index:1150;width:min(400px,88vw);background:var(--paper);border-left:1px solid var(--hair);transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s linear .35s;overflow-y:auto;padding:calc(84px + env(safe-area-inset-top,0px)) 28px calc(28px + env(safe-area-inset-bottom,0px));visibility:hidden}
+.pnav-open .pnav{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.pnav-top{display:block;text-align:center;border:1px solid var(--ink2);padding:10px;margin:0 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--card)}
+.pnav-lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:18px}
+.pnav-book{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin:20px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+.pnav ol{list-style:none;margin:0;padding:0}
+.pnav li a{display:grid;grid-template-columns:38px 1fr;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px dotted var(--hair);text-decoration:none}
+.pnav .rn{font-family:var(--mono);font-size:9.5px;color:var(--rose)}
+.pnav .nm{font-family:var(--display);font-size:17px;line-height:1.2}
+@media (max-width:900px){.wrap{padding:0 20px}.dots{padding:0 20px}.specimen .grid{grid-template-columns:1fr}.book-head .wrap{grid-template-columns:1fr;gap:8px}.t-top{grid-template-columns:1fr;gap:12px}
+.roles{grid-template-columns:1fr 1fr}.parts,.tables,.palates,.pcards,.words{grid-template-columns:1fr}
+.shelf-h{display:none}.jar{grid-template-columns:1fr;gap:4px}.years{grid-template-columns:repeat(9,1fr)}body{font-size:19px}}
+@media (max-width:480px){.roles{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pnav,.pnav-veil,.pnav-btn i:before,.pnav-btn i:after{transition:none}}
+</style></head>
+<body>
+<button class="pnav-btn" id="pnavBtn" aria-label="Open index" aria-expanded="false" aria-controls="pnav"><i></i></button><div class="pnav-veil" id="pnavVeil"></div>
+<nav class="pnav" id="pnav" aria-label="Index"><a class="pnav-top" href="#top">↑ To the top</a><div class="pnav-lab">The Return · Index</div>
+<div class="pnav-book">Part One · The Return</div><ol>
+<li><a href="#return"><span class="rn">I</span><span class="nm">What the Return is</span></a></li>
+<li><a href="#hands"><span class="rn">II</span><span class="nm">Ground, Hand, Table and Measure</span></a></li>
+<li><a href="#years"><span class="rn">III</span><span class="nm">Twenty-five turning days</span></a></li>
+<li><a href="#dish"><span class="rn">IV</span><span class="nm">The Return Table</span></a></li>
+<li><a href="#first"><span class="rn">V</span><span class="nm">The first Return, 1892</span></a></li>
+<li><a href="#tki"><span class="rn">VI</span><span class="nm">Toa Keng and the matter of “some”</span></a></li></ol>
+<div class="pnav-book">Part Two · The other tables</div><ol>
+<li><a href="#tables"><span class="rn">VII</span><span class="nm">Guest, Season and Small Seal</span></a></li></ol>
+<div class="pnav-book">Part Three · Seven palates</div><ol>
+<li><a href="#palates"><span class="rn">VIII</span><span class="nm">How each house eats</span></a></li></ol>
+<div class="pnav-book">Part Four · Precedents</div><ol>
+<li><a href="#p-devotion"><span class="rn">A</span><span class="nm">Dishes of devotion</span></a></li>
+<li><a href="#p-sealed"><span class="rn">B</span><span class="nm">Bonds sealed in food and drink</span></a></li>
+<li><a href="#p-voyage"><span class="rn">C</span><span class="nm">Time and voyage as ingredient</span></a></li></ol>
+<div class="pnav-book">Coda</div><ol><li><a href="#coda"><span class="rn">✦</span><span class="nm">After the Kindling</span></a></li></ol>
+</nav>
+
+<header class="cover" id="top"><div class="wrap">
+<div class="eyebrow mono">The Polymathic Universe · Book One · Before Magic</div>
+<div class="bracket"><span class="b">[</span>The Return<span class="b">]</span><span class="zh">回味 · 百家饭</span></div>
+<div class="paren">(how the Straits eats together: the twenty-five-year rite that lets an accord be tasted, the three tables, the seven palates, and the real precedents behind them)</div>
+<p class="thesis">On the Straits, an accord is kept in a jar and opened with a spoon.</p>
+<div class="byline"><span class="by">Claude</span><span class="mono">4 November 2026 · worldbuilding · food and accords</span></div>
+</div></header>
+
+<section class="specimen"><div class="wrap"><div class="grid">
+<div class="sp-book outc"><h3><span class="mono">The outcome</span>Five things to carry out</h3><ol>
+<li><b>The Return (回味).</b> When the Straits seals a great accord, every party carries part of a shared recipe home. Twenty-five years later they bring it back, changed by their own soil, water, weather and hands, and cook it together on the Straits.</li>
+<li><b>Uneven hands.</b> Parties hold different roles. <i>Ground</i> keeps the raw: seeds, water, salt, honey. <i>Hand</i> keeps the method: the mother sauce, the spice blend, the song. <i>Table</i> cooks the final integration. Toa Keng holds the <i>Measure</i>, the role nobody asked for. The seven houses sit among any number of foreign shores; the first Return had eleven.</li>
+<li><b>Tended, inherited, chained.</b> Each year on the sealing day, every holder opens their jar, tastes, feeds and writes one line in the Register. Carrier households pass the duty to their children. A ladle of every Return seeds the jars of the next accord, so each new accord holds all the older ones.</li>
+<li><b>Three other tables.</b> The Guest Table for foreign delegations, served in the order the houses came to the Straits. The Season Table, where the houses meet around one named category. The Small Seal, a single bottle that keeps a smaller agreement.</li>
+<li><b>Inexactness, honoured.</b> 适量, agak-agak, andaaz, quanto basta. Most of the Straits cooks by feel. Toa Keng’s horror at this turns, over two Returns, into a science of difference.</li></ol></div>
+<div class="sp-book"><h3><span class="mono">Contents</span>Where to go</h3><div class="chips">
+<a class="chip" href="#return"><i>I</i>The Return</a><a class="chip" href="#hands"><i>II</i>Who holds what</a><a class="chip" href="#years"><i>III</i>Turning days</a><a class="chip" href="#dish"><i>IV</i>The Return Table</a><a class="chip" href="#first"><i>V</i>The first Return</a><a class="chip" href="#tki"><i>VI</i>Toa Keng’s memoranda</a><a class="chip" href="#tables"><i>VII</i>The other tables</a><a class="chip" href="#palates"><i>VIII</i>Seven palates</a><a class="chip" href="#p-devotion"><i>A</i>Precedents</a></div>
+<p style="font-size:17px;color:var(--ink2);margin:16px 0 0;font-style:italic">Sparked by 乾坤蛋: two geese fed for forty-nine days on white and on black, their eggs fried two ways and laid on the plate as yin and yang.</p></div>
+</div></div></section>
+
+<!-- PART ONE -->
+<div class="b1"><div class="book-head"><div class="wrap"><div class="bignum">i</div><div><div class="k mono">Part One</div><h2>The Return <span class="zh">回味</span></h2><p>回味 means the taste that lingers after a meal, and the act of remembering. Read literally, it says the flavour comes back. On the Straits it names a rite.</p></div></div></div>
+
+<section class="thread" id="return"><div class="wrap"><div class="t-top"><div class="t-badge">I</div><div><span class="mono">What it is</span><h3>An accord you can taste</h3><p class="idea">Relations, expressed in time, and in land.</p></div></div>
+<div class="content">
+<p class="big">A Straits accord is signed in ink and sealed in food. On the signing day the parties cook nothing. They divide a recipe. Seeds go to one delegation, a jar of mother sauce to another, a verse of the method to a third, rainwater in stoneware gourds to a fourth. Every party sails home holding a piece of a dish none of them can make alone.</p>
+<p>At home, the piece lives a life. It is planted in that shore’s soil, fed with that shore’s salt, raised on that shore’s water, dried in that shore’s wind, sung at that shore’s harvests. Twenty-five years is long enough for rice to be resown fifty times, for a clove seedling to bear in earnest, for a sauce to darken into something new, for a child who watched the sealing to become the one who carries the jar back.</p>
+<p>Then everyone returns. The jars are unsealed one by one, each shore announced as its jar opens, and the dish is cooked on the Straits from what came back. No two Returns taste alike, because no two accords lived the same twenty-five years. The Straits says a relationship can be read in a register and tasted at a table. Al-Merikani’s ledger counts what the parties owe one another. The Return lets them eat it.</p>
+<div class="rule">The Straits has no hinterland. Its pantry is everyone else’s land, and the Return is how it keeps that pantry in the family.</div>
+</div></div></section>
+
+<section class="thread" id="hands"><div class="wrap"><div class="t-top"><div class="t-badge">II</div><div><span class="mono">Who holds what</span><h3>Ground, Hand, Table, and the Measure</h3><p class="idea">Unequal parts, freely chosen, and a little chaos at the start.</p></div></div>
+<div class="content">
+<p>Parties take roles by what they are good at and what they love, and nobody pretends the parts are the same size. Some shores carry a single packet of seed. Some carry three things. A house may hold the Hand for one accord and only Ground for the next.</p>
+</div>
+<div class="roles">
+<div class="role r-ground"><b>Ground <span class="zh">地</span></b><p>Keeps the raw. Seeds, water, salt, honey, a seedling. Its land does the cooking.</p></div>
+<div class="role r-hand"><b>Hand <span class="zh">手</span></b><p>Keeps the method. The mother sauce, the spice blend, the timing, the song that holds the recipe.</p></div>
+<div class="role r-table"><b>Table <span class="zh">席</span></b><p>Cooks the integration on Return day. Chosen by acclaim of the returning parties, on the day itself.</p></div>
+<div class="role r-measure"><b>Measure <span class="zh">衡</span></b><p>Keeps weights, vessels and the written protocol. Held by Toa Keng, by its own insistence.</p></div>
+</div>
+<h4 class="subh"><span class="mono">The shelf</span>The eighteen parties to the Salt Accord, sealed 1867</h4>
+<div class="shelf-h mono"><span>Party</span><span>Role</span><span>Carried home</span><span>Came back as</span></div>
+<div class="shelf">
+<div class="jar house"><div class="who"><b>Sri Temenggong</b><span>the Straits</span></div><div class="rl" style="--c:var(--pandan)">Ground</div><p>Seeds for every shore: a hill rice, a bird’s-eye chilli, slips of pandan. Kept the mother stock in its seed house.</p><p class="back">eleven rices, each fitted to a different soil. Sri Temenggong called it the best seed atlas it had ever been given.</p></div>
+<div class="jar house"><div class="who"><b>Nine Rain</b><span>the Straits</span></div><div class="rl" style="--c:var(--pandan)">Ground</div><p>Rain caught on the sealing day, in eighteen stoneware gourds. Each shore mixed it with its own water to raise a starter.</p><p class="back">vinegars, toddies, a fish sauce and one very old ferment no one could name. Nine Rain also chose the Return day by the weather.</p></div>
+<div class="jar house"><div class="who"><b>Lan Fang</b><span>the Straits</span></div><div class="rl" style="--c:var(--gold)">Hand</div><p>The Mother, a bean-and-salt sauce from Lan Fang’s founding pot, split into jars. Held the timing and the heat.</p><p class="back">a dozen Mothers, from amber to black.</p></div>
+<div class="jar house"><div class="who"><b>Al-Merikani</b><span>the Straits</span></div><div class="rl" style="--c:var(--gold)">Hand</div><p>The Blend, a spice mixture in waxed packets. Also the Register: who holds what, where, kept in duplicate in two ports.</p><p class="back">a Register of twenty-five years of one-line tasting notes from eighteen hands. It is read aloud at the table.</p></div>
+<div class="jar house"><div class="who"><b>Sané-Kora</b><span>the Straits</span></div><div class="rl" style="--c:var(--gold)">Hand</div><p>The Song. The recipe is held as a sung line, and each shore learns one verse.</p><p class="back">a song longer than the cooking, with verses no one on the Straits had heard.</p></div>
+<div class="jar house"><div class="who"><b>Sund</b><span>the Straits</span></div><div class="rl" style="--c:var(--gold)">Hand · Ground</div><p>The Cup, a caraway spirit in oak casks that circle the partner ports by ship, topped up at each harbour.</p><p class="back">a spirit that had been to every shore, often more than once.</p></div>
+<div class="jar house"><div class="who"><b>Toa Keng</b><span>the Straits</span></div><div class="rl" style="--c:var(--dim)">Measure</div><p>Scales, standard weights, the glass jars and the protocol book, with every quantity in grams.</p><p class="back">forty-one memoranda of protest, and a new discipline. See section VI.</p></div>
+<div class="jar"><div class="who"><b>Quanzhou</b><span>Fujian</span></div><div class="rl" style="--c:var(--gold)">Hand</div><p>A jar of the Mother, fed each year with Fujian beans and sea salt.</p><p class="back">red. Someone’s grandmother added 红曲, red yeast rice, in the ninth year, and no one stopped her.</p></div>
+<div class="jar"><div class="who"><b>Naha</b><span>Ryukyu</span></div><div class="rl" style="--c:var(--gold)">Hand</div><p>A share of the Cup, kept in the island’s way of aging spirit in jars: each year a little drawn off and the jar topped up from younger spirit.</p><p class="back">soft as old silk, and the Straits’ first taste of a 25-year island blend.</p></div>
+<div class="jar"><div class="who"><b>Hội An</b><span>the southern coast</span></div><div class="rl" style="--c:var(--pandan)">Ground</div><p>Nine Rain’s gourd, raised with anchovy and sea salt in wooden vats.</p><p class="back">a twenty-five-year fish sauce. It seasoned the Achar.</p></div>
+<div class="jar"><div class="who"><b>Cebu</b><span>the Visayas</span></div><div class="rl" style="--c:var(--pandan)">Ground</div><p>Sri’s rice seed and Nine Rain’s water, which they fermented with coconut toddy.</p><p class="back">a red rice and a sharp coconut vinegar, carried in a cup shaped for two.</p></div>
+<div class="jar"><div class="who"><b>Surat</b><span>Gujarat</span></div><div class="rl" style="--c:var(--pandan)">Ground</div><p>A third of the Blend, and salt from the Kutch flats for the pickles.</p><p class="back">a mellowed Blend and white salt in cakes.</p></div>
+<div class="jar"><div class="who"><b>Mukalla</b><span>Hadramawt</span></div><div class="rl" style="--c:var(--pandan)">Ground</div><p>Honey from the valley’s jujube trees, sealed in wax, for the Sweet.</p><p class="back">dark, crystallised honey you cut with a knife.</p></div>
+<div class="jar"><div class="who"><b>Zanzibar</b><span>the Swahili coast</span></div><div class="rl" style="--c:var(--pandan)">Ground</div><p>A clove seedling from Straits stock, planted on a hill above the town.</p><p class="back">the first full harvest from that tree, the year it came into its strength.</p></div>
+<div class="jar"><div class="who"><b>Elmina</b><span>the Gold Coast</span></div><div class="rl" style="--c:var(--gold)">Hand</div><p>One verse of the Song, and grains of paradise for heat.</p><p class="back">three new verses, sung at every harvest since the sealing.</p></div>
+<div class="jar"><div class="who"><b>Porto</b><span>the Douro</span></div><div class="rl" style="--c:var(--gold)">Hand</div><p>A cask of the Cup, rested in old port pipes in a riverside lodge.</p><p class="back">four parts in a hundred lighter and much deeper. Porto calls the lost part the angels’ share.</p></div>
+<div class="jar"><div class="who"><b>Bergen</b><span>the northern coast</span></div><div class="rl" style="--c:var(--gold)">Hand</div><p>A jar of the Mother.</p><p class="back">a black cake. The jar froze one winter and split, so the carriers dried what was left in the wind beside the stockfish.</p></div>
+<div class="jar"><div class="who"><b>Callao</b><span>the Andean coast</span></div><div class="rl" style="--c:var(--pandan)">Ground</div><p>Sri’s chilli seed, grown in the high valleys, then frozen at night and sun-dried on the altiplano.</p><p class="back">chilli chuño: light, smoky, sweet, and good for decades.</p></div>
+</div>
+</div></section>
+
+<section class="thread" id="years"><div class="wrap"><div class="t-top"><div class="t-badge">III</div><div><span class="mono">The sequence</span><h3>Twenty-five turning days</h3><p class="idea">Sealed once, tended twenty-four times, opened together.</p></div></div>
+<div class="content">
+<div class="years" aria-label="Year 0 sealing, years 1 to 23 turning days, year 24 calling, year 25 return"><span class="s">0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span class="c">24</span><span class="r">25</span></div>
+<div class="ykey"><span><i class="s"></i>Sealing</span><span><i></i>Turning day</span><span><i class="c"></i>The Calling</span><span><i class="r"></i>The Return</span></div>
+</div>
+<div class="steps content">
+<div><div><h5>The Sealing <span class="zh">封</span></h5><p>The accord is signed and the recipe divided. Every jar is filled in front of every party, and a ladle from the last Return’s Mother goes into each, so the new accord begins with the older ones inside it. Toa Keng weighs everything. Sané-Kora sings the whole Song once, end to end; it will not be heard whole again for twenty-five years.</p></div></div>
+<div><div><h5>The Carrying <span class="zh">携</span></h5><p>Each shore names a Carrier household. The role is an honour, written into the Register and passed down. In several ports, keeper of the Straits jar has become a civic title, and children are brought to watch the jar arrive.</p></div></div>
+<div><div><h5>The Turning <span class="zh">翻</span></h5><p>Once a year, on the sealing day, every holder opens the jar, tastes one spoonful, feeds it with salt, beans, water, a new planting or a verse, and writes one line in the Register. On the Straits the Register is read in public, so the city hears how its friends are keeping.</p></div></div>
+<div><div><h5>The Calling <span class="zh">召</span></h5><p>In year twenty-four, Nine Rain reads the monsoons and names the Return day. Ships are timed to arrive within a week of one another. Nine Rain has delayed a Return by two days to wait for the right rain, and everyone agreed it was worth it.</p></div></div>
+<div><div><h5>The Unsealing <span class="zh">启</span></h5><p>Jars are opened one at a time in the order they were sealed. The Carrier names the shore, reads its first and last Register lines, and passes a spoon around the room. This part takes most of a day and nobody hurries it.</p></div></div>
+<div><div><h5>The Cooking <span class="zh">合</span></h5><p>The returning parties name the Table by acclaim, and the chosen cooks build the dish from what came back, to the Song, with every party’s piece somewhere in it. The Table rarely turns out to be the house that expected it.</p></div></div>
+<div><div><h5>The Sharing and the Mother <span class="zh">分</span></h5><p>Everyone eats from the same pots. The new Mother, blended from every returned jar, is kept in the founding cellar until the next accord is sealed, and so the chain goes on.</p></div></div>
+</div>
+<div class="content"><p style="margin-top:18px">By the late nineteenth century so many accords were in the cellar that their Returns overlapped. Today some Return falls due nearly every year, and the city always has one twenty-five-year story coming to the table.</p></div>
+</div></section>
+
+<section class="thread" id="dish"><div class="wrap"><div class="t-top"><div class="t-badge">IV</div><div><span class="mono">The dish</span><h3>The Return Table <span class="zh">百家饭</span></h3><p class="idea">Five parts, one song, and whatever the years made of them.</p></div></div>
+<div class="content"><p>Each Return makes its own dish, but the table always has the same five parts. 百家饭 is the old Chinese custom of gathering rice from a hundred households to cook for a child’s blessing. On the Straits the hundred households are the shores.</p></div>
+<div class="parts">
+<div class="part"><h4>The Rice</h4><span class="zh">百家饭</span><p>Sri Temenggong’s seed, come back as many rices, cooked together in the blended waters. A spoonful holds short and long grain, red and white, hill and paddy.</p></div>
+<div class="part"><h4>The Mother</h4><span class="zh">母酱</span><p>Every returned jar of Lan Fang’s sauce, tasted and blended on the day. The blend becomes the Mother for the next accord.</p></div>
+<div class="part"><h4>The Achar of All Shores</h4><span class="zh">百岸渍</span><p>Each shore’s pickled vegetable, brought or made on arrival and tossed together. The achar principle on a plate: purity was never there.</p></div>
+<div class="part"><h4>The Cup</h4><span class="zh">巡杯</span><p>Sund’s travelling spirit, poured with every partner spirit beside it. The first toast is drunk in the order the casks reached each port.</p></div>
+<div class="part"><h4>The Sweet</h4><span class="zh">甘</span><p>Al-Merikani’s closer: a halwa made from the returned honey, cloves and Straits sugar, cut into as many pieces as there are parties, plus one for the next accord.</p></div>
+<div class="part"><h4>The Song</h4><span class="zh">歌</span><p>Sané-Kora’s method, sung whole for the first time in twenty-five years. The cooks cook to it, and the meal lasts as long as the song.</p></div>
+</div>
+</div></section>
+
+<section class="thread" id="first"><div class="wrap"><div class="t-top"><div class="t-badge">V</div><div><span class="mono">1867 → 1892</span><h3>The first Return</h3><p class="idea">A mess, at first. Then the best thing anyone had eaten.</p></div></div>
+<div class="content story">
+<p>The Salt Accord was sealed in 1867, among the seven houses and eleven shores, to keep the ports of the eastern seas open to one another. Toa Keng wrote the protocol: eighteen glass jars of equal volume, quantities in grams, a schedule of feeding. Lan Fang refused the glass, because a ferment wants the dark, and the first argument of the accord ended with Toa Keng’s glass jars set inside Lan Fang’s stoneware. You could check a Mother by lifting the lid and looking down through the glass.</p>
+<p>Twenty-five years later the ships came in over nine days, and almost nothing matched. The rice came back as eleven rices. Quanzhou’s Mother was red. Bergen’s was a black cake, wrapped in cloth, smelling of sea wind. Hội An had turned its rainwater into fish sauce, and Cebu had turned its into vinegar. Elmina sang its verse and then three more. Porto’s cask was light, and Porto said so cheerfully.</p>
+<p>The returning parties gave the Table, by acclaim, to Sané-Kora’s kitchen, because the Song was the one thing that held every piece. For the first time a shore cook shared the head pot: the Hội An Carrier, who knew what twenty-five years of her fish sauce could do to a pickle. Lan Fang grated Bergen’s black cake over the rice like a spice, and it became the most fought-over spoonful at the table. The Song ran four hours. They cooked slower to match it.</p>
+<p>The Toa Keng recorder’s last line in the protocol book is two words, and every Toa Keng student since has been taught them: <i>Unrepeatable. Excellent.</i></p>
+</div></div></section>
+
+<section class="thread" id="tki"><div class="wrap"><div class="t-top"><div class="t-badge">VI</div><div><span class="mono">Toa Keng’s horrors</span><h3>The matter of “some”</h3><p class="idea">The house of the scale, among people who cook by feel.</p></div></div>
+<div class="content">
+<p>Most of the Straits cooks by eye, hand, ear and nose, and has a word for it in every language spoken at the table.</p>
+<div class="words">
+<div><b>适量 · 少许</b><span>Chinese recipe words: “a suitable amount,” “a little.”</span></div>
+<div><b>Agak-agak</b><span>Malay: by estimation. The cook’s palm is the cup.</span></div>
+<div><b>Andaaz</b><span>Hindustani: by judgement, the way a grandmother measures.</span></div>
+<div><b>Quanto basta</b><span>Italian, written q.b.: “as much as is enough.”</span></div>
+<div><b>To taste</b><span>English: the only instruction that admits the cook is in charge.</span></div>
+<div><b>By the beat</b><span>Sané-Kora: so many strokes of the pestle, counted in the song.</span></div>
+</div>
+<div class="memo"><span class="mono">From the Toa Keng memoranda, 1867–1917</span><dl>
+<dt>No. 1 · On the Matter of “Some” <small>1867</small></dt><dd>Forty-one uses of 少许 or agak-agak counted in the sung recipe. The memorandum asks that each be replaced by a weight. Sané-Kora replies that the song would no longer scan.</dd>
+<dt>No. 4 · Rain Is Not a Unit <small>1868</small></dt><dd>A protest that Nine Rain’s gourds differ in volume by up to a fifth. Nine Rain replies that so did the clouds.</dd>
+<dt>No. 9 · The Standard Return Jar <small>1871</small></dt><dd>A graduated glass jar of fixed volume, proposed for all future accords. Adopted, and set inside stoneware, at Lan Fang’s request.</dd>
+<dt>No. 23 · Concerning the Red Mother of Quanzhou <small>1876</small></dt><dd>A formal query about an unlisted ingredient. Quanzhou answers that the grandmother responsible is unavailable for comment.</dd>
+<dt>No. 41 · Unrepeatable. Excellent. <small>1892</small></dt><dd>The last line of the first Return’s protocol book, and the end of the protests.</dd>
+</dl></div>
+<p>What came next is why Toa Keng now loves the Return. After 1892 its recorders stopped asking the jars to agree and started measuring how they differed: the saltiness, sourness, colour, sweetness and smell of every returned jar against the jar it left as. They called the record the Table of Divergences. By the second great Return, a Toa Keng student could taste a spoonful of Mother blind and name its shore. The house of the scale had become the house that can read a place in a flavour. It measures the inexactness of the others, and leaves it inexact.</p>
+<p>The Table of Divergences is now the most consulted book in the founding cellar, and the other houses quietly rely on it.</p>
+</div></div></section>
+</div>
+
+<div class="dots"><span>✦</span></div>
+
+<!-- PART TWO -->
+<div class="b2"><div class="book-head"><div class="wrap"><div class="bignum">ii</div><div><div class="k mono">Part Two</div><h2>The other tables <span class="zh">三席</span></h2><p>The Return is the grand rite. The houses also eat together at three other tables, each with its own manners.</p></div></div></div>
+<section class="thread" id="tables"><div class="wrap"><div class="t-top"><div class="t-badge">VII</div><div><span class="mono">Guest, Season, Small Seal</span><h3>How the houses share a meal</h3><p class="idea">Guests eat history, the houses eat the season, and partners keep a bottle.</p></div></div>
+<div class="tables">
+<div class="tbl"><h4>The Guest Table <span class="zh">迎宾席</span></h4><p class="when">For foreign delegations.</p>
+<p>The banquet is served in the order the houses came to the Straits, with Sri Temenggong first, so a guest eats the city’s history course by course. Each house brings its showpiece. Lan Fang serves a broth so clear it looks like hot water. Sri Temenggong lays out forty kinds of leaf and flower to be eaten raw with sambal. Al-Merikani ends the meal with a sugar model of the guests’ own harbour.</p>
+<p>Between the Straits courses comes the mirror course: a dish from the guests’ own shore, cooked by Straits hands from what the Straits knows of it. Guests taste home as their hosts understand it, and say what’s off. That correction is treated as the first gift of the visit.</p></div>
+<div class="tbl"><h4>The Season Table <span class="zh">时鲜会</span></h4><p class="when">For the houses’ own meetings.</p>
+<p>The host names a single category, and every house brings its proudest new invention or its freshest produce in it. There have been salt years, sour years, first-rice years, smoke years, and Nine Rain’s famous water year, when the houses tasted waters the way others taste wine.</p>
+<p>The plates go round in a ring, each house serving the next, so no house serves itself and every house is fed by every other. The tasting ends when the ring closes. A line on each dish goes into the Season Book, which is the best record anyone has of what the Straits was inventing in a given year.</p></div>
+<div class="tbl"><h4>The Small Seal <span class="zh">小封</span></h4><p class="when">For smaller agreements.</p>
+<p>Two parties seal one vessel of wine, vinegar, sauce or honey, and set a term by the weight of the agreement: three years, seven or twelve. Small Seals are kept on numbered shelves in the Cellar of Accords and opened by both parties together.</p>
+<p>The custom has spread well beyond diplomacy. Business partners seal a bottle when they open a firm. Each graduating cohort of every house seals a jar of its school’s ferment, opened at the tenth reunion. Couples marrying across houses seal one sauce from each family in a single jar.</p></div>
+</div>
+</div></section></div>
+
+<div class="dots"><span>✦</span></div>
+
+<!-- PART THREE -->
+<div class="b3"><div class="book-head"><div class="wrap"><div class="bignum">iii</div><div><div class="k mono">Part Three</div><h2>Seven palates <span class="zh">七味</span></h2><p>Trade routes brought the Straits more ingredients than any single kitchen could use, so each house leaned toward what it loved: snacks, sweets, soups, spirits, ferments, the pot, the scale.</p></div></div></div>
+<section class="thread" id="palates"><div class="wrap"><div class="t-top"><div class="t-badge">VIII</div><div><span class="mono">How each house eats</span><h3>Uneven appetites</h3><p class="idea">Some houses eat all day. Some drink. One weighs everything.</p></div></div>
+<div class="palates">
+<div class="pal wide"><h4>Sri Temenggong</h4><p class="lean">The snack house, and the garden.</p>
+<p><b>Leans to</b>small eats all day long: kuih in a hundred colours, fritters, rice cakes wrapped in leaf. A meal can be thirty raw leaves, flowers and shoots eaten with sambal, each picked that morning for what it does to the body and the mood.</p>
+<p><b>Kitchen</b>The oldest pantry on the Straits is a seed house, and every cook is part-gardener. It keeps ferments of fish, prawn and fruit for the long monsoon months: pastes, durian ferments, tiny shrimp in brine. Its patience with poisonous seeds that become delicacies after forty days in ash is legendary.</p>
+<p><b>At the shared table</b>the opening course at every Guest Table, and the Ground of almost every accord.</p>
+<p><b>On measuring</b>Agak-agak. The palm is the cup and the eye is the scale.</p></div>
+<div class="pal"><h4>Lan Fang</h4><p class="lean">The liquid house: soup, tonic, tea.</p>
+<p><b>Leans to</b>broths simmered for hours, tonics matched to the season and the body, tea for every hour. Its kitchen and its pharmacy share a wall, and its medicine school writes menus.</p>
+<p><b>Kitchen</b>The founding pot, a master stock kept since 1786 and fed every day. Every Lan Fang student tastes it on the first morning. The Mohist workshop builds its steamers, hoods and charcoal stoves.</p>
+<p><b>On measuring</b>适量 for quantity, but exact about time. Lan Fang trusts the clock and ignores the scale.</p></div>
+<div class="pal"><h4>Al-Merikani</h4><p class="lean">The sweet house: coffee, sherbet, halwa.</p>
+<p><b>Leans to</b>desserts and drinks. Every negotiation opens with coffee and closes with sweets, and the length of the sweet course tells you how the talks went.</p>
+<p><b>Kitchen</b>sugar work raised to architecture, rose and orange-blossom waters, and the finest spice trade on the Straits. Its halwa keeps for months and travels well, which is why it fills every carrier’s chest.</p>
+<p><b>On measuring</b>weighs spice to the grain, like the traders it is, and never weighs sugar.</p></div>
+<div class="pal"><h4>Sund</h4><p class="lean">The spirits house: fire, smoke, the cask.</p>
+<p><b>Leans to</b>drink, and the foods that go with it: smoked and cured fish, rye crisps, pickled herring. Sund regulates heat, and its kitchens are its smokehouses and stills.</p>
+<p><b>Kitchen</b>the travelling casks, which ride Sund’s own ships and cross the equator at the Straits’ front door. The bar at Sund works as a second parliament, and toasts there follow protocol.</p>
+<p><b>On measuring</b>by proof and by year. Precise about the spirit and relaxed about the snacks.</p></div>
+<div class="pal"><h4>Sané-Kora</h4><p class="lean">The house of the pot and the beat.</p>
+<p><b>Leans to</b>the communal pot. Grains and roots are pounded in mortars that double as drums, and the meal is eaten from one bowl with the right hand.</p>
+<p><b>Kitchen</b>recipes kept in song by its griots, palm wine tapped at dawn, and rice cook-offs that run like sing-offs. Rival kitchens trade boasts in verse while the pots cook.</p>
+<p><b>On measuring</b>by ear: so many strokes of the pestle, so many verses of simmering.</p></div>
+<div class="pal"><h4>Nine Rain</h4><p class="lean">The house of water and weather.</p>
+<p><b>Leans to</b>drinks and ferments: cacao beaten to a froth, maize beer, fish cooked in citrus without fire, potatoes freeze-dried by frost and sun, food baked in earth ovens under hot stones.</p>
+<p><b>Kitchen</b>a cellar of rainwater graded by storm, each with its year and its sky. Nine Rain tastes water the way Sund tastes spirit, and lets weather do as much of the cooking as it will.</p>
+<p><b>On measuring</b>by weather. The right day matters more than the right gram.</p></div>
+<div class="pal wide"><h4>Toa Keng</h4><p class="lean">The house of the scale, the glass and the written recipe.</p>
+<p><b>Leans to</b>baking and preserving: breads, pastries, jams and pickles in clear glass, cured meats from its European partners, cakes whose recipes run to numbered steps. It is the only house whose cookbooks have indexes.</p>
+<p><b>Kitchen</b>looks like a laboratory, because it partly is one. Toa Keng’s glassworks and optics make the clear jars, the hydrometers and the lenses that let the other houses watch their ferments work.</p>
+<p><b>At the shared table</b>the Measure at every accord, and keeper of the Table of Divergences. Its students are, by general agreement, the best blind tasters on the Straits.</p>
+<p><b>On measuring</b>everything, always. Now with a footnote: <i>see Divergences.</i></p></div>
+</div>
+</div></section></div>
+
+<div class="dots"><span>✦</span></div>
+
+<!-- PART FOUR -->
+<div class="b4"><div class="book-head"><div class="wrap"><div class="bignum">iv</div><div><div class="k mono">Part Four</div><h2>Precedents <span class="zh">先例</span></h2><p>The real dishes, rites and voyages behind the Return. Each card opens with a quick read and unfolds for more, with a one-line Straits reaction and links to go further.</p></div></div></div>
+
+<section class="thread" id="p-devotion"><div class="wrap"><div class="t-top"><div class="t-badge">A</div><div><span class="mono">Precedents · eight cards</span><h3>Dishes of devotion</h3><p class="idea">Food where the effort is the message.</p></div></div>
+<div class="pcards">
+
+<article class="pc"><div class="tp">Kaifeng, Henan · Qing dynasty to now</div><h4><span class="zh">套四宝</span> · Four Treasures Nested</h4><p class="hook">Four birds. One skin each. Not a single tear.</p>
+<p>A duck is boned out whole through a small opening at the neck, so its skin stays a seamless sack. A boned chicken goes inside it, a boned pigeon inside the chicken, and a boned quail inside the pigeon, each with its own filling. The set simmers slowly and is opened at the table layer by layer.</p>
+<details><summary>Read more</summary>
+<p>All the skill is in the boning. The cook works the bones out from inside, turning each bird like a glove, and mastery means every skin comes out whole. A torn skin lets the broth flood in and the nesting collapses. The fillings classically include sea cucumber, mushrooms, ham and shrimp, and the four meats each give their flavour to the one inside.</p>
+<p>Kaifeng was the Northern Song capital, and the city kept a court-level cuisine long after the court had moved away. Dishes like this are its memory of grandeur: food built to be unwrapped slowly, in front of guests.</p>
+<p class="react">At the Straits table: nesting as diplomacy. The Guest Table could nest one shore’s bird inside another’s.</p>
+<div class="go"><span>Go further</span><a href="https://baike.baidu.com/item/套四宝" target="_blank" rel="noopener">套四宝 · Baidu Baike</a><a href="https://en.wikipedia.org/wiki/Henan_cuisine" target="_blank" rel="noopener">Henan cuisine · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Paris · 1807</div><h4>Rôti sans pareil</h4><p class="hook">Seventeen birds, one olive.</p>
+<p>In his <i>Almanach des Gourmands</i>, Grimod de la Reynière described the “roast without equal.” A bustard holds a turkey, which holds a goose, and so on down through pheasant, chicken, duck, guinea fowl, teal, woodcock, partridge, plover, lapwing, quail, thrush, lark and ortolan to a garden warbler. Inside the warbler sits a single olive.</p>
+<details><summary>Read more</summary>
+<p>Grimod was a lawyer turned gourmand who more or less invented restaurant criticism, convening a jury of tasters to judge what Paris cooks sent him. The olive at the centre was itself stuffed, with anchovy and capers, so the whole roast ends in a mouthful of the sea.</p>
+<p>Whether anyone cooked it whole in his day is unclear, and that is part of its charm: a banquet that exists perfectly on paper. The modern turducken is its practical, much smaller grandchild.</p>
+<p class="react">At the Straits table: Toa Keng keeps a shelf of paper banquets, dishes written down to be imagined rather than cooked.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Rôti_sans_pareil" target="_blank" rel="noopener">Rôti sans pareil · Wikipedia</a><a href="https://en.wikipedia.org/wiki/Alexandre_Balthazar_Laurent_Grimod_de_La_Reynière" target="_blank" rel="noopener">Grimod de la Reynière · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">England and France · 14th to 16th centuries</div><h4>The cockentrice and the subtleties</h4><p class="hook">Half pig, half capon, all theatre.</p>
+<p>Medieval feast cooks sewed the front of a suckling pig to the back of a capon, roasted the creature and glazed it gold. Peacocks were skinned with their feathers on, roasted, then dressed back in their own plumage with the tail fanned and the beak gilded. Between courses came subtleties: castles, ships and saints in sugar and almond paste.</p>
+<details><summary>Read more</summary>
+<p>Subtleties often carried messages. A sugar figure might honour a new king, celebrate a marriage, or allude to a treaty, and guests read them like a political cartoon they could eat. The feast was a medium as much as a meal.</p>
+<p>These between-course spectacles, the entremets, grew over the centuries into the great set pieces of French pastry: towers, temples and landscapes in sugar for state occasions.</p>
+<p class="react">At the Straits table: Al-Merikani ends the Guest Table with a sugar model of the guests’ own harbour.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Cockentrice" target="_blank" rel="noopener">Cockentrice · Wikipedia</a><a href="https://en.wikipedia.org/wiki/Entremet" target="_blank" rel="noopener">Entremet and subtleties · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Sichuan · late Qing to state banquets</div><h4><span class="zh">开水白菜</span> · Cabbage in Boiling Water</h4><p class="hook">It looks like cabbage in hot water. It is the opposite.</p>
+<p>A few hearts of napa cabbage sit in what seems to be plain water. The water is a stock of old hen, duck, ham and bones, clarified again and again by stirring in minced chicken that gathers every particle, until it runs as clear as tea. The cabbage is bathed in it until it carries the whole stock’s depth.</p>
+<details><summary>Read more</summary>
+<p>The dish is credited to Huang Jinglin, a Sichuan chef who cooked at the late Qing court. It later became a state-banquet dish served to foreign guests, a quiet proof that Sichuan cooking runs far deeper than chilli.</p>
+<p>Its aesthetic is 大味至淡, the greatest flavour approaching plainness. The boast is hidden inside the humility, and only someone who knows the work will see it.</p>
+<p class="react">At the Straits table: Lan Fang’s first course at every Guest Table.</p>
+<div class="go"><span>Go further</span><a href="https://baike.baidu.com/item/开水白菜" target="_blank" rel="noopener">开水白菜 · Baidu Baike</a><a href="https://en.wikipedia.org/wiki/Sichuan_cuisine" target="_blank" rel="noopener">Sichuan cuisine · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Oaxaca, Mexico · colonial era to now</div><h4>Mole negro</h4><p class="hook">Thirty ingredients, burned on purpose.</p>
+<p>Oaxaca’s black mole toasts dried chillies, chilhuacle negro above all, until they are nearly black, then grinds them with seeds, nuts, spices, plantain, bread, tomato and chocolate, often more than thirty ingredients. It cooks down for hours into a sauce so dark it reads as night, and families make it for weddings, saints’ days and the Day of the Dead.</p>
+<details><summary>Read more</summary>
+<p>Making it is a many-handed affair that can run over days, with relatives taking turns at toasting, soaking and grinding. Grinding was once done on a stone metate. Today many families buy the paste in blocks at market and finish it at home.</p>
+<p>Legends credit convent nuns, but the deeper root is the Indigenous tradition of molli, sauces, meeting the spices, almonds and sesame that arrived by sea. It is a dish where purity was never possible.</p>
+<p class="react">At the Straits table: a many-handed sauce is a Return in miniature. Nine Rain’s partner shores would recognise it at once.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Mole_(sauce)" target="_blank" rel="noopener">Mole · Wikipedia</a><a href="https://en.wikipedia.org/wiki/Oaxacan_cuisine" target="_blank" rel="noopener">Oaxacan cuisine · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Lake Biwa, Shiga, Japan · over a thousand years</div><h4>Funazushi</h4><p class="hook">Sushi’s grandmother smells like a cheese cave.</p>
+<p>Crucian carp from Lake Biwa are gutted through the gills, packed in salt for months, then layered in cooked rice and weighted down to ferment for a year or more. The rice turns to a sour paste, and the fish becomes translucent, tangy and pungent, sliced thin with its amber roe.</p>
+<details><summary>Read more</summary>
+<p>This is narezushi, the ancient form that sushi descends from. Rice was originally just the fermenting medium and was thrown away. Over the centuries people began eating the rice too, then shortened the fermentation, and eventually swapped it for vinegar, which leads to the sushi eaten today.</p>
+<p>Funazushi is still made by families and specialist shops around the lake, and given as a winter gift. It is an acquired taste, and an honour to be offered it.</p>
+<p class="react">At the Straits table: a dish where time is the main cook, a Return inside one household.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Funazushi" target="_blank" rel="noopener">Funazushi · Wikipedia</a><a href="https://en.wikipedia.org/wiki/Narezushi" target="_blank" rel="noopener">Narezushi · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Peranakan kitchens of the Straits and Java</div><h4>Buah keluak</h4><p class="hook">Poison seed. Forty days in ash. Family treasure.</p>
+<p>The seed of the kepayang tree contains hydrogen cyanide and is deadly raw. So the seeds are boiled, then buried in ash or earth for about forty days until the flesh turns black, oily and safe. Peranakan cooks crack each shell, dig out the paste, mix it with spices or minced meat, stuff it back and braise it in tamarind gravy: ayam buah keluak.</p>
+<details><summary>Read more</summary>
+<p>The taste is earthy and bittersweet, somewhere between dark chocolate and black olive. Eating it is its own small ritual: diners dig the paste out of the shell with a teaspoon or a pick, so dinner becomes an excavation.</p>
+<p>The nut is old in Indonesian cooking too. East Java’s rawon gets its black broth from it. In Peranakan homes the cracking and scraping is slow hand work, often done the day before, and the dish signals effort and devotion at family occasions.</p>
+<p class="react">At the Straits table: the most local precedent here, and Sri Temenggong’s kind of patience.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Pangium_edule" target="_blank" rel="noopener">Pangium edule · Wikipedia</a><a href="https://en.wikipedia.org/wiki/Ayam_buah_keluak" target="_blank" rel="noopener">Ayam buah keluak · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Dehesa of Extremadura and Andalusia, Spain</div><h4>Jamón ibérico de bellota</h4><p class="hook">The pig’s last winter is the recipe.</p>
+<p>Black Iberian pigs spend the montanera, roughly October to February, roaming oak woodland and eating acorns, putting on much of their final weight. The diet writes itself into the fat, which turns soft and rich and melts close to body temperature. The hams then cure for years.</p>
+<details><summary>Read more</summary>
+<p>The dehesa is itself an engineered landscape: holm and cork oaks spaced across pasture, managed for centuries so that trees, pigs, sheep and cork harvesters share the same ground. Labels certify the pig’s breed and diet, down to whether it truly finished on acorns.</p>
+<p>It shares the logic of the 乾坤蛋 geese: what an animal eats in its last weeks becomes the flavour on the plate.</p>
+<p class="react">At the Straits table: the land feeds the animal that feeds the guest. Sri Temenggong’s whole philosophy in one ham.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Jamón_ibérico" target="_blank" rel="noopener">Jamón ibérico · Wikipedia</a><a href="https://en.wikipedia.org/wiki/Dehesa" target="_blank" rel="noopener">Dehesa · Wikipedia</a></div>
+</details></article>
+</div></div></section>
+
+<section class="thread" id="p-sealed"><div class="wrap"><div class="t-top"><div class="t-badge">B</div><div><span class="mono">Precedents · six cards</span><h3>Bonds sealed in food and drink</h3><p class="idea">Promises you swallow, bury or save.</p></div></div>
+<div class="pcards">
+
+<article class="pc"><div class="tp">Shaoxing, Zhejiang · recorded from the 4th century</div><h4><span class="zh">女儿红</span> · Daughter’s Red</h4><p class="hook">Brewed at her birth. Opened at her wedding.</p>
+<p>When a daughter was born, the family brewed yellow wine, sealed the jars with clay and buried them. On her wedding day, perhaps eighteen years later, the jars were dug up and poured for the guests. For a son, the wine was 状元红, saved for the day he passed the imperial examinations.</p>
+<details><summary>Read more</summary>
+<p>An early southern botanical record, 《南方草木状》, attributed to the Jin-dynasty writer 嵇含, already describes families brewing wine at a daughter’s birth and burying it until she married. Shaoxing jars were later painted with auspicious scenes, which is where 花雕 gets its name.</p>
+<p>Time made the wine precious, more than any price. The jar stood for a life, and opening it marked the day that life turned.</p>
+<p class="react">At the Straits table: the direct ancestor of the Small Seal, and the seed of the Return.</p>
+<div class="go"><span>Go further</span><a href="https://baike.baidu.com/item/女儿红" target="_blank" rel="noopener">女儿红 · Baidu Baike</a><a href="https://en.wikipedia.org/wiki/Shaoxing_wine" target="_blank" rel="noopener">Shaoxing wine · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Bohol and Cebu, Philippines · 1521 and 1565</div><h4>Sandugo · The Blood Compact</h4><p class="hook">One cup. Two bloods. A treaty you drink.</p>
+<p>In the Visayas, alliances were sealed by blood compact. Each party drew a little blood from the arm and mixed it into a cup of wine, and both drank. In 1565 Datu Sikatuna of Bohol and Miguel López de Legazpi performed it, and it is remembered as the first treaty of friendship between Filipinos and Spaniards.</p>
+<details><summary>Read more</summary>
+<p>Accounts describe the mixture being divided between two cups, with neither party allowed to leave until both were empty. Magellan’s expedition had made similar compacts with Visayan rulers in 1521. The ritual took the agreement inside the body: the friendship became part of each person.</p>
+<p>The Philippines still honours it. The Order of Sikatuna, a presidential decoration for diplomatic service, is named after the datu, and Bohol holds a Sandugo festival every year.</p>
+<p class="react">At the Straits table: the neighbouring precedent, born in these waters. Cebu’s Carrier brings a cup shaped for two.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Sandugo" target="_blank" rel="noopener">Sandugo · Wikipedia</a><a href="https://philippines123.com/wiki/Blood_compact" target="_blank" rel="noopener">Blood compact · Philippines123</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Zhou China · Spring and Autumn period</div><h4><span class="zh">歃血为盟</span> · Sealed in Blood</h4><p class="hook">Lips touched with blood. The oath buried with the beast.</p>
+<p>When Zhou-era lords swore a covenant (盟), an animal was sacrificed, the parties touched its blood to their lips (歃血), and the oath text was read aloud to the spirits. One copy was buried with the sacrifice, and each party kept another.</p>
+<details><summary>Read more</summary>
+<p>In 1965, at Houma in Shanxi, archaeologists found thousands of jade and stone tablets inscribed in red, buried in pits with sacrificed animals. These are the 侯马盟书, covenant texts from the state of Jin around the fifth century BCE.</p>
+<p>The covenants were buried to be witnessed by the spirits. Twenty-four centuries later they were witnessed again, by us.</p>
+<p class="react">At the Straits table: sealed, buried, witnessed. A Return whose opening took two thousand four hundred years.</p>
+<div class="go"><span>Go further</span><a href="https://baike.baidu.com/item/歃血为盟" target="_blank" rel="noopener">歃血为盟 · Baidu Baike</a><a href="https://baike.baidu.com/item/侯马盟书" target="_blank" rel="noopener">侯马盟书 · Baidu Baike</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">The Levant, Arabia and Slavic lands · antiquity to now</div><h4>The covenant of salt, and bread and salt</h4><p class="hook">Salt doesn’t spoil. Neither should we.</p>
+<p>The Hebrew Bible speaks of a “covenant of salt,” an everlasting bond. Salt preserves, and a promise made with salt claims the same. In Arabic, “there is bread and salt between us” (بيننا عيش وملح) means: we have eaten together, so betrayal is now unthinkable.</p>
+<details><summary>Read more</summary>
+<p>Across the Slavic world, honoured guests are still greeted with a loaf and a salt cellar, khleb-sol, at weddings and state visits alike. Salt was at once currency, medicine and preservative, so sharing it carried weight.</p>
+<p>In all these traditions, eating together counts as an oath, sometimes a stronger one than ink.</p>
+<p class="react">At the Straits table: “bread and salt” as the city’s everyday phrase for a friendship you owe.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Covenant_of_salt" target="_blank" rel="noopener">Covenant of salt · Wikipedia</a><a href="https://en.wikipedia.org/wiki/Bread_and_salt" target="_blank" rel="noopener">Bread and salt · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">The Douro and London · 1373 to 2023</div><h4>Graham’s port for the oldest alliance</h4><p class="hook">The world’s oldest alliance, bottled.</p>
+<p>The alliance between England and Portugal goes back to a treaty of 1373, the oldest still unbroken. For its 650th anniversary, Graham’s bottled two casks of a 2011 single-harvest tawny port, aged in barrel for over a decade, and released it only in the two countries.</p>
+<details><summary>Read more</summary>
+<p>The wine and the friendship grew up together. British merchants helped build the Douro’s port trade in the seventeenth and eighteenth centuries, and a later trade treaty in 1703 lowered duties on Portuguese wine in England. The alliance shaped a wine, and the wine now toasts the alliance.</p>
+<p>The bottle was chosen for the anniversary rather than sealed at the signing, which makes it the nearest modern echo of the Return at the level of states.</p>
+<p class="react">At the Straits table: the Straits seals on the signing day, and opens on the anniversary.</p>
+<div class="go"><span>Go further</span><a href="https://www.thedrinksbusiness.com/?p=580171" target="_blank" rel="noopener">Graham’s anniversary port · The Drinks Business</a><a href="https://en.wikipedia.org/wiki/Anglo-Portuguese_Alliance" target="_blank" rel="noopener">Anglo-Portuguese Alliance · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Japan, and Perth · Edo era to 2026</div><h4>Kagami biraki · Opening the mirror</h4><p class="hook">Break the lid, share the luck.</p>
+<p>At openings, New Year and celebrations, a sake cask’s round lid is broken with wooden mallets and the sake ladled out to everyone present. In 2026, for the fiftieth anniversary of the Japan–Australia friendship treaty, a kagami biraki was held at the Perth Japan Festival to wish for friendship.</p>
+<details><summary>Read more</summary>
+<p>The “mirror” is the round lid, which shares its name and luck with the round rice cakes offered at New Year and broken open in January. People say “opening” (開き) because opening carries good fortune, and they avoid the word for breaking.</p>
+<p>Companies open casks to launch ventures and couples open them at weddings. Many hands on the mallet, one cask, everyone drinks.</p>
+<p class="react">At the Straits table: a gesture for the Unsealing, where every Carrier lays a hand on the mallet for the first jar.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Kagami_biraki" target="_blank" rel="noopener">Kagami biraki · Wikipedia</a><a href="https://www.perth.au.emb-japan.go.jp/itpr_en/11_000001_00842.html" target="_blank" rel="noopener">12th Perth Japan Festival · Consulate-General of Japan</a></div>
+</details></article>
+</div></div></section>
+
+<section class="thread" id="p-voyage"><div class="wrap"><div class="t-top"><div class="t-badge">C</div><div><span class="mono">Precedents · four cards</span><h3>Time and voyage as ingredient</h3><p class="idea">Where the sea, the years and the weather do the cooking.</p></div></div>
+<div class="pcards">
+
+<article class="pc"><div class="tp">Norway to the equator and back · 1805 to now</div><h4>Linie aquavit</h4><p class="hook">The main ingredient is a trip around the world.</p>
+<p>In 1805 a Norwegian ship took casks of aquavit to the East Indies. They didn’t sell, came home, and the spirit was found to be better for the trip. Ever since, every cask of Linie, in old sherry oak, sails a four-month voyage that crosses the equator twice. The back of each label names the ship and the dates.</p>
+<details><summary>Read more</summary>
+<p>The rolling of the ship, the swings of temperature and the sea air push the spirit in and out of the wood. Distillers have tried rocking casks on land to copy it, without matching the real voyage. On today’s route, the two equator crossings fall near Singapore and Panama.</p>
+<p>Linie means “line,” the equator itself. The distillery behind it was founded in 1821, and more than a thousand casks are at sea at any time.</p>
+<p class="react">At the Straits table: the Straits sits on the line. Sund’s casks cross it at the city’s front door.</p>
+<div class="go"><span>Go further</span><a href="https://linie.com/en/thejourney" target="_blank" rel="noopener">The journey of LINIE · linie.com</a><a href="https://www.atlasobscura.com/articles/how-aquavit-is-made" target="_blank" rel="noopener">How aquavit is made · Atlas Obscura</a><a href="https://vinepair.com/articles/aquavit-norway-equator-linie-recipe" target="_blank" rel="noopener">Crossing the equator twice · VinePair</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Madeira and the tropics · 17th to 19th centuries</div><h4>Vinho da roda</h4><p class="hook">Wine that got better by going to India and back.</p>
+<p>Ships calling at Madeira loaded wine for long voyages. Casks that crossed the tropics and came home unsold tasted richer, nuttier and nearly indestructible, and they sold at a premium as vinho da roda, “wine of the round voyage.”</p>
+<details><summary>Read more</summary>
+<p>Producers later learned to reproduce the voyage on land, heating wine in warm stores (estufagem) or leaving casks in hot lofts for years (canteiro). The result is a wine that keeps for a century, and stays good long after the bottle is opened.</p>
+<p>Madeira was a favourite in the American colonies and is said to have toasted the signing of their Declaration of Independence.</p>
+<p class="react">At the Straits table: heat as a cook, and the equatorial Straits as the oven.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Madeira_wine" target="_blank" rel="noopener">Madeira wine · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">Bangkok and Tokyo · 1945 and 1970s to now</div><h4>Perpetual broth</h4><p class="hook">Same pot, three generations.</p>
+<p>At Wattana Panich in Bangkok’s Ekkamai, the beef broth has run for over fifty years. Each night it is strained and kept, and the next morning it becomes the base for fresh beef and spices. The owner is the third generation to tend it. In Tokyo’s Asakusa, the oden shop Otafuku simmers its stew in a dashi first made in 1945.</p>
+<details><summary>Read more</summary>
+<p>The owner says there is no written recipe, only constant tasting. The idea is old and found everywhere: the Chinese 老卤, or master stock, fed with every braise; the eel sauce of Japanese shops, said to be the first thing a cook rescues from a fire.</p>
+<p>Seen this way, a broth is less a dish than a family line. Each day adds to it and nothing quite starts over.</p>
+<p class="react">At the Straits table: Lan Fang’s founding pot, and the Mother that every Return passes to the next.</p>
+<div class="go"><span>Go further</span><a href="https://www.atlasobscura.com/foods/neua-tune-45-year-soup-wattana-panich" target="_blank" rel="noopener">Half-century-old soup · Atlas Obscura</a><a href="https://www.snopes.com/news/2022/12/16/bangkok-restaurant-continuous-soup/" target="_blank" rel="noopener">Bangkok’s continuous soup · Snopes</a><a href="https://en.wikipedia.org/wiki/Perpetual_stew" target="_blank" rel="noopener">Perpetual stew · Wikipedia</a></div>
+</details></article>
+
+<article class="pc"><div class="tp">The Andean altiplano · before the Inca to now</div><h4>Chuño</h4><p class="hook">Freeze-dried by the mountain, long before the laboratory.</p>
+<p>High in the Andes, in the cold dry months, potatoes are spread on open ground to freeze at night and thaw in the sun by day. People tread on them to squeeze out the water and repeat this over days until the potatoes are light, hard and stone-like. Chuño keeps for years.</p>
+<details><summary>Read more</summary>
+<p>White chuño, called tunta, is also soaked in running streams for weeks before the final drying. Frost, sun, wind and water each take a turn at the cooking.</p>
+<p>The Inca filled storehouses along their roads with chuño and dried meat, enough to feed armies on the march and villages through a failed harvest.</p>
+<p class="react">At the Straits table: Nine Rain’s natural ingredient, and the method behind Callao’s chilli chuño.</p>
+<div class="go"><span>Go further</span><a href="https://en.wikipedia.org/wiki/Chuño" target="_blank" rel="noopener">Chuño · Wikipedia</a></div>
+</details></article>
+</div></div></section></div>
+
+<section class="thread" id="coda"><div class="wrap"><div class="t-top"><div class="t-badge">✦</div><div><span class="mono">Coda · <i>a.m.</i></span><h3>After the Kindling</h3></div></div>
+<div class="content"><p>When the seven houses shared magic with the world, they used this rite. At the Congress of 1921 the first circle of schools laid down their jars (藏息会盟 · Conditura · إيداع الأمانة). When they came back in 1946 with their jars and their findings (发馨合盟 · Conditum · عيد الأمانة), the Covenant of Magic was sealed. The full account is in <b>The Congress and the Covenant</b>.</p><p>The founding cellar also turned out to be the richest store of expendables on the Straits. A Return jar holds twenty-five years of many lands’ tending in one vessel. Return jars became the ingredient of choice for the great ensemble castings, and the Register, not any single house, decides when one is opened for that purpose.</p>
+<p class="coda2">The Straits kept its friendships in jars for a century before it learned they could also be cast.</p></div></div></section>
+
+<footer><div class="wrap"><div class="mark-s"><i>The</i> Polymathic <i>Universe</i></div><div class="mono">The Parallel Straits · Book One · Personal creative work by Linwei · 2026 · made with Claude</div></div></footer>
+<script>(function(){var r=document.documentElement,b=document.getElementById('pnavBtn'),v=document.getElementById('pnavVeil'),n=document.getElementById('pnav');
+function s(o){r.classList.toggle('pnav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close index':'Open index')}
+b.addEventListener('click',function(){s(!r.classList.contains('pnav-open'))});v.addEventListener('click',function(){s(false)});
+n.addEventListener('click',function(e){if(e.target.closest('a'))s(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)});})();</script>
+</body></html>

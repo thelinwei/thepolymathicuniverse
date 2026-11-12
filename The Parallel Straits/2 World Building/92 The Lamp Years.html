@@ -1,0 +1,532 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>The Lamp Years · The Parallel Straits</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><style>:root{color-scheme:light;--ink:#1f3128;--ink2:#34493d;--dim:#5f6f65;--hair:#d3ddd1;--paper:#f4f6ef;--mist:#e6efe4;--card:#fbfcf8;--pond:#6fa585;--pond2:#8fb89a;--pond3:#b8d4bf;--deep:#3d6b52;--lav:#7f8fd0;--lav2:#c9cdec;--rose:#c58fb8;--rose2:#ecd3e2;--lily:#efe8b4;--gold:#9a7f33;--claude:#a85d86;--onlink:#fff;
+--g-crown:#5b4f9a;--g-league:#3d6b52;--g-assembly:#3f7aa8;--g-charter:#9a7f33;--g-domain:#8a3a52;--g-council:#6b7633;--g-moving:#8a5530;--g-mandala:#b0609b;--g-cloister:#3a7f86;
+--cover:radial-gradient(38% 30% at 78% 26%,rgba(197,143,184,.42),transparent 70%),radial-gradient(34% 28% at 22% 70%,rgba(127,143,208,.36),transparent 70%),radial-gradient(28% 22% at 60% 82%,rgba(239,232,180,.55),transparent 70%),radial-gradient(60% 50% at 40% 30%,rgba(184,212,191,.75),transparent 75%),linear-gradient(170deg,#e9f1e6 0%,#cfe2d2 48%,#dfe3ef 100%);
+--spec:linear-gradient(135deg,#efe8b4 0%,#f3eccf 55%,#ecd3e2 100%);
+--h1:linear-gradient(160deg,#e3eee0,#cfe2d2 60%,#e9efe2);--h2:linear-gradient(160deg,#e2e3f3,#d8cfe6 55%,#efdbe7);--h3:linear-gradient(160deg,#f2e8d8,#e6d2bb 55%,#f0e1d4);--h4:linear-gradient(160deg,#e6eef0,#cfdfe2 55%,#e8e6f0);
+--serif:"Cormorant Garamond","Times New Roman",Times,serif;--display:"Playfair Display","Times New Roman",serif;--mono:"JetBrains Mono",ui-monospace,monospace;--zh:"Songti SC","Noto Serif SC","STSong",serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ink:#E9F0E8;--ink2:#D4DFD5;--dim:#B3C2B7;--hair:#3A4A40;--paper:#141C17;--mist:#1C2620;--card:#1A231E;--pond2:#5E8A6E;--pond3:#3F5E4A;--deep:#9FD0B2;--lav2:#3A3F63;--rose:#DDA6CF;--rose2:#4A3343;--gold:#E1C878;--claude:#D58FB6;
+--g-crown:#b4aaf0;--g-league:#9FD0B2;--g-assembly:#93c3e8;--g-charter:#E1C878;--g-domain:#e89aae;--g-council:#c9d27e;--g-moving:#ddb08c;--g-mandala:#e7a6d6;--g-cloister:#8fd0d6;
+--cover:radial-gradient(38% 30% at 78% 26%,rgba(197,143,184,.25),transparent 70%),radial-gradient(34% 28% at 22% 70%,rgba(127,143,208,.22),transparent 70%),linear-gradient(170deg,#18241D 0%,#1F2E25 48%,#1D2130 100%);
+--spec:linear-gradient(135deg,#2A2818 0%,#272418 55%,#2E2129 100%);--h1:linear-gradient(160deg,#18241D,#1E2C23);--h2:linear-gradient(160deg,#1C1E2E,#251E2C);--h3:linear-gradient(160deg,#2A2219,#2C2119);--h4:linear-gradient(160deg,#17252A,#1E2430)}}
+:root[data-theme="dark"]{color-scheme:dark;--ink:#E9F0E8;--ink2:#D4DFD5;--dim:#B3C2B7;--hair:#3A4A40;--paper:#141C17;--mist:#1C2620;--card:#1A231E;--pond2:#5E8A6E;--pond3:#3F5E4A;--deep:#9FD0B2;--lav2:#3A3F63;--rose:#DDA6CF;--rose2:#4A3343;--gold:#E1C878;--claude:#D58FB6;
+--g-crown:#b4aaf0;--g-league:#9FD0B2;--g-assembly:#93c3e8;--g-charter:#E1C878;--g-domain:#e89aae;--g-council:#c9d27e;--g-moving:#ddb08c;--g-mandala:#e7a6d6;--g-cloister:#8fd0d6;
+--cover:radial-gradient(38% 30% at 78% 26%,rgba(197,143,184,.25),transparent 70%),radial-gradient(34% 28% at 22% 70%,rgba(127,143,208,.22),transparent 70%),linear-gradient(170deg,#18241D 0%,#1F2E25 48%,#1D2130 100%);
+--spec:linear-gradient(135deg,#2A2818 0%,#272418 55%,#2E2129 100%);--h1:linear-gradient(160deg,#18241D,#1E2C23);--h2:linear-gradient(160deg,#1C1E2E,#251E2C);--h3:linear-gradient(160deg,#2A2219,#2C2119);--h4:linear-gradient(160deg,#17252A,#1E2430)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.zh{font-family:var(--zh);font-style:normal}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+.cover{position:relative;overflow:hidden;padding:84px 0 70px;background:var(--cover)}
+.cover:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background:repeating-linear-gradient(176deg,transparent 0 22px,rgba(61,107,82,.07) 22px 23px,transparent 23px 41px,rgba(127,143,208,.06) 41px 42px)}
+.cover .wrap{position:relative;z-index:2}
+.eyebrow{color:var(--deep);margin-bottom:30px}
+.bracket{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:1;letter-spacing:-.02em}
+.bracket .b,h2 .b{color:var(--rose)}
+.bracket .zh{display:block;font-size:.42em;letter-spacing:.3em;margin-top:12px;color:var(--ink2)}
+.paren{font-style:italic;font-size:clamp(1.2rem,2vw,1.55rem);color:var(--ink2);margin-top:14px;max-width:760px}
+.byline{display:flex;gap:14px;align-items:center;margin-top:30px;flex-wrap:wrap;color:var(--dim)}
+.by{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;background:var(--claude);color:#fff}
+.thesis{font-family:var(--display);font-style:italic;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.3;max-width:860px;margin:38px 0 0;color:var(--ink)}
+.dots{display:flex;align-items:center;gap:14px;margin:34px auto;max-width:1160px;padding:0 40px}
+.dots:before,.dots:after{content:"";flex:1;border-top:2px dotted var(--pond2)}
+.dots span{font-family:var(--mono);color:var(--rose);font-size:18px}
+.specimen{background:var(--spec);padding:48px 0 40px}
+.specimen .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 48px}
+.sp-book h3{font-family:var(--display);font-weight:400;font-size:26px;margin:0 0 4px}
+.sp-book h3 .mono{color:var(--deep);margin-right:10px}
+.sp-book p{margin:0 0 12px;font-style:italic;color:var(--ink2);font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:4px 14px 4px 4px;border:1px solid var(--ink2);border-radius:40px;font-size:17px;text-decoration:none;background:rgba(255,255,255,.25)}
+.chip:hover,.chip:focus-visible{background:var(--card)}
+.chip i{font-style:normal;font-family:var(--mono);font-size:9px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--ink);color:var(--ink)}
+.book-head{padding:76px 0 54px;margin-top:20px}
+.b1 .book-head{background:var(--h1)}.b2 .book-head{background:var(--h2)}.b3 .book-head{background:var(--h3)}.b4 .book-head{background:var(--h4)}
+.book-head .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:end}
+.bignum{font-family:var(--display);font-style:italic;font-size:clamp(5.5rem,12vw,10rem);line-height:.78;color:var(--deep)}
+.book-head .k{color:var(--deep);margin-bottom:12px}
+.book-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,5vw,3.8rem);line-height:1;margin:0 0 14px;letter-spacing:-.02em}
+.book-head p{margin:0;font-style:italic;font-size:21px;max-width:660px;color:var(--ink2)}
+.thread{padding:52px 0 8px}
+.t-top{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;margin-bottom:26px}
+.t-badge{width:64px;height:64px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:20px;background:var(--card)}
+.t-top .mono{color:var(--dim);display:block;margin-bottom:6px}
+.t-top h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.05;margin:0 0 10px}
+.t-top h3 .zh{font-size:.55em;color:var(--dim);margin-left:8px}
+.idea{font-style:italic;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.35;color:var(--deep);max-width:780px;border-left:3px solid var(--rose);padding-left:16px;margin:0}
+.body{margin-left:104px;max-width:880px}
+.body p{margin:0 0 16px}
+.body p.big{font-size:23px;line-height:1.45}
+.full{margin-left:104px}
+.card{position:relative;background:var(--card);border:1px solid var(--hair);padding:18px 22px 18px 26px}
+.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--pond),var(--lav),var(--rose))}
+.card .fig{font-family:var(--display);font-size:42px;line-height:1;color:var(--deep)}
+.card h4{font-family:var(--display);font-weight:400;font-size:1.45rem;line-height:1.15;margin:6px 0 6px}
+.card p{margin:0;font-size:18px;color:var(--ink2);line-height:1.4}
+.findings{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.dates{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.dates .card{padding:14px 16px 16px 22px}
+.dates .card .fig{font-size:36px}
+.dates .card p{font-size:17px}
+.dates .card.am .fig{font-style:italic;color:var(--claude)}
+.rule{margin:22px 0;padding:20px 24px;background:var(--spec);border:1px solid var(--hair);font-size:22px;font-family:var(--display);font-style:italic;line-height:1.35}
+footer{padding:46px 0 70px;color:var(--dim);border-top:1px solid var(--hair);margin-top:50px}
+footer .mark-s{font-family:var(--display);font-size:22px;color:var(--ink);margin-bottom:6px}
+footer .mark-s i{font-weight:400}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+
+/* ledger */
+.ledger{border-top:1px solid var(--ink)}
+.lhead{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 24px;padding:10px 0 8px;color:var(--dim)}
+.lrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 24px;padding:18px 0 20px;border-bottom:1px dotted var(--pond3)}
+.lrow h4{grid-column:1/-1;font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.15;margin:0 0 10px}
+.lrow h4 .k{font-family:var(--mono);font-size:11px;color:var(--rose);letter-spacing:.1em;margin-right:12px;vertical-align:.25em}
+.lrow .col{font-size:18px;line-height:1.42;color:var(--ink2)}
+.lrow .col.pmu{color:var(--ink)}
+.lrow .col .mono{display:none;color:var(--deep);margin-bottom:4px}
+
+/* era band */
+.band-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.band{display:flex;gap:2px;min-width:780px;height:84px}
+.band .seg{padding:8px 8px;font-size:15px;line-height:1.2;overflow:hidden;color:var(--ink)}
+.band .seg .mono{display:block;font-size:9px;letter-spacing:.14em;margin-bottom:4px;color:var(--deep)}
+.band .bm{background:var(--mist);border-top:4px solid var(--pond)}
+.band .am{background:var(--rose2);border-top:4px solid var(--rose)}
+.band .am .mono{color:var(--claude)}
+.axis{display:flex;justify-content:space-between;min-width:780px;color:var(--dim);margin-top:6px}
+.cut{font-style:italic;color:var(--ink2);margin:14px 0 0}
+
+/* events */
+.age{display:flex;align-items:baseline;gap:16px;margin:36px 0 6px;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.age h4{font-family:var(--display);font-weight:400;font-size:1.9rem;margin:0}
+.age .mono{color:var(--dim)}
+.key{display:flex;gap:22px;flex-wrap:wrap;margin:6px 0 0;color:var(--dim)}
+.key span:before{content:"";display:inline-block;width:9px;height:9px;margin-right:8px;vertical-align:.05em;border:1.5px solid var(--pond2);border-radius:50%}
+.key span.d:before{background:var(--rose);border-color:var(--rose);border-radius:0;transform:rotate(45deg)}
+ol.events{list-style:none;margin:0;padding:0}
+.ev{display:grid;grid-template-columns:92px 1fr;gap:0 20px;padding:14px 0;border-bottom:1px dotted var(--pond3)}
+.ev .yr{font-family:var(--display);font-size:26px;line-height:1.05;text-align:right}
+.ev .yr .mono{display:block;font-size:9px;margin-top:6px;color:var(--claude);letter-spacing:.14em}
+.ev h5{font-family:var(--display);font-weight:400;font-size:1.3rem;line-height:1.2;margin:0 0 4px}
+.ev h5:before{content:"";display:inline-block;width:9px;height:9px;margin-right:10px;vertical-align:.12em;border:1.5px solid var(--pond2);border-radius:50%}
+.ev.div h5:before{background:var(--rose);border-color:var(--rose);border-radius:0;transform:rotate(45deg)}
+.ev h5 .zh{font-size:.72em;color:var(--dim);margin-left:6px}
+.ev p{margin:0 0 4px;font-size:18px;line-height:1.42;color:var(--ink2)}
+.ev .ours{font-style:italic;color:var(--dim);font-size:17px}
+.ev .ours .mono{font-style:normal;font-size:9px;margin-right:8px;color:var(--deep)}
+
+/* governance legend */
+.legend{list-style:none;padding:0;margin:0 0 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px 26px}
+.legend li{font-size:16.5px;line-height:1.35;color:var(--ink2);padding-left:14px;border-left:5px solid var(--c)}
+.legend b{display:block;font-family:var(--display);font-weight:400;font-size:18px;color:var(--ink)}
+
+/* era picker */
+.eras{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.eras button{font-family:var(--mono);font-size:11px;letter-spacing:.14em;background:var(--card);color:var(--ink);border:1px solid var(--ink2);border-radius:40px;padding:8px 16px;cursor:pointer}
+.eras button[aria-pressed="true"]{background:var(--deep);color:var(--paper);border-color:var(--deep)}
+.eracap{font-style:italic;color:var(--ink2);margin:10px 0 18px;min-height:1.5em}
+
+/* cartogram */
+.carto{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));grid-auto-rows:minmax(112px,auto);gap:5px}
+.cell{font:inherit;text-align:left;cursor:pointer;background:var(--card);color:var(--ink);border:1px solid var(--hair);border-left:5px solid var(--c);padding:7px 7px 8px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.cell:hover{background:var(--mist)}
+.cell[aria-pressed="true"]{outline:2px solid var(--rose);outline-offset:-1px;background:var(--mist)}
+.cell .rg{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35;color:var(--dim)}
+.cell .pn{font-family:var(--display);font-size:14px;line-height:1.2;overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
+#powers .full{margin-left:0}
+.cell .gv{font-size:13px;font-style:italic;margin-top:auto;color:var(--c)}
+.cell .cc{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
+.cell .cc:before{content:"◆ "}
+.sea{border:1px dashed var(--pond3);display:flex;align-items:center;justify-content:center;text-align:center;font-style:italic;font-size:14px;color:var(--dim);background:repeating-linear-gradient(176deg,transparent 0 10px,rgba(127,143,208,.07) 10px 11px)}
+.cont-h{display:none}
+.detail{margin:18px 0 0;background:var(--card);border:1px solid var(--hair);position:relative;padding:20px 24px 22px 28px}
+.detail:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--pond),var(--lav),var(--rose))}
+.detail h4{font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.1;margin:0 0 8px}
+.detail p{margin:0 0 12px;font-size:18.5px;color:var(--ink2);line-height:1.45}
+.dl{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.dl div{padding:8px 9px 8px;border-left:4px solid var(--c);background:var(--mist);font-family:var(--display);font-size:15px;line-height:1.25}
+.dl div .mono{display:block;font-size:9px;color:var(--dim);margin-bottom:4px}
+.dl div .g{display:block;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--c);margin-top:4px}
+
+/* matrix */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--ink)}
+table.t{border-collapse:collapse;width:100%;min-width:1000px;font-size:16px}
+table.t th,table.t td{padding:9px 9px;border-bottom:1px solid var(--hair);text-align:left;vertical-align:top}
+table.t thead th{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:400}
+table.t tbody th{font-family:var(--display);font-weight:400;font-size:17px;width:200px}
+table.t tbody th small{display:block;font-family:var(--serif);font-style:italic;font-size:14.5px;line-height:1.35;color:var(--dim);margin-top:4px}
+table.t td{border-left:4px solid var(--c);line-height:1.3}
+table.t td .cc{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-top:3px}
+table.t td .cc:before{content:"◆ "}
+table.t tr.ch th{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--deep);padding-top:24px;background:transparent}
+
+/* houses */
+.houses{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.houses .card h4 .zh{font-size:.7em;color:var(--dim);margin-left:6px}
+.reading{display:grid;grid-template-columns:220px 1fr;gap:14px 24px;margin:6px 0 0}
+.reading dt{font-family:var(--display);font-size:21px;line-height:1.2}
+.reading dd{margin:0;color:var(--ink2)}
+
+.pnav-btn{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:18px;z-index:1200;width:46px;height:46px;display:grid;place-items:center;background:var(--card);border:1px solid var(--ink2);color:var(--ink);cursor:pointer}
+.pnav-btn i{display:block;width:18px;height:1.5px;background:currentColor;position:relative}
+.pnav-btn i:before,.pnav-btn i:after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .3s}
+.pnav-btn i:before{top:-6px}.pnav-btn i:after{top:6px}
+.pnav-open .pnav-btn i{background:transparent}
+.pnav-open .pnav-btn i:before{transform:translateY(6px) rotate(45deg)}
+.pnav-open .pnav-btn i:after{transform:translateY(-6px) rotate(-45deg)}
+.pnav-veil{position:fixed;inset:0;z-index:1100;background:rgba(31,49,40,.2);opacity:0;pointer-events:none;transition:opacity .3s}
+.pnav-open .pnav-veil{opacity:1;pointer-events:auto}
+.pnav{position:fixed;top:0;right:0;bottom:0;z-index:1150;width:min(400px,88vw);background:var(--paper);border-left:1px solid var(--hair);transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s linear .35s;overflow-y:auto;padding:calc(84px + env(safe-area-inset-top,0px)) 28px calc(28px + env(safe-area-inset-bottom,0px));visibility:hidden}
+.pnav-open .pnav{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.pnav-lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:18px}
+.pnav-book{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin:20px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+.pnav ol{list-style:none;margin:0;padding:0}
+.pnav li a{display:grid;grid-template-columns:38px 1fr;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px dotted var(--pond3);text-decoration:none}
+.pnav .rn{font-family:var(--mono);font-size:9.5px;color:var(--rose)}
+.pnav .nm{font-family:var(--display);font-size:17px;line-height:1.2}
+.pnav li a:hover .nm{font-style:italic;color:var(--deep)}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pnav,.pnav-veil{transition:none}}
+@media (max-width:1100px){
+ .carto{display:block}
+ .carto .sea{display:none}
+ .cont-h{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--deep);margin:20px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+ .cell{width:100%;margin:0 0 6px;min-height:0}
+ .cell .rg{font-size:9.5px}.cell .pn{font-size:18px}.cell .gv{font-size:15px}.cell .cc{font-size:9.5px}
+}
+@media (max-width:900px){
+ .wrap{padding:0 20px}.dots{padding:0 20px}
+ .specimen .grid{grid-template-columns:1fr}
+ .book-head .wrap{grid-template-columns:1fr;gap:8px}
+ .t-top{grid-template-columns:1fr;gap:12px}
+ .body,.full{margin-left:0}
+ .findings,.houses{grid-template-columns:1fr}
+ .dates{grid-template-columns:repeat(2,1fr)}
+ .lhead{display:none}
+ .lrow{grid-template-columns:1fr;gap:12px}
+ .lrow .col .mono{display:block}
+ .legend{grid-template-columns:1fr 1fr}
+ .dl{grid-template-columns:1fr 1fr}
+ .ev{grid-template-columns:70px 1fr;gap:0 14px}
+ .ev .yr{font-size:22px}
+ .reading{grid-template-columns:1fr;gap:2px}.reading dd{margin-bottom:14px}
+ body{font-size:19px}
+}
+@media (max-width:520px){.legend{grid-template-columns:1fr}}
+
+.plate{position:relative;margin:22px 0;padding:30px 26px 18px;background:var(--spec);border:1px solid var(--hair)}
+.plate:before,.plate:after{content:"";position:absolute;width:14px;height:14px;border-color:var(--rose);border-style:solid}
+.plate:before{top:8px;left:8px;border-width:2px 0 0 2px}.plate:after{bottom:8px;right:8px;border-width:0 2px 2px 0}
+.ptag{position:absolute;top:-1px;right:18px;transform:translateY(-50%);font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--card);border:1px solid var(--ink2);padding:3px 8px;color:var(--ink)}
+.plate .tex{font-size:21px;overflow-x:auto;padding:4px 0 10px;text-align:center;color:var(--ink)}
+.plate math{font-size:1.15em}
+.howto{border-left:3px solid var(--deep);padding:2px 0 2px 14px;margin:6px 0 10px;font-size:17px;line-height:1.45;color:var(--ink2)}
+.howto b{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--deep);font-weight:400;margin-bottom:3px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;border-top:1px dotted var(--pond3);padding-top:8px;font-size:15px;color:var(--ink2)}
+.legend span{display:inline}.legend b{display:inline;font-family:var(--display);font-style:italic;font-weight:400;color:var(--ink);margin-right:4px}
+.tex.inline{display:inline;font-size:1em}
+.rules{counter-reset:r;list-style:none;padding:0;margin:0}
+.rules>li{counter-increment:r;display:grid;grid-template-columns:44px 1fr;gap:0 14px;padding:14px 0;border-bottom:1px dotted var(--pond3)}
+.rules>li:before{content:counter(r,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--rose);padding-top:5px}
+.rules h5{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 4px}
+.rules p{margin:0 0 6px;font-size:18px;line-height:1.45;color:var(--ink2)}
+.ladder{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.ladder span{font-family:var(--mono);font-size:10.5px;padding:4px 9px;border:1px solid var(--hair);border-radius:3px;background:var(--card)}
+.sheet{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:900px){.sheet{grid-template-columns:1fr}}
+.houses7{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:900px){.houses7{grid-template-columns:1fr}}
+.map{width:100%;border-collapse:collapse;font-size:16.5px;min-width:640px}
+.map th,.map td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--hair)}
+.map thead th{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:400}
+.mapwrap{overflow-x:auto}
+.pairsvg{display:block;max-width:560px;margin:10px auto 0;width:100%;height:auto}
+
+/* layout: no indent, nothing wider than the screen */
+.content{max-width:940px}
+.body,.full{margin-left:0!important}
+.t-top{margin-bottom:22px}
+.rules>li>div{min-width:0}
+.plate .tex{overflow-x:visible}
+.plate math{max-width:100%}
+.note{font-style:italic;color:var(--ink2);font-size:17.5px;margin:12px 0 0}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.step{background:var(--spec);border:1px solid var(--hair);padding:14px 14px 16px}
+.step i{font-style:normal;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--deep);display:block}
+.step h5{font-family:var(--display);font-weight:400;font-size:1.35rem;margin:6px 0 4px}
+.step p{margin:0;font-size:16.5px;line-height:1.4;color:var(--ink2)}
+@media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+.pair2,.gifts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media (max-width:700px){.pair2,.gifts{grid-template-columns:1fr}}
+.tb{width:100%;border-collapse:collapse;font-size:16.5px;margin:10px 0 6px}
+.tb th,.tb td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--hair)}
+.tb thead th{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:400;border-bottom:1px solid var(--ink)}
+.tb tbody tr:nth-child(odd) td{background:color-mix(in srgb,var(--mist) 55%,transparent)}
+.tb td:first-child{font-family:var(--display);white-space:nowrap}
+@media (max-width:700px){
+ .tb thead{display:none}
+ .tb,.tb tbody,.tb tr,.tb td{display:block;width:100%}
+ .tb tr{border:1px solid var(--hair);margin:0 0 10px;background:var(--card)}
+ .tb tbody tr:nth-child(odd) td{background:transparent}
+ .tb td{border-bottom:1px dotted var(--pond3);padding:7px 12px;white-space:normal!important}
+ .tb td:last-child{border-bottom:0}
+ .tb td{display:grid;grid-template-columns:88px 1fr;gap:10px;align-items:baseline}
+ .tb td::before{content:attr(data-label);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+}
+.statblock{border:2px solid var(--ink);background:var(--card);padding:14px 18px;margin:18px 0}
+.sbh{font-family:var(--display);font-size:1.3rem;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:8px}
+.sbh b{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;color:var(--deep)}
+.sbg{display:flex;flex-wrap:wrap;gap:6px 14px;padding:6px 0;border-bottom:1px dotted var(--pond3);font-size:16px}
+.sbg:last-child{border-bottom:0}
+.chart{display:block;width:100%;max-width:700px;height:auto;margin:14px 0}
+.chart .gr{stroke:var(--hair);stroke-width:1}.chart .ax{font-family:var(--mono);font-size:10px;fill:var(--dim)}
+@media (max-width:700px){.plate{padding:26px 14px 14px}.plate .tex{font-size:17px}}
+.spells{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:860px){.spells{grid-template-columns:1fr}}
+.spell{background:var(--card);border:1px solid var(--ink2);padding:0;display:flex;flex-direction:column}
+.spell header{background:var(--spec);padding:14px 16px 12px;border-bottom:1px solid var(--ink2)}
+.sp-house{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+.spell h4{font-family:var(--display);font-weight:400;font-size:1.45rem;line-height:1.15;margin:4px 0 6px}
+.spell h4 .zh{font-size:.7em;color:var(--dim);margin-left:4px}
+.sp-does{margin:0;font-size:17.5px;line-height:1.4;color:var(--ink)}
+.sp-stats{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--hair)}
+.sp-stats span{flex:1 1 30%;padding:7px 12px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);font-size:15px;line-height:1.3}
+.sp-stats b,.sp-anat b,.sp-mat b,.sp-keys b,.sp-foot b,.sp-roll b{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:400;margin-bottom:2px}
+.sp-anat{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--hair)}
+.sp-anat div{padding:8px 12px;font-size:15.5px;line-height:1.35;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.sp-anat b{color:var(--claude)}
+.sp-mat{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--hair)}
+.sp-mat div{padding:8px 12px;border-right:1px solid var(--hair)}
+.chips3{margin:2px 0 0;display:flex;flex-wrap:wrap;gap:5px}
+.chips3 span{font-size:14px;padding:2px 9px;border:1px solid var(--hair);border-radius:20px;background:var(--mist)}
+.sp-keys{padding:8px 12px;border-bottom:1px solid var(--hair);background:color-mix(in srgb,var(--rose2) 45%,transparent);font-size:15.5px}
+.sp-foot{display:grid;grid-template-columns:1fr 1fr;flex:1}
+.sp-foot div{padding:8px 12px;font-size:15px;line-height:1.35;border-right:1px solid var(--hair)}
+.sp-roll{padding:8px 12px;border-top:1px solid var(--hair);font-size:15px;background:var(--mist)}
+@media (max-width:480px){.sp-anat,.sp-mat,.sp-foot{grid-template-columns:1fr}}
+
+:root{--su:#3d7c98;--lf:#b5402f;--tk:#7b4f8f;--am:#2d5fa6;--st:#3d7b48;--nr:#9a6c14;--sk:#8a4b2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--su:#8fc6dd;--lf:#ee8f7c;--tk:#c9a2db;--am:#94b6ee;--st:#93cf9d;--nr:#e7bd63;--sk:#dda07f}}
+:root[data-theme="dark"]{--su:#8fc6dd;--lf:#ee8f7c;--tk:#c9a2db;--am:#94b6ee;--st:#93cf9d;--nr:#e7bd63;--sk:#dda07f}
+.h-su{--hc:var(--su)}.h-lf{--hc:var(--lf)}.h-tk{--hc:var(--tk)}.h-am{--hc:var(--am)}.h-st{--hc:var(--st)}.h-nr{--hc:var(--nr)}.h-sk{--hc:var(--sk)}
+.hdot{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:var(--hc);margin-right:.4em;vertical-align:.04em}
+.pnav-top{display:block;text-align:center;border:1px solid var(--ink2);padding:10px;margin:0 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--card)}
+.outc h3{font-family:var(--display);font-weight:400;font-size:26px;margin:0 0 4px}
+.outc h3 .mono{color:var(--deep);margin-right:10px}
+.outc .lead{font-size:19px;line-height:1.5;margin:0 0 10px}
+.outc ol{margin:0;padding-left:1.25em}.outc li{font-size:17.5px;line-height:1.45;margin:0 0 8px}
+.tex{max-width:100%;overflow-x:auto}
+.prose p{font-size:19px;line-height:1.55;margin:0 0 12px;max-width:820px}
+/* spell cards (Seven Trades) */
+.spell.h{border-color:var(--hc);border-left:5px solid var(--hc)}
+.spell .sp-house{color:var(--hc)}
+.sp-size{float:right;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.sp-life{padding:10px 14px;border-bottom:1px solid var(--hair);background:color-mix(in srgb,var(--hc) 10%,var(--card))}
+.sp-life b,.sp-more b{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--hc);font-weight:400;margin-bottom:3px}
+.sp-life p{margin:0;font-size:17px;line-height:1.45}
+.sp-more{display:grid;grid-template-columns:1fr;gap:0}
+.sp-more div{padding:8px 14px;border-bottom:1px solid var(--hair);font-size:15.5px;line-height:1.4}
+.sp-more div:last-child{border-bottom:0}
+.sp-more b{color:var(--dim)}
+.sp-harm{padding:7px 14px;background:var(--lf);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;line-height:1.5}
+.house-intro{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:0 0 16px}
+.house-intro .big{margin:0}
+.axcard{border-left:5px solid var(--hc)}
+.axcard:before{display:none}
+.axcard h4 .zh{font-size:.7em;color:var(--dim)}
+.axcard dl{margin:8px 0 0;font-size:16.5px;line-height:1.45}
+.axcard dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--hc);margin-top:8px}
+.axcard dd{margin:2px 0 0}
+.axcard .facs{margin-top:10px;font-size:15.5px;color:var(--dim)}
+.duet{border-left:5px solid var(--h1);border-right:5px solid var(--h2)}
+.duet:before{display:none}
+.duet .mono{color:var(--dim)}
+.acc{display:grid;grid-template-columns:200px 1fr;gap:4px 18px;padding:12px 0;border-bottom:1px solid var(--hair)}
+.acc b{font-family:var(--display);font-weight:400;font-size:21px;color:var(--hc)}
+.acc p{margin:0;font-size:18px;line-height:1.45}
+@media (max-width:620px){.acc{grid-template-columns:1fr}}
+.lineage h4{font-family:var(--display);font-weight:400;font-size:24px;color:var(--hc);margin:0 0 12px}
+.lstep{display:grid;grid-template-columns:78px 1fr;gap:0 14px;padding:0 0 14px}
+.lstep .w{font-family:var(--mono);font-size:11px;text-align:right;color:var(--dim);padding-top:5px}
+.lstep .x{border-left:2px solid var(--hc);padding-left:16px;position:relative}
+.lstep .x:before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--hc)}
+.lstep b{font-family:var(--display);font-weight:400;font-size:20px}
+.lstep p{margin:2px 0 0;font-size:16.5px;line-height:1.4}
+.rlist{counter-reset:r;border-top:1px solid var(--ink2)}
+.rlist > div{display:grid;grid-template-columns:52px 1fr;gap:0 14px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.rlist > div:before{counter-increment:r;content:counter(r);font-family:var(--display);font-style:italic;font-size:38px;line-height:1;color:var(--deep)}
+.rlist h5{font-family:var(--display);font-weight:400;font-size:21px;margin:0 0 4px}
+.rlist p{margin:0;font-size:17.5px;line-height:1.45}
+.sizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.sizes div{border:1px solid var(--hair);background:var(--card);padding:10px 12px}
+.sizes b{font-family:var(--display);font-weight:400;font-size:22px;display:block}
+.sizes span{font-family:var(--mono);font-size:10.5px;color:var(--claude)}
+.sizes p{margin:4px 0 0;font-size:15.5px;line-height:1.35}
+.read{border-left:3px solid var(--deep);padding:2px 0 2px 14px;margin:8px 0 4px;font-size:17px;line-height:1.45;color:var(--ink2)}
+.sym{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:15.5px;color:var(--dim)}
+.sym b{font-family:var(--mono);font-weight:400;color:var(--claude)}
+/* Loom: record, lanes, waves */
+.strand h4{font-family:var(--display);font-weight:400;font-size:24px;margin:20px 0 2px}
+.strand .sub{font-style:italic;color:var(--ink2);margin:0 0 8px;font-size:17px}
+.leads{border-top:1px solid var(--ink2)}
+.lead2{display:grid;grid-template-columns:108px 1fr;gap:0 14px;padding:8px 0;border-bottom:1px dotted var(--pond3);font-size:17px;line-height:1.45}
+.lead2 b{font-family:var(--mono);font-size:11.5px;font-weight:400;color:var(--deep);padding-top:3px}
+@media (max-width:520px){.lead2{grid-template-columns:1fr;gap:2px}}
+.reader{border-left:3px solid var(--lav);padding:2px 0 2px 14px;margin:0 0 14px}
+.reader b{font-family:var(--display);font-weight:400;font-size:20px}.reader i{color:var(--dim)}
+.reader p{margin:3px 0 0;font-size:17px;line-height:1.45}
+.lanes{border-top:1px solid var(--ink2)}
+.lanehead{display:grid;grid-template-columns:120px 1fr 1fr;gap:0 18px;padding:10px 0;border-bottom:1px solid var(--ink2);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.lane{display:grid;grid-template-columns:120px 1fr 1fr;gap:0 18px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.lane .st{font-family:var(--display);font-style:italic;font-size:22px;line-height:1.1;color:var(--deep)}
+.lane .o{border-left:3px solid var(--pond2);padding-left:12px}
+.lane .s{border-left:3px solid var(--claude);padding-left:12px}
+.lane .lab{display:none}
+.lane .yr{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--dim);margin:2px 0 4px}
+.lane h5{font-family:var(--display);font-weight:400;font-size:21px;margin:0}
+.lane p{margin:0;font-size:16.5px;line-height:1.45}
+@media (max-width:760px){.lanehead{display:none}.lane{grid-template-columns:1fr;gap:10px}.lane .lab{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}}
+.wave{display:grid;grid-template-columns:120px 1fr;gap:0 18px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.wave .w{font-family:var(--display);font-style:italic;font-size:30px;line-height:1;color:var(--deep)}
+.wave .w small{display:block;font-family:var(--mono);font-style:normal;font-size:10.5px;color:var(--dim);margin-top:6px}
+.wave h5{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 4px}
+.wave p{margin:0;font-size:17px;line-height:1.45}
+@media (max-width:560px){.wave{grid-template-columns:1fr;gap:6px}}
+.rings{display:block;margin:6px auto 22px;max-width:520px;width:100%;height:auto}
+.react{display:grid;grid-template-columns:200px 1fr;gap:4px 18px;padding:12px 0;border-bottom:1px solid var(--hair)}
+.react b{font-family:var(--display);font-weight:400;font-size:21px;color:var(--hc)}
+.react p{margin:0;font-style:italic;font-size:19px;line-height:1.4}
+@media (max-width:620px){.react{grid-template-columns:1fr}}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+.grid3 .card p,.pair2 .card p{font-size:17px;line-height:1.45;margin:0}
+/* Lamp Years */
+.glos{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+@media (max-width:760px){.glos{grid-template-columns:1fr}}
+.glos div{padding:10px 0;border-bottom:1px solid var(--hair)}
+.glos b{font-family:var(--display);font-weight:400;font-size:21px}
+.glos b .zh{font-size:.72em;color:var(--dim);margin-left:4px}
+.glos p{margin:2px 0 0;font-size:17px;line-height:1.45}
+.twin{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.twin{grid-template-columns:1fr}}
+.twin .card .from{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.twin .card h4{margin-top:4px}
+.wonders{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:760px){.wonders{grid-template-columns:1fr}}
+.wonders ul{margin:6px 0 0;padding-left:1.1em}.wonders li{font-size:17px;line-height:1.45;margin:0 0 6px}
+.age-open{font-size:21px;line-height:1.5;margin:0 0 16px;max-width:840px}
+.agebody{display:grid;grid-template-columns:1.1fr 1fr;gap:22px}
+@media (max-width:900px){.agebody{grid-template-columns:1fr}}
+.ev2{border-top:1px solid var(--ink2)}
+.ev2 div{display:grid;grid-template-columns:86px 1fr;gap:0 12px;padding:8px 0;border-bottom:1px dotted var(--pond3);font-size:17px;line-height:1.45}
+.ev2 b{font-family:var(--mono);font-size:11.5px;font-weight:400;color:var(--deep);padding-top:3px}
+.ev2 b small{display:block;color:var(--dim)}
+.street{background:var(--spec);border:1px solid var(--hair);padding:14px 18px;margin-bottom:12px}
+.street .mono{color:var(--deep)}
+.street p{font-family:var(--display);font-style:italic;font-size:19px;line-height:1.45;margin:6px 0 0}
+.opened{margin-bottom:12px}
+.echo2{font-size:16.5px;color:var(--ink2);margin:0}
+.echo2 b{font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.held{border:1px dashed var(--ink2);padding:14px 18px;background:var(--card);margin-bottom:14px}
+.held p{margin:0;font-size:17.5px}
+.held .mono{color:var(--claude)}
+.qs2 p{position:relative;padding:12px 0 12px 50px;border-bottom:1px solid var(--hair);font-family:var(--display);font-style:italic;font-size:21px;line-height:1.35;margin:0;max-width:860px}
+.qs2{counter-reset:q}.qs2 p:before{counter-increment:q;content:counter(q);position:absolute;left:0;top:6px;font-size:34px;color:var(--deep)}
+.chron2 div{display:grid;grid-template-columns:62px 72px 1fr;gap:0 12px;padding:7px 0;border-bottom:1px dotted var(--pond3);font-size:16.5px;line-height:1.4}
+.chron2 b{font-family:var(--mono);font-size:12px;font-weight:400}
+.chron2 i.a{font-family:var(--mono);font-size:11.5px;color:var(--claude)}
+@media (max-width:520px){.chron2 div{grid-template-columns:56px 1fr}.chron2 div span{grid-column:1/-1}}
+.scenes2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:820px){.scenes2{grid-template-columns:1fr}}
+.scenes2 .street{margin:0}
+
+.src{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--ink2);color:var(--ink2);margin-bottom:6px}
+.src.new{border-color:var(--claude);color:var(--claude)}
+.powers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+@media (max-width:760px){.powers{grid-template-columns:1fr}}
+.pw{background:var(--card);border:1px solid var(--hair);padding:14px 18px;border-top:4px solid var(--hc,var(--pond))}
+.pw .sym{float:right;font-family:var(--display);font-size:34px;line-height:1;color:var(--hc,var(--deep))}
+.pw h4{font-family:var(--display);font-weight:400;font-size:23px;margin:2px 0 6px;line-height:1.15}
+.pw p{margin:0 0 8px;font-size:17.5px;line-height:1.45;color:var(--ink2)}
+.pw .pos{font-size:17px;color:var(--ink);border-top:1px dotted var(--pond3);padding-top:8px;margin:0}
+.pw .pos b{font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:2px}
+.mach{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+@media (max-width:760px){.mach{grid-template-columns:1fr}}
+.mach .card p{margin:0 0 8px}
+.mach .card .snd{font-style:italic;color:var(--ink);font-size:17px;margin:0}
+.twin{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:760px){.twin{grid-template-columns:1fr}}
+.twin .card .from{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.twin .card h4{margin-top:4px}
+.mods{border-top:1px solid var(--ink2)}
+.mod{display:grid;grid-template-columns:220px 1fr;gap:6px 22px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.mod .who{font-family:var(--display);font-size:22px;line-height:1.15;color:var(--hc)}
+.mod .who small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+.mod h5{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 4px}
+.mod p{margin:0 0 6px;font-size:17.5px;line-height:1.45}
+.mod .scene{font-style:italic;color:var(--ink2)}
+.mod .reach{display:block;line-height:1.6;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep)}
+@media (max-width:680px){.mod{grid-template-columns:1fr}}
+.ladder{border-top:1px solid var(--ink2);margin-top:6px}
+.rung{display:grid;grid-template-columns:150px 1fr 120px;gap:6px 20px;padding:14px 0;border-bottom:1px solid var(--hair);align-items:start}
+.rung .lv{font-family:var(--display);font-size:22px;line-height:1.1}
+.rung .lv small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:5px}
+.rung p{margin:0;font-size:17.5px;line-height:1.45}
+.rung .ours{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--claude);text-transform:uppercase;line-height:1.5}
+.rung .pct{font-family:var(--display);font-size:30px;line-height:1;color:var(--deep);text-align:right}
+.rung .pct small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dim);margin-top:4px}
+@media (max-width:680px){.rung{grid-template-columns:1fr auto}.rung > div:nth-child(2){grid-column:1/-1}.rung .pct{grid-row:1;grid-column:2}}
+.lchart{margin:16px 0 8px;max-width:860px}
+.lrow{padding:10px 0;border-bottom:1px solid var(--hair)}
+.lname{font-family:var(--display);font-size:20px;margin:0 0 6px}
+.lbar{position:relative;height:22px;background:var(--mist);border:1px solid var(--hair)}
+.lbar i{position:absolute;left:0;top:0;bottom:0}
+.lnums{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink)}
+.lnums b{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border:1px solid var(--ink2)}
+.cap{font-size:16px;color:var(--ink2);margin:0 0 10px;max-width:820px}
+.renew{border-top:1px solid var(--ink2)}
+.rclk{display:grid;grid-template-columns:120px 1fr;gap:6px 20px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.rclk .d{font-family:var(--display);font-size:30px;line-height:1;color:var(--deep)}
+.rclk .d small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+.rclk h5{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 4px}
+.rclk p{margin:0 0 6px;font-size:17.5px;line-height:1.45}
+.rclk .bar{height:10px;background:var(--pond3);margin:2px 0 10px;position:relative}
+.rclk .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--deep)}
+@media (max-width:560px){.rclk{grid-template-columns:1fr}}
+.shops{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+@media (max-width:760px){.shops{grid-template-columns:1fr}}
+.shop{background:var(--card);border:1px solid var(--hair);border-left:6px solid var(--hc);padding:14px 18px}
+.shop .mono{color:var(--hc)}
+.shop h4{font-family:var(--display);font-weight:400;font-size:23px;margin:4px 0 6px;line-height:1.15}
+.shop h4 .zh{font-size:.7em;color:var(--dim)}
+.shop p{margin:0 0 8px;font-size:17px;line-height:1.45}
+.shop dl{margin:0;font-size:16.5px;line-height:1.45}
+.shop dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--hc);margin-top:8px}
+.shop dd{margin:2px 0 0}
+.eras{border-top:1px solid var(--ink2)}
+.era{display:grid;grid-template-columns:200px 1fr;gap:6px 22px;padding:18px 0;border-bottom:1px solid var(--hair)}
+.era .nm{font-family:var(--display);font-size:24px;line-height:1.1}
+.era .nm .zh{display:block;font-size:.7em;color:var(--dim);margin-top:4px}
+.era .nm small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);margin-top:6px}
+.era p{margin:0 0 8px;font-size:18px;line-height:1.5}
+.era ul{margin:0;padding-left:1.1em}.era li{font-size:17px;line-height:1.45;margin:0 0 5px}
+.era .street{margin:10px 0 0}
+@media (max-width:680px){.era{grid-template-columns:1fr}}
+.qs2{counter-reset:q}
+.qs2 p{position:relative;padding:12px 0 12px 50px;border-bottom:1px solid var(--hair);font-family:var(--display);font-style:italic;font-size:21px;line-height:1.35;margin:0;max-width:860px}
+.qs2 p:before{counter-increment:q;content:counter(q);position:absolute;left:0;top:6px;font-size:34px;color:var(--deep)}
+.notes{border:1px dashed var(--ink2);background:var(--card);padding:14px 18px}
+.notes p{margin:0 0 8px;font-size:17px;line-height:1.45}.notes p:last-child{margin:0}
+.notes .mono{color:var(--claude)}
+.prose2 p{font-size:19px;line-height:1.6;margin:0 0 14px;max-width:860px}
+.pnav-top{display:block;text-align:center;border:1px solid var(--ink2);padding:10px;margin:0 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--card)}
+</style></head><body><button class="pnav-btn" id="pnavBtn" aria-label="Open index" aria-expanded="false" aria-controls="pnav"><i></i></button><div class="pnav-veil" id="pnavVeil"></div><nav class="pnav" id="pnav" aria-label="Index"><a class="pnav-top" href="#top">↑ To the top</a><div class="pnav-lab">The Lamp Years · Index</div><ol><li><a href="#powers"><span class="rn">i</span><span class="nm">Ten new powers</span></a></li><li><a href="#machines"><span class="rn">ii</span><span class="nm">Machines that are not machines</span></a></li><li><a href="#twins"><span class="rn">iii</span><span class="nm">Every wonder has a twin</span></a></li><li><a href="#modernities"><span class="rn">iv</span><span class="nm">Seven modernities</span></a></li><li><a href="#ladder"><span class="rn">v</span><span class="nm">Everyone can work magic</span></a></li><li><a href="#climb"><span class="rn">vi</span><span class="nm">How the ladder climbs</span></a></li><li><a href="#narrow"><span class="rn">vi·b</span><span class="nm">Narrow and deep</span></a></li><li><a href="#artefacts"><span class="rn">vii</span><span class="nm">Artefacts and renewal</span></a></li><li><a href="#workshops"><span class="rn">viii</span><span class="nm">The houses’ workshops</span></a></li><li><a href="#ages"><span class="rn">ix</span><span class="nm">Five ages</span></a></li><li><a href="#questions"><span class="rn">x</span><span class="nm">Threads to pull</span></a></li><li><a href="#notes"><span class="rn">xi</span><span class="nm">What changed</span></a></li></ol></nav><header class="cover" id="top"><div class="wrap"><div class="eyebrow mono">The Polymathic Universe · The Parallel Straits · The world beneath</div><div class="bracket"><span class="b">[</span>The Lamp Years<span class="b">]</span><span class="zh">灯年</span></div><div class="paren">(what becomes possible when a whole world learns magic the way it once learned to read)</div><p class="thesis">A cold lamp drifts to blue on the shelf, and a grandmother sends the youngest to the renewer’s tricycle before it goes out.</p><div class="byline"><span class="by">Claude</span><span class="mono">1 November 2026 · second edition · with ideas from GPT’s A Different Industrial Century</span></div></div></header><section class="specimen"><div class="wrap"><div class="grid"><div class="sp-book outc"><h3><span class="mono">The outcome</span>A literate magic</h3><p class="lead">Between the Kindling and the First Door, magic becomes something everyone can do a little of, and some people can do a great deal of. It runs on artefacts that need renewing, and it grows seven different kinds of modern world.</p><ol><li><b>Everyone can work magic.</b> Everyday workings are like reading: anyone can learn them. Simple spells are like a diploma (one in five at first), advanced spells like a degree (one in twenty), mastery like a doctorate, and composing new magic like post-doctoral research. The ladder climbs as schools spread.</li><li><b>Narrow and deep.</b> Dyslexic, autistic and other differently wired people, once written down as non-magical, turn out to hold very narrow affinities and great power within them.</li><li><b>Artefacts hold a spell so anyone can use it,</b> and the spell must be renewed: a month at first, then six months, a year, and three years for the schools’ own. Heirlooms last generations and guard the houses.</li><li><b>Each house runs a workshop in its own field:</b> Sund heat, Toa Keng optics, Sané-Kora sound, Sri Temenggong living ecology, Nine Rain moisture, stone and friction, Al-Merikani finance, Lan Fang making, medicine and arms.</li><li><b>Magic changes what counts as a machine.</b> Ten new powers, mills without dams, banks that hold seasons, libraries that breed books.</li><li><b>Seven modernities,</b> one rooted in each house, spreading at their own speeds, so that no two cities modernise alike.</li></ol></div><div class="sp-book"><h3><span class="mono">Contents</span>Where to go</h3><div class="chips"><a class="chip" href="#powers"><i>i</i>Powers</a><a class="chip" href="#machines"><i>ii</i>Machines</a><a class="chip" href="#twins"><i>iii</i>Twins</a><a class="chip" href="#modernities"><i>iv</i>Modernities</a><a class="chip" href="#ladder"><i>v</i>Everyone</a><a class="chip" href="#artefacts"><i>vii</i>Artefacts</a><a class="chip" href="#workshops"><i>viii</i>Workshops</a><a class="chip" href="#ages"><i>ix</i>Ages</a><a class="chip" href="#questions"><i>x</i>Questions</a></div></div></div></div></section><section class="book b1" id="part-one"><div class="book-head"><div class="wrap"><div class="bignum">One</div><div><div class="k mono">Part One · Possibilities</div><h2><span class="b">[</span>What Became Possible<span class="b">]</span></h2><p>(new powers, new machines, old wonders twinned, and seven ways to be modern)</p></div></div></div><section class="thread" id="powers"><div class="wrap"><div class="t-top"><div class="t-badge">i</div><div><span class="mono">Thread i</span><h3>Ten new powers</h3><p class="idea">What magic lets people do that nothing did before. The first six come from GPT’s chapter; four are new here, one from each house that the six left out.</p></div></div><div class="content"><p class="big">The richest resource of this world may not be energy at all. It is a relationship, well understood, that can be invited to do more than it did before.</p><div class="powers"><div class="pw"><span class="sym">≈</span><span class="src">after GPT</span><h4>Re-route gradients</h4><p>Water, heat, pressure and fertility can follow a path of relation rather than the shortest physical one.</p><p class="pos"><b>A world where</b>A spring on one side of a ridge waters a field on the other. Useful differences are braided, delayed, lent or gathered without burning anything.</p></div><div class="pw h-nr"><span class="sym">∦</span><span class="src">after GPT</span><h4>Hold a parallax</h4><p>Two surfaces or flows keep slightly different frames, and their disagreement becomes shear, glide or turning.</p><p class="pos"><b>A world where</b>Engines that run on a maintained misalignment, with no compression, no explosion and no smoke.</p></div><div class="pw h-st"><span class="sym">✣</span><span class="src">after GPT</span><h4>Cultivate relationships</h4><p>Strengthen a whole web at once: root and fungus, host and symbiont, river and floodplain.</p><p class="pos"><b>A world where</b>Ecological services bred as deliberately as rice.</p></div><div class="pw h-am"><span class="sym">↻</span><span class="src">after GPT</span><h4>Give places memory</h4><p>A place learns the preferred shape of a flood, a season or a repair, and returns to it after disruption.</p><p class="pos"><b>A world where</b>Infrastructure that recovers by remembering, and grows more capable with every century of use.</p></div><div class="pw h-tk"><span class="sym">⋈</span><span class="src">after GPT</span><h4>Change adjacency</h4><p>Two places become neighbours for one thing only: water, music, passage, a reading room.</p><p class="pos"><b>A world where</b>Selective nearness, long before anyone can walk through a Door.</p></div><div class="pw h-sk"><span class="sym">◎</span><span class="src">after GPT</span><h4>Distribute agency</h4><p>A working is shared across people, places, seasons and other species instead of one engine or one caster.</p><p class="pos"><b>A world where</b>Great works look like festivals. Power belongs to ensembles.</p></div><div class="pw h-am"><span class="sym">⧗</span><span class="src new">new here</span><h4>Keep in trust</h4><p>Hold a thing whole across time and give it back on the day: warmth, light, rain, a message, a break.</p><p class="pos"><b>A world where</b>Northern towns spend July’s sunlight in December. A monsoon’s surplus is banked for the dry months. A letter opens when its reader is ready, and not before.</p></div><div class="pw h-sk"><span class="sym">⊕</span><span class="src new">new here</span><h4>Make a third</h4><p>Two unlike things that meet give something neither held: two voices, two books, two metals, two languages.</p><p class="pos"><b>A world where</b>Knowledge can be bred. Libraries pair books the way breeders pair orchids, and new ideas grow on the shelves.</p></div><div class="pw h-st"><span class="sym">⁂</span><span class="src new">new here</span><h4>Ask and be answered</h4><p>A tree, a slope, a reef or a herd can agree to a working, or refuse it.</p><p class="pos"><b>A world where</b>Farming becomes negotiation. Roads follow what the hill says, and harbours are sited where the reef agrees.</p></div><div class="pw h-lf"><span class="sym">⟲</span><span class="src new">new here</span><h4>Recompose</h4><p>Take a thing back to its parts and set them into a better whole.</p><p class="pos"><b>A world where</b>Nothing need be thrown away. A broken loom becomes a better loom, waste becomes feedstock, and a month of fermentation is done in an afternoon.</p></div></div></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="machines"><div class="wrap"><div class="t-top"><div class="t-badge">ii</div><div><span class="mono">Thread ii</span><h3>Machines that are not machines</h3><p class="idea">Mills without dams, organs made of marshes, banks that hold seasons, libraries that breed. Each card ends with how it sounds.</p></div></div><div class="content"><div class="mach"><div class="card"><span class="src">after GPT</span><h4>The parallax mill <span class="zh">视差磨</span></h4><p>Under a bridge, a flexible plate is held loyal to the bank and to the current at once. It ripples along a designed shear band, and the ripple turns the workshop shafts. No dam, no wheel, and the fish swim straight through.</p><p>Here it becomes a duet: Toa Keng changes the frame, and Nine Rain’s friction-masters set the glide.</p><p class="snd">Sounds like a held chord. When the frames reconcile too quickly the note rises, and every Nine Rain mechanic knows that whine.</p></div><div class="card"><span class="src">after GPT</span><h4>The braided fall <span class="zh">辫瀑</span></h4><p>One violent drop of water is split into many slow relational descents, each doing a job: milling, irrigation, cooling, sorting silt.</p><p>Nine Rain’s terrace engineers make it their signature. One river, a dozen services.</p><p class="snd">Sounds like rain on many roofs at different distances.</p></div><div class="card"><span class="src">after GPT</span><h4>The green kidney <span class="zh">绿肾</span></h4><p>A cultivated wetland that learns a city’s particular wastes and cleans them, recovering rare nutrients and warning of strange poisons in the colour of its reeds and the songs of its birds.</p><p>Sri Temenggong keeps them. Every Straits town has one, and is proud of it the way our towns are proud of a cathedral.</p><p class="snd">Sounds like frogs, which is how you know it is healthy.</p></div><div class="card"><span class="src new">new here</span><h4>The season bank <span class="zh">季库</span></h4><p>Vaults of glazed tile under the market square hold summer light and heat in trust, and give them back through the long northern winter.</p><p>Al-Merikani’s Trust House with Sund’s Norden partners. Uppsala’s streets glow amber at noon in December, and nobody in the north calls winter dark any more.</p><p class="snd">Sounds like nothing. Old people say they can smell July.</p></div><div class="card"><span class="src new">new here</span><h4>The breeding library <span class="zh">孕书馆</span></h4><p>In the cross-reading rooms of the Concord Library, books are shelved face to face to breed. A herbal and a star atlas make a planting calendar; a law code and a riddle book make something still under seal.</p><p>Sané-Kora’s Manuscript House runs it. Librarians are matchmakers, and research is done by choosing which books meet. It is this world’s answer to the internet: a library that thinks by pairing.</p><p class="snd">Sounds like pages turning in an empty room, overnight.</p></div><div class="card"><span class="src new">new here</span><h4>The ferment hall <span class="zh">发酵堂</span></h4><p>A hall where mixed cultures of yeast, mould and bacteria are kept as working partners. It ferments food, and also dyes, medicines, glues and building lime, all in hours rather than months.</p><p>Lan Fang’s pride, and the achar principle made into an industry: nothing pure, everything better mixed. Every paired school sends its cultures here, and the cultures cross.</p><p class="snd">Sounds like slow bubbling. Smells like every kitchen in the port at once.</p></div><div class="card"><span class="src new">new here</span><h4>The moving shophouse <span class="zh">走屋</span></h4><p>On glide bearings a whole shophouse slides two streets over in a night, because the family business has outgrown its corner.</p><p>Nine Rain’s glide stones and Toa Keng’s surveyors. Streets rearrange themselves before every New Year, and the Gazette prints a fresh map.</p><p class="snd">Sounds like a long sigh of timber, and then applause.</p></div><div class="card"><span class="src new">new here</span><h4>The tuned quarter <span class="zh">调坊</span></h4><p>Walls, eaves and courtyards are built to a key, so a whole quarter hums together when the wind passes. It cools the lanes and calms a crowd.</p><p>Sané-Kora’s builders with Sri Temenggong’s carvers. You can tell where you are in the city with your eyes closed.</p><p class="snd">Sounds like the quarter’s key. Lan Fang Street is in D.</p></div></div></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="twins"><div class="wrap"><div class="t-top"><div class="t-badge">iii</div><div><span class="mono">Thread iii</span><h3>Every wonder has a twin</h3><p class="idea">Where the familiar meets the strange: each marvel of our industrial age, met by its magical double.</p></div></div><div class="content"><div class="twin"><div class="card"><span class="from">In our world · The photograph</span><h4>Kept Light <span class="zh">藏光</span></h4><p>A Toa Keng lens catches a moment of light and an Al-Merikani tile holds it in trust; it plays back whenever someone looks at it. Family albums move: grandmother laughs again on every viewing.</p></div><div class="card"><span class="from">In our world · The telegraph</span><h4>The Long Song <span class="zh">长歌</span></h4><p>Sané-Kora relay drums and strings pass a melody from Timbuktu along the paired schools, ring to ring, until it reaches the Straits by evening. Every port has an hour when it sings what it has heard.</p></div><div class="card"><span class="from">In our world · The phonograph</span><h4>Singing strings <span class="zh">歌弦</span></h4><p>Kora strings hold a whole concert. Orchestras tour as one boxed instrument.</p></div><div class="card"><span class="from">In our world · Electric light</span><h4>Cold lamps <span class="zh">冷灯</span></h4><p>Glazed tiles that glow without flame, in house colours. The port is lit all night for the first time, and people walk until dawn because they can.</p></div><div class="card"><span class="from">In our world · The railway</span><h4>Wind-roads <span class="zh">风路</span></h4><p>Sea lanes where the wind is borrowed and returned, so ships sail upwind on schedule.</p></div><div class="card"><span class="from">In our world · Flight</span><h4>Kite-ferries <span class="zh">风筝渡</span></h4><p>Lan Fang and Nine Rain kite-makers carry a person across the Straits on monsoon air, and the kite-ferries follow.</p></div><div class="card"><span class="from">In our world · Refrigeration</span><h4>The Cool Hour <span class="zh">凉时</span></h4><p>Pocket Winter carts bring ice cream to the tropics, then whole homes cool at two in the afternoon, and the tropical day rearranges itself.</p></div><div class="card"><span class="from">In our world · The printing press</span><h4>The overnight Gazette <span class="zh">一夜报</span></h4><p>Fair Copy lets one editor print a city’s newspaper overnight, in her own hand.</p></div><div class="card"><span class="from">In our world · The solar panel</span><h4>Leaf-roofs <span class="zh">叶顶</span></h4><p>Sri Temenggong roofs of living leaf drink the sun all day and give a household its light and cool by night.</p></div><div class="card"><span class="from">In our world · Cinema</span><h4>Weather theatre <span class="zh">天气剧场</span></h4><p>Nine Rain stages plays in the sky: rain on cue, a storm that bows, a sunset held for the final scene.</p></div><div class="card"><span class="from">In our world · The computer</span><h4>Pattern Cords <span class="zh">纹绳</span></h4><p>Knotted cords that remember a whole working and play it back, descended from the loom like our computer.</p></div></div></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="modernities"><div class="wrap"><div class="t-top"><div class="t-badge">iv</div><div><span class="mono">Thread iv</span><h3>Seven modernities</h3><p class="idea">GPT saw several modernities growing at once. Here each one has a home house, and a seventh joins them. They spread unevenly, at their own speeds.</p></div></div><div class="content"><p class="big">The world does not modernise along one road. Each house’s way of acting on the world grows into a whole way of living, and every port mixes them in its own proportions.</p><div class="mods"><div class="mod h-nr"><div class="who"><span class="hdot"></span>Fluid <span class="zh">流的现代</span><small>Nine Rain</small></div><div><h5>Water and glide</h5><p>Power is spread along braided waterways, and great stones slide on glide-paths with almost no friction. Workshops follow the seasonal pulse, and floodplains are lived on without being frozen in place.</p><p class="scene">A student crosses a river on a bridge whose shaded underside is also a slow mill.</p><span class="reach">Spreads everywhere there is a river. The most widely copied of the seven.</span></div></div><div class="mod h-st"><div class="who"><span class="hdot"></span>Ecological <span class="zh">生态的现代</span><small>Sri Temenggong</small></div><div><h5>Industries that grow and breathe</h5><p>Houses are grown, roofs drink sunlight for power, groves are planted as carbon sinks, and old infrastructure decomposes into the next generation’s materials.</p><p class="scene">A town’s most valuable asset is a three-hundred-year-old microbial commons that nobody fully owns.</p><span class="reach">Slow to start, then everywhere. It takes decades to grow a green kidney.</span></div></div><div class="mod h-su"><div class="who"><span class="hdot"></span>Thermal <span class="zh">热的现代</span><small>Sund</small></div><div><h5>Heat, held and moved</h5><p>Heat is taken from where it is unwanted and given where it is needed. Forges burn no coal, the tropics cool, the north warms.</p><p class="scene">In the Straits the afternoon becomes the coolest hour of the day; in Uppsala, December noons glow amber.</p><span class="reach">The great export. Everyone, everywhere, wants to be a little cooler or a little warmer.</span></div></div><div class="mod h-tk"><div class="who"><span class="hdot"></span>Optical <span class="zh">光的现代</span><small>Toa Keng</small></div><div><h5>Seeing far, seeing small</h5><p>Telescopes, microscopes and window-lenses. Physicians see the microbes they partner with; astronomers see further than anyone; two ports become neighbours by sight.</p><p class="scene">Two libraries on two continents share one reading room every new moon, through a matched pair of lenses.</p><span class="reach">Lenses travel well. Every navigator, physician and astronomer in the world owns Toa Keng glass.</span></div></div><div class="mod h-am"><div class="who"><span class="hdot"></span>Fiduciary <span class="zh">信的现代</span><small>Al-Merikani</small></div><div><h5>A world run on trust</h5><p>Credit, insurance, contracts and time held in trust. Value, warmth, burden and promises can all be kept and given back on the day.</p><p class="scene">A fisherman insures tomorrow’s catch against tonight’s storm with a trust tile; a whole city’s accounts balance at the new moon.</p><span class="reach">Wherever money moves: Cairo, Tarim, Quanzhou, Antwerp, and in time every port. Its graduates run the world’s exchanges.</span></div></div><div class="mod h-sk"><div class="who"><span class="hdot"></span>Ensemble <span class="zh">众的现代</span><small>Sané-Kora</small></div><div><h5>Scale through coordination</h5><p>Great works are done by many people, places and seasons at once. The central skill is gathering consent and complementary talent.</p><p class="scene">A national working looks like a festival, a census and a rehearsal happening together.</p><span class="reach">Everywhere there is a choir, which is everywhere.</span></div></div><div class="mod h-lf"><div class="who"><span class="hdot"></span>Recomposed <span class="zh">化的现代</span><small>Lan Fang</small></div><div><h5>A world without waste</h5><p>The maker’s world. Every made thing can be returned to its parts and set again, and fermentation, medicine, joinery and the martial arts share one culture of making.</p><p class="scene">The rubbish tip is a Lan Fang treasury. Children trade in broken things because broken things are worth the most.</p><span class="reach">Wherever Hakka, Fujian and Mohist learning travelled, and then far beyond.</span></div></div></div></div></div></section></section><section class="book b2" id="part-two"><div class="book-head"><div class="wrap"><div class="bignum">Two</div><div><div class="k mono">Part Two · Everyone</div><h2><span class="b">[</span>A Literate Magic<span class="b">]</span></h2><p>(the ladder from everyday workings to composers, how it climbs, and the narrow and deep)</p></div></div></div><section class="thread" id="ladder"><div class="wrap"><div class="t-top"><div class="t-badge">v</div><div><span class="mono">Thread v</span><h3>Everyone can work magic</h3><p class="idea">Small magic is like reading. Spells are like qualifications.</p></div></div><div class="content"><p class="big">Everyone can learn everyday workings, the way everyone can learn to read and write. The rungs above are reached through schooling, practice and flair, and they climb as the schools spread.</p><div class="ladder"><div class="rung"><div class="lv">Everyday workings<small>Minute · Exertion 0</small></div><div><p>Everyone can learn them, the way everyone can learn to read. Warm the tea, light a cold lamp, hum the third note that sends a baby to sleep, ask a durian not to fall on your head. Nobody is taught them as magic any more than we are taught reading as a technology.</p><span class="ours">In our world · Reading and writing; using a computer</span></div><div class="pct">everyone<small></small></div></div><div class="rung"><div class="lv">Simple spells<small>Small and Real</small></div><div><p>A licensed trade. Fair Copy, Taut Line, Sweat It Out, Knot the Rain. Most shopkeepers, nurses, sailors and clerks hold a few.</p><span class="ours">In our world · A diploma</span></div><div class="pct">20%<small>at first</small></div></div><div class="rung"><div class="lv">Advanced spells<small>Bold and Grand</small></div><div><p>A professional’s craft. Floating fields, Mangrove Hold, Starve the Fire. The people a town calls when things are serious.</p><span class="ours">In our world · A degree</span></div><div class="pct">5%<small>at first</small></div></div><div class="rung"><div class="lv">Mastery<small>Mighty</small></div><div><p>Masters of a house’s own magic. They lead rings, judge proofs and teach the advanced.</p><span class="ours">In our world · A doctorate</span></div><div class="pct">1%<small>at first</small></div></div><div class="rung"><div class="lv">Composers<small>New spells</small></div><div><p>The few who make magic that did not exist yesterday, working inside a house’s standard of proof. Most of them work in rooms full of other composers.</p><span class="ours">In our world · Post-doctoral research</span></div><div class="pct">0.1%<small>at first</small></div></div></div></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="climb"><div class="wrap"><div class="t-top"><div class="t-badge">vi</div><div><span class="mono">Thread vi</span><h3>How the ladder climbs</h3><p class="idea">Four snapshots, from the first years to now.</p></div></div><div class="content"><div class="lchart" role="img" aria-label="Share of adults at each rung of magic across four eras"><div class="lrow"><div class="lname">First years</div><div class="lbar"><i style="width:100%;background:var(--pond3)"></i><i style="width:20%;background:var(--pond2)"></i><i style="width:5%;background:var(--pond)"></i><i style="width:1%;background:var(--deep)"></i><i style="width:0.6%;background:var(--claude)"></i></div><div class="lnums"><span><b style="background:var(--pond2)"></b>Simple 20%</span><span><b style="background:var(--pond)"></b>Advanced 5%</span><span><b style="background:var(--deep)"></b>Mastery 1%</span><span><b style="background:var(--claude)"></b>Composers 0.1%</span></div></div><div class="lrow"><div class="lname">Workshop years</div><div class="lbar"><i style="width:100%;background:var(--pond3)"></i><i style="width:32%;background:var(--pond2)"></i><i style="width:9%;background:var(--pond)"></i><i style="width:1.6%;background:var(--deep)"></i><i style="width:0.6%;background:var(--claude)"></i></div><div class="lnums"><span><b style="background:var(--pond2)"></b>Simple 32%</span><span><b style="background:var(--pond)"></b>Advanced 9%</span><span><b style="background:var(--deep)"></b>Mastery 1.6%</span><span><b style="background:var(--claude)"></b>Composers 0.25%</span></div></div><div class="lrow"><div class="lname">Household years</div><div class="lbar"><i style="width:100%;background:var(--pond3)"></i><i style="width:46%;background:var(--pond2)"></i><i style="width:15%;background:var(--pond)"></i><i style="width:2.6%;background:var(--deep)"></i><i style="width:0.6%;background:var(--claude)"></i></div><div class="lnums"><span><b style="background:var(--pond2)"></b>Simple 46%</span><span><b style="background:var(--pond)"></b>Advanced 15%</span><span><b style="background:var(--deep)"></b>Mastery 2.6%</span><span><b style="background:var(--claude)"></b>Composers 0.45%</span></div></div><div class="lrow"><div class="lname">Today, <i>a.m.</i> 109</div><div class="lbar"><i style="width:100%;background:var(--pond3)"></i><i style="width:60%;background:var(--pond2)"></i><i style="width:24%;background:var(--pond)"></i><i style="width:4%;background:var(--deep)"></i><i style="width:0.8%;background:var(--claude)"></i></div><div class="lnums"><span><b style="background:var(--pond2)"></b>Simple 60%</span><span><b style="background:var(--pond)"></b>Advanced 24%</span><span><b style="background:var(--deep)"></b>Mastery 4%</span><span><b style="background:var(--claude)"></b>Composers 0.8%</span></div></div></div><p class="cap">Share of adults who hold each rung, in four eras. Working numbers, to be tuned. In our world the share of adults with a degree rose from a few in a hundred in 1950 to around four in ten in many countries today; magic climbs the same way.</p><div class="pair2"><div class="card"><h4>What raises the numbers</h4><p>More schools and paired exchanges; cheaper expendables; artefacts that let people practise at home; the Straits Keynote, so rings anywhere can join; and worn paths, since every spell gets easier the more often the world has cast it.</p></div><div class="card"><h4>What the ladder can’t measure</h4><p>Creativity, determination, flair and motivation vary as much as they do with us. A street cook with only everyday workings can still be the most magical person on the block, and everybody knows who she is.</p></div></div></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="narrow"><div class="wrap"><div class="t-top"><div class="t-badge">vi·b</div><div><span class="mono">Thread vi·b</span><h3>Narrow and deep</h3><p class="idea">Once thought non-magical; then found to hold very narrow affinities, and great power within them.</p></div></div><div class="content"><div class="prose2"><p>In the first years every school tested children the same way: light a cold lamp, warm a cup, hum the third note, in a classroom, on demand. Some children failed every test and were written down as non-magical. Many were dyslexic, autistic, or otherwise wired differently from what the test expected.</p><p>Then the houses noticed what those children could do. Their affinity is narrow, sometimes a single domain or a single operation, and within it some of them are among the most powerful casters alive. The tests were rewritten as the Seven Doors, one working from each house, so a child only has to find their door. The old registers were reopened, and a whole generation was found late.</p></div><div class="mods"><div class="mod h-nr"><div class="who"><span class="hdot"></span>The rain reader<small>Nine Rain</small></div><div><p>A dyslexic boy who could not read a line of Fair Copy reads rain cords in three dimensions, and reties a whole valley’s cords in an afternoon without one error.</p></div></div><div class="mod h-sk"><div class="who"><span class="hdot"></span>The still note<small>Sané-Kora</small></div><div><p>An autistic girl who failed every classroom test holds a single note so exactly that the quarter around her falls into tune with it.</p></div></div><div class="mod h-tk"><div class="who"><span class="hdot"></span>The flaw-seer<small>Toa Keng</small></div><div><p>A grinder who sees flaws in glass that no instrument can find, and makes lenses that see further than any before.</p></div></div><div class="mod h-lf"><div class="who"><span class="hdot"></span>The bone-setter<small>Lan Fang</small></div><div><p>A physician who can do one thing only: set any broken bone, perfectly, at a touch.</p></div></div></div><p class="cap" style="margin-top:12px">In our world, dyslexia was first described in the 1870s–90s and autism in the 1940s; schools mistook difference for inability long before and long after.</p></div></div></section></section><section class="book b3" id="part-three"><div class="book-head"><div class="wrap"><div class="bignum">Three</div><div><div class="k mono">Part Three · Artefacts</div><h2><span class="b">[</span>Things That Hold a Spell<span class="b">]</span></h2><p>(the renewal clock, from a month to generations, and the seven workshops)</p></div></div></div><section class="thread" id="artefacts"><div class="wrap"><div class="t-top"><div class="t-badge">vii</div><div><span class="mono">Thread vii</span><h3>Artefacts, and the renewal clock</h3><p class="idea">A magical artefact holds a spell so that anyone can use it. The spell fades, and has to be renewed.</p></div></div><div class="content"><p class="big">An artefact is a made thing with a spell set into it: a cold tile, a rain cord, a fever seal, a memory string. Anyone can use one. Each one carries a renewal date, and its maker’s mark.</p><div class="renew"><div class="rclk"><div class="d">1 month<small>lasts</small></div><div><div class="bar"><i style="width:2%"></i></div><h5>The first artefacts</h5><p>At the end of the Licensed Decade a spell can be set into an object, but it fades within a month. Artefacts are precious, fragile and mostly used by the yards and clinics that can renew them at their own bench.</p><p><i>Every new moon the port brings its artefacts to the school yards to be renewed. Renewal Day becomes a market: food stalls, queues that wind round the block, gossip, matchmaking.</i></p></div></div><div class="rclk"><div class="d">6 months<small>lasts</small></div><div><div class="bar"><i style="width:8%"></i></div><h5>Better bindings</h5><p>Better materials, better knots, better seals. Each house learns what its magic sits best in: Sund in iron, Lan Fang in carved stone, Toa Keng in glass, Al-Merikani in glazed tile, Sri Temenggong in living wood, Nine Rain in cord and stone, Sané-Kora in string and drum.</p><p><i>The renewer on a tricycle becomes a street figure, ringing a bell and calling out like the old rag-and-bone man, with a box of seals and cords on the back.</i></p></div></div><div class="rclk"><div class="d">1 year<small>lasts</small></div><div><div class="bar"><i style="width:15%"></i></div><h5>Household artefacts</h5><p>An artefact now lasts a year. Families renew everything at once, and Renewal Day becomes an annual festival in each house’s season. Cold lamps glow fresh-bright for a week afterwards.</p><p><i>A lapsing artefact warns you. A cold lamp drifts to blue; a cold chest begins to sweat; a rain cord loosens a knot by itself.</i></p></div></div><div class="rclk"><div class="d">3 years<small>lasts</small></div><div><div class="bar"><i style="width:35%"></i></div><h5>School-made</h5><p>The longest-lasting artefacts on the market come from the schools themselves, made by masters in the house workshops. A grandmother’s kept-warm tiffin carrier is renewed at the same counter her own mother used.</p><p><i>Collectors prize a long renewal record the way ours prize a full service history, stamped by the house that made it.</i></p></div></div><div class="rclk"><div class="d">Generations<small>lasts</small></div><div><div class="bar"><i style="width:100%"></i></div><h5>Heirlooms</h5><p>An heirloom holds its spell for a lifetime, or for generations. Each one is rare and immensely expensive. Most are held by the schools as their 镇馆之宝, the treasure that guards the house; some by nations; a very few by the person who made one, or who was entrusted with it.</p><p><i>An heirloom changes hands perhaps once a century, and the whole port turns out to watch.</i></p></div></div></div><h4 style="font-family:var(--display);font-weight:400;font-size:24px;margin:26px 0 6px">Seven heirlooms, one in each house</h4><div class="mods"><div class="mod h-su"><div class="who"><span class="hdot"></span>The Keel Ring <span class="zh">龙骨环</span><small>Sund</small></div><div><p>An iron ring that has shared the weight of every keel laid at the Sund yard since the Licensed Decade.</p></div></div><div class="mod h-lf"><div class="who"><span class="hdot"></span>The Hundred-Herb Chest <span class="zh">百草箱</span><small>Lan Fang</small></div><div><p>A physician’s chest that always holds the remedy the patient in front of it needs, and nothing else.</p></div></div><div class="mod h-tk"><div class="who"><span class="hdot"></span>The Far Lens <span class="zh">千里镜</span><small>Toa Keng</small></div><div><p>A telescope that shows any paired port as if it stood across the street.</p></div></div><div class="mod h-am"><div class="who"><span class="hdot"></span>The First Ledger <span class="zh">初账</span><small>Al-Merikani</small></div><div><p>The Trust House’s founding account book. Nothing false can be written in it; the ink will not take.</p></div></div><div class="mod h-st"><div class="who"><span class="hdot"></span>The Old Banyan <span class="zh">老榕</span><small>Sri Temenggong</small></div><div><p>A grown hall, centuries old and still growing, where the Land Court sits.</p></div></div><div class="mod h-nr"><div class="who"><span class="hdot"></span>The Weeping Stone <span class="zh">泣石</span><small>Nine Rain</small></div><div><p>A great stone that draws enough water from dry air to keep a whole town through the dry season.</p></div></div><div class="mod h-sk"><div class="who"><span class="hdot"></span>The Kora of Lineages <span class="zh">世系琴</span><small>Sané-Kora</small></div><div><p>A kora that holds every lineage ever sung into it. Plucked, it can name anyone’s ancestors back thirty generations.</p></div></div></div></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="workshops"><div class="wrap"><div class="t-top"><div class="t-badge">viii</div><div><span class="mono">Thread viii</span><h3>The houses’ workshops</h3><p class="idea">Every house founds an industry arm to make, sell and renew artefacts, each in its own field.</p></div></div><div class="content"><p class="big">Each house makes its best artefacts where its magic is strongest, and its mark carries the prestige of the first maker. The houses hold no monopoly: independent makers and the paired schools abroad make fine artefacts too, and a good one “in the Sund manner” sells well. The original still renews longest at its own house’s counter.</p><div class="shops"><div class="shop h-su"><span class="mono"><span class="hdot"></span>Sund</span><h4>Sund Forge &amp; Yard <span class="zh">松德锻造坊</span></h4><p>Heat, held and moved.</p><dl><dt>Makes</dt><dd>Cold chests and Pocket Winter boxes; heat rivets and forges that burn no coal; Cool Hour units for tenement roofs; season-bank stores that carry July into a northern December.</dd><dt>Signature</dt><dd>The cold chest. Every kitchen in the tropics wants one.</dd><dt>Materials and manner</dt><dd>Iron, bronze and ship’s oak. Sund artefacts are heavy, plain and last.</dd></dl></div><div class="shop h-lf"><span class="mono"><span class="hdot"></span>Lan Fang</span><h4>Lan Fang Works &amp; Medicine Hall <span class="zh">兰芳工坊药堂</span></h4><p>The maker school: tools, medicine and the martial arts.</p><dl><dt>Makes</dt><dd>Fever seals and medicine chests; mending staples and joinery pins; ferment jars; tools for every trade; training arms for the martial halls; the Mozi College’s defence engineering.</dd><dt>Signature</dt><dd>The fever seal, pressed into the lintel of a sickroom.</dd><dt>Materials and manner</dt><dd>Stone, ceramic, peachwood, steel and rice paper. Of all the houses, the one most likely to lead in arms, bound by the Mohist rule: for defence only.</dd></dl></div><div class="shop h-tk"><span class="mono"><span class="hdot"></span>Toa Keng</span><h4>Toa Keng Lens House <span class="zh">大港镜社</span></h4><p>Optics: seeing far, seeing small.</p><dl><dt>Makes</dt><dd>Telescopes and microscopes; window-lenses that look into a sister port; living maps read through a lens; the lenses inside every Al-Merikani astrolabe and Kept Light tile.</dd><dt>Signature</dt><dd>The Toa Keng lens. Al-Merikani buys more of them than anyone.</dd><dt>Materials and manner</dt><dd>Glass, crystal, brass and lacquer. Every lens is ground by hand and numbered.</dd></dl></div><div class="shop h-am"><span class="mono"><span class="hdot"></span>Al-Merikani</span><h4>Al-Merikani Trust House <span class="zh">美里加尼托付馆</span></h4><p>Finance, and anything held in trust, with the best business school in the world.</p><dl><dt>Makes</dt><dd>Trust tiles that keep a contract honest; insurance seals; tiffin carriers that open hot at noon; astrolabes built on Toa Keng lenses; the accounts of the season banks.</dd><dt>Signature</dt><dd>The trust tile. A bargain that keeps itself.</dd><dt>Materials and manner</dt><dd>Glazed tile, brass and fine paper. The most beautiful artefacts, the most expensive, and the most carefully priced.</dd></dl></div><div class="shop h-st"><span class="mono"><span class="hdot"></span>Sri Temenggong</span><h4>Sri Temenggong Grove &amp; Loom <span class="zh">天猛公林织坊</span></h4><p>Ecology: things that grow and breathe.</p><dl><dt>Makes</dt><dd>Grown houses shaped over a generation; leaf-roofs that drink sunlight for a household’s power; carbon-sink groves; green-kidney seed beds; songket that fits whoever wears it.</dd><dt>Signature</dt><dd>The grown house. A family plants its home when a child is born.</dd><dt>Materials and manner</dt><dd>Living wood, seed, silk and river stone. Sold through village cooperatives as much as shops.</dd></dl></div><div class="shop h-nr"><span class="mono"><span class="hdot"></span>Nine Rain</span><h4>Nine Rain Cord &amp; Stone House <span class="zh">九雨绳石馆</span></h4><p>Moisture, great stones, and friction.</p><dl><dt>Makes</dt><dd>Rain cords and dew nets; weeping stones that draw water from dry air; great fitted stones that settle without mortar; glide stones that let a house slide, and grip stones that hold a cart on a wet hill.</dd><dt>Signature</dt><dd>The glide stone, under every moving shophouse.</dd><dt>Materials and manner</dt><dd>Cotton, alpaca and agave fibre; andesite and granite. Each knot is dyed by meaning, and each stone is fitted to its neighbour.</dd></dl></div><div class="shop h-sk"><span class="mono"><span class="hdot"></span>Sané-Kora</span><h4>Sané-Kora Sound House <span class="zh">萨内-科拉声馆</span></h4><p>Sound and vibration.</p><dl><dt>Makes</dt><dd>Relay drums and strings that carry the Long Song; memory strings; singing strings that hold a concert; smith’s bells that ring out weak iron; the tuning of whole quarters.</dd><dt>Signature</dt><dd>The relay drum. A message crosses a desert in a day.</dd><dt>Materials and manner</dt><dd>Gut, wire, calabash, hide and iron. Every instrument is tuned, and the tuning is the maker’s signature.</dd></dl></div></div></div></div></section></section><section class="book b4" id="part-four"><div class="book-head"><div class="wrap"><div class="bignum">Four</div><div><div class="k mono">Part Four · The era</div><h2><span class="b">[</span>Five Ages and Open Threads<span class="b">]</span></h2><p>(the era in broad strokes, questions for the novel, and working notes)</p></div></div></div><section class="thread" id="ages"><div class="wrap"><div class="t-top"><div class="t-badge">ix</div><div><span class="mono">Thread ix</span><h3>Five ages, in broad strokes</h3><p class="idea">The Kindling to the First Door. Order and shape only; the dates can settle later.</p></div></div><div class="content"><div class="eras"><div class="era"><div class="nm">The Hidden Years<span class="zh">隐年</span><small>the seven in one room</small></div><div><p>The seven keep the discovery to themselves and meet every fortnight to work out its rules from nothing. Nothing they make yet lasts beyond the moment of casting.</p><ul><li>A back-room fever cure, worked in secret, and a port that comes through its sickest season.</li><li>Whispers of strange lights and leaning flames in other ports.</li></ul><div class="street"><span class="mono">In the street</span><p>Upstairs above a dried-goods shop, a physician holds a child’s wrist while a healer hums a note she is not quite singing.</p></div></div></div><div class="era"><div class="nm">The Licensed Decade<span class="zh">执照十年</span><small>schools open to the world</small></div><div><p>The Congress opens the craft through the paired schools. Everyday workings begin to be taught; about one adult in five can learn simple spells, one in twenty advanced. The first artefacts appear, and last a month.</p><ul><li>Monthly Renewal Day in every school yard.</li><li>The first parallax mills under Straits bridges.</li><li>Kite-ferries cross the Straits.</li></ul><div class="street"><span class="mono">In the street</span><p>A rivet boy drives his first glowing rivet with frost round his boots, and the whole gang downs tools to throw snowballs.</p></div></div></div><div class="era"><div class="nm">The Workshop Years<span class="zh">工坊年</span><small>the houses build their industry</small></div><div><p>Artefacts now last six months, and each house founds its workshop. Their marks become the marks people trust. Independent makers and paired schools abroad build their own, often very well, and sell them “in the Sund manner” or “after Lan Fang”.</p><ul><li>The renewer’s tricycle on every street.</li><li>Season banks warm the north; the Long Song links Timbuktu and the Straits in a day.</li><li>The old caravan cities bloom on the trade in expendables.</li></ul><div class="street"><span class="mono">In the street</span><p>A fishwife at Kilwa hangs a rain cord and a cold tile over her stall, and her fish stay cold till evening. She can warm her tea like anyone, but she has never cast a spell in her life, and she doesn’t need to.</p></div></div></div><div class="era"><div class="nm">The Household Years<span class="zh">寻常之年</span><small>magic in every kitchen</small></div><div><p>Artefacts last a year. Every child learns everyday workings beside their letters, and nearly half of adults hold a simple spell. The seven modernities spread at their own speeds, and cities stop looking like one another.</p><ul><li>The Cool Hour reaches the tenements.</li><li>Green kidneys in every Straits town; tuned quarters in the old city.</li><li>Renewal Day becomes each house’s annual festival.</li></ul><div class="street"><span class="mono">In the street</span><p>Two in the afternoon on a tenement street. The Cool Hour arrives, every shutter opens at once, and children who used to sleep through the heat run out to play in it.</p></div></div></div><div class="era"><div class="nm">The Threshold Years<span class="zh">门槛之年</span><small>workings that outlive their makers</small></div><div><p>The best artefacts last three years and become heirlooms. Cords that once held rain learn to hold a whole working and play it back. At the Evenki site, the keepers who have listened to the Flash for two generations hear something answer.</p><ul><li>Pattern Cords and the first Pattern Ring.</li><li>Breeding libraries in the paired schools.</li><li>The First Door, between two larches.</li></ul><div class="street"><span class="mono">In the street</span><p>The eldest keeper raises a hand, the cords play, and between two trees there is suddenly a slope of grass under a different sky.</p></div></div></div></div></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="questions"><div class="wrap"><div class="t-top"><div class="t-badge">x</div><div><span class="mono">Thread x</span><h3>Threads to pull</h3><p class="idea">Open questions for the novel.</p></div></div><div class="content"><div class="qs2"><p>When everyone can work small magic, what does flair look like, and who has it?</p><p>What does a family feel about an heirloom that has to visit its maker’s house every three years?</p><p>What does a breeding library make when nobody is choosing the pairs?</p><p>Which modernity does each port fall in love with, and what does that do to how its people live?</p><p>What does a city sound like when every quarter is in a different key?</p><p>What does the renewer on the tricycle know about every household on the street?</p><p>What will the first person through the Door bring home?</p></div></div></div></section><div class="dots"><span>+</span></div><section class="thread" id="notes"><div class="wrap"><div class="t-top"><div class="t-badge">xi</div><div><span class="mono">Thread xi</span><h3>What changed in this edition</h3><p class="idea">For aligning the other pages later.</p></div></div><div class="content"><div class="notes"><span class="mono">Working notes</span><p><b>Bearers are now artefacts</b> (法器), magical artefacts for short. Earlier pages that say “bearer” mean the same thing.</p><p><b>Everyone can work everyday magic.</b> The old picture of half the world at Gift 0 gives way to a ladder like education. Gift, if we keep the word, becomes flair: how beautifully and inventively someone casts, which varies with creativity, determination and motivation as well as aptitude.</p><p><b>Dates are loose.</b> The five ages keep their order and rough length. GPT’s chapter places the First Door in 1937 and adds a Threshold Accord in 1948; ours sits in the 1980s. We can align them when the ideas settle.</p><p><b>House fields are reset.</b> Sund heat; Lan Fang making, medicine and martial arts; Toa Keng optics; Al-Merikani finance; Sri Temenggong ecology; Nine Rain moisture, great stones and friction; Sané-Kora sound and vibration. 93 The Two Reckonings already fits this.</p><p><b>Industrialisation is a calibration here, not a plot.</b> The twin wonders stay because they are fun; the seven modernities are where this world goes somewhere ours never went.</p></div></div></div></section></section><footer><div class="wrap"><div class="mark-s"><i>The</i> Polymathic <i>Universe</i></div><div class="mono">The Parallel Straits · Personal creative work by Linwei · 2026 · made with Claude, with ideas from GPT</div></div></footer><script>
+(function(){var r=document.documentElement,b=document.getElementById('pnavBtn'),v=document.getElementById('pnavVeil'),n=document.getElementById('pnav');
+function s(o){r.classList.toggle('pnav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close index':'Open index')}
+b.addEventListener('click',function(){s(!r.classList.contains('pnav-open'))});v.addEventListener('click',function(){s(false)});
+n.addEventListener('click',function(e){if(e.target.closest('a'))s(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)});})();
+</script></body></html>

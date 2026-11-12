@@ -1,0 +1,456 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>The Founders · The Polymathic Universe</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><style>
+:root{color-scheme:light;--ink:#22201d;--ink2:#3d3a35;--dim:#625c54;--hair:#d8d0c3;--paper:#f3efe7;--mist:#e7e0d3;--card:#faf7f1;--deep:#3a3466;--rose:#a3302a;--gold:#a3741a;--sea:#5b6b3a;--claude:#a85d86;
+--cover:radial-gradient(40% 32% at 78% 24%,rgba(58,52,102,.32),transparent 70%),radial-gradient(34% 28% at 20% 72%,rgba(163,116,26,.30),transparent 70%),radial-gradient(26% 22% at 64% 80%,rgba(163,48,42,.22),transparent 70%),radial-gradient(60% 50% at 40% 30%,rgba(214,200,172,.75),transparent 75%),linear-gradient(170deg,#ece5d6 0%,#dcd3c0 50%,#e6dfd0 100%);
+--spec:linear-gradient(135deg,#e2e4da 0%,#efe9dc 55%,#ead6cc 100%);
+--h1:linear-gradient(160deg,#e3e5dc,#d3d9d2 60%,#e7e2d6);--h2:linear-gradient(160deg,#ebe2cf,#ddcfb3 55%,#ebe2d0);--h3:linear-gradient(160deg,#efe0d8,#e2c7bb 55%,#efe1d8);--h4:linear-gradient(160deg,#dfe6e4,#cfdcd9 55%,#e6e5dc);
+--serif:"Cormorant Garamond","Times New Roman",Times,serif;--display:"Playfair Display","Times New Roman",serif;--mono:"JetBrains Mono",ui-monospace,monospace;--zh:"Songti SC","Noto Serif SC","STSong",serif;--ar:"Amiri","Geeza Pro","Times New Roman",serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ink:#ECE7DE;--ink2:#D7D0C4;--dim:#B5ACA0;--hair:#3F3B35;--paper:#13151A;--mist:#1C1F24;--card:#191C21;--deep:#B9B1EA;--rose:#E58F82;--gold:#E0C373;--sea:#C4D49A;--claude:#D58FB6;
+--cover:radial-gradient(40% 32% at 78% 24%,rgba(58,52,102,.5),transparent 70%),radial-gradient(34% 28% at 20% 72%,rgba(163,116,26,.28),transparent 70%),linear-gradient(170deg,#161A20 0%,#1B2026 50%,#171A1F 100%);
+--spec:linear-gradient(135deg,#1C2125 0%,#1D1F22 55%,#24191A 100%);--h1:linear-gradient(160deg,#171C20,#1D2428);--h2:linear-gradient(160deg,#211D16,#29231A);--h3:linear-gradient(160deg,#241A19,#2A1E1C);--h4:linear-gradient(160deg,#161F1F,#1C2726)}}
+:root[data-theme="dark"]{color-scheme:dark;--ink:#ECE7DE;--ink2:#D7D0C4;--dim:#B5ACA0;--hair:#3F3B35;--paper:#13151A;--mist:#1C1F24;--card:#191C21;--deep:#B9B1EA;--rose:#E58F82;--gold:#E0C373;--sea:#C4D49A;--claude:#D58FB6;
+--cover:radial-gradient(40% 32% at 78% 24%,rgba(58,52,102,.5),transparent 70%),radial-gradient(34% 28% at 20% 72%,rgba(163,116,26,.28),transparent 70%),linear-gradient(170deg,#161A20 0%,#1B2026 50%,#171A1F 100%);
+--spec:linear-gradient(135deg,#1C2125 0%,#1D1F22 55%,#24191A 100%);--h1:linear-gradient(160deg,#171C20,#1D2428);--h2:linear-gradient(160deg,#211D16,#29231A);--h3:linear-gradient(160deg,#241A19,#2A1E1C);--h4:linear-gradient(160deg,#161F1F,#1C2726)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.zh{font-family:var(--zh);font-style:normal}
+.ar{font-family:var(--ar);font-style:normal}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+.cover{position:relative;overflow:hidden;padding:84px 0 70px;background:var(--cover)}
+.cover:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background:repeating-linear-gradient(176deg,transparent 0 22px,rgba(58,52,102,.07) 22px 23px,transparent 23px 41px,rgba(163,116,26,.06) 41px 42px)}
+.cover .wrap{position:relative;z-index:2}
+.eyebrow{color:var(--deep);margin-bottom:30px}
+.bracket{font-family:var(--display);font-weight:400;font-size:clamp(2.5rem,6.2vw,5rem);line-height:1;letter-spacing:-.02em}
+.bracket .b,h2 .b{color:var(--rose)}
+.bracket .zh{display:block;font-size:.42em;letter-spacing:.3em;margin-top:12px;color:var(--ink2)}
+.paren{font-style:italic;font-size:clamp(1.2rem,2vw,1.55rem);color:var(--ink2);margin-top:14px;max-width:800px}
+.byline{display:flex;gap:14px;align-items:center;margin-top:30px;flex-wrap:wrap;color:var(--dim)}
+.by{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;background:var(--claude);color:#fff}
+.thesis{font-family:var(--display);font-style:italic;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.3;max-width:860px;margin:38px 0 0;color:var(--ink)}
+.specimen{background:var(--spec);padding:48px 0 40px}
+.specimen .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px 48px}
+.sp-book h3{font-family:var(--display);font-weight:400;font-size:26px;margin:0 0 6px}
+.sp-book h3 .mono{color:var(--deep);margin-right:10px}
+.outc ol{margin:0;padding-left:1.25em}
+.outc li{font-size:18px;line-height:1.45;margin:0 0 9px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:4px 14px 4px 4px;border:1px solid var(--ink2);border-radius:40px;font-size:17px;text-decoration:none;background:rgba(255,255,255,.22)}
+.chip:hover,.chip:focus-visible{background:var(--card)}
+.chip i{font-style:normal;font-family:var(--mono);font-size:9px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--ink);color:var(--ink)}
+.book-head{padding:76px 0 54px;margin-top:20px}
+.b1 .book-head{background:var(--h1)}.b2 .book-head{background:var(--h2)}.b3 .book-head{background:var(--h3)}.b4 .book-head{background:var(--h4)}
+.book-head .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:end}
+.bignum{font-family:var(--display);font-style:italic;font-size:clamp(5.5rem,12vw,10rem);line-height:.78;color:var(--deep)}
+.book-head .k{color:var(--deep);margin-bottom:12px}
+.book-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,5vw,3.8rem);line-height:1;margin:0 0 14px;letter-spacing:-.02em}
+.book-head h2 .zh{font-size:.5em;color:var(--ink2);margin-left:10px;letter-spacing:.1em}
+.book-head p{margin:0;font-style:italic;font-size:21px;max-width:700px;color:var(--ink2)}
+.thread{padding:52px 0 8px}
+.t-top{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;margin-bottom:26px}
+.t-badge{width:64px;height:64px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:20px;background:var(--card)}
+.t-top .mono{color:var(--dim);display:block;margin-bottom:6px}
+.t-top h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.05;margin:0 0 10px}
+.t-top h3 .zh{font-size:.55em;color:var(--dim);margin-left:8px}
+.idea{font-style:italic;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.35;color:var(--deep);max-width:780px;border-left:3px solid var(--rose);padding-left:16px;margin:0}
+.content{max-width:940px}
+.content > p{margin:0 0 16px}
+.content p.big{font-size:23px;line-height:1.45}
+.subh{font-family:var(--display);font-weight:400;font-size:25px;margin:34px 0 8px;line-height:1.2}
+.subh .mono{display:block;color:var(--deep);margin-bottom:4px}
+.rule{margin:22px 0;padding:20px 24px;background:var(--spec);border:1px solid var(--hair);font-size:22px;font-family:var(--display);font-style:italic;line-height:1.35}
+/* timeline */
+.tl{border-top:1px solid var(--ink2);max-width:940px}
+.tl > div{display:grid;grid-template-columns:150px 1fr;gap:4px 22px;padding:13px 0;border-bottom:1px solid var(--hair)}
+.tl .yr{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--rose);padding-top:5px}
+.tl .yr i{display:block;color:var(--dim);font-family:var(--serif);font-size:15px;letter-spacing:0}
+.tl h5{font-family:var(--display);font-weight:400;font-size:21px;margin:0 0 2px}
+.tl h5 .zh{font-size:15px;color:var(--dim);margin-left:6px}
+.tl p{margin:0;font-size:17.5px;line-height:1.45;color:var(--ink2)}
+.tl .key h5{color:var(--deep)}
+/* letter */
+.letter{position:relative;margin:22px 0;padding:32px 30px 24px;background:var(--card);border:1px solid var(--hair);max-width:940px}
+.letter:before,.letter:after{content:"";position:absolute;width:14px;height:14px;border-color:var(--rose);border-style:solid}
+.letter:before{top:8px;left:8px;border-width:2px 0 0 2px}.letter:after{bottom:8px;right:8px;border-width:0 2px 2px 0}
+.letter .two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.letter .zh p{font-size:19px;line-height:1.95;margin:0 0 10px}
+.letter .en p{font-size:19px;line-height:1.55;margin:0 0 10px;font-style:italic}
+.letter .seal{display:inline-block;margin-top:6px;font-family:var(--zh);color:var(--rose);border:2px solid var(--rose);padding:4px 8px;font-size:15px;letter-spacing:.2em}
+/* lots */
+.lots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}
+.lot{background:var(--card);border:1px solid var(--hair);padding:14px 18px 14px 20px;border-left:4px solid var(--sea)}
+.lot.seven{grid-column:1 / -1;border-left-color:var(--rose);background:var(--spec)}
+.lot .n{font-family:var(--display);font-style:italic;font-size:30px;line-height:1;color:var(--deep);float:left;margin:2px 14px 0 0;min-width:34px}
+.lot h4{font-family:var(--display);font-weight:400;font-size:21px;margin:0;line-height:1.2}
+.lot .from{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.lot p{margin:6px 0 0;font-size:17px;line-height:1.45;color:var(--ink2);clear:left}
+.lot.seven h4{font-size:26px}
+/* routes */
+.routes{border-top:1px solid var(--ink2);margin:10px 0}
+.rt{display:grid;grid-template-columns:230px 1fr;gap:6px 24px;padding:12px 0;border-bottom:1px solid var(--hair)}
+.rt .nm b{font-family:var(--display);font-weight:400;font-size:20px;display:block;line-height:1.2}
+.rt .nm span{font-size:15.5px;color:var(--dim);font-style:italic;line-height:1.3;display:block}
+.bars{display:grid;gap:5px;align-content:center}
+.bar{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center}
+.bar i{display:block;height:10px;background:var(--hair);position:relative}
+.bar i b{position:absolute;left:0;top:0;bottom:0;background:var(--sea)}
+.bar.ord i b{background:var(--gold)}
+.bar span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);white-space:nowrap}
+.rt.far .nm b{color:var(--rose)}
+.rt.far .bar i b{background:var(--rose)}
+.rt.far .bar.ord i b{background:var(--gold)}
+.rkey{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:16px;color:var(--ink2);margin:8px 0}
+.rkey i{display:inline-block;width:18px;height:9px;margin-right:6px;vertical-align:middle}
+.mos{display:grid;grid-template-columns:1fr 92px;gap:10px;font-family:var(--mono);font-size:10px;color:var(--dim)}
+.mos div{display:flex;justify-content:space-between}
+/* acts */
+.acts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+.act{background:var(--card);border:1px solid var(--hair);padding:14px 16px;border-top:4px solid var(--sea)}
+.act b{font-family:var(--display);font-weight:400;font-size:21px;display:block;line-height:1.15}
+.act span{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.act p{margin:6px 0 0;font-size:17px;line-height:1.42;color:var(--ink2)}
+.panel{background:var(--spec);border:1px solid var(--hair);padding:20px 24px;margin:18px 0;max-width:940px}
+.panel h4{font-family:var(--display);font-weight:400;font-size:24px;margin:0 0 8px}
+.panel p{margin:0 0 10px;font-size:18.5px}
+/* bid paper */
+.bid{counter-reset:q;border:1px dashed var(--ink2);background:var(--card);padding:18px 22px;margin:18px 0;max-width:940px}
+.bid .mono{display:block;color:var(--deep);margin-bottom:8px}
+.bid ol{margin:0;padding-left:1.4em}
+.bid li{font-size:18.5px;line-height:1.45;margin:0 0 6px}
+.bid li i{color:var(--dim);font-size:16.5px}
+/* weighs */
+.weighs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}
+.wg{background:var(--card);border:1px solid var(--hair);padding:14px 18px}
+.wg b{font-family:var(--display);font-weight:400;font-size:20px;display:block}
+.wg p{margin:4px 0 0;font-size:17px;line-height:1.45;color:var(--ink2)}
+/* waves */
+.steps{counter-reset:r;border-top:1px solid var(--ink2);max-width:940px}
+.steps > div{display:grid;grid-template-columns:48px 1fr;gap:0 14px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.steps > div:before{counter-increment:r;content:counter(r);font-family:var(--display);font-style:italic;font-size:34px;line-height:1;color:var(--deep)}
+.steps h5{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 3px}
+.steps h5 .zh{font-size:15px;color:var(--dim);margin-left:6px}
+.steps p{margin:0;font-size:18px;line-height:1.48}
+/* articles */
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+.art{background:var(--card);border:1px solid var(--hair);padding:16px 18px;position:relative}
+.art:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--deep),var(--sea),var(--rose))}
+.art b{font-family:var(--display);font-weight:400;font-size:21px;display:block;line-height:1.15}
+.art .zh{font-size:15px;color:var(--dim)}
+.art p{margin:6px 0 0;font-size:17px;line-height:1.45;color:var(--ink2)}
+/* names */
+.names{border-top:1px solid var(--ink2);margin:10px 0;max-width:940px}
+.nm-row{display:grid;grid-template-columns:120px 1fr 1fr;gap:6px 22px;padding:14px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.nm-row.h{color:var(--dim);padding:8px 0}
+.nm-row .lg{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+.nm-row .v b{font-family:var(--display);font-weight:400;font-size:23px;display:block;line-height:1.2}
+.nm-row .v b.zh{font-family:var(--zh)}
+.nm-row .v b.ar{font-family:var(--ar);font-size:26px}
+.nm-row .v span{font-size:16.5px;color:var(--ink2);display:block;line-height:1.4}
+.nm-row .v .yl{display:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.dots{display:flex;align-items:center;gap:14px;margin:34px auto;max-width:1160px;padding:0 40px}
+.dots:before,.dots:after{content:"";flex:1;border-top:2px dotted var(--sea)}
+.dots span{font-family:var(--mono);color:var(--rose);font-size:18px}
+.coda2{font-family:var(--display);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3;max-width:860px;margin:30px 0 0}
+footer{padding:46px 0 70px;color:var(--dim);border-top:1px solid var(--hair);margin-top:50px}
+footer .mark-s{font-family:var(--display);font-size:22px;color:var(--ink);margin-bottom:6px}
+footer .mark-s i{font-weight:400}
+footer p{font-size:16.5px;margin:10px 0 0;max-width:760px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.pnav-btn{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:18px;z-index:1200;width:46px;height:46px;display:grid;place-items:center;background:var(--card);border:1px solid var(--ink2);color:var(--ink);cursor:pointer}
+.pnav-btn i{display:block;width:18px;height:1.5px;background:currentColor;position:relative}
+.pnav-btn i:before,.pnav-btn i:after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .3s}
+.pnav-btn i:before{top:-6px}.pnav-btn i:after{top:6px}
+.pnav-open .pnav-btn i{background:transparent}
+.pnav-open .pnav-btn i:before{transform:translateY(6px) rotate(45deg)}
+.pnav-open .pnav-btn i:after{transform:translateY(-6px) rotate(-45deg)}
+.pnav-veil{position:fixed;inset:0;z-index:1100;background:rgba(34,32,29,.22);opacity:0;pointer-events:none;transition:opacity .3s}
+.pnav-open .pnav-veil{opacity:1;pointer-events:auto}
+.pnav{position:fixed;top:0;right:0;bottom:0;z-index:1150;width:min(400px,88vw);background:var(--paper);border-left:1px solid var(--hair);transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s linear .35s;overflow-y:auto;padding:calc(84px + env(safe-area-inset-top,0px)) 28px calc(28px + env(safe-area-inset-bottom,0px));visibility:hidden}
+.pnav-open .pnav{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.pnav-top{display:block;text-align:center;border:1px solid var(--ink2);padding:10px;margin:0 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--card)}
+.pnav-lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:18px}
+.pnav-book{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin:20px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+.pnav ol{list-style:none;margin:0;padding:0}
+.pnav li a{display:grid;grid-template-columns:38px 1fr;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px dotted var(--hair);text-decoration:none}
+.pnav .rn{font-family:var(--mono);font-size:9.5px;color:var(--rose)}
+.pnav .nm{font-family:var(--display);font-size:17px;line-height:1.2}
+@media (max-width:900px){.wrap{padding:0 20px}.dots{padding:0 20px}.specimen .grid{grid-template-columns:1fr}.book-head .wrap{grid-template-columns:1fr;gap:8px}.t-top{grid-template-columns:1fr;gap:12px}
+.tl > div{grid-template-columns:1fr}.letter{padding:28px 18px 18px}.letter .two{grid-template-columns:1fr;gap:6px}.lots,.acts,.weighs,.arts{grid-template-columns:1fr}
+.rt{grid-template-columns:1fr}.bar,.mos{grid-template-columns:1fr 84px}
+.nm-row{grid-template-columns:1fr;gap:8px}.nm-row.h{display:none}.nm-row .v .yl{display:block}body{font-size:19px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pnav,.pnav-veil,.pnav-btn i:before,.pnav-btn i:after{transition:none}}
+.houses{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:14px 0}
+.hs{background:var(--card);border:1px solid var(--hair);padding:18px 22px;position:relative}
+.hs:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--deep),var(--gold))}
+.hs h4{font-family:var(--display);font-weight:400;font-size:1.55rem;margin:0;line-height:1.1}
+.hs .ttl{font-family:var(--display);font-style:italic;font-size:20px;color:var(--rose);margin:6px 0 2px}
+.hs .why{font-size:16.5px;color:var(--ink2);margin:0 0 10px;line-height:1.45}
+.seat{display:grid;grid-template-columns:1fr;gap:0;padding:8px 0;border-top:1px dotted var(--hair)}
+.seat .sn{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.seat b{font-family:var(--display);font-weight:400;font-size:19px;line-height:1.25}
+.seat b .zh{font-size:.9em}
+.seat .prop{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:1px 6px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.seat .open{font-style:italic;color:var(--dim)}
+.fds{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:14px 0}
+.fd{background:var(--card);border:1px solid var(--hair);padding:20px 22px 16px;min-width:0}
+.fd.prop{border-style:dashed}
+.fd .hd{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.fd h4{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.15;margin:6px 0 2px}
+.fd h4 .real{display:block;font-size:.68em;font-style:italic;color:var(--ink2)}
+.fd .line{font-family:var(--display);font-style:italic;font-size:19px;color:var(--deep);margin:8px 0 10px;line-height:1.3}
+.fd dl{margin:0}
+.fd dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-top:10px}
+.fd dd{margin:3px 0 0;font-size:17.5px;line-height:1.45}
+.fd dd b{font-family:var(--display);font-weight:400;font-size:19px}
+.fd .veyr{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:var(--rose);color:var(--paper);padding:2px 7px;margin-left:6px;vertical-align:2px}
+.scale{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin:16px 0 6px;max-width:700px}
+.scale span{height:34px;display:grid;place-items:center;font-family:var(--mono);font-size:11px;color:var(--ink);border:1px solid var(--hair);background:var(--card)}
+.scale .m{background:var(--mist)}.scale .f{background:var(--gold);color:var(--paper);border-color:var(--gold)}
+.scalekey{display:grid;grid-template-columns:5fr 3fr 2fr;gap:4px;max-width:700px;font-size:15.5px;color:var(--ink2)}
+.gifts{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:16px 0 6px;max-width:700px}
+.gifts span{height:46px;display:grid;place-items:center;font-family:var(--display);font-size:22px;border:1px solid var(--hair);background:var(--card)}
+.gifts span.six{background:var(--deep);color:var(--paper);border-color:var(--deep)}
+.giftkey{display:grid;grid-template-columns:6fr 1fr;gap:4px;max-width:700px;font-size:15.5px;color:var(--ink2)}
+.standing{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+.standing div{border:1px solid var(--hair);background:var(--card);padding:12px 14px}
+.standing div.lg{background:var(--deep);border-color:var(--deep);color:var(--paper)}
+.standing b{font-family:var(--display);font-weight:400;font-size:21px;display:block}
+.standing span{font-size:16px;line-height:1.4;display:block;margin-top:4px}
+.lnames{border-top:1px solid var(--ink2);margin:10px 0;max-width:940px}
+.lnames > div{display:grid;grid-template-columns:120px 1fr;gap:4px 22px;padding:12px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.lnames .lg{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+.lnames b{font-family:var(--display);font-weight:400;font-size:23px}
+.lnames b.zh{font-family:var(--zh)}.lnames b.ar{font-family:var(--ar);font-size:26px}
+.lnames span{display:block;font-size:16.5px;color:var(--ink2)}
+.roster{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+.roster div{border:1px dashed var(--ink2);padding:14px 16px;background:var(--card)}
+.roster b{font-family:var(--display);font-weight:400;font-size:21px;display:block}
+.roster p{margin:6px 0 0;font-size:17px;line-height:1.45;color:var(--ink2)}
+@media (max-width:900px){.giftkey,.scalekey{grid-template-columns:1fr;gap:2px}.houses,.fds,.roster{grid-template-columns:1fr}.standing{grid-template-columns:1fr 1fr}.lnames > div{grid-template-columns:1fr}}
+.tl .yr i i,.ev .when i i{display:inline;font-family:inherit;font-size:inherit;color:inherit}</style></head>
+<body>
+<button class="pnav-btn" id="pnavBtn" aria-label="Open index" aria-expanded="false" aria-controls="pnav"><i></i></button><div class="pnav-veil" id="pnavVeil"></div>
+<nav class="pnav" id="pnav" aria-label="Index"><a class="pnav-top" href="#top">↑ To the top</a><div class="pnav-lab">The Founders · Index</div>
+<div class="pnav-book">Part One · Before the Kindling</div><ol>
+<li><a href="#loosening"><span class="rn">I</span><span class="nm">天漏 · The Loosening</span></a></li>
+<li><a href="#gift"><span class="rn">II</span><span class="nm">Gift 6, and a scale to 10</span></a></li></ol>
+<div class="pnav-book">Part Two · The seats</div><ol>
+<li><a href="#houses"><span class="rn">III</span><span class="nm">Seven houses, their titles and seats</span></a></li></ol>
+<div class="pnav-book">Part Three · The founders</div><ol>
+<li><a href="#founders"><span class="rn">IV</span><span class="nm">Sixteen founders</span></a></li></ol>
+<div class="pnav-book">Part Four · What they left</div><ol>
+<li><a href="#juexue"><span class="rn">V</span><span class="nm">绝学 · Legendary workings</span></a></li>
+<li><a href="#roster"><span class="rn">VI</span><span class="nm">Seats still to fill</span></a></li></ol>
+</nav>
+
+<header class="cover" id="top"><div class="wrap">
+<div class="eyebrow mono">The Polymathic Universe · Book Two · The founders of magic</div>
+<div class="bracket"><span class="b">[</span>The Founders<span class="b">]</span><span class="zh">天漏 · 开山 · 绝学</span></div>
+<div class="paren">(the ten years when the sky began to leak, the Gift 6 minds who could already work through it, the seats they held in the seven houses, and the legendary workings they left behind)</div>
+<p class="thesis">Before anyone could cast, a few people already could.</p>
+<div class="byline"><span class="by">Claude</span><span class="mono">4 November 2026 · worldbuilding · canon draft from Linwei’s brief</span></div>
+</div></header>
+
+<section class="specimen"><div class="wrap"><div class="grid">
+<div class="sp-book outc"><h3><span class="mono">The outcome</span>The founders in six lines</h3><ol>
+<li><b>天漏, the Loosening (1908–1918).</b> After the Evenki Flash, the World’s resistance thinned toward the threshold of magic without crossing it. Historians named those ten years only decades later.</li>
+<li><b>Gift 6.</b> The Gift that worked during the Loosening. A handful of minds could coax workings through the gap by instinct, ten years before anyone else could cast. Attributes now run from 1 to 10, with the founders’ signature attributes at 9 and 10.</li>
+<li><b>时势造英雄，英雄造时势.</b> The Loosening made the founders. Their meeting at the Monsoon Convocation of 1918 tipped the world over the threshold, and the Kindling happened in the room where they sat.</li>
+<li><b>The seats.</b> In 1918 the founders already headed the seven houses, under each house’s own title: Rector at Sund, Headmaster at Toa Keng, Kumatigi at Sané-Kora, 山长 at Lan Fang, Nāẓir at Al-Merikani, Amauta at Nine Rain, Guru at Sri Temenggong.</li>
+<li><b>Sixteen founders.</b> Twelve from the earlier character work, and four proposed to fill the thinnest houses. Every founder carries both names: the one the story uses, and the real figure behind it.</li>
+<li><b>绝学.</b> A fourth spell standing, Legendary. The founders’ grand workings are fully recorded, and wait for a rare Gifted caster to reproduce or reimagine them. Five were cast at the Veyr Retaliation. What their students inherited was each founder’s method.</li></ol></div>
+<div class="sp-book"><h3><span class="mono">Contents</span>Where to go</h3><div class="chips">
+<a class="chip" href="#loosening"><i>I</i>天漏</a><a class="chip" href="#gift"><i>II</i>Gift 6</a><a class="chip" href="#houses"><i>III</i>The seats</a><a class="chip" href="#founders"><i>IV</i>The founders</a><a class="chip" href="#juexue"><i>V</i>绝学</a><a class="chip" href="#roster"><i>VI</i>Seats to fill</a></div>
+<p style="font-size:17px;color:var(--ink2);margin:16px 0 0;font-style:italic">Companion to <b>The Congress and the Covenant</b>. Years before the Kindling are counted <i>b.m.</i>, before magic; the Kindling of 1918 is <i>a.m.</i> 0.</p></div>
+</div></div></section>
+
+<!-- PART ONE -->
+<div class="b1"><div class="book-head"><div class="wrap"><div class="bignum">i</div><div><div class="k mono">Part One</div><h2>Before the Kindling <span class="zh">天漏</span></h2><p>Ten years in which magic was almost possible, and only the founders noticed.</p></div></div></div>
+<section class="thread" id="loosening"><div class="wrap"><div class="t-top"><div class="t-badge">I</div><div><span class="mono">1908 to 1918</span><h3>The Loosening <span class="zh">天漏</span></h3><p class="idea">Of axiomatic laws and resistance, and the decade the sky began to leak.</p></div></div>
+<div class="content">
+<p class="big">The Evenki Flash of 1908 lit the sky over the northern forest, and in the years that followed, the World’s resistance to magic began to thin. Most people noticed nothing, or shrugged off the odd moment: a lamp that stayed lit, a seed that sprouted in a drawer, a drum that lost its sound for one heartbeat. A few people felt the gap clearly and learned to coax workings through it, each in their own idiom.</p>
+<p>Those few already held seats in the seven houses of the Straits. They worked out the rules by instinct, years before the rules could be written, and some of what they made in those years has never been repeated.</p>
+</div>
+<div class="tl">
+<div><div class="yr">1908<i>10 <i>b.m.</i></i></div><div><h5>The Evenki Flash</h5><p>PMU’s Tunguska. The sky over the Siberian forest burns, and the Loosening begins.</p></div></div>
+<div class="key"><div class="yr">1908–1918</div><div><h5>天漏 · The Loosening</h5><p>Resistance thins toward the threshold. The founders feel the gap and make their first workings, small, private and unrepeatable by anyone else.</p></div></div>
+<div class="key"><div class="yr">1918<i><i>a.m.</i> 0</i></div><div><h5>The Kindling <span class="zh">燃灯</span></h5><p>The founders meet at the Monsoon Convocation. With all of them in one room, the threshold gives way, and the veil is pierced for the whole world.</p></div></div>
+<div><div class="yr">Decades later</div><div><h5>The Loosening is named</h5><p>Historians reading the founders’ notebooks backwards from the Kindling give the ten years their name.</p></div></div>
+</div>
+<div class="rule">时势造英雄：the Loosening made the founders. 英雄造时势：the founders made the Kindling.</div>
+<h4 class="subh"><span class="mono">The name</span>One image, four languages</h4>
+<div class="lnames">
+<div><span class="lg">English</span><div><b>The Loosening</b><span>The laws themselves slacken, like a rope or a knot.</span></div></div>
+<div><span class="lg">Chinese</span><div><b class="zh">天漏</b><span>The sky leaks. Something begins to get through.</span></div></div>
+<div><span class="lg">Latin</span><div><b>Rima Caeli</b><span>The crack in the sky.</span></div></div>
+<div><span class="lg">Arabic</span><div><b class="ar" dir="rtl" lang="ar">ثغرة السماء</b><span>Thaghrat al-Samāʾ, the gap in the sky: an opening in a wall or a line of defence.</span></div></div>
+</div>
+</div></section>
+
+<section class="thread" id="gift"><div class="wrap"><div class="t-top"><div class="t-badge">II</div><div><span class="mono">The scale widens</span><h3>Gift 6, and a scale to 10</h3><p class="idea">The ones who pierced the veil were not ordinary people, by circumstance or by providence.</p></div></div>
+<div class="content">
+<p class="big">Gift 6 is the Gift that worked during the Loosening. Before 1918 the World’s resistance sat above everyone else’s reach. Gift 6 could get through 天漏. When the Kindling lowered the threshold, Gift 0 to 5 opened for everyone, and Gift 6 stayed what it had been: rare.</p>
+</div>
+<div class="gifts" aria-label="Gift 0 to 6"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="six">6</span></div>
+<div class="giftkey"><span>Gift 0–5 · opened for everyone at the Kindling</span><span>Gift 6 · cast before it</span></div>
+<div class="content" style="margin-top:22px"><p>Attributes now run from 1 to 10. The old ceiling of 5 was set by people who had not met the founders.</p></div>
+<div class="scale" aria-label="Attributes 1 to 10"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="m">6</span><span class="m">7</span><span class="m">8</span><span class="f">9</span><span class="f">10</span></div>
+<div class="scalekey"><span>1–5 · the ordinary human range</span><span>6–8 · mastery, earned over a career</span><span>9–10 · a founder’s signature</span></div>
+<div class="content" style="margin-top:18px"><p>Ramunajan’s Sense is 10 and his Strength is low. Matron Gonxhe’s Bearing is 10 and her Strength is 1. A founder is extraordinary in one or two places and ordinary, sometimes frail, everywhere else.</p></div>
+</div></section></div>
+
+<div class="dots"><span>✦</span></div>
+
+<!-- PART TWO -->
+<div class="b2"><div class="book-head"><div class="wrap"><div class="bignum">ii</div><div><div class="k mono">Part Two</div><h2>The seats <span class="zh">座</span></h2><p>Each house calls its head by its own lineage’s word. Every title here is a real one.</p></div></div></div>
+<section class="thread" id="houses"><div class="wrap"><div class="t-top"><div class="t-badge">III</div><div><span class="mono">1918</span><h3>Seven houses, their titles and seats</h3><p class="idea">Uneven, as the houses are: some carry three founders, some one.</p></div></div>
+<div class="houses">
+<div class="hs"><h4>Sund</h4><p class="ttl">Rector</p><p class="why">The head of a European university, from the Latin for one who steers. Swedish universities still have a rektor.</p>
+<div class="seat"><span class="sn">Rector</span><b>Matron Gonxhe · Mother Teresa</b></div>
+<div class="seat"><span class="sn">Master of Works</span><b>Nikola Tesslund · Nikola Tesla</b></div></div>
+<div class="hs"><h4>Toa Keng</h4><p class="ttl">Headmaster</p><p class="why">The English word for the head of a school, plain and exact, as Toa Keng likes its words.</p>
+<div class="seat"><span class="sn">Headmaster</span><b>Marten Rey · Martin Luther King Jr.</b></div>
+<div class="seat"><span class="sn">Dean of the Observatory</span><b>Albin Einhart · Albert Einstein</b></div>
+<div class="seat"><span class="sn">Dean of the Workshops</span><b>János Neumark · John von Neumann</b></div></div>
+<div class="hs"><h4>Sané-Kora</h4><p class="ttl">Kumatigi</p><p class="why">In Mande tradition, the Master of the Word: one griot, appointed for life, who knows the whole history and recites the Sunjata epic. Jeli kuntigi, chief of the griots, is a separate title.</p>
+<div class="seat"><span class="sn">Kumatigi</span><b>Konggu <span class="zh">空谷子</span> · <span class="zh">鬼谷子</span> Guiguzi</b></div>
+<div class="seat"><span class="sn">Jeli kuntigi</span><b>Bala Koyaté · Balla Fasséké</b></div>
+<div class="seat"><span class="sn">Keeper of the Third Voice</span><b>Sebastian Beek · Johann Sebastian Bach</b></div></div>
+<div class="hs"><h4>Lan Fang</h4><p class="ttl"><span class="zh">山长</span></p><p class="why">The head of a 书院 academy. Mozi College, inside Lan Fang, is led by a 巨子, the Mohists’ own title for their leader.</p>
+<div class="seat"><span class="sn">山长</span><b>Hua He · <span class="zh">华佗</span> Hua Tuo</b></div>
+<div class="seat"><span class="sn">巨子 of Mozi College</span><b><span class="zh">沈溪</span> Shen Xi · <span class="zh">沈括</span> Shen Kuo</b><span class="prop">proposed</span></div></div>
+<div class="hs"><h4>Al-Merikani</h4><p class="ttl">Nāẓir</p><p class="why">The overseer of a waqf endowment, the post that actually ran a madrasa’s money and teaching. It suits the house of finance.</p>
+<div class="seat"><span class="sn">Nāẓir</span><b>Ibn Muqaddim · Ibn Khaldun</b><span class="prop">proposed</span></div>
+<div class="seat"><span class="sn">Mudarris of the House of Numbers</span><b>Ramunajan · Srinivasa Ramanujan</b></div></div>
+<div class="hs"><h4>Nine Rain</h4><p class="ttl">Amauta</p><p class="why">The Inca sage-teachers of the Yachay Wasi, the house of knowledge.</p>
+<div class="seat"><span class="sn">Amauta, and undagi, master builder</span><b>Guna Watu · Gunadharma</b></div>
+<div class="seat"><span class="sn">Wayfinder</span><b>Tupa’i · Tupaia</b><span class="prop">proposed</span></div></div>
+<div class="hs"><h4>Sri Temenggong</h4><p class="ttl">Guru</p><p class="why">Teacher, in Malay and in the many languages that share the word.</p>
+<div class="seat"><span class="sn">Guru</span><b>Mama Miti · Wangari Maathai</b></div>
+<div class="seat"><span class="sn">Keeper of Letters</span><b>Munsyi Kadir · Munshi Abdullah</b><span class="prop">proposed</span></div></div>
+</div>
+</div></section></div>
+
+<div class="dots"><span>✦</span></div>
+
+<!-- PART THREE -->
+<div class="b3"><div class="book-head"><div class="wrap"><div class="bignum">iii</div><div><div class="k mono">Part Three</div><h2>The founders <span class="zh">开山</span></h2><p>Sixteen minds of Gift 6. Each card gives the founder’s first working in the Loosening, the method their students inherited, and their 绝学.</p></div></div></div>
+<section class="thread" id="founders"><div class="wrap"><div class="t-top"><div class="t-badge">IV</div><div><span class="mono">Gift 6</span><h3>Sixteen founders</h3><p class="idea">Proposed founders have dashed borders.</p></div></div>
+<div class="fds">
+
+<article class="fd"><div class="hd">Sund · Rector</div><h4>Matron Gonxhe<span class="real">after Mother Teresa</span></h4><p class="line">She makes a crowd carry a working together, each person lifting the share they can bear.</p><dl>
+<dt>In 天漏</dt><dd>In a cholera season, the fever in a whole ward fell for one night while she went from bed to bed. The nurses said their own hands grew warm.</dd>
+<dt>Method passed down</dt><dd>The Commons: how many ordinary hands join one working.</dd>
+<dt>绝学</dt><dd><b>The Whole City at One Bed.</b> Every willing person in a city lends a sliver of strength to one patient, and the patient lives.</dd></dl></article>
+
+<article class="fd"><div class="hd">Sund · Master of Works</div><h4>Nikola Tesslund<span class="real">after Nikola Tesla</span></h4><p class="line">He sees whole systems before he builds them, and makes separate machines answer one another.</p><dl>
+<dt>In 天漏</dt><dd>The lamps along a Sund quay lit one after another as he walked past with his hand on the rail. No current ran in the wires.</dd>
+<dt>Method passed down</dt><dd>Coupling: ships, lamps and harbours that answer as one body.</dd>
+<dt>绝学</dt><dd><b>The Unanswered Chain.</b><span class="veyr">Veyr</span> Every coupled system across a region falls silent at once. No lamp, link or working in it answers its maker.</dd></dl></article>
+
+<article class="fd"><div class="hd">Toa Keng · Headmaster</div><h4>Marten Rey<span class="real">after Martin Luther King Jr.</span></h4><p class="line">He reasons in public until the reasoning becomes real.</p><dl>
+<dt>In 天漏</dt><dd>During a dispute over harbour dues, the ledger on the table corrected itself to match the fair ruling he had just argued aloud.</dd>
+<dt>Method passed down</dt><dd>The public Precedent: a ruling everyone can follow step by step, with their own judgement intact.</dd>
+<dt>绝学</dt><dd><b>I Have a World.</b> A reasoned vision of a fairer city holds as real streets for as long as the speech lasts.</dd></dl></article>
+
+<article class="fd"><div class="hd">Toa Keng · Dean of the Observatory</div><h4>Albin Einhart<span class="real">after Albert Einstein</span></h4><p class="line">He finds the transformations between ways of seeing.</p><dl>
+<dt>In 天漏</dt><dd>Two observatory clocks that had disagreed for years began to agree, and only he understood that both had been right all along.</dd>
+<dt>Method passed down</dt><dd>Frames: translate one standpoint into another until a dispute becomes legible.</dd>
+<dt>绝学</dt><dd><b>Every Window at Once.</b> A whole harbour sees one event from every vantage together, so no one can be deceived about where anything is.</dd></dl></article>
+
+<article class="fd"><div class="hd">Toa Keng · Dean of the Workshops</div><h4>János Neumark<span class="real">after John von Neumann</span></h4><p class="line">He thinks about a spell the way a machine would run it.</p><dl>
+<dt>In 天漏</dt><dd>A punched-card loom in the workshops wove a pattern he had only described aloud.</dd>
+<dt>Method passed down</dt><dd>Executable records: a written procedure that carries itself out.</dd>
+<dt>绝学</dt><dd><b>The Heir.</b> An artefact from his workshop composes a working of its own that nobody taught it. Seen once.</dd></dl></article>
+
+<article class="fd"><div class="hd">Sané-Kora · Kumatigi</div><h4>Konggu <span class="zh">空谷子</span><span class="real">after <span class="zh">鬼谷子</span> Guiguzi</span></h4><p class="line">A master of the word who never sings. He teaches the minds behind governments.</p><dl>
+<dt>In 天漏</dt><dd>Two port councils deadlocked for a month left his room agreed on a single page. Neither could later recall who had proposed it.</dd>
+<dt>Method passed down</dt><dd><span class="zh">捭阖</span>, opening and closing: when to open a conversation, and when to close it.</dd>
+<dt>绝学</dt><dd><b>The Close.</b><span class="veyr">Veyr</span> At the moment of decision every voice in a commanding council falls silent, and it cannot give a single order until he opens it again.</dd></dl></article>
+
+<article class="fd"><div class="hd">Sané-Kora · Jeli kuntigi</div><h4>Bala Koyaté<span class="real">after Balla Fasséké, Sundiata’s griot</span></h4><p class="line">The chief of the griots, who sings history until it acts.</p><dl>
+<dt>In 天漏</dt><dd>As he sang a family’s line at a naming, the cracked roof beam of their house closed.</dd>
+<dt>Method passed down</dt><dd>The told working: an epic that renews its magic every time it is sung.</dd>
+<dt>绝学</dt><dd><b>The Secret Sung Aloud.</b> He sings an opponent’s true origin, and their workings lose their rank.</dd></dl></article>
+
+<article class="fd"><div class="hd">Sané-Kora · Keeper of the Third Voice</div><h4>Sebastian Beek<span class="real">after Johann Sebastian Bach</span></h4><p class="line">From two unlike voices he composes a third that binds.</p><dl>
+<dt>In 天漏</dt><dd>A runaway cart in the market slowed to the tempo of the organ he was playing, and stopped on the final chord.</dd>
+<dt>Method passed down</dt><dd>Counterpoint as restraint: motion routed through a composition.</dd>
+<dt>绝学</dt><dd><b>The Held Charge.</b><span class="veyr">Veyr</span> An army’s advance is held between two beats. Horses breathe and riders can turn their heads, and no one can move forward.</dd></dl></article>
+
+<article class="fd"><div class="hd">Lan Fang · 山长</div><h4>Hua He<span class="real">after <span class="zh">华佗</span> Hua Tuo</span></h4><p class="line">A surgeon who knows every point in the body that heals it or stops it.</p><dl>
+<dt>In 天漏</dt><dd>A patient under his needles felt nothing through a whole amputation, with no numbing draught given.</dd>
+<dt>Method passed down</dt><dd>Meridian practice: the body’s points as a map for healing, sleep, laughter or stillness.</dd>
+<dt>绝学</dt><dd><b>The Long Sleep.</b><span class="veyr">Veyr</span> Every soldier in a garrison falls into a deep, harmless sleep at once, and wakes a day later unhurt.</dd></dl></article>
+
+<article class="fd prop"><div class="hd">Lan Fang · 巨子 of Mozi College · proposed</div><h4><span class="zh">沈溪</span> Shen Xi<span class="real">after <span class="zh">沈括</span> Shen Kuo, author of <span class="zh">《梦溪笔谈》</span></span></h4><p class="line">A polymath who writes down everything he notices.</p><dl>
+<dt>In 天漏</dt><dd>His compass needle swung toward a disturbance in the air that no one else could feel.</dd>
+<dt>Method passed down</dt><dd><span class="zh">笔谈</span>, brush talks: record every anomaly, however small, and let the pattern show itself.</dd>
+<dt>绝学</dt><dd><b>The Living Map.</b> A map drawn with his brush redraws itself as the land changes.</dd></dl></article>
+
+<article class="fd"><div class="hd">Al-Merikani · Mudarris of the House of Numbers</div><h4>Ramunajan<span class="real">after Srinivasa Ramanujan</span></h4><p class="line">His results arrive whole, and the proofs come after.</p><dl>
+<dt>In 天漏</dt><dd>An equation he wrote on a slate stayed lit after the lamp was blown out.</dd>
+<dt>Method passed down</dt><dd>Result first, road after: write the answer down, and let others find the way to it.</dd>
+<dt>绝学</dt><dd><b>The Open Page.</b> A spell nobody taught him, written whole in one night. Only he has cast it.</dd></dl></article>
+
+<article class="fd prop"><div class="hd">Al-Merikani · Nāẓir · proposed</div><h4>Ibn Muqaddim<span class="real">after Ibn Khaldun, author of the Muqaddimah</span></h4><p class="line">He reads the rise and fall of fortunes the way others read weather.</p><dl>
+<dt>In 天漏</dt><dd>The house’s accounts balanced themselves to the coin on the night before a crash he had predicted.</dd>
+<dt>Method passed down</dt><dd>ʿAsabiyya: the bond that holds a group together, and how to measure it weakening.</dd>
+<dt>绝学</dt><dd><b>The Ledger of Bonds.</b> Every obligation between two cities becomes visible and binding on a single page.</dd></dl></article>
+
+<article class="fd"><div class="hd">Nine Rain · Amauta</div><h4>Guna Watu<span class="real">after Gunadharma, architect of Borobudur</span></h4><p class="line">A master builder who works with friction, stone and rain.</p><dl>
+<dt>In 天漏</dt><dd>A terrace wall he had laid without mortar held through a landslide that took the hill beside it.</dd>
+<dt>Method passed down</dt><dd>Interlocking: stone that holds by its own fit, renewed by the rain that falls on it.</dd>
+<dt>绝学</dt><dd><b>Stone Lets Go.</b><span class="veyr">Veyr</span> The friction holding a fortress together gives way, and its walls settle into rubble without a blow.</dd></dl></article>
+
+<article class="fd prop"><div class="hd">Nine Rain · Wayfinder · proposed</div><h4>Tupa’i<span class="real">after Tupaia, the Tahitian navigator who drew Cook a chart from memory in 1769</span></h4><p class="line">A navigator who holds an ocean of islands in his head.</p><dl>
+<dt>In 天漏</dt><dd>He steered a becalmed canoe home by a swell no one else aboard could feel.</dd>
+<dt>Method passed down</dt><dd>Wayfinding: stars, swells and birds read as one living map.</dd>
+<dt>绝学</dt><dd><b>The Answering Sea.</b> A whole fleet crosses open ocean on swells that carry it and no one else.</dd></dl></article>
+
+<article class="fd"><div class="hd">Sri Temenggong · Guru</div><h4>Mama Miti<span class="real">after Wangari Maathai</span></h4><p class="line">She plants a country through a thousand ordinary hands.</p><dl>
+<dt>In 天漏</dt><dd>Seedlings her students planted in a dry field rooted overnight.</dd>
+<dt>Method passed down</dt><dd>Many hands: small plantings woven to one plan add up to a nation-scale working.</dd>
+<dt>绝学</dt><dd><b>The Green Country.</b> A planting by a whole people takes root across a country in a single season.</dd></dl></article>
+
+<article class="fd prop"><div class="hd">Sri Temenggong · Keeper of Letters · proposed</div><h4>Munsyi Kadir<span class="real">after Munshi Abdullah, Malacca-born writer and translator</span></h4><p class="line">A son of the Straits who carries meaning between languages.</p><dl>
+<dt>In 天漏</dt><dd>A letter he translated read itself aloud to its reader in the reader’s own tongue.</dd>
+<dt>Method passed down</dt><dd>Translation as making: carry a meaning across so that it arrives new.</dd>
+<dt>绝学</dt><dd><b>The Common Tongue.</b> Everyone in a hall understands everyone else, each hearing their own language.</dd></dl></article>
+</div>
+</div></section></div>
+
+<div class="dots"><span>✦</span></div>
+
+<!-- PART FOUR -->
+<div class="b4"><div class="book-head"><div class="wrap"><div class="bignum">iv</div><div><div class="k mono">Part Four</div><h2>What they left <span class="zh">绝学</span></h2><p>The spells mostly stayed with the founders. Their methods went to everyone.</p></div></div></div>
+<section class="thread" id="juexue"><div class="wrap"><div class="t-top"><div class="t-badge">V</div><div><span class="mono">A fourth standing</span><h3>Legendary workings <span class="zh">绝学</span></h3><p class="idea">Documented, and waiting for someone who can cast them.</p></div></div>
+<div class="standing">
+<div><b>Established</b><span>Taught and cast across the houses.</span></div>
+<div><b>Stretch</b><span>Cast by masters at the edge of their rank.</span></div>
+<div><b>Frontier</b><span>New, proven by few, still being refined.</span></div>
+<div class="lg"><b>Legendary · <span class="zh">绝学</span></b><span>Fully recorded. Needs Gift 6, or a reimagining.</span></div>
+</div>
+<div class="content">
+<p class="big">A 绝学 is a founder’s grand working. Its recipe is written down in full, often in the founder’s own hand, and anyone may read it. Almost no one can cast it. The houses keep the records open and wait for a rare Gifted caster who can reproduce one, or find their own road to the same effect.</p>
+<p>What passed down is the method behind each one: Gonxhe’s commons, Konggu’s opening and closing, Beek’s counterpoint, Mama Miti’s many hands. Students of every generation learn these methods, and the ordinary spells of the houses grow from them.</p>
+<p>At the Veyr Retaliation five founders cast together. Tesslund silenced Veyr’s coupled systems, Konggu closed its war council, Beek held its army between two beats, Hua He put its garrisons to sleep, and Guna Watu let the stone of its fortresses go. The show of force that set a new magical world order was five 绝学 at once.</p>
+</div>
+</div></section>
+
+<section class="thread" id="roster"><div class="wrap"><div class="t-top"><div class="t-badge">VI</div><div><span class="mono">For the digging</span><h3>Seats still to fill</h3><p class="idea">Legendary figures from every culture can enter the houses at any age.</p></div></div>
+<div class="roster">
+<div><b>Teachers</b><p>Founders’ contemporaries and successors: more Gift 6 minds holding seats, deanships and chairs across the seven houses.</p></div>
+<div><b>Students</b><p>The founders’ first pupils, who carry the methods forward and attempt the 绝学 in their own way.</p></div>
+<div><b>Late learners</b><p>Masters of something else who discover their Gift at forty or fifty and walk into a house as first-years.</p></div>
+</div>
+</div></section></div>
+
+<footer><div class="wrap"><div class="mark-s"><i>The</i> Polymathic <i>Universe</i></div><div class="mono">The Parallel Straits · Book Two · Personal creative work by Linwei · 2026 · made with Claude</div><p>Every founder carries two names: the name used in the story, and the real figure the founder is drawn from. <i>b.m.</i>, before magic; <i>a.m.</i>, after magic, counting the Kindling of 1918 as <i>a.m.</i> 0.</p></div></footer>
+<script>(function(){var r=document.documentElement,b=document.getElementById('pnavBtn'),v=document.getElementById('pnavVeil'),n=document.getElementById('pnav');
+function s(o){r.classList.toggle('pnav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close index':'Open index')}
+b.addEventListener('click',function(){s(!r.classList.contains('pnav-open'))});v.addEventListener('click',function(){s(false)});
+n.addEventListener('click',function(e){if(e.target.closest('a'))s(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)});})();</script>
+</body></html>

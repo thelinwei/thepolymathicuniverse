@@ -1,0 +1,452 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Relationships as Equity · The Polymathic Universe</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><style>:root{color-scheme:light;--ink:#2e2418;--ink2:#4a3b2b;--dim:#6f604f;--hair:#ddd1bf;--paper:#f6f1e7;--mist:#ece3d2;--card:#fcf9f2;--pond:#a5773d;--pond2:#c39a64;--pond3:#dcc6a3;--deep:#6e4a24;--lav:#6f7f4e;--lav2:#d6dcc1;--rose:#b4583a;--rose2:#efd3c4;--lily:#eadfb6;--gold:#9a7f33;--claude:#a85d86;
+--cover:radial-gradient(38% 30% at 78% 26%,rgba(180,88,58,.30),transparent 70%),radial-gradient(34% 28% at 22% 70%,rgba(111,127,78,.30),transparent 70%),radial-gradient(28% 22% at 60% 82%,rgba(234,223,182,.6),transparent 70%),radial-gradient(60% 50% at 40% 30%,rgba(220,198,163,.75),transparent 75%),linear-gradient(170deg,#efe6d4 0%,#e2d1b3 48%,#e7dcc8 100%);
+--spec:linear-gradient(135deg,#eadfb6 0%,#f1e7d0 55%,#efd3c4 100%);
+--h1:linear-gradient(160deg,#ede3cf,#e0cfb0 60%,#ece2cf);--h2:linear-gradient(160deg,#e6e6d2,#d9dcc0 55%,#ebe2cc);--h3:linear-gradient(160deg,#f2e3d6,#e6c9b4 55%,#f0e0d2);--h4:linear-gradient(160deg,#ebe4d6,#ddd0bb 55%,#ece4d8);
+--sea:#e2e7e3;--land:#fbf7ee;--land2:#ece6dc;--border:#c8b89f;--lane1:#b4583a;--af:#b4583a;--cn:#4f7a5a;--we:#5f6b80;--acc:#b4583a;--ink-2:#4a3b2b;--rule:#ddd1bf;--paper2:#fcf9f2;--serif:"Cormorant Garamond","Times New Roman",Times,serif;--display:"Playfair Display","Times New Roman",serif;--mono:"JetBrains Mono",ui-monospace,monospace;--zh:"Songti SC","Noto Serif SC","STSong",serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ink:#EFE7DA;--ink2:#DCCFBE;--dim:#BBAA95;--hair:#4A3D30;--paper:#17120D;--mist:#211A13;--card:#1D1711;--pond2:#8A6A42;--pond3:#5A4630;--deep:#E2BC8A;--lav2:#3E4530;--rose:#E39A7C;--rose2:#4A2E25;--gold:#E1C878;--claude:#D58FB6;
+--cover:radial-gradient(38% 30% at 78% 26%,rgba(180,88,58,.22),transparent 70%),radial-gradient(34% 28% at 22% 70%,rgba(111,127,78,.2),transparent 70%),linear-gradient(170deg,#1E1710 0%,#261C13 48%,#1F1A12 100%);
+--spec:linear-gradient(135deg,#2A2316 0%,#272016 55%,#2E1F18 100%);--h1:linear-gradient(160deg,#1F1811,#2A2016);--h2:linear-gradient(160deg,#1C1E14,#23241A);--h3:linear-gradient(160deg,#2A1E17,#2C2018);--h4:linear-gradient(160deg,#1E1A14,#26201A);
+--sea:#121614;--land:#2A2119;--land2:#211A14;--border:#5A4A3A;--lane1:#E39A7C;--af:#E39A7C;--cn:#8fc4a0;--we:#a9b6cc;--acc:#E39A7C;--ink-2:#DCCFBE;--rule:#4A3D30;}}
+:root[data-theme="dark"]{color-scheme:dark;--ink:#EFE7DA;--ink2:#DCCFBE;--dim:#BBAA95;--hair:#4A3D30;--paper:#17120D;--mist:#211A13;--card:#1D1711;--pond2:#8A6A42;--pond3:#5A4630;--deep:#E2BC8A;--lav2:#3E4530;--rose:#E39A7C;--rose2:#4A2E25;--gold:#E1C878;--claude:#D58FB6;
+--cover:radial-gradient(38% 30% at 78% 26%,rgba(180,88,58,.22),transparent 70%),radial-gradient(34% 28% at 22% 70%,rgba(111,127,78,.2),transparent 70%),linear-gradient(170deg,#1E1710 0%,#261C13 48%,#1F1A12 100%);
+--spec:linear-gradient(135deg,#2A2316 0%,#272016 55%,#2E1F18 100%);--h1:linear-gradient(160deg,#1F1811,#2A2016);--h2:linear-gradient(160deg,#1C1E14,#23241A);--h3:linear-gradient(160deg,#2A1E17,#2C2018);--h4:linear-gradient(160deg,#1E1A14,#26201A);
+--sea:#121614;--land:#2A2119;--land2:#211A14;--border:#5A4A3A;--lane1:#E39A7C;--af:#E39A7C;--cn:#8fc4a0;--we:#a9b6cc;--acc:#E39A7C;--ink-2:#DCCFBE;--rule:#4A3D30;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.zh{font-family:var(--zh);font-style:normal}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+.cover{position:relative;overflow:hidden;padding:84px 0 70px;background:var(--cover)}
+.cover:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background:repeating-linear-gradient(176deg,transparent 0 22px,rgba(110,74,36,.07) 22px 23px,transparent 23px 41px,rgba(111,127,78,.06) 41px 42px)}
+.cover .wrap{position:relative;z-index:2}
+.eyebrow{color:var(--deep);margin-bottom:30px}
+.bracket{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:1;letter-spacing:-.02em}
+.bracket .b,h2 .b{color:var(--rose)}
+.bracket .zh{display:block;font-size:.42em;letter-spacing:.3em;margin-top:12px;color:var(--ink2)}
+.paren{font-style:italic;font-size:clamp(1.2rem,2vw,1.55rem);color:var(--ink2);margin-top:14px;max-width:760px}
+.byline{display:flex;gap:14px;align-items:center;margin-top:30px;flex-wrap:wrap;color:var(--dim)}
+.by{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;background:var(--claude);color:#fff}
+.thesis{font-family:var(--display);font-style:italic;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.3;max-width:860px;margin:38px 0 0;color:var(--ink)}
+.specimen{background:var(--spec);padding:48px 0 40px}
+.specimen .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 48px}
+.sp-book h3{font-family:var(--display);font-weight:400;font-size:26px;margin:0 0 4px}
+.sp-book h3 .mono{color:var(--deep);margin-right:10px}
+.sp-book p{margin:0 0 12px;font-style:italic;color:var(--ink2);font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:4px 14px 4px 4px;border:1px solid var(--ink2);border-radius:40px;font-size:17px;text-decoration:none;background:rgba(255,255,255,.25)}
+.chip:hover,.chip:focus-visible{background:var(--card)}
+.chip i{font-style:normal;font-family:var(--mono);font-size:9px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--ink);color:var(--ink)}
+.book-head{padding:76px 0 54px;margin-top:20px}
+.b1 .book-head{background:var(--h1)}
+.book-head .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:end}
+.bignum{font-family:var(--display);font-style:italic;font-size:clamp(5.5rem,12vw,10rem);line-height:.78;color:var(--deep)}
+.book-head .k{color:var(--deep);margin-bottom:12px}
+.book-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,5vw,3.8rem);line-height:1;margin:0 0 14px;letter-spacing:-.02em}
+.book-head p{margin:0;font-style:italic;font-size:21px;max-width:660px;color:var(--ink2)}
+.thread{padding:52px 0 8px}
+.t-top{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;margin-bottom:26px}
+.t-badge{width:64px;height:64px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:20px;background:var(--card)}
+.t-top .mono{color:var(--dim);display:block;margin-bottom:6px}
+.t-top h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.05;margin:0 0 10px}
+.t-top h3 .zh{font-size:.55em;color:var(--dim);margin-left:8px}
+.idea{font-style:italic;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.35;color:var(--deep);max-width:780px;border-left:3px solid var(--rose);padding-left:16px;margin:0}
+.card{position:relative;background:var(--card);border:1px solid var(--hair);padding:18px 22px 18px 26px}
+.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--pond),var(--lav),var(--rose))}
+.card .fig{font-family:var(--display);font-size:42px;line-height:1;color:var(--deep)}
+.card h4{font-family:var(--display);font-weight:400;font-size:1.45rem;line-height:1.15;margin:6px 0 6px}
+.card p{margin:0;font-size:18px;color:var(--ink2);line-height:1.4}
+.findings{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.rule{margin:22px 0;padding:20px 24px;background:var(--spec);border:1px solid var(--hair);font-size:22px;font-family:var(--display);font-style:italic;line-height:1.35}
+footer{padding:46px 0 70px;color:var(--dim);border-top:1px solid var(--hair);margin-top:50px}
+footer .mark-s{font-family:var(--display);font-size:22px;color:var(--ink);margin-bottom:6px}
+footer .mark-s i{font-weight:400}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.pnav-btn{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:18px;z-index:1200;width:46px;height:46px;display:grid;place-items:center;background:var(--card);border:1px solid var(--ink2);color:var(--ink);cursor:pointer}
+.pnav-btn i{display:block;width:18px;height:1.5px;background:currentColor;position:relative}
+.pnav-btn i:before,.pnav-btn i:after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .3s}
+.pnav-btn i:before{top:-6px}
+.pnav-btn i:after{top:6px}
+.pnav-open .pnav-btn i{background:transparent}
+.pnav-open .pnav-btn i:before{transform:translateY(6px) rotate(45deg)}
+.pnav-open .pnav-btn i:after{transform:translateY(-6px) rotate(-45deg)}
+.pnav-veil{position:fixed;inset:0;z-index:1100;background:rgba(46,36,24,.22);opacity:0;pointer-events:none;transition:opacity .3s}
+.pnav-open .pnav-veil{opacity:1;pointer-events:auto}
+.pnav{position:fixed;top:0;right:0;bottom:0;z-index:1150;width:min(400px,88vw);background:var(--paper);border-left:1px solid var(--hair);transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s linear .35s;overflow-y:auto;padding:calc(84px + env(safe-area-inset-top,0px)) 28px calc(28px + env(safe-area-inset-bottom,0px));visibility:hidden}
+.pnav-open .pnav{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.pnav-lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:18px}
+.pnav-book{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin:20px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+.pnav ol{list-style:none;margin:0;padding:0}
+.pnav li a{display:grid;grid-template-columns:38px 1fr;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px dotted var(--pond3);text-decoration:none}
+.pnav .rn{font-family:var(--mono);font-size:9.5px;color:var(--rose)}
+.pnav .nm{font-family:var(--display);font-size:17px;line-height:1.2}
+.pnav li a:hover .nm{font-style:italic;color:var(--deep)}
+html{scroll-behavior:auto}
+.pnav,.pnav-veil{transition:none}
+.wrap{padding:0 20px}
+.specimen .grid{grid-template-columns:1fr}
+.book-head .wrap{grid-template-columns:1fr;gap:8px}
+.t-top{grid-template-columns:1fr;gap:12px}
+.findings,.houses{grid-template-columns:1fr}
+body{font-size:19px}
+.plate{position:relative;margin:22px 0;padding:30px 26px 18px;background:var(--spec);border:1px solid var(--hair)}
+.plate:before,.plate:after{content:"";position:absolute;width:14px;height:14px;border-color:var(--rose);border-style:solid}
+.plate:before{top:8px;left:8px;border-width:2px 0 0 2px}
+.plate:after{bottom:8px;right:8px;border-width:0 2px 2px 0}
+.ptag{position:absolute;top:-1px;right:18px;transform:translateY(-50%);font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--card);border:1px solid var(--ink2);padding:3px 8px;color:var(--ink)}
+.plate .tex{font-size:21px;overflow-x:auto;padding:4px 0 10px;text-align:center;color:var(--ink)}
+.plate math{font-size:1.15em}
+.rules{counter-reset:r;list-style:none;padding:0;margin:0}
+.rules>li{counter-increment:r;display:grid;grid-template-columns:44px 1fr;gap:0 14px;padding:14px 0;border-bottom:1px dotted var(--pond3)}
+.rules>li:before{content:counter(r,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--rose);padding-top:5px}
+.rules h5{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 4px}
+.rules p{margin:0 0 6px;font-size:18px;line-height:1.45;color:var(--ink2)}
+.t-top{margin-bottom:22px}
+.rules>li>div{min-width:0}
+.plate .tex{overflow-x:visible}
+.plate math{max-width:100%}
+.plate{padding:26px 14px 14px}
+.plate .tex{font-size:17px}
+.chips3{margin:2px 0 0;display:flex;flex-wrap:wrap;gap:5px}
+.chips3 span{font-size:14px;padding:2px 9px;border:1px solid var(--hair);border-radius:20px;background:var(--mist)}
+.pnav-top{display:block;text-align:center;border:1px solid var(--ink2);padding:10px;margin:0 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--card)}
+.outc h3{font-family:var(--display);font-weight:400;font-size:26px;margin:0 0 4px}
+.outc h3 .mono{color:var(--deep);margin-right:10px}
+.outc .lead{font-size:19px;line-height:1.5;margin:0 0 10px}
+.outc ol{margin:0;padding-left:1.25em}
+.outc li{font-size:17.5px;line-height:1.45;margin:0 0 8px}
+.notes{border:1px dashed var(--ink2);background:var(--card);padding:14px 18px}
+.notes p{margin:0 0 8px;font-size:17px;line-height:1.45}
+.notes p:last-child{margin:0}
+.notes .mono{color:var(--claude)}
+.rules2{border-top:1px solid var(--ink2);counter-reset:r}
+.rules2 > div{display:grid;grid-template-columns:48px 1fr;gap:0 14px;padding:13px 0;border-bottom:1px solid var(--hair)}
+.rules2 > div:before{counter-increment:r;content:counter(r);font-family:var(--display);font-style:italic;font-size:34px;line-height:1;color:var(--deep)}
+.rules2 h5{font-family:var(--display);font-weight:400;font-size:21px;margin:0 0 3px}
+.rules2 p{margin:0;font-size:17.5px;line-height:1.45}
+.rules2 .bind{display:block;font-size:15.5px;color:var(--claude);margin-top:4px;font-style:italic}
+.subh{font-family:var(--display);font-weight:400;font-size:25px;margin:28px 0 6px;line-height:1.2}
+.subh .mono{display:block;color:var(--deep);margin-bottom:4px}
+.b2 .book-head{background:var(--h2)}.b3 .book-head{background:var(--h3)}.b4 .book-head{background:var(--h4)}
+.dots{display:flex;align-items:center;gap:14px;margin:34px auto;max-width:1160px;padding:0 40px}
+.dots:before,.dots:after{content:"";flex:1;border-top:2px dotted var(--pond2)}
+.dots span{font-family:var(--mono);color:var(--rose);font-size:18px}
+.content{max-width:940px}
+.content > p{margin:0 0 16px}
+.content p.big{font-size:23px;line-height:1.45}
+.outc ol{margin:0;padding-left:1.25em}.outc li{font-size:18px;line-height:1.45;margin:0 0 8px}
+.findings{margin:10px 0 6px}
+.card .tag{display:block;color:var(--deep);margin-bottom:2px;font-size:9.5px;letter-spacing:.16em}
+.card p+p{margin-top:8px}
+.card .bend{font-style:italic;color:var(--rose);font-size:16.5px}
+.card .reach{font-size:16.5px}
+.subh{font-family:var(--display);font-weight:400;font-size:25px;margin:30px 0 8px;line-height:1.2}
+.subh .mono{display:block;color:var(--deep);margin-bottom:4px}
+.rows{border-top:1px solid var(--ink2);margin:6px 0 14px}
+.rows > div{padding:10px 0;border-bottom:1px dotted var(--pond3);font-size:18.5px;line-height:1.5}
+.rows b{font-family:var(--display);font-weight:400;font-size:20px}
+.rules2{border-top:1px solid var(--ink2);counter-reset:r}
+.rules2 > div{display:grid;grid-template-columns:48px 1fr;gap:0 14px;padding:13px 0;border-bottom:1px solid var(--hair)}
+.rules2 > div:before{counter-increment:r;content:counter(r);font-family:var(--display);font-style:italic;font-size:34px;line-height:1;color:var(--deep)}
+.rules2 h5{font-family:var(--display);font-weight:400;font-size:21px;margin:0 0 3px}
+.rules2 p{margin:0;font-size:18px;line-height:1.45}
+.rule{margin:22px 0;padding:20px 24px;background:var(--spec);border:1px solid var(--hair);font-size:22px;font-family:var(--display);font-style:italic;line-height:1.35}
+.plate{position:relative;margin:30px 0;padding:32px 26px 18px;background:var(--spec);border:1px solid var(--hair)}
+.plate:before,.plate:after{content:"";position:absolute;width:14px;height:14px;border-color:var(--rose);border-style:solid}
+.plate:before{top:8px;left:8px;border-width:2px 0 0 2px}.plate:after{bottom:8px;right:8px;border-width:0 2px 2px 0}
+.ptag{position:absolute;top:-1px;right:18px;transform:translateY(-50%);font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--card);border:1px solid var(--ink2);padding:3px 8px;color:var(--ink)}
+.plate > p{font-size:19px}
+.plate blockquote{margin:14px 0;font-family:var(--zh);font-size:19px;line-height:1.8}
+.plate blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim);margin-top:4px}
+.plate .card{background:var(--card)}
+.notes{border:1px dashed var(--ink2);background:var(--card);padding:16px 20px;margin-top:30px}
+.notes p,.notes li{margin:0 0 8px;font-size:17px;line-height:1.45}
+.notes .mono{color:var(--claude);display:block;margin-bottom:8px}
+.notes ul{margin:0;padding-left:1.2em}
+.coda2{font-family:var(--display);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3;max-width:860px;margin:34px 0 0}
+/* eras */
+.ages{border-top:1px solid var(--ink2);margin-top:8px}
+.age{display:grid;grid-template-columns:210px 1fr;gap:8px 28px;padding:24px 0;border-bottom:1px solid var(--hair)}
+.age-h .yr{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+.age-h h4{font-family:var(--display);font-weight:400;font-size:27px;line-height:1.1;margin:8px 0 0}
+.pol{margin:0 0 16px}
+.pol h5{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 2px;line-height:1.2}
+.pol h5 small{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dim);margin-left:8px;white-space:normal}
+.pol p{margin:4px 0 0;font-size:18.5px;line-height:1.5}
+.pol .reach{color:var(--ink2);font-size:17px}
+.pol .reach b{font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);margin-right:6px}
+.mw{background:var(--mist);padding:12px 16px 4px;margin-top:6px}
+.mw .mono{color:var(--deep);display:block;margin-bottom:6px}
+.mw p{margin:0 0 8px;font-size:17px;line-height:1.45}
+.mw .ln{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-right:8px}
+.mw .ln.cn{color:var(--cn)}.mw .ln.we{color:var(--we)}
+/* ledger and map */
+.tools,.ledger-tools,.map-tools{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.tchip{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--ink2);background:var(--card);color:var(--ink);cursor:pointer}
+.tchip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin:6px 0 10px;color:var(--ink2)}
+.legend span::before{content:"";display:inline-block;width:14px;height:8px;margin-right:6px;vertical-align:middle;background:currentColor}
+.legend span b{font-weight:400;color:var(--ink)}
+.lg-l1,.lg-af{color:var(--lane1)}.lg-cn{color:var(--cn)}.lg-we{color:var(--we)}
+.axis{position:relative;height:22px;font-family:var(--mono);font-size:11px;color:var(--dim);border-bottom:1px solid var(--ink2);margin-bottom:8px}
+.axis span{position:absolute;bottom:3px;transform:translateX(-50%);white-space:nowrap}
+.axis span.first{transform:none}.axis span.last{transform:translateX(-100%)}
+.lrow{margin:0 0 10px}
+.lrow .lab{display:flex;justify-content:space-between;gap:10px;line-height:1.25}
+.lrow .lab .nm{font-family:var(--display);font-size:17px}
+.lrow .lab .dt{font-family:var(--mono);font-size:10.5px;color:var(--dim);white-space:nowrap;padding-top:4px}
+.lrow.cn .nm,.lrow.we .nm{font-style:italic;color:var(--ink2)}
+.track{position:relative;height:9px;margin-top:4px}
+.track i{position:absolute;top:-2px;bottom:-2px;width:1px;background:var(--hair)}
+.track b{position:absolute;top:0;height:9px;min-width:4px}
+.lrow.l1 b,.lrow.af b{background:var(--lane1)}.lrow.cn b{background:var(--cn)}.lrow.we b{background:var(--we)}
+.note{font-size:16.5px;color:var(--dim);font-style:italic;margin:10px 0 0}
+.map-cap{font-family:var(--display);font-style:italic;font-size:21px;line-height:1.35;margin:14px 0 10px;min-height:2.7em}
+#empmap{width:100%;height:auto;display:block;border:1px solid var(--hair);background:var(--sea)}
+#empmap .sea{fill:var(--sea)}
+#empmap .ctry{fill:var(--land);stroke:var(--border);stroke-width:.7px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+#empmap .ctry.af-land{fill:var(--land)}
+#empmap .pol{fill-opacity:.42;stroke-width:2px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+#empmap .pol.sphere{fill-opacity:.16;stroke-dasharray:6 4}
+#empmap .route{fill:none;stroke-width:2.2px;vector-effect:non-scaling-stroke;stroke-dasharray:7 5;stroke-linecap:round}
+#empmap .plab{font-family:var(--display);font-weight:700;fill:var(--ink);stroke:var(--land);paint-order:stroke;stroke-linejoin:round}
+#empmap .dlab{font-family:var(--serif);font-style:italic;fill:var(--ink);stroke:var(--land);paint-order:stroke;stroke-linejoin:round}
+#empmap .dot{fill:var(--ink);stroke:var(--land)}
+.mleg{display:grid;grid-template-columns:18px 1fr;gap:4px 10px;padding:10px 0;border-bottom:1px solid var(--hair)}
+.mleg i{display:block;width:18px;height:18px;margin-top:4px}
+.mleg i.rt{height:0;border-top:3px dashed;margin-top:12px}
+.mleg b{font-family:var(--display);font-weight:400;font-size:20px}
+.mleg .pd{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:8px}
+.mleg span.today{display:block;font-size:17px;color:var(--ink2)}
+@media (max-width:900px){.wrap{padding:0 20px}.dots{padding:0 20px}.specimen .grid{grid-template-columns:1fr}.book-head .wrap{grid-template-columns:1fr;gap:8px}.t-top{grid-template-columns:1fr;gap:12px}.findings{grid-template-columns:1fr}.age{grid-template-columns:1fr}body{font-size:19px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pnav,.pnav-veil{transition:none}}
+
+.by.gpt{background:#4f7a5a}.by.lin{background:var(--deep)}
+.voice{margin:6px 0 22px;padding:22px 26px;background:var(--card);border:1px solid var(--hair);border-left:4px solid var(--rose)}
+.voice p{font-family:var(--display);font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5;margin:0 0 12px;color:var(--ink)}
+.voice.gloss{border-left-color:var(--lav);background:var(--mist)}
+.voice .sig{display:block;color:var(--deep);margin-top:6px}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pcard{background:var(--card);border:1px solid var(--hair);border-top:4px solid var(--pond);padding:20px 22px;min-width:0}
+.pcard .pwhen{color:var(--deep);font-size:9.5px;letter-spacing:.16em;margin-bottom:8px}
+.pcard h4{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.12;margin:0 0 6px}
+.pcard .hook{font-family:var(--display);font-style:italic;color:var(--rose);font-size:1.15rem;line-height:1.3;margin:0 0 10px}
+.pcard p{font-size:18px;line-height:1.45;color:var(--ink2);margin:0 0 10px}
+.pcard details{border-top:1px dotted var(--pond3);padding-top:8px;margin:6px 0 10px}
+.pcard summary{cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--deep);list-style:none}
+.pcard summary::-webkit-details-marker{display:none}
+.pcard summary:after{content:" +"}.pcard details[open] summary:after{content:" −"}
+.pcard details>div{padding-top:10px}
+.pcard .go{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;border-top:1px solid var(--hair);padding-top:10px}
+.pcard .go .mono{color:var(--dim);font-size:9.5px;width:100%}
+.pcard .go a{font-size:16.5px;color:var(--deep);text-underline-offset:3px}
+.srcs{padding-left:1.3em}.srcs li{font-size:17px;line-height:1.5;margin:0 0 8px;color:var(--ink2)}
+.content a,.rules2 a,.plate a{color:var(--deep);text-underline-offset:3px}
+@media (max-width:900px){.pgrid{grid-template-columns:1fr}.voice{padding:18px}}
+@media print{.pcard details>div{display:block}.pnav-btn,.pnav,.pnav-veil{display:none}}
+</style></head><body><button class="pnav-btn" id="pnavBtn" aria-label="Open index" aria-expanded="false" aria-controls="pnav"><i></i></button><div class="pnav-veil" id="pnavVeil"></div><nav class="pnav" id="pnav" aria-label="Index"><a class="pnav-top" href="#top">↑ To the top</a><div class="pnav-lab">Relationships as Equity · Index</div><ol><li><a href="#words"><span class="rn">P</span><span class="nm">In Wei Lin’s words</span></a></li></ol><div class="pnav-book">Part One · The equity</div><ol><li><a href="#hinterland"><span class="rn">I</span><span class="nm">The relational hinterland</span></a></li><li><a href="#ledger"><span class="rn">II</span><span class="nm">Al-Merikani’s ledger</span></a></li><li><a href="#debt"><span class="rn">III</span><span class="nm">Magical debt as footprint</span></a></li></ol><div class="pnav-book">Part Two · The paths</div><ol><li><a href="#before"><span class="rn">IV</span><span class="nm">Before magic: translation and envoys</span></a></li><li><a href="#after"><span class="rn">V</span><span class="nm">After magic: the great works</span></a></li><li><a href="#envoys"><span class="rn">VI</span><span class="nm">The envoy’s craft</span></a></li></ol><div class="pnav-book">Part Three · Our world</div><ol><li><a href="#commonwealth"><span class="rn">VII</span><span class="nm">Why the ruled kept the relationship</span></a></li><li><a href="#precedents"><span class="rn">VIII</span><span class="nm">Precedents: reach without land</span></a></li></ol><div class="pnav-book">Onward</div><ol><li><a href="#onward"><span class="rn">IX</span><span class="nm">Where this goes next</span></a></li><li><a href="#sources"><span class="rn">X</span><span class="nm">Sources</span></a></li></ol></nav>
+
+<header class="cover" id="top"><div class="wrap"><div class="eyebrow mono">The Polymathic Universe · The Parallel Straits · Diplomacy and exchange</div><div class="bracket"><span class="b">[</span>Relationships as Equity<span class="b">]</span><span class="zh">关系即资本</span></div><div class="paren">(a small place with no hinterland and no resources, whose wealth is the relations it keeps; how magic became the currency of those relations, and the paths it travelled before and after the Kindling)</div><p class="thesis">Singapore’s greatest strength is its relations. In PMU, they are its equity, and they are counted.</p><div class="byline"><span class="by lin">Wei Lin</span><span class="by gpt">GPT</span><span class="by">Claude</span><span class="mono">4 November 2026 · revised from GPT’s first draft · Book Two</span></div></div></header>
+
+<section class="specimen"><div class="wrap"><div class="grid">
+<div class="sp-book outc"><h3><span class="mono">The outcome</span>Six things this volume holds</h3><ol>
+<li><b>Relations are the Straits’ equity.</b> With no hinterland and no resources, the Straits grows rich through the people, schools and places willing to act with it.</li>
+<li><b>They are counted.</b> Where our world measures equity in money, PMU measures it in standing, invitations, commitments and answered calls, kept on Al-Merikani’s magical ledger.</li>
+<li><b>Equity and debt are one entry, read from two sides.</b> Every relationship is something one party can call on and another has promised.</li>
+<li><b>Magical debt travels like a carbon footprint.</b> A working’s burden lands far from its beneficiary; the dangerous debt is the one pushed onto people who never joined the relationship.</li>
+<li><b>The paths were laid before magic.</b> Cross-cultural translation bred new ideas and applications; schools sent envoys to share them. Magic arrived in a world already in conversation.</li>
+<li><b>After magic, the great works made the relations visible.</b> Planetary works in many geographies gave the Straits real impact, and real influence, in the world.</li>
+</ol></div>
+<div class="sp-book outc"><h3><span class="mono">At a glance</span>The volume’s threads</h3><div class="chips">
+<a class="chip" href="#words"><i>P</i>His words</a><a class="chip" href="#hinterland"><i>I</i>Hinterland</a><a class="chip" href="#ledger"><i>II</i>Ledger</a><a class="chip" href="#debt"><i>III</i>Footprint</a><a class="chip" href="#before"><i>IV</i>Before magic</a><a class="chip" href="#after"><i>V</i>Great works</a><a class="chip" href="#envoys"><i>VI</i>Envoys</a><a class="chip" href="#commonwealth"><i>VII</i>Commonwealth</a><a class="chip" href="#precedents"><i>VIII</i>Precedents</a><a class="chip" href="#onward"><i>IX</i>Onward</a></div>
+<p class="rule" style="margin-top:22px">Relationships make new capabilities possible. Shared achievements give those relationships a history.</p></div>
+</div></div></section>
+
+<section class="thread" id="words"><div class="wrap"><div class="t-top"><div class="t-badge">P</div><div><span class="mono">Prologue · the premise</span><h3>In Wei Lin’s words<span class="zh">原话</span></h3><p class="idea">The thought this volume grows from, kept as he said it.</p></div></div>
+<div class="content">
+<div class="voice">
+<p>Singapore’s greatest strength should be about relations, relationship. These are its biggest equity. Money is equated with equity in our world. But in PMU, they are quantified in other ways. Hence Al-Merikani’s magic blockchain!</p>
+<p>Singapore has no hinterland, no resources.</p>
+<p>Same with Israel, hence the Jews developed finance, and became global players of power and reach through finance.</p>
+<p>In PMU, magic became a precious commodity that allowed it to build relations, and the equity. Of course magic can also be used for both war and good.</p>
+<p>But let’s explore the relationships aspect. The corollary with magical debt as carbon footprint and consequences. Relations as diplomacy, which the British Empire was so good at, with selling the Commonwealth. I truly wonder why people they pillaged, and benefited from through colonialism, would still view their rulers so highly even after independence.</p>
+<p>So diplomacy through magic could be built upon paths already established in PMU and the Straits before magic. The translation of cross-cultural knowledge gave birth to new ideas and applications. These allowed Straits schools to send envoys to other places to share. And then after magic, the great planetary magical works in different geographies helped to establish real practical impact and influence in the world.</p>
+<span class="sig mono">Wei Lin · 4 November 2026</span>
+</div>
+<div class="voice gloss">
+<p>In human minds we anchor into modern identities first. Hence Israel, before Jews.</p>
+<span class="sig mono">Wei Lin · on the analogy</span>
+</div>
+<p>His shorthand reaches for the modern state because that is where the mind lands first. The pattern underneath is older and runs through the Jewish diaspora itself: for about a thousand years, communities without land of their own built reach through trust, credit and family across borders. That older story carries his point further. <b>No land, so relationships became the wealth.</b> Thread VIII follows it, alongside the other trading diasporas, Hadhrami, Armenian, Hokkien, that helped build the real Straits.</p>
+</div></div></section>
+
+<div class="dots"><span>+</span></div>
+
+<section class="thread" id="hinterland"><div class="wrap"><div class="t-top"><div class="t-badge">I</div><div><span class="mono">Part One · Thread I</span><h3>The relational hinterland<span class="zh">关系的腹地</span></h3><p class="idea">The Straits has no hinterland of land. It has a hinterland of people, places and institutions willing to act with it.</p></div></div>
+<div class="content">
+<p class="big">The measure of relational equity is concrete: <b>what becomes possible because someone knows you, trusts you, or has worked with you before?</b></p>
+<p>A relationship can open a door to a place, grant permission to learn, give a council the confidence to begin something unprecedented, or guarantee an answer in an emergency. The Straits grows extraordinarily influential by connecting people whose capabilities become more powerful together, and by recognising when two distant traditions have something consequential to offer each other.</p>
+</div>
+<div class="findings">
+<div class="card"><span class="tag mono">Access</span><h4>Someone opens a door.</h4><p>A visiting healer is invited into a community’s medicinal garden. The invitation carries its own terms for how that knowledge travels.</p></div>
+<div class="card"><span class="tag mono">Confidence</span><h4>Someone agrees to begin.</h4><p>A council authorises an unprecedented work because it has watched the school return, repair its mistakes and honour earlier agreements.</p></div>
+<div class="card"><span class="tag mono">Combination</span><h4>Two traditions meet.</h4><p>A coastal practice reveals what an inland technique was for. The discovery belongs to a collaboration neither partner would have reached alone.</p></div>
+<div class="card"><span class="tag mono">Continuity</span><h4>Someone will answer.</h4><p>When a working falters decades later, its custodians know which school will come, long after the original practitioners have died.</p></div>
+</div>
+<div class="content" style="margin-top:22px">
+<p>This makes for an unusual kind of prosperity. A school may hold modest reserves and still command immense capacity to mobilise collaborators. Its prestige grows through what its partners become able to do. The proudest day of a great work may be the anniversary when local practitioners renew it themselves.</p>
+<p>Magic is the precious thing in this economy. It is rare, hard-won and slow to master, and the Straits schools hold more of its craft than anywhere else. They spend it on relations: a working given, taught or maintained becomes standing, invitation and trust. Magic serves war as readily as it serves good, and the Straits knows both uses well. This volume follows the first.</p>
+</div></div></section>
+
+<section class="thread" id="ledger"><div class="wrap"><div class="t-top"><div class="t-badge">II</div><div><span class="mono">Part One · Thread II</span><h3>Al-Merikani’s ledger<span class="zh">信约之链</span></h3><p class="idea">The magical blockchain is where relational equity becomes legible: who gave, who may act, and who has promised.</p></div></div>
+<div class="content">
+<p>A work spanning many communities needs a dependable shared memory. Al-Merikani’s chain keeps three answers linked across languages, places and generations: <b>what happened, who is entitled to act, and what remains to be done.</b> In <a href="../3%20Magic%20System/100%20The%20Great%20Works%20and%20Seven%20Theories%20of%20Victory.html">volume 100</a> it appears as the Chain of Keeping, built from distributed custody and witnessed obligation.</p>
+</div>
+<div class="rows">
+<div><b>Contribution.</b> Knowledge, labour, materials, magical effort and hosting. Credit follows people whose input is easy to overlook.</div>
+<div><b>Permission.</b> Who authorised an act, its scope and its duration. Partners coordinate within agreed terms.</div>
+<div><b>Provenance.</b> Sources, adaptations and the path a technique travelled. A new application keeps a traceable ancestry.</div>
+<div><b>Commitment.</b> Maintenance, teaching, renewal, emergency support. Responsibility survives a change of personnel.</div>
+<div><b>Revision.</b> New observations, disagreements and amended agreements. A living institution answers changed circumstances.</div>
+</div>
+<div class="content">
+<p class="big">On the ledger, equity and debt are the same entry, read from two sides.</p>
+<p>When the Straits can call on a port for help, the port has promised that help. The Straits’ wealth is, quite literally, other places’ willingness to owe and be owed. Quantification is precise without becoming a price: a commitment may specify twelve trained custodians, six annual surveys and a right to request help in a storm. All of it is measurable, and none of it can simply be bought.</p>
+<p>Some records are public. Medicinal recipes and restricted practices stay with their custodians, and the chain attests that a permission exists without exposing the knowledge itself.</p>
+</div>
+<div class="notes"><p><span class="mono">From volume 100 · the houses argue</span></p><p><b>Kora:</b> a consistent record can preserve a lie. <b>Sri:</b> living relationships cannot be frozen at entry. <b>Lan Fang:</b> every executable promise will eventually be exploited as a machine. The chain proves continuity of custody; truth and justice stay with the people who keep it.</p></div>
+</div></section>
+
+<section class="thread" id="debt"><div class="wrap"><div class="t-top"><div class="t-badge">III</div><div><span class="mono">Part One · Thread III</span><h3>Magical debt as footprint<span class="zh">魔债如碳迹</span></h3><p class="idea">A working benefits one place, draws on another and leaves its burden somewhere else. Debt, like carbon, travels.</p></div></div>
+<div class="content"><p>Wei Lin’s corollary turns the ledger into a map of consequence. Every casting has a footprint: where its burden settles, who carries it, and for how long. The ledger lets the Straits trace that footprint across distance and time, and four kinds of obligation come out of it.</p></div>
+<div class="findings">
+<div class="card"><span class="tag mono">Reciprocity</span><h4>We helped each other.</h4><p>An exchange sets up an expectation of future help, which may arrive in another form and another generation.</p></div>
+<div class="card"><span class="tag mono">Stewardship</span><h4>We agreed to keep it working.</h4><p>A successful work needs surveys, renewal and teaching. Its upkeep is owed even when it does no harm.</p></div>
+<div class="card"><span class="tag mono">Consequence</span><h4>The effects travel.</h4><p>A working changes conditions beyond its site: a river’s sediment, a coast’s rain, a sink that fills downstream.</p></div>
+<div class="card"><span class="tag mono">Repair</span><h4>Something needs restoring.</h4><p>A particular consequence creates a particular duty, fulfilled with the people who bore it.</p></div>
+</div>
+<div class="content" style="margin-top:22px">
+<p class="big">What breaks the system is debt pushed off the ledger.</p>
+<p>A burden dumped on people who never joined the relationship sits outside every record. This is the root of the Falling Due, the great crash of <a href="93%20The%20Two%20Reckonings.html">volume 93</a>, when a consortium pushed its costs onto unwitting victims and the land. The Straits answered by marshalling its relations, and the rules that followed made every burden name its final sink.</p>
+<p>Keeping the four kinds distinct makes richer diplomacy possible. A society can be generous in exchange and poor at maintenance; another can repair superbly and still be an unreliable scholarly partner. The ledger shows both.</p>
+</div></div></section>
+
+<div class="dots"><span>+</span></div>
+
+<section class="thread" id="before"><div class="wrap"><div class="t-top"><div class="t-badge">IV</div><div><span class="mono">Part Two · Thread IV</span><h3>Before magic: translation and envoys<span class="zh">译与使</span></h3><p class="idea">Magic arrived in a world already in conversation. People knew where to send a difficult text, whom to ask about a plant, and which host could introduce them to a distant teacher.</p></div></div>
+<div class="rules2">
+<div><div><h5>Translation creates an encounter.</h5><p>Scholars struggle to carry a concept into another language. The difficulty reveals a distinction their own tradition never needed to name.</p></div></div>
+<div><div><h5>The encounter breeds an application.</h5><p>A shared vocabulary makes a new method possible. It travels with a teacher, a set of instruments and letters about its local adaptation.</p></div></div>
+<div><div><h5>An envoy sets up a lasting exchange.</h5><p>Visitors teach, observe and return with questions. Students travel both ways. The relationship gains people who translate expectations as well as words.</p></div></div>
+<div><div><h5>Magic enlarges the undertaking.</h5><p>Old partners attempt work at a new scale. Their earlier exchanges give them the practical trust to begin.</p></div></div>
+<div><div><h5>The work becomes an institution.</h5><p>Shared teaching, maintenance and succession sustain the achievement. A diplomatic relationship now has a daily life.</p></div></div>
+</div>
+<div class="plate"><span class="ptag">Translation as invention</span>
+<p style="margin:0 0 10px;font-size:21px;font-family:var(--display);font-style:italic;line-height:1.35">Two traditions describe different relations within the same phenomenon. A translator who holds both discovers a working that needs both descriptions.</p>
+<p style="margin:0;font-size:18px">This is why the Straits matters to magic itself. Its mixture of peoples is generative: the achar principle, that purity was never historically true, becomes a working law of the world. The Kindling broke through at the Monsoon Convocation of 1918, where more descriptions of reality sat in one room than anywhere on earth. Toa Keng, founded as a translation and comparison house, stands at the centre of this without needing to rule it.</p></div>
+<div class="content"><p>The schools’ older history, told in <a href="113%20Why%20Scholars%20Came%20to%20the%20Straits.html">volume 113</a>, laid these paths: Sri’s coastal knowledge drawing outsiders from the 14th century, Al-Merikani’s houses of navigation and contract, Toa Keng’s translators, Lan Fang reaching towards the Qing court in 1786, each school becoming another’s reason to come.</p></div>
+</div></section>
+
+<section class="thread" id="after"><div class="wrap"><div class="t-top"><div class="t-badge">V</div><div><span class="mono">Part Two · Thread V</span><h3>After magic: the great works<span class="zh">大工即外交</span></h3><p class="idea">The planetary works gave the Straits’ relations an address: sluices, teaching courts, gardens and stations that people use every day.</p></div></div>
+<div class="plate"><span class="ptag">A river reaches the sea again</span>
+<p style="margin:0 0 10px;font-size:18.5px">A distant basin swings between drought and destructive flood. Its councils invite collaborators to build a seasonal waterwork joining channels, coastal wetlands and settlements across the basin.</p>
+<p style="margin:0;font-size:18.5px">Local navigators, farmers, custodians and scholars bring the indispensable knowledge of the place. Nine Rain brings water; Sri Temenggong brings the mangrove transitions; Lan Fang’s medical school studies what it means for plants and health; Al-Merikani holds the agreements and the record of obligations. The work succeeds because its knowledge and authority are spread across everyone in it.</p></div>
+<div class="findings">
+<div class="card"><h4>It gives cooperation an address.</h4><p>Residents meet the relationship in daily use, at the sluice and the teaching court.</p></div>
+<div class="card"><h4>It breeds shared professions.</h4><p>A generation learns to maintain the work across languages and institutions, with colleagues and obligations in more than one place.</p></div>
+<div class="card"><h4>It makes influence specific.</h4><p>A school earns standing on the questions where it has shown competence and continuity.</p></div>
+<div class="card"><h4>It outlives its founders.</h4><p>Success rests on succession: who can teach the method, authorise changes and answer when conditions shift.</p></div>
+</div>
+<div class="content" style="margin-top:22px"><p>The great works themselves are set out in <a href="../3%20Magic%20System/95%20The%20Great%20Works.html">95 The Great Works</a>, with Suez parted and Panama climbed by consent, and in <a href="../3%20Magic%20System/100%20The%20Great%20Works%20and%20Seven%20Theories%20of%20Victory.html">100 The Great Works and Seven Theories of Victory</a>, with the Canal of the Two Waters, the Stair of Two Oceans and the Blue Lines. Read with this volume, each is also a treaty in stone and water. Successful collaborators keep returning, because every encounter makes the next achievement possible.</p></div>
+</div></section>
+
+<section class="thread" id="envoys"><div class="wrap"><div class="t-top"><div class="t-badge">VI</div><div><span class="mono">Part Two · Thread VI</span><h3>The envoy’s craft<span class="zh">使者之艺</span></h3><p class="idea">An envoy leaves behind a capability. Teachers, translators and maintainers all build political relationships.</p></div></div>
+<div class="rows">
+<div><b>Translator-scholar.</b> Makes concepts mutually intelligible and finds new connections. <i>Leaves behind</i> shared texts, vocabulary and research.</div>
+<div><b>Healer-teacher.</b> Works beside local practitioners and trains successors. <i>Leaves behind</i> clinical relationships and expertise people can use.</div>
+<div><b>Maker-maintainer.</b> Builds, adapts and returns to service a work. <i>Leaves behind</i> dependable installations and technical cooperation.</div>
+<div><b>Listener-performer.</b> Builds exchange through voice, memory and performance, Kora’s gift. <i>Leaves behind</i> living repertoires and standing invitations.</div>
+<div><b>Witness-mediator.</b> Clarifies agreements and helps parties read them. <i>Leaves behind</i> ways to work together through disagreement.</div>
+</div>
+<div class="content"><p>The schools grow distinct diplomatic temperaments. Sri is renowned for long residence, Nine Rain for answering fast when the weather turns, Toa Keng for convening people who have never worked together, and Al-Merikani for terms that hold across generations.</p></div>
+</div></section>
+
+<div class="dots"><span>+</span></div>
+
+<section class="thread" id="commonwealth"><div class="wrap"><div class="t-top"><div class="t-badge">VII</div><div><span class="mono">Part Three · Thread VII</span><h3>Why the ruled kept the relationship<span class="zh">英联邦之问</span></h3><p class="idea">Wei Lin’s question: why would people pillaged by an empire still hold their former rulers in regard after independence?</p></div></div>
+<div class="content">
+<p>The regard varies widely. In Kenya, India, Ireland and much of Africa and the Caribbean, memory runs bitter, and many people hold admiration and grievance at once. Where the warmth is real, five forces tend to explain it.</p>
+</div>
+<div class="rules2">
+<div><div><h5>The new leaders were made in the old schools.</h5><p>Lee Kuan Yew read law at Cambridge; Nehru studied at Harrow and Cambridge. The colonial schools trained the people who led independence, so the relationship became part of their own biography.</p></div></div>
+<div><div><h5>The tools became the new nation’s own.</h5><p>English, common law and the civil service were taken over and turned to new ends. People defend what they use.</p></div></div>
+<div><div><h5>Comparison shaped memory.</h5><p>In Singapore the Japanese Occupation made the returning British look mild. Where France fought to hold Algeria and Indochina and the Dutch fought in Indonesia, Britain often negotiated its way out, though Kenya and the Malayan Emergency show the exceptions.</p></div></div>
+<div><div><h5>Membership was cheap and useful.</h5><p>After the London Declaration of 1949 the Commonwealth was a club of equals with scholarships, trade links, the Games and a shared language. India, a republic, stayed on its own terms and helped change the rules, while members openly opposed Britain over Suez in 1956 and over apartheid.</p></div></div>
+<div><div><h5>Some places had no older state to restore.</h5><p>Singapore had no pre-colonial nation to return to, so 1819 became the founding story. The economist Albert Winsemius is said to have advised keeping the Raffles statue as a signal of continuity to investors: a pragmatic choice, made with open eyes.</p></div></div>
+</div>
+<div class="plate"><span class="ptag">The lesson for PMU</span>
+<p style="margin:0 0 10px;font-size:22px;font-family:var(--display);font-style:italic;line-height:1.35">Britain turned extraction into membership. The network outlived the empire because the formerly ruled made it serve their own purposes.</p>
+<p style="margin:0;font-size:18.5px">The Straits runs the reverse: membership without extraction from the start, so its reach rests on people choosing to stay. And a villain can run Britain’s trick, a power that sells a commonwealth while it drains its members. A rival rich in artefacts and poor in invitations, buying or forcing what the Straits earns through relationships: this is the shape of Veyr before the war.</p></div>
+</div></section>
+
+<section class="thread" id="precedents"><div class="wrap"><div class="t-top"><div class="t-badge">VIII</div><div><span class="mono">Part Three · Thread VIII</span><h3>Precedents: reach without land<span class="zh">无地之远</span></h3><p class="idea">Peoples and places in our world whose wealth was the trust they carried across borders.</p></div></div>
+<div class="pgrid">
+
+<article class="pcard"><div class="pwhen mono">c. 1000–1150 · Fustat (Old Cairo) and the Mediterranean</div><h4>The Maghribi traders</h4><p class="hook">Their contracts were letters. Their collateral was reputation.</p><p>Jewish merchants of the Fatimid Mediterranean ran trade from Sicily to Egypt to India through agents they rarely met, kept honest by a web of letters that reported who could be trusted. Thousands of these letters survived in the Cairo Geniza, a synagogue storeroom where no paper bearing writing could be thrown away.</p>
+<details><summary>Read more</summary><div><p>The economist Avner Greif argued that the Maghribis formed a “coalition”: cheat one member and every member stops working with you, so reputation did the work that courts could not. Later historians, Jessica Goldberg among them, showed the merchants also used courts and formal law, and that the network was looser and more varied than the model. Both readings share the core: credit moved along relationships, and a merchant’s name was his capital.</p><p><b>For PMU:</b> Al-Merikani’s ledger has a living ancestor here. A reputation that every port can read is the first magical blockchain, written in ink.</p></div></details>
+<div class="go"><span class="mono">Go further</span><a href="https://en.wikipedia.org/wiki/Maghribi_traders">Maghribi traders</a><a href="https://en.wikipedia.org/wiki/Cairo_Geniza">The Cairo Geniza</a></div></article>
+
+<article class="pcard"><div class="pwhen mono">1798–1820s · Frankfurt, London, Paris, Vienna, Naples</div><h4>Five brothers, five cities</h4><p class="hook">The Rothschilds’ real asset was a family spread across Europe.</p><p>Mayer Amschel Rothschild sent his five sons to five financial capitals. Bound by family and by private couriers, they could move money and news across borders faster than governments could, and lend to states at war with each other.</p>
+<details><summary>Read more</summary><div><p>The house financed Wellington’s armies, the stabilisation of post-Napoleonic Europe and later railways and state loans. Its strength was coordination: each brother was a node in a network that trusted itself absolutely, and the family married within itself to keep the network whole. This is also the story the modern mind reaches for when it thinks of Jewish finance, and it sits on top of the older diaspora web the Maghribis already show.</p><p><b>For PMU:</b> a school whose graduates settle in many ports and still answer the house is the Straits’ version. Al-Merikani’s alumni, placed in a dozen harbours, would be worth more than its treasury.</p></div></details>
+<div class="go"><span class="mono">Go further</span><a href="https://en.wikipedia.org/wiki/Rothschild_family">Rothschild family</a><a href="https://www.rothschildarchive.org/">The Rothschild Archive</a></div></article>
+
+<article class="pcard"><div class="pwhen mono">1605–1750s · New Julfa, Isfahan, to London and Manila</div><h4>The Armenians of New Julfa</h4><p class="hook">A suburb of Isfahan ran trade from London to Manila.</p><p>Deported to Persia by Shah Abbas in 1605, Armenian merchants built a suburb, New Julfa, that became the hub of a network stretching across the Indian Ocean, the Mediterranean and Russia. They traded silk, textiles and gems on trust held together by family partnerships and their own merchant courts.</p>
+<details><summary>Read more</summary><div><p>Historian Sebouh Aslanian traced how the network ran on correspondence, commenda contracts and a shared language and church, with a central assembly in New Julfa settling disputes. Armenians reached the Straits too: Singapore’s Armenian Church of St Gregory the Illuminator, built in 1835, is its oldest church, and the Sarkies brothers of the same community founded Raffles Hotel.</p><p><b>For PMU:</b> a people with a court and a ledger of their own, carried everywhere they trade, is a model for how a Straits school keeps its standards abroad.</p></div></details>
+<div class="go"><span class="mono">Go further</span><a href="https://en.wikipedia.org/wiki/New_Julfa">New Julfa</a><a href="https://en.wikipedia.org/wiki/Armenian_Church,_Singapore">Armenian Church, Singapore</a></div></article>
+
+<article class="pcard"><div class="pwhen mono">c. 1300–1900s · Hadhramaut (Yemen) to Java and Singapore</div><h4>The Hadhrami diaspora</h4><p class="hook">Singapore’s Arab Street and Aljunied Road carry their names.</p><p>Families from the Hadhramaut valley spread across the Indian Ocean as traders, scholars and religious teachers, marrying into local communities from East Africa to Java. In 19th-century Singapore, Arab families such as the Alsagoffs and Aljunieds were among its largest landowners and philanthropists.</p>
+<details><summary>Read more</summary><div><p>In <i>The Graves of Tarim</i>, anthropologist Engseng Ho follows how these families kept genealogy, scholarship and kinship alive across five centuries of movement, so that a family in Singapore stayed tied to its valley in Yemen. Their reach came from intermarriage and learning as much as from trade: they became locals in each port while remaining members of a wider house.</p><p><b>For PMU:</b> this is the intermarriage and proximity Wei Lin names as figural in the houses’ cultures, and a lineage for Al-Merikani and Sri Temenggong alike.</p></div></details>
+<div class="go"><span class="mono">Go further</span><a href="https://en.wikipedia.org/wiki/Hadhrami_people">Hadhrami people</a><a href="https://en.wikipedia.org/wiki/Syed_Sharif_Omar_Aljunied">Syed Sharif Omar Aljunied</a></div></article>
+
+<article class="pcard"><div class="pwhen mono">1777–1884 · West Borneo, and the Straits after 1819</div><h4>Kongsi and clan associations</h4><p class="hook">A brotherhood of miners governed itself as a republic.</p><p>Chinese kongsi in West Borneo, among them the Lanfang kongsi that gives Lan Fang its name, ran mines, courts and militias as shareholders’ federations. In Singapore, clan and dialect associations housed newcomers, found them work, buried their dead and lent them money.</p>
+<details><summary>Read more</summary><div><p>Associations like the Hokkien Huay Kuan grew into builders of schools and temples, linking migrants to home villages in Fujian and to each other across Southeast Asia. A newcomer arrived with a name to give and a door to knock on. Credit, labour and loyalty moved along these lines long before banks reached the migrants.</p><p><b>For PMU:</b> Lan Fang’s founding in 1786 already carries this logic. A school that houses, employs and vouches for its people is a relational institution before it is an academic one.</p></div></details>
+<div class="go"><span class="mono">Go further</span><a href="https://en.wikipedia.org/wiki/Lanfang_Republic">Lanfang Republic</a><a href="https://en.wikipedia.org/wiki/Singapore_Hokkien_Huay_Kuan">Singapore Hokkien Huay Kuan</a></div></article>
+
+<article class="pcard"><div class="pwhen mono">1949 · London · and Singapore, 1965</div><h4>The Commonwealth reinvented</h4><p class="hook">An empire turned itself into a club, and the members rewrote the rules.</p><p>The London Declaration of April 1949 let republican India stay in the Commonwealth as an equal member, with the monarch as a symbol with no governing role. It turned the association into a network of independent states.</p>
+<details><summary>Read more</summary><div><p>In his note of 7 May 1949, Nehru argued that membership served India while leaving it free in domestic and foreign policy. Members went on to oppose Britain over Suez in 1956 and over apartheid. Singapore joined on independence in 1965 and hosted the Commonwealth Heads of Government Meeting in 1971, which issued the Singapore Declaration of Commonwealth Principles.</p><p><b>For PMU:</b> the Concord can be read the same way. A network survives when its members gain the standing to change how it works.</p></div></details>
+<div class="go"><span class="mono">Go further</span><a href="https://thecommonwealth.org/london-declaration-1949">London Declaration</a><a href="https://nehruarchive.in/documents/note-on-the-commonwealth-prime-ministers-conference-7-may-1949-qgk3ez">Nehru’s note, 1949</a><a href="https://carnegieendowment.org/research/2018/04/india-and-the-commonwealth-redirecting-the-relationship">India and the Commonwealth</a></div></article>
+
+</div></div></section>
+
+<div class="dots"><span>+</span></div>
+
+<section class="thread" id="onward"><div class="wrap"><div class="t-top"><div class="t-badge">IX</div><div><span class="mono">Onward · Thread IX</span><h3>Where this goes next<span class="zh">往下</span></h3><p class="idea">Questions that open the next stories.</p></div></div>
+<div class="rules2">
+<div><div><h5>Can a relationship be inherited, traded or pledged?</h5><p>If Al-Merikani’s ledger lets a standing invitation pass to an heir, or serve as collateral for a loan, what new markets and new kinds of wealth appear?</p></div></div>
+<div><div><h5>A school rich in invitations.</h5><p>What can a school accomplish when its strongest asset is the willingness of distant hosts to receive it?</p></div></div>
+<div><div><h5>The first great shared work.</h5><p>Which undertaking turned an old scholarly exchange into a lasting diplomatic institution?</p></div></div>
+<div><div><h5>The apprentice envoy.</h5><p>What does a young envoy learn: languages, practical magic, mediation, observation, hospitality?</p></div></div>
+<div><div><h5>A ledger entry with a long life.</h5><p>How does an old promise stay meaningful as languages, institutions and circumstances change?</p></div></div>
+<div><div><h5>A coalition with many centres.</h5><p>How far does the Straits’ influence grow as its partners become more capable and more connected to one another?</p></div></div>
+</div>
+<p class="rule">The Straits’ reach grows through what it enables others to accomplish together, and through the relationships that endure after the work.</p>
+</div></section>
+
+<section class="thread" id="sources"><div class="wrap"><div class="t-top"><div class="t-badge">X</div><div><span class="mono">Sources</span><h3>Historical reading</h3></div></div>
+<div class="content"><ol class="srcs">
+<li><a href="https://nehruarchive.in/documents/note-on-the-commonwealth-prime-ministers-conference-7-may-1949-qgk3ez">Jawaharlal Nehru, Note on the Commonwealth Prime Ministers’ Conference</a>, 7 May 1949.</li>
+<li><a href="https://thecommonwealth.org/london-declaration-1949">The London Declaration</a>, April 1949.</li>
+<li><a href="https://carnegieendowment.org/research/2018/04/india-and-the-commonwealth-redirecting-the-relationship">C. S. R. Murthy, India and the Commonwealth: Redirecting the Relationship</a>, Carnegie Endowment, 2018.</li>
+<li><a href="https://commonslibrary.parliament.uk/research-briefings/cbp-11302/">Philip Loft, 70 Years: The Queen’s Role in the Commonwealth</a>, House of Commons Library, 2022.</li>
+<li><a href="https://academic.oup.com/edited-volume/36320/chapter-abstract/318667255">Religious Norms, Human Capital, and Money Lending in Jewish European History</a>, The Oxford Handbook of the Economics of Religion.</li>
+<li>Avner Greif, <i>Institutions and the Path to the Modern Economy</i> (2006); Jessica Goldberg, <i>Trade and Institutions in the Medieval Mediterranean</i> (2012).</li>
+<li>Sebouh Aslanian, <i>From the Indian Ocean to the Mediterranean: The Global Trade Networks of Armenian Merchants from New Julfa</i> (2011).</li>
+<li>Engseng Ho, <i>The Graves of Tarim: Genealogy and Mobility across the Indian Ocean</i> (2006).</li>
+</ol></div></div></section>
+
+<footer><div class="wrap"><div class="mark-s">The Polymathic Universe · <i>Relationships as Equity</i></div><p class="mono">Volume 114 · Wei Lin’s premise with GPT’s first draft, revised with Claude · 4 November 2026</p><p class="mono"><a href="../../index.html">← Back to the PMU index</a></p></div></footer>
+<script>(function(){var r=document.documentElement,b=document.getElementById('pnavBtn'),v=document.getElementById('pnavVeil'),n=document.getElementById('pnav');
+function s(o){r.classList.toggle('pnav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close index':'Open index')}
+b.addEventListener('click',function(){s(!r.classList.contains('pnav-open'))});v.addEventListener('click',function(){s(false)});
+n.addEventListener('click',function(e){if(e.target.closest('a'))s(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)});})();</script></body></html>
