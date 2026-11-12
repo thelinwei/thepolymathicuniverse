@@ -4,13 +4,13 @@ Worlds built for fiction still to be written, by Linwei. The companion to [The P
 
 ## The Parallel Straits
 
-An exploratory atlas of a parallel equatorial port and its seven great schools, kept as a working record to revisit and build from.
+An exploratory atlas of a parallel equatorial port and its seven great schools, kept as a working record to revisit and build from. 132 volumes, numbered 00 to 131 in the order they were made, sorted into four books.
 
-- **Book One · The Great Schools** (Aug–Sep 2026): the schools, names and story engine, the cantons, keeping.
-- **Book Two · The Magical Straits** (26–29 Sep 2026): the axiom, grammars and powers, crossings, works and objects, power, shadow and the Hinge, deep origins, teaching.
-- **Book Three · The Dressed Straits** (Oct 2026, in progress): The World Imagined first (the lookbook, crests, worn objects, campuses and environmental design), then the dress atlases and couture-to-uniform workshops that led to it.
-- **Annex · The Rethinking** (27 Oct 2026): the second naming of the seven houses and their cultural ecology.
+- **Book One · The Design**: what the seven schools wear, mark, build and teach. Fashion, identity, architecture, education.
+- **Book Two · World Building**: when, where, who, what happened, how they live, and the world told as stories.
+- **Book Three · Magic System**: the rules, spells, instruments, fighting arts, great works, casters and origins.
+- **Book Four · To Further Investigate**: the real-world research beneath the world, with links to follow.
 
-Open `index.html` for the full index. Volumes are numbered in reading order and labelled by the hand that made them: Claude, ChatGPT or DeepSeek.
+Open `index.html` for the full index. Each volume is labelled by the hand that made it: Claude, ChatGPT or DeepSeek.
 
 Personal creative work, 2026. Made in conversation with Claude (Anthropic), ChatGPT (OpenAI) and DeepSeek.
