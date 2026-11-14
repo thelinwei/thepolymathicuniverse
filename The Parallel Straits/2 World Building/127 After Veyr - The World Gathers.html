@@ -428,4 +428,7 @@ document.getElementById('drumBtn').addEventListener('click',function(){if(!ctx){
  [0,1,2,3,4,5].forEach(function(i){if(!state.has(i))return;var t=t0+k*.62;k++;
   [0,.16].forEach(function(d,j){var o=ctx.createOscillator(),g=ctx.createGain();o.frequency.setValueAtTime(140-i*8-j*20,t+d);o.frequency.exponentialRampToValueAtTime(48,t+d+.28);g.gain.setValueAtTime(0,t+d);g.gain.linearRampToValueAtTime(j?.35:.6,t+d+.008);g.gain.exponentialRampToValueAtTime(.001,t+d+.4);o.connect(g);g.connect(ctx.destination);o.start(t+d);o.stop(t+d+.45)});
   setTimeout(function(){var b=btns[i];if(b){b.classList.add('beat');setTimeout(function(){b.classList.remove('beat')},420)}},(t-ctx.currentTime)*1000)})});
-})();</script></body></html>
+})();</script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body></html>

@@ -99,5 +99,7 @@ section{padding:86px 0;border-bottom:1px solid var(--line)}.head{display:grid;gr
 <script>
 const buttons=[...document.querySelectorAll('[data-filter]')];const cards=[...document.querySelectorAll('#deck .spell[data-tags]')];buttons.forEach(button=>button.addEventListener('click',()=>{const f=button.dataset.filter;buttons.forEach(b=>b.classList.toggle('active',b===button));cards.forEach(card=>card.hidden=f!=='all'&&!card.dataset.tags.split(' ').includes(f));}));
 </script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
