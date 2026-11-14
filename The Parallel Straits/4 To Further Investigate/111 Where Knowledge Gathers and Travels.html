@@ -302,5 +302,7 @@ if('IntersectionObserver' in window){const observer=new IntersectionObserver(ent
 let prior=[];window.addEventListener('beforeprint',()=>{prior=cases.map(d=>d.open);cases.forEach(d=>d.open=true)});window.addEventListener('afterprint',()=>cases.forEach((d,i)=>d.open=prior[i]??true));
 })();
 </script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
