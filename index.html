@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Polymathic Universe · The Parallel Straits</title>
+<meta name="author" content="Lin Wei 林威">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
@@ -144,6 +146,9 @@ a{color:inherit;text-decoration:none}
 footer{padding:36px 0 60px;color:var(--dim)}
 footer .mark-s{font-family:var(--display);font-size:22px;color:var(--ink);margin-bottom:6px}
 footer .mark-s i{font-weight:400}
+footer .rights{margin-top:8px;line-height:2}
+footer .rights a{border-bottom:1px dotted currentColor}
+footer .rights a:hover{color:var(--ink)}
 
 
 /* ===== nav (after PML) ===== */
@@ -393,6 +398,7 @@ footer .mark-s i{font-weight:400}
   <div class="wrap">
     <div class="mark-s"><i>The</i> Polymathic <i>Universe</i></div>
     <div class="mono">Personal creative work by Linwei · 2026 · made with Claude, ChatGPT and DeepSeek</div>
+    <div class="mono rights">© 2026 Lin Wei · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license">CC BY-NC-ND 4.0</a> · <a href="https://github.com/thelinwei/thepolymathicuniverse/blob/main/PROVENANCE.md">Provenance</a> · <a href="https://github.com/thelinwei/thepolymathicuniverse#citation">Cite</a></div>
   </div>
 </footer>
 <script>
@@ -412,5 +418,7 @@ footer .mark-s i{font-weight:400}
   window.addEventListener('scroll',function(){where.classList.toggle('on',window.scrollY>cover.offsetHeight*0.8&&where.textContent!=='')},{passive:true});
 })();
 </script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

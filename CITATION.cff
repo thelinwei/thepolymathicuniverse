@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: "The Polymathic Universe: The Parallel Straits"
+message: "If you refer to this world or any volume within it, please cite it as below."
+type: software
+abstract: >-
+  A worldbuilding atlas kept as self-contained HTML volumes: a parallel equatorial
+  port and its seven great schools, with their designs, histories, magic system and
+  the real-world research beneath them. Made toward fiction still to be written, and
+  numbered in the order the work was done.
+authors:
+  - family-names: "Lin"
+    given-names: "Wei"
+    alias: "linwei"
+    orcid: "https://orcid.org/0009-0000-1595-6898"
+    email: "lin.wei@uniteddesignpractice.com"
+    affiliation: "United Design Practice"
+    country: SG
+    website: "https://thelinwei.github.io"
+  - name: "Claude (Anthropic)"
+    website: "https://www.anthropic.com"
+  - name: "ChatGPT (OpenAI)"
+    website: "https://openai.com"
+repository-code: "https://github.com/thelinwei/thepolymathicuniverse"
+url: "https://thelinwei.github.io/thepolymathicuniverse/"
+license: CC-BY-NC-ND-4.0
+keywords:
+  - worldbuilding
+  - speculative fiction
+  - alternate history
+  - design fiction
+  - speculative design
+  - magic system
+  - human-AI collaboration
