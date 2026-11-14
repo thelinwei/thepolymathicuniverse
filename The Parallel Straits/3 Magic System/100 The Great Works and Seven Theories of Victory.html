@@ -106,5 +106,7 @@ section{padding:82px 0;border-bottom:1px solid var(--line)}.head{display:grid;gr
 <script>
 const buttons=[...document.querySelectorAll('[data-filter]')],cards=[...document.querySelectorAll('.fighter[data-school]')];buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.toggle('active',x===b));const f=b.dataset.filter;cards.forEach(c=>c.hidden=f!=='all'&&c.dataset.school!==f)}));
 </script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
