@@ -46,4 +46,7 @@ $('#import-choices').addEventListener('click',()=>$('#choice-file').click());$('
 $('#clear-choices').addEventListener('click',()=>{choices=Array(7).fill('open');save();refresh();});
 $('#download-lineup').addEventListener('click',()=>{const w=Number($('#line-wear').value);let svg='<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="690" viewBox="0 0 1600 690"><rect width="1600" height="690" fill="#f4f6ef"/><text x="46" y="60" font-family="Georgia" font-size="32" fill="#23392c">Seven schools · '+['Ceremony','Everyday','Sport / movement','Service / field'][w]+'</text>';for(let i=0;i<7;i++){let raw=DATA.figures[i][actualRoute(i)==='B'?1:0][w];raw=raw.slice(raw.indexOf('>')+1,raw.lastIndexOf('</svg>'));const x=24+i*223;svg+='<g transform="translate('+x+',100) scale(1.16)">'+raw+'</g><text x="'+(x+105)+'" y="560" font-family="Georgia" font-size="22" fill="#23392c" text-anchor="middle">'+DATA.names[i]+'</text><text x="'+(x+105)+'" y="591" font-family="Georgia" font-size="15" fill="#23392c" text-anchor="middle">Route '+actualRoute(i)+'</text>';}svg+='<text x="46" y="650" font-family="Georgia" font-size="16" fill="#65766a">Working proposals. Open and hybrid choices use route A until redrawn.</text></svg>';download(new Blob([svg],{type:'image/svg+xml'}),'Great-Schools-Comparison.svg');});
 refresh();
-</script></body></html>
+</script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body></html>

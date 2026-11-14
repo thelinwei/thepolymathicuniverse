@@ -32,4 +32,7 @@ function dl(text,name){const u=URL.createObjectURL(new Blob([text],{type:'image/
 function render(){const w=Number($('#occasion').value);$('#lineup').innerHTML=DATA.names.map((n,i)=>'<div class="person">'+DATA.figures[i][w]+'<p>'+n+'</p></div>').join('');}
 $('#occasion').addEventListener('change',render);$$('[data-board]').forEach(b=>b.addEventListener('click',()=>dl(DATA.boards[Number(b.dataset.board)],DATA.names[Number(b.dataset.board)].replaceAll(' ','-')+'-Open-Air.svg')));$$('[data-head]').forEach(b=>b.addEventListener('click',()=>dl(DATA.heads[Number(b.dataset.head)],DATA.names[Number(b.dataset.head)].replaceAll(' ','-')+'-Headwear.svg')));
 $('#export-lineup').addEventListener('click',()=>{const w=Number($('#occasion').value);let s='<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="650" viewBox="0 0 1600 650"><rect width="1600" height="650" fill="#f4f6ef"/><text x="40" y="64" fill="#334d39" font-family="Georgia" font-size="36">Open Air / '+['Formal ceremony','Everyday','Sport / movement','Light field service'][w]+'</text>';for(let i=0;i<7;i++){const raw=DATA.figures[i][w],body=raw.slice(raw.indexOf('>')+1,raw.lastIndexOf('</svg>'));s+='<g transform="translate('+(25+i*223)+',110) scale(1.16)">'+body+'</g><text x="'+(130+i*223)+'" y="565" fill="#334d39" font-family="Georgia" font-size="22" text-anchor="middle">'+DATA.names[i]+'</text>';}s+='<text x="40" y="620" fill="#64755f" font-family="Georgia" font-size="16">Adult construction studies / new clothing proposals, not settled canon.</text></svg>';dl(s,'Open-Air-Comparison.svg');});render();
-</script></body></html>
+</script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body></html>

@@ -37,4 +37,7 @@ fill();for(const x of LOOKS){$('#pick-'+x.id).addEventListener('change',save);$(
 $('#export-review').addEventListener('click',()=>{save();const data={project:'The Polymathic Universe',phase:'The Unexpected Familiar',exported_at:new Date().toISOString(),looks:LOOKS.map(x=>({...x,...picks[x.id]}))};const u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download='Unexpected-Familiar-Selections.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);});$('#clear-review').addEventListener('click',()=>{picks={};fill();$('#review-filter').value='all';save();});
 function show(key){const source=$('#image-'+key);$('#viewer-image').src=source.src;$('#viewer-image').alt=source.alt;$('#viewer-title').textContent=key.replaceAll('-',' ');$('#viewport').classList.remove('actual');if(typeof $('#viewer').showModal==='function')$('#viewer').showModal();else window.open(source.src,'_blank');}
 $$('[data-zoom]').forEach(el=>{el.addEventListener('click',()=>show(el.dataset.zoom));if(el.tagName==='IMG')el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(el.dataset.zoom);}});});$('#close-view').addEventListener('click',()=>$('#viewer').close());$('#fit-view').addEventListener('click',()=>$('#viewport').classList.remove('actual'));$('#actual-view').addEventListener('click',()=>$('#viewport').classList.add('actual'));save();
-</script></body></html>
+</script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body></html>

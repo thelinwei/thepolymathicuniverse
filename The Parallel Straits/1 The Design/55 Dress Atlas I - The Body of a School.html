@@ -31,4 +31,7 @@ body dialog{background:var(--pmu-paper)!important}
 const query=document.querySelector('#query'),era=document.querySelector('#era'),evidence=document.querySelector('#evidence'),cards=[...document.querySelectorAll('.entry')];
 function filter(){const q=query.value.toLowerCase().trim();let n=0;for(const c of cards){const d=Number(c.dataset.start);const period=era.value==='all'||(era.value==='ancient'&&d<500)||(era.value==='middle'&&d>=500&&d<1500)||(era.value==='early'&&d>=1500&&d<1800)||(era.value==='modern'&&d>=1800);const match=period&&(evidence.value==='all'||c.dataset.evidence===evidence.value)&&(!q||c.textContent.toLowerCase().includes(q));c.hidden=!match;if(match)n++;}document.querySelector('#count').textContent=n+' / '+cards.length+' dossiers';document.querySelector('#empty').hidden=n>0;}
 [query,era,evidence].forEach(el=>el.addEventListener('input',filter));document.querySelector('#reset').addEventListener('click',()=>{query.value='';era.value='all';evidence.value='all';filter();});window.addEventListener('beforeprint',()=>cards.forEach(c=>c.hidden=false));window.addEventListener('afterprint',filter);filter();
-</script></body></html>
+</script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body></html>
