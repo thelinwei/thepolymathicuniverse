@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="A PMU companion to The Name at the River Mouth: the charter names and street names of all seven houses of the Straits, and the reasoning behind each.">
+<title>The Names of the Seven — PMU</title>
+<style>
+:root{--paper:#f7f4eb;--paper2:#ede8db;--ink:#1b2825;--green:#143b31;--green2:#295d4e;--river:#3c7d81;--sage:#c8d1b9;--clay:#9b5c39;--gold:#a78046;--rule:#d4d0c2;--muted:#596a61;--serif:'Times New Roman',Georgia,'Iowan Old Style','Palatino Linotype',serif;--sans:Inter,'Avenir Next',Avenir,system-ui,-apple-system,'Segoe UI',sans-serif;--cjk:'Songti SC','STSong','Noto Serif SC','Source Han Serif SC',serif}
+*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.72;overflow-x:hidden}a{color:#165c60;text-underline-offset:3px}a:hover{color:var(--clay)}a:focus-visible,summary:focus-visible{outline:3px solid #b67d31;outline-offset:3px}::selection{background:#b8d2c5;color:#153128}p{margin:0 0 1.15em}h1,h2,h3,h4{line-height:1.16;letter-spacing:-.02em;font-weight:500}h1{font-size:clamp(3.4rem,8.4vw,7.2rem);line-height:.96;max-width:1000px;margin:19px 0 28px;color:#f8f4e9}h2{font-size:clamp(2.1rem,4.6vw,3.7rem);margin:0 0 26px;color:var(--green)}h3{font-size:1.55rem;margin:2rem 0 .7rem;color:var(--green)}.zh{font-family:var(--cjk);letter-spacing:.02em}
+.kicker,.toc,.chapter-index,.micro,.identity-label,.source-list,.footnote,.pill,.place{font-family:var(--sans)}
+.top{background:#173b31;color:#f7f4e9;padding:0 5vw;border-bottom:1px solid #668477}.top-inner{max-width:1460px;margin:auto;min-height:58px;display:flex;gap:24px;align-items:center;justify-content:space-between}.top strong{font:700 12px var(--sans);letter-spacing:.17em}.top .top-right{font:500 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#bfd2c6}
+.hero{background:var(--green);color:#f4f0e6;position:relative;overflow:hidden;border-bottom:7px solid #98754b}.hero-wrap{max-width:1460px;margin:auto;min-height:620px;padding:85px 6vw 75px;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center}.hero .kicker{font-size:12px;letter-spacing:.19em;color:#d0be8e;text-transform:uppercase;font-weight:700}.deck{font-size:clamp(1.2rem,2vw,1.65rem);line-height:1.4;max-width:700px;color:#d5e2d6;margin:0 0 26px}.byline{display:flex;gap:15px;flex-wrap:wrap;font:500 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#b4c8b7}.hero-art{position:absolute;right:-120px;top:-10px;width:min(70%,900px);height:110%;opacity:.6;z-index:1;pointer-events:none}.hero-art svg{display:block;width:100%;height:100%}
+.quote-opening{padding:38px 6vw 32px;background:#efeadd;border-bottom:1px solid var(--rule)}.quote-opening-inner{max-width:1140px;margin:auto;display:grid;grid-template-columns:minmax(0,2.1fr) minmax(200px,.9fr);gap:65px;align-items:center}.quote-opening blockquote{margin:0;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.36;color:var(--green)}.quote-opening .opening-aside{border-left:2px solid #b49d6e;padding-left:23px;font:14px/1.6 var(--sans);color:#59645b}.quote-opening cite{font:700 12px var(--sans);display:block;letter-spacing:.12em;text-transform:uppercase;margin-top:12px;color:var(--clay);font-style:normal}
+.main-layout{max-width:1400px;margin:auto;padding:72px clamp(24px,5vw,90px) 100px;display:grid;grid-template-columns:minmax(180px,240px) minmax(0,820px);gap:clamp(32px,6vw,125px);align-items:start}.toc{position:sticky;top:24px;font-size:12px;line-height:1.5}.toc .label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);margin-bottom:20px;font-weight:750}.toc nav{display:flex;flex-direction:column;gap:11px;border-left:1px solid #c8c5b9;padding-left:17px}.toc a{text-decoration:none;color:#67716c;display:block}.toc a:hover{color:var(--green);text-decoration:underline}.article{min-width:0}.lead{font-size:1.33rem;line-height:1.56}.drop::first-letter{float:left;font-size:4.3em;line-height:.75;padding:12px 10px 0 0;color:var(--clay)}
+section.chapter{padding:55px 0 28px;border-top:1px solid var(--rule)}.chapter-index{font-size:11px;letter-spacing:.16em;font-weight:750;color:var(--clay);text-transform:uppercase;margin:0 0 10px}
+.pull{margin:35px -4% 39px;padding:20px 5% 22px 25px;border-left:4px solid var(--clay);font-size:clamp(1.45rem,3vw,2.3rem);color:var(--green);line-height:1.33;font-style:italic}.pull span{display:block;font:600 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#806648;margin-top:12px;font-style:normal}
+.seven{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:30px 0 20px}.house{background:#f5f3e9;border:1px solid #ccd5c8;padding:20px 20px 16px;display:flex;flex-direction:column}.house.settled{background:#e4e8df;border-color:#bacaba}.house .identity-label{font:750 10px var(--sans);letter-spacing:.13em;text-transform:uppercase;color:#486d59}.house .official{font-size:1.65rem;line-height:1.15;color:var(--green);margin:8px 0 4px}.house .gloss{font:13px/1.5 var(--sans);color:#5d6b63;margin:0 0 12px}.house .line{font:12.5px/1.65 var(--sans);color:#4d5f56;border-top:1px solid var(--rule);padding-top:10px;margin-top:auto}.house .line b{color:var(--clay);font-weight:700}.house .street{margin-top:10px;font-size:1.35rem;color:var(--clay)}.house .street small{display:block;font:700 10px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#7a6a55}
+.lexicon{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:27px 0 29px}.lexicon article{background:#ebe8dd;border:1px solid var(--rule);padding:22px 22px 12px}.lexicon article.pick{background:#e2e9de;border-color:#a9bfac}.lexicon strong{display:block;font-size:1.4rem;font-weight:500;color:var(--green);line-height:1.25}.lexicon .micro{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);font-weight:700}.lexicon p{font-size:15.5px;line-height:1.62;margin-top:8px}
+.note{font:14.5px/1.65 var(--sans);background:#e9eee6;border-left:3px solid #67907c;padding:18px 20px;margin:27px 0;color:#354b3f}.note b{color:#214937}
+.side-quote{margin:38px 0;padding:30px 34px;background:#eae6d9;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:1.5rem;line-height:1.48;color:var(--green)}.side-quote small{display:block;font:600 11px/1.5 var(--sans);color:var(--clay);text-transform:uppercase;letter-spacing:.1em;margin-top:10px}
+.epoch{margin:30px 0 30px;display:grid;grid-template-columns:1fr;border-top:1px solid #b5bfb1}.epoch-item{display:grid;grid-template-columns:75px minmax(0,1fr);gap:22px;padding:24px 0;border-bottom:1px solid #b5bfb1;align-items:start}.epoch-num{font:500 2.8rem/1 var(--serif);color:#b48b50}.epoch h3{margin:0 0 6px;font-size:1.6rem}.epoch .place{font:700 11px var(--sans);letter-spacing:.12em;color:var(--clay);text-transform:uppercase}.epoch p{font-size:16.5px;line-height:1.65;margin:7px 0 0}
+.lineage{font:650 12px/1.75 var(--sans);letter-spacing:.07em;color:#355648;background:#e6ede1;border-top:1px solid #c5d0c3;border-bottom:1px solid #c5d0c3;padding:15px 20px;margin:25px 0}.lineage span{color:#986d46}.lineage .zh{letter-spacing:.08em;font-weight:600;font-size:14px}
+.pivot{margin:44px -5%;padding:30px clamp(24px,5vw,45px);background:var(--green);color:#f8f3e8}.pivot .chapter-index{color:#d3b681}.pivot .quote{font-size:clamp(1.55rem,3vw,2.35rem);font-weight:400;line-height:1.32;margin:0}.pivot .comment{font:14.5px/1.75 var(--sans);color:#c6d6cb;margin-top:18px;margin-bottom:0}
+.canonical{margin:42px -5%;background:#e4e8df;border:1px solid #bacaba;padding:clamp(22px,5vw,46px)}.canonical .identity-label{font:750 10px var(--sans);letter-spacing:.13em;text-transform:uppercase;color:#486d59}.canonical h3{margin:4px 0 6px;font-size:clamp(1.7rem,3.6vw,2.5rem)}.id-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}.id-box{background:#f5f3e9;border:1px solid #ccd5c8;padding:18px}.id-box .big{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;color:var(--green);margin:8px 0 4px}.id-box p{font:13.5px/1.55 var(--sans);margin:7px 0 0}
+.names{display:grid;border-top:1px solid var(--rule);margin:29px 0 34px}.name-row{display:grid;grid-template-columns:minmax(110px,.7fr) minmax(0,2fr);gap:19px;border-bottom:1px solid var(--rule);padding:15px 0;align-items:baseline}.name-row strong{font-size:20px;color:var(--green);font-weight:500}.name-row span{font-size:15.5px;color:#4e6057}.name-row em.lang{font:700 10px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--clay);font-style:normal;display:block;margin-top:3px}
+.conclusions{background:#ede9de;margin-top:30px;padding:21px 26px;border:1px solid var(--rule)}.conclusions ul{margin:10px 0 0;padding-left:18px}.conclusions li{margin:0 0 10px;font-size:16.5px;line-height:1.55}
+.more{margin:24px 0;border-bottom:1px solid var(--rule);border-top:1px solid var(--rule)}.more summary{font:700 13px/1.5 var(--sans);color:var(--green);cursor:pointer;padding:18px 5px;list-style:none;display:flex;justify-content:space-between;gap:12px}.more summary::after{content:'+';font-size:20px;font-weight:400}.more[open] summary::after{content:'−'}.more summary::-webkit-details-marker{display:none}.more>div{font:14.5px/1.7 var(--sans);padding:0 6px 18px;color:#4f6059}
+.closing{padding:50px 0 25px;border-top:1px solid var(--rule)}.closing p{font-size:1.34rem;line-height:1.57}.closing .last{font-size:clamp(1.6rem,3.3vw,2.4rem);color:var(--green);line-height:1.38;margin-top:34px}
+.foot{border-top:6px solid var(--green);background:#eae6db;padding:55px 6vw 70px}.foot-inner{max-width:1150px;margin:auto}.foot h2{font-size:2rem;margin-bottom:20px}.foot .source-list{font-size:13px;line-height:1.75;padding-left:20px}.foot .source-list li{margin:0 0 10px}.foot .source-list a{overflow-wrap:anywhere}.foot .meta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:23px}.pill{font:700 10px var(--sans);letter-spacing:.08em;color:#32574a;text-transform:uppercase;background:#dde5da;border:1px solid #bbcebe;padding:7px 9px}.foot-end{margin-top:32px;border-top:1px solid var(--rule);padding-top:23px;font:600 11px var(--sans);letter-spacing:.12em;color:#607068;display:flex;justify-content:space-between;gap:15px}.foot h3{font-size:1.1rem;font-family:var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin:28px 0 8px}
+@media(max-width:900px){.main-layout{grid-template-columns:minmax(0,1fr);padding:40px 6vw 65px}.toc{position:static;border-bottom:1px solid var(--rule);padding-bottom:22px}.toc nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;border-left:0;padding-left:0}.hero-wrap{min-height:520px;padding-top:65px;padding-bottom:65px}.hero-art{width:95%;opacity:.38;right:-30%}.quote-opening-inner{grid-template-columns:1fr;gap:14px}.id-grid{grid-template-columns:1fr}}
+@media(max-width:600px){body{font-size:17.5px}.top .top-right{font-size:9px}.hero-wrap{padding:60px 6vw;min-height:450px}.hero-art{right:-48%;width:145%;opacity:.26}.hero h1{font-size:clamp(3.2rem,15vw,5rem)}.quote-opening{padding:30px 6vw}.quote-opening blockquote{font-size:1.55rem}.main-layout{padding:30px 6vw 64px}.toc nav{font-size:11px}.lead{font-size:1.16rem}.seven,.lexicon{grid-template-columns:1fr}.pull{margin-left:0;margin-right:0;padding-left:18px}.pivot,.canonical{margin-left:0;margin-right:0}.epoch-item{grid-template-columns:44px minmax(0,1fr);gap:15px}.epoch-num{font-size:2rem}.epoch h3{font-size:1.35rem}.name-row{grid-template-columns:minmax(86px,.8fr) minmax(0,1.8fr);gap:11px}.name-row strong{font-size:17px}.name-row span{font-size:14.5px}.foot-end{flex-direction:column}.closing p{font-size:1.19rem}}
+@media print{.top,.toc{display:none!important}.main-layout{display:block;max-width:760px;padding:0 25px}.hero{color:#142c24;background:#f7f4eb}.hero h1{color:#143c30}.hero .deck,.hero .byline{color:#2a5346}.hero-art{opacity:.2}.chapter{break-inside:avoid-page}a{color:inherit}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-inner"><strong>PMU <span style="color:#c5b17d">/</span> THE POLYMATHIC UNIVERSE</strong><span class="top-right">The Straits · Naming Study  /  16 Nov 2026</span></div></header>
+
+<section class="hero" aria-label="Chapter introduction">
+<div class="hero-art" aria-hidden="true"><svg viewBox="0 0 800 680" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke-linecap="round"><path d="M40 -20 C160 140 300 230 470 360" stroke="#a6c9b9" stroke-width="10"/><path d="M230 -40 C280 120 360 250 470 360" stroke="#8fbbb0" stroke-width="7"/><path d="M470 -60 C440 110 450 240 470 360" stroke="#a6c9b9" stroke-width="12"/><path d="M760 -20 C640 120 540 250 470 360" stroke="#8eb7ad" stroke-width="8"/><path d="M880 180 C720 230 590 300 470 360" stroke="#9cbcae" stroke-width="6"/><path d="M-40 300 C140 310 320 330 470 360" stroke="#87ada5" stroke-width="9"/><path d="M60 620 C200 520 340 430 470 360" stroke="#9cbaaf" stroke-width="7"/><path d="M470 360 C560 430 640 560 820 720" stroke="#b9d4c6" stroke-width="58" opacity=".35"/><path d="M470 360 C560 430 640 560 820 720" stroke="#a6c9b9" stroke-width="22"/></g><g fill="#d0be8e"><circle cx="470" cy="360" r="9"/></g><g fill="#acc49d" opacity=".5"><circle cx="160" cy="128" r="3"/><circle cx="300" cy="140" r="3"/><circle cx="452" cy="150" r="3"/><circle cx="640" cy="130" r="3"/><circle cx="700" cy="235" r="3"/><circle cx="210" cy="312" r="3"/><circle cx="250" cy="510" r="3"/></g></svg></div>
+<div class="hero-wrap"><div class="kicker">The Straits / School Identity / Companion to <em>The Name at the River Mouth</em></div><h1>The Names<br>of the<br>Seven</h1><p class="deck">Every house of the Straits now carries two names: a charter name in its founding tongue, and the name the city actually uses. The logic of Muara, carried through all seven.</p><div class="byline"><span>PMU · Proposed by Claude</span><span>For Lin Wei · 16 November 2026</span></div></div>
+</section>
+
+<div class="quote-opening"><div class="quote-opening-inner"><div><blockquote>“If we extend the same thought processes for the other schools, what would be the evolution of their names, and the modern one?”</blockquote><cite>— The question that opened this study</cite></div><aside class="opening-aside"><strong>The world it had to fit:</strong><br>no colonial expansion, no American dominance, a multipolar planet in which the Straits is a meeting point and no single tongue rules.<br><br>The Muara decision supplied the method. This page applies it to the other six houses, one at a time.</aside></div></div>
+
+<div class="main-layout"><aside class="toc" aria-label="Contents"><div class="label">In this study</div><nav><a href="#outcome">00 · The seven, at a glance</a><a href="#method">01 · Charter and street</a><a href="#lanfang">02 · Lan Fang</a><a href="#toakeng">03 · Toa Keng</a><a href="#marikar">04 · Marikar</a><a href="#sund">05 · Sund</a><a href="#ninerain">06 · Nine Rain</a><a href="#kora">07 · Kora</a><a href="#city">08 · How the city names</a></nav></aside>
+<main class="article">
+
+<section id="outcome" style="padding-top:0">
+<div class="chapter-index">00 / The outcome first</div>
+<h2>The seven, at a glance.</h2>
+<p class="lead">Each charter name moves through three ages: how the house first gathered, where it settled on the Straits, and what it became. The street name is the one the whole city knows.</p>
+
+<div class="seven">
+<div class="house settled"><div class="identity-label">I · Settled canon</div><div class="official">Taman Budi Pusaka</div><p class="gloss">TBP · The Garden of Conduct and Heirloom</p><div class="line"><b>Charter:</b> Pertapaan → Balai → Taman Budi Pusaka</div><div class="street"><small>On the street</small>Muara</div></div>
+
+<div class="house"><div class="identity-label">II · Hakka · Lan Fang</div><div class="official"><span class="zh">兰芳百工院</span></div><p class="gloss">Lan Fang Academy of the Hundred Crafts</p><div class="line"><b>Charter:</b> <span class="zh">兰芳公司 → 兰芳堂 → 兰芳百工院</span></div><div class="street"><small>On the street</small>Lan Fang · <span class="zh">兰坊</span> · Kongsi</div></div>
+
+<div class="house"><div class="identity-label">III · The European houses</div><div class="official">Studium Generale</div><p class="gloss">of the Straits</p><div class="line"><b>Charter:</b> The Factories → The Collegium → Studium Generale</div><div class="street"><small>On the street</small>Toa Keng</div></div>
+
+<div class="house"><div class="identity-label">IV · Arabic–Indic</div><div class="official">Dar al-Amana</div><p class="gloss">The House of Trust</p><div class="line"><b>Charter:</b> Funduq al-Amana → Wakalat al-Amana → Dar al-Amana</div><div class="street"><small>On the street</small>Marikar</div></div>
+
+<div class="house"><div class="identity-label">V · Nordic</div><div class="official">Sunds Högskola</div><p class="gloss">The High School of the Sound</p><div class="line"><b>Charter:</b> Sundfélag → Sundvarvet → Sunds Högskola</div><div class="street"><small>On the street</small>Sund</div></div>
+
+<div class="house"><div class="identity-label">VI · Andean–Mesoamerican</div><div class="official">Hatun Yachay Wasi</div><p class="gloss">The Great House of Knowing</p><div class="line"><b>Charter:</b> Ayllu → Yachay Wasi → Hatun Yachay Wasi</div><div class="street"><small>On the street</small>Nine Rain</div></div>
+
+<div class="house"><div class="identity-label">VII · Mande</div><div class="official">Sané Blonba</div><p class="gloss">The Great Vestibule of the Sané</p><div class="line"><b>Charter:</b> Sané Ton → Sané Blon → Sané Blonba</div><div class="street"><small>On the street</small>Kora</div></div>
+</div>
+<p style="font:13.5px/1.6 var(--sans);color:var(--muted)">Records written before the Rethinking keep the names they were written with. These names run from the Rethinking forward.</p>
+</section>
+
+<section class="chapter" id="method"><div class="chapter-index">01 / The method Muara gave us</div><h2>Charter and street.</h2>
+<p>The Muara decision drew a line that every great institution eventually discovers. A school has the name on its seal and the name in people's mouths, and the two have different keepers. The charter is kept by the house: it is formal, slow, and written in the language of the people who founded it. The street name is kept by the city: it is quick, affectionate, sometimes rude, and spoken in whatever tongue the speaker happens to be using that afternoon.</p>
+<p>So every house here gets two rules.</p>
+<div class="names">
+<div class="name-row"><strong>The charter</strong><span>Speaks the house's own founding language and moves through three ages. It begins as a <em>gathering of people</em>, settles into <em>a building on the Straits</em>, and opens into <em>an institution for everyone</em>. Pertapaan → Balai → Taman set the pattern.</span></div>
+<div class="name-row"><strong>The street</strong><span>Speaks the city's language. It comes from what a passer-by actually meets: a place, a sound, a people, a date. Muara is simply where the school stands.</span></div>
+</div>
+<p>In a multipolar world this division does real work. In our history, a school that wanted to be taken seriously abroad often took an English name, because English travelled with an empire. In PMU, no empire set the terms, so every charter stays in its own tongue, and the city's lingua franca does the translating on the street. That is the achar principle showing up in how people talk.</p>
+<p>There is also a practical gift. For five of the six houses, the name already used across PMU becomes the street name. Every earlier volume still reads naturally: the documents simply turn out to have been written in the city's voice all along.</p>
+<div class="pull">On paper, seven charters in seven tongues. On the street, the names everyone already knew.<span>The principle in one line</span></div>
+</section>
+
+<section class="chapter" id="lanfang"><div class="chapter-index">02 / Hakka · the maker house</div><h2>Lan Fang: from fragrance to workshop.</h2>
+<p>Lan Fang needed the most rethinking, because the first proposal was the safest one, and safety is the wrong instinct for the house that makes things.</p>
+
+<div class="lexicon">
+<article><span class="micro">First proposal · the charter line</span><strong><span class="zh">兰芳公司 → 兰芳义学 → 兰芳书院</span></strong><p>Partnership, then free school, then academy. It followed the house's legal paperwork: the kongsi became a school fund, the school fund became a free school, and the modern name reclaimed the classical <span class="zh">书院</span>, as Hong Kong's <span class="zh">新亚书院</span> did in 1949. Coherent, and it continued the "Kongsi Free School" of the earlier gazette. It described the house's constitution and missed its hands.</p></article>
+<article class="pick"><span class="micro">Revised · the hundred crafts</span><strong><span class="zh">兰芳公司 → 兰芳堂 → 兰芳百工院</span></strong><p>Partnership, then the hall of many uses, then the Academy of the Hundred Crafts. This line follows what Lan Fang actually does: it makes, it heals, it fights, and it treats all three as crafts with standards. This is the proposed canon.</p></article>
+</div>
+
+<div class="epoch">
+<div class="epoch-item"><div class="epoch-num">I</div><div><div class="place">West Borneo · the gold fields · 1786</div><h3><span class="zh">兰芳公司</span> · Lanfang Kongsi</h3><p>The house begins as a sworn partnership of Hakka miners who pooled their claims, voted their headmen and shared what the ground gave up. A <em>kongsi</em> is the act of holding in common, and the word travelled so far through the Straits that Malay absorbed it: <em>berkongsi</em> means to share. The house's first name already belonged to two languages.</p></div></div>
+<div class="epoch-item"><div class="epoch-num">II</div><div><div class="place">The Straits · the hall</div><h3><span class="zh">兰芳堂</span> · Lan Fang Tang</h3><p>On the Straits the kongsi built a single hall, and <span class="zh">堂</span> is the one Chinese word that holds everything Lan Fang did under that roof. A <span class="zh">堂</span> is an ancestral hall, a pharmacy (as in the old medicine houses named <span class="zh">某某堂</span>), a martial-arts hall, and a classroom (<span class="zh">课堂</span>). In this age you could walk in to buy a remedy, learn a form, settle a vote and have a tool mended, all at the same counter.</p></div></div>
+<div class="epoch-item"><div class="epoch-num">III</div><div><div class="place">The modern house · official</div><h3><span class="zh">兰芳百工院</span> · Academy of the Hundred Crafts</h3><p><span class="zh">百工</span>, the hundred crafts, is the classical name for every artisan under heaven, and it comes with a teacher already standing inside the house. Mozi, himself a craftsman, wrote that even the hundred crafts all work by standards: <span class="zh">百工为方以矩，为圆以规，直以绳，正以县</span>. The square for corners, the compass for circles, the line for straightness, the plumb for true. The Mohist school sits at the heart of Lan Fang, and this name puts Mozi's standard over the whole house. Medicine becomes a craft with its measures. A martial form becomes a craft with its measures. A furnace, a brush, a needle and a fist are taught under one roof.</p></div></div>
+</div>
+
+<div class="canonical"><div class="identity-label">One house · three languages on the street</div><h3>The city says Lan Fang three ways.</h3>
+<div class="id-grid">
+<div class="id-box"><div class="identity-label">In English</div><div class="big">Lan Fang</div><p>The name every PMU volume already uses. Unchanged.</p></div>
+<div class="id-box"><div class="identity-label">In Chinese</div><div class="big zh">兰坊</div><p>Same sound, different character. The city writes <span class="zh">芳</span>, fragrance, as <span class="zh">坊</span>, workshop. The orchid's scent became the orchid's workbench, and nobody can remember who changed it first.</p></div>
+<div class="id-box"><div class="identity-label">In Malay</div><div class="big">Kongsi</div><p>The oldest name, still alive in the bazaar, and it means <em>to share</em>.</p></div>
+</div></div>
+
+<p>The homophone carries the divergence. Chinese readers see the house drift from poetry to practice inside a single syllable, while English readers keep the name they know. Readers who hold both languages get the joke, and the history inside it.</p>
+
+<details class="more"><summary>A third reading, kept for later</summary><div>The furnace, <span class="zh">炉</span>, ties the house's three arts together in one object: the alchemist's elixir furnace, the smith's forge, and the martial idiom <span class="zh">炉火纯青</span>, when the flame turns pure blue and the skill is finally perfected. It makes a fine name for the forge-and-pharmacy courtyard at the centre of the campus, and a fine word for what students call the place among themselves. As the house's public name it would narrow Lan Fang to fire, so it stays a nickname.</div></details>
+</section>
+
+<section class="chapter" id="toakeng"><div class="chapter-index">03 / The European houses</div><h2>Toa Keng: guests at the ditch.</h2>
+<p>Toa Keng is the house where Europe's many interests at the Straits gathered: British, French, Germanic and Iberian merchants, notaries, lens-grinders, clerks and lawyers. In PMU they arrived as traders and never as conquerors. That one fact decides everything about the house's names.</p>
+
+<div class="pivot"><div class="chapter-index">The question behind the charter</div><p class="quote">If no European nation conquered, whose language names the shared house?</p><p class="comment">In our history, English became Europe's voice abroad because it travelled with an empire. In PMU there is no such empire. A British name would offend the French; a French name would offend the Germans. The one tongue every European scholar shared and no European nation owned was Latin.</p></div>
+
+<p>Latin is the neutral ground. In a world without empire, it plausibly stayed Europe's scholarly language for much longer, the way it once held together universities from Bologna to Uppsala. So Toa Keng's charter speaks Latin, the language its quarrelling founders could all agree on.</p>
+
+<div class="epoch">
+<div class="epoch-item"><div class="epoch-num">I</div><div><div class="place">The ditch · licensed trade</div><h3>The Factories</h3><p>The house begins plural. Each nation kept its own licensed trading house, its <em>factory</em>, <em>comptoir</em>, <em>Kontor</em> or <em>feitoria</em>, under the host city's law. Real history offers the model: the Hanseatic Kontors at Bergen and London, and the Thirteen Factories at Canton, where foreign merchants lived and traded inside rules they did not write. Toa Keng starts as several houses side by side, watching each other.</p></div></div>
+<div class="epoch-item"><div class="epoch-num">II</div><div><div class="place">The pooling of clerks and scholars</div><h3>The Collegium</h3><p>Over time the factories' scholars pooled their libraries, lenses and law books into one college. A <em>collegium</em> is a body of colleagues bound by shared rules, and the root of the word means those chosen together. This is the age when Toa Keng learns to referee: a house founded by rivals has to become very good at fair procedure.</p></div></div>
+<div class="epoch-item"><div class="epoch-num">III</div><div><div class="place">The modern house · official</div><h3>Studium Generale of the Straits</h3><p>In medieval Europe, a <em>studium generale</em> was a school open to students from anywhere, and its degrees carried the <em>ius ubique docendi</em>, the right to teach everywhere. For a house built on measurement, standards and fair judgment, that is the perfect inheritance. A Toa Keng certificate is honoured in every port, which suits the Straits as the place where the world's findings are collated and checked.</p></div></div>
+</div>
+
+<h3>Why the street name is Hokkien</h3>
+<p><em>Toa Keng</em> is the Hokkien <span class="zh">大坑</span>, the big ditch. When guests arrive without conquering, the host decides where they live, and hosts tend to offer the edge of town: Canton gave the factories a strip outside its walls, and Nagasaki gave the Dutch an artificial island. The Straits gave its European guests the marshy ditch. The Hokkien traders next door named the quarter after it, and the name stuck long after the Europeans had drained, culverted and surveyed it into the best-measured ground in the city.</p>
+<p>It also rhymes with Muara. The Malay house is named for the river mouth, and the European house for the ditch: the city names both by their water.</p>
+
+<div class="lexicon">
+<article class="pick"><span class="micro">Chosen · official</span><strong>Studium Generale</strong><p>Open to all, valid everywhere. It names the house's purpose: standards that cross borders.</p></article>
+<article><span class="micro">Considered · for a hall</span><strong>Specula · Forum</strong><p><em>Specula</em>, the watchtower, from the root that gives us spectacles and perspective, is the perfect name for Toa Keng's great observatory and lens hall. <em>Forum</em> belongs to its moot court, where students argue and referees rule. Both stay as names of buildings inside the house.</p></article>
+</div>
+</section>
+
+<section class="chapter" id="marikar"><div class="chapter-index">04 / Arabic–Indic · the house of trust</div><h2>Marikar: the boat-masters.</h2>
+<p>This house needed a new street name for a reason the alternative history forces on it. <em>Merikani</em> was the East African name for American mill cloth. In a world with no United States, that cloth never sails, and the word never forms.</p>
+<p>What survives is older and better. In Tamil, <em>marakkalam</em> is a wooden ship, and the <em>Marakkayar</em> were its masters: seafaring merchant families of the Coromandel coast who traded across the Bay of Bengal into the Straits. Another account traces the name to the Arabic <em>markab</em>, also a ship. Two languages agree on the boat, which is exactly this house's lineage. The family name took many spellings along the way: Maricar, Marikkar, Marican, and in Penang, Merican. The city settles on <strong>Marikar</strong>.</p>
+
+<div class="lineage">FUNDUQ AL-AMANA <span>→</span> WAKALAT AL-AMANA <span>→</span> DAR AL-AMANA</div>
+<p>The constant word is <em>amana</em>: a trust held on someone else's behalf. The house teaches finance, ledgers, the Chain of Keeping, and the art of making a stranger's promise good across an ocean, so every age of its charter is a different building for the same trust.</p>
+<div class="names">
+<div class="name-row"><strong>Funduq</strong><span>The merchants' inn, where goods, letters and promises were lodged for the night. Venice borrowed the word as <em>fondaco</em>.</span></div>
+<div class="name-row"><strong>Wakala</strong><span>Both a trading house, like the great wakalas of Cairo, and the contract of agency: trusting someone in a far port to act for you. One word for the building and the bond.</span></div>
+<div class="name-row"><strong>Dar al-Amana</strong><span>The House of Trust. The modern official name, and a name that already appears for this house in earlier volumes.</span></div>
+</div>
+</section>
+
+<section class="chapter" id="sund"><div class="chapter-index">05 / Nordic · the house of joining</div><h2>Sund: named for the water.</h2>
+<div class="lineage">SUNDFÉLAG <span>→</span> SUNDVARVET <span>→</span> SUNDS HÖGSKOLA</div>
+<div class="epoch">
+<div class="epoch-item"><div class="epoch-num">I</div><div><div class="place">The fellowship</div><h3>Sundfélag</h3><p>In Old Norse, a <em>félag</em> was a partnership in which members laid their property together, <em>fé</em> plus <em>lag</em>. It is where the English word <em>fellow</em> comes from. For the house of links and joining, the founding act is a pooling.</p></div></div>
+<div class="epoch-item"><div class="epoch-num">II</div><div><div class="place">The yard</div><h3>Sundvarvet</h3><p>A <em>varv</em> is a shipyard. Sund's mastery of heat, metal and linkage was learned at the slipway, and the school grew inside the yard.</p></div></div>
+<div class="epoch-item"><div class="epoch-num">III</div><div><div class="place">The modern house · official</div><h3>Sunds Högskola</h3><p><em>Högskola</em> is the Nordic name for a school of higher learning, especially the technical ones. It fits the most modern of the seven houses.</p></div></div>
+</div>
+<p>The street name needs no change. <em>Sund</em> means strait. Nordic sailors knew exactly what a strait was worth: for four centuries every ship through the Øresund paid the Sound Dues. When they arrived at the Straits, they called it by their own word, and the city returned the favour by calling the Nordic school after the water the whole city stands on.</p>
+</section>
+
+<section class="chapter" id="ninerain"><div class="chapter-index">06 / Andean–Mesoamerican · the house of weather</div><h2>Nine Rain: a day the city never forgot.</h2>
+<div class="lineage">AYLLU <span>→</span> YACHAY WASI <span>→</span> HATUN YACHAY WASI</div>
+<p>The charter is Quechua. The <strong>ayllu</strong> is the Andean kin community bound by <em>ayni</em>, reciprocity, and it is the right first age for a house whose magic is the give-and-take of moisture, friction and weather. The <strong>Yachay Wasi</strong>, the house of knowing, was the school in Cusco where the <em>amautas</em> taught. <strong>Hatun Yachay Wasi</strong>, the great house of knowing, is the word Quechua speakers use for a university today.</p>
+<p>The street name keeps the other half of the house's lineage. <em>Nine Rain</em>, Chiucnahui Quiyahuitl, is a day in the Mesoamerican 260-day count, and people across Mesoamerica carried the names of the days they were born. The city remembers the house by the day it was founded. The Andes speak in the charter and Mexico speaks on the street, so the two halves of the Americas meet inside one school.</p>
+</section>
+
+<section class="chapter" id="kora"><div class="chapter-index">07 / Mande · the house of sound</div><h2>Kora: the sound from the street.</h2>
+<div class="lineage">SANÉ TON <span>→</span> SANÉ BLON <span>→</span> SANÉ BLONBA</div>
+<p><strong>Sané</strong> is the constant, the ruling lineage of Kaabu, held as this house's Budi Pusaka. A <strong>ton</strong> is a sworn association of peers; the state of Ségou itself grew out of one. The <strong>blon</strong> is the vestibule of a Mande house, the entrance hall where visitors are received, words are spoken and disputes are settled. At Kangaba, the sacred Kama Blon is re-roofed every seven years while the jelis of Kela recite the epic, a ritual of renewal that fits beside the Straits' own covenants. <strong>Blonba</strong>, the great vestibule, makes the hall of the word into an institution, and BlonBa is still the name of a cultural stage in Bamako today.</p>
+<p>The street name is the easiest of all. You know you are near the house before you see it, because you hear the kora. GPT's drafts already call it Kora, and now the drift is canon.</p>
+</section>
+
+<section class="chapter" id="city"><div class="chapter-index">08 / Across the seven</div><h2>How the city names its schools.</h2>
+<p>Put the street names side by side and a pattern appears. The city has no single naming habit: it names houses by where they stand, who founded them, when they began and what they sound like.</p>
+<div class="names">
+<div class="name-row"><strong>Muara</strong><span>The river mouth.<em class="lang">Malay · a place</em></span></div>
+<div class="name-row"><strong>Toa Keng</strong><span>The big ditch.<em class="lang">Hokkien · a place</em></span></div>
+<div class="name-row"><strong>Sund</strong><span>The strait itself.<em class="lang">Nordic · a place</em></span></div>
+<div class="name-row"><strong>Marikar</strong><span>The masters of ships.<em class="lang">Tamil · a people</em></span></div>
+<div class="name-row"><strong>Lan Fang · <span class="zh">兰坊</span> · Kongsi</strong><span>The orchid workshop, the sharing.<em class="lang">Hakka, Chinese, Malay · a practice</em></span></div>
+<div class="name-row"><strong>Nine Rain</strong><span>A founding day.<em class="lang">Nahuatl · a time</em></span></div>
+<div class="name-row"><strong>Kora</strong><span>The instrument you hear.<em class="lang">Mande · a sound</em></span></div>
+</div>
+<p>Three houses are named for water. The three oldest settlers sit at the river mouth, the ditch and the strait, and the city's map of its schools reads like a map of its shoreline. The rest are named by the senses and the calendar, by what you meet when you walk past.</p>
+<div class="conclusions"><b style="font:750 11px var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--clay)">What this study proposes</b><ul>
+<li>Every house carries a three-age charter in its founding tongue and a street name in the city's.</li>
+<li>Lan Fang's charter follows its crafts: <span class="zh">兰芳公司 → 兰芳堂 → 兰芳百工院</span>, with <span class="zh">兰坊</span> as the city's written form.</li>
+<li>Toa Keng's charter speaks Latin, the neutral tongue of rival European guests, and ends as a Studium Generale.</li>
+<li>Al-Merikani's street name becomes Marikar, since the American cloth behind <em>merikani</em> never exists in PMU.</li>
+<li>Sund, Nine Rain, Toa Keng, Lan Fang and Kora keep the names already used across PMU as their street names.</li>
+</ul></div>
+</section>
+
+<div class="closing"><p>The Muara decision taught a simple thing: a school is written down by the people who found it and spoken by everyone else. Carried through the seven, it turns the Straits into a city where seven charters keep seven languages alive, while the bazaar hands out nicknames freely in all of them.</p><p class="last">On paper: Taman Budi Pusaka, <span class="zh">兰芳百工院</span>, Studium Generale, Dar al-Amana, Sunds Högskola, Hatun Yachay Wasi, Sané Blonba.<br>On the street: Muara, Lan Fang, Toa Keng, Marikar, Sund, Nine Rain, Kora.</p></div>
+</main></div>
+
+<footer class="foot" id="sources"><div class="foot-inner"><div class="chapter-index">Go further</div><h2>Where the names come from</h2>
+<h3>Lan Fang</h3><ol class="source-list">
+<li><a href="https://ctext.org/mozi/standards" target="_blank" rel="noopener noreferrer">Mozi, <span class="zh">法仪</span> · Standards</a>. The passage on the hundred crafts and their square, compass, line and plumb.</li>
+<li><a href="https://en.wikipedia.org/wiki/Lanfang_Republic" target="_blank" rel="noopener noreferrer">The Lanfang Kongsi of west Borneo</a>. The Hakka mining partnership the house is named after.</li>
+<li><a href="https://en.wikipedia.org/wiki/New_Asia_College" target="_blank" rel="noopener noreferrer">New Asia College, <span class="zh">新亚书院</span></a>. A modern school that kept the classical name.</li></ol>
+<h3>Toa Keng</h3><ol class="source-list">
+<li><a href="https://en.wikipedia.org/wiki/Studium_generale" target="_blank" rel="noopener noreferrer">Studium generale</a>. The medieval open university and the right to teach everywhere.</li>
+<li><a href="https://en.wikipedia.org/wiki/Kontor" target="_blank" rel="noopener noreferrer">The Hanseatic Kontors</a> and <a href="https://en.wikipedia.org/wiki/Thirteen_Factories" target="_blank" rel="noopener noreferrer">the Thirteen Factories of Canton</a>. Foreign merchants living under host law.</li></ol>
+<h3>Marikar</h3><ol class="source-list">
+<li><a href="https://en.wikipedia.org/wiki/Marakkar" target="_blank" rel="noopener noreferrer">The Marakkayar seafaring communities</a>. The boat-master etymologies and the many spellings of the name.</li>
+<li><a href="https://en.wiktionary.org/wiki/%E0%AE%AE%E0%AE%B0%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%B2%E0%AE%AE%E0%AF%8D" target="_blank" rel="noopener noreferrer"><em>Marakkalam</em> in Tamil</a>. Boat, craft, ship, vessel.</li></ol>
+<h3>Sund</h3><ol class="source-list">
+<li><a href="https://en.wiktionary.org/wiki/fellow" target="_blank" rel="noopener noreferrer"><em>Fellow</em>, from Old Norse <em>félagi</em></a>. The partner who lays property together.</li>
+<li><a href="https://en.wikipedia.org/wiki/Sound_Dues" target="_blank" rel="noopener noreferrer">The Sound Dues</a>. Four centuries of tolls on the Øresund.</li></ol>
+<h3>Nine Rain</h3><ol class="source-list">
+<li><a href="https://en.wikipedia.org/wiki/Tonalpohualli" target="_blank" rel="noopener noreferrer">The tonalpohualli</a>. The 260-day count and its day signs, Rain among them.</li>
+<li><a href="https://www.tc.gob.pe/?p=160949" target="_blank" rel="noopener noreferrer">Peru's Constitutional Tribunal, press notes in Quechua</a>. <em>Hatun yachay wasi</em> in use for a university.</li></ol>
+<h3>Kora</h3><ol class="source-list">
+<li><a href="https://en.wikipedia.org/wiki/Kaabu" target="_blank" rel="noopener noreferrer">The Kaabu empire</a> and <a href="https://en.wikipedia.org/wiki/Bambara_Empire" target="_blank" rel="noopener noreferrer">the Ségou state, grown from a ton</a>.</li>
+<li><a href="https://fr.vikidia.org/wiki/Kangaba" target="_blank" rel="noopener noreferrer">Kangaba and the Kama Blon</a>. The sacred vestibule and its seven-year renewal.</li>
+<li><a href="https://contemporaryand.com/?p=30508" target="_blank" rel="noopener noreferrer">BlonBa, Bamako</a>. The great vestibule as a modern stage.</li></ol>
+<div class="meta-row"><span class="pill">Companion to The Name at the River Mouth</span><span class="pill">Settled: Taman Budi Pusaka · Muara</span><span class="pill">Proposed: the other six</span></div>
+<div class="foot-end"><span>PMU · THE STRAITS · NAMING STUDY · CLAUDE</span><span>16 November 2026</span></div></div></footer>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
