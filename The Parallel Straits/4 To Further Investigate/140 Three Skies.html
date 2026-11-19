@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>140 Three Skies · The Polymathic Universe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+SC:wght@500&family=Tiro+Devanagari+Sanskrit&family=GFS+Didot&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1f3128;--ink2:#34493d;--dim:#56665c;--hair:#d3ddd1;
+  --paper:#f4f6ef;--mist:#e6efe4;--card:#fbfcf8;
+  --pond:#6fa585;--pond3:#b8d4bf;--deep:#3d6b52;
+  --lav:#7f8fd0;--lav-t:#4b5aa3;--lav2:#c9cdec;
+  --rose:#c58fb8;--rose-t:#93527f;--rose2:#ecd3e2;
+  --lily:#efe8b4;--gold:#b59a4a;--gold-t:#76621f;
+  --warm:#d98c5f;--warm-t:#9c4f26;
+  --serif:"Cormorant Garamond","Times New Roman",Times,serif;
+  --display:"Playfair Display","Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:#eef3ec;color:var(--ink);font-family:var(--serif);font-size:21px;line-height:1.6;font-weight:500;overflow-x:hidden;transition:background-color .25s linear}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+em,i{font-style:italic}
+b,strong{font-weight:600}
+.w{width:min(720px,calc(100% - 40px));margin-inline:auto}
+.wide{width:min(1100px,calc(100% - 40px));margin-inline:auto}
+.mono{font-family:var(--mono)}
+.zh{font-family:"Noto Serif SC","Songti SC",serif}
+
+/* progress */
+.bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--pond),var(--lav),var(--gold),var(--warm));z-index:50}
+.toc-btn{position:fixed;top:14px;right:14px;z-index:40;width:44px;height:44px;border:1px solid var(--ink2);background:rgba(251,252,248,.85);font-family:var(--mono);font-size:18px;cursor:pointer;backdrop-filter:blur(4px)}
+.toc{position:fixed;top:0;right:0;bottom:0;width:min(330px,88vw);background:var(--card);border-left:1px solid var(--hair);z-index:45;transform:translateX(100%);transition:transform .3s ease;padding:70px 26px 30px;overflow-y:auto}
+.toc.open{transform:none}
+.toc .lab{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:18px 0 6px}
+.toc a{display:block;font-size:19px;padding:5px 0;text-decoration:none;color:var(--ink2)}
+.toc a:hover{color:var(--rose-t)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+  background:radial-gradient(60% 50% at 78% 22%,rgba(197,143,184,.28),transparent 70%),
+             radial-gradient(55% 45% at 18% 70%,rgba(127,143,208,.22),transparent 70%),
+             radial-gradient(70% 60% at 60% 90%,rgba(239,232,180,.55),transparent 70%),
+             linear-gradient(170deg,#e3ede0 0%,#d4e4d6 45%,#dfe2ee 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(176deg,rgba(255,255,255,.0) 0 18px,rgba(255,255,255,.18) 18px 19px);pointer-events:none}
+.hero .w{position:relative;z-index:2;padding:80px 0 60px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
+.the{font-family:var(--display);font-style:italic;color:var(--gold-t);font-size:22px;margin-top:34px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(54px,13vw,118px);line-height:.92;letter-spacing:-.02em;margin-top:2px}
+h1 .it{font-weight:400;font-style:italic;display:block;color:var(--ink2)}
+h1 .w1{color:#6fa585}h1 .w2{color:#7f8fd0}h1 .w3{color:#b59a4a}h1 .w4{color:#d98c5f}h1 .w5{color:#c58fb8}
+.brk{font-family:var(--display);font-size:clamp(28px,6vw,46px);line-height:1.15;margin-top:34px}
+.brk span{color:var(--rose)}
+.paren{font-style:italic;font-size:clamp(20px,3.2vw,25px);color:var(--ink2);margin-top:8px;max-width:34em}
+.lead-q{margin-top:40px;border-left:3px solid var(--rose);padding:4px 0 4px 20px;font-style:italic;font-size:clamp(22px,3.6vw,28px);line-height:1.4}
+.attr{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:12px}
+.go{display:inline-block;margin-top:34px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--ink)}
+.byline{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:26px}
+
+/* acts */
+.act{padding:90px 0 20px}
+.act-band{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;border-top:1px solid var(--ink2);padding-top:14px;margin-bottom:10px}
+.act-band .no{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.act-band .nm{font-family:var(--display);font-style:italic;font-size:22px;color:var(--ink2)}
+.ch{padding:46px 0 10px}
+.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-t);margin-bottom:12px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,56px);line-height:1.04;letter-spacing:-.01em;margin-bottom:24px}
+h2 em{color:var(--rose-t)}
+p{margin-bottom:20px}
+.drop::first-letter{font-family:var(--display);float:left;font-size:4.2em;line-height:.8;padding:8px 10px 0 0;color:var(--deep)}
+.big{font-size:clamp(23px,3.6vw,27px);line-height:1.45}
+.fn{font-family:var(--mono);font-size:11px;vertical-align:super;text-decoration:none;color:var(--rose-t);margin-left:2px}
+
+/* stance chips */
+.st{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:2px}
+.st.b{background:var(--lav2);color:#2f3c84}.st.c{background:var(--pond3);color:#244a37}.st.v{background:var(--lily);color:#5c4c14}
+
+/* pulls */
+.pull{font-family:var(--display);font-style:italic;font-size:clamp(30px,6.4vw,50px);line-height:1.15;margin:50px 0;padding:0 0 0 0;position:relative}
+.pull::before{content:"[";color:var(--rose);margin-right:4px}
+.pull::after{content:"]";color:var(--rose);margin-left:4px}
+
+/* quotes */
+.voice{margin:34px 0;padding:22px 24px;background:rgba(251,252,248,.75);border-left:4px solid var(--rose);font-style:italic;font-size:24px;line-height:1.4}
+.voice small{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+
+/* pause */
+.pause{margin:34px 0;padding:18px 20px;background:rgba(201,205,236,.38);border-radius:2px;border-top:2px solid var(--lav)}
+.pause .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lav-t);margin-bottom:6px}
+.pause p{margin:0;font-size:19.5px}
+
+/* three tables trio */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0}
+.tab{padding:20px 18px 18px;background:var(--card);border:1px solid var(--hair);position:relative}
+.tab::before{content:"";position:absolute;left:0;top:0;right:0;height:5px}
+.tab.b::before{background:var(--lav)}.tab.c::before{background:var(--deep)}.tab.v::before{background:var(--gold)}
+.tab .verb{font-family:var(--display);font-size:28px;line-height:1.1}
+.tab .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:6px 0 10px}
+.tab .sym{font-family:var(--display);font-size:24px;margin-bottom:8px}
+.tab p{font-size:18px;margin:0;line-height:1.45}
+@media(max-width:640px){.trio{grid-template-columns:1fr}}
+
+/* year marker */
+.year{font-family:var(--display);font-weight:900;font-size:clamp(84px,22vw,170px);line-height:.9;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.4px var(--ink2);margin:10px 0 22px;font-variant-numeric:lining-nums}
+.year.fill{color:var(--ink);-webkit-text-stroke:0}
+
+/* big window numbers */
+.window{font-variant-numeric:lining-nums;display:flex;align-items:center;justify-content:center;gap:14px;margin:40px 0;font-family:var(--display)}
+.window .n{font-size:clamp(60px,15vw,110px);line-height:1;color:var(--lav-t)}
+.window .dash{flex:1;max-width:220px;height:14px;background:var(--lav);border-radius:7px;position:relative}
+.window .dash i{position:absolute;left:50%;top:-10px;bottom:-10px;width:3px;background:var(--ink);transform:translateX(-50%)}
+.window-cap{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:-24px;margin-bottom:30px}
+
+/* figure */
+.fig{margin:40px 0;background:rgba(251,252,248,.85);border:1px solid var(--hair);padding:18px}
+.fig-t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+.fig svg{display:block;width:100%;height:auto}
+.fig-c{font-size:17px;color:var(--ink2);margin-top:12px;line-height:1.45}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:11px;margin-top:10px;color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.grids{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.grids div{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--ink2)}
+.grids svg{border:1px solid var(--hair);margin-bottom:4px}
+@media(max-width:520px){.grids{grid-template-columns:repeat(2,1fr)}}
+.tipbox{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11.5px;line-height:1.45;padding:7px 9px;opacity:0;transition:opacity .12s;max-width:230px;z-index:3}
+
+/* the turn: full bleed warm */
+.turn{background:linear-gradient(180deg,rgba(239,232,180,0) 0%,rgba(239,232,180,.55) 18%,rgba(236,211,226,.45) 100%);padding-bottom:40px}
+.rewind{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--warm-t);display:flex;align-items:center;gap:10px;margin:20px 0}
+.rewind::before{content:"◀◀";letter-spacing:-2px}
+.counter{text-align:center;margin:44px 0 10px}
+.counter .num{font-family:var(--display);font-weight:900;font-variant-numeric:lining-nums;font-size:clamp(110px,30vw,220px);line-height:1;margin-bottom:6px;color:var(--gold-t);letter-spacing:-.04em}
+.counter .unit{font-family:var(--display);font-style:italic;font-size:clamp(22px,4vw,30px);color:var(--ink2)}
+.counter .src{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:40px 0;border:1px solid var(--hair)}
+.split div{padding:24px 20px}
+.split .l{background:rgba(201,205,236,.45)}.split .r{background:rgba(239,232,180,.7)}
+.split .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.split .v{font-variant-numeric:lining-nums;font-family:var(--display);font-size:clamp(26px,5vw,38px);line-height:1.1;margin:10px 0}
+.split p{font-size:18px;margin:0}
+@media(max-width:560px){.split{grid-template-columns:1fr}}
+.cord{margin:36px 0}
+.slab{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;margin-top:10px}
+.slab input{flex:1;accent-color:#76621f}
+.slab .val{min-width:64px;text-align:right}
+.cord-out{font-size:19px;margin-top:12px;min-height:3em}
+
+/* verdict */
+.rev{counter-reset:r;margin:30px 0}
+.rev li{list-style:none;position:relative;padding:22px 0 22px 74px;border-top:1px solid var(--ink2)}
+.rev li::before{counter-increment:r;content:counter(r);position:absolute;left:0;top:10px;font-family:var(--display);font-weight:900;font-size:64px;line-height:1;color:var(--rose)}
+.rev h3{font-family:var(--display);font-weight:400;font-size:clamp(25px,4.6vw,32px);line-height:1.15;margin-bottom:8px}
+.rev p{margin:0;font-size:19.5px}
+.test{margin:36px 0;padding:26px 24px;background:var(--ink);color:#f4f6ef}
+.test .lab{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--lily);margin-bottom:14px}
+.test ol{padding-left:0;list-style:none;counter-reset:t}
+.test li{counter-increment:t;padding:10px 0 10px 44px;position:relative;font-size:20px;border-top:1px solid rgba(255,255,255,.18)}
+.test li::before{content:counter(t);position:absolute;left:0;top:6px;font-family:var(--display);font-size:30px;color:var(--rose2)}
+.test b{color:#fff}
+.ending{font-family:var(--display);font-style:italic;font-size:clamp(26px,5vw,38px);line-height:1.3;margin:46px 0;color:var(--deep)}
+
+/* back matter */
+.back{background:var(--card);border-top:1px solid var(--hair);margin-top:80px;padding:70px 0 40px}
+.back h2{font-size:clamp(30px,6vw,44px)}
+.back .intro{font-style:italic;font-size:20px;color:var(--ink2)}
+.notes{columns:2 320px;column-gap:40px;margin-top:24px}
+.notes li{list-style:none;break-inside:avoid;padding:12px 0;border-top:1px solid var(--hair);font-size:17.5px;line-height:1.5}
+.notes .n{font-family:var(--mono);font-size:11px;color:var(--rose-t);display:block;letter-spacing:.1em}
+.notes b{font-weight:600}
+.src li{list-style:none;padding:9px 0;border-top:1px solid var(--hair);font-size:17px}
+.src .n{font-family:var(--mono);font-size:11px;color:var(--gold-t);margin-right:8px}
+.method{font-size:16.5px;color:var(--ink2);margin-top:30px;font-style:italic}
+footer{padding:30px 0 60px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+footer .wide{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:520px){body{font-size:20px}.voice{font-size:21px}.rev li{padding-left:58px}.rev li::before{font-size:50px}}
+
+.el{font-family:"GFS Didot","Playfair Display",serif}.dv{font-family:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif}.zh{font-family:"Noto Serif SC","Songti SC",serif}
+.sky-hero{display:block;width:100%;max-width:560px;margin:34px 0 0}
+.glance{display:grid;grid-template-columns:150px repeat(3,1fr);gap:8px;margin:30px 0 10px}
+.gh{font-family:var(--display);font-size:22px;line-height:1.1;padding:8px 6px;border-bottom:3px solid var(--hair)}
+.gh small{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.gh.g{border-color:var(--lav)}.gh.v{border-color:var(--gold)}.gh.c{border-color:var(--deep)}
+.gr{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);padding-top:14px}
+.gc{display:block;text-decoration:none;font-size:17.5px;line-height:1.42;padding:14px 14px;background:rgba(251,252,248,.8);border:1px solid var(--hair);border-top:4px solid;transition:transform .15s}
+.gc:hover{transform:translateY(-2px)}
+.gc.g{border-top-color:var(--lav)}.gc.v{border-top-color:var(--gold)}.gc.c{border-top-color:var(--deep)}
+@media(max-width:760px){.glance{grid-template-columns:1fr}.gh{display:none}.gr{padding-top:22px;border-top:1px solid var(--ink2)}
+ .gc::before{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+ .gc.g::before{content:"Greek sky";color:var(--lav-t)}.gc.v::before{content:"Vedic sky";color:var(--gold-t)}.gc.c::before{content:"Chinese sky";color:var(--deep)}}
+.seedmark{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--rose);color:var(--rose-t);border-radius:10px;vertical-align:2px;white-space:nowrap}
+.sky{margin-top:90px;padding:70px 0 50px}
+.sky-g{background:linear-gradient(180deg,rgba(201,205,236,.55),rgba(201,205,236,.18) 60%,rgba(201,205,236,0))}
+.sky-v{background:linear-gradient(180deg,rgba(239,225,168,.7),rgba(239,232,180,.25) 60%,rgba(239,232,180,0))}
+.sky-c{background:linear-gradient(180deg,rgba(184,212,191,.7),rgba(184,212,191,.22) 60%,rgba(184,212,191,0))}
+.sky-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.sky-no{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.sky-nm{font-family:var(--display);font-weight:900;font-size:clamp(40px,9vw,72px);line-height:1}
+.sky-verb{font-family:var(--display);font-style:italic;font-size:24px;margin-left:auto}
+.sky-g .sky-verb{color:var(--lav-t)}.sky-v .sky-verb{color:var(--gold-t)}.sky-c .sky-verb{color:var(--deep)}
+.epi{margin:30px 0 10px;font-size:26px;line-height:1.45}
+.epi small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--dim);margin-top:8px;line-height:1.5}
+.sky .kicker{color:var(--ink2)}
+.sky-g h2 em{color:var(--lav-t)}.sky-v h2 em{color:var(--gold-t)}.sky-c h2 em{color:var(--deep)}
+.sky-g .drop::first-letter{color:var(--lav-t)}.sky-v .drop::first-letter{color:var(--gold-t)}
+
+/* proposition opener (shared across 139-141) */
+.prop{padding:70px 0 10px}
+.prop .pk{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+.prop h2.ph{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,52px);line-height:1.06;letter-spacing:-.01em;margin:0 0 22px;color:var(--ink)}
+.prop h2.ph em{font-style:italic}
+.prop p{margin:0 0 18px}
+.prop .ptrio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.prop .pt{padding:18px 16px 16px;background:var(--card);border:1px solid var(--hair);border-top:5px solid}
+.prop .pt.g{border-top-color:var(--lav-t)}.prop .pt.v{border-top-color:var(--gold-t)}.prop .pt.c{border-top-color:var(--deep)}
+.prop .pt b{display:block;font-family:var(--display);font-weight:400;font-size:27px;line-height:1.1}
+.prop .pt > span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:6px 0 10px;color:var(--ink2)}
+.prop .pt p{font-size:17.5px;line-height:1.45;margin:0}
+.prop .pt.g b{color:var(--lav-t)}.prop .pt.v b{color:var(--gold-t)}.prop .pt.c b{color:var(--deep)}
+.prop .thread{list-style:none;margin:22px 0 8px;padding:0;border-top:1px solid var(--ink2)}
+.prop .thread li{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.prop .thread .n{font-family:var(--mono);font-size:12px;letter-spacing:.08em;padding-top:5px;color:var(--ink2)}
+.prop .thread a{font-family:var(--display);font-size:23px;line-height:1.2;text-decoration:none}
+.prop .thread a:hover{text-decoration:underline}
+.prop .thread p{font-size:17.5px;margin:4px 0 0;line-height:1.45}
+.prop .thread .here{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--ink2);border-radius:10px;margin-left:8px;vertical-align:4px;white-space:nowrap}
+@media(max-width:640px){.prop .ptrio{grid-template-columns:1fr}.prop .thread li{grid-template-columns:44px 1fr}}
+
+/* components carried over from the GPT volumes, in the PMU skin */
+.part{padding:90px 0 10px}
+.part-band{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;border-top:2px solid var(--ink);padding-top:14px;margin-bottom:8px}
+.part-band .no{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.part-band .nm{font-family:var(--display);font-style:italic;font-size:22px;color:var(--ink2)}
+.by{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:1px 7px;border-radius:10px;white-space:nowrap;vertical-align:2px;margin-left:6px;border:1px solid}
+.by.cl{color:#7a3c66;border-color:#c58fb8}.by.gp{color:#2f5e47;border-color:#7fae94}
+.rec{margin:26px 0 8px;padding:0;list-style:none;border-top:1px solid var(--ink2)}
+.rec li{padding:16px 0 14px;border-bottom:1px solid var(--hair)}
+.rec .when{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.rec b{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.2;display:block;margin-bottom:4px}
+.rec p{margin:0;font-size:19px;line-height:1.5}
+.arch{margin-top:46px}
+.arch h3{font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,34px);line-height:1.15;margin-bottom:6px}
+.arch .sub{font-style:italic;color:var(--ink2);margin-bottom:8px}
+.arch.g h3{color:var(--lav-t)}.arch.v h3{color:var(--gold-t)}.arch.c h3{color:var(--deep)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:28px 0 22px}
+.flow div{border-top:3px solid var(--rose);background:var(--card);border-left:1px solid var(--hair);border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:12px 12px 10px;font-size:17px;line-height:1.4}
+.flow b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--rose-t);margin-bottom:6px}
+.flow i{display:block;font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+@media(max-width:640px){.flow{grid-template-columns:1fr 1fr}}
+.scene{margin:30px 0;padding:24px 24px 6px;background:var(--card);border:1px solid var(--hair);border-left:4px solid var(--rose)}
+.scene .sh{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-t);margin-bottom:12px}
+.scene p{font-size:20px;line-height:1.55;margin-bottom:16px}
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.cmp>div{background:var(--card);border:1px solid var(--hair);border-top:5px solid;padding:18px 16px 8px}
+.cmp>div.g{border-top-color:var(--lav)}.cmp>div.v{border-top-color:var(--gold)}.cmp>div.c{border-top-color:var(--deep)}
+.cmp h4{font-family:var(--display);font-weight:400;font-size:24px;line-height:1.15;margin-bottom:10px}
+.cmp p{font-size:17px;line-height:1.45;margin-bottom:10px}
+.cmp p b{font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:block;color:var(--ink2)}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.mx{margin:24px 0;border-top:1px solid var(--ink2)}
+.mx .r{display:grid;grid-template-columns:170px repeat(3,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--hair);font-size:17.5px;line-height:1.42}
+.mx .r.h{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.mx .q{font-family:var(--display);font-size:19px;line-height:1.2}
+@media(max-width:760px){.mx .r{grid-template-columns:1fr;gap:4px}.mx .r.h{display:none}
+ .mx .r div[data-l]::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}}
+.note2{margin:30px 0;padding:18px 20px;background:rgba(201,205,236,.38);border-top:2px solid var(--lav)}
+.note2 .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lav-t);margin-bottom:6px}
+.note2 p{margin:0 0 10px;font-size:19.5px}
+.ground{margin:14px 0 22px;padding:12px 16px;background:rgba(251,252,248,.8);border-left:3px solid var(--hair);font-size:18px;line-height:1.5}
+.ground b{font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.more{margin-top:40px;padding-top:6px;border-top:1px dashed var(--ink2)}
+.more>.kicker{margin-top:18px}
+.con{padding:18px 0 4px}
+.con .cn{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.con h3{font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,34px);line-height:1.15;margin:6px 0 12px}
+.tri3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+.tri3>div{background:var(--card);border:1px solid var(--hair);padding:18px 16px 8px}
+.tri3 h4{font-family:var(--display);font-weight:400;font-size:23px;line-height:1.15;margin:8px 0 10px}
+.tri3 p{font-size:17px;line-height:1.45;margin-bottom:10px}
+@media(max-width:760px){.tri3{grid-template-columns:1fr}}
+.srcs{counter-reset:s;margin-top:20px}
+.srcs li{list-style:none;padding:9px 0;border-top:1px solid var(--hair);font-size:17px;line-height:1.45}
+.srcs .n{font-family:var(--mono);font-size:11px;color:var(--gold-t);margin-right:8px}
+.srcs em{font-style:normal;color:var(--dim)}
+.front{position:fixed;top:14px;left:14px;z-index:40;height:44px;display:flex;align-items:center;padding:0 12px;border:1px solid var(--ink2);background:rgba(251,252,248,.85);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;backdrop-filter:blur(4px)}
+@media(max-width:520px){.front{font-size:10px;padding:0 9px}}
+
+.gc.m{border-top-color:var(--rose)}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<button class="toc-btn" id="tocBtn" aria-label="Contents">≡</button>
+<a class="front" href="../../index.html">← PMU</a>
+<nav class="toc" id="toc" aria-label="Contents">
+  <div class="lab">Before</div><a href="#proposition">The proposition</a><a href="#glance">At a glance</a><a href="#rules">The rules of the game</a>
+  <div class="lab">Part One · The record</div><a href="#archive">What each archive held</a>
+  <div class="lab">Part Two · Three skies</div><a href="#greek">Sky I · Greek</a><a href="#vedic">Sky II · Vedic</a><a href="#chinese">Sky III · Chinese</a>
+  <div class="lab">Part Three · By magic</div><a href="#magic">The same rains, worked</a><a href="#m-greek">The Wind Stations</a><a href="#m-indic">The Rain Circle</a><a href="#m-china">The Seasonal Calendar</a><a href="#many">Many good weathers</a>
+  <div class="lab">After</div><a href="#coda">Three skies, seen from above</a><a href="#seeds">Real seeds &amp; sources</a>
+  <div class="lab">Elsewhere</div><a href="../../index.html">PMU front page</a>
+</nav>
+<header class="hero"><div class="w">
+  <div class="eyebrow" id="top">The Polymathic Universe · Book Four · 140 · Three Tables</div>
+  <div class="the">Three imagined histories of</div>
+  <h1><span class="w2">T</span><span class="w3">h</span><span class="w1">r</span>ee<span class="it">Skies</span></h1>
+  <div class="brk"><span>[</span>If each had warmed alone<span>]</span></div>
+  <p class="paren">(a Greek, a Vedic and a Chinese world each discover that the sky is changing, struggle to hold their people through it, and dream up a way to cool or water a planet, without ever learning that the others exist)</p>
+  <svg class="sky-hero" viewBox="0 0 600 220" aria-label="Three skies">
+    <defs>
+      <linearGradient id="hg1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c9cdec"/><stop offset="1" stop-color="#eef0f9"/></linearGradient>
+      <linearGradient id="hg2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#efe1a8"/><stop offset="1" stop-color="#f8f1d6"/></linearGradient>
+      <linearGradient id="hg3" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b8d4bf"/><stop offset="1" stop-color="#e6efe4"/></linearGradient>
+    </defs>
+    <path d="M10 210 A190 190 0 0 1 190 30 L190 210 Z" fill="url(#hg1)"/>
+    <rect x="205" y="30" width="190" height="180" fill="url(#hg2)"/>
+    <path d="M410 30 A190 190 0 0 1 590 210 L410 210 Z" fill="url(#hg3)"/>
+    <circle cx="120" cy="110" r="26" fill="none" stroke="#4b5aa3" stroke-width="2"/><ellipse cx="120" cy="110" rx="9" ry="26" fill="#7f8fd0" opacity=".55"/>
+    <g fill="#fbfcf8" stroke="#76621f" stroke-width="1.2"><path d="M300 92 L262 120 L300 112 L338 120 Z"/><path d="M300 112 L292 150 L300 144 L308 150 Z"/></g>
+    <g fill="none" stroke-width="5" stroke-linecap="round" opacity=".85"><path d="M440 160 Q500 70 560 160" stroke="#2a7d74"/><path d="M450 166 Q500 88 550 166" stroke="#c8402e"/><path d="M460 172 Q500 106 540 172" stroke="#d6a51f"/><path d="M470 178 Q500 124 530 178" stroke="#fbfcf8"/><path d="M480 184 Q500 142 520 184" stroke="#1f3128"/></g>
+    <g font-family="JetBrains Mono,monospace" font-size="10" fill="#34493d" letter-spacing="2"><text x="70" y="200">TO BOUND</text><text x="262" y="200">TO BALANCE</text><text x="462" y="200">TO CUT</text></g>
+  </svg>
+  <a class="go" href="#proposition">Enter the three skies ↓</a>
+  <div class="byline">Lin Wei 林威 · with Claude and ChatGPT · Singapore · 18–19 Nov 2026</div>
+</div></header>
+
+<section class="prop" id="proposition"><div class="w">
+  <div class="pk">The proposition · three traditions</div>
+  <h2 class="ph">Three ways of knowing, <em>one warming world</em></h2>
+  <p>This thread grew out of the Three Tables experiments in the Polymathic Learner, where one problem was put to Greek, Vedic and Chinese mathematicians and each answered in its own native way. <a href="https://thelinwei.github.io/thepolymathiclearner/documents/speculative-play/doubling-the-square.html">Doubling the Square</a> and <a href="https://thelinwei.github.io/thepolymathiclearner/documents/speculative-play/squaring-the-circle.html">Squaring the Circle</a> drew out three kinds of answer, and three verbs to carry them.</p>
+  <div class="ptrio">
+    <div class="pt g"><b>to bound</b><span>the Greek table</span><p>Archimedes traps the circle between a polygon inside and a polygon outside. The answer is an interval, proved from both sides.</p></div>
+    <div class="pt v"><b>to balance</b><span>the Vedic table</span><p>The Śulba cord-makers turn a square into a circle of equal area, and the circle back into the square. The answer is a rule that runs in both directions.</p></div>
+    <div class="pt c"><b>to cut finer</b><span>the Chinese table</span><p>Liu Hui cuts the polygon finer and finer: <span class="zh">割之弥细，所失弥少</span>. The answer is a procedure that can always be refined.</p></div>
+  </div>
+  <p>Here the three tables leave mathematics and sit down before a warming planet. The thread runs in three volumes, from the real science, to the deep past, to a future with all of modern physics in hand.</p>
+  <ol class="thread"><li><span class="n">139</span><div><a href="139%20Weighing%20the%20Warming.html">Weighing the Warming</a><p>The three stances read across today’s climate science: the sensitivity interval trapped from four sides, the models cut ever finer, and the carbon budget that runs from degrees back to tonnes. Every figure is a published assessment.</p></div></li><li><span class="n">140</span><div><a href="#top">Three Skies</a><span class="here">you are here</span><p>Each tradition goes on alone, burns its own fires and meets its own warming. What each archive already held, three invented histories of discovery, struggle and a great work, and the same rains worked by magic.</p></div></li><li><span class="n">141</span><div><a href="141%20Beyond%20the%20Sky.html">Beyond the Sky</a><p>Each tradition inherits modern physics. It builds the wonder physics already permits, then the wonder past the edge, with every construct tagged from established physics to dream.</p></div></li></ol>
+</div></section>
+<!-- AT A GLANCE -->
+<section class="w" id="glance" style="padding-top:80px">
+  <div class="act-band"><span class="no">Before</span><span class="nm">The outcome, at a glance</span></div>
+  <p class="big" style="margin-top:22px">Three worlds, three discoveries, three struggles, three great works, and then the same three worlds again with magic in hand. Each grows from the tradition’s own way of knowing: the Greeks <b>bound</b>, the altar-builders <b>balance</b>, the counting board <b>cuts finer</b>. Tap any cell to jump to its chapter.</p>
+  <div class="glance">
+    <div class="gh"></div><div class="gh g">Greek sky<br><small>to bound</small></div><div class="gh v">Vedic sky<br><small>to balance</small></div><div class="gh c">Chinese sky<br><small>to cut</small></div>
+    <div class="gr">I · How they find out</div>
+    <a class="gc g" href="#g1">The olive line climbs the hills. The Lyceum proves by contradiction that the warming is theirs: the nights warm faster than the days.</a>
+    <a class="gc v" href="#v1">The rains arrive under the wrong star. The ledger of fires shows the sky receiving more than the forests return.</a>
+    <a class="gc c" href="#c1">Plum blossoms open earlier in ten thousand gazetteers. Tabulated county by county, the trend can no longer hide.</a>
+    <div class="gr">II · How they struggle</div>
+    <a class="gc g" href="#g2">Every city waits for its neighbour. A proved bound, carved at Delphi, becomes the first treaty of the air.</a>
+    <a class="gc v" href="#v2">A <i>dakṣiṇā</i>, a fee, on every fire, payable in trees. A rule that runs both ways, from fire to forest and back.</a>
+    <a class="gc c" href="#c2">An emperor’s edict of self-blame, then Yu’s old rule: channel the fires, don’t dam them. Charcoal goes back into the fields.</a>
+    <div class="gr">III · Their great work</div>
+    <a class="gc g" href="#g3"><b>The Parasol of Syracuse.</b> A cloud of bronze-foil discs at the balance point between Earth and Sun, shading one part in fifty of the light.</a>
+    <a class="gc v" href="#v3"><b>The White Falcon.</b> An altar of white-glazed brick with wings across a desert, rebuilt every year, and ships that whiten the clouds with sea-spray.</a>
+    <a class="gc c" href="#c3"><b>补天 · Mending the Sky.</b> Rockets loft five-coloured stone dust, patch by patch, measured and adjusted. The sunsets turn five colours.</a>
+    <div class="gr">IV · The same rains, by magic</div>
+    <a class="gc g" href="#m-greek"><b>The Wind Stations.</b> A league of island towers bends the seasonal winds back toward the failing fields, and the seas learn to share one wind.</a>
+    <a class="gc v" href="#m-indic"><b>The Rain Circle.</b> Singers, water-workers and grain-keepers tune the monsoon across whole catchments, and learn that every crop keeps its own time.</a>
+    <a class="gc c" href="#m-china"><b>The Seasonal Calendar.</b> Ten thousand valleys report to one academy, which schedules the rains, and then learns to read the reports it never asked for.</a>
+  </div>
+</section>
+
+<section class="w" id="rules" style="padding-top:60px">
+  <div class="kicker">The rules of the game</div>
+  <h2>Three worlds that never <em>meet</em></h2>
+  <p>In each sky below, one civilisation goes on alone. It finds its own fuel, burns its own fires, and meets its own changing climate. No ship, scholar or rumour crosses between them. What each one notices, argues over and builds comes only from its own tools of thought, the same tools we watched at work in the Three Tables experiments.</p>
+  <p>Each world also has to take one hard step before anything else can happen. A bad season has to become a pattern, and a pattern has to become a history.</p>
+  <div class="flow">
+    <div><b>01</b>A storm ruins a harvest.<i>an event</i></div>
+    <div><b>02</b>The rains fail again, and again.<i>a pattern</i></div>
+    <div><b>03</b>People compare their grandparents’ seasons with their own.<i>a changing baseline</i></div>
+    <div><b>04</b>They see one connected sky and reach for it.<i>a shared system</i></div>
+  </div>
+  <p>That step needs three things: records kept far apart in place and time, a memory long enough to tell the exception from the return, and someone willing to count. Part One shows that each tradition already held all three. Part Two follows each world through its own discovery, struggle and great work. Part Three runs the same rains again, in worlds where magic works.</p>
+  <p>Every story is invented. Every <span class="seedmark">seed</span> it grows from is real: a text, an institution, an observation that actually existed. They are gathered at the back with their sources, so you can tell where history ends and the dream begins.</p>
+</section>
+<section class="w part" id="archive">
+  <div class="part-band"><span class="no">Part One</span><span class="nm">The record <span class="by gp">GPT</span></span></div>
+  <h2 style="margin-top:22px">What each archive already <em>held</em></h2>
+  <p class="big">Long before anyone could model a climate, each tradition was already watching the sky, measuring the rain and remaking land and water. These are the real traces each invented world grows from.</p>
+
+  <div class="arch g"><h3>The Greek archive</h3><p class="sub">Physicians, weather-watchers, philosophers and drainage engineers.</p>
+  <ul class="rec">
+    <li><span class="when">Late 5th c. BCE · Hippocratic corpus</span><b><i>Airs, Waters, Places</i></b><p>The physician arriving in a new city is told to study its seasons, prevailing winds, water, terrain and ways of life, and to read its illnesses in that setting. Medicine begins with the environment.<a class="fn" href="#s1">1</a></p></li>
+    <li><span class="when">4th–3rd c. BCE · Theophrastus</span><b><i>On Weather Signs</i></b><p>Birds, animals, the shapes of clouds, the look of the mountains and the risings of stars, gathered into a systematic book of warnings.<a class="fn" href="#s2">2</a></p></li>
+    <li><span class="when">4th c. BCE · Plato</span><b><i>Critias</i> 111b–d</b><p>An older Attica of deep soil and wide woods, set against the bare hills of Plato’s own day, “the bones of a wasted body”. Land seen changing over the long run.<a class="fn" href="#s3">3</a></p></li>
+    <li><span class="when">Bronze Age · Boeotia</span><b>The drainage of Lake Kopais</b><p>Mycenaean canals and embankments that drained a lake to make farmland: an inhabited landscape remade by engineering.<a class="fn" href="#s4">4</a></p></li>
+    <li><span class="when">5th c. BCE, told later · Diogenes Laertius</span><b>Empedocles the wind-stayer</b><p>A later life of Empedocles calls him <i>kōlusanemas</i>, the one who stops the winds, and tells of skins stretched along the hills to hold back the gales that blighted the crops. A philosopher remembered for changing the wind itself.<a class="fn" href="#s5">5</a></p></li>
+  </ul></div>
+
+  <div class="arch v"><h3>The Vedic and Indic archive</h3><p class="sub">Hymns to the rain, and the statecraft and astronomy that grew after the Vedas.</p>
+  <ul class="rec">
+    <li><span class="when">Ṛgveda 5.83 and 1.32</span><b>Parjanya and the released waters</b><p>Hymns to Parjanya, the roaring rainstorm that quickens the plants, and to Indra, who breaks Vṛtra and sets the held waters free. Water, obstruction, fertility and release, worked out in poetry and cosmology.<a class="fn" href="#s6">6</a><a class="fn" href="#s7">7</a></p></li>
+    <li><span class="when">Arthaśāstra 2.24</span><b>The Director of Agriculture</b><p>The statecraft manual gives rainfall amounts by region, how the rains fall across the season, and how officials should plan the crops from them. It also describes a vessel for measuring rain.<a class="fn" href="#s8">8</a><a class="fn" href="#s9">9</a></p></li>
+    <li><span class="when">c. 150 CE · Junagadh</span><b>Rudradāman’s inscription</b><p>A great storm breaches the embankment of Sudarśana Lake; the king has it rebuilt, and the inscription remembers the earlier reigns that built and improved it. Disaster, public works and a ruler’s standing carved into one rock.<a class="fn" href="#s10">10</a></p></li>
+    <li><span class="when">6th c. CE · Varāhamihira</span><b><i>Bṛhat Saṃhitā</i></b><p>Long chapters on foretelling the rains, where close observation of clouds, winds and seasons sits beside the reading of the stars, all part of one science.<a class="fn" href="#s11">11</a></p></li>
+  </ul></div>
+
+  <div class="arch c"><h3>The Chinese archive</h3><p class="sub">Royal questions, rivers led to the fields, and a fossil that remembered another climate.</p>
+  <ul class="rec">
+    <li><span class="when">c. 1250–1050 BCE · Shang</span><b>The oracle bones</b><p>Royal diviners ask, again and again, whether it will rain, whether drought will come, whether the harvest will be good. Rain enters a practice of inquiry and inscription.<a class="fn" href="#s12">12</a><a class="fn" href="#s13">13</a></p></li>
+    <li><span class="when">c. 256 BCE · Sichuan</span><b>Dujiangyan</b><p>The Min River is split and led to the Chengdu plain for irrigation and flood control, with the river’s own shape and flow doing the work. Yu’s way of channelling, built in stone and bamboo, and still running.<a class="fn" href="#s14">14</a></p></li>
+    <li><span class="when">Zhou onward</span><b>The Mandate of Heaven</b><p>Floods and droughts read against a ruler’s standing. The answer to drought joins public works, granary relief and prayer for rain.<a class="fn" href="#s15">15</a><a class="fn" href="#s16">16</a></p></li>
+    <li><span class="when">11th c. CE · Shen Kuo</span><b>The bamboo at Yanzhou</b><p>Fossil bamboo turns up in the dry north, where no bamboo grows. Shen Kuo infers that the climate there was once wetter: a different environmental past, read from the ground.<a class="fn" href="#s17">17</a></p></li>
+  </ul></div>
+  <div class="pull">Each archive already held the long memory, the far-apart records and the people willing to count.</div>
+</section>
+
+<div class="w part" style="padding-bottom:0"><div class="part-band"><span class="no">Part Two</span><span class="nm">Three skies <span class="by cl">Claude</span></span></div><p class="big" style="margin-top:22px">Now the invented histories. In each sky one civilisation burns its own fires, finds out, struggles, and builds the great work its way of knowing predicts.</p></div>
+<!-- GREEK SKY -->
+<section class="sky sky-g" id="greek">
+ <div class="w">
+  <div class="sky-head"><div class="sky-no">Sky I</div><div class="sky-nm">The Greek sky</div><div class="sky-verb">to bound</div></div>
+  <blockquote class="epi"><span class="el">δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω.</span><small>“Give me a place to stand, and I will move the earth.” · Archimedes, as reported by Pappus</small></blockquote>
+
+  <div class="ch" id="g1">
+    <div class="kicker">I · The discovery</div>
+    <h2>The olive line climbs the hills</h2>
+    <p class="drop big">In this sky, Hero of Alexandria’s spinning steam-toy never stays a toy. Within a few generations of the Library at Alexandria, the aeolipile pumps the mines of Laurion, and the forges of Athens burn black stone dug from the hills of Thrace.</p>
+    <p>The first people to notice anything are farmers. Olive trees that once stopped at the foot of the hills start climbing them. Snow on Parnassus melts a month early. The Etesian winds that carry the grain ships from Egypt come late and weak, and grain prices in the Piraeus begin to jump.</p>
+    <p>Greeks had kept <i>parapegmata</i> for centuries, stone calendars with a peg for each day, noting which star rose with which weather. In the city of Larissa, an invented keeper we will call Philinna does something nobody had bothered to do. She lays three centuries of pegged weather side by side and counts. The frosts are fewer, and the first figs come earlier. <span class="seedmark">seed</span></p>
+    <p>The question goes to the Lyceum, and the Lyceum answers the only way it knows: with a proof. <em>Suppose the Sun has grown hotter.</em> Then the days should have warmed most, since the Sun shines only by day. But Philinna’s pegs say the <b>nights</b> have warmed faster than the days. So the Sun is not the cause, and something is holding the heat in after dark. The only new thing in the air of Greece is the smoke of its own forges.</p>
+    <div class="pull">They never found the cause directly. They proved what it could not be until only one thing was left.</div>
+  </div>
+
+  <div class="ch" id="g2">
+    <div class="kicker">II · The struggle</div>
+    <h2>The commons of the air</h2>
+    <p>Proving it was the easy part. Aristotle had already put the difficulty in one line, centuries earlier: what belongs to the most people receives the least care. <span class="seedmark">seed</span> The air above Corinth is the same air as above Athens. If Athens banks its forges and Corinth doesn’t, Athens is poorer and the sky is barely cooler.</p>
+    <p>The Assembly argues for years. Sophists, paid to win, take every side. The gods warm the world, they say, or the warming is good for vines, or Athens should go first and let the barbarians follow. Ostraka pile up with the names of forge-masters.</p>
+    <p>The breakthrough comes from geometry. The geometers of the Lyceum, given every record in the Greek world, refuse to give a single number for how much warmer the world will grow. They give two. <b>No less than this, and no more than that</b>, each edge with its own proof. A bound is something rival cities can agree to without trusting one another, because each can check the proof itself.</p>
+    <p>The two numbers are carved on a stele at Delphi, where every city already sends envoys. The Amphictyony, the old league that guards the sanctuary, makes the bound its law. Each city may burn only its share of the gap between what the world is now and the upper edge of the bound. It is the first treaty ever written about the air.</p>
+  </div>
+
+  <div class="ch" id="g3">
+    <div class="kicker">III · The great work</div>
+    <h2>The Parasol of <em>Syracuse</em></h2>
+    <p>Cutting the fires is slow. So a Syracusan geometer, invented here and called Kallias, reaches back to Archimedes’ boast about the place to stand, and asks whether there is a place in the sky where a shade could stand still.</p>
+    <p>There is. Somewhere on the line between the Earth and the Sun, the Sun’s pull and the Earth’s pull balance. Hang something there, and it stays between us and the Sun, casting a soft shadow that never moves off the world. Kallias finds it with a compass and a straightedge, from Aristarchus’ measurements of how far away the Sun and Moon are. Aristarchus’ Sun is far too close, so his first parasol is the wrong size. The second generation of geometers measures again, finds the error, and the proof survives the correction, as proofs do.</p>
+    <div class="fig">
+      <div class="fig-t">Kallias’ figure · the place to stand, drawn the Greek way</div>
+      <svg viewBox="0 0 340 170" aria-label="Sun, parasol and Earth with lettered geometry">
+        <circle cx="40" cy="85" r="34" fill="#efe8b4" stroke="#b59a4a"/><text x="40" y="89" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#76621f">Α</text>
+        <line x1="74" y1="85" x2="300" y2="85" stroke="#34493d" stroke-dasharray="3 4"/>
+        <line x1="40" y1="51" x2="300" y2="77" stroke="#7f8fd0" stroke-width=".8"/><line x1="40" y1="119" x2="300" y2="93" stroke="#7f8fd0" stroke-width=".8"/>
+        <ellipse cx="262" cy="85" rx="3" ry="11" fill="#4b5aa3"/><text x="262" y="66" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#4b5aa3">Β</text>
+        <circle cx="304" cy="85" r="9" fill="#6fa585" stroke="#3d6b52"/><text x="304" y="112" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#3d6b52">Γ</text>
+        <text x="170" y="150" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#34493d">Α Sun · Β parasol at the balance point · Γ Earth</text>
+      </svg>
+      <div class="fig-c">At Β the two pulls cancel, and a shade there sits on the line from Α to Γ. The figure is not to scale: Β is far closer to the Earth than the Sun.</div>
+    </div>
+    <p>The parasol is not one sheet. It is a cloud of bronze foil, discs a hand wide and thin as a cicada’s wing, beaten in the workshops of Rhodes by the hundred thousand. The bound at Delphi tells them exactly how much shade to build: enough to dim the Sun by about <b>one part in fifty</b>, no more and no less. That is the whole design brief: a number between two proofs.</p>
+    <p class="big">On a clear day in Syracuse, the Sun looks no different. But there is a shimmer at its edge that astronomers can see through smoked glass, a faint grain in the light like dust in a sunbeam. Children are taught to call it Archimedes’ hand.</p>
+  </div>
+ </div>
+</section>
+
+<!-- VEDIC SKY -->
+<section class="sky sky-v" id="vedic">
+ <div class="w">
+  <div class="sky-head"><div class="sky-no">Sky II</div><div class="sky-nm">The Vedic sky</div><div class="sky-verb">to balance</div></div>
+  <blockquote class="epi"><span class="dv">ऋतं च सत्यं चाभीद्धात्तपसोऽध्यजायत ।</span><small>“Order and truth were born from kindled heat.” · Ṛgveda 10.190.1</small></blockquote>
+
+  <div class="ch" id="v1">
+    <div class="kicker">I · The discovery</div>
+    <h2>The rains forget their <em>star</em></h2>
+    <p class="drop big">In this sky the fire never leaves the centre of life. The kilns that bake ten thousand bricks for a single altar multiply into kilns for cities. The smiths whose crucible steel will one day become famous feed their furnaces day and night.</p>
+    <p>The people who notice first are the priests. The whole ritual year is pinned to the sky. Each rite has its season, and each season its <i>nakṣatra</i>, the lunar mansion the moon passes through when it begins. For generations, the monsoon has broken when the moon sits in the same mansions. Now the rains come under the wrong stars. Sowings planned by the calendar fail. The rites, timed to the sky, start falling out of step with the earth.</p>
+    <p>Here is how this tradition reasons. Every fire is an offering, and every offering rises as smoke to the sky. That is what an offering <em>is</em>. So an invented adhvaryu priest we will call Devavrata keeps a ledger with two columns: what the fires send up, and what the forests and fields take back down. For a thousand years the columns balanced. Now the first column is far longer than the second. The sky, he concludes, is holding offerings it was never meant to keep. <i>Ṛta</i>, the order that keeps seasons and stars in step, has tilted. <span class="seedmark">seed</span></p>
+    <div class="pull">They didn’t ask what the sky is made of. They asked whether the exchange still balanced, and it didn’t.</div>
+  </div>
+
+  <div class="ch" id="v2">
+    <div class="kicker">II · The struggle</div>
+    <h2>A fee for every <em>fire</em></h2>
+    <p>Every Vedic rite already ends with a <i>dakṣiṇā</i>, the fee paid to the officiants. Devavrata proposes the obvious extension. Every fire, sacred or industrial, owes a <i>dakṣiṇā</i> to the sky, payable in the only thing that takes smoke back down: trees. So many groves for so many fires.</p>
+    <p>The hardest fires to charge are the grandest. Kings measure their glory in great sacrifices, and the horse sacrifice alone burns for days. A rāja who plants a forest for his fire looks, to his rivals, like a rāja who could not afford a bigger fire. In the assemblies, the <i>sabhā</i> and the <i>samiti</i>, the argument runs for a generation.</p>
+    <p>It is settled the way the altar-builders always settled things: with a rule that runs in both directions. The cord-makers had rules to turn a square into a circle of equal area and back again. Now the ritualists write a rule that turns a fire into a forest of equal weight, and a forest back into the fire it permits. A king may burn as grandly as he likes, as long as he can show the grove that balances it. Prestige moves from the size of the fire to the size of the forest.</p>
+    <p>Within a lifetime, the most admired kings are the ones with the widest groves, and the ledger begins, slowly, to close.</p>
+  </div>
+
+  <div class="ch" id="v3">
+    <div class="kicker">III · The great work</div>
+    <h2>The White <em>Falcon</em></h2>
+    <p>The groves take decades to grow. So the ritualists turn to their oldest masterpiece, the <i>agnicayana</i>, the great fire-altar laid as a falcon in flight. Its bricks were counted to match the moments of the year, 10,800 of them. <span class="seedmark">seed</span> If an altar can hold the year, they reason, a large enough altar can hold back the Sun.</p>
+    <div class="fig">
+      <div class="fig-t">The White Falcon · laid out on the desert, as the cord-makers would</div>
+      <svg viewBox="0 0 340 200" aria-label="Falcon-shaped altar of white bricks on desert sand" id="falconSvg"></svg>
+      <div class="fig-c">The falcon is built from the same brick shapes as the ancient altar, scaled up until each wing runs for leagues across the sand. White glaze turns sunlight straight back to the sky.</div>
+    </div>
+    <p>The White Falcon is laid across the western desert, its wings leagues long, from bricks glazed so white they hurt to look at. Sunlight that would have warmed the sand bounces straight back into the sky. Like every Vedic altar, it is built to the season and dismantled after. Each year the falcon is relaid, a little larger or a little smaller, according to what the ledger says. It is an engineering that can be unbuilt, a rule that runs both ways, in brick.</p>
+    <p>Along the coasts, the priests of Varuṇa, lord of the waters and keeper of <i>ṛta</i>, add a second offering. Fleets of ships throw fine sea-spray into the low clouds, and the clouds turn whiter and brighter, sending more sunlight back before it ever reaches the land. Offerings rise as smoke. These rise as salt.</p>
+    <p class="big">Herders on the desert’s edge say that at dawn, when the sun first strikes the glaze, the falcon seems to lift off the sand for a moment and hang there, white against the white sky.</p>
+  </div>
+ </div>
+</section>
+
+<!-- CHINESE SKY -->
+<section class="sky sky-c" id="chinese">
+ <div class="w">
+  <div class="sky-head"><div class="sky-no">Sky III</div><div class="sky-nm">The Chinese sky</div><div class="sky-verb">to cut finer</div></div>
+  <blockquote class="epi"><span class="zh">炼五色石以补苍天。</span><small>“She smelted stones of five colours to mend the blue sky.” · 《淮南子·览冥训》, of Nüwa</small></blockquote>
+
+  <div class="ch" id="c1">
+    <div class="kicker">I · The discovery</div>
+    <h2>The plum blossoms come <em>early</em></h2>
+    <p class="drop big">In this sky, the Song dynasty’s great age of coal and iron never ends. The furnaces of the north burn black stone, and Kaifeng’s winters smell of it. Shen Kuo, who really did name a strange black oil 石油, “rock oil,” and really did predict <span class="zh">此物后必大行于世</span>, that it would one day be used everywhere, turns out to be exactly right, centuries early. <span class="seedmark">seed</span></p>
+    <p>Nobody in this sky sets out to discover anything. The empire simply never stops writing things down. Every county keeps a gazetteer, a <span class="zh">地方志</span>, recording floods, droughts, locusts, the day the river froze and the day the plum trees flowered. The 司天监, the Bureau of Astronomy, collects omens from every corner of the realm.</p>
+    <p>For a century the entries look like scattered weather. Then a junior clerk at the Bureau is told to tabulate them by county, and then by township, and then decade by decade. Cut finer, lose less. The pattern sharpens with every pass. The plums are blossoming earlier, the river ice is breaking sooner, the frost line is creeping north, and all of it, in every province, at once. <span class="seedmark">seed</span></p>
+    <p>Under the doctrine of 天人感应, Heaven answers human conduct with portents. To the court this can mean only one thing. Heaven is responding to something the empire is doing.</p>
+  </div>
+
+  <div class="ch" id="c2">
+    <div class="kicker">II · The struggle</div>
+    <h2>Channel, don’t <em>dam</em></h2>
+    <p>The emperor does what emperors did when Heaven sent warnings. He issues a 罪己诏, an edict blaming himself. It is sincere and it is beautifully written, and it changes nothing in the furnaces.</p>
+    <p>The court splits along a line older than the dynasty. One faction wants coal banned outright. The other reaches for the oldest story in Chinese engineering. The flood-tamer Gun tried to <b>dam</b> the great flood, and failed. His son Yu <b>dredged channels</b> and led the water to the sea, and succeeded. Block it and it bursts. Guide it and it goes. <span class="seedmark">seed</span></p>
+    <p>Yu’s faction wins, and the empire channels instead of damming. Furnaces near rivers move to water-wheels, and furnaces on the windy plateau to wind. And from the 常平仓, the ever-normal granary, an old institution that bought grain in good years to release in bad ones, comes the most elegant idea of all: an ever-normal granary <em>for the air</em>. Carbon taken in the form of charcoal is buried in the fields, where it enriches the soil and stays out of the sky. The granary was first proposed under the Han by 耿寿昌, the same official who helped edit the Nine Chapters. <span class="seedmark">seed</span></p>
+    <p>None of it happens all at once. It happens county by county, ledger by ledger, as everything in this empire does.</p>
+  </div>
+
+  <div class="ch" id="c3">
+    <div class="kicker">III · The great work</div>
+    <h2>补天 · Mending the <em>sky</em></h2>
+    <p>Every child in this world knows how the sky was mended once before. When the pillars of heaven cracked, Nüwa smelted stones of five colours and patched the hole. There is another story too, of the archer Yi, who shot nine suns out of the sky when ten burned at once. At court, the archers’ faction proposes something like his: block the Sun outright. The proposal is rejected as crude. One does not shoot the Sun. One mends the sky.</p>
+    <p>So the empire founds a 补天司, an Office for Mending the Sky. Its tools are the empire’s own inventions. Rockets, which the Song first built for war, carry fine dust of the five-coloured stones high above the clouds. Up there the dust hangs for a season, scattering a little sunlight back into space.</p>
+    <div class="fig">
+      <div class="fig-t">The 补天司 method · one patch at a time</div>
+      <svg viewBox="0 0 340 200" aria-label="Grid of prefectures with patches of coloured dust above" id="butianSvg"></svg>
+      <div class="fig-c">The sky above the empire is divided into the same grid as its counties. Each season a few patches are mended, the results are measured, and the next season’s patches are chosen from what was learned.</div>
+    </div>
+    <p>And because this is the Chinese table, the Office never does it all at once. The sky is divided into a grid, like the counties below. Each season a few patches are mended, the frost dates and blossom dates beneath them are measured, and the method is adjusted. Then it goes one patch further. The procedure never ends, and that is its strength. Each season’s answer is better than the last, and there is always a next one.</p>
+    <p class="big">The first thing anyone notices is the sunsets. Over Kaifeng the evening sky turns colours no painter has used before: jade, then vermilion, then gold, then white, then deep ink-black. Poets call them the five colours of Nüwa, and the court painters spend a generation trying to catch them.</p>
+  </div>
+ </div>
+</section>
+
+<section class="w part" id="magic">
+  <div class="part-band"><span class="no">Part Three</span><span class="nm">The same rains, by magic <span class="by gp">GPT</span></span></div>
+  <h2 style="margin-top:22px">Three worlds try to <em>water</em> a sky</h2>
+  <p class="big">Run the three worlds again. This time the trouble is the rain itself, failing, coming late, flooding one valley and missing the next, and this time magic works. Each tradition still meets it alone.</p>
+  <div class="scene"><div class="sh">A scene to begin · the granary opens</div>
+    <p>On the first morning of the harvest, the granary keeper opens her doors. There are fewer baskets than last year.</p>
+    <p>She has kept the same record for nineteen years. During the first six, a bad season was an exception. Now every family has a story about the rain: it arrived while the grain was drying; it stopped during germination; it flooded one valley and never reached another.</p>
+    <p>The elders ask what offence has been committed. The farmers ask when to sow. The physician asks why the fevers have changed. The ruler asks how many people can still be fed.</p>
+    <p>No one has yet said that the climate itself might be changing.</p></div>
+
+  <div class="con" id="m-greek"><div class="cn" style="color:var(--lav-t)">Greek world, with magic</div><h3>The Council of the Etesians and the Wind Stations</h3>
+    <p>An island city builds towers that read the strength and bearing of the seasonal winds. Physicians send in their illness reports, farmers their flowering dates, sailors their seas. For decades these are local arts. Then the records begin to agree: the Etesian winds have changed their yearly road.</p>
+    <p>A school that traces itself to Empedocles, the wind-stayer, proposes a chain of wind-turning stations across the islands and mountain passes. They call it a work of the <i>stoicheia</i>, the elements of the world. Its aim is to carry the moist air back to the failing fields.</p>
+    <div class="scene"><div class="sh">The assembly</div><p>“Who grants you permission to move the wind?” asks a delegate from a neighbouring island.</p><p>“The people who would otherwise starve,” replies the engineer.</p><p>“Then why have you turned its rain away from us?”</p><p>For the first time, a project meant to save one city has become an argument between entire seas.</p></div>
+    <p>So the Greeks do what Greeks do with an argument between seas. The Council of the Etesians is founded, a league of rival cities, pilots, physicians and elemental philosophers, and the wind becomes the first thing in the Greek world that every city owns together.</p>
+  </div>
+
+  <div class="con" id="m-indic"><div class="cn" style="color:var(--gold-t)">Indic world, with magic</div><h3>The Rain-Weavers and the <i>varṣa-maṇḍala</i></h3>
+    <p>The earliest rain-working schools are masters of speech, performance and the timing of the seasonal rites. Centuries later, scholars of water, farmers, physicians, musicians and administrators build a network of measuring stations and ritual grounds, to compare how the rain answers different arrangements of sound, landscape and gathered people.</p>
+    <p>The great shift is from <i>calling rain here</i> to <i>keeping the rain moving through the whole inhabited world</i>. The work runs through connected river catchments, reservoirs, forests and the paths of the air. Its makers call it the <i>varṣa-maṇḍala</i>, the rain-circle.</p>
+    <div class="scene"><div class="sh">The monastery granary</div><p>At the seventh assembly, a young grain-keeper interrupts the singers.</p><p>“Last year’s rite was successful,” she says. “The clouds came. You all witnessed them.”</p><p>“Then what troubles you?” asks the presiding scholar.</p><p>“They came too late for the millet. The rice survived, but the millet did not. And the village upstream says that our abundance was their flood.”</p><p>They had measured the rain’s arrival. She asks them to measure what it does.</p></div>
+    <p>From that day the rain-circle keeps a second ledger, of timings: when each crop wants water, when each valley can take it. The weavers stop composing one monsoon and begin composing many, a living multiplicity of rains, each with its own season and its own village waiting for it.</p>
+  </div>
+
+  <div class="con" id="m-china"><div class="cn" style="color:var(--deep)">Chinese world, with magic</div><h3>The Calendar of Ten Thousand Valleys</h3>
+    <p>Seasonal reports come in from villages, river gauges, seed-houses, travelling physicians and the networks of ritual specialists. A central academy learns to see change across generations: the spring rains that could be counted on now fall as autumn deluges; the upland crops fail while the coasts flood.</p>
+    <p>Its answer is a vast network of hydraulic and atmospheric adjustments. Each region is given its window for planting, for cloud-working, for storing water and for letting it go. The whole becomes a planetary calendar, many local seasons aligned into one steady pattern.</p>
+    <div class="scene"><div class="sh">A report sent upriver</div><p>The regional bureau reports that the spring correction succeeded. Every official gauge recorded the scheduled rain.</p><p>Yet a woman arrives carrying a flowering branch. “The river has changed its smell,” she says. “The fish came early, but their young have disappeared. Your rain has reached the fields. It has missed the river.”</p><p>The scholar who designed the correction asks to examine the branch.</p><p>The magistrate asks whether the report can be filed under an existing category.</p><p>It cannot. So the academy makes a new one.</p></div>
+    <p>The Calendar’s great reform is a door for reports nobody asked for. The fisher, the herbalist and the woman with the branch can now change the schedule, and the Calendar grows more exact for it, county by county, as everything in this world does.</p>
+  </div>
+
+  <div class="cmp">
+    <div class="g"><h4>The Wind Stations</h4><p><b>Works at the scale of</b>coast, mountain pass, island and sea</p><p><b>Run by</b>a league of rival cities, pilots, physicians and elemental philosophers</p><p><b>The grand working</b>bend the yearly roads of the wind to bring back the seasonal rain</p><p><b>What it learns next</b>one wind serves every shore, so the seas must share it</p></div>
+    <div class="v"><h4>The Rain Circle</h4><p><b>Works at the scale of</b>watershed, ritual season, growing cycle and living catchment</p><p><b>Run by</b>linked schools of singers, water-workers, farmers and record-keepers</p><p><b>The grand working</b>keep moisture circling through the inhabited world</p><p><b>What it learns next</b>every crop keeps its own time, so one monsoon becomes many</p></div>
+    <div class="c"><h4>The Seasonal Calendar</h4><p><b>Works at the scale of</b>basin, region, farming schedule and a far-flung record of change</p><p><b>Run by</b>an academy-bureaucracy tied to local observers and engineers</p><p><b>The grand working</b>tune air and water into coordinated seasons</p><p><b>What it learns next</b>living signs outrun the gauges, so the calendar learns to read them</p></div>
+  </div>
+  <div class="mx">
+    <div class="r h"><div>The question</div><div>Greek world</div><div>Indic world</div><div>Chinese world</div></div>
+    <div class="r"><div class="q">What counts as evidence?</div><div data-l="Greek">Observed winds, illness, erosion, disputation</div><div data-l="Indic">Seasonal hymns and memory, rainfall measures, crop outcomes</div><div data-l="Chinese">Divination records, flood works, grain returns, long runs of observation</div></div>
+    <div class="r"><div class="q">Who coordinates?</div><div data-l="Greek">A league of rival communities</div><div data-l="Indic">Distributed lineages and the public-works offices</div><div data-l="Chinese">A many-levelled bureau and academy</div></div>
+    <div class="r"><div class="q">Where the first leap lands</div><div data-l="Greek">Winning the argument becomes winning the weather</div><div data-l="Indic">A successful rite becomes a flourishing society</div><div data-l="Chinese">A model that complies becomes a healthy river</div></div>
+    <div class="r"><div class="q">Who sees further?</div><div data-l="Greek">The farmers on the neighbouring island</div><div data-l="Indic">People who plant other crops at other times</div><div data-l="Chinese">Local observers, and the life beyond the report</div></div>
+  </div>
+
+  <div class="ch" id="many">
+    <div class="kicker">The discovery all three share</div>
+    <h2>Every place has its own good <em>weather</em></h2>
+    <p>The moment each world reaches for the whole sky, it learns the same thing. A rain on one coast changes the air over another. More rain is a gift before planting and a ruin after it. A river’s health is more than the grain it waters. Heat, wind, soil, insects, forests, bodies and sea-life all answer on their own clocks.</p>
+    <p>Magic in these worlds can work astonishing control over a single process. Understanding the whole living system is a second art, and the three worlds go on to invent it.</p>
+    <div class="pull">A climate is shared by everyone, and lived by each place in its own way.</div>
+    <p>So each civilisation grows new kinds of knowing alongside its spells: institutions that welcome correction, ways of listening across distance, archives that keep dissent, and seats at the council for those who cannot sit there themselves, the generations to come and the life beyond the human.</p>
+    <div class="note2"><div class="lab">The arts come back into the argument</div><p>Seasonal songs, harvest dances, woven sequences and local stories hold long memories the gauges miss. A melody always sung at the first flowering is suddenly sung at the wrong time of year, and a singer notices before a governor does. In these worlds the artist sits inside the work of knowing a changing environment, beside the engineer. The thread runs on into <a href="138%20What%20Artists%20Built.html">138 What Artists Built</a>.</p></div>
+  </div>
+</section>
+<!-- CODA -->
+<section class="w" id="coda" style="padding-top:90px">
+  <div class="act-band"><span class="no">After</span><span class="nm">Three skies, seen from above</span></div>
+  <h2 style="margin-top:24px">Each built the machine its way of <em>knowing</em> predicts</h2>
+  <div class="trio">
+    <div class="tab b"><div class="verb">to bound</div><div class="who">the Greek sky</div><div class="sym">a proved point</div><p>The parasol is a geometric object, hung where a proof says the forces balance, sized by a bound carved in stone.</p></div>
+    <div class="tab v"><div class="verb">to balance</div><div class="who">the Vedic sky</div><div class="sym">□ ⇄ ○</div><p>The falcon is a reversible altar, built and unbuilt each year from a ledger that has to close in both directions.</p></div>
+    <div class="tab c"><div class="verb">to cut</div><div class="who">the Chinese sky</div><div class="sym">patch → patch → …</div><p>The mending is a procedure, patch by patch and season by season, measured and refined without end.</p></div>
+  </div>
+  <p class="big">None of these three worlds ever heard of the others. And yet every one of their great works sits on a modern desk today.</p>
+  <p>A shade at the point between Earth and Sun, dimming the light by <b>1.8 percent</b>, was proposed in all seriousness in 2006. Brightening clouds with sea-spray is a living research programme. Lofting fine particles high into the sky to scatter sunlight is the idea modern scientists call stratospheric aerosol injection, and a volcano did a version of it in 1991. <span class="seedmark">seed</span></p>
+  <h3 style="font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,34px);margin:46px 0 12px">Scarcity was a school of thought <span class="by gp">GPT</span></h3>
+  <p>This whole thread began with an observation about Mozi and Xunzi: they lived in a time of scarcity, when food was uncertain, bodily harm was common, communities fought, and the ways to ease suffering were few. Their question was what kind of thought could end its causes.</p>
+  <p>The three archives answer it with respect for how hard that was. The Greek physician reading illness in the winds, the Indic official measuring the rain, the Chinese diviner and the river engineer, and the many farmers and craftspeople whose watching never became a famous book: the urge to organise knowledge against suffering was already there.</p>
+  <p>And what a society takes to be the cause of its suffering decides whom it empowers to act. If drought is a moral warning, rulers and ritual specialists step forward. If it is a hydraulic problem, engineers and labourers are called. If it is a seasonal pattern, forecasters and farmers gain a new authority. A climate that changes all at once calls on all three together.</p>
+  <div class="scene"><div class="sh">Three rooms that never meet</div><p>In one world a council argues over whether the wind can belong to a city.</p><p>In another, a grain-keeper insists that rain’s timing matters more than its splendour.</p><p>In a third, an official opens a file for which no category exists.</p><p>None of them has heard of the other two. All three have begun the same generous work: learning to change a world while listening to everything living within it.</p></div>
+  <div class="ending">The Greek sky hung a proof between the Earth and the Sun. The Vedic sky laid a white bird on the sand. The Chinese sky mended itself one patch at a time. Three ways of knowing gave three ways of cooling a world, and all of them still look up.</div>
+  <p class="method">← <a href="139%20Weighing%20the%20Warming.html">139 Weighing the Warming</a> · Next: <a href="141%20Beyond%20the%20Sky.html">141 Beyond the Sky</a>, where the three traditions inherit modern physics →</p>
+</section>
+
+<!-- SEEDS -->
+<section class="back" id="seeds"><div class="wide">
+  <div class="kicker">At the back</div>
+  <h2>Real seeds &amp; sources</h2>
+  <p class="intro">Each <span class="seedmark">seed</span> in Part Two points to something that really existed, and each numbered note in Part One to a source you can open. Everything else is imagined.</p>
+  <h3 style="font-family:var(--display);font-weight:400;font-size:26px;margin-top:30px">Seeds of the three skies <span class="by cl">Claude</span></h3>
+  <ol class="notes">
+    <li><span class="n">Greek · climate remembered</span>Theophrastus (c. 372–282 BCE) recorded that Cretans believed their climate had changed, with harsher winters and more snow than before, and other ancient writers linked draining lakes and diverting rivers to cooling around Larisa in Thessaly. Plato’s <i>Critias</i> describes deforested Attica as the bones of a wasted body, its soil washed away.</li>
+    <li><span class="n">Greek · the commons</span>Aristotle, <i>Politics</i> II.3: what is common to the greatest number receives the least care. Parapegmata, stone star-and-weather calendars with movable pegs, are real. Hero of Alexandria’s aeolipile was a real steam device, never used as an engine.</li>
+    <li><span class="n">Greek · the place to stand</span>“Give me a place to stand” is attributed to Archimedes by Pappus. Aristarchus of Samos measured the Sun’s distance as roughly 18 to 20 times the Moon’s, a large underestimate. The nights-warming-faster argument is a real modern fingerprint distinguishing greenhouse warming from a brighter Sun.</li>
+    <li><span class="n">Vedic · kindled heat</span>Ṛgveda 10.190.1: <i>ṛta</i> and <i>satya</i> are born from <i>tapas</i>, kindled heat. <i>Ṛta</i> is the Vedic cosmic order, and Varuṇa its guardian. The Vedāṅga Jyotiṣa ties the ritual year to the <i>nakṣatras</i>. <i>Dakṣiṇā</i> is the real sacrificial fee. <i>Sabhā</i> and <i>samiti</i> are Vedic assemblies.</li>
+    <li><span class="n">Vedic · the altar</span>The <i>agnicayana</i> is the great falcon-shaped fire-altar. The Śatapatha Brāhmaṇa counts its space-filling bricks at 10,800, the number of <i>muhūrtas</i> in a year. Altars were built for a rite and rebuilt for the next.</li>
+    <li><span class="n">Chinese · rock oil</span>Shen Kuo (1031–1095), in 《梦溪笔谈》, named 石油 and wrote 此物后必大行于世. He also inferred a past wetter climate from fossil bamboo found in the dry north at Yanzhou. Northern Song China ran a large coal-and-iron industry.</li>
+    <li><span class="n">Chinese · records &amp; portents</span>Dong Zhongshu’s 天人感应 held that Heaven warns rulers through disasters and anomalies. Emperors issued 罪己诏, edicts of self-blame. Local gazetteers 地方志 recorded weather and phenology, and in 1972 the meteorologist 竺可桢 used such records to reconstruct five thousand years of China’s climate.</li>
+    <li><span class="n">Chinese · granary &amp; flood</span>The 常平仓 ever-normal granary was first established under the Western Han by 耿寿昌, who with 张苍 also compiled and revised the Nine Chapters. In the flood legend, Gun dams and fails while Yu channels and succeeds. Nüwa mending the sky is in 《淮南子·览冥训》, and Yi shooting nine suns is a classic myth.</li>
+    <li><span class="n">Modern · the three great works</span>Roger Angel (2006) proposed blocking 1.8% of sunlight with a cloud of small craft near the inner Lagrange point, L1, enough to offset a doubling of CO₂. Marine cloud brightening with sea-spray and stratospheric aerosol injection are active research areas. The 1991 eruption of Pinatubo briefly cooled the world and reddened sunsets worldwide.</li>
+  </ol>
+  <h3 style="font-family:var(--display);font-weight:400;font-size:26px;margin-top:40px">The record, sources <span class="by gp">GPT</span></h3>
+  <ol class="srcs"><li id="s1"><span class="n">01</span><a href="https://beta.perseus.tufts.edu/urn:cts:greekLit:tlg0627.tlg002.perseus-eng3/" target="_blank" rel="noopener">Hippocratic corpus, <i>Airs, Waters, Places</i>, §1</a>. <em>Environment and illness; late 5th c. BCE; the traditional attribution is debated.</em></li><li id="s2"><span class="n">02</span><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Theophrastus/De_signis%2A.html" target="_blank" rel="noopener">Theophrastus, <i>On Weather Signs</i></a>. <em>Observed signs of coming weather.</em></li><li id="s3"><span class="n">03</span><a href="https://adfonteslibrary.org/work-plato-critias" target="_blank" rel="noopener">Plato, <i>Critias</i>, 111b–d</a>. <em>Soil loss and erosion in Attica, told in a philosophical narrative.</em></li><li id="s4"><span class="n">04</span><a href="https://www.itia.ntua.gr/en/docinfo/1360/" target="_blank" rel="noopener">The Mycenaean drainage of Lake Kopais</a>. <em>Archaeological study of Bronze Age hydraulic works.</em></li><li id="s5"><span class="n">05</span><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Diogenes_Laertius/Lives_of_the_Eminent_Philosophers/8/Empedocles%2A.html" target="_blank" rel="noopener">Diogenes Laertius, <i>Lives</i> VIII, Empedocles §60</a>. <em>The wind-stayer anecdote, told centuries later.</em></li><li id="s6"><span class="n">06</span><a href="https://vmlt.in/rigveda/05/083" target="_blank" rel="noopener"><i>Ṛgveda</i> 5.83, hymn to Parjanya</a>. <em>Rain, plants, thunder and fertility.</em></li><li id="s7"><span class="n">07</span><a href="https://vmlt.in/rigveda/01/032" target="_blank" rel="noopener"><i>Ṛgveda</i> 1.32, Indra and Vṛtra</a>. <em>The struggle that releases the waters.</em></li><li id="s8"><span class="n">08</span><a href="https://indike.org/pramana/in.niti.artha.kautilya.2.24" target="_blank" rel="noopener"><i>Arthaśāstra</i> 2.24, the Director of Agriculture</a>. <em>Rainfall amounts, their distribution, and crop planning.</em></li><li id="s9"><span class="n">09</span><a href="https://hess.copernicus.org/articles/24/4691/2020/" target="_blank" rel="noopener">Hydrology and water resources management in ancient India, <i>Hydrology and Earth System Sciences</i> (2020)</a>. <em>Survey including early rain measurement.</em></li><li id="s10"><span class="n">10</span><a href="https://indike.org/pramana/inp.epigraphy.west.western-ksatrapa.junagadh-rock-inscription-of-rudradaman-the-year-72" target="_blank" rel="noopener">Junagadh inscription of Rudradāman (c. 150 CE)</a>. <em>Storm damage and the rebuilding of Sudarśana Lake.</em></li><li id="s11"><span class="n">11</span><a href="https://www.wisdomlib.org/hinduism/book/brihat-samhita/d/doc228922.html" target="_blank" rel="noopener">Varāhamihira, <i>Bṛhat Saṃhitā</i>, ch. 21</a>. <em>Rain prediction within an astral science.</em></li><li id="s12"><span class="n">12</span><a href="https://fsi.stanford.edu/docs/the_shang_dynasty_1600_to_1050_bce" target="_blank" rel="noopener">Stanford, The Shang Dynasty</a>. <em>Oracle-bone questions about rain, drought and harvest.</em></li><li id="s13"><span class="n">13</span><a href="https://asia-archive.si.edu/learn/for-educators/teaching-china-with-the-smithsonian/lesson-plans/making-sense-of-the-future-the-oracle-bone-and-shang-dynasty-divination/" target="_blank" rel="noopener">Smithsonian, Making Sense of the Future: Shang Oracle Bones</a>. <em>Objects and practice of early divination.</em></li><li id="s14"><span class="n">14</span><a href="https://whc.unesco.org/en/list/1001/" target="_blank" rel="noopener">UNESCO, Mount Qingcheng and the Dujiangyan Irrigation System</a>. <em>Water diversion and flood control begun c. 256 BCE.</em></li><li id="s15"><span class="n">15</span><a href="https://doi.org/10.1002/9781119399919.eahaa00775" target="_blank" rel="noopener">Mandate of Heaven, reference entry</a>. <em>Political and cosmological legitimacy across the periods.</em></li><li id="s16"><span class="n">16</span><a href="https://www.mdpi.com/2077-1444/16/3/332" target="_blank" rel="noopener">Touching People with Gods: Droughts and Ritual Prayers in Southeastern China, 8th–9th c., <i>Religions</i> (2025)</a>. <em>Ritual and state responses to drought.</em></li><li id="s17"><span class="n">17</span><a href="https://blog.geolsoc.org.uk/2014/03/03/the-first-evidence-for-climate-change/" target="_blank" rel="noopener">Geological Society, The first evidence for climate change?</a>. <em>Shen Kuo’s fossil bamboo, 11th c.</em></li></ol>
+  <p class="method">Book Four · To Further Investigate · 140. A synthesis of two volumes written on 18–19 November 2026: Claude’s <i>Three Skies</i> (the proposition, Part Two, the coda and the seeds) and ChatGPT’s <i>When the Rain Refused to Return</i> (Part One, Part Three and the reflection on scarcity), curated into one flow. The three histories are deliberately independent. Invented people (Philinna, Kallias, Devavrata), institutions (the Delphic bound, the fire-<i>dakṣiṇā</i>, the 补天司, the Council of the Etesians, the Rain Circle, the Calendar of Ten Thousand Valleys) and scenes are imagined. Real texts are quoted in their own languages.</p>
+  <p class="method">← <a href="139%20Weighing%20the%20Warming.html">139 Weighing the Warming</a> · <a href="141%20Beyond%20the%20Sky.html">141 Beyond the Sky</a> → · <a href="../../index.html">PMU front page</a></p>
+</div></section>
+
+<footer><div class="wide"><span>The Polymathic Universe · Book Four · 140 Three Skies</span><span>Lin Wei 林威 · with Claude and ChatGPT · Nov 2026</span></div></footer>
+<script>
+(function(){
+  const bar=document.getElementById('bar');
+  let tick=false;function upd(){const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(Math.max(0,Math.min(1,scrollY/Math.max(1,h)))*100)+'%';tick=false;}
+  addEventListener('scroll',()=>{if(!tick){requestAnimationFrame(upd);tick=true;}},{passive:true});upd();
+  const tb=document.getElementById('tocBtn'),toc=document.getElementById('toc');
+  tb.onclick=()=>{toc.classList.toggle('open');tb.textContent=toc.classList.contains('open')?'×':'≡';};
+  toc.querySelectorAll('a').forEach(a=>a.onclick=()=>{toc.classList.remove('open');tb.textContent='≡';});
+  const NS='http://www.w3.org/2000/svg';const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+
+  /* White Falcon: brick-built falcon on sand */
+  const f=document.getElementById('falconSvg');
+  mk('rect',{x:0,y:0,width:340,height:200,fill:'#e8d3a3'},f);
+  for(let i=0;i<14;i++)mk('path',{d:`M0 ${20+i*14} Q85 ${14+i*14} 170 ${22+i*14} T340 ${18+i*14}`,fill:'none',stroke:'#d9bf86','stroke-width':.8},f);
+  const cell=8;
+  function inFalcon(x,y){ // falcon facing up, centre 170
+    const dx=Math.abs(x-170);
+    if(y>=40&&y<=150&&dx<=18)return true;                 // body
+    if(y>=30&&y<40&&dx<=10)return true;                   // head
+    if(y>=150&&y<=182&&dx<=18+(y-150)*0.9)return true;    // tail flares
+    if(dx<=150&&y>=58+dx*0.10&&y<=104-dx*0.22)return true; // swept, tapering wings
+    return false;
+  }
+  for(let y=26;y<190;y+=cell/2){for(let x=10;x<330;x+=cell){const xo=((y/(cell/2))%2)?cell/2:0;const X=x+xo;if(inFalcon(X+cell/2,y+cell/4))mk('rect',{x:X,y:y,width:cell-.8,height:cell/2-.8,fill:'#fbfcf8',stroke:'#c9b37a','stroke-width':.3},f);}}
+  [[300,28],[316,44],[28,30]].forEach(([x,y])=>{mk('line',{x1:x,y1:y,x2:x+10,y2:y-14,stroke:'#fff7d6','stroke-width':1.4},f);});
+  const t=mk('text',{x:330,y:192,'text-anchor':'end','font-family':'JetBrains Mono,monospace','font-size':9,fill:'#5c4c14'},f);t.textContent='श्येन · the falcon altar, scaled to a desert';
+
+  /* 补天: county grid + patches */
+  const b=document.getElementById('butianSvg');
+  mk('rect',{x:0,y:0,width:340,height:200,fill:'#eef3ec'},b);
+  const cols=10,rows=3,gx=20,gy=118,cw=30,ch=20;
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)mk('rect',{x:gx+c*cw,y:gy+r*ch,width:cw-2,height:ch-2,fill:'#dbe8dc',stroke:'#3d6b52','stroke-width':.6},b);
+  const pal=['#2a7d74','#c8402e','#d6a51f','#fbfcf8','#1f3128'];
+  const patches=[[1,0],[2,1],[4,0],[5,2],[7,1],[8,3],[3,4]];
+  patches.forEach(([c,k],i)=>{const x=gx+c*cw+cw/2;mk('line',{x1:x,y1:gy,x2:x,y2:40,stroke:'#76621f','stroke-width':.8,'stroke-dasharray':'2 3'},b);
+    mk('ellipse',{cx:x,cy:32,rx:22,ry:8,fill:pal[k],opacity:k===3?.95:.75,stroke:k===3?'#c9cdec':'none'},b);});
+  const a=mk('text',{x:20,y:190,'font-family':'JetBrains Mono,monospace','font-size':9,fill:'#34493d'},b);a.textContent='counties below · mend a few patches, measure, adjust';
+  const s=mk('text',{x:20,y:14,'font-family':'Noto Serif SC,serif','font-size':10,fill:'#244a37'},b);s.textContent='五色石 · patches high above the clouds';
+})();
+</script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

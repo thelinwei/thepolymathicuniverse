@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>139 Weighing the Warming · 三家测候 · The Polymathic Universe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;600&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>
+:root{
+  --paper:#f5f0e6; --paper2:#ece4d4; --card:#fbf8f2;
+  --ink:#1d1814; --ink2:#3a3029; --rule:#d8cbb6; --rule2:#b9a88e;
+  /* the three tables — validated categorical trio */
+  --gr:#b23a2a;  --gr-t:#8a2a1d;  --gr-w:rgba(178,58,42,.08);
+  --ve:#b07d00;  --ve-t:#7a5600;  --ve-w:rgba(176,125,0,.09);
+  --zh:#00897b;  --zh-t:#00665c;  --zh-w:rgba(0,137,123,.08);
+  --zhu:#c8402e; --qing:#2a7d74; --huang:#d6a51f;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Cormorant Garamond','Times New Roman',Times,serif;
+  --display:'Playfair Display','Times New Roman',serif;
+  --sc:'Noto Serif SC','Songti SC','STSong',serif;
+  --deva:'Tiro Devanagari Sanskrit','Noto Serif Devanagari',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:21px;line-height:1.6;font-weight:500;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(760px,calc(100% - 36px));margin-inline:auto}
+.zh{font-family:var(--sc)} .dv{font-family:var(--deva)} .el{font-family:var(--serif)}
+em,i{font-style:italic}
+
+/* top strip */
+.top{border-bottom:1px solid var(--rule);background:var(--paper)}
+.top .wrap{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;padding:11px 0;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.top a{text-decoration:none;color:var(--ink2)} .top a:hover{text-decoration:underline}
+.top .sp{flex:1}
+
+/* hero */
+.hero{padding:44px 0 34px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,11vw,84px);line-height:.95;letter-spacing:-.01em;margin:14px 0 6px}
+h1 .zh{display:block;font-weight:600;font-size:.46em;letter-spacing:.18em;margin-top:12px;color:var(--ink2)}
+.deck{font-size:21px;font-style:italic;line-height:1.5;margin-top:18px;color:var(--ink)}
+.tri-words{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font-size:17px}
+.tri-words span{padding:3px 10px;border:1px solid var(--rule2);border-radius:2px;background:var(--card)}
+.tri-words .g{border-color:var(--gr);color:var(--gr-t)} .tri-words .v{border-color:var(--ve);color:var(--ve-t)} .tri-words .c{border-color:var(--zh);color:var(--zh-t)}
+.hero-fig{margin:30px auto 0;max-width:420px}
+
+/* sections */
+section{padding:46px 0 10px}
+.sec-head{display:flex;gap:14px;align-items:baseline;border-top:2px solid var(--ink);padding-top:12px;margin-bottom:22px}
+.sec-num{font-family:var(--mono);font-size:12px;letter-spacing:.12em}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,6.4vw,42px);line-height:1.1}
+h2 small{display:block;font-size:.5em;font-style:italic;color:var(--ink2);margin-top:6px;font-weight:400}
+h3{font-weight:600;font-size:23px;line-height:1.25;margin:32px 0 10px}
+p{margin:0 0 16px}
+.lead::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 10px 0 0;font-weight:500}
+.sec-g .sec-head{border-color:var(--gr)} .sec-v .sec-head{border-color:var(--ve)} .sec-c .sec-head{border-color:var(--zh)}
+.sec-g h2{color:var(--gr-t)} .sec-v h2{color:var(--ve-t)} .sec-c h2{color:var(--zh-t)}
+.where{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink2);margin:-8px 0 20px}
+
+/* result cards */
+.verdicts{display:grid;gap:14px;margin:8px 0 24px}
+.vcard{background:var(--card);border:1px solid var(--rule);border-left:5px solid;padding:16px 18px 14px}
+.vcard.g{border-left-color:var(--gr)} .vcard.v{border-left-color:var(--ve)} .vcard.c{border-left-color:var(--zh)}
+.vcard .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.vcard.g .tag{color:var(--gr-t)} .vcard.v .tag{color:var(--ve-t)} .vcard.c .tag{color:var(--zh-t)}
+.vcard .says{font-size:23px;line-height:1.3;margin:8px 0 8px}
+.vcard p{font-size:17px;margin:0}
+.finding{background:var(--ink);color:#f5f0e6;padding:22px 22px 8px;margin:10px 0 18px}
+.finding .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e9d9b8;margin-bottom:10px}
+.finding p{font-size:18.5px}
+.finding b{font-weight:600;color:#fff}
+
+/* quotes: native text blocks */
+.native{margin:22px 0;padding:18px 18px 14px;background:var(--card);border:1px solid var(--rule);position:relative}
+.native::before,.native::after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--rule2)}
+.native::before{top:-2px;left:-2px;border-right:0;border-bottom:0}
+.native::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.native .src{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:10px}
+.native .orig{font-size:22px;line-height:1.55}
+.native .orig.zh{font-size:21px;letter-spacing:.04em;line-height:1.85}
+.native .orig.dv{font-size:23px;line-height:1.7}
+.native .translit{font-style:italic;font-size:17px;color:var(--ink2);margin-top:6px}
+.native .tr{font-size:17.5px;border-top:1px dotted var(--rule2);margin-top:10px;padding-top:10px}
+.sec-g .native{border-top:3px solid var(--gr)} .sec-v .native{border-top:3px solid var(--ve)} .sec-c .native{border-top:3px solid var(--zh)}
+.composed{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink2);margin-top:8px}
+
+/* gloss */
+.gloss{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:16.5px;margin:12px 0 4px}
+.gloss dt{font-style:italic;font-weight:500;color:var(--ve-t)}
+.gloss dd{margin:0}
+
+/* interactive figures */
+.fig{margin:24px 0 26px;background:var(--card);border:1px solid var(--rule);padding:14px 14px 12px}
+.fig-cap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:10px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.fig svg{width:100%;height:auto;touch-action:manipulation}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:.03em;padding:8px 12px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;border-radius:2px;min-height:38px}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.on{background:var(--ink);color:var(--paper)}
+.readout{font-size:17.5px;margin-top:12px;min-height:3.2em;border-top:1px dotted var(--rule2);padding-top:10px}
+.readout b{font-weight:600}
+.readout .zh{font-size:18px}
+
+/* ladder table → cards on phone */
+.ladder{width:100%;border-collapse:collapse;font-size:16.5px;margin-top:6px}
+.ladder th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;text-align:left;color:var(--ink2);border-bottom:1px solid var(--ink);padding:6px 6px}
+.ladder td{border-bottom:1px solid var(--rule);padding:6px 6px;vertical-align:top}
+.ladder .gk{font-size:19px;color:var(--gr-t)}
+.ladder tr.hit td{background:var(--ve-w)}
+.ladder tr.hit td:first-child{box-shadow:inset 4px 0 0 var(--ve)}
+.ladder .num{font-variant-numeric:tabular-nums}
+@media (max-width:520px){
+  .ladder thead{display:none}
+  .ladder,.ladder tbody,.ladder tr,.ladder td{display:block;width:100%}
+  .ladder tr{border-bottom:1px solid var(--rule);padding:8px 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}
+  .ladder td{border:0;padding:1px 4px;display:block}
+  .ladder td:first-child{grid-column:1 / -1;font-weight:600}
+  .ladder td::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);font-weight:400}
+}
+
+/* rod board */
+.board{background:#efe5cf;border:1px solid var(--rule2);padding:10px 8px;overflow:hidden}
+.board-row{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:6px;min-height:40px;border-bottom:1px dashed rgba(0,0,0,.12)}
+.board-row:last-child{border-bottom:0}
+.board-row .lab{font-family:var(--sc);font-size:17px;text-align:center;color:var(--ink2)}
+.board-row svg{height:34px;width:auto;max-width:100%;justify-self:end}
+
+/* plates */
+.plate{position:relative;margin:24px 0;padding:22px 18px 16px;background:linear-gradient(180deg,#fbf8f2,#f3ecdf);border:1px solid var(--rule)}
+.plate .ptag{position:absolute;top:-11px;left:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:3px 8px}
+.plate i.tk{position:absolute;width:14px;height:14px;border:2px solid var(--c,var(--rule2))}
+.plate i.tl{top:6px;left:6px;border-right:0;border-bottom:0} .plate i.tr{top:6px;right:6px;border-left:0;border-bottom:0}
+.plate i.bl{bottom:6px;left:6px;border-right:0;border-top:0} .plate i.br{bottom:6px;right:6px;border-left:0;border-top:0}
+.plate.g{--c:var(--gr)} .plate.v{--c:var(--ve)} .plate.c{--c:var(--zh)} .plate.k{--c:var(--ink)}
+.tex{font-family:var(--mono);font-size:15px;text-align:center;margin:10px 0;overflow-x:auto;overflow-y:hidden;padding:4px 0}
+.tex .katex{font-size:1.18em}
+.itex{font-family:var(--mono);font-size:.86em}
+.read{border-top:2px solid var(--c,var(--rule2));margin-top:12px;padding-top:9px;font-size:16.5px}
+.read b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;display:block;margin-bottom:3px}
+
+/* chart */
+.chart-wrap{position:relative}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11.5px;line-height:1.45;padding:7px 9px;border-radius:2px;opacity:0;transition:opacity .12s;max-width:230px;z-index:3}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:11.5px;margin:4px 0 8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+details.tbl{margin-top:10px;font-size:15.5px}
+details.tbl summary{font-family:var(--mono);font-size:11.5px;cursor:pointer;color:var(--ink2)}
+details.tbl table{border-collapse:collapse;margin-top:8px;width:100%}
+details.tbl td,details.tbl th{border-bottom:1px solid var(--rule);padding:4px 5px;text-align:left;font-variant-numeric:tabular-nums}
+details.tbl th{font-family:var(--mono);font-size:10.5px;font-weight:500;text-transform:uppercase}
+
+/* dialogue */
+.dialogue{margin:18px 0}
+.line{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.line .who{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding-top:5px}
+.line.g .who{color:var(--gr-t)} .line.v .who{color:var(--ve-t)} .line.c .who{color:var(--zh-t)}
+.line p{margin:0;font-size:18px}
+@media (max-width:460px){.line{grid-template-columns:1fr;gap:2px}}
+
+/* coda fence */
+.fence{margin:30px 0 10px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:6px 0}
+.fence .fl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--ink2)}
+.coda{font-size:20px;line-height:1.6}
+.coda p{margin-bottom:18px}
+.verbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.verbs div{text-align:center;padding:14px 6px;border:1px solid var(--rule2);background:var(--card)}
+.verbs b{display:block;font-size:26px;font-weight:500}
+.verbs span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.verbs .g b{color:var(--gr-t)} .verbs .v b{color:var(--ve-t)} .verbs .c b{color:var(--zh-t)}
+
+/* further */
+.further{list-style:none;margin:10px 0 0}
+.further li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:17px}
+.further li .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);display:block}
+.further a{text-decoration-color:var(--rule2);text-underline-offset:3px}
+
+footer{margin-top:50px;border-top:2px solid var(--ink);padding:20px 0 50px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer strong{font-weight:600}
+
+.note{font-size:15.5px;color:var(--ink2);font-style:italic}
+.hl-g{color:var(--gr-t);font-weight:500} .hl-v{color:var(--ve-t);font-weight:500} .hl-c{color:var(--zh-t);font-weight:500}
+@media (max-width:520px){ body{font-size:20px} .deck{font-size:19px} .native .orig{font-size:20px} .vcard .says{font-size:21px} .verbs b{font-size:21px} }
+
+.slab{font-family:var(--mono);font-size:12px;display:flex;align-items:center;gap:10px;flex:1}
+.slab input{flex:1;accent-color:#1d1814;min-width:120px}
+.sval{font-family:var(--mono);font-size:12px;align-self:center;min-width:28px}
+.trip{margin-top:12px}
+
+/* proposition opener (shared across 139-141) */
+.prop{padding:70px 0 10px}
+.prop .pk{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+.prop h2.ph{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,52px);line-height:1.06;letter-spacing:-.01em;margin:0 0 22px;color:var(--ink)}
+.prop h2.ph em{font-style:italic}
+.prop p{margin:0 0 18px}
+.prop .ptrio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.prop .pt{padding:18px 16px 16px;background:var(--card);border:1px solid var(--rule);border-top:5px solid}
+.prop .pt.g{border-top-color:var(--gr-t)}.prop .pt.v{border-top-color:var(--ve-t)}.prop .pt.c{border-top-color:var(--zh-t)}
+.prop .pt b{display:block;font-family:var(--display);font-weight:400;font-size:27px;line-height:1.1}
+.prop .pt > span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:6px 0 10px;color:var(--ink2)}
+.prop .pt p{font-size:17.5px;line-height:1.45;margin:0}
+.prop .pt.g b{color:var(--gr-t)}.prop .pt.v b{color:var(--ve-t)}.prop .pt.c b{color:var(--zh-t)}
+.prop .thread{list-style:none;margin:22px 0 8px;padding:0;border-top:1px solid var(--ink2)}
+.prop .thread li{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.prop .thread .n{font-family:var(--mono);font-size:12px;letter-spacing:.08em;padding-top:5px;color:var(--ink2)}
+.prop .thread a{font-family:var(--display);font-size:23px;line-height:1.2;text-decoration:none}
+.prop .thread a:hover{text-decoration:underline}
+.prop .thread p{font-size:17.5px;margin:4px 0 0;line-height:1.45}
+.prop .thread .here{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--ink2);border-radius:10px;margin-left:8px;vertical-align:4px;white-space:nowrap}
+@media(max-width:640px){.prop .ptrio{grid-template-columns:1fr}.prop .thread li{grid-template-columns:44px 1fr}}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <a href="../../index.html">← PMU front page</a>
+  <span>Book Four · To Further Investigate · 139</span>
+  <span class="sp"></span>
+  <a href="#proposition">Proposition</a><a href="#result">Result</a><a href="#syracuse">Bound</a><a href="#board">Cut</a><a href="#altar">Balance</a><a href="#maths">Maths</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow" id="top">Three Tables · 03 · three stances, one modern science</div>
+  <h1>Weighing<br>the Warming<span class="zh">三家测候</span></h1>
+  <p class="deck">Experiments 01 and 02 found three kinds of answer: the Greek interval you can prove, the Vedic rule that runs both ways, the Chinese procedure you can always refine. This time the stances leave their centuries and sit down at a modern question: if carbon dioxide doubles, how much warmer does Earth get, and how much more can we emit?</p>
+  <div class="tri-words">
+    <span class="g">to bound</span>
+    <span class="c">to cut finer</span>
+    <span class="v">to balance</span>
+  </div>
+  <svg class="hero-fig" viewBox="0 0 400 210" aria-label="Three stances on one curve">
+    <g font-family="JetBrains Mono,monospace" font-size="10.5" fill="#3a3029">
+      <line x1="30" y1="170" x2="370" y2="170" stroke="#1d1814" stroke-width="1.2"/>
+      <line x1="30" y1="170" x2="30" y2="20" stroke="#1d1814" stroke-width="1.2"/>
+      <text x="370" y="188" text-anchor="end">CO₂ emitted (cumulative) →</text>
+      <text x="36" y="28">warming ↑</text>
+      <polygon points="30,170 370,62 370,140" fill="rgba(176,125,0,.16)"/>
+      <line x1="30" y1="170" x2="370" y2="98" stroke="#b07d00" stroke-width="2.4"/>
+      <rect x="300" y="72" width="7" height="58" fill="#b23a2a" rx="2"/>
+      <g stroke="#00897b" stroke-width="1" opacity=".75">
+        <line x1="60" y1="60" x2="60" y2="150"/><line x1="90" y1="60" x2="90" y2="150"/><line x1="120" y1="60" x2="120" y2="150"/>
+        <line x1="45" y1="75" x2="135" y2="75"/><line x1="45" y1="105" x2="135" y2="105"/><line x1="45" y1="135" x2="135" y2="135"/>
+      </g>
+      <text x="314" y="80" fill="#8a2a1d">bound</text>
+      <text x="48" y="50" fill="#00665c">cut finer</text>
+      <text x="200" y="118" fill="#7a5600">balance</text>
+    </g>
+  </svg>
+</div></header>
+
+
+<section class="prop" id="proposition"><div class="wrap">
+  <div class="pk">The proposition · three traditions</div>
+  <h2 class="ph">Three ways of knowing, <em>one warming world</em></h2>
+  <p>This thread grew out of the Three Tables experiments in the Polymathic Learner, where one problem was put to Greek, Vedic and Chinese mathematicians and each answered in its own native way. <a href="https://thelinwei.github.io/thepolymathiclearner/documents/speculative-play/doubling-the-square.html">Doubling the Square</a> and <a href="https://thelinwei.github.io/thepolymathiclearner/documents/speculative-play/squaring-the-circle.html">Squaring the Circle</a> drew out three kinds of answer, and three verbs to carry them.</p>
+  <div class="ptrio">
+    <div class="pt g"><b>to bound</b><span>the Greek table</span><p>Archimedes traps the circle between a polygon inside and a polygon outside. The answer is an interval, proved from both sides.</p></div>
+    <div class="pt v"><b>to balance</b><span>the Vedic table</span><p>The Śulba cord-makers turn a square into a circle of equal area, and the circle back into the square. The answer is a rule that runs in both directions.</p></div>
+    <div class="pt c"><b>to cut finer</b><span>the Chinese table</span><p>Liu Hui cuts the polygon finer and finer: <span class="zh">割之弥细，所失弥少</span>. The answer is a procedure that can always be refined.</p></div>
+  </div>
+  <p>Here the three tables leave mathematics and sit down before a warming planet. The thread runs in three volumes, from the real science, to the deep past, to a future with all of modern physics in hand.</p>
+  <ol class="thread"><li><span class="n">139</span><div><a href="#top">Weighing the Warming</a><span class="here">you are here</span><p>The three stances read across today’s climate science: the sensitivity interval trapped from four sides, the models cut ever finer, and the carbon budget that runs from degrees back to tonnes. Every figure is a published assessment.</p></div></li><li><span class="n">140</span><div><a href="140%20Three%20Skies.html">Three Skies</a><p>Each tradition goes on alone, burns its own fires and meets its own warming. What each archive already held, three invented histories of discovery, struggle and a great work, and the same rains worked by magic.</p></div></li><li><span class="n">141</span><div><a href="141%20Beyond%20the%20Sky.html">Beyond the Sky</a><p>Each tradition inherits modern physics. It builds the wonder physics already permits, then the wonder past the edge, with every construct tagged from established physics to dream.</p></div></li></ol>
+</div></section>
+
+<!-- ══ 0 RESULT ══ -->
+<section id="result"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">00</span><h2>The result<small>outcome first, the story after</small></h2></div>
+
+  <p>The questions: <b>how much does Earth warm for a doubling of CO₂ (the equilibrium climate sensitivity), and how much more CO₂ can be emitted before a given warming?</b> Climate science answers both. Reading its history through the three tables shows it already uses all three kinds of answer, and shows which one moved the field when.</p>
+
+  <div class="verdicts">
+    <div class="vcard g">
+      <div class="tag">Syracuse stance · to bound · Charney 1979 → IPCC AR6 2021</div>
+      <div class="says">“Near 3 °C, between 2.5 and 4.” An interval, closed from several sides at once.</div>
+      <p>For forty years the headline interval barely moved from 1.5–4.5 °C. It finally narrowed when independent lines of evidence (physical processes, the instrumental record, the deep past) were made to trap it together, as Archimedes trapped the circle from inside and outside.</p>
+    </div>
+    <div class="vcard c">
+      <div class="tag">Board stance · to cut finer · climate models, 1990 → today</div>
+      <div class="says">Grid cells from 500 km down toward 1 km. The spread did not shrink on the way.</div>
+      <p>Models cut the planet ever finer, as Liu Hui cut the circle. But the newest generation spread wider, 1.8 to 5.6 °C, because the deciding pieces (clouds) are still smaller than the cut. Refinement converges once the knife reaches what matters.</p>
+    </div>
+    <div class="vcard v">
+      <div class="tag">Altar stance · to balance · carbon budgets, 2009 → AR6 → 2025</div>
+      <div class="says">About 0.45 °C per thousand billion tonnes of CO₂, and the rule runs both ways.</div>
+      <p>Warming rises almost in straight proportion to all CO₂ ever emitted. Like the Śulba cords, the rule can be read in either direction: tonnes into degrees, or a temperature limit into tonnes left. That second reading is the carbon budget.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="tag">What the experiment found</div>
+    <p><b>The biggest change in what climate science could offer the world came from switching answer type.</b> Better precision on the old question mattered less. “How warm for doubled CO₂?” is a Greek question with an interval for an answer. “How many tonnes are left?” is an altar question, answered by a rule that runs from a limit back to a quantity. Once the field could answer the second, a temperature goal could be turned into a budget that ministries, companies and cities can count down.</p>
+    <p><b>The interval narrowed by trapping, not by cutting.</b> AR6's tighter range came from combining independent lines of evidence. The model ensemble, cut finer, spread wider.</p>
+    <p><b>Liu Hui's promise has a condition.</b> “Cut finer, lose less” holds when what you trim away is the error. For a circle it always is. For the climate, the error lives in clouds a kilometre across, and until the cut is that fine, finer is not yet closer.</p>
+  </div>
+
+  <p class="note">How this was run. Unlike 01 and 02, nobody here is ancient. The three stances distilled from those experiments are used as lenses on a living science, and every figure on the page is a published assessment. The stances are ours; the numbers are the field's. The imagined exchange near the end is play.</p>
+</div></section>
+
+<!-- ══ 1 SYRACUSE ══ -->
+<section id="syracuse" class="sec-g"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><h2>The bound<small>Archimedes' trap, a century of attempts</small></h2></div>
+  <div class="where">Arrhenius 1896 · Manabe &amp; Wetherald 1967 · Charney report 1979 · IPCC AR4 2007, AR5 2013, AR6 2021</div>
+
+  <p class="lead">In 1896 the Swedish chemist Svante Arrhenius worked out, entirely by hand, how much the world would warm if the air held twice as much carbon dioxide. His answer was 5 to 6 °C. It was a Board answer, a long procedure ground through column by column, and it was the first number anyone had. In 1967 Syukuro Manabe and Richard Wetherald ran the question through an early computer model of a single column of air and got 2.3 °C. That work later shared a Nobel Prize.</p>
+  <p>Then, in the summer of 1979, a small committee led by Jule Charney met for five days at Woods Hole and did something different. They compared the models available, weighed what was physically understood and what was not, and gave an interval: warming <i>near 3 °C with a probable error of 1.5 °C</i>, so 1.5 to 4.5. That is the Syracuse move. They gave no single number. They gave a window, with a stated reason for each edge.</p>
+  <p>The window held, stubbornly. Assessment after assessment repeated it, apart from a brief narrowing in 2007. Then the 2021 report brought a real change. Building on a large community review led by Steven Sherwood, it combined four independent lines of evidence: how the physics of clouds and water vapour behaves, how the planet has actually warmed since 1850, what ice ages and hot epochs in the deep past reveal, and patterns that link models to observations. Each line on its own is weak at one end. Together they close the trap from both sides.</p>
+
+  <div class="fig">
+    <div class="fig-cap"><span>Fig. 1 · Warming for doubled CO₂, as estimated over 125 years</span><span>tap a bar</span></div>
+    <div class="legend">
+      <span><i style="background:var(--gr)"></i>assessments · intervals</span>
+      <span><i style="background:var(--zh)"></i>calculations &amp; models</span>
+    </div>
+    <div class="chart-wrap" id="ecsWrap"><svg id="ecsSvg" viewBox="0 0 340 330" role="img" aria-label="Climate sensitivity estimates over time"></svg><div class="tip" id="tip"></div></div>
+    <details class="tbl"><summary>Show as a table</summary><div id="ecsTbl"></div></details>
+  </div>
+
+  <p>Read the red bars from top to bottom and the Syracuse story is plain. The window barely moves for thirty years, then closes in. AR6 states a best estimate of 3 °C, likely 2.5 to 4, very likely 2 to 5. The teal bars show the opposite motion. More detailed models did not agree more closely. That is the next table's story.</p>
+</div></section>
+
+<!-- ══ 2 BOARD ══ -->
+<section id="board" class="sec-c"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">02</span><h2>The cut<small><span class="zh">割之弥细</span>, on a spinning planet</small></h2></div>
+  <div class="where">Global climate models · IPCC FAR 1990 → CMIP5 → CMIP6 → kilometre-scale models</div>
+
+  <p class="lead">A climate model is Liu Hui's board scaled to a planet. It cuts the atmosphere and ocean into cells, writes the laws of motion, heat and moisture for each, and steps forward in time, one pass after another, for simulated centuries. Around the first IPCC report in 1990, a typical model's cells were about 500 km on a side. By 2007 the finest were near 110 km. Today a new kind of global model runs at a few kilometres, and at about one kilometre it begins to draw individual storm clouds instead of guessing them.</p>
+  <p>Here is what each cut can see, over a patch of the equator 400 km wide with an island the size of Singapore in the middle:</p>
+
+  <div class="fig" id="gridFig">
+    <div class="fig-cap"><span>Fig. 2 · One region, cut finer</span><span>tap</span></div>
+    <svg id="gridSvg" viewBox="0 0 340 340" role="img" aria-label="Model grid over an island"></svg>
+    <div class="btns" id="gridBtns"></div>
+    <div class="readout" id="gridOut"></div>
+  </div>
+
+  <p>The board kept its promise in one way. Coastlines, mountains, monsoons and ocean currents all sharpened with each cut. On the one number everyone wanted, it did not converge. The CMIP5 models of the early 2010s gave sensitivities from 2.1 to 4.7 °C. The CMIP6 models, more detailed again, gave 1.8 to 5.6, the widest spread of any generation since the 1990s. The reason that keeps coming up is clouds, and how they interact with tiny airborne particles.</p>
+  <p>This is where Liu Hui's knife and the planet part ways. A circle's error sits in the slivers between the polygon and the arc, and every cut shrinks them. A climate model's largest error sits in processes smaller than its cells. Those still have to be written in as rules of thumb, and adding cells elsewhere doesn't touch them. Cutting finer pays off fully once the cut reaches the cloud. Global models are now arriving at that scale, which is why the kilometre-scale runs are the most watched experiments in the field.</p>
+</div></section>
+
+<!-- ══ 3 ALTAR ══ -->
+<section id="altar" class="sec-v"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">03</span><h2>The balance<small>a cord that reads in both directions</small></h2></div>
+  <div class="where">Allen et al. &amp; Matthews et al., 2009 · IPCC AR5 2013 · AR6 2021 · Indicators of Global Climate Change 2025</div>
+
+  <p class="lead">In 2009 two research groups found something unexpectedly simple. Peak warming depends, to a good approximation, on one quantity: the total CO₂ ever emitted. Neither the timing of emissions nor the path taken matters much, only the running sum. Plotted against that sum, warming rises close to a straight line. Two complicated effects roughly cancel. Each extra tonne of CO₂ in the air traps a little less heat than the one before, while the oceans take up both heat and carbon a little less readily as they fill. The net result is a line.</p>
+  <p>The IPCC now puts the slope at <b>about 0.45 °C for every 1000 billion tonnes of CO₂</b>, likely between 0.27 and 0.63. Humanity emitted roughly 2400 billion tonnes between 1850 and 2019, and the line puts that at a little over 1 °C, matching what the thermometers show.</p>
+  <p>This is the altar's kind of answer, a cord that works both ways. Baudhāyana's rules turned a square into a circle and back. This rule turns tonnes into degrees, or a temperature limit into tonnes. Read in the second direction, it becomes the <i>remaining carbon budget</i>.</p>
+
+  <div class="fig" id="budgetFig">
+    <div class="fig-cap"><span>Fig. 3 · The two-way cord · tonnes ↔ degrees</span><span>slide either one</span></div>
+    <svg id="budgetSvg" viewBox="0 0 340 220" role="img" aria-label="Warming versus cumulative emissions"></svg>
+    <div class="btns"><label class="slab">tonnes <input type="range" id="bE" min="0" max="5000" value="2400" step="10"></label><span class="sval" id="bEv"></span></div>
+    <div class="btns"><label class="slab">degrees <input type="range" id="bT" min="0" max="2.5" value="1.08" step="0.01"></label><span class="sval" id="bTv"></span></div>
+    <div class="readout" id="bOut"></div>
+  </div>
+
+  <p>The plain cord in Fig. 3 counts only CO₂. Methane, aerosols and other gases also push temperature up or down, so the assessed budgets set some room aside for them. AR6 gave <b>500 billion tonnes from the start of 2020</b> for an even chance of holding warming to 1.5 °C. The 2025 edition of the annual Indicators of Global Climate Change put it at <b>130 billion tonnes from the start of 2025</b>, a little over three years of current emissions. The 2026 edition reports human-caused warming at 1.37 °C in 2025.</p>
+  <p>Look at what changed. The sensitivity interval of the Syracuse table describes the planet. The budget hands the planet's answer to the people who have to act on it, in the unit they control. A finance ministry has little to work with in “2.5 to 4 °C per doubling”. It has a great deal to work with in “130 billion tonnes”. The altar-builders needed a rule that let one altar be laid out from the other. Policy needed a rule that lets a temperature be laid out as a quantity.</p>
+</div></section>
+
+<!-- ══ 4 MATHS ══ -->
+<section id="maths"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">04</span><h2>The maths, side by side<small>three answer types, written out</small></h2></div>
+
+  <div class="plate g"><span class="ptag">Plate G · the bound · energy balance and a trap</span><i class="tk tl"></i><i class="tk tr"></i><i class="tk bl"></i><i class="tk br"></i>
+    <div class="tex" data-tex="\begin{gathered} \Delta F = 5.35\,\ln(C/C_0)\ \mathrm{W\,m^{-2}} \\ \Delta F_{2\times}\approx 3.7,\qquad \mathrm{ECS}=\frac{\Delta F_{2\times}}{\lambda} \\ p(\mathrm{ECS}\mid E_{1..4}) \\ \propto\; p(\mathrm{ECS})\prod_{i=1}^{4}p(E_i\mid \mathrm{ECS})\end{gathered}">ΔF = 5.35 ln(C/C₀); ECS = ΔF(2×)/λ; p(ECS|E₁…E₄) ∝ p(ECS) Π p(Eᵢ|ECS)</div>
+    <div class="read"><b>How to read it</b>Doubling CO₂ adds about 3.7 watts per square metre of heating. That is the logarithm at work: each doubling adds the same push. How much warming that produces depends on λ, how strongly the planet sheds extra heat, which is where clouds and water vapour enter. The last line is the trap. Each line of evidence <span class="itex" data-tex="E_i">Eᵢ</span> rules out some values. Multiplied together, they leave only the values that survive all four, as Archimedes kept only the lengths that fit both the inside and the outside polygons.</div>
+  </div>
+
+  <div class="plate c"><span class="ptag">Plate C · the cut · what refinement buys</span><i class="tk tl"></i><i class="tk tr"></i><i class="tk bl"></i><i class="tk br"></i>
+    <div class="tex" data-tex="\begin{gathered} N_{\text{cells}}\approx\frac{5.1\times10^{8}}{(\Delta x)^2}\ (\Delta x\text{ in km}) \\ \text{work}\;\propto\;\Big(\frac{1}{\Delta x}\Big)^{3} \\ \textcolor{#00665c}{\text{error}=\underbrace{e_{\text{grid}}(\Delta x)}_{\text{shrinks}}+\underbrace{e_{\text{sub-grid}}}_{\text{clouds}}}\end{gathered}">N ≈ 5.1×10⁸ km²/Δx²; work ∝ (1/Δx)³; error = grid part (shrinks) + sub-grid part (clouds)</div>
+    <div class="read"><b>How to read it</b>Halve the cell size and the surface needs four times the cells. The time step must also shorten, so the work grows about eightfold. The highlighted line is the difference from Liu Hui. His whole error was the grid part, which every cut reduces. A climate model also carries a sub-grid part, the clouds it cannot see, and that part stays the same until the cut becomes fine enough to draw them.</div>
+  </div>
+
+  <div class="plate v"><span class="ptag">Plate V · the balance · one line, read both ways</span><i class="tk tl"></i><i class="tk tr"></i><i class="tk bl"></i><i class="tk br"></i>
+    <div class="tex" data-tex="\begin{gathered} \Delta T \approx \mathrm{TCRE}\times E \\ \mathrm{TCRE}\approx 0.45\ ^{\circ}\mathrm{C}\ \text{per}\ 1000\ \mathrm{GtCO_2} \\ \textcolor{#7a5600}{E_{\text{left}} \approx \frac{T_{\text{limit}}-T_{\text{now}}}{\mathrm{TCRE}} - E_{\text{non-CO}_2}}\end{gathered}">ΔT ≈ TCRE × E; E(left) ≈ (T(limit) − T(now))/TCRE − E(non-CO₂)</div>
+    <div class="read"><b>How to read it</b>Forward: multiply tonnes by the slope to get degrees. Backward: take the degrees still allowed, divide by the slope, and subtract an allowance for the other gases. That gives the tonnes still allowed. It is the same move as Baudhāyana's I.58 and I.59: one relation, written so that either side can be the starting point.</div>
+  </div>
+</div></section>
+
+<!-- ══ 5 DIALOGUE ══ -->
+<section id="exchange"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">05</span><h2>If the three tables met, again<small>an imagined exchange · play</small></h2></div>
+  <p class="note">The voices are the stances from 01 and 02, brought forward to the present. Staged throughout.</p>
+  <div class="dialogue">
+    <div class="line c"><div class="who">Board</div><p>I have cut this planet into cells finer than any field I ever measured. <span class="zh">“割之弥细，所失弥少。”</span></p></div>
+    <div class="line g"><div class="who">Syracuse</div><p>And yet your many boards disagree more than they did ten years ago. The interval came from me: four kinds of evidence, each closing a side.</p></div>
+    <div class="line c"><div class="who">Board</div><p>My circle never had clouds. When the cut reaches the cloud, I will close your interval from the inside.</p></div>
+    <div class="line v"><div class="who">Altar</div><p>While you two argue the edges, someone has to lay out the ground. Give me the slope between tonnes and degrees and I will run it backwards for them.</p></div>
+    <div class="line g"><div class="who">Syracuse</div><p>Your slope has its own interval, 0.27 to 0.63.</p></div>
+    <div class="line v"><div class="who">Altar</div><p>Then I will say so, as we always did. <i class="dv">Saviśeṣa</i>. The budget comes with its likelihood written on it.</p></div>
+  </div>
+</div></section>
+
+<!-- ══ 6 CODA ══ -->
+<section id="coda"><div class="wrap">
+  <div class="fence"><div class="fl">Here the rigour ends and the wondering begins</div></div>
+  <div class="coda">
+    <p>The question behind this experiment was whether some disciplines are approached the wrong way, and whether a different way of knowing could transform one. The climate case suggests a sharper version of the question: <b>who is the answer for, and what will they do with it?</b></p>
+    <div class="verbs">
+      <div class="g"><b>to bound</b><span>what the planet is</span></div>
+      <div class="c"><b>to cut</b><span>how it behaves</span></div>
+      <div class="v"><b>to balance</b><span>what we may do</span></div>
+    </div>
+    <p>A science that only bounds describes the world and stops. A science that only cuts can run forever. A science that balances turns description into instruction. Climate science grew all three, and its reach widened most when the altar's kind of answer joined the other two. A doubling sensitivity is something you contemplate. A budget is something you can start counting down.</p>
+    <p>That gives a test for any field. List the answer types it currently gives. Then ask which of the three tables is missing, and who is waiting for exactly that answer. In medical diagnosis, the habit of ruling out causes until one remains is pure Syracuse. In city-making, the plan as something never finished is the Board. The table each field lacks may be where its next transformation is waiting.</p>
+  </div>
+</div></section>
+
+<!-- ══ GO FURTHER ══ -->
+<section id="further"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">→</span><h2>Go further</h2></div>
+  <ul class="further">
+    <li><span class="k">Bound · the assessment</span><a href="https://unfccc.int/sites/default/files/resource/T1P1%20Earth-day-final.pdf">IPCC AR6 Working Group I, briefing slides (UNFCCC)</a>. The lines-of-evidence figure behind “best estimate 3 °C, likely 2.5–4 °C”.</li>
+    <li><span class="k">Bound · the trap</span><a href="https://skepticalscience.com/why-low-end-sensitivity-ruled-out.html">Sherwood and colleagues on narrowing climate sensitivity</a>. The authors explain how combining evidence closed both ends.</li>
+    <li><span class="k">Cut · the spread</span><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7314520">Meehl et al. 2020, “Context for interpreting equilibrium climate sensitivity…” (Science Advances)</a>. Why CMIP6 spread wider, and the role of clouds.</li>
+    <li><span class="k">Cut · resolution</span><a href="https://climatechangeinaustralia.gov.au/en/learning-support/climate-models/resolution/">Climate model resolution, explained (Climate Change in Australia)</a>. From 500 km grids in 1990 to today.</li>
+    <li><span class="k">Cut · the kilometre scale</span><a href="https://ntrs.nasa.gov/api/citations/20190025337/downloads/20190025337.pdf">Global cloud-resolving models, a review (NASA NTRS)</a>. What changes when the grid reaches the cloud.</li>
+    <li><span class="k">Balance · the budget</span><a href="https://www.realclimate.org/index.php/archives/2021/08/a-deep-dive-into-the-ipccs-updated-carbon-budget-numbers/">A deep dive into the IPCC's carbon budget numbers (RealClimate)</a>. Every piece of the two-way rule, reassessed.</li>
+    <li><span class="k">Balance · this year</span><a href="https://climate.copernicus.eu/global-warming-reached-137degc-2025">Indicators of Global Climate Change, 2026 edition (Copernicus)</a>. Human-caused warming of 1.37 °C in 2025.</li>
+    <li><span class="k">Three Tables</span><a href="https://thelinwei.github.io/thepolymathiclearner/documents/speculative-play/doubling-the-square.html">01 · Doubling the Square</a> · <a href="https://thelinwei.github.io/thepolymathiclearner/documents/speculative-play/squaring-the-circle.html">02 · Squaring the Circle</a>, in the Polymathic Learner. Where the three stances come from.</li>
+    <li><span class="k">Next in this thread</span><a href="140%20Three%20Skies.html">140 · Three Skies</a>, each tradition warming its own sky alone · <a href="141%20Beyond%20the%20Sky.html">141 · Beyond the Sky</a>, the three inherit modern physics.</li>
+  </ul>
+</div></section>
+
+<footer><div class="wrap">
+  <div><strong>Weighing the Warming · 三家测候</strong><br>Three Tables, experiment 03 · three stances read across a modern science</div>
+  <div>Lin Wei 林威 — conceptual direction<br>with Claude<br>November 2026</div>
+</div></footer>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function txt(parent,x,y,s,attrs){const t=el('text',Object.assign({x,y},attrs||{}),parent);t.textContent=s;return t;}
+const C={gr:'#b23a2a',ve:'#b07d00',zh:'#00897b',ink:'#1d1814',ink2:'#3a3029',rule:'#d8cbb6'};
+const MONO={'font-family':'JetBrains Mono,monospace'};
+function setOn(group,btn){group.forEach(b=>b.classList.toggle('on',b===btn));}
+
+window.addEventListener('load',()=>{if(!window.katex)return;document.querySelectorAll('[data-tex]').forEach(n=>{try{katex.render(n.dataset.tex,n,{displayMode:n.classList.contains('tex'),throwOnError:false,strict:'ignore'});}catch(e){}});});
+
+/* ── Fig 1 · ECS over time ── */
+(function(){
+  const svg=document.getElementById('ecsSvg'),tip=document.getElementById('tip'),wrap=document.getElementById('ecsWrap');
+  const D=[
+    {y:'1896',n:'Arrhenius, by hand',t:'c',a:5,b:6},
+    {y:'1967',n:'Manabe & Wetherald, 1-D model',t:'c',a:2.3},
+    {y:'1979',n:'Charney report',t:'g',a:1.5,b:4.5,best:3},
+    {y:'2007',n:'IPCC AR4 · likely',t:'g',a:2.0,b:4.5,best:3},
+    {y:'≈2012',n:'CMIP5 models · spread',t:'c',a:2.1,b:4.7},
+    {y:'2013',n:'IPCC AR5 · likely',t:'g',a:1.5,b:4.5},
+    {y:'≈2019',n:'CMIP6 models · spread',t:'c',a:1.8,b:5.6},
+    {y:'2020',n:'Sherwood et al. · likely',t:'g',a:2.6,b:4.1},
+    {y:'2021',n:'IPCC AR6 · likely (very likely)',t:'g',a:2.5,b:4,a2:2,b2:5,best:3}
+  ];
+  const W=340,L=46,R=14,top=14,rowH=31,lo=1,hi=6.5;
+  const X=v=>L+(v-lo)/(hi-lo)*(W-L-R);
+  const yEnd=top+D.length*rowH;
+  for(let v=1;v<=6;v++){el('line',{x1:X(v),y1:top-4,x2:X(v),y2:yEnd,stroke:'#e7ddca','stroke-width':1},svg);txt(svg,X(v),yEnd+14,v+'°',Object.assign({'font-size':10,'text-anchor':'middle',fill:C.ink2},MONO));}
+  txt(svg,W-R,yEnd+28,'warming per doubling of CO₂ →',Object.assign({'font-size':9.5,'text-anchor':'end',fill:C.ink2},MONO));
+  D.forEach((d,i)=>{
+    const y=top+i*rowH+16,col=d.t==='g'?C.gr:C.zh;
+    txt(svg,4,y+4,d.y,Object.assign({'font-size':10,fill:C.ink},MONO));
+    const far=X(d.a)>W*0.6;txt(svg,far?X(d.b||d.a):X(d.a),y-8,d.n,Object.assign({'font-size':8.8,fill:C.ink2,'text-anchor':far?'end':'start'},MONO));
+    if(d.a2) el('line',{x1:X(d.a2),y1:y,x2:X(d.b2),y2:y,stroke:col,'stroke-width':2},svg);
+    if(d.b) el('rect',{x:X(d.a),y:y-4,width:X(d.b)-X(d.a),height:8,rx:3,fill:col,opacity:d.t==='g'?.9:.75},svg);
+    else el('circle',{cx:X(d.a),cy:y,r:5,fill:col,stroke:'#fbf8f2','stroke-width':1.5},svg);
+    if(d.best) el('line',{x1:X(d.best),y1:y-7,x2:X(d.best),y2:y+7,stroke:C.ink,'stroke-width':2},svg);
+    const hit=el('rect',{x:L,y:y-13,width:W-L-R,height:26,fill:'transparent',style:'cursor:pointer'},svg);
+    const show=()=>{const r=wrap.getBoundingClientRect(),k=r.width/W;tip.innerHTML=`${d.y} · ${d.n}<br>${d.b?d.a+' – '+d.b+' °C':d.a+' °C'}${d.a2?' (very likely '+d.a2+'–'+d.b2+')':''}${d.best?'<br>best estimate '+d.best+' °C':''}`;tip.style.left=Math.min(r.width-200,Math.max(0,X(d.a)*k-20))+'px';tip.style.top=Math.max(0,y*k-70)+'px';tip.style.opacity=1;};
+    hit.addEventListener('mouseenter',show);hit.addEventListener('click',show);hit.addEventListener('mouseleave',()=>tip.style.opacity=0);
+  });
+  let h='<table><tr><th>year</th><th>source</th><th>range °C</th></tr>';D.forEach(d=>{h+=`<tr><td>${d.y}</td><td>${d.n}</td><td>${d.b?d.a+'–'+d.b:d.a}${d.a2?' ('+d.a2+'–'+d.b2+')':''}</td></tr>`;});
+  document.getElementById('ecsTbl').innerHTML=h+'</table>';
+})();
+
+/* ── Fig 2 · grid over an island ── */
+(function(){
+  const svg=document.getElementById('gridSvg'),out=document.getElementById('gridOut'),bx=document.getElementById('gridBtns');
+  const S=340, KM=400, k=S/KM; // px per km
+  const levels=[
+    {dx:500,lab:'500 km',when:'≈1990, first IPCC report'},
+    {dx:250,lab:'250 km',when:'≈1996, second report'},
+    {dx:110,lab:'110 km',when:'≈2007, finest in AR4'},
+    {dx:70,lab:'70 km',when:'finest CMIP5 models'},
+    {dx:25,lab:'25 km',when:'today’s high-resolution runs'},
+    {dx:3,lab:'3 km',when:'kilometre-scale global models'}
+  ];
+  function draw(i){
+    const L=levels[i];svg.innerHTML='';
+    el('rect',{x:0,y:0,width:S,height:S,fill:'#e8f1ef'},svg);
+    // island ~50 x 27 km, slightly tilted ellipse
+    const cx=S/2,cy=S/2;const fg=el('g',{},svg);
+    el('ellipse',{cx,cy,rx:25*k,ry:13.5*k,fill:'rgba(217,201,163,.7)',stroke:'#7a5600','stroke-width':1,transform:`rotate(-8 ${cx} ${cy})`},fg);
+    // a thunderstorm cell ~10 km
+    el('circle',{cx:cx+75*k,cy:cy-60*k,r:5*k,fill:'rgba(29,24,20,.55)'},fg);
+    txt(fg,cx+75*k+10,cy-60*k+4,'storm ~10 km',Object.assign({'font-size':9.5,fill:C.ink,stroke:'#e8f1ef','stroke-width':3,'paint-order':'stroke'},MONO));
+    txt(fg,cx,cy+13.5*k+16,'island ~50 × 27 km',Object.assign({'font-size':9.5,'text-anchor':'middle',fill:C.ink,stroke:'#e8f1ef','stroke-width':3,'paint-order':'stroke'},MONO));
+    // grid aligned so a line crosses arbitrarily
+    const step=L.dx*k;
+    if(step<2.5){ // too fine to draw: shade
+      el('rect',{x:0,y:0,width:S,height:S,fill:'url(#fine)',opacity:.6},svg);
+      const defs=el('defs',{},svg);const pat=el('pattern',{id:'fine',width:4,height:4,patternUnits:'userSpaceOnUse'},defs);
+      el('path',{d:'M0 0 H4 M0 0 V4',stroke:'#00897b','stroke-width':.35},pat);
+    } else {
+      const off=(S/2)%step-step*0.37;
+      for(let x=off;x<=S;x+=step){if(x>=0)el('line',{x1:x,y1:0,x2:x,y2:S,stroke:C.zh,'stroke-width':step<10?0.45:1.2},svg);}
+      for(let y=off;y<=S;y+=step){if(y>=0)el('line',{x1:0,y1:y,x2:S,y2:y,stroke:C.zh,'stroke-width':step<10?0.45:1.2},svg);}
+    }
+    svg.appendChild(fg);
+    txt(svg,8,S-10,'400 km × 400 km of equator',Object.assign({'font-size':9.5,fill:C.ink,stroke:'#e8f1ef','stroke-width':3,'paint-order':'stroke'},MONO));
+    const across=Math.max(0,50/L.dx), cells=5.1e8/(L.dx*L.dx);
+    const fmt=n=>n>=1e6?(n/1e6).toFixed(n>=1e7?0:1)+' million':Math.round(n).toLocaleString();
+    let see=L.dx>=110?'The island is far smaller than one cell; the model sees open sea, or a smear of land.':L.dx>=70?'The island is under one cell: a speck of land, no shape yet.':L.dx>=25?'The island has a rough shape, but storms are still averaged into the cell.':'Individual storm cells begin to appear in the grid itself, no longer guessed.';
+    out.innerHTML=`<b>${L.lab} cells</b> · ${L.when}. Across the island: <b>${across<1?'less than one cell':across.toFixed(1)+' cells'}</b>. To cover Earth: <b>${fmt(cells)} cells</b> per layer. ${see}`;
+  }
+  const btns=levels.map((L,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=L.lab;b.onclick=()=>{setOn(btns,b);draw(i);};bx.appendChild(b);return b;});
+  btns[0].classList.add('on');draw(0);
+})();
+
+/* ── Fig 3 · two-way budget cord ── */
+(function(){
+  const svg=document.getElementById('budgetSvg'),E=document.getElementById('bE'),T=document.getElementById('bT'),Ev=document.getElementById('bEv'),Tv=document.getElementById('bTv'),out=document.getElementById('bOut');
+  const TC=0.45/1000,TLO=0.27/1000,THI=0.63/1000;
+  const W=340,H=220,m={l:36,r:12,t:12,b:34},Emax=5000,Tmax=2.5;
+  const X=e=>m.l+e/Emax*(W-m.l-m.r), Y=t=>H-m.b-t/Tmax*(H-m.t-m.b);
+  function base(){
+    svg.innerHTML='';
+    for(let t=0;t<=2.5;t+=0.5){el('line',{x1:m.l,y1:Y(t),x2:W-m.r,y2:Y(t),stroke:'#e7ddca'},svg);txt(svg,m.l-5,Y(t)+3.5,t.toFixed(1)+'°',Object.assign({'font-size':9.5,'text-anchor':'end',fill:C.ink2},MONO));}
+    for(let e=0;e<=5000;e+=1000){txt(svg,X(e),H-m.b+14,String(e),Object.assign({'font-size':9.5,'text-anchor':'middle',fill:C.ink2},MONO));}
+    txt(svg,W-m.r,H-4,'billion tonnes CO₂ since 1850 →',Object.assign({'font-size':9.5,'text-anchor':'end',fill:C.ink2},MONO));
+    el('polygon',{points:`${X(0)},${Y(0)} ${X(Math.min(Emax,Tmax/THI))},${Y(Math.min(Tmax,Emax*THI))} ${X(Emax)},${Y(Math.min(Tmax,Emax*THI))} ${X(Emax)},${Y(Emax*TLO)}`,fill:'rgba(176,125,0,.15)'},svg);
+    el('line',{x1:X(0),y1:Y(0),x2:X(Emax),y2:Y(Emax*TC),stroke:C.ve,'stroke-width':2.4},svg);
+    el('line',{x1:X(2400),y1:Y(0),x2:X(2400),y2:Y(2.5),stroke:C.ink2,'stroke-width':1,'stroke-dasharray':'3 3'},svg);
+    txt(svg,X(2400)-4,m.t+10,'emitted 1850–2019',Object.assign({'font-size':8.5,'text-anchor':'end',fill:C.ink2},MONO));
+  }
+  function mark(e,t){
+    base();
+    el('line',{x1:X(e),y1:Y(0),x2:X(e),y2:Y(t),stroke:C.ink,'stroke-width':1.2},svg);
+    el('line',{x1:m.l,y1:Y(t),x2:X(e),y2:Y(t),stroke:C.ink,'stroke-width':1.2},svg);
+    el('circle',{cx:X(e),cy:Y(t),r:5,fill:C.ve,stroke:'#fbf8f2','stroke-width':2},svg);
+  }
+  function fromE(){const e=+E.value,t=e*TC;T.value=Math.min(2.5,t).toFixed(2);Ev.textContent=e;Tv.textContent=t.toFixed(2)+'°';mark(e,t);
+    out.innerHTML=`<b>Tonnes → degrees.</b> ${e.toLocaleString()} billion tonnes since 1850 gives about <b>${t.toFixed(2)} °C</b> of CO₂-driven warming (likely ${(e*TLO).toFixed(2)}–${(e*THI).toFixed(2)} °C).`;}
+  function fromT(){const t=+T.value,e=t/TC;E.value=Math.min(5000,Math.round(e));Ev.textContent=Math.round(e);Tv.textContent=t.toFixed(2)+'°';mark(Math.min(e,5000),t);
+    const left=e-2400;
+    out.innerHTML=`<b>Degrees → tonnes.</b> To stop CO₂-driven warming at <b>${t.toFixed(2)} °C</b>, the cord allows about <b>${Math.round(e).toLocaleString()}</b> billion tonnes in total, so <b>${left>0?Math.round(left).toLocaleString()+' left after 2019':'none left: already passed'}</b>. Assessed budgets are smaller, because they also set aside room for methane and other gases.`;}
+  E.oninput=fromE;T.oninput=fromT;fromE();
+})();
+})();
+</script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

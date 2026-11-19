@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>141 Beyond the Sky · The Polymathic Universe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+SC:wght@500&family=Tiro+Devanagari+Sanskrit&family=GFS+Didot&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1f3128;--ink2:#34493d;--dim:#56665c;--hair:#d3ddd1;
+  --paper:#f4f6ef;--mist:#e6efe4;--card:#fbfcf8;
+  --pond:#6fa585;--pond3:#b8d4bf;--deep:#3d6b52;
+  --lav:#7f8fd0;--lav-t:#4b5aa3;--lav2:#c9cdec;
+  --rose:#c58fb8;--rose-t:#93527f;--rose2:#ecd3e2;
+  --lily:#efe8b4;--gold:#b59a4a;--gold-t:#76621f;
+  --warm:#d98c5f;--warm-t:#9c4f26;
+  --serif:"Cormorant Garamond","Times New Roman",Times,serif;
+  --display:"Playfair Display","Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:#eef3ec;color:var(--ink);font-family:var(--serif);font-size:21px;line-height:1.6;font-weight:500;overflow-x:hidden;transition:background-color .25s linear}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+em,i{font-style:italic}
+b,strong{font-weight:600}
+.w{width:min(720px,calc(100% - 40px));margin-inline:auto}
+.wide{width:min(1100px,calc(100% - 40px));margin-inline:auto}
+.mono{font-family:var(--mono)}
+.zh{font-family:"Noto Serif SC","Songti SC",serif}
+
+/* progress */
+.bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--pond),var(--lav),var(--gold),var(--warm));z-index:50}
+.toc-btn{position:fixed;top:14px;right:14px;z-index:40;width:44px;height:44px;border:1px solid var(--ink2);background:rgba(251,252,248,.85);font-family:var(--mono);font-size:18px;cursor:pointer;backdrop-filter:blur(4px)}
+.toc{position:fixed;top:0;right:0;bottom:0;width:min(330px,88vw);background:var(--card);border-left:1px solid var(--hair);z-index:45;transform:translateX(100%);transition:transform .3s ease;padding:70px 26px 30px;overflow-y:auto}
+.toc.open{transform:none}
+.toc .lab{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:18px 0 6px}
+.toc a{display:block;font-size:19px;padding:5px 0;text-decoration:none;color:var(--ink2)}
+.toc a:hover{color:var(--rose-t)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+  background:radial-gradient(60% 50% at 78% 22%,rgba(197,143,184,.28),transparent 70%),
+             radial-gradient(55% 45% at 18% 70%,rgba(127,143,208,.22),transparent 70%),
+             radial-gradient(70% 60% at 60% 90%,rgba(239,232,180,.55),transparent 70%),
+             linear-gradient(170deg,#e3ede0 0%,#d4e4d6 45%,#dfe2ee 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(176deg,rgba(255,255,255,.0) 0 18px,rgba(255,255,255,.18) 18px 19px);pointer-events:none}
+.hero .w{position:relative;z-index:2;padding:80px 0 60px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
+.the{font-family:var(--display);font-style:italic;color:var(--gold-t);font-size:22px;margin-top:34px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(54px,13vw,118px);line-height:.92;letter-spacing:-.02em;margin-top:2px}
+h1 .it{font-weight:400;font-style:italic;display:block;color:var(--ink2)}
+h1 .w1{color:#6fa585}h1 .w2{color:#7f8fd0}h1 .w3{color:#b59a4a}h1 .w4{color:#d98c5f}h1 .w5{color:#c58fb8}
+.brk{font-family:var(--display);font-size:clamp(28px,6vw,46px);line-height:1.15;margin-top:34px}
+.brk span{color:var(--rose)}
+.paren{font-style:italic;font-size:clamp(20px,3.2vw,25px);color:var(--ink2);margin-top:8px;max-width:34em}
+.lead-q{margin-top:40px;border-left:3px solid var(--rose);padding:4px 0 4px 20px;font-style:italic;font-size:clamp(22px,3.6vw,28px);line-height:1.4}
+.attr{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:12px}
+.go{display:inline-block;margin-top:34px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--ink)}
+.byline{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:26px}
+
+/* acts */
+.act{padding:90px 0 20px}
+.act-band{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;border-top:1px solid var(--ink2);padding-top:14px;margin-bottom:10px}
+.act-band .no{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.act-band .nm{font-family:var(--display);font-style:italic;font-size:22px;color:var(--ink2)}
+.ch{padding:46px 0 10px}
+.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-t);margin-bottom:12px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,56px);line-height:1.04;letter-spacing:-.01em;margin-bottom:24px}
+h2 em{color:var(--rose-t)}
+p{margin-bottom:20px}
+.drop::first-letter{font-family:var(--display);float:left;font-size:4.2em;line-height:.8;padding:8px 10px 0 0;color:var(--deep)}
+.big{font-size:clamp(23px,3.6vw,27px);line-height:1.45}
+.fn{font-family:var(--mono);font-size:11px;vertical-align:super;text-decoration:none;color:var(--rose-t);margin-left:2px}
+
+/* stance chips */
+.st{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:2px}
+.st.b{background:var(--lav2);color:#2f3c84}.st.c{background:var(--pond3);color:#244a37}.st.v{background:var(--lily);color:#5c4c14}
+
+/* pulls */
+.pull{font-family:var(--display);font-style:italic;font-size:clamp(30px,6.4vw,50px);line-height:1.15;margin:50px 0;padding:0 0 0 0;position:relative}
+.pull::before{content:"[";color:var(--rose);margin-right:4px}
+.pull::after{content:"]";color:var(--rose);margin-left:4px}
+
+/* quotes */
+.voice{margin:34px 0;padding:22px 24px;background:rgba(251,252,248,.75);border-left:4px solid var(--rose);font-style:italic;font-size:24px;line-height:1.4}
+.voice small{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+
+/* pause */
+.pause{margin:34px 0;padding:18px 20px;background:rgba(201,205,236,.38);border-radius:2px;border-top:2px solid var(--lav)}
+.pause .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lav-t);margin-bottom:6px}
+.pause p{margin:0;font-size:19.5px}
+
+/* three tables trio */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0}
+.tab{padding:20px 18px 18px;background:var(--card);border:1px solid var(--hair);position:relative}
+.tab::before{content:"";position:absolute;left:0;top:0;right:0;height:5px}
+.tab.b::before{background:var(--lav)}.tab.c::before{background:var(--deep)}.tab.v::before{background:var(--gold)}
+.tab .verb{font-family:var(--display);font-size:28px;line-height:1.1}
+.tab .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:6px 0 10px}
+.tab .sym{font-family:var(--display);font-size:24px;margin-bottom:8px}
+.tab p{font-size:18px;margin:0;line-height:1.45}
+@media(max-width:640px){.trio{grid-template-columns:1fr}}
+
+/* year marker */
+.year{font-family:var(--display);font-weight:900;font-size:clamp(84px,22vw,170px);line-height:.9;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.4px var(--ink2);margin:10px 0 22px;font-variant-numeric:lining-nums}
+.year.fill{color:var(--ink);-webkit-text-stroke:0}
+
+/* big window numbers */
+.window{font-variant-numeric:lining-nums;display:flex;align-items:center;justify-content:center;gap:14px;margin:40px 0;font-family:var(--display)}
+.window .n{font-size:clamp(60px,15vw,110px);line-height:1;color:var(--lav-t)}
+.window .dash{flex:1;max-width:220px;height:14px;background:var(--lav);border-radius:7px;position:relative}
+.window .dash i{position:absolute;left:50%;top:-10px;bottom:-10px;width:3px;background:var(--ink);transform:translateX(-50%)}
+.window-cap{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:-24px;margin-bottom:30px}
+
+/* figure */
+.fig{margin:40px 0;background:rgba(251,252,248,.85);border:1px solid var(--hair);padding:18px}
+.fig-t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+.fig svg{display:block;width:100%;height:auto}
+.fig-c{font-size:17px;color:var(--ink2);margin-top:12px;line-height:1.45}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:11px;margin-top:10px;color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.grids{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.grids div{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--ink2)}
+.grids svg{border:1px solid var(--hair);margin-bottom:4px}
+@media(max-width:520px){.grids{grid-template-columns:repeat(2,1fr)}}
+.tipbox{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11.5px;line-height:1.45;padding:7px 9px;opacity:0;transition:opacity .12s;max-width:230px;z-index:3}
+
+/* the turn: full bleed warm */
+.turn{background:linear-gradient(180deg,rgba(239,232,180,0) 0%,rgba(239,232,180,.55) 18%,rgba(236,211,226,.45) 100%);padding-bottom:40px}
+.rewind{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--warm-t);display:flex;align-items:center;gap:10px;margin:20px 0}
+.rewind::before{content:"◀◀";letter-spacing:-2px}
+.counter{text-align:center;margin:44px 0 10px}
+.counter .num{font-family:var(--display);font-weight:900;font-variant-numeric:lining-nums;font-size:clamp(110px,30vw,220px);line-height:1;margin-bottom:6px;color:var(--gold-t);letter-spacing:-.04em}
+.counter .unit{font-family:var(--display);font-style:italic;font-size:clamp(22px,4vw,30px);color:var(--ink2)}
+.counter .src{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:40px 0;border:1px solid var(--hair)}
+.split div{padding:24px 20px}
+.split .l{background:rgba(201,205,236,.45)}.split .r{background:rgba(239,232,180,.7)}
+.split .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.split .v{font-variant-numeric:lining-nums;font-family:var(--display);font-size:clamp(26px,5vw,38px);line-height:1.1;margin:10px 0}
+.split p{font-size:18px;margin:0}
+@media(max-width:560px){.split{grid-template-columns:1fr}}
+.cord{margin:36px 0}
+.slab{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;margin-top:10px}
+.slab input{flex:1;accent-color:#76621f}
+.slab .val{min-width:64px;text-align:right}
+.cord-out{font-size:19px;margin-top:12px;min-height:3em}
+
+/* verdict */
+.rev{counter-reset:r;margin:30px 0}
+.rev li{list-style:none;position:relative;padding:22px 0 22px 74px;border-top:1px solid var(--ink2)}
+.rev li::before{counter-increment:r;content:counter(r);position:absolute;left:0;top:10px;font-family:var(--display);font-weight:900;font-size:64px;line-height:1;color:var(--rose)}
+.rev h3{font-family:var(--display);font-weight:400;font-size:clamp(25px,4.6vw,32px);line-height:1.15;margin-bottom:8px}
+.rev p{margin:0;font-size:19.5px}
+.test{margin:36px 0;padding:26px 24px;background:var(--ink);color:#f4f6ef}
+.test .lab{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--lily);margin-bottom:14px}
+.test ol{padding-left:0;list-style:none;counter-reset:t}
+.test li{counter-increment:t;padding:10px 0 10px 44px;position:relative;font-size:20px;border-top:1px solid rgba(255,255,255,.18)}
+.test li::before{content:counter(t);position:absolute;left:0;top:6px;font-family:var(--display);font-size:30px;color:var(--rose2)}
+.test b{color:#fff}
+.ending{font-family:var(--display);font-style:italic;font-size:clamp(26px,5vw,38px);line-height:1.3;margin:46px 0;color:var(--deep)}
+
+/* back matter */
+.back{background:var(--card);border-top:1px solid var(--hair);margin-top:80px;padding:70px 0 40px}
+.back h2{font-size:clamp(30px,6vw,44px)}
+.back .intro{font-style:italic;font-size:20px;color:var(--ink2)}
+.notes{columns:2 320px;column-gap:40px;margin-top:24px}
+.notes li{list-style:none;break-inside:avoid;padding:12px 0;border-top:1px solid var(--hair);font-size:17.5px;line-height:1.5}
+.notes .n{font-family:var(--mono);font-size:11px;color:var(--rose-t);display:block;letter-spacing:.1em}
+.notes b{font-weight:600}
+.src li{list-style:none;padding:9px 0;border-top:1px solid var(--hair);font-size:17px}
+.src .n{font-family:var(--mono);font-size:11px;color:var(--gold-t);margin-right:8px}
+.method{font-size:16.5px;color:var(--ink2);margin-top:30px;font-style:italic}
+footer{padding:30px 0 60px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+footer .wide{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:520px){body{font-size:20px}.voice{font-size:21px}.rev li{padding-left:58px}.rev li::before{font-size:50px}}
+
+.el{font-family:"GFS Didot","Playfair Display",serif}.dv{font-family:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif}.zh{font-family:"Noto Serif SC","Songti SC",serif}
+.sky-hero{display:block;width:100%;max-width:560px;margin:34px 0 0}
+.glance{display:grid;grid-template-columns:150px repeat(3,1fr);gap:8px;margin:30px 0 10px}
+.gh{font-family:var(--display);font-size:22px;line-height:1.1;padding:8px 6px;border-bottom:3px solid var(--hair)}
+.gh small{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.gh.g{border-color:var(--lav)}.gh.v{border-color:var(--gold)}.gh.c{border-color:var(--deep)}
+.gr{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);padding-top:14px}
+.gc{display:block;text-decoration:none;font-size:17.5px;line-height:1.42;padding:14px 14px;background:rgba(251,252,248,.8);border:1px solid var(--hair);border-top:4px solid;transition:transform .15s}
+.gc:hover{transform:translateY(-2px)}
+.gc.g{border-top-color:var(--lav)}.gc.v{border-top-color:var(--gold)}.gc.c{border-top-color:var(--deep)}
+@media(max-width:760px){.glance{grid-template-columns:1fr}.gh{display:none}.gr{padding-top:22px;border-top:1px solid var(--ink2)}
+ .gc::before{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+ .gc.g::before{content:"Greek sky";color:var(--lav-t)}.gc.v::before{content:"Vedic sky";color:var(--gold-t)}.gc.c::before{content:"Chinese sky";color:var(--deep)}}
+.seedmark{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--rose);color:var(--rose-t);border-radius:10px;vertical-align:2px;white-space:nowrap}
+.sky{margin-top:90px;padding:70px 0 50px}
+.sky-g{background:linear-gradient(180deg,rgba(201,205,236,.55),rgba(201,205,236,.18) 60%,rgba(201,205,236,0))}
+.sky-v{background:linear-gradient(180deg,rgba(239,225,168,.7),rgba(239,232,180,.25) 60%,rgba(239,232,180,0))}
+.sky-c{background:linear-gradient(180deg,rgba(184,212,191,.7),rgba(184,212,191,.22) 60%,rgba(184,212,191,0))}
+.sky-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.sky-no{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.sky-nm{font-family:var(--display);font-weight:900;font-size:clamp(40px,9vw,72px);line-height:1}
+.sky-verb{font-family:var(--display);font-style:italic;font-size:24px;margin-left:auto}
+.sky-g .sky-verb{color:var(--lav-t)}.sky-v .sky-verb{color:var(--gold-t)}.sky-c .sky-verb{color:var(--deep)}
+.epi{margin:30px 0 10px;font-size:26px;line-height:1.45}
+.epi small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--dim);margin-top:8px;line-height:1.5}
+.sky .kicker{color:var(--ink2)}
+.sky-g h2 em{color:var(--lav-t)}.sky-v h2 em{color:var(--gold-t)}.sky-c h2 em{color:var(--deep)}
+.sky-g .drop::first-letter{color:var(--lav-t)}.sky-v .drop::first-letter{color:var(--gold-t)}
+
+.status{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:10px;white-space:nowrap;vertical-align:2px;margin-left:4px;display:inline-block}
+.status.s1{background:#dbe8dc;color:#244a37}.status.s2{background:#c9cdec;color:#2f3c84}.status.s3{background:#efe8b4;color:#5c4c14}.status.s4{background:#ecd3e2;color:#7a3c66}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn{font-family:var(--mono);font-size:12px;padding:9px 13px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;min-height:40px}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.ledger{margin:26px 0}
+.lrow{display:grid;grid-template-columns:200px 220px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--ink2);align-items:baseline}
+.lname{font-family:var(--display);font-size:21px;line-height:1.2}
+.lwhy{font-size:18px;line-height:1.45}
+@media(max-width:760px){.lrow{grid-template-columns:1fr;gap:4px}.lstat{margin-left:-4px}}
+
+/* proposition opener (shared across 139-141) */
+.prop{padding:70px 0 10px}
+.prop .pk{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px}
+.prop h2.ph{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,52px);line-height:1.06;letter-spacing:-.01em;margin:0 0 22px;color:var(--ink)}
+.prop h2.ph em{font-style:italic}
+.prop p{margin:0 0 18px}
+.prop .ptrio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.prop .pt{padding:18px 16px 16px;background:var(--card);border:1px solid var(--hair);border-top:5px solid}
+.prop .pt.g{border-top-color:var(--lav-t)}.prop .pt.v{border-top-color:var(--gold-t)}.prop .pt.c{border-top-color:var(--deep)}
+.prop .pt b{display:block;font-family:var(--display);font-weight:400;font-size:27px;line-height:1.1}
+.prop .pt > span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:6px 0 10px;color:var(--ink2)}
+.prop .pt p{font-size:17.5px;line-height:1.45;margin:0}
+.prop .pt.g b{color:var(--lav-t)}.prop .pt.v b{color:var(--gold-t)}.prop .pt.c b{color:var(--deep)}
+.prop .thread{list-style:none;margin:22px 0 8px;padding:0;border-top:1px solid var(--ink2)}
+.prop .thread li{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.prop .thread .n{font-family:var(--mono);font-size:12px;letter-spacing:.08em;padding-top:5px;color:var(--ink2)}
+.prop .thread a{font-family:var(--display);font-size:23px;line-height:1.2;text-decoration:none}
+.prop .thread a:hover{text-decoration:underline}
+.prop .thread p{font-size:17.5px;margin:4px 0 0;line-height:1.45}
+.prop .thread .here{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--ink2);border-radius:10px;margin-left:8px;vertical-align:4px;white-space:nowrap}
+@media(max-width:640px){.prop .ptrio{grid-template-columns:1fr}.prop .thread li{grid-template-columns:44px 1fr}}
+
+/* components carried over from the GPT volumes, in the PMU skin */
+.part{padding:90px 0 10px}
+.part-band{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;border-top:2px solid var(--ink);padding-top:14px;margin-bottom:8px}
+.part-band .no{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.part-band .nm{font-family:var(--display);font-style:italic;font-size:22px;color:var(--ink2)}
+.by{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:1px 7px;border-radius:10px;white-space:nowrap;vertical-align:2px;margin-left:6px;border:1px solid}
+.by.cl{color:#7a3c66;border-color:#c58fb8}.by.gp{color:#2f5e47;border-color:#7fae94}
+.rec{margin:26px 0 8px;padding:0;list-style:none;border-top:1px solid var(--ink2)}
+.rec li{padding:16px 0 14px;border-bottom:1px solid var(--hair)}
+.rec .when{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.rec b{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.2;display:block;margin-bottom:4px}
+.rec p{margin:0;font-size:19px;line-height:1.5}
+.arch{margin-top:46px}
+.arch h3{font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,34px);line-height:1.15;margin-bottom:6px}
+.arch .sub{font-style:italic;color:var(--ink2);margin-bottom:8px}
+.arch.g h3{color:var(--lav-t)}.arch.v h3{color:var(--gold-t)}.arch.c h3{color:var(--deep)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:28px 0 22px}
+.flow div{border-top:3px solid var(--rose);background:var(--card);border-left:1px solid var(--hair);border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:12px 12px 10px;font-size:17px;line-height:1.4}
+.flow b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--rose-t);margin-bottom:6px}
+.flow i{display:block;font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+@media(max-width:640px){.flow{grid-template-columns:1fr 1fr}}
+.scene{margin:30px 0;padding:24px 24px 6px;background:var(--card);border:1px solid var(--hair);border-left:4px solid var(--rose)}
+.scene .sh{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-t);margin-bottom:12px}
+.scene p{font-size:20px;line-height:1.55;margin-bottom:16px}
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.cmp>div{background:var(--card);border:1px solid var(--hair);border-top:5px solid;padding:18px 16px 8px}
+.cmp>div.g{border-top-color:var(--lav)}.cmp>div.v{border-top-color:var(--gold)}.cmp>div.c{border-top-color:var(--deep)}
+.cmp h4{font-family:var(--display);font-weight:400;font-size:24px;line-height:1.15;margin-bottom:10px}
+.cmp p{font-size:17px;line-height:1.45;margin-bottom:10px}
+.cmp p b{font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:block;color:var(--ink2)}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.mx{margin:24px 0;border-top:1px solid var(--ink2)}
+.mx .r{display:grid;grid-template-columns:170px repeat(3,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--hair);font-size:17.5px;line-height:1.42}
+.mx .r.h{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.mx .q{font-family:var(--display);font-size:19px;line-height:1.2}
+@media(max-width:760px){.mx .r{grid-template-columns:1fr;gap:4px}.mx .r.h{display:none}
+ .mx .r div[data-l]::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}}
+.note2{margin:30px 0;padding:18px 20px;background:rgba(201,205,236,.38);border-top:2px solid var(--lav)}
+.note2 .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lav-t);margin-bottom:6px}
+.note2 p{margin:0 0 10px;font-size:19.5px}
+.ground{margin:14px 0 22px;padding:12px 16px;background:rgba(251,252,248,.8);border-left:3px solid var(--hair);font-size:18px;line-height:1.5}
+.ground b{font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.more{margin-top:40px;padding-top:6px;border-top:1px dashed var(--ink2)}
+.more>.kicker{margin-top:18px}
+.con{padding:18px 0 4px}
+.con .cn{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.con h3{font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,34px);line-height:1.15;margin:6px 0 12px}
+.tri3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+.tri3>div{background:var(--card);border:1px solid var(--hair);padding:18px 16px 8px}
+.tri3 h4{font-family:var(--display);font-weight:400;font-size:23px;line-height:1.15;margin:8px 0 10px}
+.tri3 p{font-size:17px;line-height:1.45;margin-bottom:10px}
+@media(max-width:760px){.tri3{grid-template-columns:1fr}}
+.srcs{counter-reset:s;margin-top:20px}
+.srcs li{list-style:none;padding:9px 0;border-top:1px solid var(--hair);font-size:17px;line-height:1.45}
+.srcs .n{font-family:var(--mono);font-size:11px;color:var(--gold-t);margin-right:8px}
+.srcs em{font-style:normal;color:var(--dim)}
+.front{position:fixed;top:14px;left:14px;z-index:40;height:44px;display:flex;align-items:center;padding:0 12px;border:1px solid var(--ink2);background:rgba(251,252,248,.85);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;backdrop-filter:blur(4px)}
+@media(max-width:520px){.front{font-size:10px;padding:0 9px}}
+
+.physic{margin:16px 0;padding:18px 18px 14px;background:var(--card);border:1px solid var(--hair)}
+.physic .pk2{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.physic .fm{font-family:var(--display);font-size:clamp(21px,3.4vw,26px);line-height:1.25;margin:8px 0}
+.physic p{font-size:18.5px;margin:0}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<button class="toc-btn" id="tocBtn" aria-label="Contents">≡</button>
+<a class="front" href="../../index.html">← PMU</a>
+<nav class="toc" id="toc" aria-label="Contents">
+  <div class="lab">Before</div><a href="#proposition">The proposition</a><a href="#glance">At a glance</a><a href="#rules">The rules, loosened</a>
+  <div class="lab">Part One · The physics</div><a href="#physics">Five permissions</a>
+  <div class="lab">Part Two · The geometers</div><a href="#g1">The physics they’d love</a><a href="#g2">The Window to the Dark</a><a href="#g3">Archimedes’ lever, at last</a><a href="#g-more">The Diadem, the Cathedrals</a>
+  <div class="lab">Part Two · The ritualists</div><a href="#v1">The physics they’d love</a><a href="#v2">Agni unkindled</a><a href="#v3">The Pratiloma rite</a><a href="#v-more">The Monsoon, the Churning, the Forest</a>
+  <div class="lab">Part Two · The calculators</div><a href="#c1">The physics they’d love</a><a href="#c2">The Four-Ounce Office</a><a href="#c3">The sky that answers</a><a href="#c-more">The Valves, the Porcelain, the Orchard</a>
+  <div class="lab">Part Three · Past physics</div><a href="#edge">Four new laws</a><a href="#scenes">Three moments of wonder</a>
+  <div class="lab">After</div><a href="#ledger">The honesty ledger</a><a href="#coda">What the tables found in physics</a><a href="#notes">Physics notes &amp; sources</a>
+  <div class="lab">Elsewhere</div><a href="../../index.html">PMU front page</a>
+</nav>
+<header class="hero"><div class="w">
+  <div class="eyebrow" id="top">The Polymathic Universe · Book Four · 141 · Three Tables</div>
+  <div class="the">Three imagined futures,</div>
+  <h1><span class="w2">B</span><span class="w3">e</span><span class="w1">y</span>ond<span class="it">the Sky</span></h1>
+  <div class="brk"><span>[</span>What they would build with modern physics<span>]</span></div>
+  <p class="paren">(the Greek, Vedic and Chinese traditions, each still alone, inherit thermodynamics, relativity, quantum theory and chaos, and set out to heal a damaged world in the way only they could imagine)</p>
+  <svg class="sky-hero" viewBox="0 0 600 230" aria-label="Three constructs: a window to space, a fire run backwards, a butterfly attractor">
+    <rect x="0" y="0" width="190" height="200" fill="#e7e9f6"/><rect x="205" y="0" width="190" height="200" fill="#f6eecf"/><rect x="410" y="0" width="190" height="200" fill="#dfeadf"/>
+    <g stroke="#4b5aa3" fill="none"><path d="M20 170 H170" stroke-width="1"/><path d="M95 170 V60" stroke-width="2"/><path d="M85 72 L95 52 L105 72" stroke-width="2"/><circle cx="95" cy="36" r="10" stroke-dasharray="2 3"/></g>
+    <rect x="70" y="160" width="50" height="10" fill="#fbfcf8" stroke="#4b5aa3"/>
+    <g fill="none" stroke-width="2.4"><path d="M250 100 A50 50 0 0 1 350 100" stroke="#c8402e"/><path d="M350 100 A50 50 0 0 1 250 100" stroke="#76621f"/></g>
+    <path d="M345 92 L350 102 L357 93" fill="none" stroke="#c8402e" stroke-width="2"/><path d="M255 108 L250 98 L243 107" fill="none" stroke="#76621f" stroke-width="2"/>
+    <text x="300" y="44" text-anchor="middle" font-family="Playfair Display,serif" font-style="italic" font-size="13" fill="#9c4f26">burn</text>
+    <text x="300" y="166" text-anchor="middle" font-family="Playfair Display,serif" font-style="italic" font-size="13" fill="#76621f">unburn</text>
+    <path id="heroLorenz" d="" fill="none" stroke="#3d6b52" stroke-width=".7" opacity=".9"/>
+    <g font-family="JetBrains Mono,monospace" font-size="10" fill="#34493d" letter-spacing="2"><text x="62" y="218">TO BOUND</text><text x="256" y="218">TO BALANCE</text><text x="470" y="218">TO CUT</text></g>
+  </svg>
+  <a class="go" href="#proposition">Enter the laboratories ↓</a>
+  <div class="byline">Lin Wei 林威 · with Claude and ChatGPT · Singapore · 18–19 Nov 2026</div>
+</div></header>
+
+<section class="prop" id="proposition"><div class="w">
+  <div class="pk">The proposition · three traditions</div>
+  <h2 class="ph">Three ways of knowing, <em>one warming world</em></h2>
+  <p>This thread grew out of the Three Tables experiments in the Polymathic Learner, where one problem was put to Greek, Vedic and Chinese mathematicians and each answered in its own native way. <a href="https://thelinwei.github.io/thepolymathiclearner/documents/speculative-play/doubling-the-square.html">Doubling the Square</a> and <a href="https://thelinwei.github.io/thepolymathiclearner/documents/speculative-play/squaring-the-circle.html">Squaring the Circle</a> drew out three kinds of answer, and three verbs to carry them.</p>
+  <div class="ptrio">
+    <div class="pt g"><b>to bound</b><span>the Greek table</span><p>Archimedes traps the circle between a polygon inside and a polygon outside. The answer is an interval, proved from both sides.</p></div>
+    <div class="pt v"><b>to balance</b><span>the Vedic table</span><p>The Śulba cord-makers turn a square into a circle of equal area, and the circle back into the square. The answer is a rule that runs in both directions.</p></div>
+    <div class="pt c"><b>to cut finer</b><span>the Chinese table</span><p>Liu Hui cuts the polygon finer and finer: <span class="zh">割之弥细，所失弥少</span>. The answer is a procedure that can always be refined.</p></div>
+  </div>
+  <p>Here the three tables leave mathematics and sit down before a warming planet. The thread runs in three volumes, from the real science, to the deep past, to a future with all of modern physics in hand.</p>
+  <ol class="thread"><li><span class="n">139</span><div><a href="139%20Weighing%20the%20Warming.html">Weighing the Warming</a><p>The three stances read across today’s climate science: the sensitivity interval trapped from four sides, the models cut ever finer, and the carbon budget that runs from degrees back to tonnes. Every figure is a published assessment.</p></div></li><li><span class="n">140</span><div><a href="140%20Three%20Skies.html">Three Skies</a><p>Each tradition goes on alone, burns its own fires and meets its own warming. What each archive already held, three invented histories of discovery, struggle and a great work, and the same rains worked by magic.</p></div></li><li><span class="n">141</span><div><a href="#top">Beyond the Sky</a><span class="here">you are here</span><p>Each tradition inherits modern physics. It builds the wonder physics already permits, then the wonder past the edge, with every construct tagged from established physics to dream.</p></div></li></ol>
+</div></section>
+<section class="w" id="glance" style="padding-top:80px">
+  <div class="act-band"><span class="no">Before</span><span class="nm">The outcome, at a glance</span></div>
+  <p class="big" style="margin-top:22px">Each tradition falls for the part of modern physics that speaks its own language. Each builds one wonder that real physics already permits, and dreams one wonder that goes past the edge. Tap a cell to jump.</p>
+  <div class="glance">
+    <div class="gh"></div><div class="gh g">The geometers<br><small>Greek · to bound</small></div><div class="gh v">The ritualists<br><small>Vedic · to balance</small></div><div class="gh c">The calculators<br><small>Chinese · to cut</small></div>
+    <div class="gr">I · The physics they’d love</div>
+    <a class="gc g" href="#g1">The great limits. Carnot’s efficiency, the speed of light, and Noether’s theorem: every symmetry carries a conserved quantity.</a>
+    <a class="gc v" href="#v1">Conservation and reversibility. Information is never truly lost, and erasing a single bit has a minimum price in heat.</a>
+    <a class="gc c" href="#c1">Chaos and scale. A weather model with three variables is so sensitive that the smallest push can choose its future.</a>
+    <div class="gr">II · The wonder physics permits</div>
+    <a class="gc g" href="#g2"><b>The Window to the Dark.</b> Surfaces that mirror the Sun and pour the Earth’s heat out to the cold of space, cooler than the air even at noon.</a>
+    <a class="gc v" href="#v2"><b>Agni unkindled.</b> Fire run backwards. Sunlight turns the sky’s carbon back into fuel, and into the bricks of the next altar.</a>
+    <a class="gc c" href="#c2"><b>The Four-Ounce Office.</b> No shading the sky. A feather’s push, at the right moment, in a chaotic weather system.</a>
+    <div class="gr">III · The wonder past the edge</div>
+    <a class="gc g" href="#g3"><b>Archimedes’ lever, at last.</b> Stones flung past the Earth over the Sun’s long life, walking its orbit outward as the Sun brightens.</a>
+    <a class="gc v" href="#v3"><b>The Pratiloma rite.</b> The industrial age performed in reverse, its carbon pressed back into the earth as seams of diamond.</a>
+    <a class="gc c" href="#c3"><b>The sky that answers.</b> 天人感应 made literal: a sensing world in which Heaven really does respond, and which touches as little as possible.</a>
+    <div class="gr">IV · More from the laboratory</div>
+    <a class="gc g" href="#g-more"><b>The Diadem of Helios</b>, a moving crown of mirrored petals at the balance point; <b>the Aeolian Cathedrals</b>, towers that play the winds; <b>the Galleries of the Second Night</b>.</a>
+    <a class="gc v" href="#v-more"><b>The Monsoon Constellation</b>, terraces that tune the rains in many voices; <b>the Samudra-Churning Works</b> for the sea; <b>the Forest of Many Seasons</b>.</a>
+    <a class="gc c" href="#c-more"><b>The Ten Thousand Valves</b>, the Office’s hands in every valley; <b>the Heaven-Breathing Porcelain</b>; <b>the Orchard of Forgotten Climates</b>.</a>
+  </div>
+</section>
+
+<section class="w" id="rules" style="padding-top:60px">
+  <div class="kicker">The rules, loosened</div>
+  <h2>Same three worlds, a much larger <em>toolbox</em></h2>
+  <p>The three traditions still never meet. This time, though, each one inherits the whole of modern physics. That means thermodynamics and relativity, quantum theory, information and chaos. Each one picks up first the idea that feels like home. Part One sets out the physics on the table. Part Two opens the three laboratories, each with its own wonders. Part Three goes past physics itself.</p>
+  <p>Every construct below carries a small honesty tag. <span class="status s1">physics</span> means established science. <span class="status s2">built small</span> means it has been demonstrated, at least in a laboratory. <span class="status s3">proposed</span> means it is a serious paper that no one has built. <span class="status s4">dream</span> means it is past the edge, offered for the wonder of it.</p>
+</section>
+
+<section class="w part" id="physics">
+  <div class="part-band"><span class="no">Part One</span><span class="nm">The physics on the table <span class="by gp">GPT</span></span></div>
+  <h2 style="margin-top:22px">Five extraordinary <em>permissions</em></h2>
+  <p class="big">The richest inventions come from knowing exactly what physics allows, and exactly where the dream begins. Five permissions sit on every table.</p>
+  <div class="physic"><div class="pk2">I · Planetary thermodynamics <span class="status s1">physics</span></div><div class="fm">Sunlight in − heat radiated out = energy stored</div><p>The planet is warmed by sunlight and cooled by radiating to space. Clouds, greenhouse gases, ice, oceans, plants and circulation all tilt that balance, and even a small lasting tilt adds up. So the great works alter reflection, emission and storage: filters in orbit, roofs that radiate, oceans and lands that move heat.<a class="fn" href="#r1">1</a></p></div>
+  <div class="physic"><div class="pk2">II · Chaos, feedback and attractors <span class="status s1">physics</span></div><div class="fm">A tiny push can matter enormously, at the right moment and place</div><p>Weather and climate are coupled nonlinear systems. Some nudges amplify, and the same sensitivity sets a horizon on prediction. A civilisation that learns this spends its effort at the moment a system is most responsive, shaping the conditions storms grow from.<a class="fn" href="#r2">2</a><a class="fn" href="#r3">3</a></p></div>
+  <div class="physic"><div class="pk2">III · Orbital mechanics and optics <span class="status s3">proposed</span></div><div class="fm">At the Sun–Earth L1 point, a movable partial shade</div><p>Space sunshades have been studied in earnest. Shading the Sun cools the planet and also reshapes regional rainfall; the chemistry of the oceans needs its own works. In a world with magic the shade becomes sails of programmable shadow, swarms of photonic scales, lattices that redirect chosen wavelengths.<a class="fn" href="#r4">4</a><a class="fn" href="#r5">5</a></p></div>
+  <div class="physic"><div class="pk2">IV · The open infrared window <span class="status s2">built small</span></div><div class="fm">A surface can pour its heat straight out to the cold of space</div><p>Between about 8 and 13 micrometres the air is nearly transparent. A surface that rejects sunlight and glows in that band cools below the air around it; humidity and cloud set how much. Coastlines of ceramic forests, roofs that change emissivity with the seasons.<a class="fn" href="#r6">6</a></p></div>
+  <div class="physic"><div class="pk2">V · Chemistry and living systems <span class="status s2">built small</span><span class="status s3">proposed</span></div><div class="fm">Carbon, water, nutrients, ecosystems and climate shape one another</div><p>Rock weathering and ocean alkalinity can draw down carbon and are being tested now. Feedbacks and tipping points tie the living world to the physical one, so restoring one is restoring the other.<a class="fn" href="#r7">7</a><a class="fn" href="#r8">8</a></p></div>
+  <div class="note2"><div class="lab">Where PMU physics begins</div><p>Present-day physics has no way to send waste heat elsewhere through entanglement, steer a monsoon, rewind an ecosystem or draw free energy from the vacuum. The constructs that do those things run on PMU’s own new laws, and each carries its tag.</p></div>
+</section>
+<div class="w part" style="padding-bottom:0"><div class="part-band"><span class="no">Part Two</span><span class="nm">The three laboratories <span class="by cl">Claude</span> <span class="by gp">GPT</span></span></div><p class="big" style="margin-top:22px">Each tradition falls for the physics that speaks its language, builds the wonder physics permits, and dreams the wonder past the edge. Then the laboratory keeps going.</p></div>
+<!-- GREEK -->
+<section class="sky sky-g" id="greek">
+ <div class="w">
+  <div class="sky-head"><div class="sky-no">Laboratory I</div><div class="sky-nm">The geometers</div><div class="sky-verb">to bound</div></div>
+  <blockquote class="epi"><span class="el">ἀεὶ ὁ θεὸς γεωμετρεῖ.</span><small>“God always does geometry.” · attributed to Plato by Plutarch</small></blockquote>
+
+  <div class="ch" id="g1">
+    <div class="kicker">I · The physics they’d love <span class="status s1">physics</span></div>
+    <h2>A universe made of <em>limits</em></h2>
+    <p class="drop big">Hand the Lyceum modern physics and it will skip past the machines and go straight to the limits. Here is a whole science built of <em>no more than</em>.</p>
+    <p>No heat engine can beat Carnot’s efficiency, fixed by two temperatures and nothing else. Nothing travels faster than light. And Emmy Noether’s theorem of 1918 would make them weep: every symmetry of the laws of nature carries a conserved quantity. If the laws are the same today as tomorrow, energy is conserved. Conservation turns out to be geometry.</p>
+    <p>Then there is Einstein, who turned gravity itself into the shape of space and time. For a tradition that answered every question with a figure, this is coming home. The cosmos is a proof drawn in four dimensions.</p>
+    <div class="pull">They would not ask what a machine can do. They would ask what no machine can ever do, and then build right up to that line.</div>
+  </div>
+
+  <div class="ch" id="g2">
+    <div class="kicker">II · The wonder physics permits <span class="status s2">built small</span></div>
+    <h2>The Window to the <em>Dark</em></h2>
+    <p>Here is the limit that fascinates the geometers most. Every warm body glows. Earth glows in infrared, and above it, past the thin shell of air, waits the coldest thing there is: deep space, about 2.7 degrees above absolute zero. Heat flows from hot to cold. The whole universe is a heat sink, if only the heat could reach it.</p>
+    <p>The air mostly blocks the way, with one exception. Between wavelengths of 8 and 13 micrometres the atmosphere is nearly transparent. It is a <b>window</b>, and it happens to sit right where a body at everyday temperatures glows most strongly.</p>
+    <div class="fig">
+      <div class="fig-t">The window · where the air lets the Earth’s heat escape</div>
+      <svg id="winSvg" viewBox="0 0 340 190" aria-label="Atmospheric transparency and Earth's glow by wavelength"></svg>
+      <div class="fig-c">The green curve is the infrared glow of a surface at about 27 °C. The lavender band marks where the sky is clear to it, between 8 and 13 micrometres. Pour heat through that band and it never comes back.</div>
+    </div>
+    <p>So the geometers design a surface with two faces of perfection. It reflects nearly all sunlight, like polished Parian marble. It also glows strongly, and only, through the window, so its heat sails straight out to the cold between the stars. Such a surface can sit in full noon sun and grow <b>colder than the air around it</b>.</p>
+    <p>This is no myth. In 2014, a layered photonic surface on a California rooftop held itself about five degrees below the air temperature in direct sunlight. <a class="fn" href="#n2">2</a> In the geometers’ world, every roof, road and stoa in the Greek cities is clad in it. The temples gleam whiter than they ever did, and each one quietly pours a little of the world’s heat into the dark.</p>
+  </div>
+
+  <div class="ch" id="g3">
+    <div class="kicker">III · The wonder past the edge <span class="status s3">proposed</span> <span class="status s4">dream</span></div>
+    <h2>Archimedes’ lever, at <em>last</em></h2>
+    <p>And then the geometers reach for the oldest boast in their tradition. Give me a place to stand, and I will move the earth.</p>
+    <p>The Sun is slowly brightening. Over hundreds of millions of years it will warm the Earth past anything a window can carry. The only permanent answer is a bound on the Sun’s light, and the only way to set that bound is distance. <b>Move the Earth outward.</b></p>
+    <p>In 2001, three astronomers published exactly this as a serious calculation. Send a large body from the outer solar system grazing past the Earth, and it hands over a little of its orbital energy. Then let it swing past Jupiter to pick up that energy again, and send it back. Repeat about a million times over the life of the Sun, and the Earth’s orbit walks outward to stay in the habitable zone. <a class="fn" href="#n3">3</a></p>
+    <div class="fig">
+      <div class="fig-t">The lever · energy borrowed from Jupiter, lent to the Earth</div>
+      <svg id="orbitSvg" viewBox="0 0 340 220" aria-label="Earth's orbit walking outward via repeated flybys"></svg>
+      <div class="fig-c">The messenger body grazes the Earth on its way in, giving the Earth energy, then swings past Jupiter on its way out to take energy back. Each pass moves the Earth’s orbit outward by a hair. Not to scale.</div>
+    </div>
+    <p>The geometers would love it for its honesty. The first proof is of the bound: how far the Earth must go to stay as cool as it is now. Every throw of the stone has to stay within the bound, close enough to give energy and never close enough to strike. The lever is a sequence of proofs, a million long.</p>
+    <p class="big">Children of the geometers’ world know a strange festival. Once in a few thousand years, a new star crosses the night sky. It is the messenger, and when it passes the whole world feels, by the width of a hair, a little further from the fire.</p>
+  </div>
+<div class="more" id="g-more"><div class="kicker">IV · More from the geometers’ laboratory <span class="by gp">GPT</span></div><p>The geometers’ debates grow sharper with every proof. Island observatories compare stars, harvests and winds; they learn that sunlight is radiation, that gravity offers stations where a structure can stand still, and that the atmosphere is a nonlinear fluid. Their assemblies quarrel, and their engineering grows more formidable for it.</p><div class="con"><div class="cn">Greek construct 01 · optics + orbital mechanics <span class="status s3">proposed</span><span class="status s4">dream</span></div><h3>The Diadem of Helios</h3><div class="scene"><div class="sh">The engineer of sunlight</div><p>At noon the shadow of the harbour tower slips eastward. For two minutes the harbour receives less sunlight than it should.</p><p>The first experiment of the Diadem has succeeded. Thirty thousand mirrored petals drift at a gravitational station between the world and its sun. None covers the sun. Together they change the brightness arriving at the planet.</p><p>The astronomers are ecstatic. The shipbuilders ask how often the petals need repair. The farmers ask whether the change will alter the winter rains.</p><p>A child asks a simpler question: “Who gave them permission to move the sun?”</p></div><p>Sunward of the Earth, near the first balance point, floats a shifting crown of countless mirrored plates: the Parasol of Syracuse from the Three Skies, grown up. Its petals form bands, spiral apertures and translucent mosaics. Through a telescope it looks like a geometric argument drawn around the Sun.</p><p>The Diadem eases the incoming light without sealing the sky. Different patterns change the intensity, the season and the colour of the light that arrives. Its astronomers are architects of the Sun’s boundary condition. City-states fund clusters of petals and a federated council votes on the planetary pattern, so a great discovery in optics also gives the Greeks a new politics of shared sunlight.</p><div class="ground"><b>Real seed</b> orbital sunshade studies, solar sails, photonics and radiative forcing.<a class="fn" href="#r4">4</a><br><b>The leap</b> feather-light programmable petals, coordinated by fields, with fine control of the spectrum at enormous scale.</div></div><div class="con"><div class="cn">Greek construct 02 · fluid dynamics + nonlinear control <span class="status s1">physics</span><span class="status s4">dream</span></div><h3>The Aeolian Cathedrals</h3><p>On the island ridges stand immense hollow towers of stone. Their chambers are carved as resonators, and their upper mouths hold blades of shimmering air. The towers change the pressure and temperature relations that decide how winds begin, bend and combine.</p><p>Thousands of cathedrals play a planetary fugue of circulation, giving moist winds a road to a thirsty interior, or coaxing a storm away from a vulnerable coast. Their best technicians are part mathematician, part sailor, part musician, and their forecasts are statistical. One cathedral alone does little; a network must learn the rhythm of the whole atmosphere, and that need founds a new kind of academy.</p><div class="ground"><b>Real seed</b> atmospheric waves, nonlinear fluid mechanics, sensitivity to initial conditions.<a class="fn" href="#r2">2</a><br><b>The leap</b> direct coupling of stone and field to the global circulation.</div></div><div class="con"><div class="cn">Greek construct 03 · thermodynamics + material design <span class="status s2">built small</span><span class="status s4">dream at scale</span></div><h3>The Galleries of the Second Night</h3><p>The Window to the Dark, as the cities wear it. Pale colonnades spread across roofs, squares and harbour walls, cool under the noon sun and faintly glowing in infrared at night. Over centuries they become a continental network, each surface tuned to its season, and children learn that a city’s temperature is an architectural decision.</p><p>A rival school champions the Galleries against the Diadem: many visible works, kept by the people who live beside them, against one great work in the sky. Their dispute becomes the defining engineering debate of an age.</p><div class="ground"><b>Real seed</b> passive radiative cooling and spectral emissivity.<a class="fn" href="#r6">6</a><br><b>The leap</b> infrared channels that stay open under cloud and carry very large flows of heat.</div></div></div>
+ </div>
+</section>
+
+<!-- VEDIC -->
+<section class="sky sky-v" id="vedic">
+ <div class="w">
+  <div class="sky-head"><div class="sky-no">Laboratory II</div><div class="sky-nm">The ritualists</div><div class="sky-verb">to balance</div></div>
+  <blockquote class="epi"><span class="dv">पूर्णमदः पूर्णमिदं पूर्णात्पूर्णमुदच्यते । पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते ॥</span><small>“That is whole, this is whole. From the whole, the whole arises. Take the whole from the whole, and the whole remains.” · the Upaniṣadic invocation of wholeness</small></blockquote>
+
+  <div class="ch" id="v1">
+    <div class="kicker">I · The physics they’d love <span class="status s1">physics</span></div>
+    <h2>Nothing is <em>lost</em></h2>
+    <p class="drop big">Give the ritualists modern physics and they will go straight to the ledgers. Conservation of energy, of charge, of momentum. A universe that never loses anything, only moves it.</p>
+    <p>Then, deeper, two ideas that read as if written for them. First: at the level of quantum mechanics, information is never destroyed. Every state can, in principle, be run backwards to where it came from. The laws of physics are a rite that can be performed in either order.</p>
+    <p>Second, and nearer to the fire: Rolf Landauer showed in 1961 that <b>forgetting has a price</b>. Erasing one bit of information must release at least a tiny, exact quantity of heat. Charles Bennett then showed that a computation done reversibly, keeping every step so it can be undone, need not pay it at all. <a class="fn" href="#n4">4</a> Heat is what irreversibility costs. Balance is cool, and imbalance burns.</p>
+    <div class="pull">To the ritualists, the warming world is a rite run in one direction only. The cure is to learn to run it back.</div>
+  </div>
+
+  <div class="ch" id="v2">
+    <div class="kicker">II · The wonder physics permits <span class="status s2">built small</span> <span class="status s3">proposed at scale</span></div>
+    <h2>Agni <em>unkindled</em></h2>
+    <p>Fire is one of chemistry’s simplest rites. Fuel and oxygen go in. Carbon dioxide, water and heat come out. Every plant on Earth already performs it backwards, taking in light, carbon dioxide and water and giving back fuel and oxygen.</p>
+    <div class="fig">
+      <div class="fig-t">The two-way fire · the same equation, read in both directions</div>
+      <svg id="fireSvg" viewBox="0 0 340 170" aria-label="Combustion and its reverse"></svg>
+      <div class="fig-c">Burning runs the upper arc and releases heat. Photosynthesis, and the solar-fuel furnaces of the ritualists, run the lower arc with sunlight. The ledger closes only if both arcs turn.</div>
+    </div>
+    <p>So the ritualists build <b>unkindling altars</b>. Great mirrored fields focus sunlight onto furnaces that pull carbon dioxide from the open air and run the fire backwards, into fuel for the next fire or into solid carbon. Each furnace is laid out as an altar and keeps its ledger in public: so much carbon kindled this year, so much unkindled.</p>
+    <p>And the solid carbon becomes brick. The next <i>agnicayana</i>, with its ten thousand eight hundred bricks, one for every moment of the year, is built from carbon taken out of the sky. The altar that once sent offerings up as smoke is now made of the smoke, brought back down.</p>
+  </div>
+
+  <div class="ch" id="v3">
+    <div class="kicker">III · The wonder past the edge <span class="status s4">dream</span></div>
+    <h2>The <em>Pratiloma</em> rite</h2>
+    <p>Sanskrit has a word for “with the grain”, <i>anuloma</i>, and one for “against it”, <i>pratiloma</i>, reverse order. The ritualists’ final dream is a <b>pratiloma</b> rite on a civilisational scale: the industrial age performed backwards, step by step, until the ledger reads as it did before the first furnace.</p>
+    <p>Two hundred years of burning would be unkindled over two hundred years of light. The carbon would not go back as coal, because coal invites the fire again. It would go back as the one form of carbon nobody burns: compressed, in deep seams of the earth, into <b>diamond</b>. Pure carbon, packed as tightly as it will go, stable for longer than any civilisation will last.</p>
+    <p>Above the diamond seams, the rites themselves change. The ritualists build computers on Bennett’s principle, machines that think reversibly and so barely warm. They are temples of calculation that leave the air as cool as they found it, because they never forget anything.</p>
+    <p class="big">The priests say the old coal country still glitters. Deep under the fields where the forests have come back lie the seams of an age that was taken back, as bright as anything that age ever made.</p>
+  </div>
+<div class="more" id="v-more"><div class="kicker">IV · More from the ritualists’ laboratory <span class="by gp">GPT</span></div><p>The ritualists’ heirs include the later analytic schools of South Asia. Nyāya and Vaiśeṣika worked out fine theories of substance, quality, motion and atoms,<a class="fn" href="#r10">10</a> and a tradition can be rigorous and performative at once. One academy studies pressure and the storing of seasonal water, another the smallest grains of matter, a third how the burden of a great working can be shared among many hands and instruments.</p><div class="con"><div class="cn">Vedic construct 01 · chaos + coupled oscillators <span class="status s1">physics</span><span class="status s4">dream</span></div><h3>The Monsoon Constellation · <i>varṣa-maṇḍala</i></h3><p>Across mountains, river basins and coasts rise thousands of circular terraces, each with resonant chambers, rain gauges, seed libraries and instruments that feel cloud electricity, airborne water and the wetness of the soil. The whole network pulses, sometimes in sound, sometimes in colour, sometimes in phases nobody can see.</p><p>Its makers learn to tell when the monsoon is nearing one of several possible patterns, and time their workings to guide it toward rains that let rivers, farms and forests recover. Its great breakthrough is polyphony. A rice valley, a millet dryland, an estuary and a forest each want their own rains, so every terrace keeps its own voice, and the song becomes a calculation the public can hear.</p><div class="ground"><b>Real seed</b> synchronisation in complex systems, atmospheric oscillations, data assimilation.<a class="fn" href="#r2">2</a><a class="fn" href="#r3">3</a><br><b>The leap</b> controllable phase-coupling between ritual instruments and the atmosphere, at planetary scale.</div></div><div class="con"><div class="cn">Vedic construct 02 · chemical thermodynamics + ocean systems <span class="status s2">built small</span><span class="status s3">proposed at scale</span></div><h3>The Samudra-Churning Works</h3><p>The sea’s half of Agni unkindled. At the ocean’s edge float vast circular mineral gardens, petals of stone above and galleries below, where seawater runs through tuned mineral pathways while carbon, salts, sediment and life are measured without pause. The works store carbon for the long term, in minerals and in the dissolved chemistry of the sea, and their engineers think in centuries.</p><p>Poets call it the Churning of the Ocean, after the old story of gods and demons churning the sea for its treasures. Its prestige comes from chemistry and rite together, and its measure of success is the life that gathers around it.</p><div class="ground"><b>Real seed</b> ocean alkalinity enhancement, carbonate chemistry, enhanced weathering.<a class="fn" href="#r7">7</a><a class="fn" href="#r11">11</a><br><b>The leap</b> finely governed reactions and permanent storage at a scale no trial has reached.</div></div><div class="con"><div class="cn">Vedic construct 03 · ecological networks + adaptive materials <span class="status s1">physics</span><span class="status s4">dream</span></div><h3>The Forest of Many Seasons</h3><p>A belt of forest a thousand miles long begins to answer the climate like one organism. Its roots move water through capillaries of magic; its leaves turn to the light and the damp; its fungal networks remember fire, disease and drought. Each region keeps its own species and seasons.</p><p>Biologists, seed-keepers, hydrologists, storytellers and musicians tend it together. It rebuilds soil, softens the local climate, holds the slopes and keeps the regional rains turning, and ecological functions long gone from the land begin to return. One faction wants a single superforest; another a mosaic of distinct ecologies. The forest thrives by holding both.</p><div class="ground"><b>Real seed</b> evapotranspiration, ecological feedbacks, restoration.<a class="fn" href="#r8">8</a><br><b>The leap</b> a deep shared ecological memory and living hydraulic links over great distances.</div></div></div>
+ </div>
+</section>
+
+<!-- CHINESE -->
+<section class="sky sky-c" id="chinese">
+ <div class="w">
+  <div class="sky-head"><div class="sky-no">Laboratory III</div><div class="sky-nm">The calculators</div><div class="sky-verb">to cut finer</div></div>
+  <blockquote class="epi"><span class="zh">治大国若烹小鲜。</span><small>“Govern a great state as you would cook a small fish.” (Stir it too much and it falls apart.) · 《道德经》第六十章</small></blockquote>
+
+  <div class="ch" id="c1">
+    <div class="kicker">I · The physics they’d love <span class="status s1">physics</span></div>
+    <h2>The butterfly and the <em>zoom</em></h2>
+    <p class="drop big">Give the calculators modern physics and they will fall for two discoveries, both about procedure and scale.</p>
+    <p>The first comes from weather itself. In 1963, the meteorologist Edward Lorenz boiled the churning of the atmosphere down to three equations and found that their solution never settles and never repeats. Two starting points differing by a hair end up anywhere. Plotted, the path traces a shape like a butterfly’s two wings. It is the original butterfly effect. <a class="fn" href="#n5">5</a></p>
+    <p>The second is renormalization. You understand a system by zooming out one scale at a time, asking at each step which details still matter and folding away the rest. It is Liu Hui’s cutting run in reverse: step by step, finer and coarser, until the essential law appears.</p>
+    <div class="fig">
+      <div class="fig-t">Lorenz’s weather · two paths, a hair apart · press to nudge</div>
+      <svg id="lorenzSvg" viewBox="0 0 340 240" aria-label="Lorenz attractor with a nudged trajectory"></svg>
+      <div class="btns"><button class="btn" id="nudgeBtn">四两 · apply a tiny nudge</button><button class="btn" id="resetBtn">reset</button></div>
+      <div class="fig-c" id="lorenzOut">Two runs of the same three equations, computed live in your browser. They start almost together.</div>
+    </div>
+  </div>
+
+  <div class="ch" id="c2">
+    <div class="kicker">II · The wonder physics permits <span class="status s2">built small</span> <span class="status s3">weather-scale: proposed</span></div>
+    <h2>The <em>Four-Ounce</em> Office</h2>
+    <p>The taiji masters had a saying for this before anyone had equations: <span class="zh">四两拨千斤</span>, four ounces deflect a thousand pounds. A force you cannot resist can be turned aside with the right touch at the right moment.</p>
+    <p>Physics caught up in 1990. Edward Ott, Celso Grebogi and James Yorke showed that a chaotic system can be steered onto a chosen path with only tiny, well-timed nudges, because chaos is exactly the condition in which small pushes have large effects. Within months, it was done in a laboratory. <a class="fn" href="#n6">6</a></p>
+    <p>So the calculators found a <b>四两司</b>, a Four-Ounce Office. Where the Greek geometers shade the Sun and the ritualists unburn the fire, the calculators do something gentler and stranger. They watch the whole atmosphere at the scale of single clouds, through a lattice of sensors as fine as Liu Hui’s last polygon. A planetary board of counting rods, cut until it can be cut no more.</p>
+    <p>They don’t fight the weather. They wait for the moments when a monsoon or a storm system sits at a fork, when the atmosphere is about to choose between two wings. At those moments they apply the four ounces: a little seeded cloud, a little brightened sea-spray, a little shade at exactly the right place and time. The thousand pounds of weather turn by themselves.</p>
+  </div>
+
+  <div class="ch" id="c3">
+    <div class="kicker">III · The wonder past the edge <span class="status s4">dream</span></div>
+    <h2>The sky that <em>answers</em></h2>
+    <p>Two thousand years earlier, Dong Zhongshu taught that Heaven responds to human conduct, the doctrine of 天人感应. In the calculators’ world, the Four-Ounce Office makes it literally true. The sky does answer the people below, because the people below have built the answering.</p>
+    <p>But this tradition also keeps a warning older than Dong Zhongshu. In the <i>Zhuangzi</i>, the Emperor of the Centre, <b>Hundun</b>, 混沌, “Chaos,” has no openings in his face. His two friends, wanting to repay his kindness, bore one hole a day so he could see and hear and eat like them. On the seventh day, Hundun dies. <a class="fn" href="#n7">7</a></p>
+    <p>So the Office writes its first law into its own charter: <b>touch as little as possible</b>. Its pride is measured in the interventions it did <em>not</em> need to make. Its best year is the year the sky balanced itself and the four ounces stayed in their box. The great calculator’s most refined procedure is to know when not to run.</p>
+    <p class="big">In the calculators’ world, people still say Heaven answers. They mean it fondly, the way you speak of an old friend who listens well and rarely needs to say anything.</p>
+  </div>
+<div class="more" id="c-more"><div class="kicker">IV · More from the calculators’ laboratory <span class="by gp">GPT</span></div><p><i>Wuxing</i> 五行 reads best as five interdependent phases, processes that turn into one another.<a class="fn" href="#r12">12</a> Beside it run the practical sciences of water, field, sky and office.<a class="fn" href="#r13">13</a> The calculators come to see ecosystems as dynamic systems whose states keep shaping one another, with no single number for the health of the world.</p><div class="con"><div class="cn">Chinese construct 01 · feedback control + network science <span class="status s1">physics</span><span class="status s4">dream</span></div><h3>The Ten Thousand Valves of Heaven and Earth</h3><p>The Four-Ounce Office’s hands. Imagine the greatest irrigation network ever built, extended through cloud, soil, river, estuary, upper air, plants and currents of heat. Its nodes are scattered like a constellation over the world; each acts locally, letting in moisture, storing water, shifting a narrow corridor of wind, guarding an aquifer, shading a nursery forest.</p><p>No node commands the climate. Local keepers watch, act, compare and adjust: scholars, farmers, salt-workers, fishers, specialists who know the land by practice. The network’s great reformers make one rule central: a report from outside the known categories can change the system itself. The farmer who notices the missing insects is sometimes worth more than the official who reports the target met.</p><div class="ground"><b>Real seed</b> feedback control, sensor networks, catchment hydrology, coupled Earth-system models.<a class="fn" href="#r2">2</a><a class="fn" href="#r13">13</a><br><b>The leap</b> reliable local reach into the large processes of air and life.</div></div><div class="con"><div class="cn">Chinese construct 02 · radiative physics + ceramics <span class="status s2">built small</span><span class="status s4">dream at scale</span></div><h3>The Heaven-Breathing Porcelain</h3><p>Across hot plains and crowded basins rise slender ceramic structures shaped like open flowers, flying eaves and porous ridges. Their glazes reflect the sun and breathe heat upward as infrared; cool air drifts through the streets and orchards, and at dusk the porcelain shimmers as it cools faster than the stone around it. On the coasts they become ceramic archipelagos linked by walkways and canals, no two alike.</p><p>It begins in the kilns and soon belongs to everyone: potters, thermal scholars, planners and the watchers of the land. In PMU’s own Straits, Tang Ying carrying porcelain into Sané-Kora is the same idea from another side; see <a href="138%20What%20Artists%20Built.html">138 What Artists Built</a>.</p><div class="ground"><b>Real seed</b> selective-emissivity materials, ceramic chemistry, passive radiative cooling.<a class="fn" href="#r6">6</a><br><b>The leap</b> a strong, tunable path for sending the heat of crowded land into space.</div></div><div class="con"><div class="cn">Chinese construct 03 · paleoclimate + ecological reconstruction <span class="status s1">physics</span><span class="status s4">dream</span></div><h3>The Orchard of Forgotten Climates</h3><p>Fossil wood, pollen in old soils, cave deposits and the remembered growth of ancient forests show that the world has lived in many climates. Shen Kuo’s bamboo at Yanzhou was the first clue. The calculators ask whether a damaged region can recover the relations that once sustained it.</p><p>The Orchard is a research garden the size of a continent, where soils, seed lines, watersheds and microclimates are patiently rebuilt. Its magic keeps traces of lost climates as clues to possible futures. Its finest keepers learn to grow possibilities, welcoming the creatures that have changed and the ones that have newly arrived.</p><div class="ground"><b>Real seed</b> paleoclimatology, ecological succession, long environmental archives.<a class="fn" href="#r8">8</a><a class="fn" href="#r14">14</a><br><b>The leap</b> fields of ecological memory that restore interactions no living population still carries.</div></div></div>
+ </div>
+</section>
+
+<section class="w part" id="edge">
+  <div class="part-band"><span class="no">Part Three</span><span class="nm">Past physics itself <span class="by gp">GPT</span></span></div>
+  <h2 style="margin-top:22px">Four new <em>laws</em></h2>
+  <p class="big">Here the constructs leave present-day engineering and run on laws of PMU’s own. Each still begins from a real question in physics.</p>
+  <div class="tri3">
+    <div><span class="status s4">dream</span><h4>The Night Orchard</h4><p>Openings in space-time carry thermal radiation away to empty regions of space. A civilisation gains a second channel for releasing a planet’s heat, beside dimming the Sun.</p><p class="ground" style="margin:0"><b>Real seed</b> wormhole solutions in general relativity; the leap is making one, and saying where the energy goes.</p></div>
+    <div><span class="status s4">dream</span><h4>The Weather’s Memory</h4><p>Magic reads the history of a climate and shows the several futures it could settle into. Engineers cultivate a kinder attractor and leave tomorrow’s exact weather to itself.</p><p class="ground" style="margin:0"><b>Real seed</b> dynamical attractors; the leap is reading and steering a global one.</p></div>
+    <div><span class="status s4">dream</span><h4>The Parliament of Living Things</h4><p>Forests, reefs, fungi, migrating animals and watersheds take part in a great working. Their signals bind the magic as conditions it must meet.</p><p class="ground" style="margin:0"><b>Real seed</b> ecological signalling; the leap is consent across species, and spells negotiated with it.</p></div>
+  </div>
+  <p>And the most extravagant of all: a civilisation learns to shift the apparent sky by bending the path of light around the planet through engineered space-time. It builds the <b>Garden of Bent Horizons</b>, a ribbon of structures whose shadows move without touching the air. General relativity supplies the idea that gravity bends light; the rest is wonder.</p>
+</section>
+
+<section class="w part" id="scenes" style="padding-top:60px">
+  <div class="kicker">Three moments of wonder <span class="by gp">GPT</span></div>
+  <h2>The day each world <em>discovers</em> wonder</h2>
+  <div class="scene" style="border-left-color:var(--lav)"><div class="sh" style="color:var(--lav-t)">Greek world · The Diadem’s first harvest</div><p>The astronomers had promised a fraction of a season’s shade. They delivered a cool summer across the western islands. The olive harvest was saved.</p><p>Then a navigator sailed into the assembly carrying a sack of salt. Across the sea, evaporation had changed, and with it the mist that fed the cliffs. The engineers were asked to improve their calculations.</p><p>They did. The next year’s Diadem gained a second pattern: a geometry that could be argued over and revised.</p></div>
+  <div class="scene" style="border-left-color:var(--gold)"><div class="sh" style="color:var(--gold-t)">Vedic world · The first many-voiced rain</div><p>The Monsoon Constellation awoke at dusk, each terrace answering a different landscape. A quiet pulse came from the foothills. The delta replied. The high plateau waited until dawn.</p><p>Rain fell first where seeds had just been planted. It passed over one forest gently, and reached the drylands three days later. No single performer could hear the entire composition.</p><p>The architects called it a triumph. Its keepers called it a beginning. For the first time, the work had listened to more than the people who designed it.</p></div>
+  <div class="scene" style="border-left-color:var(--deep)"><div class="sh" style="color:var(--deep)">Chinese world · A report no instrument had asked for</div><p>The Heaven-Breathing Porcelain cooled the city. The temperature boards confirmed it. The fountains ran longer into the dry season. The people slept comfortably.</p><p>A travelling gardener reported that a certain moth had stopped arriving at the riverbank. Its absence was too small to appear in the great indicators.</p><p>The gardeners were invited to alter the instrument’s seasonal schedule. The following spring the moths returned. The engineers added a new line to their manuals: <em>When the world changes its answer, change the question.</em></p></div>
+</section>
+<!-- LEDGER -->
+<section class="w" id="ledger" style="padding-top:90px">
+  <div class="act-band"><span class="no">After</span><span class="nm">The honesty ledger</span></div>
+  <h2 style="margin-top:24px">Where physics ends and <em>wonder</em> begins</h2>
+  <div class="ledger">
+    <div class="lrow"><div class="lname">The Window to the Dark</div><div class="lstat"><span class="status s1">physics</span><span class="status s2">built small</span></div><div class="lwhy">Daytime cooling below air temperature demonstrated on a rooftop in 2014. A city clad in it is engineering, not magic.</div></div>
+    <div class="lrow"><div class="lname">Archimedes’ lever</div><div class="lstat"><span class="status s3">proposed</span><span class="status s4">dream</span></div><div class="lwhy">A peer-reviewed 2001 paper showed it is allowed by celestial mechanics. Doing it would take a million passes over the Sun’s lifetime.</div></div>
+    <div class="lrow"><div class="lname">Agni unkindled</div><div class="lstat"><span class="status s2">built small</span><span class="status s3">proposed at scale</span></div><div class="lwhy">Photosynthesis does it every day. Air capture and solar fuels exist as real but small technologies.</div></div>
+    <div class="lrow"><div class="lname">The Pratiloma rite</div><div class="lstat"><span class="status s4">dream</span></div><div class="lwhy">Diamond is pure carbon and reversible computing is real theory. Unmaking an age is the dream part.</div></div>
+    <div class="lrow"><div class="lname">The Four-Ounce Office</div><div class="lstat"><span class="status s2">built small</span><span class="status s3">proposed</span></div><div class="lwhy">Chaos control is proven in laboratories. Steering weather this way remains a research idea.</div></div>
+    <div class="lrow"><div class="lname">The sky that answers</div><div class="lstat"><span class="status s4">dream</span></div><div class="lwhy">A planetary sensing-and-response system governed by restraint is pure imagination, built from real parts.</div></div>
+    <div class="lrow"><div class="lname">The Diadem of Helios</div><div class="lstat"><span class="status s3">proposed</span><span class="status s4">dream</span></div><div class="lwhy">L1 sunshades are serious studies. Programmable petals voted on by a council of cities are PMU.</div></div>
+    <div class="lrow"><div class="lname">The Aeolian Cathedrals</div><div class="lstat"><span class="status s1">physics</span><span class="status s4">dream</span></div><div class="lwhy">Atmospheric waves and nonlinear flow are real. Towers that play the global winds are the dream.</div></div>
+    <div class="lrow"><div class="lname">Galleries &amp; Porcelain</div><div class="lstat"><span class="status s2">built small</span><span class="status s4">dream at scale</span></div><div class="lwhy">Radiative cooling works on rooftops today. Continents of it, open under cloud, are the leap.</div></div>
+    <div class="lrow"><div class="lname">The Monsoon Constellation</div><div class="lstat"><span class="status s1">physics</span><span class="status s4">dream</span></div><div class="lwhy">Coupled oscillators and data assimilation are real science. Phase-coupling ritual to the monsoon is PMU.</div></div>
+    <div class="lrow"><div class="lname">The Samudra-Churning Works</div><div class="lstat"><span class="status s2">built small</span><span class="status s3">proposed at scale</span></div><div class="lwhy">Ocean alkalinity and enhanced weathering are being trialled now, at small scale.</div></div>
+    <div class="lrow"><div class="lname">Forest, Valves, Orchard</div><div class="lstat"><span class="status s1">physics</span><span class="status s4">dream</span></div><div class="lwhy">Ecological feedback, sensor networks and paleoclimate are established. Their planetary reach is imagined.</div></div>
+    <div class="lrow"><div class="lname">Night Orchard, Weather’s Memory, Parliament, Bent Horizons</div><div class="lstat"><span class="status s4">dream</span></div><div class="lwhy">PMU’s own physics, each grown from a real question.</div></div>
+  </div>
+</section>
+
+<section class="w" id="coda" style="padding-top:70px">
+  <div class="kicker">What the tables found in physics</div>
+  <h2>Modern physics turns out to need all <em>three</em></h2>
+  <div class="trio">
+    <div class="tab b"><div class="verb">to bound</div><div class="who">the geometers’ inheritance</div><div class="sym">c · η<sub>Carnot</sub> · kT ln 2</div><p>Its deepest laws are limits: on speed, on efficiency, on how cheaply anything can be forgotten.</p></div>
+    <div class="tab v"><div class="verb">to balance</div><div class="who">the ritualists’ inheritance</div><div class="sym">symmetry ⇄ conservation</div><p>Its deepest rules are ledgers. Energy, charge and information are kept, and reversibility is the coolest path.</p></div>
+    <div class="tab c"><div class="verb">to cut</div><div class="who">the calculators’ inheritance</div><div class="sym">scale → scale → …</div><p>Its deepest methods are procedures: renormalize, simulate, iterate. Chaos is where the smallest cut matters most.</p></div>
+  </div>
+  <h3 style="font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,34px);margin:46px 0 12px">The artists return <span class="by gp">GPT</span></h3>
+  <p>This thread sits beside another that began with Mozi, Xunzi and the worth of the arts in a world of scarcity. At planetary scale that question grows sharper. A climate this complex needs the senses, shared attention, memory and public participation to steer it. The Diadem needs a public language of changing light, kept in festival calendars and performance. The Monsoon Constellation is music, public information and coordinated action at once. The Heaven-Breathing Porcelain is as much ceramics and architecture as thermal science.</p>
+  <p>Carry this back to PMU’s own Straits, a world of its own beside the three laboratories. A Sané-Kora singer may hear a change in the rhythm of a great ecological working before its technicians do. A Nine Rain weaver might make membranes that store moisture, filter light and clothe a floodplain. Lan Fang’s meridian theory could seed distributed models of water and energy flow, and a Mohist instrument-maker could make them testable. The artists’ thread continues in <a href="138%20What%20Artists%20Built.html">138 What Artists Built</a>.</p>
+  <div class="pull">Planetary engineering becomes a great art when its makers learn to compose with processes larger than themselves.</div>
+  <h3 style="font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,34px);margin:46px 0 12px">The invention worth keeping <span class="by gp">GPT</span></h3>
+  <p>The dream has three levels. At the first, a civilisation protects its settlements: it cools a city, turns a flood, stores water, rebuilds soil. At the second, it works on the planetary conditions behind local disasters: heat exchange, incoming sunlight, the circulation of the air, the long cycles of carbon. At the third, it builds the relationships through which a planet can hold open a wide range of flourishing futures.</p>
+  <p>These civilisations are capable of extraordinary works: orbital architecture like moving jewellery, stone and water instruments that compose a monsoon, cities that radiate their warmth to the stars, forests whose memory spans continents, and whole scholarly traditions transformed by making them. Perhaps the greatest planetary instrument is the one that makes a civilisation better at hearing how its world is changing.</p>
+  <div class="ending">The geometers would find a universe made of limits and build up to them. The ritualists would find a universe that keeps its books and learn to run them backwards. The calculators would find a universe that turns on a feather and learn the restraint to hold it lightly. Three ways of knowing, and modern physics needs every one.</div>
+  <p class="method">← <a href="140%20Three%20Skies.html">140 Three Skies</a> · <a href="139%20Weighing%20the%20Warming.html">139 Weighing the Warming</a> · <a href="../../index.html">PMU front page</a></p>
+</section>
+
+<section class="back" id="notes"><div class="wide">
+  <div class="kicker">At the back</div>
+  <h2>Physics notes &amp; sources</h2>
+  <p class="intro">The real science under each wonder, kept here so the stories can run free.</p>
+  <h3 style="font-family:var(--display);font-weight:400;font-size:26px;margin-top:30px">Physics notes <span class="by cl">Claude</span></h3>
+  <ol class="notes">
+    <li id="n1"><span class="n">01 · Limits &amp; symmetry</span>Carnot (1824): no engine between temperatures T<sub>hot</sub> and T<sub>cold</sub> can beat efficiency 1 − T<sub>cold</sub>/T<sub>hot</sub>. Noether (1918): each continuous symmetry of physical law implies a conserved quantity, so time-symmetry gives energy conservation. General relativity (1915) describes gravity as the curvature of spacetime.</li>
+    <li id="n2"><span class="n">02 · The window</span>The atmosphere is largely transparent between 8 and 13 µm, where a body near room temperature emits most strongly. Raman, Fan and colleagues (<i>Nature</i>, 2014) built a multilayer photonic surface that reflects sunlight and emits through this window, cooling to about 5 °C below ambient air in direct sunlight. Deep space sits at about 2.7 K.</li>
+    <li id="n3"><span class="n">03 · Moving the Earth</span>Korycansky, Laughlin &amp; Adams, “Astronomical engineering: a strategy for modifying planetary orbits” (<i>Astrophysics and Space Science</i>, 2001). Repeated gravity assists move orbital energy from Jupiter to the Earth through an intermediate body. Roughly 10⁶ passages of Kuiper-belt-sized bodies, about 1.5 Earth masses of cumulative flyby mass, would bring the Earth to 1.5 AU over the Sun’s main-sequence life.</li>
+    <li id="n4"><span class="n">04 · The price of forgetting</span>Landauer (1961): erasing one bit releases at least kT ln 2 of heat. Bennett (1973): computation can in principle be made logically reversible, avoiding that cost. Quantum evolution is unitary, so information is conserved in principle.</li>
+    <li id="n5"><span class="n">05 · Lorenz</span>Lorenz, “Deterministic Nonperiodic Flow” (1963): dx/dt = σ(y − x), dy/dt = x(ρ − z) − y, dz/dt = xy − βz, with σ = 10, ρ = 28, β = 8/3, a drastically simplified model of convection. The figure integrates these equations live.</li>
+    <li id="n6"><span class="n">06 · Controlling chaos</span>Ott, Grebogi &amp; Yorke, “Controlling Chaos” (<i>Physical Review Letters</i> 64, 1990): a chaotic attractor can be converted to a chosen periodic motion with only small time-dependent perturbations of a system parameter. It was demonstrated in a physical system the same year. Renormalization, the method of zooming across scales, earned Kenneth Wilson the 1982 Nobel Prize.</li>
+    <li id="n7"><span class="n">07 · Texts</span>“God always geometrizes” is attributed to Plato in Plutarch’s <i>Table Talk</i>. The <i>pūrṇam</i> verse opens the Īśa Upaniṣad and appears in the Bṛhadāraṇyaka (5.1.1). 治大国若烹小鲜 is from 《道德经》 ch. 60. 四两拨千斤 comes from the taijiquan classics. Hundun’s death is told in 《庄子·应帝王》.</li>
+    <li id="n8"><span class="n">08 · Method</span>The traditions remain independent. Status tags mark the line between established physics, laboratory demonstration, proposal and dream. Invented institutions (the Four-Ounce Office, the unkindling altars, the Pratiloma rite, the Diadem, the Monsoon Constellation, the Ten Thousand Valves and the rest) are imaginative.</li>
+  </ol>
+  <h3 style="font-family:var(--display);font-weight:400;font-size:26px;margin-top:40px">Science and ancestry, sources <span class="by gp">GPT</span></h3>
+  <ol class="srcs"><li id="r1"><span class="n">01</span><a href="https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/" target="_blank" rel="noopener">NASA, <i>Climate and Earth’s Energy Budget</i></a>. <em>Radiation, the greenhouse effect, heat storage, circulation.</em></li><li id="r2"><span class="n">02</span><a href="https://doi.org/10.1103/RevModPhys.92.035002" target="_blank" rel="noopener">Ghil &amp; Lucarini, <i>The Physics of Climate Variability and Climate Change</i>, Reviews of Modern Physics (2020)</a>. <em>Nonequilibrium and nonlinear climate dynamics.</em></li><li id="r3"><span class="n">03</span><a href="https://npg.copernicus.org/articles/31/185/2024/" target="_blank" rel="noopener"><i>Interdisciplinary Perspectives on Climate Sciences</i>, Nonlinear Processes in Geophysics (2024)</a>. <em>Coupled chaotic systems and their mathematics.</em></li><li id="r4"><span class="n">04</span><a href="https://www.sciencedirect.com/science/article/abs/pii/S0094576522000777" target="_blank" rel="noopener"><i>The Solar Shield Concept: Current Status and Future Possibilities</i>, Acta Astronautica (2022)</a>. <em>Orbital shading as a geoengineering concept.</em></li><li id="r5"><span class="n">05</span><a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-4/" target="_blank" rel="noopener">IPCC AR6 Working Group I, Chapter 4; and National Academies, <i>Reflecting Sunlight</i> (2021)</a>. <em>Solar-radiation modification: effects, uncertainties, governance.</em></li><li id="r6"><span class="n">06</span><a href="https://www.nature.com/articles/nature13883" target="_blank" rel="noopener">Raman et al., <i>Passive Radiative Cooling below Ambient Air Temperature under Direct Sunlight</i>, Nature (2014)</a>. <em>The rooftop that cooled itself in the sun.</em></li><li id="r7"><span class="n">07</span><a href="https://www.nationalacademies.org/read/26278/chapter/2" target="_blank" rel="noopener">National Academies, <i>A Research Strategy for Ocean-based Carbon Dioxide Removal</i> (2022)</a>. <em>Ocean and mineral routes for carbon.</em></li><li id="r8"><span class="n">08</span><a href="https://scied.ucar.edu/learning-zone/earth-system/climate-system/feedback-loops-tipping-points" target="_blank" rel="noopener">UCAR, <i>Climate Feedback Loops and Tipping Points</i></a>. <em>Feedbacks and thresholds between climate and life.</em></li><li id="r9"><span class="n">09</span><a href="https://plato.stanford.edu/entries/empedocles/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy, <i>Empedocles</i></a>. <em>Four roots, Love and Strife.</em></li><li id="r10"><span class="n">10</span><a href="https://plato.stanford.edu/entries/early-modern-india/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy, <i>Analytic Philosophy in Early Modern India</i></a>. <em>The Nyāya line of rigorous analysis.</em></li><li id="r11"><span class="n">11</span><a href="https://nap.nationalacademies.org/pubs/29342/versions/v1.0/modules/module-8.html" target="_blank" rel="noopener">National Academies, <i>Ocean Alkalinity Enhancement</i>, research-strategy module</a>. <em>Carbonate chemistry and open research questions.</em></li><li id="r12"><span class="n">12</span><a href="https://iep.utm.edu/wuxing/" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy, <i>Wuxing</i></a>. <em>Five phases as dynamic and relational.</em></li><li id="r13"><span class="n">13</span><a href="https://plato.stanford.edu/archives/sum2021/entries/chinese-metaphysics/index.html" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy, <i>Metaphysics in Chinese Philosophy</i></a>. <em>Process, pattern and responsiveness.</em></li><li id="r14"><span class="n">14</span><a href="https://www.britannica.com/biography/Shen-Kuo" target="_blank" rel="noopener">Encyclopaedia Britannica, <i>Shen Kuo</i></a>. <em>See 140 Three Skies for the fossil bamboo.</em></li></ol>
+  <p class="method">Book Four · To Further Investigate · 141. A synthesis of two volumes written on 18–19 November 2026: Claude’s <i>Beyond the Sky</i> (the laboratories’ first three chapters each, the ledger, the coda and the physics notes) and ChatGPT’s <i>The Sky Learns New Laws</i> (Part One, the further constructs of each laboratory, Part Three, the scenes, and the reflections on the arts), curated into one flow.</p>
+  <p class="method">← <a href="140%20Three%20Skies.html">140 Three Skies</a> · <a href="139%20Weighing%20the%20Warming.html">139 Weighing the Warming</a> · <a href="../../index.html">PMU front page</a></p>
+</div></section>
+
+<footer><div class="wide"><span>The Polymathic Universe · Book Four · 141 Beyond the Sky</span><span>Lin Wei 林威 · with Claude and ChatGPT · Nov 2026</span></div></footer>
+<script>
+(function(){
+  const bar=document.getElementById('bar');let tick=false;
+  function upd(){const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(Math.max(0,Math.min(1,scrollY/Math.max(1,h)))*100)+'%';tick=false;}
+  addEventListener('scroll',()=>{if(!tick){requestAnimationFrame(upd);tick=true;}},{passive:true});upd();
+  const tb=document.getElementById('tocBtn'),toc=document.getElementById('toc');
+  tb.onclick=()=>{toc.classList.toggle('open');tb.textContent=toc.classList.contains('open')?'×':'≡';};
+  toc.querySelectorAll('a').forEach(a=>a.onclick=()=>{toc.classList.remove('open');tb.textContent='≡';});
+  const NS='http://www.w3.org/2000/svg';
+  const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+  const tx=(p,x,y,s,a)=>{const t=mk('text',Object.assign({x,y,'font-family':'JetBrains Mono,monospace','font-size':9.5,fill:'#34493d'},a||{}),p);t.textContent=s;return t;};
+
+  /* Lorenz integrator */
+  function lorenz(s,dt){const [x,y,z]=s;const f=(x,y,z)=>[10*(y-x),x*(28-z)-y,x*y-8/3*z];
+    const k1=f(x,y,z),k2=f(x+dt/2*k1[0],y+dt/2*k1[1],z+dt/2*k1[2]),k3=f(x+dt/2*k2[0],y+dt/2*k2[1],z+dt/2*k2[2]),k4=f(x+dt*k3[0],y+dt*k3[1],z+dt*k3[2]);
+    return [x+dt/6*(k1[0]+2*k2[0]+2*k3[0]+k4[0]),y+dt/6*(k1[1]+2*k2[1]+2*k3[1]+k4[1]),z+dt/6*(k1[2]+2*k2[2]+2*k3[2]+k4[2])];}
+  function run(s0,n,dt,kickAt,kick){const pts=[];let s=s0.slice();for(let i=0;i<n;i++){if(kickAt!==undefined&&i===kickAt)s=[s[0]+kick,s[1],s[2]];s=lorenz(s,dt);pts.push(s);}return pts;}
+
+  /* hero lorenz */
+  {const pts=run([1,1,1],5000,.006);const X=x=>505+x*3.6,Y=z=>196-z*3.4;
+   document.getElementById('heroLorenz').setAttribute('d','M'+pts.slice(300).map(p=>X(p[0]).toFixed(1)+' '+Y(p[2]).toFixed(1)).join(' L'));}
+
+  /* window spectrum */
+  {const s=document.getElementById('winSvg');const L=30,R=330,T=14,B=150,xm=25;const X=l=>L+l/xm*(R-L);
+   mk('rect',{x:L,y:T,width:R-L,height:B-T,fill:'#e7e3dc'},s);
+   mk('rect',{x:X(8),y:T,width:X(13)-X(8),height:B-T,fill:'#c9cdec'},s);
+   mk('rect',{x:X(.3),y:T,width:X(.9)-X(.3),height:B-T,fill:'#efe8b4'},s);
+   const bb=l=>Math.pow(l,-5)/(Math.exp(14388/(l*300))-1);let mx=0;for(let l=1;l<=25;l+=.1)mx=Math.max(mx,bb(l));
+   let d='';for(let l=2;l<=25;l+=.1){const v=bb(l)/mx;d+=(d?' L':'M')+X(l).toFixed(1)+' '+(B-v*(B-T-14)).toFixed(1);}
+   mk('path',{d,fill:'none',stroke:'#3d6b52','stroke-width':2.2},s);
+   for(let l=0;l<=25;l+=5){mk('line',{x1:X(l),y1:B,x2:X(l),y2:B+4,stroke:'#34493d'},s);tx(s,X(l),B+15,String(l),{'text-anchor':'middle'});}
+   tx(s,R,B+30,'wavelength, micrometres →',{'text-anchor':'end'});
+   tx(s,X(10.5),T+12,'the window',{'text-anchor':'middle',fill:'#2f3c84'});
+   tx(s,X(.6)+2,T+12,'sunlight',{fill:'#5c4c14'});
+   tx(s,X(18),T+44,"Earth's glow",{fill:'#244a37'});
+   tx(s,X(20),B-10,'air opaque',{fill:'#56665c','text-anchor':'middle'});
+   mk('path',{d:`M${X(10.5)} ${B-30} V${T+20}`,stroke:'#2f3c84','stroke-width':1.6,'marker-end':''},s);
+   mk('path',{d:`M${X(10.5)-5} ${T+28} L${X(10.5)} ${T+18} L${X(10.5)+5} ${T+28}`,fill:'none',stroke:'#2f3c84','stroke-width':1.6},s);}
+
+  /* orbit lever */
+  {const s=document.getElementById('orbitSvg');const cx=150,cy=110;
+   mk('circle',{cx,cy,r:12,fill:'#efe8b4',stroke:'#b59a4a'},s);tx(s,cx,cy+3.5,'☉',{'text-anchor':'middle','font-size':11,fill:'#76621f'});
+   mk('circle',{cx,cy,r:44,fill:'none',stroke:'#3d6b52','stroke-dasharray':'3 3'},s);
+   mk('circle',{cx,cy,r:62,fill:'none',stroke:'#3d6b52','stroke-width':1.6},s);
+   mk('circle',{cx,cy,r:98,fill:'none',stroke:'#b59a4a','stroke-dasharray':'2 4'},s);
+   mk('circle',{cx:cx+44,cy,r:5,fill:'#6fa585'},s);mk('circle',{cx:cx+62*Math.cos(-.5),cy:cy+62*Math.sin(-.5),r:6,fill:'#3d6b52'},s);
+   mk('circle',{cx:cx-98*Math.cos(.6),cy:cy-98*Math.sin(.6),r:9,fill:'#d6a51f',stroke:'#76621f'},s);
+   mk('ellipse',{cx:cx+20,cy:cy-2,rx:150,ry:62,fill:'none',stroke:'#c58fb8','stroke-width':1.4,transform:`rotate(-28 ${cx+20} ${cy})`},s);
+   mk('path',{d:`M${cx+70} ${cy-60} q8 -6 14 2`,fill:'none',stroke:'#93527f','stroke-width':1.4},s);
+   tx(s,cx+52,cy+18,'Earth, today',{'font-size':8.5});tx(s,cx+40,cy-58,'Earth, later',{'font-size':8.5,fill:'#244a37'});
+   tx(s,cx-98*Math.cos(.6)-6,cy-98*Math.sin(.6)-14,'Jupiter',{'font-size':8.5,'text-anchor':'middle',fill:'#5c4c14'});
+   tx(s,330,212,'messenger body · rose ellipse',{'text-anchor':'end','font-size':8.5,fill:'#93527f'});}
+
+  /* fire ring */
+  {const s=document.getElementById('fireSvg');const cx=170,cy=85,r=50;
+   mk('path',{d:`M${cx-r} ${cy} A${r} ${r} 0 0 1 ${cx+r} ${cy}`,fill:'none',stroke:'#c8402e','stroke-width':3},s);
+   mk('path',{d:`M${cx+r} ${cy} A${r} ${r} 0 0 1 ${cx-r} ${cy}`,fill:'none',stroke:'#b59a4a','stroke-width':3},s);
+   mk('path',{d:`M${cx+r-7} ${cy-8} L${cx+r} ${cy+2} L${cx+r+7} ${cy-8}`,fill:'none',stroke:'#c8402e','stroke-width':2.4},s);
+   mk('path',{d:`M${cx-r-7} ${cy+8} L${cx-r} ${cy-2} L${cx-r+7} ${cy+8}`,fill:'none',stroke:'#b59a4a','stroke-width':2.4},s);
+   tx(s,cx-r-8,cy+4,'fuel + O₂',{'text-anchor':'end','font-size':10.5,fill:'#1f3128'});
+   tx(s,cx+r+8,cy+4,'CO₂ + H₂O',{'font-size':10.5,fill:'#1f3128'});
+   tx(s,cx,cy-r-8,'burn · gives heat',{'text-anchor':'middle',fill:'#9c4f26'});
+   tx(s,cx,cy+r+16,'unburn · takes light',{'text-anchor':'middle',fill:'#76621f'});
+   tx(s,cx,cy+4,'Agni',{'text-anchor':'middle','font-family':'Playfair Display,serif','font-style':'italic','font-size':16,fill:'#34493d'});}
+
+  /* interactive lorenz */
+  {const s=document.getElementById('lorenzSvg'),out=document.getElementById('lorenzOut');
+   const X=x=>170+x*5.6,Y=z=>232-z*4.3;const N=4000,dt=.006;
+   function path(pts,from,to){return 'M'+pts.slice(from,to).map(p=>X(p[0]).toFixed(1)+' '+Y(p[2]).toFixed(1)).join(' L');}
+   function draw(nudged){
+     s.innerHTML='';mk('rect',{x:0,y:0,width:340,height:240,fill:'#eef3ec'},s);
+     const A=run([1,1,20],N,dt);
+     const B=nudged?run([1,1,20],N,dt,2000,0.01):run([1.00001,1,20],N,dt);
+     const pa=mk('path',{d:path(A,0,N),fill:'none',stroke:'#7f8fd0','stroke-width':.8,opacity:.85},s);
+     const pb=mk('path',{d:path(B,0,N),fill:'none',stroke:nudged?'#c8402e':'#3d6b52','stroke-width':1,opacity:.9},s);
+     [pa,pb].forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.getBoundingClientRect();p.style.transition='stroke-dashoffset 2.6s ease-in-out';p.style.strokeDashoffset=0;});
+     const ea=A[N-1],eb=B[N-1];
+     mk('circle',{cx:X(ea[0]),cy:Y(ea[2]),r:4.5,fill:'#4b5aa3'},s);mk('circle',{cx:X(eb[0]),cy:Y(eb[2]),r:4.5,fill:nudged?'#c8402e':'#3d6b52'},s);
+     if(nudged){const k=B[2000];mk('circle',{cx:X(k[0]),cy:Y(k[2]),r:6,fill:'none',stroke:'#c8402e','stroke-width':1.6},s);tx(s,X(k[0])+8,Y(k[2])-6,'nudge',{fill:'#c8402e'});}
+     const wing=p=>p[0]>0?'right':'left';
+     out.innerHTML=nudged
+       ?`One run (lavender) is left alone. The other (vermilion) gets a single nudge of <b>0.01</b>, a tiny fraction of the system’s size, at the circled moment. They end on the <b>${wing(ea)}</b> and <b>${wing(eb)}</b> wings. Four ounces, a thousand pounds.`
+       :`Two runs whose starting points differ by <b>one part in a hundred thousand</b>. For a while they trace the same path, then they part and end on the <b>${wing(ea)}</b> and <b>${wing(eb)}</b> wings. That is the butterfly effect, in Lorenz’s own equations.`;
+   }
+   document.getElementById('nudgeBtn').onclick=()=>draw(true);
+   document.getElementById('resetBtn').onclick=()=>draw(false);
+   draw(false);}
+})();
+</script>
+<script data-goatcounter="https://linwei.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
